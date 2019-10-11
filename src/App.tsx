@@ -1,23 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useTranslation } from 'react-i18next';
+
+import styles from './app.module.scss';
 
 const App: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className={styles.app}>
+      <header className={styles.header}>
+        <p>{t('harbours_list.title')}</p>
       </header>
     </div>
   );
