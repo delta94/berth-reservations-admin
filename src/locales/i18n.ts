@@ -6,15 +6,15 @@ import en from './en.json';
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
+    fallbackLng: 'en',
+    interpolation: {
+      escapeValue: false,
+    },
+    lng: 'en',
     resources: {
       en: {
         translation: en,
       },
-    },
-    lng: 'en',
-    fallbackLng: 'en',
-    interpolation: {
-      escapeValue: false,
     },
   });
 
