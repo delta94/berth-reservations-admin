@@ -9,7 +9,7 @@ const App: React.FC = () => {
   return (
     <div className={styles.app}>
       <header className={styles.header}>
-        <p>{t('harbours_list.title')}</p>
+        <p>{t('harboursList.title')}</p>
       </header>
     </div>
   );
