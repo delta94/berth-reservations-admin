@@ -1,3 +1,6 @@
+@import 'spacings';
+@import 'fonts';
+
 .app {
   text-align: center;
 
@@ -10,5 +13,11 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
+  }
+
+  p {
+    border: solid 2px white;
+    padding: units(4);
+    font-size: font-size(24);
   }
 }
