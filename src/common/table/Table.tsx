@@ -6,10 +6,13 @@ import {
   useExpanded,
   useSortBy,
   useRowSelect,
+  /* eslint-disable */
+  // For some reason eslint import plugin is unable to detect the following types
   TableOptions,
   HeaderProps,
   CellProps,
   Row,
+  /* eslint-enable */
 } from 'react-table';
 
 import Icon from '../../common/icon/Icon';
