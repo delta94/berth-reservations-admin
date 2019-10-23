@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`common/Icon render Icon component 1`] = `"<svg class=\\"icon\\">helsinki-logo.svg</svg>"`;
