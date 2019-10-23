@@ -1,13 +1,13 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import Icon, { IconProps } from './Icon';
+import Icon from './Icon';
 
 describe('common/Icon', () => {
-  const defaultProps: IconProps = {
+  const defaultProps = {
     name: 'helsinkiLogo',
   };
-  const getWrapper = (props?: IconProps) => {
+  const getWrapper = props => {
     return shallow(<Icon {...defaultProps} {...props} />);
   };
 
