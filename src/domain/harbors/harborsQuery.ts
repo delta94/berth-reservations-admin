@@ -7,11 +7,21 @@ export const HARBORS_QUERY = gql`
         node {
           id
           properties {
-            municipality
-            imageFile
-            numberOfPlaces
             name
-            streetAddress
+            numberOfPlaces
+            piers {
+              edges {
+                node {
+                  properties {
+                    electricity
+                    wasteCollection
+                    gate
+                    water
+                    lighting
+                  }
+                }
+              }
+            }
           }
         }
       }
