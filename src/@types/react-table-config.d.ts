@@ -1,4 +1,5 @@
 import {
+  /* eslint-disable */
   UseColumnOrderInstanceProps,
   UseColumnOrderState,
   UseExpandedInstanceProps,
@@ -36,6 +37,7 @@ import {
   UseSortByOptions,
   UseSortByState,
   UseTableCellProps,
+  /* eslint-enable */
 } from 'react-table';
 
 declare module 'react-table' {
