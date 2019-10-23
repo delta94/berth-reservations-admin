@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils getHarborsData success path harbors follow the expected shape 1`] = `
+Object {
+  "electricity": 1,
+  "gate": 1,
+  "lighting": 1,
+  "name": "Harbor 1",
+  "numberOfPlaces": 0,
+  "wasteCollection": 1,
+  "water": 1,
+}
+`;
+
+exports[`utils getHarborsData success path harbors follow the expected shape 2`] = `
+Object {
+  "electricity": 1,
+  "gate": 1,
+  "lighting": 2,
+  "name": "Harbor 2",
+  "numberOfPlaces": 0,
+  "wasteCollection": 2,
+  "water": 1,
+}
+`;
