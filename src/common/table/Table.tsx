@@ -100,68 +100,66 @@ const Table = ({
   );
 
   return (
-    <>
-      <table {...getTableProps()} className={styles.table}>
-        <thead>
-          {headerGroups.map(headerGroup => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map(column => (
-                <th
-                  {...column.getHeaderProps(column.getSortByToggleProps())}
-                  className={classNames(styles.tableHeader, {
-                    [styles.mainHeader]: renderMainHeader && column.depth === 0,
-                  })}
-                >
-                  {column.render('Header')}
-                  {column.isSorted && (
-                    <Icon
-                      name={column.isSortedDesc ? 'arrowDown' : 'arrowUp'}
-                      className={styles.arrow}
-                    />
-                  )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {rows.map(row => {
-            prepareRow(row);
-            return (
-              <React.Fragment key={row.index}>
-                <tr
-                  {...row.getRowProps()}
-                  className={classNames(styles.tableRow, {
-                    [styles.selected]: row.isSelected,
-                  })}
-                >
-                  {row.cells.map(cell => {
-                    return (
-                      <td {...cell.getCellProps()} className={styles.tableData}>
-                        <div
-                          className={classNames(styles.tableCell, {
-                            [styles.selector]: cell.column.id === SELECTOR,
-                          })}
-                        >
-                          {cell.render('Cell')}
-                        </div>
-                      </td>
-                    );
-                  })}
-                </tr>
-                {renderSubComponent && row.isExpanded && (
-                  <tr>
-                    <td colSpan={flatColumns.length}>
-                      {renderSubComponent(row)}
-                    </td>
-                  </tr>
+    <table {...getTableProps()} className={styles.table}>
+      <thead>
+        {headerGroups.map(headerGroup => (
+          <tr {...headerGroup.getHeaderGroupProps()}>
+            {headerGroup.headers.map(column => (
+              <th
+                {...column.getHeaderProps(column.getSortByToggleProps())}
+                className={classNames(styles.tableHeader, {
+                  [styles.mainHeader]: renderMainHeader && column.depth === 0,
+                })}
+              >
+                {column.render('Header')}
+                {column.isSorted && (
+                  <Icon
+                    name={column.isSortedDesc ? 'arrowDown' : 'arrowUp'}
+                    className={styles.arrow}
+                  />
                 )}
-              </React.Fragment>
-            );
-          })}
-        </tbody>
-      </table>
-    </>
+              </th>
+            ))}
+          </tr>
+        ))}
+      </thead>
+      <tbody {...getTableBodyProps()}>
+        {rows.map(row => {
+          prepareRow(row);
+          return (
+            <React.Fragment key={row.index}>
+              <tr
+                {...row.getRowProps()}
+                className={classNames(styles.tableRow, {
+                  [styles.selected]: row.isSelected,
+                })}
+              >
+                {row.cells.map(cell => {
+                  return (
+                    <td {...cell.getCellProps()} className={styles.tableData}>
+                      <div
+                        className={classNames(styles.tableCell, {
+                          [styles.selector]: cell.column.id === SELECTOR,
+                        })}
+                      >
+                        {cell.render('Cell')}
+                      </div>
+                    </td>
+                  );
+                })}
+              </tr>
+              {renderSubComponent && row.isExpanded && (
+                <tr>
+                  <td colSpan={flatColumns.length}>
+                    {renderSubComponent(row)}
+                  </td>
+                </tr>
+              )}
+            </React.Fragment>
+          );
+        })}
+      </tbody>
+    </table>
   );
 };
 
