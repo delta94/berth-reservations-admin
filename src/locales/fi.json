@@ -1,0 +1,17 @@
+{
+  "common": {
+    "table": {
+      "minimizeAll": "Pienennä kaikki"
+    }
+  },
+  "home": {
+    "title": "Venepaikka admin interface"
+  },
+  "harbors": {
+    "tableHeaders": {
+      "mainHeader": "Satamat",
+      "harbor": "Satama",
+      "places": "Paikkoja"
+    }
+  }
+}

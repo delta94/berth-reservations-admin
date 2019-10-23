@@ -1,0 +1,24 @@
+@import 'spacings';
+@import 'colors';
+
+.checkbox {
+  display: inline-block;
+  width: units(1);
+  height: units(1);
+  border: solid $gray-200 2px;
+  vertical-align: baseline;
+  cursor: pointer;
+
+  .input {
+    display: none;
+  }
+
+  .check {
+    fill: $white;
+  }
+}
+
+.checked {
+  border-color: $blue-500;
+  background-color: $blue-500;
+}

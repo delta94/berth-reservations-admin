@@ -6,13 +6,41 @@
 // GraphQL query operation: HARBORS
 // ====================================================
 
+export interface HARBORS_harbors_edges_node_properties_piers_edges_node_properties {
+  __typename: "PierProperties";
+  electricity: boolean;
+  wasteCollection: boolean;
+  gate: boolean;
+  water: boolean;
+  lighting: boolean;
+}
+
+export interface HARBORS_harbors_edges_node_properties_piers_edges_node {
+  __typename: "PierNode";
+  properties: HARBORS_harbors_edges_node_properties_piers_edges_node_properties | null;
+}
+
+export interface HARBORS_harbors_edges_node_properties_piers_edges {
+  __typename: "PierNodeEdge";
+  /**
+   * The item at the end of the edge
+   */
+  node: HARBORS_harbors_edges_node_properties_piers_edges_node | null;
+}
+
+export interface HARBORS_harbors_edges_node_properties_piers {
+  __typename: "PierNodeConnection";
+  /**
+   * Contains the nodes in this connection.
+   */
+  edges: (HARBORS_harbors_edges_node_properties_piers_edges | null)[];
+}
+
 export interface HARBORS_harbors_edges_node_properties {
   __typename: "HarborProperties";
-  municipality: string | null;
-  imageFile: string | null;
-  numberOfPlaces: number | null;
   name: string | null;
-  streetAddress: string | null;
+  numberOfPlaces: number | null;
+  piers: HARBORS_harbors_edges_node_properties_piers;
 }
 
 export interface HARBORS_harbors_edges_node {

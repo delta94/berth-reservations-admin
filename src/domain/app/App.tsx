@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Harbors from '../harbors/HarborsContainer';
+import HarborsPage from '../harbors/HarborsPageContainer';
 import styles from './app.module.scss';
 
 const App: React.FC = () => {
@@ -14,11 +14,11 @@ const App: React.FC = () => {
         <Route exact path="/">
           <div className={styles.app}>
             <header className={styles.header}>
-              <p>{t('harboursList.title')}</p>
+              <p>{t('home.title')}</p>
             </header>
           </div>
         </Route>
-        <Route path="/harbors" component={Harbors} />
+        <Route path="/harbors" component={HarborsPage} />
       </Switch>
     </Router>
   );
