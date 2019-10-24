@@ -5,22 +5,16 @@ import { Container, Row, Col, Nav, Navbar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './card.module.scss';
 
-console.log('styles: ', styles);
-
-const Button = (props: any) => (
+const Button = (props: { children: React.ReactNode }) => (
   <button className={classnames(styles.footerButton, 'btn', 'btn-link')}>
     {props.children}
   </button>
 );
 
-const EditButton = (props: any) => (
+const EditButton = (props: { children: React.ReactNode }) => (
   <button className={classnames(styles.editButton, 'btn', 'btn-link')}>
     {props.children}
   </button>
-);
-
-const Section = (props: any) => (
-  <section>{props.children}</section>
 );
 
 const HorizontalDelimiter = () => <hr className={styles.hruler} />;
@@ -34,13 +28,13 @@ const Delimiter = () => (
   </div>
 );
 
-const ContentTable = (props: any) => (
+const ContentTable = (props: { children: React.ReactNode }) => (
   <table className="table table-borderless">
     <tbody>{props.children}</tbody>
   </table>
 );
 
-const Header = (props: any) => (
+const Header = (props: { children: React.ReactNode }) => (
   <Navbar bg="primary" variant="dark">
     <Navbar.Brand href="#home">{props.children}</Navbar.Brand>
     <Nav className="mr-auto"></Nav>
