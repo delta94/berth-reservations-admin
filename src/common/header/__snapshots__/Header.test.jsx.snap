@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`common/Header render Header component 1`] = `"<nav class=\\"navbar navbar-expand navbar-dark bg-primary\\"><span class=\\"navbar-brand\\">dummy</span><div class=\\"mr-auto navbar-nav\\"></div></nav>"`;
