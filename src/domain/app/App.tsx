@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import HarborsPage from '../harbors/HarborsPageContainer';
+import Draftpad from '../draftpad/Draftpad';
 import styles from './app.module.scss';
 
 const App: React.FC = () => {
@@ -19,6 +20,7 @@ const App: React.FC = () => {
           </div>
         </Route>
         <Route path="/harbors" component={HarborsPage} />
+        <Route path="/draftpad" component={Draftpad} />
       </Switch>
     </Router>
   );

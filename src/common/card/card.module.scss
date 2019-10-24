@@ -1,0 +1,63 @@
+@import 'spacings';
+@import 'fonts';
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.hruler {
+  margin: 10px;
+}
+
+.vdivider {
+  border:         none;
+  border-left:    1px solid hsla(200, 10%, 50%,100);
+  height:         100%;
+  width:          1px;
+  position: absolute;
+}
+
+@media (max-width: 768px) {
+  .hruler {
+    display: block;
+  }
+  .vdivider {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .hruler {
+    display: none;
+  }
+  .vdivider {
+    display: block;
+  }
+}
+
+.wrapper {
+  h1 {
+    color: blue;
+    padding-left: 1rem;
+  }
+  article {
+    padding: 0.5rem 1rem;
+  }
+
+  .footerButton {
+    width: 100%;
+  }
+
+  .footer {
+    width: 100%;
+  }
+
+  .editButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
