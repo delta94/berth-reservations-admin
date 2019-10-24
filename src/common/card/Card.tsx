@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Container, Row, Col, Nav, Navbar } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './card.module.scss';
@@ -34,14 +34,7 @@ const ContentTable = (props: { children: React.ReactNode }) => (
   </table>
 );
 
-const Header = (props: { children: React.ReactNode }) => (
-  <Navbar bg="primary" variant="dark">
-    <Navbar.Brand>{props.children}</Navbar.Brand>
-    <Nav className="mr-auto"></Nav>
-  </Navbar>
-);
-
-const Card = ({ width, Header }: any) => (
+const Card = ({ width, Header }: { width: string; Header: React.FC }) => (
   <div style={{ width }}>
     <Container fluid={true} className={styles.wrapper}>
       <Header />
