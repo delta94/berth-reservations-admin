@@ -24,6 +24,10 @@
     grid-area: content;
   }
 
+  .footer {
+    grid-area: footer;
+  }
+
   @include for-size(tablet-portrait-down) {
     grid-template-areas:
       'header   header'

@@ -14,7 +14,7 @@ const Layout = ({ Header, Sidebar, children, Footer }: Props) => (
     <header className={styles.header}>{Header}</header>
     <nav className={styles.sidebar}>{Sidebar}</nav>
     <div className={styles.content}>{children}</div>
-    {Footer}
+    {Footer && <footer className={styles.footer}>{Footer}</footer>}
   </main>
 );
 
