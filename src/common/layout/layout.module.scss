@@ -1,0 +1,37 @@
+@import 'spacings';
+@import 'breakpoints';
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(units(16), 1fr) 4fr;
+  grid-template-rows: minmax(units(4), min-content) 1fr auto;
+  grid-template-areas:
+    'header  header'
+    'side   content'
+    'footer  footer';
+
+  min-height: 100vh;
+
+  .header {
+    grid-area: header;
+  }
+
+  .sidebar {
+    grid-area: side;
+  }
+
+  .content {
+    grid-area: content;
+  }
+
+  @include for-size(tablet-portrait-down) {
+    grid-template-areas:
+      'header   header'
+      'content content'
+      'footer   footer';
+
+    .sidebar {
+      display: none;
+    }
+  }
+}
