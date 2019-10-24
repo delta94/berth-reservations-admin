@@ -12,12 +12,21 @@ $project-font-size: (
   '72': 72px,
 );
 
+/*
+===================================
+    Usage
+===================================
+.element {
+  font-size: font-size(16);
+}
+*/
+
 @function font-size($value) {
   $converted: if(type-of($value) == 'string', $value, inspect($value));
 
   @if not map-has-key($project-font-size, $converted) {
-    @error '`#{$value}` is not a valid spacing unit token. '
-            + 'Valid spacing unit tokens: '
+    @error '`#{$value}` is not a valid font size token. '
+            + 'Valid font size tokens: '
             + '#{map-keys($project-font-size)}';
   }
 

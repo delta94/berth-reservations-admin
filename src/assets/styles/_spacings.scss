@@ -19,6 +19,16 @@ $project-spacing-standard: (
   '48': $base-unit * 48,
 );
 
+/*
+===================================
+    Usage
+===================================
+.element {
+  margin: units(1) units(3);
+  padding: units(2);
+}
+*/
+
 @function units($value) {
   $converted: if(type-of($value) == 'string', $value, inspect($value));
 
