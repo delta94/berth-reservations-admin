@@ -33,7 +33,9 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ext js,ts,tsx src",
     "ci": "CI=true yarn test --verbose --runInBand --coverage",
-    "graphql-types": "apollo client:codegen --target=typescript --globalTypesFile='src/__generated__/globalTypes.ts'"
+    "graphql-types": "apollo client:codegen --target=typescript --globalTypesFile='src/__generated__/globalTypes.ts'",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -51,6 +53,10 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^5.2.5",
+    "@storybook/addon-links": "^5.2.5",
+    "@storybook/addons": "^5.2.5",
+    "@storybook/react": "^5.2.5",
     "codecov": "^3.6.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
