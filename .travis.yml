@@ -13,6 +13,10 @@ jobs:
     - stage: 'Test'
       name: 'Run code linting and test'
       script: yarn lint && yarn ci
+    - stage: 'Storybook'
+      name: 'Deploy Stroybook'
+      if: branch = develop
+      script: yarn deploy-storybook
     - stage: 'Build'
       name: 'Run (test) build'
       if: branch IN (master, develop)
