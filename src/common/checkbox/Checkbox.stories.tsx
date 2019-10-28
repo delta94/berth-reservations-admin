@@ -3,11 +3,10 @@ import React from 'react';
 import Checkbox from './Checkbox';
 
 export default {
-  title: 'Welcome',
+  component: Checkbox,
+  title: 'Checkbox',
 };
 
-export const toStorybook = () => <Checkbox checked />;
+export const checked = () => <Checkbox checked />;
 
-toStorybook.story = {
-  name: 'to Storybook',
-};
+export const unChecked = () => <Checkbox />;
