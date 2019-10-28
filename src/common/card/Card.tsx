@@ -3,17 +3,15 @@ import React from 'react';
 import styles from './card.module.scss';
 
 const Card = ({
-  width,
-  Header,
+  title,
   children,
 }: {
-  width: string;
-  Header: React.FC;
-  children: React.ReactChildren;
+  title?: string;
+  children: React.ReactNode;
 }) => (
-  <div style={{ width }}>
+  <div>
     <div className={styles.container}>
-      <Header />
+      <header>{title}</header>
       {children}
     </div>
   </div>
