@@ -1,0 +1,33 @@
+@import 'spacings';
+@import 'colours';
+
+.container {
+  width: 100%;
+  padding: .5rem 1rem;
+  margin-right: auto;
+  margin-left: auto;
+
+  header {
+    width: 100%;
+    background-color: $blue-500;
+    padding: units(0.5) units(1);
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
