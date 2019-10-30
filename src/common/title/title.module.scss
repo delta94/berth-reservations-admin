@@ -1,0 +1,11 @@
+@import 'spacings';
+@import 'colours';
+@import 'fonts';
+
+.header {
+  color: $blue-500;
+  font-size: font-size(16);
+  font-weight: bold;
+  height: units(1.5);
+  padding-bottom: units(0.75);
+}
