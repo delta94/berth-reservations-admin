@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LabelValuePair renders normally 1`] = `"<div><span class=\\"label\\">foo:</span><span class=\\"labelValue\\">bar</span></div>"`;
