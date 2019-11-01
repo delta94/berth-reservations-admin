@@ -27,10 +27,6 @@ COPY package*.json *yarn* ./
 ENV PATH /app/node_modules/.bin:$PATH
 
 USER root
-
-RUN apt-install.sh build-essential
-
-USER root
 RUN apt-install.sh build-essential && \
     su - appuser -c "yarn && yarn cache clean --force" && \
     apt-cleanup.sh build-essential
