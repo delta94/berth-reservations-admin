@@ -8,16 +8,16 @@ export default {
 };
 
 const MOUNTAINS = [
-  { country: 'Tanzania', height: 5895, name: 'Kilimanjaro' },
-  { country: 'Nepal', height: 8848, name: 'Everest' },
-  { country: 'Japan', height: 3776, name: 'Mount Fuji' },
-  { country: 'Italy/France', height: 4808, name: 'Mont Blanc' },
-  { country: 'Netherlands', height: 323, name: 'Vaalserberg' },
-  { country: 'United States', height: 6168, name: 'Denali' },
-  { country: 'Mexico', height: 5465, name: 'Popocatepetl' },
+  { name: 'Kilimanjaro', height: 5895, country: 'Tanzania' },
+  { name: 'Everest', height: 8848, country: 'Nepal' },
+  { name: 'Mount Fuji', height: 3776, country: 'Japan' },
+  { name: 'Mont Blanc', height: 4808, country: 'Italy/France' },
+  { name: 'Vaalserberg', height: 323, country: 'Netherlands' },
+  { name: 'Denali', height: 6168, country: 'United States' },
+  { name: 'Popocatepetl', height: 5465, country: 'Mexico' },
 ];
 
-const columns: object[] = [
+const columns: any[] = [
   {
     Header: 'name',
     accessor: 'name',
