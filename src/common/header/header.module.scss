@@ -1,0 +1,18 @@
+@import 'spacings';
+@import 'colours';
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  height: units(4);
+  background-color: $blue-500;
+  color: $white;
+  svg {
+    height: units(4);
+    fill: $white;
+  }
+
+}
