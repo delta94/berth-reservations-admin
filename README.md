@@ -1,44 +1,79 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Berth Reservation UI
 
-## Available Scripts
+[![Build Status](https://travis-ci.com/City-of-Helsinki/berth-reservations-admin.svg?branch=develop)](https://travis-ci.com/City-of-Helsinki/berth-reservations-admin) [![Codecov](https://codecov.io/gh/City-of-Helsinki/berth-reservations-admin/branch/develop/graph/badge.svg)](https://codecov.io/gh/City-of-Helsinki/berth-reservations-admin/branch/develop/graph/badge.svg) [![GitHub issues](https://img.shields.io/github/issues/City-of-Helsinki/berth-reservations-admin)](https://img.shields.io/github/issues/City-of-Helsinki/berth-reservations-admin) [![GitHub forks](https://img.shields.io/github/forks/City-of-Helsinki/berth-reservations-admin)](https://img.shields.io/github/forks/City-of-Helsinki/berth-reservations-admin) [![Dependency Status](https://img.shields.io/david/City-of-Helsinki/berth-reservations-admin?branch=develop)](https://img.shields.io/david/City-of-Helsinki/berth-reservations-admin?branch=develop) [![devDependencies Status](https://david-dm.org/city-of-helsinki/berth-reservations-admin/dev-status.svg?branch=develop)](https://david-dm.org/city-of-helsinki/berth-reservations-admin?type=dev&branch=develop) [![GitHub license](https://img.shields.io/github/license/City-of-Helsinki/berth-reservations-admin)](https://img.shields.io/github/license/City-of-Helsinki/berth-reservations-admin)
 
-In the project directory, you can run:
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Node.js 12.x and yarn, or Docker and docker.compose
+- Recommended editor for this project is VSCode.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+### Setup
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+After cloning this repository, create a new `.env.local` file from the provided `.env.example` file and configure it as needed:
 
-### `npm run build`
+```
+$ cp .env.example .env.development.local
+```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Development
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+To start development environment, run:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+$ yarn start
+```
 
-### `npm run eject`
+This will start [the application](http://localhost:3000) on port `3000`.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To only start the storybook on port `6006`:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+$ yarn storybook
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Starting dockerized development environment
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Check if Docker and docker CLI installed, port `3000` is free, not occupied by running server.
 
-## Learn More
+2. Make sure you have env variables in `.env.development.local`, otherwise extend it from example by:
+   ```
+   $ cp .env.example .env.development.local
+   ```
+3. Start building docker image and start container:
+   ```
+   $ docker-compose up
+   ```
+4. Open `localhost:3000` on browser.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Testing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To run tests:
+
+```
+$ yarn test
+```
+
+## Useful docker command
+
+- To rebuild the docker images:
+  ```
+  $ docker-compose up --force-recreate --build
+  ```
+- To enter inside docker container environment:
+  ```
+  $ docker-compose exec app sh
+  ```
+- Remove docker container if needed:
+  ```
+  $ docker rm -f berth-reservation-admin
+  ```
+- Remove docker image:
+  ```
+  $ docker rmi berth-reservations-admin_app
+  ```
+- Running command inside Docker environment (test for example):
+  (Make sure docker container is running)
+  `$ docker-compose run app YOUR_COMMAND_HERE`
+- Encounter `node-sass` issue ? try to go inside docker container environment and run `npm rebuild node-sass`
