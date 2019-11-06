@@ -9,9 +9,21 @@
 - Recommended editor for this project is VSCode.
 
 
+## Environments
+
+Storybook:
+https://city-of-helsinki.github.io/berth-reservations-admin/?path=/story/*
+
+GraphQL API URL:
+https://venepaikka-api.test.hel.ninja/graphql_v2/
+
+Staging:
+https://venepaikka-admin.test.kuva.hel.ninja
+
+
 ### Setup
 
-After cloning this repository, create a new `.env.local` file from the provided `.env.example` file and configure it as needed:
+After cloning this repository, create a new `.env.local` file from the provided `.env.example` file and change `REACT_APP_API_URI`. 
 
 ```
 $ cp .env.example .env.development.local
@@ -46,6 +58,22 @@ $ yarn storybook
    $ docker-compose up
    ```
 4. Open `localhost:3000` on browser.
+
+
+### Starting dockerized production environment
+
+1. Check if Docker and docker CLI installed, port `80` is free, not occupied by running server.
+
+2. Build docker image with:
+  ```
+  $ docker build -t berth-reservation-admin .
+  ```
+3. Start docker container with:
+   ```
+   $ docker container run -p 80:80 -d berth-reservation-admin
+   ```
+4. Open `http://localhost` on browser.
+
 
 ## Testing
 
