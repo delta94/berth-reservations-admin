@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`common/Icon render Icon component 1`] = `"<svg class=\\"icon\\">helsinki-logo.svg</svg>"`;
+exports[`common/Icon render Icon component 1`] = `"<div class=\\"icon standard black\\"><svg class=\\"shape\\">helsinki-logo.svg</svg></div>"`;

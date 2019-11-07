@@ -7,6 +7,16 @@ export default {
   title: 'Icon',
 };
 
-export const helsinkiLogo = () => <Icon name="helsinkiLogo" />;
+export const icon = () => <Icon name="fence" />;
 
-export const withDefinedHeight = () => <Icon name="helsinkiLogo" width="50" />;
+icon.story = {
+  name: 'Default',
+};
+
+export const large = () => <Icon name="fence" size="large" />;
+
+export const small = () => <Icon name="fence" size="small" />;
+
+export const white = () => <Icon name="fence" color="white" />;
+
+export const outlined = () => <Icon name="fence" outlined />;

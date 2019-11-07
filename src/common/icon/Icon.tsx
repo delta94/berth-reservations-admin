@@ -65,16 +65,31 @@ const icons = {
 export type IconNames = keyof typeof icons;
 
 export interface IconProps {
+  outlined?: boolean;
   name: IconNames;
   width?: string;
   height?: string;
-  className?: string;
+  size?: 'small' | 'standard' | 'large';
+  color?: 'white' | 'black' | 'gray';
 }
 
-const Icon = ({ name, className, ...rest }: IconProps) => {
+const Icon: React.SFC<IconProps> = ({
+  outlined,
+  name,
+  color = 'black',
+  size = 'standard',
+}) => {
   const SvgIcon = icons[name];
 
-  return <SvgIcon className={classNames(styles.icon, className)} {...rest} />;
+  return (
+    <div
+      className={classNames(styles.icon, styles[size], styles[color], {
+        [styles.outlined]: outlined,
+      })}
+    >
+      <SvgIcon className={styles.shape} />
+    </div>
+  );
 };
 
 export default Icon;
