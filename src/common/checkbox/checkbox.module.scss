@@ -3,7 +3,7 @@
 
 .checkbox {
   $border-width: 2px;
-  $checkbox-dimension: 2px;
+  $checkbox-dimension: units(1);
 
   position: relative;
   display: inline-block;
