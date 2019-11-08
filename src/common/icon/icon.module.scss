@@ -1,4 +1,40 @@
+@import 'spacings';
+@import 'colours';
+
 .icon {
-  height: inherit;
-  width: auto;
+  --icon-stroke-color: #{$black};
+  --icon-dimension: #{units(1.5)};
+
+  display: inline-block;
+  box-sizing: content-box;
+  width: var(--icon-dimension);
+  height: var(--icon-dimension);
+  fill: var(--icon-stroke-color);
+}
+
+.shape {
+  width: 100%;
+  height: 100%;
+}
+
+.small {
+  --icon-dimension: #{units(1)};
+}
+
+.large {
+  --icon-dimension: #{units(2)};
+}
+
+.white {
+  --icon-stroke-color: #{$white};
+}
+
+.gray {
+  --icon-stroke-color: #{$gray-200};
+}
+
+.outlined {
+  border-radius: 50%;
+  border: solid 2px var(--icon-stroke-color);
+  padding: units(0.5);
 }

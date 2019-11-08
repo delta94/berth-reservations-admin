@@ -2,23 +2,26 @@
 @import 'colours';
 
 .checkbox {
+  $checkbox-dimension: units(1);
+
+  box-sizing: content-box;
   display: inline-block;
-  width: units(1);
-  height: units(1);
+  width: $checkbox-dimension;
+  height: $checkbox-dimension;
   border: solid $gray-200 2px;
   vertical-align: baseline;
   cursor: pointer;
+}
 
-  .input {
-    display: none;
-  }
-
-  .check {
-    fill: $white;
-  }
+.input {
+  display: none;
 }
 
 .checked {
   border-color: $blue-500;
   background-color: $blue-500;
+}
+
+.disabled {
+  cursor: not-allowed;
 }

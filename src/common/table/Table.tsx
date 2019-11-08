@@ -122,10 +122,7 @@ const Table = ({
         >
           {column.render('Header')}
           {column.isSorted && (
-            <Icon
-              name={column.isSortedDesc ? 'arrowDown' : 'arrowUp'}
-              className={styles.arrow}
-            />
+            <Icon name={column.isSortedDesc ? 'arrowDown' : 'arrowUp'} />
           )}
         </th>
       ))}
