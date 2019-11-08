@@ -3,10 +3,12 @@
 
 .icon {
   --icon-stroke-color: #{$black};
+  --icon-dimension: #{units(1.5)};
 
   display: inline-block;
-  width: units(1.5);
-  height: units(1.5);
+  box-sizing: content-box;
+  width: var(--icon-dimension);
+  height: var(--icon-dimension);
   fill: var(--icon-stroke-color);
 }
 
@@ -16,13 +18,11 @@
 }
 
 .small {
-  height: units(1);
-  width: units(1);
+  --icon-dimension: #{units(1)};
 }
 
 .large {
-  height: units(2);
-  width: units(2);
+  --icon-dimension: #{units(2)};
 }
 
 .white {

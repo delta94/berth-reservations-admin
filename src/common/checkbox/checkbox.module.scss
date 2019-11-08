@@ -2,20 +2,20 @@
 @import 'colours';
 
 .checkbox {
+  $border-width: 2px;
+  $checkbox-dimension: 2px;
+
+  position: relative;
   display: inline-block;
-  width: units(1);
-  height: units(1);
+  width: calc(#{$checkbox-dimension} + 2 * #{$border-width});
+  height: calc(#{$checkbox-dimension} + 2 * #{$border-width});
   border: solid $gray-200 2px;
   vertical-align: baseline;
   cursor: pointer;
+}
 
-  .input {
-    display: none;
-  }
-
-  .check {
-    fill: $white;
-  }
+.input {
+  display: none;
 }
 
 .checked {

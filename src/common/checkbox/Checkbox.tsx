@@ -13,7 +13,7 @@ const Checkbox = (props: Props) => {
         [styles.checked]: props.checked,
       })}
     >
-      {props.checked && <Icon name="check" className={styles.check} />}
+      {props.checked && <Icon name="check" size="small" color="white" />}
       <input {...props} className={styles.input} type="checkbox" />
     </label>
   );
