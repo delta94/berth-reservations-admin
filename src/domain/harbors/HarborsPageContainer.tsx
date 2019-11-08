@@ -6,10 +6,10 @@ import { useTranslation } from 'react-i18next';
 import { Column } from 'react-table';
 
 import { HARBORS_QUERY } from './harborsQuery';
-import PropertyIcon from './propertyIcon/PropertyIcon';
 import Table from '../../common/table/Table';
 import { getHarborsData, HarborData } from './utils';
 import { HARBORS } from './__generated__/HARBORS';
+import Icon from '../../common/icon/Icon';
 
 type ColumnType = Column<HarborData> & { accessor: keyof HarborData };
 
@@ -26,32 +26,46 @@ const HarborsContainer: React.FC = () => {
       accessor: 'numberOfPlaces',
     },
     {
-      Cell: ({ cell }) => <PropertyIcon name="plug" disabled={!!cell.value} />,
-      Header: () => <PropertyIcon name="plug" />,
+      Cell: ({ cell }) => (
+        <Icon name="plug" outlined color={!!cell.value ? 'gray' : 'black'} />
+      ),
+      Header: () => <Icon name="plug" outlined />,
       accessor: 'electricity',
     },
     {
-      Cell: ({ cell }) => <PropertyIcon name="fence" disabled={!!cell.value} />,
-      Header: () => <PropertyIcon name="fence" />,
+      Cell: ({ cell }) => (
+        <Icon name="fence" outlined color={!!cell.value ? 'gray' : 'black'} />
+      ),
+      Header: () => <Icon name="fence" outlined />,
       accessor: 'gate',
     },
     {
       Cell: ({ cell }) => (
-        <PropertyIcon name="streetLight" disabled={!!cell.value} />
+        <Icon
+          name="streetLight"
+          outlined
+          color={!!cell.value ? 'gray' : 'black'}
+        />
       ),
-      Header: () => <PropertyIcon name="streetLight" />,
+      Header: () => <Icon name="streetLight" outlined />,
       accessor: 'lighting',
     },
     {
       Cell: ({ cell }) => (
-        <PropertyIcon name="waterTap" disabled={!!cell.value} />
+        <Icon
+          name="waterTap"
+          outlined
+          color={!!cell.value ? 'gray' : 'black'}
+        />
       ),
-      Header: () => <PropertyIcon name="waterTap" />,
+      Header: () => <Icon name="waterTap" outlined />,
       accessor: 'water',
     },
     {
-      Cell: ({ cell }) => <PropertyIcon name="trash" disabled={!!cell.value} />,
-      Header: () => <PropertyIcon name="trash" />,
+      Cell: ({ cell }) => (
+        <Icon name="trash" outlined color={!!cell.value ? 'gray' : 'black'} />
+      ),
+      Header: () => <Icon name="trash" outlined />,
       accessor: 'wasteCollection',
     },
   ];
