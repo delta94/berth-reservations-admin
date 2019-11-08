@@ -1,0 +1,48 @@
+include:
+  - project: 'city-of-helsinki/kuva/ci-cd-config/ci-configuration'
+    ref: v1
+    file: '/.gitlab-ci-template.yml'
+
+variables:
+  SERVICE_PORT: 80
+  POSTGRES_ENABLED: 0
+
+build-review:
+  extends: .build
+  variables:
+    DOCKER_IMAGE_NAME: "$CI_PROJECT_NAME-review"
+    DOCKER_BUILD_ARG_REACT_APP_API_URI: "https://venepaikka-api.test.hel.ninja/graphql_v2/"
+  except:
+    refs:
+      - develop
+      - master
+
+build-staging:
+  extends: .build
+  variables:
+    DOCKER_IMAGE_NAME: "$CI_PROJECT_NAME-staging"
+    DOCKER_BUILD_ARG_REACT_APP_API_URI: "https://venepaikka-api.test.hel.ninja/graphql_v2/"
+  only:
+    refs:
+      - develop
+
+build-production:
+  extends: .build
+  variables:
+    DOCKER_IMAGE_NAME: "$CI_PROJECT_NAME-production"
+    DOCKER_BUILD_ARG_REACT_APP_API_URI: "https://venepaikka-api.test.hel.ninja/graphql_v2/"
+  only:
+    refs:
+      - master
+
+review:
+  variables:
+    DOCKER_IMAGE_NAME: "$CI_PROJECT_NAME-review"
+
+# This will enable staging ci-pipeline
+staging:
+  variables:
+    DOCKER_IMAGE_NAME: "$CI_PROJECT_NAME-staging"
+  only:
+    refs:
+      - develop
