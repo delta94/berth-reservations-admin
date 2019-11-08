@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 
 import Table from './Table';
@@ -7,34 +8,32 @@ export default {
   title: 'Table',
 };
 
-const MOUNTAINS = [
-  { name: 'Kilimanjaro', height: 5895, country: 'Tanzania' },
-  { name: 'Everest', height: 8848, country: 'Nepal' },
-  { name: 'Mount Fuji', height: 3776, country: 'Japan' },
-  { name: 'Mont Blanc', height: 4808, country: 'Italy/France' },
-  { name: 'Vaalserberg', height: 323, country: 'Netherlands' },
-  { name: 'Denali', height: 6168, country: 'United States' },
-  { name: 'Popocatepetl', height: 5465, country: 'Mexico' },
+const MockData = [
+  { a: 'foobar', b: 'foobar', c: 'foobar' },
+  { a: 'foobar', b: 'foobar', c: 'foobar' },
+  { a: 'foobar', b: 'foobar', c: 'foobar' },
+  { a: 'foobar', b: 'foobar', c: 'foobar' },
+  { a: 'foobar', b: 'foobar', c: 'foobar' },
 ];
 
 const columns: any[] = [
   {
     Header: 'name',
-    accessor: 'name',
+    accessor: 'a',
   },
   {
     Header: 'height',
-    accessor: 'height',
+    accessor: 'b',
   },
   {
     Header: 'country',
-    accessor: 'country',
+    accessor: 'c',
   },
 ];
 
 export const Simple = () => (
   <Table
-    data={MOUNTAINS}
+    data={MockData}
     columns={columns}
     renderSubComponent={row => row.index}
     renderMainHeader={() => 'Demos'}
