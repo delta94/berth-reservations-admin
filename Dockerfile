@@ -27,11 +27,14 @@ COPY package*.json *yarn* ./
 ENV PATH /app/node_modules/.bin:$PATH
 
 USER root
-RUN apt-install.sh build-essential && \
-    su - appuser -c "yarn && yarn cache clean --force" && \
-    apt-cleanup.sh build-essential
+
+RUN apt-install.sh build-essential
 
 USER appuser
+RUN yarn && yarn cache clean --force
+
+USER root
+RUN apt-cleanup.sh build-essential
 
 # =============================
 FROM appbase as development
@@ -60,5 +63,7 @@ FROM nginx:1.17 as production
 
 # Nginx runs with user "nginx" by default
 COPY --from=staticbuilder --chown=nginx:nginx /app/build /usr/share/nginx/html
+
+COPY .prod/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
