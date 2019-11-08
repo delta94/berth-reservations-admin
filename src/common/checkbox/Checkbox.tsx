@@ -6,11 +6,12 @@ import Icon from '../icon/Icon';
 
 type Props = React.InputHTMLAttributes<HTMLInputElement>;
 
-const Checkbox = (props: Props) => {
+const Checkbox: React.SFC<Props> = props => {
   return (
     <label
       className={classNames(styles.checkbox, {
         [styles.checked]: props.checked,
+        [styles.disabled]: props.disabled,
       })}
     >
       {props.checked && <Icon name="check" size="small" color="white" />}

@@ -10,3 +10,5 @@ export default {
 export const checked = () => <Checkbox checked />;
 
 export const unChecked = () => <Checkbox />;
+
+export const disabled = () => <Checkbox checked disabled />;

@@ -2,13 +2,12 @@
 @import 'colours';
 
 .checkbox {
-  $border-width: 2px;
   $checkbox-dimension: units(1);
 
-  position: relative;
+  box-sizing: content-box;
   display: inline-block;
-  width: calc(#{$checkbox-dimension} + 2 * #{$border-width});
-  height: calc(#{$checkbox-dimension} + 2 * #{$border-width});
+  width: $checkbox-dimension;
+  height: $checkbox-dimension;
   border: solid $gray-200 2px;
   vertical-align: baseline;
   cursor: pointer;
@@ -21,4 +20,8 @@
 .checked {
   border-color: $blue-500;
   background-color: $blue-500;
+}
+
+.disabled {
+  cursor: not-allowed;
 }
