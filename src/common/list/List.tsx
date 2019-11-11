@@ -5,14 +5,14 @@ import styles from './list.module.scss';
 
 interface Props {
   size?: 'small' | 'standard' | 'large';
-  custom?: boolean;
+  noBullets?: boolean;
   ordered?: boolean;
 }
 
 const List: React.SFC<Props> = ({
   size = 'standard',
   ordered,
-  custom,
+  noBullets,
   children,
 }) => {
   const Element = ordered ? 'ol' : 'ul';
@@ -20,7 +20,7 @@ const List: React.SFC<Props> = ({
   return (
     <Element
       className={classNames(styles.list, styles[size], {
-        [styles.custom]: custom,
+        [styles.noBullets]: noBullets,
       })}
     >
       {children}

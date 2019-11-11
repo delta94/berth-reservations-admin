@@ -12,7 +12,7 @@ describe('List', () => {
       </List>
     );
 
-  it('shouold render noramlly', () => {
+  it('should render normally', () => {
     const wrapper = getWrapper();
 
     expect(wrapper.html()).toMatchSnapshot();
@@ -30,9 +30,9 @@ describe('List', () => {
     expect(wrapper.find('ol')).toHaveLength(1);
   });
 
-  it('adds a "custom" className when "custom" prop is true', () => {
-    const wrapper = getWrapper({ custom: true });
+  it('adds a "custom" className when "noBullets" prop is true', () => {
+    const wrapper = getWrapper({ noBullets: true });
 
-    expect(wrapper.hasClass('custom')).toBe(true);
+    expect(wrapper.hasClass('noBullets')).toBe(true);
   });
 });
