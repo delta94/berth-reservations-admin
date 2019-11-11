@@ -1,7 +1,7 @@
 import React from 'react';
 
 import List from './List';
-import ListItem from '../listItem/ListItem';
+import ListItem from './ListItem';
 
 export default {
   component: List,
