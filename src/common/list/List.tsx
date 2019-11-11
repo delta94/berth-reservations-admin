@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import styels from './list.module.scss';
+import styles from './list.module.scss';
 
 interface Props {
   size?: 'small' | 'standard' | 'large';
@@ -19,8 +19,8 @@ const List: React.SFC<Props> = ({
 
   return (
     <Element
-      className={classNames(styels.list, styels[size], {
-        [styels.custom]: custom,
+      className={classNames(styles.list, styles[size], {
+        [styles.custom]: custom,
       })}
     >
       {children}

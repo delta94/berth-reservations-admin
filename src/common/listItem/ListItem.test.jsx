@@ -6,7 +6,7 @@ import ListItem from './ListItem';
 describe('ListItem', () => {
   const getWrapper = props => shallow(<ListItem {...props}>one</ListItem>);
 
-  it('should render noramlly', () => {
+  it('should render normally', () => {
     expect(getWrapper().html()).toMatchSnapshot();
   });
 });
