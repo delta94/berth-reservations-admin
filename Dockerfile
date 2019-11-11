@@ -55,6 +55,7 @@ FROM appbase as staticbuilder
 # ===================================
 
 ARG REACT_APP_API_URI
+ARG REACT_APP_SENTRY_DSN
 
 COPY . /app
 RUN yarn build
