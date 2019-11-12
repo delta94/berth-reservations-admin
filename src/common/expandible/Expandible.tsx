@@ -16,6 +16,7 @@ const Expandible: React.SFC<Props> = ({ label, onClick, children }) => {
     setExpanded(!expanded);
     onClick && onClick();
   };
+  console.log('expanded', expanded);
 
   return (
     <>
