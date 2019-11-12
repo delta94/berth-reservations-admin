@@ -55,5 +55,10 @@ export const text = () => (
 );
 
 export const withIcon = () => (
-  <Button icon={<Icon name="tools" />}>Button</Button>
+  <>
+    <Button icon={<Icon name="tools" />}>Button</Button>
+    <Button icon={<Icon name="tools" />} variant="outlined">
+      Button
+    </Button>
+  </>
 );

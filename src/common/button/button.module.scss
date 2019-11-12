@@ -4,24 +4,22 @@
 
 .button {
   --vene-button-color: #{$blue-500};
-  --vene-button-hover-color: #{$blue-100};
 
   padding: units(0.5);
   cursor: pointer;
   font-size: font-size(16);
+  color: $white;
+  fill: $white;
 }
 
 .critical {
-  color: $white;
   --vene-button-color: #{$red-500};
-  --vene-button-hover-color: #{$red-100};
 }
 
 .secondary {
   --vene-button-color: #{$gray-200};
-  --vene-button-color-color: #{$gray-100};
-  color: var(--vene-button-color);
-  fill: var(--vene-button-color);
+  color: $black;
+  fill: $black;
 }
 
 .standard {
@@ -42,18 +40,19 @@
 .contained {
   border: none;
   background-color: var(--vene-button-color);
-  color: var(--vene-button);
 }
 
 .outlined {
   border-color: var(--vene-button-color);
   color: var(--vene-button-color);
+  fill: var(--vene-button-color);
   background: none;
 }
 
 .text {
   border: none;
   color: var(--vene-button-color);
+  fill: var(--vene-button-color);
   background: none;
   padding: 0;
 }
