@@ -1,19 +1,19 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 
-import Expandible from './Expandible';
+import Expandable from './Expandable';
 import Button from '../button/Button';
 
 export default {
-  component: Expandible,
-  title: 'Expandible',
+  component: Expandable,
+  title: 'Expandable',
 };
 
 export const expandible = () => (
   <div style={{ width: '150px' }}>
-    <Expandible label="Expandible" onClick={action('click')}>
+    <Expandable label="Expandable" onClick={action('click')}>
       <Button variant="text">child</Button>
-    </Expandible>
+    </Expandable>
   </div>
 );
 

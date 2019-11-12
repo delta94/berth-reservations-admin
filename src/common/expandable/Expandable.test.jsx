@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Expandible from './Expandible';
+import Expandable from './Expandable';
 import Button from '../button/Button';
 
-describe('Expandible', () => {
+describe('Expandable', () => {
   const onClick = jest.fn();
 
   beforeEach(() => {
@@ -13,10 +13,10 @@ describe('Expandible', () => {
 
   const getWrapper = props =>
     shallow(
-      <Expandible label="Click me" onClick={onClick} {...props}>
+      <Expandable label="Click me" onClick={onClick} {...props}>
         <div>one</div>
         <div>two</div>
-      </Expandible>
+      </Expandable>
     );
 
   it('renders normally', () => {
