@@ -70,13 +70,13 @@ export interface IconProps {
   width?: string;
   height?: string;
   size?: 'small' | 'standard' | 'large';
-  color?: 'white' | 'black' | 'gray';
+  color?: 'standard' | 'brand' | 'critical' | 'secondary' | 'info';
 }
 
 const Icon: React.SFC<IconProps> = ({
   outlined,
   name,
-  color = 'black',
+  color = 'standard',
   size = 'standard',
 }) => {
   const SvgIcon = icons[name];

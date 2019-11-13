@@ -9,8 +9,9 @@
   width: $checkbox-dimension;
   height: $checkbox-dimension;
   border: solid $gray-200 2px;
-  vertical-align: baseline;
+  vertical-align: top;
   cursor: pointer;
+  fill: $white;
 }
 
 .input {

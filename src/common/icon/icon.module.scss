@@ -6,6 +6,7 @@
   --icon-dimension: #{units(1.5)};
 
   display: inline-block;
+  vertical-align: top;
   box-sizing: content-box;
   width: var(--icon-dimension);
   height: var(--icon-dimension);
@@ -25,16 +26,25 @@
   --icon-dimension: #{units(2)};
 }
 
-.white {
-  --icon-stroke-color: #{$white};
+.brand {
+  --icon-stroke-color: #{$blue-500};
 }
 
-.gray {
+.standard {
+  --icon-stroke-color: inherit;
+}
+
+.secondary {
   --icon-stroke-color: #{$gray-200};
 }
 
+.critical {
+  --icon-stroke-color: #{$red-500};
+}
+
 .outlined {
+  border: solid 2px;
   border-radius: 50%;
-  border: solid 2px var(--icon-stroke-color);
+  border-color: var(--icon-stroke-color);
   padding: units(0.5);
 }

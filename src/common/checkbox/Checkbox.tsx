@@ -14,7 +14,7 @@ const Checkbox: React.SFC<Props> = props => {
         [styles.disabled]: props.disabled,
       })}
     >
-      {props.checked && <Icon name="check" size="small" color="white" />}
+      {props.checked && <Icon name="check" size="small" />}
       <input {...props} className={styles.input} type="checkbox" />
     </label>
   );

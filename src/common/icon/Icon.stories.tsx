@@ -17,6 +17,6 @@ export const large = () => <Icon name="fence" size="large" />;
 
 export const small = () => <Icon name="fence" size="small" />;
 
-export const white = () => <Icon name="fence" color="white" />;
+export const critical = () => <Icon name="fence" color="critical" />;
 
 export const outlined = () => <Icon name="fence" outlined />;

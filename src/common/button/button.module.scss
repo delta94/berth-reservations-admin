@@ -5,38 +5,21 @@
 .button {
   --vene-button-color: #{$blue-500};
 
-  margin: units(0.5);
   padding: units(0.5);
   cursor: pointer;
   font-size: font-size(16);
+  color: $white;
+  fill: $white;
 }
 
 .critical {
-  color: $white;
   --vene-button-color: #{$red-500};
 }
 
 .secondary {
-  color: black;
   --vene-button-color: #{$gray-200};
-}
-
-.contained {
-  border: none;
-  background-color: var(--vene-button-color);
-  color: var(--vene-button);
-}
-
-.outlined {
-  border-color: var(--vene-button-color);
-  color: var(--vene-button-color);
-  background: none;
-}
-
-.text {
-  border: none;
-  color: var(--vene-button-color);
-  background: none;
+  color: $black;
+  fill: $black;
 }
 
 .standard {
@@ -52,6 +35,26 @@
 .small {
   font-size: font-size(14);
   padding: units(0.25) units(0.25);
+}
+
+.contained {
+  border: none;
+  background-color: var(--vene-button-color);
+}
+
+.outlined {
+  border-color: var(--vene-button-color);
+  color: var(--vene-button-color);
+  fill: var(--vene-button-color);
+  background: none;
+}
+
+.text {
+  border: none;
+  color: var(--vene-button-color);
+  fill: var(--vene-button-color);
+  background: none;
+  padding: 0;
 }
 
 .hasIcon {
