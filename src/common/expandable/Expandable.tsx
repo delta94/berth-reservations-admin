@@ -28,7 +28,7 @@ const Expandable: React.SFC<Props> = ({ label, onClick, children }) => {
         {children && (
           <div
             className={classNames(styles.headerBtn, styles.arrow, {
-              [styles.down]: expanded,
+              [styles.up]: expanded,
             })}
           >
             <Button
