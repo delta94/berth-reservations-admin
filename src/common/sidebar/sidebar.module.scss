@@ -1,0 +1,27 @@
+@import 'colours';
+@import 'spacings';
+@import 'fonts';
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: units(12);
+  max-width: units(16);
+  background-color: white;
+}
+
+.mainWrapper {
+  flex-grow: 1;
+  padding-top: units(0.5);
+  margin-bottom: units(0.5);
+}
+
+.actionsWrapper {
+  padding-bottom: units(0.5);
+}
+
+.elementWrapper {
+  min-height: units(2);
+  padding: units(0.25) units(0.5);
+}
