@@ -23,7 +23,9 @@ const Sidebar: React.SFC<Props> = ({ actions = [], children }) => {
   return (
     <div className={styles.sidebar}>
       <div className={styles.mainWrapper}>{mainElements}</div>
-      <div className={styles.actionsWrapper}>{actionsElements}</div>
+      {!!actions.length && (
+        <div className={styles.actionsWrapper}>{actionsElements}</div>
+      )}
     </div>
   );
 };

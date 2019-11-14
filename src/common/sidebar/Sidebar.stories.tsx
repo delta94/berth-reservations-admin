@@ -31,3 +31,15 @@ export const sidebar = () => (
 sidebar.story = {
   name: 'Default',
 };
+
+export const withoutActions = () => (
+  <div style={{ backgroundColor: 'grey', height: '100vh' }}>
+    <Sidebar>
+      <Expandable label="Home page">
+        <div>one</div>
+        <div>two</div>
+      </Expandable>
+      <Expandable label="Harbors" />
+    </Sidebar>
+  </div>
+);
