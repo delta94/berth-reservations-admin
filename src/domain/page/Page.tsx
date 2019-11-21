@@ -4,10 +4,10 @@ import { useHistory } from 'react-router-dom';
 import Layout from '../../common/layout/Layout';
 import Sidebar from '../../common/sidebar/Sidebar';
 import Expandable from '../../common/expandable/Expandable';
-import InternalNavLink from './internalNavLink/InternalNavLink';
+import InternalNavLink from '../../common/internalNavLink/InternalNavLink';
 import Icon from '../../common/icon/Icon';
 import Text from '../../common/text/Text';
-import Header from '../header/Header';
+import Header from '../../common/header/Header';
 
 const Page: React.SFC = ({ children }) => {
   const history = useHistory();
