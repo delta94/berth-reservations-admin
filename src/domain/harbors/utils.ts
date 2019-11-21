@@ -1,6 +1,7 @@
 import { HARBORS } from './__generated__/HARBORS';
 
 export interface HarborData {
+  id: string;
   electricity: number;
   gate: number;
   lighting: number;
@@ -57,6 +58,7 @@ export const getHarborsData = (data: HARBORS | undefined) => {
         return [
           ...acc,
           {
+            id: harbor.node.id,
             imageFile: harbor.node.properties.imageFile,
             maximumWidth: harbor.node.properties.maximumWidth,
             municipality: harbor.node.properties.municipality,
