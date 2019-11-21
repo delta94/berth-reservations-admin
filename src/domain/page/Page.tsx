@@ -20,7 +20,7 @@ const Page: React.SFC = ({ children }) => {
           {[
             <Expandable
               key="harbors"
-              onClick={() => history.push('harbors')}
+              onClick={() => history.push('/harbors')}
               label={
                 <InternalNavLink
                   to="harbors"
