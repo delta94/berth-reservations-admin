@@ -8,11 +8,7 @@ import { INDIVIDUAL_HARBOR } from './__generated__/INDIVIDUAL_HARBOR';
 import { getIndividualHarborData } from './utils';
 import IndividualHarborPage from './individualHarborPage/IndividualHarborPage';
 
-interface Props {
-  foo: string;
-}
-
-const IndividualHarborPageContainer: React.SFC<Props> = ({ foo }) => {
+const IndividualHarborPageContainer: React.SFC = () => {
   const { id } = useParams<{ id: string }>();
   const { loading, error, data } = useQuery<INDIVIDUAL_HARBOR>(
     INDIVIDUAL_HARBOR_QUERY,
