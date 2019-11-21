@@ -27,7 +27,7 @@ const Button: React.SFC<Props> = ({
         styles[color],
         size && styles[size],
         variant && styles[variant],
-        icon && styles.hasIcon
+        icon && children && styles.hasIcon
       )}
     >
       {icon}

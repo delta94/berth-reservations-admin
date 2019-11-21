@@ -4,11 +4,18 @@ exports[`utils getHarborsData success path harbors follow the expected shape 1`]
 Object {
   "electricity": 1,
   "gate": 1,
+  "imageFile": undefined,
   "lighting": 1,
+  "maximumWidth": undefined,
+  "municipality": undefined,
   "name": "Harbor 1",
   "numberOfPlaces": 0,
+  "servicemapId": undefined,
+  "streetAddress": undefined,
   "wasteCollection": 1,
   "water": 1,
+  "wwwUrl": undefined,
+  "zipCode": undefined,
 }
 `;
 
@@ -16,10 +23,17 @@ exports[`utils getHarborsData success path harbors follow the expected shape 2`]
 Object {
   "electricity": 1,
   "gate": 1,
+  "imageFile": undefined,
   "lighting": 2,
+  "maximumWidth": undefined,
+  "municipality": undefined,
   "name": "Harbor 2",
   "numberOfPlaces": 0,
+  "servicemapId": undefined,
+  "streetAddress": undefined,
   "wasteCollection": 2,
   "water": 1,
+  "wwwUrl": undefined,
+  "zipCode": undefined,
 }
 `;

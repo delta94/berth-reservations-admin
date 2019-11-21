@@ -12,6 +12,16 @@
       "mainHeader": "Satamat",
       "harbor": "Satama",
       "places": "Paikkoja"
+    },
+    "details": {
+      "address": "OSOITE",
+      "serviceMap": "Palvelukartta",
+      "portMap": "Satamakartta (PDF)",
+      "maximumWidth": "Max leveys",
+      "mooring": "Kiinnitys",
+      "chief": "Päällikkö",
+      "maintenanceTeam": "Huoltotiimi",
+      "recentActivities": "Viimeaikainen toiminta"
     }
   }
 }

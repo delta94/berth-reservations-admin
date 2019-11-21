@@ -40,6 +40,16 @@ export interface HARBORS_harbors_edges_node_properties {
   __typename: "HarborProperties";
   name: string | null;
   numberOfPlaces: number | null;
+  streetAddress: string | null;
+  zipCode: string;
+  municipality: string | null;
+  wwwUrl: string;
+  imageFile: string | null;
+  /**
+   * ID in the Servicemap system
+   */
+  servicemapId: string | null;
+  maximumWidth: number | null;
   piers: HARBORS_harbors_edges_node_properties_piers;
 }
 

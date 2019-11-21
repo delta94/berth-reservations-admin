@@ -3,14 +3,14 @@
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(units(16), 1fr) 4fr;
+  grid-template-columns: minmax(units(16), max-content) 4fr;
   grid-template-rows: minmax(units(4), min-content) 1fr auto;
   grid-template-areas:
     'header  header'
     'side   content'
     'footer  footer';
 
-  min-height: 100vh;
+  height: 100vh;
 
   .header {
     grid-area: header;
@@ -22,6 +22,7 @@
 
   .content {
     grid-area: content;
+    overflow-y: scroll;
   }
 
   .footer {

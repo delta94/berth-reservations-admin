@@ -18,6 +18,10 @@
   height: 100%;
 }
 
+.standard {
+  --icon-stroke-color: inherit;
+}
+
 .small {
   --icon-dimension: #{units(1)};
 }
@@ -28,10 +32,6 @@
 
 .brand {
   --icon-stroke-color: #{$blue-500};
-}
-
-.standard {
-  --icon-stroke-color: inherit;
 }
 
 .secondary {

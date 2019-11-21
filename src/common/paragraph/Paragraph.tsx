@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import styles from './paragraph.module.scss';
-import Title from '../title/Title';
+import Text from '../text/Text';
 
 interface Props {
   title?: string;
@@ -12,9 +12,12 @@ interface Props {
 
 const Paragraph = ({ title, children, className }: Props) => (
   <article className={classNames(styles.paragraph, className)}>
-    {title && <Title>{title}</Title>}
-
-    <p>{children}</p>
+    {title && (
+      <Text as="h4" color="brand">
+        {title}
+      </Text>
+    )}
+    <section className={styles.body}>{children}</section>
   </article>
 );
 

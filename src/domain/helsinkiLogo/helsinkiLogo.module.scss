@@ -1,0 +1,40 @@
+@import 'colours';
+@import 'spacings';
+
+.helsinkiLogo {
+  --vene-helsinki-logo-color: #{$black};
+
+  height: units(3);
+  width: units(6);
+  fill: var(--vene-helsinki-logo-color);
+}
+
+.standard {
+  --vene-helsinki-logo-color: inherit;
+}
+
+.small {
+  height: units(2);
+  width: units(3);
+}
+
+.large {
+  height: units(4);
+  width: units(6);
+}
+
+.brand {
+  --vene-helsinki-logo-color: #{$blue-500};
+}
+
+.secondary {
+  --vene-helsinki-logo-color: #{$gray-200};
+}
+
+.critical {
+  --vene-helsinki-logo-color: #{$red-500};
+}
+
+.white {
+  --vene-helsinki-logo-color: #{$white};
+}

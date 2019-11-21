@@ -20,27 +20,27 @@ import Icon from '../../common/icon/Icon';
 import Checkbox from '../checkbox/Checkbox';
 import styles from './table.module.scss';
 
-type Data = object;
-type Props = {
+type Props<D extends object> = {
+  data: D[];
   canSelectRows?: boolean;
-  renderSubComponent?: (row: Row) => React.ReactNode;
-  renderMainHeader?: (props: HeaderProps<Data>) => React.ReactNode;
-} & TableOptions<Data>;
+  renderSubComponent?: (row: Row<D>) => React.ReactNode;
+  renderMainHeader?: (props: HeaderProps<D>) => React.ReactNode;
+} & TableOptions<D>;
 
 const EXPANDER = 'EXPANDER';
 const MAIN_HEADER = 'MAIN_HEADER';
 const SELECTOR = 'SELECTOR';
 
-const Table = ({
+const Table = <D extends object>({
   columns,
-  data: harborsData,
+  data: tableData,
   canSelectRows,
   renderSubComponent,
   renderMainHeader,
-}: Props) => {
+}: Props<D>) => {
   const { t } = useTranslation();
 
-  const selectorCol: Column<Data> = {
+  const selectorCol: Column<D> = {
     Cell: ({ row }) => <Checkbox {...row.getToggleRowSelectedProps()} />,
     Header: ({ getToggleAllRowsSelectedProps }) => (
       <Checkbox {...getToggleAllRowsSelectedProps()} />
@@ -48,7 +48,7 @@ const Table = ({
     id: SELECTOR,
   };
 
-  const expanderCol: Column<Data> = {
+  const expanderCol: Column<D> = {
     Cell: ({ row }) => (
       <div {...row.getExpandedToggleProps()} className={styles.expander}>
         <Icon name={row.isExpanded ? 'angleDown' : 'angleLeft'} />
@@ -92,7 +92,7 @@ const Table = ({
     expanderCol,
   ]);
 
-  const data = React.useMemo(() => harborsData, [harborsData]);
+  const data = React.useMemo(() => tableData, [tableData]);
 
   const {
     getTableProps,
@@ -111,7 +111,7 @@ const Table = ({
     useRowSelect
   );
 
-  const renderTableHead = (headerGroup: HeaderGroup) => (
+  const renderTableHead = (headerGroup: HeaderGroup<D>) => (
     <tr {...headerGroup.getHeaderGroupProps()}>
       {headerGroup.headers.map(column => (
         <th
@@ -122,14 +122,16 @@ const Table = ({
         >
           {column.render('Header')}
           {column.isSorted && (
-            <Icon name={column.isSortedDesc ? 'arrowDown' : 'arrowUp'} />
+            <div className={styles.arrow}>
+              <Icon name={column.isSortedDesc ? 'arrowDown' : 'arrowUp'} />
+            </div>
           )}
         </th>
       ))}
     </tr>
   );
 
-  const renderTableBody = (row: Row) => {
+  const renderTableBody = (row: Row<D>) => {
     prepareRow(row);
     return (
       <React.Fragment key={row.index}>
@@ -152,8 +154,10 @@ const Table = ({
           ))}
         </tr>
         {renderSubComponent && row.isExpanded && (
-          <tr>
-            <td colSpan={flatColumns.length}>{renderSubComponent(row)}</td>
+          <tr className={classNames(styles.tableRow, styles.expandedRow)}>
+            <td className={styles.tableData} colSpan={flatColumns.length}>
+              {renderSubComponent(row)}
+            </td>
           </tr>
         )}
       </React.Fragment>

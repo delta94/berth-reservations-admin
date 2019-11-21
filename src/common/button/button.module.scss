@@ -60,6 +60,10 @@
 .hasIcon {
   display: flex;
   align-items: center;
+
+  & > :first-child {
+    margin-right: units(0.5);
+  }
 }
 
 .disabled {

@@ -2,19 +2,41 @@
 @import 'colours';
 
 .container {
-  width: 100%;
-  padding: .5rem 1rem;
-  margin-right: auto;
-  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  margin: units(0.5) units(1);
+
+  background-color: $gray-100;
 
   header {
-    width: 100%;
+    width: auto;
     background-color: $blue-500;
     padding: units(0.5) units(1);
+    margin: 0;
     font-size: calc(10px + 2vmin);
     color: white;
   }
+  section {
+    padding: units(0.5) units(1);
+  }
 }
+.standard {
+  background-color: inherit;
+}
+
+.brand {
+  background-color: $blue-500;
+}
+
+.primary {
+  background-color: $gray-100;
+}
+
+.secondary {
+  background-color: $gray-200;
+}
+/*
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -31,3 +53,4 @@
   }
 }
 
+*/

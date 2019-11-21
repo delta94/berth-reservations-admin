@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`App renders without crashing 1`] = `"<div class=\\"app\\"><header class=\\"header\\"><p>home.title</p></header></div>"`;

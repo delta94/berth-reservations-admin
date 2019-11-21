@@ -1,6 +1,5 @@
 @import 'colours';
 @import 'spacings';
-@import 'fonts';
 
 .sidebar {
   display: flex;
@@ -23,5 +22,5 @@
 
 .elementWrapper {
   min-height: units(2);
-  padding: units(0.25) units(0.5);
+  margin: units(0.25) units(0.5);
 }

@@ -4,12 +4,12 @@ import { shallow } from 'enzyme';
 import Layout from './Layout';
 
 describe('Layout', () => {
-  const Header = <div>header</div>;
-  const Sidebar = <div>sidebar</div>;
-  const Footer = <footer>footer</footer>;
+  const header = <div>header</div>;
+  const sidebar = <div>sidebar</div>;
+  const footer = <footer>footer</footer>;
   const getWrapper = () =>
     shallow(
-      <Layout Header={Header} Sidebar={Sidebar} Footer={Footer}>
+      <Layout header={header} sidebar={sidebar} footer={footer}>
         Content
       </Layout>
     );

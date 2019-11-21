@@ -1,10 +1,12 @@
 @import 'colours';
 @import 'spacings';
 
+$rows-spacing: units(0.25);
+
 .table {
-  margin: units(4);
   border-collapse: separate;
-  border-spacing: 0 units(0.25);
+  border-spacing: 0 $rows-spacing;
+  width: 100%;
 
   .tableHeader {
     text-align: left;
@@ -22,10 +24,11 @@
   }
 
   .arrow {
-    width: units(1.5);
-    height: 100%;
+    display: inline-flex;
     position: absolute;
     top: 0;
+    bottom: 0;
+    align-items: center;
   }
 
   .expanderHeader {
@@ -36,6 +39,10 @@
 
   .tableRow {
     background-color: $white;
+  }
+
+  .expandedRow {
+    box-shadow: 0px -#{$rows-spacing} 0px 0px $white;
   }
 
   .selected {

@@ -20,10 +20,12 @@ const Expandable: React.SFC<Props> = ({ label, onClick, children }) => {
   return (
     <>
       <div className={styles.expandable}>
-        <div className={classNames(styles.headerBtn, styles.label)}>
-          <Button variant="text" color="secondary" onClick={handleClick}>
-            {label}
-          </Button>
+        <div
+          className={classNames(styles.headerBtn, styles.label)}
+          role="button"
+          onClick={handleClick}
+        >
+          {label}
         </div>
         {children && (
           <div

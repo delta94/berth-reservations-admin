@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import styles from './external-link.module.scss';
+import styles from './externalLink.module.scss';
 
 export type WithAnchorProps = {
   variant?: 'default' | 'withArrow';
@@ -16,7 +16,12 @@ const withAnchor = <P extends object>(Component: React.ComponentType<P>) => {
     children,
   }) => {
     return (
-      <a className={classNames(styles.link, styles[variant])} href={href}>
+      <a
+        className={classNames(styles.link, styles[variant])}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {children}
       </a>
     );

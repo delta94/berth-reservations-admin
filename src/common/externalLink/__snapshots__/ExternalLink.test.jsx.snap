@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ExternalLink renders normally 1`] = `"<a class=\\"link default\\">test</a>"`;
+exports[`ExternalLink renders normally 1`] = `"<a class=\\"link default\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">test</a>"`;

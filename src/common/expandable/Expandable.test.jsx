@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import Expandable from './Expandable';
-import Button from '../button/Button';
 
 describe('Expandable', () => {
   const onClick = jest.fn();
@@ -25,8 +24,7 @@ describe('Expandable', () => {
 
   it('calls the supplied onClick when the label button is clicked', () => {
     const labelContainer = getWrapper().find('.label');
-    const button = labelContainer.find(Button);
-    button.simulate('click');
+    labelContainer.simulate('click');
 
     expect(onClick).toHaveBeenCalledTimes(1);
   });

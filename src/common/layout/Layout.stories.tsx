@@ -7,24 +7,24 @@ export default {
   title: 'Layout',
 };
 
-const Header = (
-  <div style={{ backgroundColor: '#D7FDF0', height: '100%' }}>Main Header</div>
+const header = (
+  <div style={{ backgroundColor: '#D7FDF0', height: '100%' }}>Main header</div>
 );
-const Sidebar = (
+const sidebar = (
   <div style={{ backgroundColor: '#B2FFD6', height: '100%' }}>Sidebar</div>
 );
-const Footer = (
+const footer = (
   <div style={{ backgroundColor: '#D7FDF0', height: '50px' }}>Footer</div>
 );
 
 export const defaultLayout = () => (
-  <Layout Header={Header} Sidebar={Sidebar}>
+  <Layout header={header} sidebar={sidebar}>
     content
   </Layout>
 );
 
 export const withFooter = () => (
-  <Layout Header={Header} Sidebar={Sidebar} Footer={Footer}>
+  <Layout header={header} sidebar={sidebar} footer={footer}>
     content
   </Layout>
 );

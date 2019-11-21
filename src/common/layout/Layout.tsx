@@ -3,18 +3,18 @@ import React from 'react';
 import styles from './layout.module.scss';
 
 interface Props {
-  Header: JSX.Element;
-  Sidebar: JSX.Element;
+  header: JSX.Element;
+  sidebar: JSX.Element;
   children: React.ReactNode;
-  Footer?: JSX.Element;
+  footer?: JSX.Element;
 }
 
-const Layout = ({ Header, Sidebar, children, Footer }: Props) => (
+const Layout = ({ header, sidebar, children, footer }: Props) => (
   <main className={styles.layout}>
-    <header className={styles.header}>{Header}</header>
-    <nav className={styles.sidebar}>{Sidebar}</nav>
+    <header className={styles.header}>{header}</header>
+    <nav className={styles.sidebar}>{sidebar}</nav>
     <div className={styles.content}>{children}</div>
-    {Footer && <footer className={styles.footer}>{Footer}</footer>}
+    {footer && <footer className={styles.footer}>{footer}</footer>}
   </main>
 );
 

@@ -9,4 +9,12 @@ export default {
 
 const dummyProps = { label: 'foo', value: 'bar' };
 
-export const plain = () => <LabelValuePair {...dummyProps} />;
+export const labelValuePair = () => <LabelValuePair {...dummyProps} />;
+
+labelValuePair.story = {
+  name: 'Default',
+};
+
+export const branded = () => (
+  <LabelValuePair {...dummyProps} labelColor="brand" />
+);

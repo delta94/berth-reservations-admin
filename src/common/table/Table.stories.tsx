@@ -35,7 +35,9 @@ export const Simple = () => (
   <Table
     data={MockData}
     columns={columns}
-    renderSubComponent={row => row.index}
+    renderSubComponent={row => {
+      return row.index;
+    }}
     renderMainHeader={() => 'Demos'}
     canSelectRows
   />
