@@ -14,20 +14,6 @@ import HarborDetails from './harborDetails/HarborDetails';
 import HarborsPage from './HarborsPage';
 import InternalLink from '../../common/internalLink/InternalLink';
 
-interface Props2 {
-  name?: string;
-  imageFile?: string;
-  streetAddress?: string;
-  zipCode?: React.ReactNode;
-  municipality?: string;
-  wwwUrl?: string;
-  servicemapId?: string;
-}
-
-interface Props {
-  data: Props2;
-}
-
 type ColumnType = Column<HarborData> & { accessor: keyof HarborData };
 
 const HarborsContainer: React.FC = () => {

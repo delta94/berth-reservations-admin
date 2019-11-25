@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+import Page from '../page/Page';
 import HarborsPage from '../harbors/HarborsPageContainer';
 import IndividualHarborPage from '../individualHarbor/IndividualHarborPageContainer';
-import Page from '../page/Page';
 
 const App: React.FC = () => {
   return (
