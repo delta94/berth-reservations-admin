@@ -11,7 +11,6 @@ import { getHarborsData, HarborData } from './utils';
 import { HARBORS } from './__generated__/HARBORS';
 import Icon from '../../common/icon/Icon';
 import HarborDetails from './harborDetails/HarborDetails';
-import Page from '../page/Page';
 import HarborsPage from './HarborsPage';
 import InternalLink from '../../common/internalLink/InternalLink';
 
@@ -111,17 +110,15 @@ const HarborsContainer: React.FC = () => {
   const tableData = getHarborsData(data);
 
   return (
-    <Page>
-      <HarborsPage>
-        <Table
-          data={tableData}
-          columns={columns}
-          renderSubComponent={row => <HarborDetails {...row.original} />}
-          renderMainHeader={() => t('harbors.tableHeaders.mainHeader')}
-          canSelectRows
-        />
-      </HarborsPage>
-    </Page>
+    <HarborsPage>
+      <Table
+        data={tableData}
+        columns={columns}
+        renderSubComponent={row => <HarborDetails {...row.original} />}
+        renderMainHeader={() => t('harbors.tableHeaders.mainHeader')}
+        canSelectRows
+      />
+    </HarborsPage>
   );
 };
 
