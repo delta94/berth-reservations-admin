@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 import styles from './internalNavLink.module.scss';
-import Button from '../../../common/button/Button';
+import Button from '../button/Button';
 
 interface Props {
   to: string;
