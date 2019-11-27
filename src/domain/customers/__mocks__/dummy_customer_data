@@ -1,0 +1,62 @@
+{
+    "data": {
+      "profiles": {
+        "edges": [
+          {
+            "node": {
+              "id": "UHJvZmlsZVR5cGU6YzgwMWM4MGUtOGZiYS00N2I4LWE1YjUtYWE4ZGY5YmVlOTEy",
+              "firstName": "Jussi",
+              "lastName": "Virtanen",
+              "nickname": "virtajussi",
+              "image": "",
+              "email": "jussi@example.com",
+              "phone": "0412345678",
+              "language": "FINNISH",
+              "contactMethod": "EMAIL",
+              "invoicingType": "DIGITAL_INVOICE",
+              "comment": "Paras asiakas ikinä",
+              "sensitiveData": {
+                  "ssn": "181080-2345"
+              }
+            }
+          },
+          {
+            "node": {
+              "id": "UHJvZmlsZVR5cGU6N2EyZTA5ZWQtMTFmNC00Yzk4LWEyNWItZDMwNmVmYTExZGVi",
+              "firstName": "John",
+              "lastName": "Doe",
+              "nickname": "johnnieboi",
+              "image": "",
+              "email": "johnnie@example.com",
+              "phone": "0498765432",
+              "language": "ENGLISH",
+              "contactMethod": "SMS",
+              "invoicingType": "PAPER_INVOICE",
+              "comment": "Great guy.",
+              "sensitiveData": {
+                "ssn": "300169-9987"
+              }
+            }
+          },
+          {
+            "node": {
+              "id": "UHJvZmlsZVR5cGU6OTI2YjMzMjUtMjMxNS00ZjFkLWFiZjItMGZjYjQxZDdkYjdl",
+              "firstName": "Karl",
+              "lastName": "Svensson",
+              "nickname": "kalle",
+              "image": "",
+              "email": "karl.svensson@example.com",
+              "phone": "0561112233",
+              "language": "SWEDISH",
+              "contactMethod": "EMAIL",
+              "invoicingType": "ONLINE_PAYMENT",
+              "comment": "Karl on Ruotsista.",
+              "sensitiveData": {
+                "ssn": "050690-432F"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
