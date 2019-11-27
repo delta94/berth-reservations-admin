@@ -2,17 +2,59 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
+import { BerthMooringType } from "./../../../../__generated__/globalTypes";
+
 // ====================================================
 // GraphQL query operation: INDIVIDUAL_HARBOR
 // ====================================================
 
+export interface INDIVIDUAL_HARBOR___type_enumValues {
+  __typename: "__EnumValue";
+  name: string;
+  description: string | null;
+}
+
+export interface INDIVIDUAL_HARBOR___type {
+  __typename: "__Type";
+  enumValues: INDIVIDUAL_HARBOR___type_enumValues[] | null;
+}
+
+export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_berthType {
+  __typename: "BerthTypeNode";
+  width: number;
+  length: number;
+  mooringType: BerthMooringType;
+}
+
+export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node {
+  __typename: "BerthNode";
+  number: string;
+  berthType: INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_berthType;
+}
+
+export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges {
+  __typename: "BerthNodeEdge";
+  /**
+   * The item at the end of the edge
+   */
+  node: INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node | null;
+}
+
+export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths {
+  __typename: "BerthNodeConnection";
+  /**
+   * Contains the nodes in this connection.
+   */
+  edges: (INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges | null)[];
+}
+
 export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties {
   __typename: "PierProperties";
-  electricity: boolean;
-  wasteCollection: boolean;
-  gate: boolean;
-  water: boolean;
-  lighting: boolean;
+  /**
+   * Identifier of the pier / section
+   */
+  identifier: string;
+  berths: INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths;
 }
 
 export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node {
@@ -62,6 +104,7 @@ export interface INDIVIDUAL_HARBOR_harbor {
 }
 
 export interface INDIVIDUAL_HARBOR {
+  __type: INDIVIDUAL_HARBOR___type | null;
   /**
    * The ID of the object
    */
