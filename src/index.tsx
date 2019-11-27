@@ -6,7 +6,7 @@ import * as Sentry from '@sentry/browser';
 
 import App from './domain/app/App';
 import * as serviceWorker from './serviceWorker';
-import './locales/i18n';
+import i18n from './locales/i18n';
 
 import './assets/styles/main.scss';
 
@@ -17,6 +17,12 @@ const {
 } = process.env;
 
 const client = new ApolloClient({
+  request: async operation => {
+    const headers = {
+      'Accept-Language': i18n.language,
+    };
+    operation.setContext({ headers });
+  },
   uri: REACT_APP_API_URI,
 });
 
