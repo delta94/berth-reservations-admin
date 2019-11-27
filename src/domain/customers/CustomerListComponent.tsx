@@ -37,31 +37,31 @@ const HarborsListComponent = ({ data }: Props) => {
 
   const columns = [
     {
-      Header: t('harbors.tableHeaders.queue'),
+      Header: t('customers.tableHeaders.queue'),
       accessor: 'queue',
     },
     {
-      Header: t('harbors.tableHeaders.name'),
+      Header: t('customers.tableHeaders.name'),
       accessor: 'name',
     },
     {
-      Header: t('harbors.tableHeaders.startDate'),
+      Header: t('customers.tableHeaders.startDate'),
       accessor: 'startDate',
     },
     {
-      Header: t('harbors.tableHeaders.group'),
+      Header: t('customers.tableHeaders.group'),
       accessor: 'group',
     },
     {
-      Header: t('harbors.tableHeaders.thing'),
+      Header: t('customers.tableHeaders.thing'),
       accessor: 'thing',
     },
     {
-      Header: t('harbors.tableHeaders.invoice'),
+      Header: t('customers.tableHeaders.invoice'),
       accessor: 'invoice',
     },
     {
-      Header: t('harbors.tableHeaders.goToDetails'),
+      Header: t('customers.tableHeaders.goToDetails'),
       accessor: 'goToDetails',
     },
   ];

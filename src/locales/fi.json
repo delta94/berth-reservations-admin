@@ -2,6 +2,10 @@
   "common": {
     "table": {
       "minimizeAll": "Pienennä kaikki"
+    },
+    "sidebar": {
+      "harbors": "Venepaikat",
+      "customers": "Asiakkaat"
     }
   },
   "home": {
@@ -12,6 +16,28 @@
       "mainHeader": "Satamat",
       "harbor": "Satama",
       "places": "Paikkoja"
+    },
+    "details": {
+      "address": "OSOITE",
+      "serviceMap": "Palvelukartta",
+      "portMap": "Satamakartta (PDF)",
+      "maximumWidth": "Max leveys",
+      "mooring": "Kiinnitys",
+      "chief": "Päällikkö",
+      "maintenanceTeam": "Huoltotiimi",
+      "recentActivities": "Viimeaikainen toiminta"
+    }
+  },
+  "customers": {
+    "tableHeaders": {
+      "mainHeader": "Asiakkaat",
+      "queue": "Jono",
+      "name": "Nimi",
+      "startDate": "Alkaen",
+      "group": "Ryhmä",
+      "thing": "Juttu",
+      "invoice": "Laskuja",
+      "goToDetails": "Avaa"
     },
     "details": {
       "address": "OSOITE",

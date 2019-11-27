@@ -1,16 +1,19 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import Layout from '../../common/layout/Layout';
 import Sidebar from '../../common/sidebar/Sidebar';
 import Expandable from '../../common/expandable/Expandable';
-import InternalNavLink from '../../common/internalNavLink/InternalNavLink';
-import Icon from '../../common/icon/Icon';
+import InternalLink from '../../common/internalLink/InternalLink';
 import Text from '../../common/text/Text';
 import Header from '../../common/header/Header';
+import Button from '../../common/button/Button';
+import Icon from '../../common/icon/Icon';
 
 const Page: React.SFC = ({ children }) => {
   const history = useHistory();
+  const { t } = useTranslation();
 
   return (
     <Layout
@@ -22,12 +25,28 @@ const Page: React.SFC = ({ children }) => {
               key="harbors"
               onClick={() => history.push('/harbors')}
               label={
-                <InternalNavLink
-                  to="harbors"
-                  icon={<Icon name="fence" color="standard" />}
-                >
-                  <Text bold>Venepaikat</Text>
-                </InternalNavLink>
+                <InternalLink to="harbors">
+                  <Button
+                    variant="text"
+                    icon={<Icon name="fence" color="standard" />}
+                  >
+                    <Text bold>{t('common.sidebar.harbors')}</Text>
+                  </Button>
+                </InternalLink>
+              }
+            ></Expandable>,
+            <Expandable
+              key="customers"
+              onClick={() => history.push('/customers')}
+              label={
+                <InternalLink to="customers">
+                  <Button
+                    variant="text"
+                    icon={<Icon name="individual" color="standard" />}
+                  >
+                    <Text bold>{t('common.sidebar.customers')}</Text>
+                  </Button>
+                </InternalLink>
               }
             ></Expandable>,
           ]}
