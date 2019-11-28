@@ -8,7 +8,7 @@ import { Column } from 'react-table';
 import Table from '../../common/table/Table';
 import { INDIVIDUAL_HARBOR_QUERY } from './individualHarborQuery';
 import { INDIVIDUAL_HARBOR } from './__generated__/INDIVIDUAL_HARBOR';
-import { getIndividualHarborData, getBerths, Berth } from './utils';
+import { getIndividualHarborData, getBerths, Berth } from './utils/utils';
 import IndividualHarborPage from './individualHarborPage/IndividualHarborPage';
 
 const IndividualHarborPageContainer: React.SFC = () => {
