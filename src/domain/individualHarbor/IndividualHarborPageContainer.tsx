@@ -31,23 +31,23 @@ const IndividualHarborPageContainer: React.SFC = () => {
 
   const columns: ColumnType[] = [
     {
-      Header: () => 'Paikka',
+      Header: t('individualHarbor.tableHeaders.number'),
       accessor: 'number',
     },
     {
-      Header: () => 'Laituri',
+      Header: t('individualHarbor.tableHeaders.identifier'),
       accessor: 'identifier',
     },
     {
-      Header: () => 'Pituus',
+      Header: t('individualHarbor.tableHeaders.length'),
       accessor: 'length',
     },
     {
-      Header: () => 'Leveys',
+      Header: t('individualHarbor.tableHeaders.width'),
       accessor: 'width',
     },
     {
-      Header: () => 'Kiinnitys',
+      Header: t('individualHarbor.tableHeaders.mooring'),
       accessor: 'mooring',
     },
   ];
