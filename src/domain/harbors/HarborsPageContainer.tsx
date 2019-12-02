@@ -1,12 +1,9 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-// For some reason eslint import plugin is unable to detect the following type
-// eslint-disable-next-line
-import { Column } from 'react-table';
 
 import { HARBORS_QUERY } from './harborsQuery';
-import Table from '../../common/table/Table';
+import Table, { Column } from '../../common/table/Table';
 import { getHarborsData, HarborData } from './utils';
 import { HARBORS } from './__generated__/HARBORS';
 import Icon from '../../common/icon/Icon';

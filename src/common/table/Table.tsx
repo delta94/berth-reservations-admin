@@ -12,13 +12,15 @@ import {
   HeaderProps,
   Row,
   HeaderGroup,
-  Column,
+  Column as ColumnType,
   /* eslint-enable */
 } from 'react-table';
 
 import Icon from '../../common/icon/Icon';
 import Checkbox from '../checkbox/Checkbox';
 import styles from './table.module.scss';
+
+export type Column<D extends object> = ColumnType<D>;
 
 type Props<D extends object> = {
   data: D[];

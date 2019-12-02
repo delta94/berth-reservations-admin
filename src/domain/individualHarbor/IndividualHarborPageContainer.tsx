@@ -2,10 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-// eslint-disable-next-line
-import { Column } from 'react-table';
 
-import Table from '../../common/table/Table';
+import Table, { Column } from '../../common/table/Table';
 import { INDIVIDUAL_HARBOR_QUERY } from './individualHarborQuery';
 import { INDIVIDUAL_HARBOR } from './__generated__/INDIVIDUAL_HARBOR';
 import { getIndividualHarborData, getBerths, Berth } from './utils/utils';

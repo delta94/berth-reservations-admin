@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 
-import Table from './Table';
+import Table, { Column } from './Table';
 
 export default {
   component: Table,
@@ -16,7 +15,9 @@ const MockData = [
   { a: 'foobar', b: 'foobar', c: 'foobar' },
 ];
 
-const columns: any[] = [
+type DataType = { a: string; b: string; c: string };
+
+const columns: Column<DataType>[] = [
   {
     Header: 'name',
     accessor: 'a',
