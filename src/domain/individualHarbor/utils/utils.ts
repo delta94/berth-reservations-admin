@@ -1,4 +1,3 @@
-import { covertToString, convertCmToM } from '../../../common/utils/utils';
 import {
   INDIVIDUAL_HARBOR,
   INDIVIDUAL_HARBOR_harbor_properties as HarborProperties,
@@ -47,10 +46,10 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined) => {
           ...prev,
           {
             identifier,
-            length: `${convertCmToM(berthEdge.node.berthType.length)} m`,
-            mooring: covertToString(mooring && mooring.description),
+            length: `${berthEdge.node.berthType.length / 100} m`,
+            mooring: mooring && mooring.description ? mooring.description : '',
             number: berthEdge.node.number,
-            width: `${convertCmToM(berthEdge.node.berthType.width)} m`,
+            width: `${berthEdge.node.berthType.width / 100} m`,
           },
         ];
       },
