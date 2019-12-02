@@ -17,12 +17,6 @@ const {
 } = process.env;
 
 const client = new ApolloClient({
-  request: async operation => {
-    const headers = {
-      'Accept-Language': i18n.language,
-    };
-    operation.setContext({ headers });
-  },
   uri: REACT_APP_API_URI,
 });
 
