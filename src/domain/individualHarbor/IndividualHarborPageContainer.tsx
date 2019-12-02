@@ -1,10 +1,12 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
+import { useTranslation } from 'react-i18next';
 
+import Table, { Column } from '../../common/table/Table';
 import { INDIVIDUAL_HARBOR_QUERY } from './individualHarborQuery';
 import { INDIVIDUAL_HARBOR } from './__generated__/INDIVIDUAL_HARBOR';
-import { getIndividualHarborData } from './utils';
+import { getIndividualHarborData, getBerths, Berth } from './utils/utils';
 import IndividualHarborPage from './individualHarborPage/IndividualHarborPage';
 
 const IndividualHarborPageContainer: React.SFC = () => {
@@ -13,6 +15,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
     INDIVIDUAL_HARBOR_QUERY,
     { variables: { id } }
   );
+  const { t } = useTranslation();
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
@@ -20,7 +23,44 @@ const IndividualHarborPageContainer: React.SFC = () => {
   const harbor = getIndividualHarborData(data);
   if (!harbor) return <p>No data...</p>;
 
-  return <IndividualHarborPage>{harbor.name}</IndividualHarborPage>;
+  type ColumnType = Column<Berth> & {
+    accessor: keyof Berth;
+  };
+
+  const columns: ColumnType[] = [
+    {
+      Header: t('individualHarbor.tableHeaders.number'),
+      accessor: 'number',
+    },
+    {
+      Header: t('individualHarbor.tableHeaders.identifier'),
+      accessor: 'identifier',
+    },
+    {
+      Header: t('individualHarbor.tableHeaders.length'),
+      accessor: 'length',
+    },
+    {
+      Header: t('individualHarbor.tableHeaders.width'),
+      accessor: 'width',
+    },
+    {
+      Header: t('individualHarbor.tableHeaders.mooring'),
+      accessor: 'mooring',
+    },
+  ];
+  const berths = getBerths(data);
+
+  return (
+    <IndividualHarborPage>
+      <Table
+        data={berths}
+        columns={columns}
+        renderMainHeader={() => t('harbors.tableHeaders.mainHeader')}
+        canSelectRows
+      />
+    </IndividualHarborPage>
+  );
 };
 
 export default IndividualHarborPageContainer;

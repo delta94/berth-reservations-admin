@@ -28,6 +28,15 @@
       "recentActivities": "Viimeaikainen toiminta"
     }
   },
+  "individualHarbor": {
+    "tableHeaders": {
+      "number": "Paikka",
+      "identifier": "Laituri",
+      "length": "Pituus",
+      "width": "Leveys",
+      "mooring": "Kiinnitys"
+    }
+  },
   "customers": {
     "tableHeaders": {
       "mainHeader": "Asiakkaat",
