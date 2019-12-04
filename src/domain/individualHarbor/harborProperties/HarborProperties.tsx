@@ -6,6 +6,7 @@ import Text from '../../../common/text/Text';
 import Grid from '../../../common/grid/Grid';
 import Icon from '../../../common/icon/Icon';
 import ExternalLink from '../../../common/externalLink/ExternalLink';
+import Property from '../property/Property';
 
 interface Props {
   imageUrl: string;
@@ -19,6 +20,7 @@ interface Props {
     numberOfPlaces: number;
     water: boolean;
     wasteCollection: boolean;
+    lighting: boolean;
   };
 }
 
@@ -41,74 +43,38 @@ const HarborProperties: React.SFC<Props> = ({
         </div>
         <div>
           <Grid colsCount={4}>
-            <div className={styles.badge}>
-              <Text as="h3" size="xxxl">
-                {properties.numberOfPlaces}
-              </Text>
-              <Text as="strong" size="s">
-                Paikkoja
-              </Text>
-            </div>
-            <div className={styles.badge}>
-              <Icon name="globe" size="large" />
-              <Text as="strong" size="s">
-                Jonkin verran jonoa
-              </Text>
-            </div>
-            <div className={styles.badge}>
-              <Icon
-                name="plug"
-                size="large"
-                color={properties.electricity ? 'standard' : 'secondary'}
-              />
-              <Text as="strong" size="s">
-                Sähkö
-              </Text>
-            </div>
-            <div className={styles.badge}>
-              <Icon
-                name="waterTap"
-                size="large"
-                color={properties.water ? 'standard' : 'secondary'}
-              />
-              <Text as="strong" size="s">
-                Vesi
-              </Text>
-            </div>
-            <div className={styles.badge}>
-              <Text as="h3" size="xxxl">
-                {properties.maximumWidth}
-              </Text>
-              <Text as="strong" size="s">
-                Max. leveys
-              </Text>
-            </div>
-            <div className={styles.badge}>
-              <Icon
-                name="trash"
-                size="large"
-                color={properties.wasteCollection ? 'standard' : 'secondary'}
-              />
-              <Text as="strong" size="s">
-                Jätehuolto
-              </Text>
-            </div>
-            <div className={styles.badge}>
-              <Icon
-                name="fence"
-                size="large"
-                color={properties.gate ? 'standard' : 'secondary'}
-              />
-              <Text as="strong" size="s">
-                Portti
-              </Text>
-            </div>
-            <div className={styles.badge}>
-              <Icon name="streetLight" size="large" />
-              <Text as="strong" size="s">
-                Valaistus
-              </Text>
-            </div>
+            <Property
+              counter={properties.numberOfPlaces}
+              label="Paikkoja"
+              active={!!properties.numberOfPlaces}
+            />
+            <Property iconName="globe" label="Jonkin verran jonoa" />
+            <Property
+              iconName="plug"
+              label="Sähkö"
+              active={properties.electricity}
+            />
+            <Property
+              iconName="waterTap"
+              label="water"
+              active={properties.water}
+            />
+            <Property counter={properties.maximumWidth} label="Max. leveys" />
+            <Property
+              iconName="trash"
+              label="Jätehuolto"
+              active={properties.wasteCollection}
+            />
+            <Property
+              iconName="fence"
+              label="Portti"
+              active={properties.gate}
+            />
+            <Property
+              iconName="streetLight"
+              label="Valaistus"
+              active={properties.lighting}
+            />
           </Grid>
         </div>
       </Grid>

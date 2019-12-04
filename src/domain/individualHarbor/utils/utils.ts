@@ -6,6 +6,7 @@ import {
 interface PierProps {
   electricity: boolean;
   gate: boolean;
+  lighting: boolean;
   water: boolean;
   wasteCollection: boolean;
 }
@@ -26,6 +27,7 @@ export const getIndividualHarborData = (
           return {
             electricity: prev.electricity || pier.node.properties.electricity,
             gate: prev.gate || pier.node.properties.gate,
+            lighting: prev.lighting || pier.node.properties.lighting,
             wasteCollection:
               prev.wasteCollection || pier.node.properties.wasteCollection,
             water: prev.water || pier.node.properties.water,
@@ -33,7 +35,13 @@ export const getIndividualHarborData = (
         }
         return prev;
       },
-      { electricity: false, gate: false, wasteCollection: false, water: false }
+      {
+        electricity: false,
+        gate: false,
+        lighting: false,
+        wasteCollection: false,
+        water: false,
+      }
     );
     return {
       id: data.harbor.id,

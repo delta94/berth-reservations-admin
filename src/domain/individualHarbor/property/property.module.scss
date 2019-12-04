@@ -1,0 +1,16 @@
+@import 'spacings';
+
+.property {
+  display: flex;
+  flex-direction: column;
+  padding: units(0.5);
+  align-items: center;
+  text-align: center;
+
+  & > *:first-child {
+    height: units(3);
+    line-height: units(3);
+    justify-self: center;
+    margin-bottom: units(0.5);
+  }
+}

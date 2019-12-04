@@ -35,7 +35,7 @@ const HarborsContainer: React.FC = () => {
         <Icon
           name="plug"
           outlined
-          color={!!cell.value ? 'secondary' : 'standard'}
+          color={!cell.value ? 'secondary' : 'standard'}
         />
       ),
       Header: () => <Icon name="plug" outlined />,
@@ -46,7 +46,7 @@ const HarborsContainer: React.FC = () => {
         <Icon
           name="fence"
           outlined
-          color={!!cell.value ? 'secondary' : 'standard'}
+          color={!cell.value ? 'secondary' : 'standard'}
         />
       ),
       Header: () => <Icon name="fence" outlined />,
@@ -57,7 +57,7 @@ const HarborsContainer: React.FC = () => {
         <Icon
           name="streetLight"
           outlined
-          color={!!cell.value ? 'secondary' : 'standard'}
+          color={!cell.value ? 'secondary' : 'standard'}
         />
       ),
       Header: () => <Icon name="streetLight" outlined />,
@@ -68,7 +68,7 @@ const HarborsContainer: React.FC = () => {
         <Icon
           name="waterTap"
           outlined
-          color={!!cell.value ? 'secondary' : 'standard'}
+          color={!cell.value ? 'secondary' : 'standard'}
         />
       ),
       Header: () => <Icon name="waterTap" outlined />,
@@ -79,7 +79,7 @@ const HarborsContainer: React.FC = () => {
         <Icon
           name="trash"
           outlined
-          color={!!cell.value ? 'secondary' : 'standard'}
+          color={!cell.value ? 'secondary' : 'standard'}
         />
       ),
       Header: () => <Icon name="trash" outlined />,

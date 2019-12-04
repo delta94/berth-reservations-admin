@@ -4,19 +4,3 @@
   max-width: units(24);
   margin-right: units(0.5);
 }
-
-.badge {
-  display: flex;
-  flex-direction: column;
-  padding: units(0.5);
-  align-items: center;
-  text-align: center;
-  margin-bottom: units(0.5);
-
-  & > *:first-child {
-    height: units(3);
-    line-height: units(3);
-    justify-self: center;
-    margin-bottom: units(0.5);
-  }
-}
