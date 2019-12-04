@@ -19,11 +19,17 @@ export const INDIVIDUAL_HARBOR_QUERY = gql`
         wwwUrl
         imageFile
         servicemapId
+        maximumWidth
         piers {
           edges {
             node {
               properties {
                 identifier
+                electricity
+                wasteCollection
+                water
+                lighting
+                gate
                 berths {
                   edges {
                     node {

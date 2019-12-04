@@ -54,6 +54,11 @@ export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties
    * Identifier of the pier / section
    */
   identifier: string;
+  electricity: boolean;
+  wasteCollection: boolean;
+  water: boolean;
+  lighting: boolean;
+  gate: boolean;
   berths: INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths;
 }
 
@@ -91,6 +96,7 @@ export interface INDIVIDUAL_HARBOR_harbor_properties {
    * ID in the Servicemap system
    */
   servicemapId: string | null;
+  maximumWidth: number | null;
   piers: INDIVIDUAL_HARBOR_harbor_properties_piers;
 }
 

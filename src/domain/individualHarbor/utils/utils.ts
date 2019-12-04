@@ -3,16 +3,43 @@ import {
   INDIVIDUAL_HARBOR_harbor_properties as HarborProperties,
 } from '../__generated__/INDIVIDUAL_HARBOR';
 
+interface PierProps {
+  electricity: boolean;
+  gate: boolean;
+  water: boolean;
+  wasteCollection: boolean;
+}
+
 export type IndividualHarborData = {
   id: string;
   name: string | null;
-} & HarborProperties;
+} & HarborProperties &
+  PierProps;
 
 export const getIndividualHarborData = (
   data: INDIVIDUAL_HARBOR | undefined
 ): IndividualHarborData | null => {
   if (data && data.harbor && data.harbor.properties) {
-    return { id: data.harbor.id, ...data.harbor.properties };
+    const pierProps = data.harbor.properties.piers.edges.reduce(
+      (prev, pier) => {
+        if (pier && pier.node && pier.node.properties) {
+          return {
+            electricity: prev.electricity || pier.node.properties.electricity,
+            gate: prev.gate || pier.node.properties.gate,
+            wasteCollection:
+              prev.wasteCollection || pier.node.properties.wasteCollection,
+            water: prev.water || pier.node.properties.water,
+          };
+        }
+        return prev;
+      },
+      { electricity: false, gate: false, wasteCollection: false, water: false }
+    );
+    return {
+      id: data.harbor.id,
+      ...data.harbor.properties,
+      ...pierProps,
+    };
   }
   return null;
 };
