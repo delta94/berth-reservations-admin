@@ -8,6 +8,7 @@ import { INDIVIDUAL_HARBOR_QUERY } from './individualHarborQuery';
 import { INDIVIDUAL_HARBOR } from './__generated__/INDIVIDUAL_HARBOR';
 import { getIndividualHarborData, getBerths, Berth } from './utils/utils';
 import IndividualHarborPage from './individualHarborPage/IndividualHarborPage';
+import HarborProperties from './harborProperties/HarborProperties';
 
 const IndividualHarborPageContainer: React.SFC = () => {
   const { id } = useParams<{ id: string }>();
@@ -53,6 +54,20 @@ const IndividualHarborPageContainer: React.SFC = () => {
 
   return (
     <IndividualHarborPage>
+      <HarborProperties
+        name={harbor.name || ''}
+        url={harbor.wwwUrl}
+        imageUrl={harbor.imageFile || ''}
+        address={`${harbor.streetAddress} ${harbor.zipCode} ${harbor.municipality}`}
+        properties={{
+          electricity: harbor.electricity,
+          gate: harbor.gate,
+          maximumWidth: harbor.maximumWidth || 0,
+          numberOfPlaces: harbor.numberOfPlaces || 0,
+          wasteCollection: harbor.wasteCollection,
+          water: harbor.water,
+        }}
+      />
       <Table
         data={berths}
         columns={columns}
