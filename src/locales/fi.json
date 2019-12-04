@@ -29,6 +29,17 @@
     }
   },
   "individualHarbor": {
+    "harborProperties": {
+      "title": "SATAMA",
+      "numberOfPlaces": "Paikkoja",
+      "electricity": "Sähkö",
+      "water": "Vesi",
+      "wasteCollection": "Jätehuolto",
+      "gate": "Portti",
+      "lighting": "Valaistus",
+      "maximumWidth": "Max leveys",
+      "queue": "Jonkin verran jonoa"
+    },
     "tableHeaders": {
       "number": "Paikka",
       "identifier": "Laituri",
