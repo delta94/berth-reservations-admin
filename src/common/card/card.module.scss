@@ -1,26 +1,30 @@
 @import 'spacings';
 @import 'colours';
 
+$padding: units(1);
+
 .container {
   display: flex;
   flex-direction: column;
   width: auto;
-  margin: units(0.5) units(1);
 
   background-color: $gray-100;
-
-  header {
-    width: auto;
-    background-color: $blue-500;
-    padding: units(0.5) units(1);
-    margin: 0;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-  section {
-    padding: units(0.5) units(1);
-  }
 }
+
+.header {
+  width: auto;
+  background-color: $blue-500;
+  padding: $padding;
+  margin-bottom: units(0.5);
+  font-weight: bold;
+  color: white;
+}
+
+.body {
+  padding: $padding;
+  background-color: $white;
+}
+
 .standard {
   background-color: inherit;
 }
@@ -36,21 +40,3 @@
 .secondary {
   background-color: $gray-200;
 }
-/*
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
-}
-
-*/
