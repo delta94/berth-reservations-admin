@@ -5,14 +5,12 @@ import styles from './harborProperties.module.scss';
 import Card from '../../../common/card/Card';
 import Text from '../../../common/text/Text';
 import Grid from '../../../common/grid/Grid';
-import ExternalLink from '../../../common/externalLink/ExternalLink';
 import Property from '../property/Property';
 
 interface Props {
   imageUrl: string;
   name: string;
   address: string;
-  url: string;
   properties: {
     electricity: boolean;
     gate: boolean;
@@ -28,7 +26,6 @@ const HarborProperties: React.SFC<Props> = ({
   name,
   address,
   imageUrl,
-  url,
   properties,
 }) => {
   const { t } = useTranslation();
@@ -46,7 +43,7 @@ const HarborProperties: React.SFC<Props> = ({
             <Text as="h2" size="xl">
               {name}
             </Text>
-            <ExternalLink to={url}>{address}</ExternalLink>
+            <Text>{address}</Text>
           </div>
         </div>
         <div className={styles.properties}>

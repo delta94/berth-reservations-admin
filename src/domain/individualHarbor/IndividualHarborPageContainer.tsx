@@ -56,7 +56,6 @@ const IndividualHarborPageContainer: React.SFC = () => {
     <IndividualHarborPage>
       <HarborProperties
         name={harbor.name || ''}
-        url={harbor.wwwUrl}
         imageUrl={harbor.imageFile || ''}
         address={`${harbor.streetAddress} ${harbor.zipCode} ${harbor.municipality}`}
         properties={{
