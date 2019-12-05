@@ -1,0 +1,35 @@
+@import 'spacings';
+
+.harborProperties {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.details {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 60%;
+}
+
+.desc {
+  display: flex;
+  flex-direction: column;
+
+  & > * {
+    margin-bottom: units(0.5);
+  }
+}
+
+.properties {
+  flex-shrink: 2;
+  width: 40%;
+}
+
+.image {
+  max-height: units(16);
+  margin-right: units(1.5);
+  max-width: 50%;
+  object-fit: cover;
+}

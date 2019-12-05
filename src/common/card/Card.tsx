@@ -11,8 +11,8 @@ interface Props {
 
 const Card = ({ title, children, className }: Props) => (
   <div className={classNames(styles.container, className)}>
-    {title && <header>{title}</header>}
-    <section>{children}</section>
+    {title && <header className={styles.header}>{title}</header>}
+    <section className={styles.body}>{children}</section>
   </div>
 );
 
