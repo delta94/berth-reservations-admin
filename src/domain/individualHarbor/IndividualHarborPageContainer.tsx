@@ -57,6 +57,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
       <HarborProperties
         name={harbor.name || ''}
         imageUrl={harbor.imageFile || ''}
+        servicemapId={harbor.servicemapId || ''}
         address={`${harbor.streetAddress} ${harbor.zipCode} ${harbor.municipality}`}
         properties={{
           electricity: harbor.electricity,
@@ -71,7 +72,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
       <Table
         data={berths}
         columns={columns}
-        renderMainHeader={() => t('harbors.tableHeaders.mainHeader')}
+        renderMainHeader={() => t('individualHarbor.tableHeaders.mainHeader')}
         canSelectRows
       />
     </IndividualHarborPage>

@@ -29,6 +29,12 @@
     }
   },
   "individualHarbor": {
+    "tableHeaders": {
+      "mainHeader": "Venepaikat",
+      "harbor": "Satama",
+      "places": "Paikkoja"
+    },
+
     "harborProperties": {
       "title": "SATAMA",
       "numberOfPlaces": "Paikkoja",
@@ -41,6 +47,7 @@
       "queue": "Jonkin verran jonoa"
     },
     "tableHeaders": {
+      "mainHeader": "Venepaikat",
       "number": "Paikka",
       "identifier": "Laituri",
       "length": "Pituus",

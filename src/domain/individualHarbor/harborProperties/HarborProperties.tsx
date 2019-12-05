@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import ExternalLink from '../../../common/externalLink/ExternalLink';
 import styles from './harborProperties.module.scss';
 import Card from '../../../common/card/Card';
 import Text from '../../../common/text/Text';
@@ -11,6 +12,7 @@ interface Props {
   imageUrl: string;
   name: string;
   address: string;
+  servicemapId: string;
   properties: {
     electricity: boolean;
     gate: boolean;
@@ -26,9 +28,12 @@ const HarborProperties: React.SFC<Props> = ({
   name,
   address,
   imageUrl,
+  servicemapId,
   properties,
 }) => {
   const { t } = useTranslation();
+
+  const serviceMapUrl = `${process.env.REACT_APP_SERVICE_MAP_URI}${servicemapId}`;
 
   return (
     <Card title={t('individualHarbor.harborProperties.title')}>
@@ -39,11 +44,14 @@ const HarborProperties: React.SFC<Props> = ({
             src={imageUrl}
             className={styles.image}
           />
-          <div>
+          <div className={styles.desc}>
             <Text as="h2" size="xl">
               {name}
             </Text>
             <Text>{address}</Text>
+            <ExternalLink href={serviceMapUrl} variant="withArrow">
+              {t('harbors.details.serviceMap')}
+            </ExternalLink>
           </div>
         </div>
         <div className={styles.properties}>
