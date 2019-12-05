@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 import { ReactComponent as HelsinkiLogoSVG } from '../../assets/icons/helsinki-logo.svg';
@@ -15,11 +14,9 @@ const HelsinkiLogo: React.SFC<Props> = ({
   color = 'standard',
 }) => {
   return (
-    <Link to="/">
-      <HelsinkiLogoSVG
-        className={classNames(styles.helsinkiLogo, styles[size], styles[color])}
-      />
-    </Link>
+    <HelsinkiLogoSVG
+      className={classNames(styles.helsinkiLogo, styles[size], styles[color])}
+    />
   );
 };
 

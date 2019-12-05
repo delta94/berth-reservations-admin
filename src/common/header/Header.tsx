@@ -1,14 +1,13 @@
 import React from 'react';
 
-import HelsinkiLogo from '../helsinkiLogo/HelsinkiLogo';
 import styles from './header.module.scss';
 
-const Header: React.SFC = () => {
-  return (
-    <header className={styles.header}>
-      <HelsinkiLogo color="white" />
-    </header>
-  );
-};
+interface Props {
+  children: React.ReactNode;
+}
+
+const Header = ({ children }: Props) => (
+  <header className={styles.header}>{children}</header>
+);
 
 export default Header;

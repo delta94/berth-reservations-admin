@@ -15,6 +15,7 @@ import { ReactComponent as dollyEmpty } from '../../assets/icons/dolly-empty.svg
 import { ReactComponent as exclamationCircle } from '../../assets/icons/exclamation-circle.svg';
 import { ReactComponent as fence } from '../../assets/icons/fence.svg';
 import { ReactComponent as globe } from '../../assets/icons/globe.svg';
+import { ReactComponent as helsinkiLogo } from '../../assets/icons/helsinki-logo.svg';
 import { ReactComponent as individual } from '../../assets/icons/individual.svg';
 import { ReactComponent as noBoat } from '../../assets/icons/noboat.svg';
 import { ReactComponent as pencil } from '../../assets/icons/pencil.svg';
@@ -45,6 +46,7 @@ const icons = {
   exclamationCircle,
   fence,
   globe,
+  helsinkiLogo,
   individual,
   noBoat,
   pencil,
@@ -61,7 +63,6 @@ const icons = {
 };
 
 export type IconNames = keyof typeof icons;
-
 export interface IconProps {
   outlined?: boolean;
   name: IconNames;
