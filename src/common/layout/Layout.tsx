@@ -1,18 +1,19 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import styles from './layout.module.scss';
 
 interface Props {
   header: JSX.Element;
-  sidebar: JSX.Element;
+  sidebar?: JSX.Element;
   children: React.ReactNode;
   footer?: JSX.Element;
 }
 
 const Layout = ({ header, sidebar, children, footer }: Props) => (
-  <main className={styles.layout}>
+  <main className={classNames(styles.layout, { [styles.noSidebar]: !sidebar })}>
     <header className={styles.header}>{header}</header>
-    <nav className={styles.sidebar}>{sidebar}</nav>
+    {sidebar && <nav className={styles.sidebar}>{sidebar}</nav>}
     <div className={styles.content}>{children}</div>
     {footer && <footer className={styles.footer}>{footer}</footer>}
   </main>
