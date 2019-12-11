@@ -4,5 +4,10 @@
     "javascriptreact",
     { "language": "typescript", "autoFix": true },
     { "language": "typescriptreact", "autoFix": true }
-  ]
+  ],
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#301282",
+    "titleBar.activeBackground": "#431AB6",
+    "titleBar.activeForeground": "#FAF9FE"
+  }
 }
