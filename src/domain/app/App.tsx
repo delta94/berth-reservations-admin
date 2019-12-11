@@ -5,18 +5,21 @@ import Page from '../page/Page';
 import HarborsPage from '../harbors/HarborsPageContainer';
 import IndividualHarborPage from '../individualHarbor/IndividualHarborPageContainer';
 import CustomersPage from '../customers/CustomerPageContainer';
+import LoginPage from '../login/LoginPage';
+import PrivateRoute from '../privateRoute/PrivateRoute';
 
 const App: React.FC = () => {
   return (
     <Router>
-      <Page>
-        <Switch>
-          <Route exact path="/" component={HarborsPage} />
-          <Route path="/harbors/:id" component={IndividualHarborPage} />
-          <Route path="/harbors" component={HarborsPage} />
-          <Route path="/customers" component={CustomersPage} />
-        </Switch>
-      </Page>
+      <Switch>
+        <Route path="/login" component={LoginPage} />
+        <Page>
+          <PrivateRoute exact path="/" component={HarborsPage} />
+          <PrivateRoute path="/harbors/:id" component={IndividualHarborPage} />
+          <PrivateRoute path="/harbors" component={HarborsPage} />
+          <PrivateRoute path="/customers" component={CustomersPage} />
+        </Page>
+      </Switch>
     </Router>
   );
 };
