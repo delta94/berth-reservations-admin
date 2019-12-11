@@ -8,6 +8,10 @@
       "customers": "Asiakkaat"
     }
   },
+  "login": {
+    "heading": "Helsingin kaupungin venepaikkapalvelut",
+    "loginButton": "Kirjaudu sisään"
+  },
   "home": {
     "title": "Venepaikka admin interface"
   },
