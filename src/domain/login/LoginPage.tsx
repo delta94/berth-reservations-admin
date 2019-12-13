@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import HelsinkiLogo from '../../common/helsinkiLogo/HelsinkiLogo';
@@ -8,12 +8,13 @@ import Text from '../../common/text/Text';
 import styles from './loginPage.module.scss';
 import Header from '../../common/header/Header';
 import Layout from '../../common/layout/Layout';
-import { loginTunnistamo, logoutTunnistamo } from '../auth/authenticate';
+import { loginTunnistamo } from '../auth/authenticate';
 
 const LoginPage: React.SFC<RouteComponentProps> = props => {
   const { t } = useTranslation();
-  const login = () => loginTunnistamo();
-  const logout = () => logoutTunnistamo();
+  const location = useLocation();
+  const { from } = location.state || { from: { pathname: '/' } };
+  const login = () => loginTunnistamo(from);
 
   return (
     <Layout
@@ -30,9 +31,6 @@ const LoginPage: React.SFC<RouteComponentProps> = props => {
         </div>
         <Button size="large" onClick={login}>
           {t('login.loginButton')}
-        </Button>
-        <Button size="large" color="critical" onClick={logout}>
-          {`Kirjaudu ulos`}
         </Button>
       </div>
     </Layout>

@@ -1,4 +1,5 @@
 @import 'spacings';
+@import 'colours';
 
 .loginPage {
   width: 100vw;
@@ -11,6 +12,7 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  background-color: $gray-100;
 }
 
 .contentWrapper {
