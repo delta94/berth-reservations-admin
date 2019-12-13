@@ -10,7 +10,6 @@ import * as serviceWorker from './serviceWorker';
 
 const { REACT_APP_SENTRY_DSN, REACT_APP_SENTRY_ENVIRONMENT } = process.env;
 
-
 Sentry.init({
   dsn: REACT_APP_SENTRY_DSN,
   environment: REACT_APP_SENTRY_ENVIRONMENT,
