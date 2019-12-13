@@ -1,8 +1,14 @@
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
 import { OidcProvider } from 'redux-oidc';
+import { Provider } from 'react-redux';
 
 import OidcCallback from '../auth/OidcCallback';
 import userManager from '../auth/userManager';
@@ -15,7 +21,7 @@ import PrivateRoute from '../privateRoute/PrivateRoute';
 import { store } from './state/AppStore';
 
 const { REACT_APP_API_URI } = process.env;
-const api = REACT_APP_API_URI || 'meh';
+const api = REACT_APP_API_URI || '';
 
 const client = new ApolloClient({
   uri: api,
@@ -23,10 +29,10 @@ const client = new ApolloClient({
 
 const App: React.FC = () => {
   return (
-    <OidcProvider store={store} userManager={userManager}>
-      <ApolloProvider client={client}>
-        <Router>
-          <Switch>
+    <Provider store={store}>
+      <OidcProvider store={store} userManager={userManager}>
+        <ApolloProvider client={client}>
+          <Router>
             <Route path="/login" component={LoginPage} />
             <Route
               exact
@@ -38,18 +44,29 @@ const App: React.FC = () => {
             />
             <Route exact path="/callback" component={OidcCallback} />
             <Page>
-              <PrivateRoute exact path="/" component={HarborsPage} />
-              <PrivateRoute
-                path="/harbors/:id"
-                component={IndividualHarborPage}
-              />
-              <PrivateRoute path="/harbors" component={HarborsPage} />
-              <PrivateRoute path="/customers" component={CustomersPage} />
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/harbors/:id"
+                  component={IndividualHarborPage}
+                />
+                <PrivateRoute exact path="/harbors" component={HarborsPage} />
+                <PrivateRoute
+                  exact
+                  path="/customers"
+                  component={CustomersPage}
+                />
+              </Switch>
             </Page>
-          </Switch>
-        </Router>
-      </ApolloProvider>
-    </OidcProvider >
+            <Route
+              exact
+              path="/"
+              render={() => <Redirect exact from="/" to="/harbors" />}
+            />
+          </Router>
+        </ApolloProvider>
+      </OidcProvider>
+    </Provider>
   );
 };
 
