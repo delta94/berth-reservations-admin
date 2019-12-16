@@ -6,21 +6,7 @@ import Grid from '../../common/grid/Grid';
 import styles from './customerList.module.scss';
 import Paragraph from '../../common/paragraph/Paragraph';
 
-export interface CustomerData {
-  comment?: string;
-  contactMethod?: string;
-  email?: string;
-  firstName?: string;
-  id: string;
-  image?: string;
-  invoicingType?: string;
-  language?: string;
-  lastName?: string;
-  nickname?: string;
-  phone?: string;
-}
-
-const CustomerDetails: React.SFC<CustomerData | any> = ({ data }: any) => {
+const CustomerDetails = () => {
   const { t } = useTranslation();
 
   return (

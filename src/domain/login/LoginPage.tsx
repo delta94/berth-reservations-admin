@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouteComponentProps, useLocation, useHistory } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import HelsinkiLogo from '../../common/helsinkiLogo/HelsinkiLogo';
@@ -8,15 +8,12 @@ import Text from '../../common/text/Text';
 import styles from './loginPage.module.scss';
 import Header from '../../common/header/Header';
 import Layout from '../../common/layout/Layout';
+import { loginTunnistamo, logoutTunnistamo } from '../auth/authenticate';
 
-const LoginPage: React.SFC<RouteComponentProps> = props => {
+const LoginPage: React.SFC<RouteComponentProps & any> = props => {
   const { t } = useTranslation();
-  const history = useHistory();
-  const location = useLocation();
-  const { from } = location.state || { from: { pathname: '/' } };
-
-  const login = () => history.replace(from);
-
+  const login = () => loginTunnistamo();
+  const logout = () => logoutTunnistamo();
   return (
     <Layout
       header={
@@ -30,9 +27,16 @@ const LoginPage: React.SFC<RouteComponentProps> = props => {
         <div className={styles.contentWrapper}>
           <Text as="h3">{t('login.heading')}</Text>
         </div>
-        <Button size="large" onClick={login}>
-          {t('login.loginButton')}
-        </Button>
+        {(!props.isAuthenticated || true) && (
+          <Button size="large" onClick={login}>
+            {t('login.loginButton')}
+          </Button>
+        )}
+        {(props.isAuthenticated || true) && (
+          <Button size="large" color="critical" onClick={logout}>
+            {`Kirjaudu ulos`}
+          </Button>
+        )}
       </div>
     </Layout>
   );

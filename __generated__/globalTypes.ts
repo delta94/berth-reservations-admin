@@ -18,6 +18,18 @@ export enum BerthMooringType {
   TRAWLER_PLACE = "TRAWLER_PLACE",
 }
 
+export enum ContactMethod {
+  EMAIL = "EMAIL",
+  SMS = "SMS",
+}
+
+export enum ServiceType {
+  BERTH = "BERTH",
+  GODCHILDREN_OF_CULTURE = "GODCHILDREN_OF_CULTURE",
+  HKI_MY_DATA = "HKI_MY_DATA",
+  YOUTH_MEMBERSHIP = "YOUTH_MEMBERSHIP",
+}
+
 //==============================================================
 // END Enums and Input Objects
 //==============================================================

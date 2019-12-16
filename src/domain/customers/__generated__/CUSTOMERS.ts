@@ -2,82 +2,63 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
+import { ServiceType, ContactMethod } from "./../../../../__generated__/globalTypes";
+
 // ====================================================
 // GraphQL query operation: CUSTOMERS
 // ====================================================
 
-export interface CUSTOMERS_harbors_edges_node_properties_piers_edges_node_properties {
-  __typename: "PierProperties";
-  electricity: boolean;
-  wasteCollection: boolean;
-  gate: boolean;
-  water: boolean;
-  lighting: boolean;
-}
-
-export interface CUSTOMERS_harbors_edges_node_properties_piers_edges_node {
-  __typename: "PierNode";
-  properties: CUSTOMERS_harbors_edges_node_properties_piers_edges_node_properties | null;
-}
-
-export interface CUSTOMERS_harbors_edges_node_properties_piers_edges {
-  __typename: "PierNodeEdge";
-  /**
-   * The item at the end of the edge
-   */
-  node: CUSTOMERS_harbors_edges_node_properties_piers_edges_node | null;
-}
-
-export interface CUSTOMERS_harbors_edges_node_properties_piers {
-  __typename: "PierNodeConnection";
-  /**
-   * Contains the nodes in this connection.
-   */
-  edges: (CUSTOMERS_harbors_edges_node_properties_piers_edges | null)[];
-}
-
-export interface CUSTOMERS_harbors_edges_node_properties {
-  __typename: "HarborProperties";
+export interface CUSTOMERS_profiles_edges_node_divisionsOfInterest {
+  __typename: "AdministrativeDivisionType";
+  ocdId: string | null;
+  type: string | null;
   name: string | null;
-  numberOfPlaces: number | null;
-  streetAddress: string | null;
-  zipCode: string;
-  municipality: string | null;
-  wwwUrl: string;
-  imageFile: string | null;
-  /**
-   * ID in the Servicemap system
-   */
-  servicemapId: string | null;
-  maximumWidth: number | null;
-  piers: CUSTOMERS_harbors_edges_node_properties_piers;
 }
 
-export interface CUSTOMERS_harbors_edges_node {
-  __typename: "HarborNode";
-  /**
-   * The ID of the object.
-   */
+export interface CUSTOMERS_profiles_edges_node_serviceConnections_edges_node_service {
+  __typename: "ServiceNode";
   id: string;
-  properties: CUSTOMERS_harbors_edges_node_properties | null;
+  type: ServiceType | null;
 }
 
-export interface CUSTOMERS_harbors_edges {
-  __typename: "HarborNodeEdge";
-  /**
-   * The item at the end of the edge
-   */
-  node: CUSTOMERS_harbors_edges_node | null;
+export interface CUSTOMERS_profiles_edges_node_serviceConnections_edges_node {
+  __typename: "ServiceConnectionType";
+  id: string;
+  service: CUSTOMERS_profiles_edges_node_serviceConnections_edges_node_service;
 }
 
-export interface CUSTOMERS_harbors {
-  __typename: "HarborNodeConnection";
-  /**
-   * Contains the nodes in this connection.
-   */
-  edges: (CUSTOMERS_harbors_edges | null)[];
+export interface CUSTOMERS_profiles_edges_node_serviceConnections_edges {
+  __typename: "ServiceConnectionTypeEdge";
+  node: CUSTOMERS_profiles_edges_node_serviceConnections_edges_node | null;
+}
+
+export interface CUSTOMERS_profiles_edges_node_serviceConnections {
+  __typename: "ServiceConnectionTypeConnection";
+  edges: (CUSTOMERS_profiles_edges_node_serviceConnections_edges | null)[];
+}
+
+export interface CUSTOMERS_profiles_edges_node {
+  __typename: "ProfileNode";
+  id: string;
+  firstName: string;
+  lastName: string;
+  nickname: string | null;
+  divisionsOfInterest: (CUSTOMERS_profiles_edges_node_divisionsOfInterest | null)[] | null;
+  serviceConnections: CUSTOMERS_profiles_edges_node_serviceConnections | null;
+  contactMethod: ContactMethod | null;
+  image: string | null;
+}
+
+export interface CUSTOMERS_profiles_edges {
+  __typename: "ProfileNodeEdge";
+  node: CUSTOMERS_profiles_edges_node | null;
+}
+
+export interface CUSTOMERS_profiles {
+  __typename: "ProfileNodeConnection";
+  edges: (CUSTOMERS_profiles_edges | null)[];
 }
 
 export interface CUSTOMERS {
-  harbors: CUSTOMERS_harbors | null;
+  profiles: CUSTOMERS_profiles | null;
 }

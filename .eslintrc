@@ -35,10 +35,5 @@
     "no-plusplus": "error",
     "no-undef": "warn",
     "object-curly-spacing": ["warn", "always"],
-    "sort-keys": [
-      "warn",
-      "asc",
-      { "caseSensitive": true, "natural": true, "minKeys": 2 }
-    ]
   }
 }
