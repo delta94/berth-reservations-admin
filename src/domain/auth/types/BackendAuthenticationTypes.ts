@@ -6,5 +6,5 @@ export type BackendAuthenticationData = {
 };
 
 export type BackendTokenResponse = {
-  ['https://api.hel.fi/auth/kukkuu']: string;
+  ['https://api.hel.fi/auth/berths']: string;
 };

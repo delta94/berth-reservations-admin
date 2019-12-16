@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import { OidcProvider } from 'redux-oidc';
 import { Provider } from 'react-redux';
+import axios, { AxiosResponse } from 'axios';
 
 import OidcCallback from '../auth/OidcCallback';
 import userManager from '../auth/userManager';
@@ -19,12 +20,44 @@ import LoginPage from '../login/LoginPage';
 import Page from '../page/Page';
 import PrivateRoute from '../privateRoute/PrivateRoute';
 import { store } from './state/AppStore';
+import { BackendTokenResponse } from '../auth/types/BackendAuthenticationTypes';
 
-const { REACT_APP_API_URI } = process.env;
-const api = REACT_APP_API_URI || '';
+const {
+  REACT_APP_TUNNISTAMO_URI,
+  REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT,
+} = process.env;
 
 const client = new ApolloClient({
-  uri: api,
+  request: async operation => {
+    try {
+      const accessToken = store.getState().authentication.tunnistamo.user
+        .access_token;
+
+      const res: AxiosResponse<BackendTokenResponse> = await axios.post(
+        `${REACT_APP_TUNNISTAMO_URI}/${REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT}/`,
+        {},
+        {
+          headers: {
+            Authorization: `bearer ${accessToken}`,
+          },
+        }
+      );
+
+      const apiTokens = res.data;
+
+      operation.setContext({
+        headers: {
+          'Api-Tokens': JSON.stringify(apiTokens),
+        },
+      });
+    } catch (e) {
+      // User not authenticated
+      // eslint-disable-next-line no-console
+      console.error(e);
+      // TODO: add error-handler
+    }
+  },
+  uri: process.env.REACT_APP_API_URI,
 });
 
 const App: React.FC = () => {

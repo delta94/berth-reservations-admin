@@ -20,7 +20,7 @@ const LoginPage: React.SFC<RouteComponentProps> = props => {
     <Layout
       header={
         <Header>
-          <HelsinkiLogo size="large" />
+          <HelsinkiLogo size="large" color="white" />
         </Header>
       }
     >

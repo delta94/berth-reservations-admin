@@ -4,6 +4,6 @@ import { combineReducers } from 'redux';
 import backendAuthenticationReducer from './BackendAuthenticationReducer';
 
 export default combineReducers({
-  tunnistamo: oidcReducer,
   backend: backendAuthenticationReducer,
+  tunnistamo: oidcReducer,
 });

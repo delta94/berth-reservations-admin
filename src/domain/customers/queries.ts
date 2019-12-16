@@ -1,35 +1,32 @@
-import gql from 'graphql-tag';
+import { gql } from 'apollo-boost';
 
 export const CUSTOMER_QUERY = gql`
   query CUSTOMERS {
-    harbors {
+    profiles(serviceType: BERTH) {
       edges {
         node {
           id
-          properties {
+          firstName
+          lastName
+          nickname
+          divisionsOfInterest {
+            ocdId
+            type
             name
-            numberOfPlaces
-            streetAddress
-            zipCode
-            municipality
-            wwwUrl
-            imageFile
-            servicemapId
-            maximumWidth
-            piers {
-              edges {
-                node {
-                  properties {
-                    electricity
-                    wasteCollection
-                    gate
-                    water
-                    lighting
-                  }
+          }
+          serviceConnections {
+            edges {
+              node {
+                id
+                service {
+                  id
+                  type
                 }
               }
             }
           }
+          contactMethod
+          image
         }
       }
     }

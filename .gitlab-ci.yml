@@ -10,7 +10,14 @@ build-review:
   extends: .build
   variables:
     DOCKER_IMAGE_NAME: "$CI_PROJECT_NAME-review"
-    DOCKER_BUILD_ARG_REACT_APP_API_URI: "https://venepaikka-api.test.hel.ninja/graphql_v2/"
+    DOCKER_BUILD_ARG_REACT_APP_SERVICE_MAP_URI: "https://palvelukartta.hel.fi/unit/"
+    DOCKER_BUILD_ARG_REACT_APP_API_URI: https://venepaikka-federation.test.kuva.hel.ninja/
+    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_URI: https://tunnistamo.test.kuva.hel.ninja
+    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT: "api-tokens"
+    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_API_TOKEN_RENEW_ENDPOINT: "silent_renew"
+    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_LOGOUT_ENDPOINT: "logout"
+    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_CLIENT_ID: "https://api.hel.fi/auth/berths-admin-ui"
+    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_SCOPE: "openid https://api.hel.fi/auth/berths https://api.hel.fi/auth/helsinkiprofile"
   only:
     refs:
       - external_pull_requests
@@ -19,7 +26,14 @@ build-staging:
   extends: .build
   variables:
     DOCKER_IMAGE_NAME: "$CI_PROJECT_NAME-staging"
-    DOCKER_BUILD_ARG_REACT_APP_API_URI: "https://venepaikka-api.test.hel.ninja/graphql_v2/"
+    DOCKER_BUILD_ARG_REACT_APP_SERVICE_MAP_URI: "https://palvelukartta.hel.fi/unit/"
+    DOCKER_BUILD_ARG_REACT_APP_API_URI: https://venepaikka-federation.test.kuva.hel.ninja/
+    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_URI: https://tunnistamo.test.kuva.hel.ninja
+    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT: "api-tokens"
+    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_API_TOKEN_RENEW_ENDPOINT: "silent_renew"
+    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_LOGOUT_ENDPOINT: "logout"
+    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_CLIENT_ID: "https://api.hel.fi/auth/berths-admin-ui"
+    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_SCOPE: "openid https://api.hel.fi/auth/berths https://api.hel.fi/auth/helsinkiprofile"
     DOCKER_BUILD_ARG_REACT_APP_SENTRY_DSN: "$GL_SENTRY_DSN"
     DOCKER_BUILD_ARG_REACT_APP_SENTRY_ENVIRONMENT: Staging
   only:
@@ -30,7 +44,14 @@ build-production:
   extends: .build
   variables:
     DOCKER_IMAGE_NAME: "$CI_PROJECT_NAME-production"
-    DOCKER_BUILD_ARG_REACT_APP_API_URI: "https://venepaikka-api.test.hel.ninja/graphql_v2/"
+    DOCKER_BUILD_ARG_REACT_APP_SERVICE_MAP_URI: "https://palvelukartta.hel.fi/unit/"
+    DOCKER_BUILD_ARG_REACT_APP_API_URI: https://venepaikka-federation.test.kuva.hel.ninja/
+    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_URI: https://tunnistamo.test.kuva.hel.ninja
+    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT: "api-tokens"
+    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_API_TOKEN_RENEW_ENDPOINT: "silent_renew"
+    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_LOGOUT_ENDPOINT: "logout"
+    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_CLIENT_ID: "https://api.hel.fi/auth/berths-admin-ui"
+    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_SCOPE: "openid https://api.hel.fi/auth/berths https://api.hel.fi/auth/helsinkiprofile"
     DOCKER_BUILD_ARG_REACT_APP_SENTRY_DSN: "$GL_SENTRY_DSN"
     DOCKER_BUILD_ARG_REACT_APP_SENTRY_ENVIRONMENT: Production
   only:

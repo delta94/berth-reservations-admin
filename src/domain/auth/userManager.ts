@@ -5,16 +5,21 @@ const location = `${window.location.protocol}//${window.location.hostname}${
   window.location.port ? `:${window.location.port}` : ''
 }`;
 
+const {
+  REACT_APP_TUNNISTAMO_URI,
+  REACT_APP_TUNNISTAMO_CLIENT_ID,
+  REACT_APP_TUNNISTAMO_SCOPE,
+} = process.env;
+
 /* eslint-disable @typescript-eslint/camelcase */
 const settings: UserManagerSettings = {
-  authority: process.env.REACT_APP_OIDC_AUTHORITY,
+  authority: REACT_APP_TUNNISTAMO_URI,
   automaticSilentRenew: true,
-  client_id: process.env.REACT_APP_OIDC_CLIENT_ID,
+  client_id: REACT_APP_TUNNISTAMO_CLIENT_ID,
   redirect_uri: `${location}/callback`,
   response_type: 'id_token token',
   silent_redirect_uri: `${location}/silent_renew`,
-  scope: process.env.REACT_APP_OIDC_SCOPE,
-  post_logout_redirect_uri: `${location}/`,
+  scope: REACT_APP_TUNNISTAMO_SCOPE,
 };
 /* eslint-enable @typescript-eslint/camelcase */
 
