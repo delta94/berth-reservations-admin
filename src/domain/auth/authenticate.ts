@@ -2,10 +2,10 @@ import userManager from './userManager';
 
 export const loginTunnistamo = (path?: string) => {
   userManager.signinRedirect(
-    path ? { data: { path: path } } : { data: { path: '/' } }
+    path ? { data: { path } } : { data: { path: '/' } }
   );
 };
 
 export const logoutTunnistamo = (path?: string) => {
-  userManager.signoutRedirect(path ? { data: { path: path } } : {});
+  userManager.signoutRedirect(path ? { data: { path } } : {});
 };
