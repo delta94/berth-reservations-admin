@@ -19,7 +19,7 @@ const HarborsContainer: React.FC = () => {
   const columns: ColumnType[] = [
     {
       Cell: ({ cell }) => (
-        <InternalLink to={`harbors/${cell.row.original.id}}`}>
+        <InternalLink to={`/harbors/${cell.row.original.id}}`}>
           {cell.value}
         </InternalLink>
       ),

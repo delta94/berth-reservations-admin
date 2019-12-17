@@ -1,9 +1,14 @@
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import React from 'react';
-import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
 import { OidcProvider } from 'redux-oidc';
+import { Provider } from 'react-redux';
 import axios, { AxiosResponse } from 'axios';
 
 import OidcCallback from '../auth/OidcCallback';
@@ -13,6 +18,7 @@ import HarborsPage from '../harbors/HarborsPageContainer';
 import IndividualHarborPage from '../individualHarbor/IndividualHarborPageContainer';
 import LoginPage from '../login/LoginPage';
 import Page from '../page/Page';
+import PrivateRoute from '../privateRoute/PrivateRoute';
 import { store } from './state/AppStore';
 import { BackendTokenResponse } from '../auth/types/BackendAuthenticationTypes';
 
@@ -24,7 +30,6 @@ const {
 const client = new ApolloClient({
   request: async operation => {
     try {
-      console.log('store.getState(): ', store.getState());
       const accessToken = store.getState().authentication.tunnistamo.user
         .access_token;
 
@@ -39,21 +44,6 @@ const client = new ApolloClient({
       );
 
       const apiTokens = res.data;
-
-      /*
-      const tokensResponse = await fetch(
-        `${REACT_APP_TUNNISTAMO_URI}/${REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT}/`,
-        {
-          method: 'POST',
-          headers: {
-            'Authentication': `Bearer ${accessToken}`,
-          },
-          credentials: "cross-origin"
-        }
-      );
-      */
-
-      console.log('tokensResponse: ', res);
 
       operation.setContext({
         headers: {
@@ -76,26 +66,36 @@ const App: React.FC = () => {
       <OidcProvider store={store} userManager={userManager}>
         <ApolloProvider client={client}>
           <Router>
-            <Switch>
-              <Route
-                path="/login"
-                component={() => <LoginPage isAuthenticated={true} />}
-              />
-              <Route
-                exact
-                path="/silent_renew"
-                render={() => {
-                  userManager.signinSilentCallback();
-                  return null;
-                }}
-              />
-              <Route path="/callback" component={OidcCallback} />
-              <Page>
-                <Route path="/harbors/:id" component={IndividualHarborPage} />
-                <Route path="/harbors" component={HarborsPage} />
-                <Route path="/customers" component={CustomersPage} />
-              </Page>
-            </Switch>
+            <Route path="/login" component={LoginPage} />
+            <Route
+              exact
+              path="/silent_renew"
+              render={() => {
+                userManager.signinSilentCallback();
+                return null;
+              }}
+            />
+            <Route exact path="/callback" component={OidcCallback} />
+            <Page>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/harbors/:id"
+                  component={IndividualHarborPage}
+                />
+                <PrivateRoute exact path="/harbors" component={HarborsPage} />
+                <PrivateRoute
+                  exact
+                  path="/customers"
+                  component={CustomersPage}
+                />
+              </Switch>
+            </Page>
+            <Route
+              exact
+              path="/"
+              render={() => <Redirect exact from="/" to="/harbors" />}
+            />
           </Router>
         </ApolloProvider>
       </OidcProvider>

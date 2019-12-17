@@ -9,19 +9,20 @@ import {
 } from './state/BackendAuthenticationActions';
 import { BackendTokenResponse } from './types/BackendAuthenticationTypes';
 
-const {
-  REACT_APP_TUNNISTAMO_URI,
-  REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT,
-  REACT_APP_TUNNISTAMO_LOGOUT_ENDPOINT,
-} = process.env;
-
 export const loginTunnistamo = (path?: string) => {
   userManager.signinRedirect(
     path ? { data: { path: path } } : { data: { path: '/' } }
   );
 };
 
+const {
+  REACT_APP_TUNNISTAMO_URI,
+  REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT,
+  REACT_APP_TUNNISTAMO_LOGOUT_ENDPOINT,
+} = process.env;
+
 export const logoutTunnistamo = (path?: string) => {
+  userManager.signoutRedirect(path ? { data: { path } } : {});
   userManager.getUser().then(result => {
     if (result) {
       userManager.signoutRedirectCallback(

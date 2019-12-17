@@ -10,14 +10,12 @@ function OidcCallback(props: RouteChildrenProps) {
   const { t } = useTranslation();
 
   const onSuccess = (user: User) => {
-    props.history.push('/customers');
-    // if (user.state.path) props.history.push(user.state.path);
-    // else props.history.push('/');
+    if (user.state.path) props.history.push(user.state.path);
+    else props.history.push('/');
   };
   const onError = (error: object) => {
     // TODO: do something about errors
-    // alert('error!');
-    // props.history.push('/');
+    props.history.push('/');
   };
   return (
     <CallbackComponent
