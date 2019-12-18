@@ -1,0 +1,17 @@
+@import 'colours';
+@import 'spacings';
+
+.dropdown {
+  cursor: pointer;
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  background-color: $gray-200;
+  padding: units(0.75);
+  color: $black;
+  margin-top: units(1);
+  min-width: 100%;
+  z-index: 1;
+}
