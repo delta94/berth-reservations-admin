@@ -22,6 +22,7 @@ const {
 } = process.env;
 
 export const logoutTunnistamo = (path?: string) => {
+  //TODO: Fix the logout with Tunnistamo
   userManager.signoutRedirect(path ? { data: { path } } : {});
   userManager.getUser().then(result => {
     if (result) {

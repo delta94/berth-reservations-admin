@@ -6,6 +6,9 @@
     "sidebar": {
       "harbors": "Venepaikat",
       "customers": "Asiakkaat"
+    },
+    "header": {
+      "logout": "Kirjaudu ulos"
     }
   },
   "login": {

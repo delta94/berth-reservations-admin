@@ -3,5 +3,10 @@
 
 .header {
   background-color: $blue-500;
-  padding: units(0.5);
+  padding: units(0.5) units(2);
+  color: $white;
+  fill: $white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
