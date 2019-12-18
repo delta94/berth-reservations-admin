@@ -7,22 +7,13 @@ import Sidebar from '../../common/sidebar/Sidebar';
 import Expandable from '../../common/expandable/Expandable';
 import InternalLink from '../../common/internalLink/InternalLink';
 import Text from '../../common/text/Text';
-import Header from '../../common/header/Header';
 import Button from '../../common/button/Button';
 import Icon from '../../common/icon/Icon';
-import HelsinkiLogo from '../../common/helsinkiLogo/HelsinkiLogo';
+import PageHeader from '../pageHeader/PageHeaderContainer';
 
 const Page: React.SFC = ({ children }) => {
   const history = useHistory();
   const { t } = useTranslation();
-
-  const PageHeader = () => (
-    <Header>
-      <Link to="/">
-        <HelsinkiLogo size="large" color="white" />
-      </Link>
-    </Header>
-  );
 
   return (
     <Layout

@@ -38,6 +38,7 @@ import { ReactComponent as trestle } from '../../assets/icons/trestle.svg';
 import { ReactComponent as unregisteredBoat } from '../../assets/icons/unregistered.svg';
 import { ReactComponent as waterTap } from '../../assets/icons/water-tap.svg';
 import { ReactComponent as winterIcon } from '../../assets/icons/winter.svg';
+import { ReactComponent as user } from '../../assets/icons/user-o.svg';
 import styles from './icon.module.scss';
 
 const icons = {
@@ -76,6 +77,7 @@ const icons = {
   trash,
   trestle,
   unregisteredBoat,
+  user,
   waterTap,
   winterIcon,
 };
