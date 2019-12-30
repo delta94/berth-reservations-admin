@@ -19,9 +19,9 @@ export interface HarborData {
 }
 
 export const getHarborsData = (data: HARBORS | undefined) => {
-  if (data && data.harbors && data.harbors.edges) {
+  if (data?.harbors?.edges) {
     return data.harbors.edges.reduce<HarborData[]>((acc, harbor) => {
-      if (harbor && harbor.node && harbor.node.properties) {
+      if (harbor?.node?.properties) {
         const properties = harbor.node.properties.piers.edges.reduce<{
           electricity: number;
           gate: number;
@@ -30,7 +30,7 @@ export const getHarborsData = (data: HARBORS | undefined) => {
           water: number;
         }>(
           (prev, pier) => {
-            if (pier && pier.node && pier.node.properties) {
+            if (pier?.node?.properties) {
               return {
                 electricity: pier.node.properties.electricity
                   ? prev.electricity + 1

@@ -17,8 +17,7 @@ const PageHeaderContainer: React.SFC = () => {
   const { t } = useTranslation();
   const fullName = useSelector<StoreState, string | undefined>(
     store =>
-      store.authentication.tunnistamo.user &&
-      `${store.authentication.tunnistamo.user.profile.given_name} ${store.authentication.tunnistamo.user.profile.family_name}`
+      `${store.authentication.tunnistamo.user?.profile?.given_name} ${store.authentication.tunnistamo.user?.profile?.family_name}`
   );
   const dispatch = useDispatch();
 

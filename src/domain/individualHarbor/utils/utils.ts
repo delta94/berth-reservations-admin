@@ -20,10 +20,10 @@ export type IndividualHarborData = {
 export const getIndividualHarborData = (
   data: INDIVIDUAL_HARBOR | undefined
 ): IndividualHarborData | null => {
-  if (data && data.harbor && data.harbor.properties) {
+  if (data?.harbor?.properties) {
     const pierProps = data.harbor.properties.piers.edges.reduce(
       (prev, pier) => {
-        if (pier && pier.node && pier.node.properties) {
+        if (pier?.node?.properties) {
           return {
             electricity: prev.electricity || pier.node.properties.electricity,
             gate: prev.gate || pier.node.properties.gate,
@@ -73,16 +73,15 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined) => {
 
         const mooringType = berthEdge.node.berthType.mooringType;
         const mooring =
-          data.__type &&
-          data.__type.enumValues &&
-          data.__type.enumValues.find(mooring => mooring.name === mooringType);
+          data.__type?.enumValues &&
+          data.__type?.enumValues.find(mooring => mooring.name === mooringType);
 
         return [
           ...prev,
           {
             identifier,
             length: `${berthEdge.node.berthType.length / 100} m`,
-            mooring: mooring && mooring.description ? mooring.description : '',
+            mooring: mooring?.description ? mooring.description : '',
             number: berthEdge.node.number,
             width: `${berthEdge.node.berthType.width / 100} m`,
           },

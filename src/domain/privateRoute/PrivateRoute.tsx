@@ -7,9 +7,7 @@ import { StoreState } from '../app/types/AppTypes';
 const PrivateRoute: React.SFC<RouteProps> = props => {
   const location = useLocation();
   const isAuthenticated = useSelector<StoreState, string | undefined>(
-    store =>
-      store.authentication.tunnistamo.user &&
-      store.authentication.tunnistamo.user.access_token
+    store => store.authentication.tunnistamo.user?.access_token
   );
 
   if (isAuthenticated) return <Route {...props} />;

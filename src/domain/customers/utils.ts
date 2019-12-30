@@ -10,22 +10,16 @@ export interface CustomerData {
 }
 
 export const getCustomersData = (data: CUSTOMERS | undefined | any) => {
-  if (data && data.profiles && data.profiles.edges) {
+  if (data?.profiles?.edges) {
     return data.profiles.edges.map(profile => {
-      if (profile && profile.node && profile.node) {
+      if (profile?.node) {
         const profileData: CustomerData = {
-          email:
-            profile.node.emails &&
-            profile.node.emails[0] &&
-            profile.node.emails[0].email,
+          email: profile.node.emails[0]?.email,
           firstName: profile.node.firstName,
           id: profile.node.id,
           lastName: profile.node.lastName,
           nickname: profile.node.nickname,
-          phone:
-            profile.node.phones &&
-            profile.node.phones[0] &&
-            profile.node.phones[0].phone,
+          phone: profile.node.phones[0]?.phone,
         };
         return profileData;
       }
