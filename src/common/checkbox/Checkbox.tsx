@@ -6,16 +6,21 @@ import Icon from '../icon/Icon';
 
 type Props = React.InputHTMLAttributes<HTMLInputElement>;
 
-const Checkbox: React.SFC<Props> = props => {
+const Checkbox: React.SFC<Props> = ({ checked, disabled, onChange }) => {
   return (
     <label
       className={classNames(styles.checkbox, {
-        [styles.checked]: props.checked,
-        [styles.disabled]: props.disabled,
+        [styles.checked]: checked,
+        [styles.disabled]: disabled,
       })}
     >
-      {props.checked && <Icon name="check" size="small" />}
-      <input {...props} className={styles.input} type="checkbox" />
+      {checked && <Icon name="check" size="small" />}
+      <input
+        checked={checked}
+        onChange={onChange}
+        className={styles.input}
+        type="checkbox"
+      />
     </label>
   );
 };
