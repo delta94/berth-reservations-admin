@@ -8615,23 +8615,86 @@
     ],
     "directives": [
       {
-        "name": "include",
-        "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
+        "name": "key",
+        "description": null,
         "locations": [
-          "FIELD",
-          "FRAGMENT_SPREAD",
-          "INLINE_FRAGMENT"
+          "OBJECT",
+          "INTERFACE"
         ],
         "args": [
           {
-            "name": "if",
-            "description": "Included when true.",
+            "name": "fields",
+            "description": null,
             "type": {
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
-                "name": "Boolean",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ]
+      },
+      {
+        "name": "extends",
+        "description": null,
+        "locations": [
+          "OBJECT",
+          "INTERFACE"
+        ],
+        "args": []
+      },
+      {
+        "name": "external",
+        "description": null,
+        "locations": [
+          "OBJECT",
+          "FIELD_DEFINITION"
+        ],
+        "args": []
+      },
+      {
+        "name": "requires",
+        "description": null,
+        "locations": [
+          "FIELD_DEFINITION"
+        ],
+        "args": [
+          {
+            "name": "fields",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ]
+      },
+      {
+        "name": "provides",
+        "description": null,
+        "locations": [
+          "FIELD_DEFINITION"
+        ],
+        "args": [
+          {
+            "name": "fields",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               }
             },
@@ -8651,6 +8714,31 @@
           {
             "name": "if",
             "description": "Skipped when true.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ]
+      },
+      {
+        "name": "include",
+        "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
+        "locations": [
+          "FIELD",
+          "FRAGMENT_SPREAD",
+          "INLINE_FRAGMENT"
+        ],
+        "args": [
+          {
+            "name": "if",
+            "description": "Included when true.",
             "type": {
               "kind": "NON_NULL",
               "name": null,
@@ -8685,16 +8773,36 @@
         ]
       },
       {
-        "name": "key",
-        "description": "",
+        "name": "client",
+        "description": "Direct the client to resolve this field locally, either from the cache or local resolvers.",
         "locations": [
-          "OBJECT",
-          "INTERFACE"
+          "FIELD",
+          "FRAGMENT_DEFINITION",
+          "INLINE_FRAGMENT"
         ],
         "args": [
           {
-            "name": "fields",
-            "description": "",
+            "name": "always",
+            "description": "When true, the client will never use the cache for this value. See\nhttps://www.apollographql.com/docs/react/essentials/local-state/#forcing-resolvers-with-clientalways-true",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ]
+      },
+      {
+        "name": "export",
+        "description": "Export this locally resolved field as a variable to be used in the remainder of this query. See\nhttps://www.apollographql.com/docs/react/essentials/local-state/#using-client-fields-as-variables",
+        "locations": [
+          "FIELD"
+        ],
+        "args": [
+          {
+            "name": "as",
+            "description": "The variable name to export this field as.",
             "type": {
               "kind": "NON_NULL",
               "name": null,
@@ -8709,33 +8817,15 @@
         ]
       },
       {
-        "name": "extends",
-        "description": "",
+        "name": "connection",
+        "description": "Specify a custom store key for this result. See\nhttps://www.apollographql.com/docs/react/advanced/caching/#the-connection-directive",
         "locations": [
-          "OBJECT",
-          "INTERFACE"
-        ],
-        "args": []
-      },
-      {
-        "name": "external",
-        "description": "",
-        "locations": [
-          "OBJECT",
-          "FIELD_DEFINITION"
-        ],
-        "args": []
-      },
-      {
-        "name": "requires",
-        "description": "",
-        "locations": [
-          "FIELD_DEFINITION"
+          "FIELD"
         ],
         "args": [
           {
-            "name": "fields",
-            "description": "",
+            "name": "key",
+            "description": "Specify the store key.",
             "type": {
               "kind": "NON_NULL",
               "name": null,
@@ -8746,26 +8836,21 @@
               }
             },
             "defaultValue": null
-          }
-        ]
-      },
-      {
-        "name": "provides",
-        "description": "",
-        "locations": [
-          "FIELD_DEFINITION"
-        ],
-        "args": [
+          },
           {
-            "name": "fields",
-            "description": "",
+            "name": "filter",
+            "description": "An array of query argument names to include in the generated custom store key.",
             "type": {
-              "kind": "NON_NULL",
+              "kind": "LIST",
               "name": null,
               "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               }
             },
             "defaultValue": null

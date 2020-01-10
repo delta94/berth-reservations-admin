@@ -6,14 +6,11 @@ import {
   useExpanded,
   useSortBy,
   useRowSelect,
-  /* eslint-disable */
-  // For some reason eslint import plugin is unable to detect the following types
   TableOptions,
   HeaderProps,
   Row,
   HeaderGroup,
   Column as ColumnType,
-  /* eslint-enable */
 } from 'react-table';
 
 import Icon from '../../common/icon/Icon';
@@ -52,19 +49,23 @@ const Table = <D extends object>({
 
   const expanderCol: Column<D> = {
     Cell: ({ row }) => (
-      <div {...row.getExpandedToggleProps()} className={styles.expander}>
+      <div
+        {...row.getExpandedToggleProps()}
+        className={styles.expandArrowWrapper}
+      >
         <Icon name={row.isExpanded ? 'angleDown' : 'angleLeft'} />
       </div>
     ),
-    Header: ({ state, toggleExpandedByPath }) => (
-      <div
-        className={styles.expanderHeader}
+    Header: ({ state, toggleExpanded }) => (
+      <span
         onClick={() =>
-          state.expanded.forEach(path => toggleExpandedByPath([path], false))
+          Object.keys(state.expanded).forEach(path =>
+            toggleExpanded([path], false)
+          )
         }
       >
         {t('common.table.minimizeAll')}
-      </div>
+      </span>
     ),
     id: EXPANDER,
   };
@@ -120,6 +121,8 @@ const Table = <D extends object>({
           {...column.getHeaderProps(column.getSortByToggleProps())}
           className={classNames(styles.tableHeader, {
             [styles.mainHeader]: renderMainHeader && column.depth === 0,
+            [styles.selector]: column.id === SELECTOR,
+            [styles.expander]: column.id === EXPANDER,
           })}
         >
           {column.render('Header')}
