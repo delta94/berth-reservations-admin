@@ -5,15 +5,30 @@ import { CUSTOMER_QUERY } from './queries';
 import { getCustomersData } from './utils';
 import { CUSTOMERS } from './__generated__/CUSTOMERS';
 import CustomerList from './CustomerListComponent';
+import CustomersPage from './CustomersPage';
 
 const CustomersPageContainer: React.FC = () => {
   const { loading, error, data } = useQuery<CUSTOMERS>(CUSTOMER_QUERY);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error</p>;
+  if (loading)
+    return (
+      <CustomersPage>
+        <p>Loading...</p>
+      </CustomersPage>
+    );
+  if (error)
+    return (
+      <CustomersPage>
+        <p>Error</p>
+      </CustomersPage>
+    );
 
   const tableData = getCustomersData(data);
 
-  return <CustomerList data={tableData} />;
+  return (
+    <CustomersPage>
+      <CustomerList data={tableData} />
+    </CustomersPage>
+  );
 };
 
 export default CustomersPageContainer;
