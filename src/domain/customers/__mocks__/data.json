@@ -1,0 +1,33 @@
+{
+  "profiles": {
+    "__typename": "ProfileNodeConnection",
+    "edges": [
+      {
+        "__typename": "ProfileNodeEdge",
+        "node": {
+          "__typename": "ProfileNode",
+          "firstName": "Jussi",
+          "id": "UHJvZmlsZVR5cGU6YzgwMWM4MGUtOGZiYS00N2I4LWE1YjUtYWE4ZGY5YmVlOTEy",
+          "image": "",
+          "lastName": "Virtanen",
+          "nickname": "virtajussi",
+          "divisionsOfInterest": null,
+          "serviceConnections": null
+        }
+      },
+      {
+        "__typename": "ProfileNodeEdge",
+        "node": {
+          "__typename": "ProfileNode",
+          "firstName": "Jussi2",
+          "id": "UHJvZmlsZVR5cGU6YzgwMWM4MGUtOGZiYS00N2I4LWE1YjUtYWE4ZGY5YmVlOTE",
+          "image": "",
+          "lastName": "Virtanen",
+          "nickname": "virtajussi",
+          "divisionsOfInterest": null,
+          "serviceConnections": null
+        }
+      }
+    ]
+  }
+}

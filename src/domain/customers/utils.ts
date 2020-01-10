@@ -1,30 +1,23 @@
 import { CUSTOMERS } from './__generated__/CUSTOMERS';
+import { TableData } from './CustomerListComponent';
 
-export interface CustomerData {
-  id: string;
-  firstName: string;
-  lastName: string;
-  nickname: string | null;
-  email: string | false | null;
-  phone: string | false | null;
-}
-
-export const getCustomersData = (data: CUSTOMERS | undefined | any) => {
-  if (data?.profiles?.edges) {
-    return data.profiles.edges.map(profile => {
+export const getCustomersData = (data: CUSTOMERS | undefined): TableData[] => {
+  return (
+    data?.profiles?.edges.reduce<TableData[]>((acc, profile) => {
       if (profile?.node) {
-        const profileData: CustomerData = {
-          email: profile.node.emails[0]?.email,
-          firstName: profile.node.firstName,
+        const profileData = {
           id: profile.node.id,
-          lastName: profile.node.lastName,
-          nickname: profile.node.nickname,
-          phone: profile.node.phones[0]?.phone,
+          queue: '',
+          startDate: '',
+          thing: '',
+          goToDetails: '',
+          group: '',
+          invoice: '',
+          name: `${profile.node.lastName} ${profile.node.firstName}`,
         };
-        return profileData;
+        return [...acc, profileData];
       }
-      return [];
-    });
-  }
-  return [];
+      return acc;
+    }, []) ?? []
+  );
 };

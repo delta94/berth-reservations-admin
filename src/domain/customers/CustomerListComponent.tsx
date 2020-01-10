@@ -1,7 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-// For some reason eslint import plugin is unable to detect the following type
-// eslint-disable-next-line
 import { Column } from 'react-table';
 
 import Table from '../../common/table/Table';
@@ -16,15 +14,13 @@ export interface TableData {
   thing?: string;
 }
 
+type ColumnType = Column<TableData> & { accessor: keyof TableData };
 interface Props {
-  data: [any] | null;
+  data: TableData[];
 }
 
-type ColumnType = Column<any> & { accessor: keyof TableData };
-
-const HarborsListComponent = ({ data }: Props) => {
+const CustomersListComponent = ({ data }: Props) => {
   const { t } = useTranslation();
-
   const columns: ColumnType[] = [
     {
       Header: t('customers.tableHeaders.queue'),
@@ -56,29 +52,15 @@ const HarborsListComponent = ({ data }: Props) => {
     },
   ];
 
-  const tableData: TableData[] = data
-    ? data.map(customer => ({
-        goToDetails: 'Avaa',
-        group: 'yksityinen',
-        invoice: 'laskuja',
-        name: `${customer.lastName} ${customer.firstName}`,
-        queue: '-',
-        startDate: '1.1.2019',
-        thing: 'Sisältö',
-      }))
-    : [];
-
   return (
     <Table
-      data={tableData}
+      data={data}
       columns={columns}
-      renderSubComponent={_ => {
-        return <div>placeholder</div>;
-      }}
-      renderMainHeader={() => 'Asiakkaat'}
+      renderSubComponent={() => <div>placeholder</div>}
+      renderMainHeader={() => t('customers.tableHeaders.mainHeader')}
       canSelectRows
     />
   );
 };
 
-export default HarborsListComponent;
+export default CustomersListComponent;

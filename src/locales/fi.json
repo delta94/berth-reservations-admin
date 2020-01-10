@@ -36,12 +36,6 @@
     }
   },
   "individualHarbor": {
-    "tableHeaders": {
-      "mainHeader": "Venepaikat",
-      "harbor": "Satama",
-      "places": "Paikkoja"
-    },
-
     "harborProperties": {
       "title": "SATAMA",
       "numberOfPlaces": "Paikkoja",
@@ -59,7 +53,9 @@
       "identifier": "Laituri",
       "length": "Pituus",
       "width": "Leveys",
-      "mooring": "Kiinnitys"
+      "mooring": "Kiinnitys",
+      "harbor": "Satama",
+      "places": "Paikkoja"
     }
   },
   "customers": {
