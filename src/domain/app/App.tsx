@@ -21,6 +21,7 @@ import Page from '../page/Page';
 import PrivateRoute from '../privateRoute/PrivateRoute';
 import { store } from './state/AppStore';
 import { BackendTokenResponse } from '../auth/types/BackendAuthenticationTypes';
+import i18n from '../../locales/i18n';
 
 const {
   REACT_APP_TUNNISTAMO_URI,
@@ -47,6 +48,7 @@ const client = new ApolloClient({
 
       operation.setContext({
         headers: {
+          'Accept-Language': i18n.language,
           'Api-Tokens': JSON.stringify(apiTokens),
         },
       });
