@@ -23,6 +23,12 @@ export enum ContactMethod {
   SMS = "SMS",
 }
 
+export enum InvoicingType {
+  DIGITAL_INVOICE = "DIGITAL_INVOICE",
+  ONLINE_PAYMENT = "ONLINE_PAYMENT",
+  PAPER_INVOICE = "PAPER_INVOICE",
+}
+
 export enum ServiceType {
   BERTH = "BERTH",
   GODCHILDREN_OF_CULTURE = "GODCHILDREN_OF_CULTURE",

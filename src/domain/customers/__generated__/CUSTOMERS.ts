@@ -8,13 +8,6 @@ import { ServiceType, ContactMethod } from "./../../../../__generated__/globalTy
 // GraphQL query operation: CUSTOMERS
 // ====================================================
 
-export interface CUSTOMERS_profiles_edges_node_divisionsOfInterest {
-  __typename: "AdministrativeDivisionType";
-  ocdId: string | null;
-  type: string | null;
-  name: string | null;
-}
-
 export interface CUSTOMERS_profiles_edges_node_serviceConnections_edges_node_service {
   __typename: "ServiceNode";
   id: string;
@@ -42,8 +35,7 @@ export interface CUSTOMERS_profiles_edges_node {
   id: string;
   firstName: string;
   lastName: string;
-  nickname: string | null;
-  divisionsOfInterest: (CUSTOMERS_profiles_edges_node_divisionsOfInterest | null)[] | null;
+  nickname: string;
   serviceConnections: CUSTOMERS_profiles_edges_node_serviceConnections | null;
   contactMethod: ContactMethod | null;
   image: string | null;

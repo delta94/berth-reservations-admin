@@ -79,5 +79,19 @@
       "maintenanceTeam": "Huoltotiimi",
       "recentActivities": "Viimeaikainen toiminta"
     }
+  },
+  "individualCustomer": {
+    "customerInformation": {
+      "title": "ASIAKASTIEDOT",
+      "applicantPersonalInfo": "HAKIJAN HENKILÖTIEDOT",
+      "firstNames": "Etunimet",
+      "lastName": "Sukunimi",
+      "address": "Jakeluosoite",
+      "postalCode": "Postinumero",
+      "city": "Postitoimipaikka",
+      "phone": "Matkapuhelin",
+      "email": "Sähköpostiosoite",
+      "remarks": "Huomiot"
+    }
   }
 }

@@ -3,12 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { Column } from 'react-table';
 
 import Table from '../../common/table/Table';
+import InternalLink from '../../common/internalLink/InternalLink';
 
 export interface TableData {
+  id: string;
   goToDetails?: string;
   group?: string;
   invoice?: string;
-  name?: string;
+  name: string;
   queue?: string;
   startDate?: string;
   thing?: string;
@@ -19,7 +21,7 @@ interface Props {
   data: TableData[];
 }
 
-const CustomersListComponent = ({ data }: Props) => {
+const CustomerListComponent = ({ data }: Props) => {
   const { t } = useTranslation();
   const columns: ColumnType[] = [
     {
@@ -27,6 +29,11 @@ const CustomersListComponent = ({ data }: Props) => {
       accessor: 'queue',
     },
     {
+      Cell: ({ cell }) => (
+        <InternalLink to={`/customers/${cell.row.original.id}}`}>
+          {cell.value}
+        </InternalLink>
+      ),
       Header: t('customers.tableHeaders.name'),
       accessor: 'name',
     },
@@ -63,4 +70,4 @@ const CustomersListComponent = ({ data }: Props) => {
   );
 };
 
-export default CustomersListComponent;
+export default CustomerListComponent;

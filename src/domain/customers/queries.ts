@@ -9,11 +9,6 @@ export const CUSTOMER_QUERY = gql`
           firstName
           lastName
           nickname
-          divisionsOfInterest {
-            ocdId
-            type
-            name
-          }
           serviceConnections {
             edges {
               node {
