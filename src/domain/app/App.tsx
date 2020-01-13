@@ -16,6 +16,7 @@ import userManager from '../auth/userManager';
 import CustomersPage from '../customers/CustomerPageContainer';
 import HarborsPage from '../harbors/HarborsPageContainer';
 import IndividualHarborPage from '../individualHarbor/IndividualHarborPageContainer';
+import IndividualCustomerPage from '../individualCustomer/IndividualCustomerPageContainer';
 import LoginPage from '../login/LoginPage';
 import Page from '../page/Page';
 import PrivateRoute from '../privateRoute/PrivateRoute';
@@ -86,6 +87,11 @@ const App: React.FC = () => {
                   component={IndividualHarborPage}
                 />
                 <PrivateRoute exact path="/harbors" component={HarborsPage} />
+                <PrivateRoute
+                  exact
+                  path="/customers/:id"
+                  component={IndividualCustomerPage}
+                />
                 <PrivateRoute
                   exact
                   path="/customers"
