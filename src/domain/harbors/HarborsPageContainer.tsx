@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
+import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { HARBORS_QUERY } from './harborsQuery';
 import Table, { Column } from '../../common/table/Table';
 import { getHarborsData, HarborData } from './utils';
@@ -87,21 +88,22 @@ const HarborsContainer: React.FC = () => {
     },
   ];
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
 
   const tableData = getHarborsData(data);
 
   return (
-    <HarborsPage>
-      <Table
-        data={tableData}
-        columns={columns}
-        renderSubComponent={row => <HarborDetails {...row.original} />}
-        renderMainHeader={() => t('harbors.tableHeaders.mainHeader')}
-        canSelectRows
-      />
-    </HarborsPage>
+    <LoadingSpinner isLoading={loading}>
+      <HarborsPage>
+        <Table
+          data={tableData}
+          columns={columns}
+          renderSubComponent={row => <HarborDetails {...row.original} />}
+          renderMainHeader={() => t('harbors.tableHeaders.mainHeader')}
+          canSelectRows
+        />
+      </HarborsPage>
+    </LoadingSpinner>
   );
 };
 

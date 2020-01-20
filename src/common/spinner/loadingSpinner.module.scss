@@ -1,0 +1,44 @@
+@import "colours";
+
+/*
+ * Pure CSS spinner, taken from:
+ * https://stephanwagner.me/only-css-loading-spinner
+ */
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@mixin add_spinner($size: 5rem, $main-color: $gray-200, $alt-color: $black, $thickness: 2px) {
+  content: "";
+  box-sizing: border-box;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: $thickness solid $main-color;
+  border-top-color: $alt-color;
+  animation: spinner 1s linear infinite;
+}
+
+.spinnerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  width: 100%;
+}
+
+.spinner {
+  position: relative;
+  height: 5rem;
+  width: 5rem;
+
+  &::before {
+    @include add_spinner();
+  }
+}

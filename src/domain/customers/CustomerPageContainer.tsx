@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 
+import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { CUSTOMER_QUERY } from './queries';
 import { getCustomersData } from './utils';
 import { CUSTOMERS } from './__generated__/CUSTOMERS';
@@ -9,12 +10,6 @@ import CustomersPage from './CustomersPage';
 
 const CustomersPageContainer: React.FC = () => {
   const { loading, error, data } = useQuery<CUSTOMERS>(CUSTOMER_QUERY);
-  if (loading)
-    return (
-      <CustomersPage>
-        <p>Loading...</p>
-      </CustomersPage>
-    );
   if (error)
     return (
       <CustomersPage>
@@ -26,7 +21,9 @@ const CustomersPageContainer: React.FC = () => {
 
   return (
     <CustomersPage>
-      <CustomerList data={tableData} />
+      <LoadingSpinner isLoading={loading}>
+        <CustomerList data={tableData} />
+      </LoadingSpinner>
     </CustomersPage>
   );
 };

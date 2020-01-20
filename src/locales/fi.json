@@ -1,4 +1,9 @@
 {
+  "authentication": {
+    "redirect": {
+      "text": "Uudelleenohjataan"
+    }
+  },
   "common": {
     "table": {
       "minimizeAll": "Pienennä kaikki"
