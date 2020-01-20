@@ -8,6 +8,7 @@ export type Props = {
   variant?: 'contained' | 'outlined' | 'text';
   size?: 'small' | 'standard' | 'large';
   icon?: JSX.Element;
+  className?: string;
 } & React.DOMAttributes<HTMLButtonElement>;
 
 const Button: React.SFC<Props> = ({
@@ -17,6 +18,7 @@ const Button: React.SFC<Props> = ({
   size = 'standard',
   icon,
   onClick,
+  className,
 }) => {
   return (
     <button
@@ -27,7 +29,8 @@ const Button: React.SFC<Props> = ({
         styles[color],
         size && styles[size],
         variant && styles[variant],
-        icon && children && styles.hasIcon
+        icon && children && styles.hasIcon,
+        className
       )}
     >
       {icon}

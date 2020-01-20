@@ -17,11 +17,11 @@ export interface TableData {
 }
 
 type ColumnType = Column<TableData> & { accessor: keyof TableData };
-interface Props {
+export interface CustomerListComponentProps {
   data: TableData[];
 }
 
-const CustomerListComponent = ({ data }: Props) => {
+const CustomerListComponent = ({ data }: CustomerListComponentProps) => {
   const { t } = useTranslation();
   const columns: ColumnType[] = [
     {

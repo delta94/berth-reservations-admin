@@ -2,13 +2,13 @@ import React from 'react';
 
 import styles from './sidebar.module.scss';
 
-interface Props {
+export interface SidebarProps {
   className?: string;
   actions?: React.ReactNodeArray;
   children: React.ReactNodeArray;
 }
 
-const Sidebar: React.SFC<Props> = ({ actions = [], children }) => {
+const Sidebar: React.SFC<SidebarProps> = ({ actions = [], children }) => {
   const mainElements = children.map((child, i) => (
     <div key={i} className={styles.elementWrapper}>
       {child}

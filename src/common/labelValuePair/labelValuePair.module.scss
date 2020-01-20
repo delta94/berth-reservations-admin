@@ -16,7 +16,14 @@
 }
 
 .value {
+  text-align: left;
+  margin-right: units(1);
   flex-grow: 1;
+  margin-right: 0;
+
+  &.right {
+    text-align: right;
+  }
 }
 
 .brand {

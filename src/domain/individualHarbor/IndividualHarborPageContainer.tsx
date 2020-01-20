@@ -53,8 +53,8 @@ const IndividualHarborPageContainer: React.SFC = () => {
   const berths = getBerths(data);
 
   return (
-    <IndividualHarborPage>
-      <LoadingSpinner isLoading={loading}>
+    <LoadingSpinner isLoading={loading}>
+      <IndividualHarborPage>
         <HarborProperties
           name={harbor.name || ''}
           imageUrl={harbor.imageFile || ''}
@@ -76,8 +76,8 @@ const IndividualHarborPageContainer: React.SFC = () => {
           renderMainHeader={() => t('individualHarbor.tableHeaders.mainHeader')}
           canSelectRows
         />
-      </LoadingSpinner>
-    </IndividualHarborPage>
+      </IndividualHarborPage>
+    </LoadingSpinner>
   );
 };
 

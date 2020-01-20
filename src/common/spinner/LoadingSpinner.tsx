@@ -2,12 +2,15 @@ import React from 'react';
 
 import styles from './loadingSpinner.module.scss';
 
-interface Props {
+export interface LoadingSpinnerProps {
   isLoading: boolean;
   children: React.ReactNode;
 }
 
-const LoadingSpinner: React.SFC<Props> = ({ isLoading, children }) => {
+const LoadingSpinner: React.SFC<LoadingSpinnerProps> = ({
+  isLoading,
+  children,
+}) => {
   if (isLoading === true) {
     return (
       <div className={styles.spinnerWrapper}>

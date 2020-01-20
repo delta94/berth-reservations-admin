@@ -2,11 +2,11 @@ import React from 'react';
 
 import styles from './header.module.scss';
 
-interface Props {
+export interface HeaderProps {
   children: React.ReactNode;
 }
 
-const Header = ({ children }: Props) => (
+const Header = ({ children }: HeaderProps) => (
   <header className={styles.header}>{children}</header>
 );
 

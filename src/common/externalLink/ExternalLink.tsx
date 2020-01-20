@@ -2,7 +2,7 @@ import React from 'react';
 
 import withAnchor from './withAnchor';
 
-export interface Props {
+export interface ExternalLinkProps {
   href?: string;
   to?: string;
   underline?: 'none' | 'hover' | 'always';
@@ -10,7 +10,12 @@ export interface Props {
   children: React.ReactNode;
 }
 
-const ExternalLink = ({ href, underline, variant, children }: Props) => (
+const ExternalLink = ({
+  href,
+  underline,
+  variant,
+  children,
+}: ExternalLinkProps) => (
   <ExternalLink href={href} underline={underline} variant={variant}>
     {children}
   </ExternalLink>

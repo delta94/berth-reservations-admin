@@ -5,12 +5,16 @@ import Icon from '../icon/Icon';
 import styles from './expandable.module.scss';
 import Button from '../button/Button';
 
-interface Props {
+export interface ExpandableProps {
   label: React.ReactNode;
   onClick?: Function;
 }
 
-const Expandable: React.SFC<Props> = ({ label, onClick, children }) => {
+const Expandable: React.SFC<ExpandableProps> = ({
+  label,
+  onClick,
+  children,
+}) => {
   const [expanded, setExpanded] = useState(false);
   const handleClick = () => {
     setExpanded(!expanded);

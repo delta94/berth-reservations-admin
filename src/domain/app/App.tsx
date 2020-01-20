@@ -69,18 +69,23 @@ const App: React.FC = () => {
       <OidcProvider store={store} userManager={userManager}>
         <ApolloProvider client={client}>
           <Router>
-            <Route path="/login" component={LoginPage} />
-            <Route
-              exact
-              path="/silent_renew"
-              render={() => {
-                userManager.signinSilentCallback();
-                return null;
-              }}
-            />
-            <Route exact path="/callback" component={OidcCallback} />
-            <Page>
-              <Switch>
+            <Switch>
+              <Route path="/login" component={LoginPage} />
+              <Route
+                exact
+                path="/silent_renew"
+                render={() => {
+                  userManager.signinSilentCallback();
+                  return null;
+                }}
+              />
+              <Route exact path="/callback" component={OidcCallback} />
+              <Route
+                exact
+                path="/"
+                render={() => <Redirect exact from="/" to="/harbors" />}
+              />
+              <Page>
                 <PrivateRoute
                   exact
                   path="/harbors/:id"
@@ -97,13 +102,8 @@ const App: React.FC = () => {
                   path="/customers"
                   component={CustomersPage}
                 />
-              </Switch>
-            </Page>
-            <Route
-              exact
-              path="/"
-              render={() => <Redirect exact from="/" to="/harbors" />}
-            />
+              </Page>
+            </Switch>
           </Router>
         </ApolloProvider>
       </OidcProvider>

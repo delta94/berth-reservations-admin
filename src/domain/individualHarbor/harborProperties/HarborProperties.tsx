@@ -8,7 +8,7 @@ import Text from '../../../common/text/Text';
 import Grid from '../../../common/grid/Grid';
 import Property from '../property/Property';
 
-interface Props {
+export interface HarborPropertiesProps {
   imageUrl: string;
   name: string;
   address: string;
@@ -24,7 +24,7 @@ interface Props {
   };
 }
 
-const HarborProperties: React.SFC<Props> = ({
+const HarborProperties: React.SFC<HarborPropertiesProps> = ({
   name,
   address,
   imageUrl,

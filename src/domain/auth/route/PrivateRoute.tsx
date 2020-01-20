@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { isAuthenticatedSelector } from '../state/AuthenticationSelectors';
 import { StoreState } from '../../app/types/AppTypes';
 
-interface AuthProps {
+export interface AuthProps {
   isAuthenticated: boolean;
 }
 export type PrivateRouteProps = RouteProps & AuthProps;

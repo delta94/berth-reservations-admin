@@ -4,13 +4,13 @@ import classNames from 'classnames';
 import styles from './paragraph.module.scss';
 import Text from '../text/Text';
 
-interface Props {
+export interface ParagraphProps {
   title?: string;
   children: React.ReactNode;
   className?: string;
 }
 
-const Paragraph = ({ title, children, className }: Props) => (
+const Paragraph = ({ title, children, className }: ParagraphProps) => (
   <article className={classNames(styles.paragraph, className)}>
     {title && (
       <Text as="h4" color="brand">

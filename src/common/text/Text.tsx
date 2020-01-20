@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import styles from './text.module.scss';
 
-export interface Props {
+export interface TextProps {
   color?: 'standard' | 'brand' | 'critical' | 'secondary' | 'info';
   as?: 'span' | 'em' | 'strong' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   size?: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxl' | 'xxxl';
@@ -11,7 +11,7 @@ export interface Props {
   italic?: boolean;
 }
 
-const Text: React.SFC<Props> = ({
+const Text: React.SFC<TextProps> = ({
   color = 'standard',
   size,
   as: Element = 'span',

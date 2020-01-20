@@ -3,13 +3,13 @@ import classNames from 'classnames';
 
 import styles from './list.module.scss';
 
-interface Props {
+export interface ListProps {
   size?: 'small' | 'standard' | 'large';
   noBullets?: boolean;
   ordered?: boolean;
 }
 
-const List: React.SFC<Props> = ({
+const List: React.SFC<ListProps> = ({
   size = 'standard',
   ordered,
   noBullets,

@@ -4,14 +4,14 @@ import Text from '../../../common/text/Text';
 import Icon, { IconNames } from '../../../common/icon/Icon';
 import styles from './property.module.scss';
 
-interface Props {
+interface PropertyProps {
   active?: boolean;
   iconName?: IconNames;
   counter?: number;
   label: string;
 }
 
-const Property: React.SFC<Props> = ({
+const Property: React.SFC<PropertyProps> = ({
   active = true,
   counter = 0,
   label,

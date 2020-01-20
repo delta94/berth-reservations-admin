@@ -89,7 +89,7 @@
     "customerInformation": {
       "title": "ASIAKASTIEDOT",
       "applicantPersonalInfo": "HAKIJAN HENKILÖTIEDOT",
-      "firstNames": "Etunimet",
+      "firstName": "Etunimet",
       "lastName": "Sukunimi",
       "address": "Jakeluosoite",
       "postalCode": "Postinumero",
@@ -97,6 +97,22 @@
       "phone": "Matkapuhelin",
       "email": "Sähköpostiosoite",
       "remarks": "Huomiot"
+    },
+    "customerBill": {
+      "title": "AVOIMET LASKUT",
+      "berthRental": "VENEPAIKAN VUOKRA",
+      "showInvoice": "Näytä lasku",
+      "berthPlace": "Venepaikka",
+      "contractPeriod": "Sopimuskausi",
+      "dueDate": "Eräpäivä",
+      "basicFee": "Perushinta",
+      "mooring": "Kiinnitys",
+      "electricity": "Sähkö",
+      "water": "Vesi",
+      "waste": "Jäte",
+      "gate": "Portti",
+      "lighting": "Valaistus",
+      "total": "YHTEENSÄ"
     }
   }
 }

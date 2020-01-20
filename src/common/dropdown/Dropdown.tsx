@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 
 import styles from './dropdown.module.scss';
 
-interface Props {
+export interface DropdownProps {
   label: React.ReactNode;
 }
 
-const Dropdown: React.SFC<Props> = ({ label, children }) => {
+const Dropdown: React.SFC<DropdownProps> = ({ label, children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

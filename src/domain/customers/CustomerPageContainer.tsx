@@ -20,11 +20,11 @@ const CustomersPageContainer: React.FC = () => {
   const tableData = getCustomersData(data);
 
   return (
-    <CustomersPage>
-      <LoadingSpinner isLoading={loading}>
+    <LoadingSpinner isLoading={loading}>
+      <CustomersPage>
         <CustomerList data={tableData} />
-      </LoadingSpinner>
-    </CustomersPage>
+      </CustomersPage>
+    </LoadingSpinner>
   );
 };
 
