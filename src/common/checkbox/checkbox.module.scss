@@ -21,6 +21,16 @@
 .checked {
   border-color: $blue-500;
   background-color: $blue-500;
+
+  &.disabled {
+    border-color: $gray-500;
+    background-color: $gray-500;
+  }
+}
+
+.label {
+  margin-left: units(0.5);
+  cursor: pointer;
 }
 
 .disabled {
