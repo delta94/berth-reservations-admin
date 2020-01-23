@@ -23,15 +23,10 @@ describe('BillsCard', () => {
   beforeEach(() => {
     jest.resetAllMocks();
   });
-  const getWrapper = (props = {}) => shallow(<BillsCard {...props} />);
-
-  it('renders normally', () => {
-    const wrapper = getWrapper(mockProps);
-    expect(wrapper.html()).toMatchSnapshot();
-  });
+  const getWrapper = (props = mockProps) => shallow(<BillsCard {...props} />);
 
   it('invokes handleShowBill method when the user clicks on the Show Invoice button', () => {
-    const wrapper = getWrapper(mockProps);
+    const wrapper = getWrapper();
     wrapper.find(Button).simulate('click');
 
     expect(mockProps.handleShowBill).toHaveBeenCalledTimes(1);
