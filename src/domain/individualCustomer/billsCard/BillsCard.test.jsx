@@ -27,7 +27,6 @@ describe('BillsCard', () => {
 
   it('renders normally', () => {
     const wrapper = getWrapper(mockProps);
-
     expect(wrapper.html()).toMatchSnapshot();
   });
 
