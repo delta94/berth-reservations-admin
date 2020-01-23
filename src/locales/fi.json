@@ -115,7 +115,7 @@
       "boatName": "Nimi",
       "boatBrand": "Merkki",
       "selectedPorts": "VALITUT SATAMAT",
-      "choice": "Toive {{num}}",
+      "choice": "Toive",
       "accessible": "Tarvitsen esteettömän paikan"
     },
     "customerBill": {

@@ -116,9 +116,7 @@ const ApplicationCard: React.SFC<ApplicationCardProps> = ({
           <Paragraph title={t('individualCustomer.application.selectedPorts')}>
             {selectedPorts.map(({ title }, i) => (
               <LabelValuePair
-                label={t('individualCustomer.application.choice', {
-                  num: i + 1,
-                })}
+                label={`${t('individualCustomer.application.choice')} ${i + 1}`}
                 value={title}
               />
             ))}
