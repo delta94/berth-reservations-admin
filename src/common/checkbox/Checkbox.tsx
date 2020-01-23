@@ -13,6 +13,7 @@ const Checkbox: React.SFC<CheckboxProps> = ({
   disabled,
   onChange,
   label,
+  readOnly,
 }) => {
   return (
     <label>
@@ -28,6 +29,7 @@ const Checkbox: React.SFC<CheckboxProps> = ({
           onChange={onChange}
           className={styles.input}
           type="checkbox"
+          readOnly={readOnly}
         />
       </div>
       <span
