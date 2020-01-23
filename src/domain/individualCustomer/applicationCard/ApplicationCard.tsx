@@ -126,7 +126,7 @@ const ApplicationCard: React.SFC<ApplicationCardProps> = ({
             <Checkbox
               label={t('individualCustomer.application.accessible')}
               checked={accessible}
-              disabled
+              size="large"
               readOnly
             />
           </Paragraph>

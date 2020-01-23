@@ -4,23 +4,28 @@ import classNames from 'classnames';
 import { ReactComponent as Check } from '../../assets/icons/check.svg';
 import styles from './checkbox.module.scss';
 
-type CheckboxProps = { label?: string } & React.InputHTMLAttributes<
-  HTMLInputElement
->;
+export type CheckboxProps = Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  'size'
+> & {
+  label?: string;
+  size?: 'small' | 'medium' | 'large';
+};
 
 const Checkbox: React.SFC<CheckboxProps> = ({
   checked,
   disabled,
   onChange,
   label,
+  size = 'medium',
   readOnly,
 }) => {
   return (
     <label>
-      <div
-        className={classNames(styles.checkbox, {
+      <span
+        className={classNames(styles.checkbox, styles[size], {
           [styles.checked]: checked,
-          [styles.disabled]: disabled,
+          [styles.disabled]: disabled || readOnly,
         })}
       >
         {checked && <Check className={styles.check} />}
@@ -31,12 +36,14 @@ const Checkbox: React.SFC<CheckboxProps> = ({
           type="checkbox"
           readOnly={readOnly}
         />
-      </div>
-      <span
-        className={classNames(styles.label, { [styles.disabled]: disabled })}
-      >
-        {label}
       </span>
+      {label && (
+        <span
+          className={classNames(styles.label, { [styles.disabled]: disabled })}
+        >
+          {label}
+        </span>
+      )}
     </label>
   );
 };

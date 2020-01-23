@@ -1,15 +1,15 @@
 @import 'spacings';
 @import 'colours';
 
-$checkbox-dimension: units(1);
-
 .checkbox {
+  --checkbox-dimension: #{units(1)};
+
   box-sizing: content-box;
   display: inline-block;
-  width: $checkbox-dimension;
-  height: $checkbox-dimension;
+  width: var(--checkbox-dimension);
+  height: var(--checkbox-dimension);
   border: solid $gray-200 2px;
-  vertical-align: top;
+  vertical-align: middle;
   cursor: pointer;
 }
 
@@ -18,8 +18,9 @@ $checkbox-dimension: units(1);
 }
 
 .check {
-  width: $checkbox-dimension;
-  height: $checkbox-dimension;
+  position: absolute;
+  width: var(--checkbox-dimension);
+  height: var(--checkbox-dimension);
   fill: $white;
 }
 
@@ -36,8 +37,17 @@ $checkbox-dimension: units(1);
 .label {
   margin-left: units(0.5);
   cursor: pointer;
+  vertical-align: middle;
 }
 
 .disabled {
   cursor: not-allowed;
+}
+
+.large {
+  --checkbox-dimension: #{units(1.5)};
+}
+
+.small {
+  --checkbox-dimension: #{units(0.75)};
 }
