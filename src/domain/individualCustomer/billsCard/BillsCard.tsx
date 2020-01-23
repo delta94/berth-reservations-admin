@@ -39,7 +39,7 @@ const BillsCard: React.SFC<BillsCardProps> = ({
   const { t, i18n } = useTranslation();
 
   const formatPrice = (fee: number, percentage = '') => {
-    const formatter = new Intl.NumberFormat(i18n.language || 'fi-FI', {
+    const formatter = new Intl.NumberFormat(i18n.language, {
       style: 'currency',
       currency: 'EUR',
       minimumIntegerDigits: 2,

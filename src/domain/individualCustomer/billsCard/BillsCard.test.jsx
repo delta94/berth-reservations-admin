@@ -25,7 +25,7 @@ describe('BillsCard', () => {
   });
   const getWrapper = (props = mockProps) => shallow(<BillsCard {...props} />);
 
-  it('renders normally', () => {
+  it('renders correctly', () => {
     const wrapper = getWrapper();
 
     expect(wrapper.html()).toMatchSnapshot();
