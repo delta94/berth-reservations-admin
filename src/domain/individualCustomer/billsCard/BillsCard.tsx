@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { Button } from 'hds-react';
 
 import Card from '../../../common/card/Card';
-import Text from '../../../common/text/Text';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 import Paragraph from '../../../common/paragraph/Paragraph';
 import styles from './billsCard.module.scss';
@@ -40,7 +39,7 @@ const BillsCard: React.SFC<BillsCardProps> = ({
   const { t, i18n } = useTranslation();
 
   const formatPrice = (fee: number, percentage = '') => {
-    const formatter = new Intl.NumberFormat(i18n.language || 'fi-FI', {
+    const formatter = new Intl.NumberFormat(i18n.language, {
       style: 'currency',
       currency: 'EUR',
       minimumIntegerDigits: 2,
@@ -58,10 +57,7 @@ const BillsCard: React.SFC<BillsCardProps> = ({
       >
         {t('individualCustomer.customerBill.showInvoice')}
       </Button>
-      <Text as="h4" size="m">
-        {t('individualCustomer.customerBill.berthRental')}
-      </Text>
-      <Paragraph>
+      <Paragraph title={t('individualCustomer.customerBill.berthRental')}>
         <LabelValuePair
           label={t('individualCustomer.customerBill.berthPlace')}
           value={berthPlace}

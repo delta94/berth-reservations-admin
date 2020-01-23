@@ -98,6 +98,26 @@
       "email": "Sähköpostiosoite",
       "remarks": "Huomiot"
     },
+    "application": {
+      "title": "HAKEMUKSET",
+      "application": "HAKEMUS",
+      "applicationType": "Hakemustyyppi",
+      "receivedDate": "Vastaanotettu",
+      "queueNumber": "Jononumero",
+      "status": "Status",
+      "boatInfo": "VENEEN TIEDOT",
+      "boatType": "Veneen tyyppi",
+      "registrationNumber": "Rekisterinumero",
+      "boatWidth": "Veneen leveys",
+      "boatLength": "Veneen pituus",
+      "boatDepth": "Veneen syväys",
+      "boatWeight": "Veneen paino",
+      "boatName": "Nimi",
+      "boatBrand": "Merkki",
+      "selectedPorts": "VALITUT SATAMAT",
+      "choice": "Toive",
+      "accessible": "Tarvitsen esteettömän paikan"
+    },
     "customerBill": {
       "title": "AVOIMET LASKUT",
       "berthRental": "VENEPAIKAN VUOKRA",

@@ -2,7 +2,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Card from '../../../common/card/Card';
-import Text from '../../../common/text/Text';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 import Paragraph from '../../../common/paragraph/Paragraph';
 
@@ -31,10 +30,11 @@ const CustomerInfoCard: React.SFC<CustomerInfoCardProps> = ({
 
   return (
     <Card title={t('individualCustomer.customerInformation.title')}>
-      <Text as="h4" size="m">
-        {t('individualCustomer.customerInformation.applicantPersonalInfo')}
-      </Text>
-      <Paragraph>
+      <Paragraph
+        title={t(
+          'individualCustomer.customerInformation.applicantPersonalInfo'
+        )}
+      >
         <LabelValuePair
           label={t('individualCustomer.customerInformation.firstName')}
           value={firstName}

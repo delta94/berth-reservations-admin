@@ -1,26 +1,49 @@
 import React from 'react';
 import classNames from 'classnames';
 
+import { ReactComponent as Check } from '../../assets/icons/check.svg';
 import styles from './checkbox.module.scss';
-import Icon from '../icon/Icon';
 
-type Props = React.InputHTMLAttributes<HTMLInputElement>;
+export type CheckboxProps = Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  'size'
+> & {
+  label?: string;
+  size?: 'small' | 'medium' | 'large';
+};
 
-const Checkbox: React.SFC<Props> = ({ checked, disabled, onChange }) => {
+const Checkbox: React.SFC<CheckboxProps> = ({
+  checked,
+  disabled,
+  onChange,
+  label,
+  size = 'medium',
+  readOnly,
+}) => {
   return (
-    <label
-      className={classNames(styles.checkbox, {
-        [styles.checked]: checked,
-        [styles.disabled]: disabled,
-      })}
-    >
-      {checked && <Icon name="check" size="small" />}
-      <input
-        checked={checked}
-        onChange={onChange}
-        className={styles.input}
-        type="checkbox"
-      />
+    <label>
+      <span
+        className={classNames(styles.checkbox, styles[size], {
+          [styles.checked]: checked,
+          [styles.disabled]: disabled || readOnly,
+        })}
+      >
+        {checked && <Check className={styles.check} />}
+        <input
+          checked={checked}
+          onChange={onChange}
+          className={styles.input}
+          type="checkbox"
+          readOnly={readOnly}
+        />
+      </span>
+      {label && (
+        <span
+          className={classNames(styles.label, { [styles.disabled]: disabled })}
+        >
+          {label}
+        </span>
+      )}
     </label>
   );
 };

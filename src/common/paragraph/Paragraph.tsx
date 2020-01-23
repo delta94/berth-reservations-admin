@@ -13,7 +13,7 @@ export interface ParagraphProps {
 const Paragraph = ({ title, children, className }: ParagraphProps) => (
   <article className={classNames(styles.paragraph, className)}>
     {title && (
-      <Text as="h4" color="brand">
+      <Text as="h4" size="m">
         {title}
       </Text>
     )}

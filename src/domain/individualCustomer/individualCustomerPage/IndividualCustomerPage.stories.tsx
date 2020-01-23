@@ -5,7 +5,7 @@ import Card from '../../../common/card/Card';
 
 export default {
   component: IndividualCustomerPage,
-  title: 'individualCustomerPage',
+  title: 'IndividualCustomerPage',
 };
 
 export const individualCustomerPage = () => (
