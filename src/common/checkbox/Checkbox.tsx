@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
+import { ReactComponent as Check } from '../../assets/icons/check.svg';
 import styles from './checkbox.module.scss';
-import Icon from '../icon/Icon';
 
 type CheckboxProps = { label?: string } & React.InputHTMLAttributes<
   HTMLInputElement
@@ -22,7 +22,7 @@ const Checkbox: React.SFC<CheckboxProps> = ({
           [styles.disabled]: disabled,
         })}
       >
-        {checked && <Icon name="check" size="small" />}
+        {checked && <Check className={styles.check} />}
         <input
           checked={checked}
           onChange={onChange}

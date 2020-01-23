@@ -1,9 +1,9 @@
 @import 'spacings';
 @import 'colours';
 
-.checkbox {
-  $checkbox-dimension: units(1);
+$checkbox-dimension: units(1);
 
+.checkbox {
   box-sizing: content-box;
   display: inline-block;
   width: $checkbox-dimension;
@@ -11,11 +11,16 @@
   border: solid $gray-200 2px;
   vertical-align: top;
   cursor: pointer;
-  fill: $white;
 }
 
 .input {
   display: none;
+}
+
+.check {
+  width: $checkbox-dimension;
+  height: $checkbox-dimension;
+  fill: $white;
 }
 
 .checked {
