@@ -1,0 +1,5 @@
+@import 'spacings';
+
+.boatsCard:not(:last-child) {
+  margin-bottom: units(0.5);
+}
