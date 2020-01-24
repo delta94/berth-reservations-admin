@@ -7,8 +7,6 @@ $padding: units(1);
   display: flex;
   flex-direction: column;
   width: auto;
-
-  background-color: $gray-100;
 }
 
 .header {
@@ -17,7 +15,7 @@ $padding: units(1);
   padding: $padding;
   margin-bottom: units(0.5);
   font-weight: bold;
-  color: white;
+  color: $white;
 }
 
 .body {
