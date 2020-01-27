@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import styles from './paragraph.module.scss';
+import styles from './section.module.scss';
 import Text from '../text/Text';
 
 export interface ParagraphProps {
@@ -10,8 +10,8 @@ export interface ParagraphProps {
   className?: string;
 }
 
-const Paragraph = ({ title, children, className }: ParagraphProps) => (
-  <article className={classNames(styles.paragraph, className)}>
+const Section = ({ title, children, className }: ParagraphProps) => (
+  <article className={classNames(styles.section, className)}>
     {title && (
       <Text as="h4" size="m">
         {title}
@@ -21,4 +21,4 @@ const Paragraph = ({ title, children, className }: ParagraphProps) => (
   </article>
 );
 
-export default Paragraph;
+export default Section;

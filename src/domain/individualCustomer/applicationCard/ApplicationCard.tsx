@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Card from '../../../common/card/Card';
-import Paragraph from '../../../common/paragraph/Paragraph';
+import Section from '../../../common/section/Section';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 import styles from './applicationCard.module.scss';
 import Grid from '../../../common/grid/Grid';
@@ -54,7 +54,7 @@ const ApplicationCard: React.SFC<ApplicationCardProps> = ({
       className={styles.applicationCard}
     >
       <Grid colsCount={3}>
-        <Paragraph title={t('individualCustomer.application.application')}>
+        <Section title={t('individualCustomer.application.application')}>
           <LabelValuePair
             label={t('individualCustomer.application.applicationType')}
             value={applicationType}
@@ -71,9 +71,9 @@ const ApplicationCard: React.SFC<ApplicationCardProps> = ({
             label={t('individualCustomer.application.status')}
             value={status}
           />
-        </Paragraph>
+        </Section>
         <div>
-          <Paragraph title={t('individualCustomer.application.boatInfo')}>
+          <Section title={t('individualCustomer.application.boatInfo')}>
             <LabelValuePair
               label={t('individualCustomer.application.boatType')}
               value={boatType}
@@ -82,8 +82,8 @@ const ApplicationCard: React.SFC<ApplicationCardProps> = ({
               label={t('individualCustomer.application.registrationNumber')}
               value={registrationNumber}
             />
-          </Paragraph>
-          <Paragraph>
+          </Section>
+          <Section>
             <LabelValuePair
               label={t('individualCustomer.application.boatWidth')}
               value={boatWidth}
@@ -100,8 +100,8 @@ const ApplicationCard: React.SFC<ApplicationCardProps> = ({
               label={t('individualCustomer.application.boatWeight')}
               value={boatWeight}
             />
-          </Paragraph>
-          <Paragraph>
+          </Section>
+          <Section>
             <LabelValuePair
               label={t('individualCustomer.application.boatName')}
               value={boatName}
@@ -110,10 +110,10 @@ const ApplicationCard: React.SFC<ApplicationCardProps> = ({
               label={t('individualCustomer.application.boatBrand')}
               value={boatBrand}
             />
-          </Paragraph>
+          </Section>
         </div>
         <div>
-          <Paragraph title={t('individualCustomer.application.selectedPorts')}>
+          <Section title={t('individualCustomer.application.selectedPorts')}>
             {selectedPorts.map(({ title }, i) => (
               <LabelValuePair
                 key={i}
@@ -121,15 +121,15 @@ const ApplicationCard: React.SFC<ApplicationCardProps> = ({
                 value={title}
               />
             ))}
-          </Paragraph>
-          <Paragraph>
+          </Section>
+          <Section>
             <Checkbox
               label={t('individualCustomer.application.accessible')}
               checked={accessible}
               size="large"
               readOnly
             />
-          </Paragraph>
+          </Section>
         </div>
       </Grid>
     </Card>
