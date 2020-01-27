@@ -2,7 +2,7 @@ import React from 'react';
 
 import Card from './Card';
 import Text from '../text/Text';
-import Paragraph from '../paragraph/Paragraph';
+import Section from '../section/Section';
 import LabelValuePair from '../labelValuePair/LabelValuePair';
 
 export default {
@@ -14,32 +14,32 @@ export const sampleCard = () => <Card title="heading">content</Card>;
 
 export const Harbor1 = () => (
   <Card>
-    <Paragraph title="Osoite">
+    <Section title="Osoite">
       <Text color="brand" size="xs">
         Aurinkoranta 1, 00990 Helsinki
       </Text>
-    </Paragraph>
-    <Paragraph>
+    </Section>
+    <Section>
       <Text color="brand" size="s">
         Toimipisteen nettisivut
       </Text>
-    </Paragraph>
-    <Paragraph>
+    </Section>
+    <Section>
       <Text color="brand" size="s">
         Satamakartta (PDF)
       </Text>
-    </Paragraph>
-    <Paragraph>
+    </Section>
+    <Section>
       <Text color="brand" size="s">
         Google maps
       </Text>
-    </Paragraph>
+    </Section>
   </Card>
 );
 
 export const Harbor2 = () => (
   <Card>
-    <Paragraph>
+    <Section>
       <LabelValuePair label="Max leveys" value="2.5m - 4m" />
       <LabelValuePair
         label="Kiinnitys"
@@ -50,16 +50,16 @@ export const Harbor2 = () => (
         value="Mikko Mallikas +358 00 000 000"
       />
       <LabelValuePair label="Huoltotiimi" value="Itäinen veneilytiimi" />
-    </Paragraph>
+    </Section>
   </Card>
 );
 
 export const Harbor3 = () => (
   <Card>
-    <Paragraph title="Viimeaikainen toiminta">
+    <Section title="Viimeaikainen toiminta">
       <Text color="brand" size="xs">
         Ei mitään
       </Text>
-    </Paragraph>
+    </Section>
   </Card>
 );

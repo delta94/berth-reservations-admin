@@ -1,7 +1,20 @@
 {
   "authentication": {
+    "errorMessage": "Tapahtui virhe. Yritä uudestaan",
+    "loadUserError": {
+      "message": "Tapahtui virhe. Yritä kirjautua uudelleen."
+    },
+    "login": {
+      "text": "Kirjaudu sisään"
+    },
+    "logout": {
+      "text": "Kirjaudu ulos"
+    },
+    "networkError": {
+      "message": "Virhe kirjautumisessa: Tarkista verkkoyhteytesi ja yritä uudestaan"
+    },
     "redirect": {
-      "text": "Uudelleenohjataan"
+      "text": "Ohjataan tunnistautumiseen..."
     }
   },
   "common": {
@@ -65,14 +78,15 @@
   },
   "customers": {
     "tableHeaders": {
-      "mainHeader": "Asiakkaat",
-      "queue": "Jono",
       "name": "Nimi",
-      "startDate": "Alkaen",
-      "group": "Ryhmä",
-      "thing": "Juttu",
-      "invoice": "Laskuja",
-      "goToDetails": "Avaa"
+      "group": "Asiakasryhmä",
+      "municipality": "Kotikunta",
+      "berths": "Venepaikat",
+      "invoice": "Laskut",
+      "boats": "Veneitä",
+      "minimizeAll": "Pienennä kaikki",
+      "mainHeader": "Asiakkaat",
+      "queue": "Jono"
     },
     "details": {
       "address": "OSOITE",

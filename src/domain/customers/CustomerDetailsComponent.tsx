@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import Grid from '../../common/grid/Grid';
 import styles from './customerList.module.scss';
-import Paragraph from '../../common/paragraph/Paragraph';
+import Section from '../../common/section/Section';
 
 const CustomerDetails = () => {
   const { t } = useTranslation();
@@ -13,14 +13,12 @@ const CustomerDetails = () => {
     <Grid>
       <div className={classNames(styles.section, styles.harborAddress)}>
         <div className={classNames(styles.address)}>
-          <Paragraph title={t('harbors.details.address')}>
-            placeholder
-          </Paragraph>
+          <Section title={t('harbors.details.address')}>placeholder</Section>
         </div>
       </div>
       <div className={classNames(styles.section)}>placeholder</div>
       <div className={classNames(styles.section)}>
-        <Paragraph title={t('harbors.details.recentActivities')}>-</Paragraph>
+        <Section title={t('harbors.details.recentActivities')}>-</Section>
       </div>
     </Grid>
   );

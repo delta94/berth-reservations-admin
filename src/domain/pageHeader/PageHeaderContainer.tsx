@@ -1,7 +1,6 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { userSignedOut } from 'redux-oidc';
 import { useTranslation } from 'react-i18next';
 
 import Header from '../../common/header/Header';
@@ -12,6 +11,7 @@ import Icon from '../../common/icon/Icon';
 import List from '../../common/list/List';
 import ListItem from '../../common/list/ListItem';
 import { StoreState } from '../app/types/AppTypes';
+import { logoutTunnistamo } from '../auth/authenticate';
 
 const PageHeaderContainer: React.SFC = () => {
   const { t } = useTranslation();
@@ -19,7 +19,6 @@ const PageHeaderContainer: React.SFC = () => {
     store =>
       `${store.authentication.tunnistamo.user?.profile?.given_name} ${store.authentication.tunnistamo.user?.profile?.family_name}`
   );
-  const dispatch = useDispatch();
 
   return (
     <Header>
@@ -29,7 +28,13 @@ const PageHeaderContainer: React.SFC = () => {
       <Dropdown label={<Button icon={<Icon name="user" />}>{fullName}</Button>}>
         <List noBullets>
           <ListItem>
-            <Button variant="text" onClick={() => dispatch(userSignedOut())}>
+            <Button
+              variant="text"
+              onClick={() => {
+                // Log out
+                logoutTunnistamo();
+              }}
+            >
               {t('common.header.logout')}
             </Button>
           </ListItem>

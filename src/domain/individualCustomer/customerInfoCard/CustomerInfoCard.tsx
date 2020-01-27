@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import Card from '../../../common/card/Card';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
-import Paragraph from '../../../common/paragraph/Paragraph';
+import Section from '../../../common/section/Section';
 
 export interface CustomerInfoCardProps {
   firstName: string;
@@ -30,7 +30,7 @@ const CustomerInfoCard: React.SFC<CustomerInfoCardProps> = ({
 
   return (
     <Card title={t('individualCustomer.customerInformation.title')}>
-      <Paragraph
+      <Section
         title={t(
           'individualCustomer.customerInformation.applicantPersonalInfo'
         )}
@@ -43,8 +43,8 @@ const CustomerInfoCard: React.SFC<CustomerInfoCardProps> = ({
           label={t('individualCustomer.customerInformation.lastName')}
           value={lastName}
         />
-      </Paragraph>
-      <Paragraph>
+      </Section>
+      <Section>
         <LabelValuePair
           label={t('individualCustomer.customerInformation.address')}
           value={primaryAddress?.address}
@@ -57,8 +57,8 @@ const CustomerInfoCard: React.SFC<CustomerInfoCardProps> = ({
           label={t('individualCustomer.customerInformation.city')}
           value={primaryAddress?.city}
         />
-      </Paragraph>
-      <Paragraph>
+      </Section>
+      <Section>
         <LabelValuePair
           label={t('individualCustomer.customerInformation.phone')}
           value={phone}
@@ -67,13 +67,13 @@ const CustomerInfoCard: React.SFC<CustomerInfoCardProps> = ({
           label={t('individualCustomer.customerInformation.email')}
           value={email}
         />
-      </Paragraph>
-      <Paragraph>
+      </Section>
+      <Section>
         <LabelValuePair
           label={t('individualCustomer.customerInformation.remarks')}
           value={comment}
         />
-      </Paragraph>
+      </Section>
     </Card>
   );
 };
