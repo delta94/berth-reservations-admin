@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Card from '../../../common/card/Card';
-import Paragraph from '../../../common/paragraph/Paragraph';
+import Section from '../../../common/section/Section';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 import styles from './boatsCard.module.scss';
 
@@ -41,7 +41,7 @@ const BoatCard: React.SFC<BoatCardProps> = ({ boat }) => {
 
   return (
     <Card className={styles.boatsCard} key={boat.id}>
-      <Paragraph>
+      <Section>
         <LabelValuePair
           label={t('individualCustomer.customerBoats.boatWidth')}
           value={boat.boatType}
@@ -50,8 +50,8 @@ const BoatCard: React.SFC<BoatCardProps> = ({ boat }) => {
           label={t('individualCustomer.customerBoats.registrationNumber')}
           value={boat.registrationNumber}
         />
-      </Paragraph>
-      <Paragraph>
+      </Section>
+      <Section>
         <LabelValuePair
           label={t('individualCustomer.customerBoats.boatLength')}
           value={boat.boatLength}
@@ -64,8 +64,8 @@ const BoatCard: React.SFC<BoatCardProps> = ({ boat }) => {
           label={t('individualCustomer.customerBoats.boatWeight')}
           value={boat.boatWeight}
         />
-      </Paragraph>
-      <Paragraph>
+      </Section>
+      <Section>
         <LabelValuePair
           label={t('individualCustomer.customerBoats.boatName')}
           value={boat.boatName}
@@ -74,10 +74,10 @@ const BoatCard: React.SFC<BoatCardProps> = ({ boat }) => {
           label={t('individualCustomer.customerBoats.boatBrand')}
           value={boat.boatBrand}
         />
-      </Paragraph>
+      </Section>
       {isLargeBoat(boat) && (
         <>
-          <Paragraph>
+          <Section>
             <LabelValuePair
               label={t('individualCustomer.customerBoats.boatPower')}
               value={boat.boatPower}
@@ -90,19 +90,19 @@ const BoatCard: React.SFC<BoatCardProps> = ({ boat }) => {
               label={t('individualCustomer.customerBoats.purpose')}
               value={boat.purpose}
             />
-          </Paragraph>
-          <Paragraph>
+          </Section>
+          <Section>
             <LabelValuePair
               label={t('individualCustomer.customerBoats.inspection')}
               value={boat.inspection}
             />
-          </Paragraph>
-          <Paragraph>
+          </Section>
+          <Section>
             <LabelValuePair
               label={t('individualCustomer.customerBoats.insurance')}
               value={boat.insurance}
             />
-          </Paragraph>
+          </Section>
         </>
       )}
     </Card>
