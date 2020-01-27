@@ -1,7 +1,20 @@
 {
   "authentication": {
+    "errorMessage": "Tapahtui virhe. Yritä uudestaan",
+    "loadUserError": {
+      "message": "Tapahtui virhe. Yritä kirjautua uudelleen."
+    },
+    "login": {
+      "text": "Kirjaudu sisään"
+    },
+    "logout": {
+      "text": "Kirjaudu ulos"
+    },
+    "networkError": {
+      "message": "Virhe kirjautumisessa: Tarkista verkkoyhteytesi ja yritä uudestaan"
+    },
     "redirect": {
-      "text": "Uudelleenohjataan"
+      "text": "Ohjataan tunnistautumiseen..."
     }
   },
   "common": {

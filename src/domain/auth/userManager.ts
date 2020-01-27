@@ -17,6 +17,7 @@ const settings: UserManagerSettings = {
   automaticSilentRenew: true,
   client_id: REACT_APP_TUNNISTAMO_CLIENT_ID,
   redirect_uri: `${location}/callback`,
+  post_logout_redirect_uri: `${location}/callback`,
   response_type: 'id_token token',
   silent_redirect_uri: `${location}/silent_renew`,
   scope: REACT_APP_TUNNISTAMO_SCOPE,
