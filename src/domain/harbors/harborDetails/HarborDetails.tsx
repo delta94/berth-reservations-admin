@@ -7,7 +7,7 @@ import ExternalLink from '../../../common/externalLink/ExternalLink';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 import { HarborData } from '../utils';
 import styles from './harborDetails.module.scss';
-import Paragraph from '../../../common/paragraph/Paragraph';
+import Section from '../../../common/section/Section';
 
 type Props = {
   imageFile: HarborData['imageFile'];
@@ -39,7 +39,7 @@ const HarborDetails: React.SFC<Props> = ({
       <div className={classNames(styles.section, styles.harborAddress)}>
         <img className={styles.image} src={imageSrc} alt="map" />
         <div className={classNames(styles.address)}>
-          <Paragraph title={t('harbors.details.address')}>
+          <Section title={t('harbors.details.address')}>
             <ExternalLink href={url} variant="withArrow">
               {address}
             </ExternalLink>
@@ -47,11 +47,11 @@ const HarborDetails: React.SFC<Props> = ({
             <ExternalLink href={serviceMapUrl}>
               {t('harbors.details.serviceMap')}
             </ExternalLink>
-          </Paragraph>
+          </Section>
         </div>
       </div>
       <div className={classNames(styles.section)}>
-        <Paragraph>
+        <Section>
           <LabelValuePair
             label={t('harbors.details.maximumWidth')}
             labelColor="brand"
@@ -72,10 +72,10 @@ const HarborDetails: React.SFC<Props> = ({
             labelColor="brand"
             value="-"
           />
-        </Paragraph>
+        </Section>
       </div>
       <div className={classNames(styles.section)}>
-        <Paragraph title={t('harbors.details.recentActivities')}>-</Paragraph>
+        <Section title={t('harbors.details.recentActivities')}>-</Section>
       </div>
     </Grid>
   );

@@ -4,7 +4,7 @@ import { Button } from 'hds-react';
 
 import Card from '../../../common/card/Card';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
-import Paragraph from '../../../common/paragraph/Paragraph';
+import Section from '../../../common/section/Section';
 import styles from './billsCard.module.scss';
 
 export interface BillsCardProps {
@@ -57,7 +57,7 @@ const BillsCard: React.SFC<BillsCardProps> = ({
       >
         {t('individualCustomer.customerBill.showInvoice')}
       </Button>
-      <Paragraph title={t('individualCustomer.customerBill.berthRental')}>
+      <Section title={t('individualCustomer.customerBill.berthRental')}>
         <LabelValuePair
           label={t('individualCustomer.customerBill.berthPlace')}
           value={berthPlace}
@@ -70,8 +70,8 @@ const BillsCard: React.SFC<BillsCardProps> = ({
           label={t('individualCustomer.customerBill.dueDate')}
           value={dueDate}
         />
-      </Paragraph>
-      <Paragraph className={styles.feesSection}>
+      </Section>
+      <Section className={styles.feesSection}>
         <LabelValuePair
           align="right"
           label={t('individualCustomer.customerBill.basicFee')}
@@ -107,14 +107,14 @@ const BillsCard: React.SFC<BillsCardProps> = ({
           label={t('individualCustomer.customerBill.lighting')}
           value={formatPrice(lightingFee)}
         />
-      </Paragraph>
-      <Paragraph className={styles.feesSection}>
+      </Section>
+      <Section className={styles.feesSection}>
         <LabelValuePair
           align="right"
           label={t('individualCustomer.customerBill.total')}
           value={formatPrice(total)}
         />
-      </Paragraph>
+      </Section>
     </Card>
   );
 };
