@@ -65,14 +65,15 @@
   },
   "customers": {
     "tableHeaders": {
-      "mainHeader": "Asiakkaat",
-      "queue": "Jono",
       "name": "Nimi",
-      "startDate": "Alkaen",
-      "group": "Ryhmä",
-      "thing": "Juttu",
-      "invoice": "Laskuja",
-      "goToDetails": "Avaa"
+      "group": "Asiakasryhmä",
+      "municipality": "Kotikunta",
+      "berths": "Venepaikat",
+      "invoice": "Laskut",
+      "boats": "Veneitä",
+      "minimizeAll": "Pienennä kaikki",
+      "mainHeader": "Asiakkaat",
+      "queue": "Jono"
     },
     "details": {
       "address": "OSOITE",
