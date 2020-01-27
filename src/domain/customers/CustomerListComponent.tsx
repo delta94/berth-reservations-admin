@@ -7,13 +7,14 @@ import InternalLink from '../../common/internalLink/InternalLink';
 
 export interface TableData {
   id: string;
-  goToDetails?: string;
+  municipality?: string;
+  berths?: string;
+  boats?: string;
+  minimizeAll?: string;
   group?: string;
   invoice?: string;
   name: string;
-  queue?: string;
   startDate?: string;
-  thing?: string;
 }
 
 type ColumnType = Column<TableData> & { accessor: keyof TableData };
@@ -25,10 +26,6 @@ const CustomerListComponent = ({ data }: CustomerListComponentProps) => {
   const { t } = useTranslation();
   const columns: ColumnType[] = [
     {
-      Header: t('customers.tableHeaders.queue'),
-      accessor: 'queue',
-    },
-    {
       Cell: ({ cell }) => (
         <InternalLink to={`/customers/${cell.row.original.id}}`}>
           {cell.value}
@@ -38,24 +35,24 @@ const CustomerListComponent = ({ data }: CustomerListComponentProps) => {
       accessor: 'name',
     },
     {
-      Header: t('customers.tableHeaders.startDate'),
-      accessor: 'startDate',
-    },
-    {
       Header: t('customers.tableHeaders.group'),
       accessor: 'group',
     },
     {
-      Header: t('customers.tableHeaders.thing'),
-      accessor: 'thing',
+      Header: t('customers.tableHeaders.municipality'),
+      accessor: 'municipality',
+    },
+    {
+      Header: t('customers.tableHeaders.berths'),
+      accessor: 'berths',
     },
     {
       Header: t('customers.tableHeaders.invoice'),
       accessor: 'invoice',
     },
     {
-      Header: t('customers.tableHeaders.goToDetails'),
-      accessor: 'goToDetails',
+      Header: t('customers.tableHeaders.boats'),
+      accessor: 'boats',
     },
   ];
 
