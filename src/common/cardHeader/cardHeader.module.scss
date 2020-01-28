@@ -1,0 +1,9 @@
+@import 'spacings';
+@import 'colours';
+
+.cardHeader {
+  background-color: $blue-500;
+  padding: units(1);
+  font-weight: bold;
+  color: $white;
+}
