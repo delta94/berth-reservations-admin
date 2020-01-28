@@ -10,12 +10,31 @@ import LabelValuePair from '../labelValuePair/LabelValuePair';
 export default {
   component: Card,
   title: 'Card',
+  decorators: [
+    storyFn => (
+      <div style={{ backgroundColor: 'lightgrey', height: '100vh' }}>
+        {storyFn()}
+      </div>
+    ),
+  ],
 };
 
-export const sampleCard = () => (
+export const card = () => (
   <Card>
-    <CardHeader title="heading" />
+    <CardHeader title="Heading" />
     <CardBody>content</CardBody>
+  </Card>
+);
+
+card.story = {
+  name: 'Default',
+};
+
+export const multipleBodies = () => (
+  <Card>
+    <CardHeader title="Heading" />
+    <CardBody>First body</CardBody>
+    <CardBody>Second body</CardBody>
   </Card>
 );
 

@@ -4,4 +4,8 @@
 .cardBody {
   padding: units(1);
   background-color: $white;
+
+  &:not(:last-child) {
+    margin-bottom: units(0.5);
+  }
 }
