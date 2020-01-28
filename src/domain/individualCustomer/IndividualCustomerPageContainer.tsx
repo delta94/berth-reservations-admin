@@ -6,6 +6,8 @@ import IndividualCustomerPage from './individualCustomerPage/IndividualCustomerP
 import { INDIVIDUAL_CUSTOMER_QUERY } from './queries';
 import { INDIVIDUAL_CUSTOMER } from './__generated__/INDIVIDUAL_CUSTOMER';
 import Card from '../../common/card/Card';
+import CardHeader from '../../common/cardHeader/CardHeader';
+import CardBody from '../../common/cardBody/CardBody';
 import BillsCard from './billsCard/BillsCard';
 import CustomerInfoCard from './customerInfoCard/CustomerInfoCard';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
@@ -54,7 +56,10 @@ const IndividualHarborPageContainer: React.SFC = () => {
           email={primaryEmail?.email}
           comment={comment}
         />
-        <Card title="VIIMEAIKAINEN TOIMINTA">Placeholder</Card>
+        <Card>
+          <CardHeader title="VIIMEAIKAINEN TOIMINTA" />
+          <CardBody>Placeholder</CardBody>
+        </Card>
         <ApplicationCard
           applicationType="Vaihtohakemus"
           receivedDate="23.8.2019, klo 21.06"
