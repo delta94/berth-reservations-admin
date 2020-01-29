@@ -32,10 +32,6 @@ export interface BoatsCardProps {
   boats: (Boat | LargeBoat)[];
 }
 
-export interface BoatCardProps {
-  boat: Boat | LargeBoat;
-}
-
 const BoatsCard: React.SFC<BoatsCardProps> = ({ boats }) => {
   const { t } = useTranslation();
   const isLargeBoat = (boat: LargeBoat | Boat): boat is LargeBoat =>
