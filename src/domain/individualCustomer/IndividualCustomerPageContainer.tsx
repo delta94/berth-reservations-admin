@@ -94,7 +94,10 @@ const IndividualHarborPageContainer: React.SFC = () => {
           total={440}
           handleShowBill={() => alert("Here's your bill!")}
         />
-        <Card title="LASKUHISTORIA">Placeholder</Card>
+        <Card>
+          <CardHeader title="LASKUHISTORIA" />
+          <CardBody>Placeholder</CardBody>
+        </Card>
         <BoatsCard
           boats={[
             {
