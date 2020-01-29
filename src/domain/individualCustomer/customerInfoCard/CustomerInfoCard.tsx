@@ -2,6 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Card from '../../../common/card/Card';
+import CardHeader from '../../../common/cardHeader/CardHeader';
+import CardBody from '../../../common/cardBody/CardBody';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 import Section from '../../../common/section/Section';
 
@@ -29,51 +31,54 @@ const CustomerInfoCard: React.SFC<CustomerInfoCardProps> = ({
   const { t } = useTranslation();
 
   return (
-    <Card title={t('individualCustomer.customerInformation.title')}>
-      <Section
-        title={t(
-          'individualCustomer.customerInformation.applicantPersonalInfo'
-        )}
-      >
-        <LabelValuePair
-          label={t('individualCustomer.customerInformation.firstName')}
-          value={firstName}
-        />
-        <LabelValuePair
-          label={t('individualCustomer.customerInformation.lastName')}
-          value={lastName}
-        />
-      </Section>
-      <Section>
-        <LabelValuePair
-          label={t('individualCustomer.customerInformation.address')}
-          value={primaryAddress?.address}
-        />
-        <LabelValuePair
-          label={t('individualCustomer.customerInformation.postalCode')}
-          value={primaryAddress?.postalCode}
-        />
-        <LabelValuePair
-          label={t('individualCustomer.customerInformation.city')}
-          value={primaryAddress?.city}
-        />
-      </Section>
-      <Section>
-        <LabelValuePair
-          label={t('individualCustomer.customerInformation.phone')}
-          value={phone}
-        />
-        <LabelValuePair
-          label={t('individualCustomer.customerInformation.email')}
-          value={email}
-        />
-      </Section>
-      <Section>
-        <LabelValuePair
-          label={t('individualCustomer.customerInformation.remarks')}
-          value={comment}
-        />
-      </Section>
+    <Card>
+      <CardHeader title={t('individualCustomer.customerInformation.title')} />
+      <CardBody>
+        <Section
+          title={t(
+            'individualCustomer.customerInformation.applicantPersonalInfo'
+          )}
+        >
+          <LabelValuePair
+            label={t('individualCustomer.customerInformation.firstName')}
+            value={firstName}
+          />
+          <LabelValuePair
+            label={t('individualCustomer.customerInformation.lastName')}
+            value={lastName}
+          />
+        </Section>
+        <Section>
+          <LabelValuePair
+            label={t('individualCustomer.customerInformation.address')}
+            value={primaryAddress?.address}
+          />
+          <LabelValuePair
+            label={t('individualCustomer.customerInformation.postalCode')}
+            value={primaryAddress?.postalCode}
+          />
+          <LabelValuePair
+            label={t('individualCustomer.customerInformation.city')}
+            value={primaryAddress?.city}
+          />
+        </Section>
+        <Section>
+          <LabelValuePair
+            label={t('individualCustomer.customerInformation.phone')}
+            value={phone}
+          />
+          <LabelValuePair
+            label={t('individualCustomer.customerInformation.email')}
+            value={email}
+          />
+        </Section>
+        <Section>
+          <LabelValuePair
+            label={t('individualCustomer.customerInformation.remarks')}
+            value={comment}
+          />
+        </Section>
+      </CardBody>
     </Card>
   );
 };
