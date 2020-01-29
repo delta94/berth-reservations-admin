@@ -4,6 +4,7 @@
 .checkbox {
   --checkbox-dimension: #{units(1)};
 
+  position: relative;
   box-sizing: content-box;
   display: inline-block;
   width: var(--checkbox-dimension);

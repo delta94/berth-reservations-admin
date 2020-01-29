@@ -147,6 +147,22 @@
       "gate": "Portti",
       "lighting": "Valaistus",
       "total": "YHTEENSÄ"
+    },
+    "customerBoats": {
+      "title": "ASIAKKAAN VENEET",
+      "boatType": "Veneen tyyppi",
+      "registrationNumber": "Rekisterinumero",
+      "boatWidth": "Veneen leveys",
+      "boatLength": "Veneen pituus",
+      "boatDepth": "Veneen syväys",
+      "boatWeight": "Veneen paino",
+      "boatName": "Nimi",
+      "boatBrand": "Merkki",
+      "boatPower": "Käyttövoima",
+      "boatMaterial": "Runkomateriaali",
+      "purpose": "Käyttötarkoitus",
+      "inspection": "Katsastustodistus",
+      "insurance": "Vakuutuskirjaote"
     }
   }
 }
