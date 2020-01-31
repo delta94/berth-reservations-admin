@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CustomerDetails from './CustomerDetailsComponent';
+import CustomerDetails from './CustomerDetails';
 
 export default {
   component: CustomerDetails,

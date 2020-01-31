@@ -4,13 +4,17 @@ import { Column } from 'react-table';
 
 import Table from '../../common/table/Table';
 import InternalLink from '../../common/internalLink/InternalLink';
+import CustomerDetails from './customerDetails/CustomerDetails';
 
 export interface TableData {
   id: string;
-  municipality?: string;
+  email?: string;
+  phone?: string;
+  address?: string;
+  city?: string;
+  postalCode?: string;
   berths?: string;
   boats?: string;
-  minimizeAll?: string;
   group?: string;
   invoice?: string;
   name: string;
@@ -40,7 +44,7 @@ const CustomerListComponent = ({ data }: CustomerListComponentProps) => {
     },
     {
       Header: t('customers.tableHeaders.municipality'),
-      accessor: 'municipality',
+      accessor: 'city',
     },
     {
       Header: t('customers.tableHeaders.berths'),
@@ -60,7 +64,24 @@ const CustomerListComponent = ({ data }: CustomerListComponentProps) => {
     <Table
       data={data}
       columns={columns}
-      renderSubComponent={() => <div>placeholder</div>}
+      renderSubComponent={row => {
+        return (
+          <CustomerDetails
+            name={row.original.name}
+            address={row.original.address}
+            postalCode={row.original.postalCode}
+            city={row.original.city}
+            phone={row.original.phone}
+            email={row.original.email}
+            berths={[]}
+            winterStoragePlaces={[]}
+            boats={[]}
+            applications={[]}
+            bills={[]}
+            comment=""
+          />
+        );
+      }}
       renderMainHeader={() => t('customers.tableHeaders.mainHeader')}
       canSelectRows
     />
