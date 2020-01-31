@@ -73,6 +73,7 @@ const CustomerListComponent = ({ data }: CustomerListComponentProps) => {
             city={row.original.city}
             phone={row.original.phone}
             email={row.original.email}
+            group={row.original.group}
             berths={[]}
             winterStoragePlaces={[]}
             boats={[]}

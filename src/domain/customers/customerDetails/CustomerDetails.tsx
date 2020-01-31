@@ -37,6 +37,7 @@ export interface CustomerDetailsProps {
   city?: string;
   phone?: string;
   email?: string;
+  group?: string;
   berths: Berth[];
   winterStoragePlaces: WinterStoragePlaces[];
   boats: Boat[];
@@ -52,6 +53,7 @@ const CustomerDetails: React.SFC<CustomerDetailsProps> = ({
   city,
   phone,
   email,
+  group,
   berths,
   winterStoragePlaces,
   boats,
@@ -75,6 +77,8 @@ const CustomerDetails: React.SFC<CustomerDetailsProps> = ({
             {phone}
             <br />
             {email}
+            <br />
+            {group}
           </Section>
         </div>
         <div className={styles.section}>
