@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-require('dotenv').config({ path: '.env.development.local' });
+require('dotenv').config({ path: '.env' });
 
 module.exports = {
   client: {
