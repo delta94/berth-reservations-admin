@@ -2,7 +2,7 @@
 @import 'colours';
 
 .cardBody {
-  padding: units(1);
+  padding: units(1.5);
   background-color: $white;
 
   &:not(:last-child) {
