@@ -10,39 +10,47 @@ const ApplicationsPageContainer: React.SFC = () => {
 
   const columns = [
     {
-      Header: t('applicationType'),
-      accessor: 'berthSwitch',
+      Cell: ({ cell }) => (
+        <InternalLink to={`/applications/${cell.value.id}`}>
+          {cell.value.type}
+        </InternalLink>
+      ),
+      Header: t('applications.tableHeaders.applicationType'),
+      accessor: 'application',
     },
     {
-      Header: t('queue'),
+      Header: t('applications.tableHeaders.queue'),
       accessor: 'queue',
     },
     {
-      Header: t('Pvm'),
+      Header: t('applications.tableHeaders.pvm'),
       accessor: 'createdAt',
     },
     {
-      Header: t('municipality'),
+      Header: t('applications.tableHeaders.municipality'),
       accessor: 'municipality',
     },
     {
-      Header: t('status'),
+      Header: t('applications.tableHeaders.status'),
       accessor: 'status',
     },
     {
       Cell: ({ cell }) => (
-        <InternalLink to={`/applications/${cell.value.id}`}>
+        <InternalLink to={`/offers/${cell.value.id}`}>
           {cell.value.address}
         </InternalLink>
       ),
-      Header: t('place'),
+      Header: t('applications.tableHeaders.place'),
       accessor: 'lease',
     },
   ];
 
   const tableData = [
     {
-      berthSwitch: 'Exchange application',
+      application: {
+        id: '123',
+        type: 'Vaihtohakemus',
+      },
       queue: 234,
       createdAt: '1.1.2019',
       municipality: 'Helsinki',
@@ -50,6 +58,20 @@ const ApplicationsPageContainer: React.SFC = () => {
       lease: {
         id: '11',
         address: 'Pursilahdenranta 31',
+      },
+    },
+    {
+      application: {
+        id: '321',
+        type: 'Vaihtohakemus',
+      },
+      queue: 234,
+      createdAt: '1.1.2019',
+      municipality: 'Helsinki',
+      status: 'Käsitelty',
+      lease: {
+        id: '22',
+        address: 'Merisatama 2',
       },
     },
   ];
@@ -60,7 +82,7 @@ const ApplicationsPageContainer: React.SFC = () => {
         data={tableData}
         columns={columns}
         renderSubComponent={row => 'placeholder'}
-        renderMainHeader={() => t('harbors.tableHeaders.mainHeader')}
+        renderMainHeader={() => t('applications.tableHeaders.mainHeader')}
         canSelectRows
       />
     </ApplicationsPage>
