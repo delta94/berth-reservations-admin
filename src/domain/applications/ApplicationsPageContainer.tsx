@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import ApplicationsPage from './ApplicationsPage';
 import Table from '../../common/table/Table';
 import InternalLink from '../../common/internalLink/InternalLink';
+import ApplicationDetails from './applicationDetails/ApplicationDetails';
 
 const ApplicationsPageContainer: React.SFC = () => {
   const { t } = useTranslation();
@@ -81,7 +82,27 @@ const ApplicationsPageContainer: React.SFC = () => {
       <Table
         data={tableData}
         columns={columns}
-        renderSubComponent={row => 'placeholder'}
+        renderSubComponent={row => (
+          <ApplicationDetails
+            applicationType={row.original.application.type}
+            receivedDate="23.8.2019, klo 21.06"
+            queueNumber={row.original.queue}
+            status={row.original.status}
+            boatType="Purjevene / moottoripursi"
+            registrationNumber="A 12345"
+            boatWidth="3,2 m"
+            boatLength="6 m"
+            boatDepth="0,8 m"
+            boatWeight="350 kg"
+            boatName="Cama la Yano"
+            boatBrand="Marine"
+            selectedPorts={[
+              { title: 'Pursilahdenranta', id: '123' },
+              { title: 'Pursilahdenranta', id: '123' },
+            ]}
+            accessible={true}
+          />
+        )}
         renderMainHeader={() => t('applications.tableHeaders.mainHeader')}
         canSelectRows
       />
