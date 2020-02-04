@@ -25,7 +25,8 @@ const Checkbox: React.SFC<CheckboxProps> = ({
       <span
         className={classNames(styles.checkbox, styles[size], {
           [styles.checked]: checked,
-          [styles.disabled]: disabled || readOnly,
+          [styles.disabled]: disabled,
+          [styles.readOnly]: readOnly,
         })}
       >
         {checked && <Check className={styles.check} />}
@@ -39,7 +40,10 @@ const Checkbox: React.SFC<CheckboxProps> = ({
       </span>
       {label && (
         <span
-          className={classNames(styles.label, { [styles.disabled]: disabled })}
+          className={classNames(styles.label, {
+            [styles.disabled]: disabled,
+            [styles.readOnly]: readOnly,
+          })}
         >
           {label}
         </span>
