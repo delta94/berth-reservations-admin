@@ -13,6 +13,7 @@ import CustomerInfoCard from './customerInfoCard/CustomerInfoCard';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import ApplicationCard from './applicationCard/ApplicationCard';
 import BoatsCard from './boatsCard/BoatsCard';
+import BerthsCard from './berthsCard/BerthsCard';
 
 const IndividualHarborPageContainer: React.SFC = () => {
   const { id } = useParams<{ id: string }>();
@@ -96,6 +97,20 @@ const IndividualHarborPageContainer: React.SFC = () => {
         />
         <Card>
           <CardHeader title="LASKUHISTORIA" />
+          <CardBody>Placeholder</CardBody>
+        </Card>
+        <BerthsCard
+          berths={[
+            {
+              id: '1234',
+              address: 'Pursilahdenranta B 31',
+              valid: '14.6.2019 - 10.9.2019',
+              handleShowContract: () => alert("Here's your contract"),
+            },
+          ]}
+        />
+        <Card>
+          <CardHeader title="TALVISÄILYTYSPAIKAT" />
           <CardBody>Placeholder</CardBody>
         </Card>
         <BoatsCard

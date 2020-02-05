@@ -175,6 +175,13 @@
       "purpose": "Käyttötarkoitus",
       "inspection": "Katsastustodistus",
       "insurance": "Vakuutuskirjaote"
+    },
+    "berths": {
+      "title": "VENEPAIKAT",
+      "showContract": "Näytä sopimus",
+      "berth": "VENEPAIKKA",
+      "portAndPlace": "Satama ja paikka",
+      "valid": "Voimassa"
     }
   }
 }
