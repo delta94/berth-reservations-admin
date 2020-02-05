@@ -23,6 +23,7 @@
     },
     "sidebar": {
       "harbors": "Venepaikat",
+      "applications": "Hakemukset",
       "customers": "Asiakkaat"
     },
     "header": {
@@ -74,6 +75,17 @@
       "mooring": "Kiinnitys",
       "harbor": "Satama",
       "places": "Paikkoja"
+    }
+  },
+  "applications": {
+    "tableHeaders": {
+      "mainHeader": "HAKEMUKSET",
+      "applicationType": "Hakemustyyppi",
+      "queue": "Jono",
+      "pvm": "PVM",
+      "municipality": "Kotikunta",
+      "status": "Tila",
+      "place": "Vene- / talvisäilytyspaikka"
     }
   },
   "customers": {

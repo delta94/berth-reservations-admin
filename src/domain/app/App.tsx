@@ -23,6 +23,7 @@ import PrivateRoute from '../privateRoute/PrivateRoute';
 import { store } from './state/AppStore';
 import { BackendTokenResponse } from '../auth/types/BackendAuthenticationTypes';
 import i18n from '../../locales/i18n';
+import ApplicationsPage from '../applications/ApplicationsPageContainer';
 
 const {
   REACT_APP_TUNNISTAMO_URI,
@@ -101,6 +102,11 @@ const App: React.FC = () => {
                   exact
                   path="/customers"
                   component={CustomersPage}
+                />
+                <PrivateRoute
+                  exact
+                  path="/applications"
+                  component={ApplicationsPage}
                 />
               </Page>
             </Switch>
