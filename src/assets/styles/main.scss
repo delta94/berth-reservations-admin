@@ -1,15 +1,17 @@
+@import '~hds-core/lib/helsinki.css';
 @import 'normalize';
 @import 'boxSizing';
 @import 'colours';
 
-body {
-  margin: 0;
-  font-family: HelsinkiGrotesk, Helvetica, Arial, 'MS Gothic', Meiryo, Osaka;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'HelsinkiGrotesk';
+  src: url('https://makasiini.hel.ninja/delivery/HelsinkiGrotesk/7c46f288e8133b87e6b12b45dac71865.woff');
+}
+
+html * {
+  font-family: var(--hds-theme-primary-font), Arial;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

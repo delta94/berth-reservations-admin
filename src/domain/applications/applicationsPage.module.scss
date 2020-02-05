@@ -1,0 +1,8 @@
+@import 'colours';
+@import 'spacings';
+
+.applicationsPage {
+  min-height: 100%;
+  padding: units(2);
+  background-color: $gray-100;
+}

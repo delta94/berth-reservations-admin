@@ -1,15 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="18px" height="22px" viewBox="0 0 18 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: sketchtool 61 (101010) - https://sketch.com -->
-    <title>1151439B-62C8-4C18-BCCE-55B1579E470B@1.00x</title>
-    <desc>Created with sketchtool.</desc>
-    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="app/navigation-sidebar" transform="translate(-23.000000, -201.000000)" fill="#231F20">
-            <g id="Hakemukset" transform="translate(0.000000, 196.000000)">
-                <g id="atoms/icons/applications/24-copy" transform="translate(20.000000, 3.500000)">
-                    <path d="M4.741,11 L4.7419366,21.3500004 L19.2580646,21.3500004 L19.2580646,11 L21,11 L21,23 L3,23 L3,11 L4.741,11 Z M17.6,18 L17.6,19.7 L6,19.7 L6,18 L17.6,18 Z M17.6,15 L17.6,16.7 L6,16.7 L6,15 L17.6,15 Z M11.3854096,2 L12.8773474,2.02230501 L12.8773474,8.12644069 L16.1256102,4.86674467 L17.0922752,5.98286119 L12.1315549,10.9828612 L7,5.98286119 L7.98565284,4.86674467 L11.3854096,8.12538236 L11.3854096,2 Z" id="applications_icon"></path>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg width="18" height="22">
+    <path d="M1.741 9.5v10.35h14.517V9.5H18v12H0v-12h1.741zm12.859 7v1.7H3v-1.7h11.6zm0-3v1.7H3v-1.7h11.6zM8.385.5l1.492.022v6.104l3.249-3.26.966 1.117-4.96 5-5.132-5 .986-1.116 3.4 3.258V.5z" fill-rule="evenodd"/>
 </svg>

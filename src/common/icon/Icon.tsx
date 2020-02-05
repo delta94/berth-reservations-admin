@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { ReactComponent as angleDown } from '../../assets/icons/angle-down.svg';
 import { ReactComponent as angleLeft } from '../../assets/icons/angle-left.svg';
 import { ReactComponent as angleUp } from '../../assets/icons/angle-up.svg';
-import { ReactComponent as applicationsIcon } from '../../assets/icons/applications.svg';
+import { ReactComponent as applications } from '../../assets/icons/applications.svg';
 import { ReactComponent as arrowDown } from '../../assets/icons/arrow-down.svg';
 import { ReactComponent as arrowRight } from '../../assets/icons/arrow-right.svg';
 import { ReactComponent as arrowUp } from '../../assets/icons/arrow-up.svg';
@@ -45,7 +45,7 @@ const icons = {
   angleDown,
   angleLeft,
   angleUp,
-  applicationsIcon,
+  applications,
   arrowDown,
   arrowRight,
   arrowUp,
