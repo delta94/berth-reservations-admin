@@ -81,7 +81,7 @@
     "@storybook/addons": "^5.2.5",
     "@storybook/react": "^5.2.5",
     "@storybook/storybook-deployer": "^2.8.1",
-    "apollo": "^2.21.1",
+    "apollo": "^2.21.3",
     "babel-loader": "^8.0.6",
     "codecov": "^3.6.1",
     "enzyme": "^3.10.0",

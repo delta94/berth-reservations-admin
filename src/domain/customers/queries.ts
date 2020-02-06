@@ -9,6 +9,17 @@ export const CUSTOMER_QUERY = gql`
           firstName
           lastName
           nickname
+          primaryAddress {
+            address
+            city
+            postalCode
+          }
+          primaryPhone {
+            phone
+          }
+          primaryEmail {
+            email
+          }
           serviceConnections {
             edges {
               node {

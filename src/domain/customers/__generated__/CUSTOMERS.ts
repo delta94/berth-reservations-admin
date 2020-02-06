@@ -8,6 +8,23 @@ import { ServiceType, ContactMethod } from "./../../../../__generated__/globalTy
 // GraphQL query operation: CUSTOMERS
 // ====================================================
 
+export interface CUSTOMERS_profiles_edges_node_primaryAddress {
+  __typename: "AddressNode";
+  address: string;
+  city: string;
+  postalCode: string;
+}
+
+export interface CUSTOMERS_profiles_edges_node_primaryPhone {
+  __typename: "PhoneNode";
+  phone: string | null;
+}
+
+export interface CUSTOMERS_profiles_edges_node_primaryEmail {
+  __typename: "EmailNode";
+  email: string;
+}
+
 export interface CUSTOMERS_profiles_edges_node_serviceConnections_edges_node_service {
   __typename: "ServiceNode";
   id: string;
@@ -36,6 +53,9 @@ export interface CUSTOMERS_profiles_edges_node {
   firstName: string;
   lastName: string;
   nickname: string;
+  primaryAddress: CUSTOMERS_profiles_edges_node_primaryAddress | null;
+  primaryPhone: CUSTOMERS_profiles_edges_node_primaryPhone | null;
+  primaryEmail: CUSTOMERS_profiles_edges_node_primaryEmail | null;
   serviceConnections: CUSTOMERS_profiles_edges_node_serviceConnections | null;
   contactMethod: ContactMethod | null;
   image: string | null;
