@@ -44,8 +44,13 @@
       "places": "Paikkoja"
     },
     "details": {
-      "address": "OSOITE",
-      "serviceMap": "Palvelukartta",
+      "customer": "ASIAKAS",
+      "berths": "VENEPAIKAT",
+      "winterStoragePlaces": "TALVISÄILYTYSPAIKAT",
+      "boats": "VENEET",
+      "applications": "HAKEMUKSET",
+      "bills": "LASKUT",
+      "comments": "HUOMIOT",
       "portMap": "Satamakartta (PDF)",
       "maximumWidth": "Max leveys",
       "mooring": "Kiinnitys",
@@ -175,6 +180,13 @@
       "purpose": "Käyttötarkoitus",
       "inspection": "Katsastustodistus",
       "insurance": "Vakuutuskirjaote"
+    },
+    "berths": {
+      "title": "VENEPAIKAT",
+      "showContract": "Näytä sopimus",
+      "berth": "VENEPAIKKA",
+      "portAndPlace": "Satama ja paikka",
+      "valid": "Voimassa"
     }
   }
 }
