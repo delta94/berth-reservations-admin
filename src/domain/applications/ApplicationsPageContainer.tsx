@@ -1,38 +1,76 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useQuery } from '@apollo/react-hooks';
 
 import ApplicationsPage from './ApplicationsPage';
-import Table from '../../common/table/Table';
+import Table, { Column } from '../../common/table/Table';
 import InternalLink from '../../common/internalLink/InternalLink';
 import ApplicationDetails from './applicationDetails/ApplicationDetails';
+import { BERTH_APPLICATIONS_QUERY } from './queries';
+import { BERTH_APPLICATIONS } from './__generated__/BERTH_APPLICATIONS';
+import { getBerthApplicationData, formatDate, ApplicationData } from './utils';
+import LoadingSpinner from '../../common/spinner/LoadingSpinner';
+import ApplicationStatus from './__generated__/applicationStatus/ApplicationStatus';
+
+export interface TableData {
+  id: string;
+  email?: string;
+  phone?: string;
+  address?: string;
+  city?: string;
+  postalCode?: string;
+  berths?: string;
+  boats?: string;
+  group?: string;
+  invoice?: string;
+  name: string;
+  startDate?: string;
+}
+
+type ColumnType = Column<ApplicationData> & { accessor: keyof ApplicationData };
 
 const ApplicationsPageContainer: React.SFC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const { loading, error, data } = useQuery<BERTH_APPLICATIONS>(
+    BERTH_APPLICATIONS_QUERY
+  );
 
-  const columns = [
+  if (error) {
+    return <LoadingSpinner isLoading={loading}>error</LoadingSpinner>;
+  }
+
+  const getApplicationType = (isSwitch: boolean) =>
+    isSwitch
+      ? t('applications.applicationType.switchApplication')
+      : t('applications.applicationType.newApplication');
+
+  const columns: ColumnType[] = [
     {
       Cell: ({ cell }) => (
-        <InternalLink to={`/applications/${cell.value.id}`}>
-          {cell.value.type}
+        <InternalLink to={`/applications/${cell.row.original.id}`}>
+          {getApplicationType(cell.value)}
         </InternalLink>
       ),
-      Header: t('applications.tableHeaders.applicationType'),
-      accessor: 'application',
+      Header: t('applications.tableHeaders.applicationType') || '',
+      accessor: 'isSwitch',
     },
     {
-      Header: t('applications.tableHeaders.queue'),
+      Header: t('applications.tableHeaders.queue') || '',
       accessor: 'queue',
     },
     {
-      Header: t('applications.tableHeaders.pvm'),
+      Cell: ({ cell }) => formatDate(cell.value, i18n.language),
+      Header: t('applications.tableHeaders.pvm') || '',
       accessor: 'createdAt',
     },
     {
-      Header: t('applications.tableHeaders.municipality'),
+      Header: t('applications.tableHeaders.municipality') || '',
       accessor: 'municipality',
     },
     {
-      Header: t('applications.tableHeaders.status'),
+      Cell: ({ cell }) =>
+        cell.value && <ApplicationStatus status={cell.value} />,
+      Header: t('applications.tableHeaders.status') || '',
       accessor: 'status',
     },
     {
@@ -41,72 +79,31 @@ const ApplicationsPageContainer: React.SFC = () => {
           {cell.value.address}
         </InternalLink>
       ),
-      Header: t('applications.tableHeaders.place'),
+      Header: t('applications.tableHeaders.lease') || '',
       accessor: 'lease',
     },
   ];
 
-  const tableData = [
-    {
-      application: {
-        id: '123',
-        type: 'Vaihtohakemus',
-      },
-      queue: 234,
-      createdAt: '1.1.2019',
-      municipality: 'Helsinki',
-      status: 'Tarjous lähetetty',
-      lease: {
-        id: '11',
-        address: 'Pursilahdenranta 31',
-      },
-    },
-    {
-      application: {
-        id: '321',
-        type: 'Vaihtohakemus',
-      },
-      queue: 234,
-      createdAt: '1.1.2019',
-      municipality: 'Helsinki',
-      status: 'Käsitelty',
-      lease: {
-        id: '22',
-        address: 'Merisatama 2',
-      },
-    },
-  ];
+  const tableData = getBerthApplicationData(data);
 
   return (
-    <ApplicationsPage>
-      <Table
-        data={tableData}
-        columns={columns}
-        renderSubComponent={row => (
-          <ApplicationDetails
-            applicationType={row.original.application.type}
-            receivedDate="23.8.2019, klo 21.06"
-            queueNumber={row.original.queue}
-            status={row.original.status}
-            boatType="Purjevene / moottoripursi"
-            registrationNumber="A 12345"
-            boatWidth="3,2 m"
-            boatLength="6 m"
-            boatDepth="0,8 m"
-            boatWeight="350 kg"
-            boatName="Cama la Yano"
-            boatBrand="Marine"
-            selectedPorts={[
-              { title: 'Pursilahdenranta', id: '123' },
-              { title: 'Pursilahdenranta', id: '123' },
-            ]}
-            accessible={true}
-          />
-        )}
-        renderMainHeader={() => t('applications.tableHeaders.mainHeader')}
-        canSelectRows
-      />
-    </ApplicationsPage>
+    <LoadingSpinner isLoading={loading}>
+      <ApplicationsPage>
+        <Table
+          data={tableData}
+          columns={columns}
+          renderSubComponent={row => (
+            <ApplicationDetails
+              {...row.original}
+              createdAt={formatDate(row.original.createdAt)}
+              applicationType={getApplicationType(row.original.isSwitch)}
+            />
+          )}
+          renderMainHeader={() => t('applications.tableHeaders.mainHeader')}
+          canSelectRows
+        />
+      </ApplicationsPage>
+    </LoadingSpinner>
   );
 };
 
