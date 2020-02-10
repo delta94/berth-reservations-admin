@@ -113,6 +113,18 @@
             "deprecationReason": null
           },
           {
+            "name": "downloadMyProfile",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "JSONString",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "profiles",
             "description": null,
             "args": [
@@ -3874,8 +3886,24 @@
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "RENEWING",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "SCALAR",
+        "name": "JSONString",
+        "description": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
         "possibleTypes": null
       },
       {
@@ -6850,6 +6878,63 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "berthApplications",
+            "description": null,
+            "args": [
+              {
+                "name": "before",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "after",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "first",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "last",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "BerthApplicationNodeConnection",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -6865,7 +6950,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "BerthProfileNodeConnection",
+        "name": "BerthApplicationNodeConnection",
         "description": null,
         "fields": [
           {
@@ -6896,7 +6981,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "BerthProfileNodeEdge",
+                  "name": "BerthApplicationNodeEdge",
                   "ofType": null
                 }
               }
@@ -6912,7 +6997,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "BerthProfileNodeEdge",
+        "name": "BerthApplicationNodeEdge",
         "description": null,
         "fields": [
           {
@@ -6921,7 +7006,7 @@
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "BerthProfileNode",
+              "name": "BerthApplicationNode",
               "ofType": null
             },
             "isDeprecated": false,
@@ -6998,6 +7083,18 @@
                 "name": "Boolean",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "status",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "ApplicationStatus",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -7363,6 +7460,18 @@
             "deprecationReason": null
           },
           {
+            "name": "customer",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "BerthProfileNode",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "berthSwitch",
             "description": null,
             "args": [],
@@ -7588,6 +7697,47 @@
       },
       {
         "kind": "ENUM",
+        "name": "ApplicationStatus",
+        "description": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "PENDING",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "OFFER_GENERATED",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "OFFER_SENT",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "HANDLED",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "EXPIRED",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
         "name": "BerthApplicationLanguage",
         "description": null,
         "fields": null,
@@ -7626,16 +7776,6 @@
         "possibleTypes": null
       },
       {
-        "kind": "SCALAR",
-        "name": "JSONString",
-        "description": null,
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
         "kind": "OBJECT",
         "name": "BerthSwitchType",
         "description": null,
@@ -7661,9 +7801,13 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -7767,9 +7911,13 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -7798,7 +7946,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "BerthApplicationNodeConnection",
+        "name": "BerthProfileNodeConnection",
         "description": null,
         "fields": [
           {
@@ -7829,7 +7977,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "BerthApplicationNodeEdge",
+                  "name": "BerthProfileNodeEdge",
                   "ofType": null
                 }
               }
@@ -7845,7 +7993,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "BerthApplicationNodeEdge",
+        "name": "BerthProfileNodeEdge",
         "description": null,
         "fields": [
           {
@@ -7854,7 +8002,7 @@
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "BerthApplicationNode",
+              "name": "BerthProfileNode",
               "ofType": null
             },
             "isDeprecated": false,
@@ -7936,6 +8084,33 @@
             "type": {
               "kind": "OBJECT",
               "name": "UpdateMyYouthProfileMutationPayload",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "renewMyYouthProfile",
+            "description": null,
+            "args": [
+              {
+                "name": "input",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "RenewMyYouthProfileMutationInput",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RenewMyYouthProfileMutationPayload",
               "ofType": null
             },
             "isDeprecated": false,
@@ -8426,6 +8601,33 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "updateBerthApplication",
+            "description": null,
+            "args": [
+              {
+                "name": "input",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "UpdateBerthApplicationInput",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "UpdateBerthApplicationPayload",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -8741,6 +8943,62 @@
       {
         "kind": "OBJECT",
         "name": "UpdateMyYouthProfileMutationPayload",
+        "description": null,
+        "fields": [
+          {
+            "name": "youthProfile",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "YouthProfileType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "clientMutationId",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "RenewMyYouthProfileMutationInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "clientMutationId",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "RenewMyYouthProfileMutationPayload",
         "description": null,
         "fields": [
           {
@@ -11276,6 +11534,90 @@
             "type": {
               "kind": "OBJECT",
               "name": "PierNode",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "clientMutationId",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "UpdateBerthApplicationInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "customerId",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "clientMutationId",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "UpdateBerthApplicationPayload",
+        "description": null,
+        "fields": [
+          {
+            "name": "berthApplication",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "BerthApplicationNode",
               "ofType": null
             },
             "isDeprecated": false,
