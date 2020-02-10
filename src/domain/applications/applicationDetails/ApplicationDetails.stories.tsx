@@ -10,22 +10,22 @@ export default {
 export const applicationDetails = () => (
   <ApplicationDetails
     applicationType="Vaihtohakemus"
-    receivedDate="23.8.2019, klo 21.06"
-    queueNumber={245}
+    createdAt="23.8.2019, klo 21.06"
+    queue={245}
     status="Ei käsitelty"
     boatType="Purjevene / moottoripursi"
-    registrationNumber="A 12345"
-    boatWidth="3,2 m"
-    boatLength="6 m"
-    boatDepth="0,8 m"
-    boatWeight="350 kg"
+    boatRegistrationNumber="A 12345"
+    boatWidth={3.2}
+    boatLength={6}
+    boatDraught={0.8}
+    boatWeight={350}
     boatName="Cama la Yano"
-    boatBrand="Marine"
-    selectedPorts={[
-      { title: 'Pursilahdenranta', id: '123' },
-      { title: 'Pursilahdenranta', id: '123' },
+    boatModel="Marine"
+    harborChoices={[
+      { harbor: '123', priority: 1 },
+      { harbor: '321', priority: 3 },
     ]}
-    accessible={true}
+    accessibilityRequired={true}
   />
 );
 
