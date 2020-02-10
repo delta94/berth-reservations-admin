@@ -2,6 +2,8 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
+import { ApplicationStatus } from "./../../../../__generated__/globalTypes";
+
 // ====================================================
 // GraphQL query operation: BERTH_APPLICATIONS
 // ====================================================
@@ -32,6 +34,7 @@ export interface BERTH_APPLICATIONS_berthApplications_edges_node {
   boatName: string;
   boatModel: string;
   accessibilityRequired: boolean;
+  status: ApplicationStatus | null;
   harborChoices: (BERTH_APPLICATIONS_berthApplications_edges_node_harborChoices | null)[] | null;
 }
 

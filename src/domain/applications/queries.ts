@@ -20,6 +20,7 @@ export const BERTH_APPLICATIONS_QUERY = gql`
           boatName
           boatModel
           accessibilityRequired
+          status
           harborChoices {
             harbor
             priority

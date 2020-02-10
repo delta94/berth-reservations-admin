@@ -91,6 +91,13 @@
       "municipality": "Kotikunta",
       "status": "Tila",
       "place": "Vene- / talvisäilytyspaikka"
+    },
+    "status": {
+      "pending": "Odottaa käsittelyä",
+      "offerGenerated": "Käsitelty",
+      "offerSent": "Tarjous lähetetty",
+      "handled": "Tarjous maksettu",
+      "expired": "Vanhentunut"
     }
   },
   "customers": {
