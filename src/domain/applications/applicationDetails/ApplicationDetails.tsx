@@ -7,121 +7,127 @@ import Grid from '../../../common/grid/Grid';
 import Checkbox from '../../../common/checkbox/Checkbox';
 import styles from './applicationDetails.module.scss';
 
-interface Port {
-  id: string;
-  title: string;
+interface HarborChoice {
+  harbor: string;
+  priority: number;
 }
 
 export interface ApplicationDetailsProps {
   applicationType: string;
-  receivedDate: string;
-  queueNumber: number;
-  status: string;
-  boatType: string;
-  registrationNumber: string;
-  boatWidth: string;
-  boatLength: string;
-  boatDepth: string;
-  boatWeight: string;
+  createdAt: string;
+  queue: number | null;
+  status: string | null;
+  boatType?: string | null;
+  boatRegistrationNumber: string;
+  boatWidth: number;
+  boatLength: number;
+  boatDraught: number | null;
+  boatWeight: number | null;
   boatName: string;
-  boatBrand: string;
-  selectedPorts: Port[];
-  accessible: boolean;
+  boatModel: string;
+  harborChoices: Array<HarborChoice | null>;
+  accessibilityRequired: boolean;
 }
 
 const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
   applicationType,
-  receivedDate,
-  queueNumber,
+  createdAt,
+  queue,
   status,
   boatType,
-  registrationNumber,
+  boatRegistrationNumber,
   boatWidth,
   boatLength,
-  boatDepth,
+  boatDraught,
   boatWeight,
   boatName,
-  boatBrand,
-  selectedPorts,
-  accessible,
+  boatModel,
+  harborChoices,
+  accessibilityRequired,
 }) => {
   const { t } = useTranslation();
+  const notNull = (choice: HarborChoice | null): choice is HarborChoice =>
+    !!choice;
 
   return (
     <div className={styles.applicationsDetails}>
       <Grid colsCount={3}>
-        <Section title={t('individualCustomer.application.application')}>
+        <Section title={t('applications.applicationDetails.application')}>
           <LabelValuePair
-            label={t('individualCustomer.application.applicationType')}
+            label={t('applications.applicationDetails.applicationType')}
             value={applicationType}
           />
           <LabelValuePair
-            label={t('individualCustomer.application.receivedDate')}
-            value={receivedDate}
+            label={t('applications.applicationDetails.receivedDate')}
+            value={createdAt}
           />
           <LabelValuePair
-            label={t('individualCustomer.application.queueNumber')}
-            value={`${queueNumber}`}
+            label={t('applications.applicationDetails.queueNumber')}
+            value={`${queue || ''}`}
           />
           <LabelValuePair
-            label={t('individualCustomer.application.status')}
+            label={t('applications.applicationDetails.status')}
             value={status}
           />
         </Section>
         <div>
-          <Section title={t('individualCustomer.application.boatInfo')}>
+          <Section title={t('applications.applicationDetails.boatInfo')}>
             <LabelValuePair
-              label={t('individualCustomer.application.boatType')}
+              label={t('applications.applicationDetails.boatType')}
               value={boatType}
             />
             <LabelValuePair
-              label={t('individualCustomer.application.registrationNumber')}
-              value={registrationNumber}
+              label={t('applications.applicationDetails.registrationNumber')}
+              value={boatRegistrationNumber}
             />
           </Section>
           <Section>
             <LabelValuePair
-              label={t('individualCustomer.application.boatWidth')}
-              value={boatWidth}
+              label={t('applications.applicationDetails.boatWidth')}
+              value={`${boatWidth}`}
             />
             <LabelValuePair
-              label={t('individualCustomer.application.boatLength')}
-              value={boatLength}
+              label={t('applications.applicationDetails.boatLength')}
+              value={`${boatLength}`}
             />
             <LabelValuePair
-              label={t('individualCustomer.application.boatDepth')}
-              value={boatDepth}
+              label={t('applications.applicationDetails.boatDepth')}
+              value={`${boatDraught || ''}`}
             />
             <LabelValuePair
-              label={t('individualCustomer.application.boatWeight')}
-              value={boatWeight}
+              label={t('applications.applicationDetails.boatWeight')}
+              value={`${boatWeight || ''}`}
             />
           </Section>
           <Section>
             <LabelValuePair
-              label={t('individualCustomer.application.boatName')}
+              label={t('applications.applicationDetails.boatName')}
               value={boatName}
             />
             <LabelValuePair
-              label={t('individualCustomer.application.boatBrand')}
-              value={boatBrand}
+              label={t('applications.applicationDetails.boatBrand')}
+              value={boatModel}
             />
           </Section>
         </div>
         <div>
-          <Section title={t('individualCustomer.application.selectedPorts')}>
-            {selectedPorts.map(({ title }, i) => (
-              <LabelValuePair
-                key={i}
-                label={`${t('individualCustomer.application.choice')} ${i + 1}`}
-                value={title}
-              />
-            ))}
+          <Section title={t('applications.applicationDetails.selectedPorts')}>
+            {[...harborChoices]
+              .filter(notNull)
+              .sort((choiceA, choiceB) => choiceA.priority - choiceB.priority)
+              .map(({ harbor }, i) => (
+                <LabelValuePair
+                  key={i}
+                  label={`${t('applications.applicationDetails.choice')} ${i +
+                    1}`}
+                  value={harbor}
+                />
+              ))}
           </Section>
           <Section>
             <Checkbox
-              label={t('individualCustomer.application.accessible')}
-              checked={accessible}
+              label={t('applications.applicationDetails.accessible')}
+              checked={accessibilityRequired}
               size="large"
               readOnly
             />
