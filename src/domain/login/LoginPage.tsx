@@ -12,9 +12,9 @@ import { loginTunnistamo } from '../auth/authenticate';
 
 const LoginPage: React.SFC<RouteComponentProps> = props => {
   const { t } = useTranslation();
-  const location = useLocation();
+  const location = useLocation<{ from: { pathname: string } }>();
   const { from } = location.state || { from: { pathname: '/' } };
-  const login = () => loginTunnistamo(from);
+  const login = () => loginTunnistamo(from.pathname);
 
   return (
     <Layout
