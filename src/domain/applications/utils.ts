@@ -16,10 +16,10 @@ export interface ApplicationData {
   lease: string;
   boatType?: string | null;
   boatRegistrationNumber: string;
-  boatWidth: number;
-  boatLength: number;
-  boatDraught: number | null;
-  boatWeight: number | null;
+  boatWidth: string;
+  boatLength: string;
+  boatDraught: string | null;
+  boatWeight: string | null;
   boatName: string;
   boatModel: string;
   harborChoices: Array<HarborChoice | null>;
@@ -64,14 +64,14 @@ export const getBerthApplicationData = (
             municipality,
             status,
             lease: '', //TODO: replace it with the actual data when https://helsinkisolutionoffice.atlassian.net/browse/VEN-348 is implemented.
-            boatDraught,
             boatRegistrationNumber,
             boatModel,
             boatName,
-            boatWidth,
-            boatLength,
+            boatWidth: `${boatWidth} m`,
+            boatLength: `${boatLength} m`,
+            boatDraught: boatDraught ? `${boatDraught} m` : null,
+            boatWeight: boatWeight ? `${boatWeight} kg` : null,
             boatType: boatTypes?.find(({ id }) => id === boatType)?.name,
-            boatWeight,
             harborChoices: harborChoices || [],
             accessibilityRequired,
           };

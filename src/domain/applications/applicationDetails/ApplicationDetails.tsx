@@ -24,10 +24,10 @@ export interface ApplicationDetailsProps {
   status: string | null;
   boatType?: string | null;
   boatRegistrationNumber: string;
-  boatWidth: number;
-  boatLength: number;
-  boatDraught: number | null;
-  boatWeight: number | null;
+  boatWidth: string;
+  boatLength: string;
+  boatDraught: string | null;
+  boatWeight: string | null;
   boatName: string;
   boatModel: string;
   harborChoices: Array<HarborChoice | null>;
