@@ -1,0 +1,35 @@
+@import 'spacings';
+
+.chip {
+  --background-color: transparent;
+  --color: default;
+
+  background-color: var(--background-color);
+  color: var(--color);
+  padding: units(0.25) units(0.75);
+
+  &.grey {
+    --background-color: hsl(0, 0%, 90%);
+    --color: hsl(0, 0%, 30%);
+  }
+
+  &.green {
+    --background-color: hsl(174, 49%, 92%);
+    --color: hsl(169, 100%, 24%);
+  }
+
+  &.yellow {
+    --background-color: hsl(51, 100%, 85%);
+    --color: hsl(41, 100%, 30%);
+  }
+
+  &.orange {
+    --background-color: hsl(20, 84%, 88%);
+    --color: hsl(20, 84%, 35%);
+  }
+
+  &.red {
+    --background-color: hsl(348, 83%, 93%);
+    --color: hsl(345, 83%, 42%);
+  }
+}

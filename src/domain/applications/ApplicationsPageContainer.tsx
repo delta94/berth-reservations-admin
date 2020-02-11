@@ -10,7 +10,7 @@ import { BERTH_APPLICATIONS_QUERY } from './queries';
 import { BERTH_APPLICATIONS } from './__generated__/BERTH_APPLICATIONS';
 import { getBerthApplicationData, formatDate, ApplicationData } from './utils';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
-import ApplicationStatus from './__generated__/applicationStatus/ApplicationStatus';
+import Chip from '../../common/chip/Chip';
 
 export interface TableData {
   id: string;
@@ -28,6 +28,26 @@ export interface TableData {
 }
 
 type ColumnType = Column<ApplicationData> & { accessor: keyof ApplicationData };
+
+const APPLICATION_STATUS = {
+  PENDING: 'applications.status.pending',
+  OFFER_GENERATED: 'applications.status.offerGenerated',
+  OFFER_SENT: 'applications.status.offerSent',
+  HANDLED: 'applications.status.handled',
+  EXPIRED: 'applications.status.expired',
+  NO_SUITABLE_BERTHS: 'applications.status.noSuitable',
+  NO_SUITABLE_BERTHS_NOTIFIED: 'applications.status.noSuitableNotified',
+};
+
+const APPLICATION_STATUS_COLOR = {
+  PENDING: 'yellow',
+  OFFER_GENERATED: 'blue',
+  OFFER_SENT: 'green',
+  HANDLED: 'blue',
+  EXPIRED: 'grey',
+  NO_SUITABLE_BERTHS: 'red',
+  NO_SUITABLE_BERTHS_NOTIFIED: 'orange',
+};
 
 const ApplicationsPageContainer: React.SFC = () => {
   const { t, i18n } = useTranslation();
@@ -69,7 +89,12 @@ const ApplicationsPageContainer: React.SFC = () => {
     },
     {
       Cell: ({ cell }) =>
-        cell.value && <ApplicationStatus status={cell.value} />,
+        cell.value && (
+          <Chip
+            color={APPLICATION_STATUS_COLOR[cell.value]}
+            label={t(APPLICATION_STATUS[cell.value])}
+          />
+        ),
       Header: t('applications.tableHeaders.status') || '',
       accessor: 'status',
     },
@@ -96,6 +121,10 @@ const ApplicationsPageContainer: React.SFC = () => {
             <ApplicationDetails
               {...row.original}
               createdAt={formatDate(row.original.createdAt)}
+              status={
+                row.original.status &&
+                t(APPLICATION_STATUS[row.original.status])
+              }
               applicationType={getApplicationType(row.original.isSwitch)}
             />
           )}
