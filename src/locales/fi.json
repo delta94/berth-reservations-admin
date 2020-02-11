@@ -97,7 +97,9 @@
       "offerGenerated": "Käsitelty",
       "offerSent": "Tarjous lähetetty",
       "handled": "Tarjous maksettu",
-      "expired": "Vanhentunut"
+      "expired": "Vanhentunut",
+      "noSuitable": "Ei paikkaa",
+      "noSuitableNotified": "Ei paikkaa, lähetetty"
     },
     "applicationType": {
       "newApplication": "Uusi hakemus",
