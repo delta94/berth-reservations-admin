@@ -2,6 +2,7 @@ import { BERTH_APPLICATIONS } from './__generated__/BERTH_APPLICATIONS';
 
 interface HarborChoice {
   harbor: string;
+  harborName: string;
   priority: number;
 }
 

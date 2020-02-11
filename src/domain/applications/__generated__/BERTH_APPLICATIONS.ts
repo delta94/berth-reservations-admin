@@ -17,6 +17,7 @@ export interface BERTH_APPLICATIONS_berthApplications_edges_node_harborChoices {
   __typename: "HarborChoiceType";
   harbor: string;
   priority: number;
+  harborName: string;
 }
 
 export interface BERTH_APPLICATIONS_berthApplications_edges_node {

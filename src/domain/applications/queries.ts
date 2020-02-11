@@ -24,6 +24,7 @@ export const BERTH_APPLICATIONS_QUERY = gql`
           harborChoices {
             harbor
             priority
+            harborName
           }
         }
       }

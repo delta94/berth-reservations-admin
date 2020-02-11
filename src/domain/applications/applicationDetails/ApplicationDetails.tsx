@@ -6,8 +6,13 @@ import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 import Grid from '../../../common/grid/Grid';
 import Checkbox from '../../../common/checkbox/Checkbox';
 import styles from './applicationDetails.module.scss';
+import InternalLink from '../../../common/internalLink/InternalLink';
+import Text from '../../../common/text/Text';
+import List from '../../../common/list/List';
+import ListItem from '../../../common/list/ListItem';
 
 interface HarborChoice {
+  harborName: string;
   harbor: string;
   priority: number;
 }
@@ -112,17 +117,20 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
         </div>
         <div>
           <Section title={t('applications.applicationDetails.selectedPorts')}>
-            {[...harborChoices]
-              .filter(notNull)
-              .sort((choiceA, choiceB) => choiceA.priority - choiceB.priority)
-              .map(({ harbor }, i) => (
-                <LabelValuePair
-                  key={i}
-                  label={`${t('applications.applicationDetails.choice')} ${i +
-                    1}`}
-                  value={harbor}
-                />
-              ))}
+            <List noBullets>
+              {[...harborChoices]
+                .filter(notNull)
+                .sort((choiceA, choiceB) => choiceA.priority - choiceB.priority)
+                .map(({ harborName, harbor }, i) => (
+                  <ListItem key={i}>
+                    <Text>
+                      {`${t('applications.applicationDetails.choice')} 
+                      ${i + 1}: `}
+                    </Text>
+                    <InternalLink to={harbor}>{harborName}</InternalLink>
+                  </ListItem>
+                ))}
+            </List>
           </Section>
           <Section>
             <Checkbox
