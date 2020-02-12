@@ -2,12 +2,12 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Button, IconShare, IconAngleRight } from 'hds-react';
 
+import { IconPerson } from '../../common/icons';
 import Header from '../../common/header/Header';
 import HelsinkiLogo from '../../common/helsinkiLogo/HelsinkiLogo';
 import Dropdown from '../../common/dropdown/Dropdown';
-import Button from '../../common/button/Button';
-import Icon from '../../common/icon/Icon';
 import List from '../../common/list/List';
 import ListItem from '../../common/list/ListItem';
 import { StoreState } from '../app/types/AppTypes';
@@ -25,15 +25,17 @@ const PageHeaderContainer: React.SFC = () => {
       <Link to="/">
         <HelsinkiLogo size="large" color="white" />
       </Link>
-      <Dropdown label={<Button icon={<Icon name="user" />}>{fullName}</Button>}>
+      <Dropdown label={<Button iconLeft={<IconPerson />}>{fullName}</Button>}>
         <List noBullets>
           <ListItem>
             <Button
-              variant="text"
               onClick={() => {
                 // Log out
                 logoutTunnistamo();
               }}
+              color="supplementary"
+              iconLeft={<IconShare />}
+              iconRight={<IconAngleRight />}
             >
               {t('common.header.logout')}
             </Button>

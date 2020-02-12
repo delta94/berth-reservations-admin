@@ -8,6 +8,14 @@ import ExternalLink from '../../../common/externalLink/ExternalLink';
 import Text from '../../../common/text/Text';
 import Grid from '../../../common/grid/Grid';
 import Property from '../property/Property';
+import {
+  IconGlobe,
+  IconPole,
+  IconTrash,
+  IconWaterTap,
+  IconFence,
+  IconStreetLight,
+} from '../../../common/icons';
 import styles from './harborProperties.module.scss';
 
 export interface HarborPropertiesProps {
@@ -66,16 +74,16 @@ const HarborProperties: React.SFC<HarborPropertiesProps> = ({
                 active={!!properties.numberOfPlaces}
               />
               <Property
-                iconName="globe"
+                Icon={<IconGlobe />}
                 label={t('individualHarbor.harborProperties.queue')}
               />
               <Property
-                iconName="plug"
+                Icon={<IconPole />}
                 label={t('individualHarbor.harborProperties.electricity')}
                 active={properties.electricity}
               />
               <Property
-                iconName="waterTap"
+                Icon={<IconWaterTap />}
                 label={t('individualHarbor.harborProperties.water')}
                 active={properties.water}
               />
@@ -84,17 +92,17 @@ const HarborProperties: React.SFC<HarborPropertiesProps> = ({
                 label={t('individualHarbor.harborProperties.maximumWidth')}
               />
               <Property
-                iconName="trash"
+                Icon={<IconTrash />}
                 label={t('individualHarbor.harborProperties.wasteCollection')}
                 active={properties.wasteCollection}
               />
               <Property
-                iconName="fence"
+                Icon={<IconFence />}
                 label={t('individualHarbor.harborProperties.gate')}
                 active={properties.gate}
               />
               <Property
-                iconName="streetLight"
+                Icon={<IconStreetLight />}
                 label={t('individualHarbor.harborProperties.lighting')}
                 active={properties.lighting}
               />

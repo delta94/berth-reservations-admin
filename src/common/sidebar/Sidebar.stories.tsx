@@ -1,9 +1,9 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+import { Button } from 'hds-react';
 
 import Sidebar from './Sidebar';
 import Expandable from '../expandable/Expandable';
-import Button from '../button/Button';
 
 export default {
   component: Sidebar,
@@ -14,7 +14,7 @@ export const sidebar = () => (
   <div style={{ backgroundColor: 'grey', height: '100vh' }}>
     <Sidebar
       actions={[
-        <Button onClick={action('logout')} variant="text">
+        <Button onClick={action('logout')} color="supplementary">
           Logout
         </Button>,
       ]}

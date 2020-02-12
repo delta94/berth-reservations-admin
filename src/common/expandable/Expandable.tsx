@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
+import { Button } from 'hds-react';
 
-import Icon from '../icon/Icon';
+import { IconAngleDown } from '../icons';
 import styles from './expandable.module.scss';
-import Button from '../button/Button';
 
 export interface ExpandableProps {
   label: React.ReactNode;
@@ -37,12 +37,8 @@ const Expandable: React.SFC<ExpandableProps> = ({
               [styles.up]: expanded,
             })}
           >
-            <Button
-              variant="text"
-              color="secondary"
-              onClick={() => setExpanded(!expanded)}
-            >
-              <Icon name="angleDown" />
+            <Button color="secondary" onClick={() => setExpanded(!expanded)}>
+              <IconAngleDown />
             </Button>
           </div>
         )}

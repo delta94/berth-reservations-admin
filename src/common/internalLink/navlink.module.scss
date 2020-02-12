@@ -2,6 +2,25 @@
 @import 'spacings';
 @import 'fonts';
 
+.internalLink {
+  --vene-internal-link-color: #{$blue-500};
+
+  text-decoration: none;
+  color: var(--vene-internal-link-color);
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+.standard {
+  --vene-internal-link-color: inherit;
+}
+
+.critical {
+  --vene-internal-link-color: #{$red-500};
+}
+
 .button {
   --vene-button-color: #{$blue-500};
 

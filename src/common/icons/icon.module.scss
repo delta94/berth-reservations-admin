@@ -4,7 +4,13 @@
 .icon {
   --icon-stroke-color: #{$black};
   --icon-dimension: #{units(1.5)};
+  border-color: var(--icon-stroke-color);
+  fill: var(--icon-stroke-color);
 
+  svg {
+    border-color: var(--icon-stroke-color);
+    fill: var(--icon-stroke-color);
+  }
   display: inline-block;
   vertical-align: top;
   box-sizing: content-box;
@@ -32,6 +38,10 @@
 
 .brand {
   --icon-stroke-color: #{$blue-500};
+}
+
+.disabled {
+  --icon-stroke-color: #{$gray-200};
 }
 
 .secondary {

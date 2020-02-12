@@ -1,8 +1,8 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+import { Button } from 'hds-react';
 
 import Expandable from './Expandable';
-import Button from '../button/Button';
 
 export default {
   component: Expandable,
@@ -12,7 +12,7 @@ export default {
 export const expandible = () => (
   <div style={{ width: '150px' }}>
     <Expandable label="Expandable" onClick={action('click')}>
-      <Button variant="text">child</Button>
+      <Button>child</Button>
     </Expandable>
   </div>
 );
