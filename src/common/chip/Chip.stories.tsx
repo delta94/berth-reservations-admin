@@ -14,6 +14,7 @@ export const chip = () => (
     <Chip label="Yellow" color="yellow" />
     <Chip label="Green" color="green" />
     <Chip label="Grey" color="grey" />
+    <Chip label="Blue" color="blue" />
   </>
 );
 
