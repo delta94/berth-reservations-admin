@@ -90,7 +90,40 @@
       "pvm": "PVM",
       "municipality": "Kotikunta",
       "status": "Tila",
-      "place": "Vene- / talvisäilytyspaikka"
+      "lease": "Vene- / talvisäilytyspaikka"
+    },
+    "status": {
+      "pending": "Odottaa käsittelyä",
+      "offerGenerated": "Käsitelty",
+      "offerSent": "Tarjous lähetetty",
+      "handled": "Tarjous maksettu",
+      "expired": "Vanhentunut",
+      "noSuitable": "Ei paikkaa",
+      "noSuitableNotified": "Ei paikkaa, lähetetty"
+    },
+    "applicationType": {
+      "newApplication": "Uusi hakemus",
+      "switchApplication": "Vaihtohakemus"
+    },
+    "applicationDetails": {
+      "title": "HAKEMUKSET",
+      "application": "HAKEMUS",
+      "applicationType": "Hakemustyyppi",
+      "receivedDate": "Vastaanotettu",
+      "queueNumber": "Jononumero",
+      "status": "Status",
+      "boatInfo": "VENEEN TIEDOT",
+      "boatType": "Veneen tyyppi",
+      "registrationNumber": "Rekisterinumero",
+      "boatWidth": "Veneen leveys",
+      "boatLength": "Veneen pituus",
+      "boatDepth": "Veneen syväys",
+      "boatWeight": "Veneen paino",
+      "boatName": "Nimi",
+      "boatBrand": "Merkki",
+      "selectedPorts": "VALITUT SATAMAT",
+      "choice": "Toive",
+      "accessible": "Tarvitsen esteettömän paikan"
     }
   },
   "customers": {

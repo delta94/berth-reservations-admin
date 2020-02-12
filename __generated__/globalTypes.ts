@@ -6,6 +6,16 @@
 // START Enums and Input Objects
 //==============================================================
 
+export enum ApplicationStatus {
+  EXPIRED = "EXPIRED",
+  HANDLED = "HANDLED",
+  NO_SUITABLE_BERTHS = "NO_SUITABLE_BERTHS",
+  NO_SUITABLE_BERTHS_NOTIFIED = "NO_SUITABLE_BERTHS_NOTIFIED",
+  OFFER_GENERATED = "OFFER_GENERATED",
+  OFFER_SENT = "OFFER_SENT",
+  PENDING = "PENDING",
+}
+
 export enum BerthMooringType {
   DINGHY_PLACE = "DINGHY_PLACE",
   NO_STERN_TO_MOORING = "NO_STERN_TO_MOORING",
