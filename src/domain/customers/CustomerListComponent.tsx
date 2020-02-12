@@ -35,27 +35,27 @@ const CustomerListComponent = ({ data }: CustomerListComponentProps) => {
           {cell.value}
         </InternalLink>
       ),
-      Header: t('customers.tableHeaders.name') || '',
+      Header: t('customers.tableHeaders.name'),
       accessor: 'name',
     },
     {
-      Header: t('customers.tableHeaders.group') || '',
+      Header: t('customers.tableHeaders.group'),
       accessor: 'group',
     },
     {
-      Header: t('customers.tableHeaders.municipality') || '',
+      Header: t('customers.tableHeaders.municipality'),
       accessor: 'city',
     },
     {
-      Header: t('customers.tableHeaders.berths') || '',
+      Header: t('customers.tableHeaders.berths'),
       accessor: 'berths',
     },
     {
-      Header: t('customers.tableHeaders.invoice') || '',
+      Header: t('customers.tableHeaders.invoice'),
       accessor: 'invoice',
     },
     {
-      Header: t('customers.tableHeaders.boats') || '',
+      Header: t('customers.tableHeaders.boats'),
       accessor: 'boats',
     },
   ];
