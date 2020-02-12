@@ -7,7 +7,7 @@ export default {
   title: 'CustomerDetails',
 };
 
-export const customerList = () => (
+export const customerDetails = () => (
   <CustomerDetails
     name="Mikko Matias Mallikas"
     address="Telakkakatu 1 A 10"
