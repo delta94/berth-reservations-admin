@@ -13,9 +13,10 @@ import {
   Column as ColumnType,
 } from 'react-table';
 
-import Icon from '../../common/icon/Icon';
+import { IconAngleDown, IconAngleUp } from '../../common/icons';
 import Checkbox from '../checkbox/Checkbox';
 import styles from './table.module.scss';
+import iconStyles from '../icons/icon.module.scss';
 
 export type Column<D extends object> = ColumnType<D>;
 
@@ -53,7 +54,11 @@ const Table = <D extends object>({
         {...row.getExpandedToggleProps()}
         className={styles.expandArrowWrapper}
       >
-        <Icon name={row.isExpanded ? 'angleDown' : 'angleLeft'} />
+        {row.isExpanded ? (
+          <IconAngleDown className={classNames(iconStyles.icon)} />
+        ) : (
+          <IconAngleUp className={classNames(iconStyles.icon)} />
+        )}
       </div>
     ),
     Header: ({ state, toggleExpanded }) => (
@@ -128,7 +133,7 @@ const Table = <D extends object>({
           {column.render('Header')}
           {column.isSorted && (
             <div className={styles.arrow}>
-              <Icon name={column.isSortedDesc ? 'arrowDown' : 'arrowUp'} />
+              {column.isSortedDesc ? <IconAngleDown /> : <IconAngleDown />}
             </div>
           )}
         </th>

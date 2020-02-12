@@ -1,12 +1,11 @@
 import React from 'react';
 
 import Text from '../../../common/text/Text';
-import Icon, { IconNames } from '../../../common/icon/Icon';
 import styles from './property.module.scss';
 
 interface PropertyProps {
   active?: boolean;
-  iconName?: IconNames;
+  Icon?: React.ReactNode;
   counter?: number;
   label: string;
 }
@@ -15,16 +14,12 @@ const Property: React.SFC<PropertyProps> = ({
   active = true,
   counter = 0,
   label,
-  iconName,
+  Icon,
 }) => {
   return (
     <div className={styles.property}>
-      {iconName ? (
-        <Icon
-          name={iconName}
-          size="large"
-          color={active ? 'standard' : 'secondary'}
-        />
+      {Icon ? (
+        Icon
       ) : (
         <Text as="h3" size="xxxl" color={active ? 'standard' : 'secondary'}>
           {counter}

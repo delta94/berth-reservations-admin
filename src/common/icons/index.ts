@@ -1,3 +1,4 @@
+export { default as IconHelsinkiLogo } from './IconHelsinkiLogo';
 export { default as IconApplications } from './IconApplications';
 export { default as IconBoat } from './IconBoat';
 export { default as IconBusiness } from './IconBusiness';

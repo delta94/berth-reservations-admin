@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`common/Icon render Icon component 1`] = `"<div class=\\"icon standard standard\\"><svg class=\\"shape\\">fence.svg</svg></div>"`;

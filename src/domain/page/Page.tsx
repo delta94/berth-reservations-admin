@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next';
 
 import Layout from '../../common/layout/Layout';
 import Sidebar from '../../common/sidebar/Sidebar';
-import Expandable from '../../common/expandable/Expandable';
-import Button from '../../common/button/Button';
-import Icon from '../../common/icon/Icon';
+import { IconApplications, IconBoat, IconFemale } from '../../common/icons';
+import InternalLink from '../../common/internalLink/NavLink';
 import PageHeader from '../pageHeader/PageHeaderContainer';
+import styles from '../../common/icons/icon.module.scss';
 
 const Page: React.SFC = ({ children }) => {
   const history = useHistory();
@@ -19,42 +19,27 @@ const Page: React.SFC = ({ children }) => {
       sidebar={
         <Sidebar>
           {[
-            <Expandable
-              key="harbors"
+            <InternalLink
+              to="/harbors"
               onClick={() => history.push('/harbors')}
-              label={
-                <Button
-                  variant="text"
-                  icon={<Icon name="fence" color="standard" />}
-                >
-                  {t('common.sidebar.harbors')}
-                </Button>
-              }
-            ></Expandable>,
-            <Expandable
-              key="customers"
-              onClick={() => history.push('/applications')}
-              label={
-                <Button
-                  variant="text"
-                  icon={<Icon name="applications" color="standard" />}
-                >
-                  {t('common.sidebar.applications')}
-                </Button>
-              }
-            ></Expandable>,
-            <Expandable
-              key="customers"
+              icon={<IconBoat className={styles.icon} />}
+            >
+              {t('common.sidebar.harbors')}
+            </InternalLink>,
+            <InternalLink
+              to="/customers"
               onClick={() => history.push('/customers')}
-              label={
-                <Button
-                  variant="text"
-                  icon={<Icon name="user" color="standard" />}
-                >
-                  {t('common.sidebar.customers')}
-                </Button>
-              }
-            ></Expandable>,
+              icon={<IconFemale className={styles.icon} />}
+            >
+              {t('common.sidebar.customers')}
+            </InternalLink>,
+            <InternalLink
+              to="/applications"
+              onClick={() => history.push('/applications')}
+              icon={<IconApplications className={styles.icon} />}
+            >
+              {t('common.sidebar.applications')}
+            </InternalLink>,
           ]}
         </Sidebar>
       }

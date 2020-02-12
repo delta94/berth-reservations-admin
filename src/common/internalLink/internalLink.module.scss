@@ -1,10 +1,18 @@
 @import 'colours';
+@import 'spacings';
 
 .internalLink {
   --vene-internal-link-color: #{$blue-500};
 
   text-decoration: none;
   color: var(--vene-internal-link-color);
+
+  display: flex;
+  align-items: center;
+
+  & > :first-child {
+    margin-right: units(1);
+  }
 }
 
 .underlined {
@@ -17,4 +25,21 @@
 
 .critical {
   --vene-internal-link-color: #{$red-500};
+}
+
+.text {
+  border: none;
+  color: var(--vene-button-color);
+  fill: var(--vene-button-color);
+  background: none;
+  padding: 0;
+}
+
+.hasIcon {
+  display: flex;
+  align-items: center;
+
+  & > :first-child {
+    margin-right: units(0.5);
+  }
 }

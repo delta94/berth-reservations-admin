@@ -1,16 +1,44 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
+import classNames from 'classnames';
 
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { HARBORS_QUERY } from './harborsQuery';
 import Table, { Column } from '../../common/table/Table';
 import { getHarborsData, HarborData } from './utils';
 import { HARBORS } from './__generated__/HARBORS';
-import Icon from '../../common/icon/Icon';
+import {
+  IconPole,
+  IconFence,
+  IconTrash,
+  IconWaterTap,
+} from '../../common/icons';
 import HarborDetails from './harborDetails/HarborDetails';
 import HarborsPage from './HarborsPage';
 import InternalLink from '../../common/internalLink/InternalLink';
+import styles from '../../common/icons/icon.module.scss';
+
+export interface IconProps {
+  disabled?: boolean;
+  outlined?: boolean;
+  width?: string;
+  height?: string;
+  size?: 'small' | 'standard' | 'large';
+  color?: 'standard' | 'brand' | 'critical' | 'secondary' | 'info';
+}
+
+const IconOutline: React.SFC<IconProps> = ({ children, disabled }) => {
+  return (
+    <div
+      className={classNames(styles.icon, styles.outlined, {
+        [styles.disabled]: disabled,
+      })}
+    >
+      {children}
+    </div>
+  );
+};
 
 type ColumnType = Column<HarborData> & { accessor: keyof HarborData };
 
@@ -33,57 +61,67 @@ const HarborsContainer: React.FC = () => {
     },
     {
       Cell: ({ cell }) => (
-        <Icon
-          name="plug"
-          outlined
-          color={!cell.value ? 'secondary' : 'standard'}
-        />
+        <IconOutline disabled={!cell.value}>
+          <IconPole
+            className={classNames(styles.icon, styles.outline, {
+              [styles.disabled]: !cell.value,
+            })}
+          />
+        </IconOutline>
       ),
-      Header: () => <Icon name="plug" outlined />,
+      Header: () => <IconPole className={styles.icon} />,
       accessor: 'electricity',
     },
     {
       Cell: ({ cell }) => (
-        <Icon
-          name="fence"
-          outlined
-          color={!cell.value ? 'secondary' : 'standard'}
-        />
+        <IconOutline disabled={!cell.value}>
+          <IconFence
+            className={classNames(styles.icon, styles.outline, {
+              [styles.disabled]: !cell.value,
+            })}
+          />
+        </IconOutline>
       ),
-      Header: () => <Icon name="fence" outlined />,
+      Header: () => <IconPole className={styles.icon} />,
       accessor: 'gate',
     },
     {
       Cell: ({ cell }) => (
-        <Icon
-          name="streetLight"
-          outlined
-          color={!cell.value ? 'secondary' : 'standard'}
-        />
+        <IconOutline disabled={!cell.value}>
+          <IconFence
+            className={classNames(styles.icon, styles.outline, {
+              [styles.disabled]: !cell.value,
+            })}
+          />
+        </IconOutline>
       ),
-      Header: () => <Icon name="streetLight" outlined />,
+      Header: () => <IconPole className={styles.icon} />,
       accessor: 'lighting',
     },
     {
       Cell: ({ cell }) => (
-        <Icon
-          name="waterTap"
-          outlined
-          color={!cell.value ? 'secondary' : 'standard'}
-        />
+        <IconOutline disabled={!cell.value}>
+          <IconFence
+            className={classNames(styles.icon, styles.outline, {
+              [styles.disabled]: !cell.value,
+            })}
+          />
+        </IconOutline>
       ),
-      Header: () => <Icon name="waterTap" outlined />,
+      Header: () => <IconWaterTap className={styles.icon} />,
       accessor: 'water',
     },
     {
       Cell: ({ cell }) => (
-        <Icon
-          name="trash"
-          outlined
-          color={!cell.value ? 'secondary' : 'standard'}
-        />
+        <IconOutline disabled={!cell.value}>
+          <IconFence
+            className={classNames(styles.icon, styles.outline, {
+              [styles.disabled]: !cell.value,
+            })}
+          />
+        </IconOutline>
       ),
-      Header: () => <Icon name="trash" outlined />,
+      Header: () => <IconTrash className={styles.icon} />,
       accessor: 'wasteCollection',
     },
   ];
