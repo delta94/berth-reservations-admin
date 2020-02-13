@@ -1,9 +1,11 @@
 import React from 'react';
+import { HashRouter } from 'react-router-dom';
 
 import ApplicationDetails from './ApplicationDetails';
 
 export default {
   component: ApplicationDetails,
+  decorators: [storyFn => <HashRouter>{storyFn()}</HashRouter>],
   title: 'ApplicationDetails',
 };
 
