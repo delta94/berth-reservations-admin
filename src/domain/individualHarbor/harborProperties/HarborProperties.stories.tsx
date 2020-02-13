@@ -1,13 +1,15 @@
 import React from 'react';
 
-import Harborsandberths from './HarborProperties';
+// import Harborsandberths from './HarborProperties';
+import Harborheader from './HarborProperties';
 
 export default {
-  title: 'Harborsandberths',
+  title: 'Harborheader',
   parameters: {
     abstract: {
       // Copy a collection or layer share url from Abstract
-      url: 'https://share.goabstract.com/a2582988-2439-4af7-a843-19aca98fd25c',
+      // url: 'https://share.goabstract.com/a2582988-2439-4af7-a843-19aca98fd25c',
+      url: 'https://share.goabstract.com/ca4f88dd-93f1-4650-b5ff-e4b7a65625aa?collectionLayerId=64986219-1e32-4b95-a24a-d19adba29e0b',
     },
   },
 };
@@ -30,4 +32,5 @@ const dummyProps = {
 };
 
 // Name your stories after layers in the collection
-export const blogIndex = () => <Harborsandberths {...dummyProps} />;
+// export const blogIndex = () => <Harborsandberths {...dummyProps} />;
+export const blogIndex = () => <Harborheader {...dummyProps} />;
