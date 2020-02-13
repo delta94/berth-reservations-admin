@@ -90,6 +90,7 @@
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.0.9",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "storybook-addons-abstract": "^5.0.6"
   }
 }
