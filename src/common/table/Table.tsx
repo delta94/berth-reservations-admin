@@ -13,7 +13,7 @@ import {
   Column as ColumnType,
 } from 'react-table';
 
-import { IconAngleDown, IconAngleUp } from '../../common/icons';
+import { IconArrowLeft, IconAngleDown, IconAngleUp } from '../../common/icons';
 import Checkbox from '../checkbox/Checkbox';
 import styles from './table.module.scss';
 import iconStyles from '../icons/icon.module.scss';
@@ -55,9 +55,13 @@ const Table = <D extends object>({
         className={styles.expandArrowWrapper}
       >
         {row.isExpanded ? (
-          <IconAngleDown className={classNames(iconStyles.icon)} />
+          <IconAngleUp
+            className={classNames(iconStyles.icon, iconStyles.small)}
+          />
         ) : (
-          <IconAngleUp className={classNames(iconStyles.icon)} />
+          <IconAngleDown
+            className={classNames(iconStyles.icon, iconStyles.small)}
+          />
         )}
       </div>
     ),
@@ -133,7 +137,23 @@ const Table = <D extends object>({
           {column.render('Header')}
           {column.isSorted && (
             <div className={styles.arrow}>
-              {column.isSortedDesc ? <IconAngleDown /> : <IconAngleDown />}
+              {column.isSortedDesc ? (
+                <IconArrowLeft
+                  className={classNames(
+                    iconStyles.icon,
+                    iconStyles.small,
+                    iconStyles.left
+                  )}
+                />
+              ) : (
+                <IconArrowLeft
+                  className={classNames(
+                    iconStyles.icon,
+                    iconStyles.small,
+                    iconStyles.right
+                  )}
+                />
+              )}
             </div>
           )}
         </th>

@@ -24,8 +24,24 @@
   height: 100%;
 }
 
+.nowrapper {
+  display: inline-flex;
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+}
+
 .standard {
   --icon-stroke-color: inherit;
+}
+
+.left {
+  transform: rotate(270deg);
+}
+
+.right {
+  transform: rotate(90deg);
 }
 
 .small {
@@ -57,4 +73,8 @@
   border-radius: 50%;
   border-color: var(--icon-stroke-color);
   padding: units(0.5);
+}
+
+.hidden {
+  border-color: transparent;
 }

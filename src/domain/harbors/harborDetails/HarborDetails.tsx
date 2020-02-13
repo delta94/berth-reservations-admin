@@ -45,6 +45,7 @@ const HarborDetails: React.SFC<Props> = ({
             </ExternalLink>
             <ExternalLink href="">{t('harbors.details.portMap')}</ExternalLink>
             <ExternalLink href={serviceMapUrl}>
+              // FIXME: Missing translation
               {t('harbors.details.serviceMap')}
             </ExternalLink>
           </Section>

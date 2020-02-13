@@ -1,10 +1,11 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { IconFemale } from 'hds-react/lib/icons';
 
 import Layout from '../../common/layout/Layout';
 import Sidebar from '../../common/sidebar/Sidebar';
-import { IconApplications, IconBoat, IconFemale } from '../../common/icons';
+import { IconApplications, IconBoat } from '../../common/icons';
 import InternalLink from '../../common/internalLink/NavLink';
 import PageHeader from '../pageHeader/PageHeaderContainer';
 import styles from '../../common/icons/icon.module.scss';
