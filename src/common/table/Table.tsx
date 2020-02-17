@@ -15,6 +15,7 @@ import {
 
 import { IconArrowLeft, IconAngleDown, IconAngleUp } from '../../common/icons';
 import Checkbox from '../checkbox/Checkbox';
+import Radio from '../radio/Radio';
 import styles from './table.module.scss';
 import iconStyles from '../icons/icon.module.scss';
 
@@ -23,6 +24,7 @@ export type Column<D extends object> = ColumnType<D>;
 type Props<D extends object> = {
   data: D[];
   canSelectRows?: boolean;
+  canSelectOneRow?: boolean;
   renderSubComponent?: (row: Row<D>) => React.ReactNode;
   renderMainHeader?: (props: HeaderProps<D>) => React.ReactNode;
 } & TableOptions<D>;
@@ -35,6 +37,7 @@ const Table = <D extends object>({
   columns,
   data: tableData,
   canSelectRows,
+  canSelectOneRow,
   renderSubComponent,
   renderMainHeader,
 }: Props<D>) => {
@@ -44,6 +47,27 @@ const Table = <D extends object>({
     Cell: ({ row }) => <Checkbox {...row.getToggleRowSelectedProps()} />,
     Header: ({ getToggleAllRowsSelectedProps }) => (
       <Checkbox {...getToggleAllRowsSelectedProps()} />
+    ),
+    id: SELECTOR,
+  };
+
+  const radioSelectorCol: Column<D> = {
+    Cell: ({ row, toggleAllRowsSelected, toggleRowSelected }) => (
+      <Radio
+        size="large"
+        {...row.getToggleRowSelectedProps()}
+        onChange={() => {
+          toggleAllRowsSelected(false);
+          toggleRowSelected(row.id);
+        }}
+      />
+    ),
+    Header: ({ getToggleAllRowsSelectedProps, toggleAllRowsSelected }) => (
+      <Radio
+        size="large"
+        {...getToggleAllRowsSelectedProps()}
+        onChange={() => toggleAllRowsSelected(false)}
+      />
     ),
     id: SELECTOR,
   };
@@ -82,6 +106,7 @@ const Table = <D extends object>({
   const tableColumns = React.useMemo(() => {
     const headers = [
       ...(canSelectRows ? [selectorCol] : []),
+      ...(canSelectOneRow ? [radioSelectorCol] : []),
       ...columns,
       ...(renderSubComponent ? [expanderCol] : []),
     ];
@@ -97,10 +122,12 @@ const Table = <D extends object>({
     return renderMainHeader ? withMainHeader : headers;
   }, [
     canSelectRows,
+    canSelectOneRow,
     columns,
     renderSubComponent,
     renderMainHeader,
     selectorCol,
+    radioSelectorCol,
     expanderCol,
   ]);
 

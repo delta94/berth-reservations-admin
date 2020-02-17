@@ -5,6 +5,7 @@ import { HashRouter } from 'react-router-dom';
 import ApplicationDetails from './ApplicationDetails';
 
 const mockProps = {
+  id: '54321',
   applicationType: 'Vaihtohakemus',
   createdAt: '23.8.2019, klo 21.06',
   queue: 245,

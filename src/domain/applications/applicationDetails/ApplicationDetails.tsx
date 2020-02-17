@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router';
 
 import Section from '../../../common/section/Section';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
@@ -18,6 +19,7 @@ interface HarborChoice {
 }
 
 export interface ApplicationDetailsProps {
+  id: string;
   applicationType: string;
   createdAt: string;
   queue: number | null;
@@ -35,6 +37,7 @@ export interface ApplicationDetailsProps {
 }
 
 const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
+  id,
   applicationType,
   createdAt,
   queue,
@@ -53,6 +56,8 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
   const { t } = useTranslation();
   const notNull = (choice: HarborChoice | null): choice is HarborChoice =>
     !!choice;
+
+  const routerQuery = new URLSearchParams(useLocation().search);
 
   return (
     <div className={styles.applicationsDetails}>
@@ -121,15 +126,21 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
               {[...harborChoices]
                 .filter(notNull)
                 .sort((choiceA, choiceB) => choiceA.priority - choiceB.priority)
-                .map(({ harborName, harbor }, i) => (
-                  <ListItem key={i}>
-                    <Text>
-                      {`${t('applications.applicationDetails.choice')} 
+                .map(({ harborName, harbor }, i) => {
+                  routerQuery.set('harbor', harbor);
+
+                  return (
+                    <ListItem key={i}>
+                      <Text>
+                        {`${t('applications.applicationDetails.choice')} 
                       ${i + 1}: `}
-                    </Text>
-                    <InternalLink to={harbor}>{harborName}</InternalLink>
-                  </ListItem>
-                ))}
+                      </Text>
+                      <InternalLink to={`offer/${id}?${routerQuery}`}>
+                        {harborName}
+                      </InternalLink>
+                    </ListItem>
+                  );
+                })}
             </List>
           </Section>
           <Section>
