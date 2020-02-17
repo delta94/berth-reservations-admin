@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio renders normally 1`] = `"<label><span class=\\"radio medium checked\\"><input type=\\"radio\\" checked=\\"\\" class=\\"input\\"/></span></label>"`;
+
+exports[`Radio renders normally 2`] = `"<label><span class=\\"radio medium checked\\"><input type=\\"radio\\" checked=\\"\\" class=\\"input\\"/></span></label>"`;

@@ -1,10 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { ReactComponent as Check } from './assets/check.svg';
-import styles from './checkbox.module.scss';
+import styles from './radio.module.scss';
 
-export type CheckboxProps = Omit<
+export type RadioProps = Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
   'size'
 > & {
@@ -12,7 +11,7 @@ export type CheckboxProps = Omit<
   size?: 'small' | 'medium' | 'large';
 };
 
-const Checkbox: React.SFC<CheckboxProps> = ({
+const Radio: React.SFC<RadioProps> = ({
   checked,
   disabled,
   onChange,
@@ -23,18 +22,17 @@ const Checkbox: React.SFC<CheckboxProps> = ({
   return (
     <label>
       <span
-        className={classNames(styles.checkbox, styles[size], {
+        className={classNames(styles.radio, styles[size], {
           [styles.checked]: checked,
           [styles.disabled]: disabled,
           [styles.readOnly]: readOnly,
         })}
       >
-        {checked && <Check className={styles.check} />}
         <input
           checked={checked}
           onChange={onChange}
           className={styles.input}
-          type="checkbox"
+          type="radio"
           readOnly={readOnly}
         />
       </span>
@@ -52,4 +50,4 @@ const Checkbox: React.SFC<CheckboxProps> = ({
   );
 };
 
-export default Checkbox;
+export default Radio;
