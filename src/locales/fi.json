@@ -51,6 +51,7 @@
       "applications": "HAKEMUKSET",
       "bills": "LASKUT",
       "comments": "HUOMIOT",
+      "serviceMap": "Palvelukartta",
       "portMap": "Satamakartta (PDF)",
       "maximumWidth": "Max leveys",
       "mooring": "Kiinnitys",
