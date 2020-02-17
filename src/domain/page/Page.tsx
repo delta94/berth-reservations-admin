@@ -20,6 +20,7 @@ const Page: React.SFC = ({ children }) => {
         <Sidebar>
           {[
             <InternalLink
+              key="harbors"
               to="/harbors"
               onClick={() => history.push('/harbors')}
               icon={<IconBoat className={styles.icon} />}
@@ -27,18 +28,20 @@ const Page: React.SFC = ({ children }) => {
               {t('common.sidebar.harbors')}
             </InternalLink>,
             <InternalLink
-              to="/customers"
-              onClick={() => history.push('/customers')}
-              icon={<IconPerson className={styles.icon} />}
-            >
-              {t('common.sidebar.customers')}
-            </InternalLink>,
-            <InternalLink
+              key="applications"
               to="/applications"
               onClick={() => history.push('/applications')}
               icon={<IconApplications className={styles.icon} />}
             >
               {t('common.sidebar.applications')}
+            </InternalLink>,
+            <InternalLink
+              key="customers"
+              to="/customers"
+              onClick={() => history.push('/customers')}
+              icon={<IconPerson className={styles.icon} />}
+            >
+              {t('common.sidebar.customers')}
             </InternalLink>,
           ]}
         </Sidebar>
