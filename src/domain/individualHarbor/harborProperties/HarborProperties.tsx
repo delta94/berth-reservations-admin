@@ -9,14 +9,13 @@ import Text from '../../../common/text/Text';
 import Grid from '../../../common/grid/Grid';
 import Property from '../property/Property';
 import {
-  IconGlobe,
-  IconPole,
   IconTrash,
   IconWaterTap,
   IconFence,
   IconStreetLight,
 } from '../../../common/icons';
 import styles from './harborProperties.module.scss';
+import IconPlug from '../../../common/icons/IconPlug';
 
 export interface HarborPropertiesProps {
   imageUrl: string;
@@ -27,6 +26,8 @@ export interface HarborPropertiesProps {
     electricity: boolean;
     gate: boolean;
     maximumWidth: number;
+    queue: number;
+    numberOfFreePlaces: number;
     numberOfPlaces: number;
     water: boolean;
     wasteCollection: boolean;
@@ -66,45 +67,51 @@ const HarborProperties: React.SFC<HarborPropertiesProps> = ({
               </ExternalLink>
             </div>
           </div>
-          <div className={styles.properties}>
-            <Grid colsCount={4}>
+          <div className={styles.harborProperties}>
+            <Grid colsCount={5}>
+              <div className={styles.property}></div>
               <Property
-                counter={properties.numberOfPlaces}
                 label={t('individualHarbor.harborProperties.numberOfPlaces')}
-                active={!!properties.numberOfPlaces}
               />
               <Property
-                Icon={<IconGlobe />}
+                counter={properties.numberOfFreePlaces}
+                label={t(
+                  'individualHarbor.harborProperties.numberOfFreePlaces'
+                )}
+              />
+              <Property
+                counter={properties.queue}
                 label={t('individualHarbor.harborProperties.queue')}
-              />
-              <Property
-                Icon={<IconPole />}
-                label={t('individualHarbor.harborProperties.electricity')}
-                active={properties.electricity}
-              />
-              <Property
-                Icon={<IconWaterTap />}
-                label={t('individualHarbor.harborProperties.water')}
-                active={properties.water}
               />
               <Property
                 counter={properties.maximumWidth}
                 label={t('individualHarbor.harborProperties.maximumWidth')}
               />
+
               <Property
-                Icon={<IconTrash />}
+                Icon={IconTrash}
                 label={t('individualHarbor.harborProperties.wasteCollection')}
                 active={properties.wasteCollection}
               />
               <Property
-                Icon={<IconFence />}
+                Icon={IconFence}
                 label={t('individualHarbor.harborProperties.gate')}
                 active={properties.gate}
               />
+
               <Property
-                Icon={<IconStreetLight />}
+                Icon={IconPlug}
+                label={t('individualHarbor.harborProperties.electricity')}
+              />
+              <Property
+                Icon={IconStreetLight}
                 label={t('individualHarbor.harborProperties.lighting')}
                 active={properties.lighting}
+              />
+              <Property
+                Icon={IconWaterTap}
+                label={t('individualHarbor.harborProperties.water')}
+                active={properties.water}
               />
             </Grid>
           </div>

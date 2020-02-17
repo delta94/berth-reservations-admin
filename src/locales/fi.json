@@ -64,13 +64,14 @@
     "harborProperties": {
       "title": "SATAMA",
       "numberOfPlaces": "Paikkoja",
-      "electricity": "Sähkö",
+      "numberOfFreePlaces": "Vapaata",
+      "electricity": "Sähkö+\nerillinen",
       "water": "Vesi",
       "wasteCollection": "Jätehuolto",
       "gate": "Portti",
       "lighting": "Valaistus",
-      "maximumWidth": "Max leveys",
-      "queue": "Jonkin verran jonoa"
+      "maximumWidth": "Max. leveys",
+      "queue": "Jonossa"
     },
     "tableHeaders": {
       "mainHeader": "Venepaikat",

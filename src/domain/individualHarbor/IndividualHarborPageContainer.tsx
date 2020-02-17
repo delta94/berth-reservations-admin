@@ -66,6 +66,8 @@ const IndividualHarborPageContainer: React.SFC = () => {
             lighting: harbor.lighting,
             maximumWidth: harbor.maximumWidth || 0,
             numberOfPlaces: harbor.numberOfPlaces || 0,
+            numberOfFreePlaces: harbor.numberOfPlaces || 0,
+            queue: harbor.numberOfPlaces || 0,
             wasteCollection: harbor.wasteCollection,
             water: harbor.water,
           }}
