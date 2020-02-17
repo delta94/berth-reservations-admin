@@ -17,6 +17,7 @@ import CustomersPage from '../customers/CustomerPageContainer';
 import HarborsPage from '../harbors/HarborsPageContainer';
 import IndividualHarborPage from '../individualHarbor/IndividualHarborPageContainer';
 import IndividualCustomerPage from '../individualCustomer/IndividualCustomerPageContainer';
+import OfferPage from '../offer/OfferPageContainer';
 import LoginPage from '../login/LoginPage';
 import Page from '../page/Page';
 import PrivateRoute from '../privateRoute/PrivateRoute';
@@ -107,6 +108,11 @@ const App: React.FC = () => {
                   exact
                   path="/applications"
                   component={ApplicationsPage}
+                />
+                <PrivateRoute
+                  exact
+                  path="/offer/:applicationId"
+                  component={OfferPage}
                 />
               </Page>
             </Switch>

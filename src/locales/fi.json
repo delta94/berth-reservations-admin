@@ -126,6 +126,18 @@
       "accessible": "Tarvitsen esteettömän paikan"
     }
   },
+  "offer": {
+    "tableHeaders": {
+      "mainHeader": "Kaikki",
+      "harbor": "Satama",
+      "pier": "Laituri",
+      "berth": "Paikka",
+      "width": "Leveys m",
+      "length": "Pituus m",
+      "draught": "Syvyys m",
+      "mooringType": "Kiinnitys"
+    }
+  },
   "customers": {
     "tableHeaders": {
       "name": "Nimi",

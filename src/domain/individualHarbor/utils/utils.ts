@@ -80,10 +80,14 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined) => {
           ...prev,
           {
             identifier,
-            length: `${berthEdge.node.berthType.length / 100} m`,
+            length: berthEdge.node.berthType.length
+              ? `${berthEdge.node.berthType.length / 100} m`
+              : '',
             mooring: mooring?.description ? mooring.description : '',
             number: berthEdge.node.number,
-            width: `${berthEdge.node.berthType.width / 100} m`,
+            width: berthEdge.node.berthType.width
+              ? `${berthEdge.node.berthType.width / 100} m`
+              : '',
           },
         ];
       },
