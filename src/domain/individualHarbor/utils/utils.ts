@@ -20,7 +20,7 @@ export type IndividualHarborData = {
 export const getIndividualHarborData = (
   data: INDIVIDUAL_HARBOR | undefined
 ): IndividualHarborData | null => {
-  if (data?.harbor?.properties) {
+  if (data?.harbor?.properties?.piers) {
     const pierProps = data.harbor.properties.piers.edges.reduce(
       (prev, pier) => {
         if (pier?.node?.properties) {
@@ -61,10 +61,10 @@ export type Berth = {
 };
 
 export const getBerths = (data: INDIVIDUAL_HARBOR | undefined) => {
-  if (!data || !data.harbor || !data.harbor.properties) return [];
+  if (!data?.harbor?.properties?.piers) return [];
 
   return data.harbor.properties.piers.edges.reduce<Berth[]>((acc, pierEdge) => {
-    if (!pierEdge || !pierEdge.node || !pierEdge.node.properties) return [];
+    if (!pierEdge?.node?.properties) return [];
 
     const identifier = pierEdge.node.properties.identifier;
     const berths = pierEdge.node.properties.berths.edges.reduce<Berth[]>(
