@@ -53,11 +53,11 @@ const HarborsList: React.FC<HarborsPageProps> = ({ data = [] }) => {
           {cell.value}
         </InternalLink>
       ),
-      Header: t('harbors.tableHeaders.harbor'),
+      Header: t('harbors.tableHeaders.harbor') || '',
       accessor: 'name',
     },
     {
-      Header: t('harbors.tableHeaders.places'),
+      Header: t('harbors.tableHeaders.places') || '',
       accessor: 'numberOfPlaces',
     },
     {

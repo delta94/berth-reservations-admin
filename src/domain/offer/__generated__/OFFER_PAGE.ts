@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 import { ApplicationStatus, BerthMooringType } from "./../../../../__generated__/globalTypes";
@@ -64,7 +65,7 @@ export interface OFFER_PAGE_harborByServicemapId_properties_piers {
 export interface OFFER_PAGE_harborByServicemapId_properties {
   __typename: "HarborProperties";
   name: string | null;
-  piers: OFFER_PAGE_harborByServicemapId_properties_piers;
+  piers: OFFER_PAGE_harborByServicemapId_properties_piers | null;
 }
 
 export interface OFFER_PAGE_harborByServicemapId {

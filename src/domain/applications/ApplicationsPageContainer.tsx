@@ -75,20 +75,20 @@ const ApplicationsPageContainer: React.SFC = () => {
           {getApplicationType(cell.value)}
         </InternalLink>
       ),
-      Header: t('applications.tableHeaders.applicationType'),
+      Header: t('applications.tableHeaders.applicationType') || '',
       accessor: 'isSwitch',
     },
     {
-      Header: t('applications.tableHeaders.queue'),
+      Header: t('applications.tableHeaders.queue') || '',
       accessor: 'queue',
     },
     {
       Cell: ({ cell }) => formatDate(cell.value, i18n.language),
-      Header: t('applications.tableHeaders.pvm'),
+      Header: t('applications.tableHeaders.pvm') || '',
       accessor: 'createdAt',
     },
     {
-      Header: t('applications.tableHeaders.municipality'),
+      Header: t('applications.tableHeaders.municipality') || '',
       accessor: 'municipality',
     },
     {
@@ -99,7 +99,7 @@ const ApplicationsPageContainer: React.SFC = () => {
             label={t(APPLICATION_STATUS[cell.value].label)}
           />
         ),
-      Header: t('applications.tableHeaders.status'),
+      Header: t('applications.tableHeaders.status') || '',
       accessor: 'status',
     },
     {
@@ -108,7 +108,7 @@ const ApplicationsPageContainer: React.SFC = () => {
           {cell.value.address}
         </InternalLink>
       ),
-      Header: t('applications.tableHeaders.lease'),
+      Header: t('applications.tableHeaders.lease') || '',
       accessor: 'lease',
     },
   ];

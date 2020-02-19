@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -41,7 +42,7 @@ export interface HARBORS_harbors_edges_node_properties {
   imageFile: string | null;
   servicemapId: string | null;
   maximumWidth: number | null;
-  piers: HARBORS_harbors_edges_node_properties_piers;
+  piers: HARBORS_harbors_edges_node_properties_piers | null;
 }
 
 export interface HARBORS_harbors_edges_node {

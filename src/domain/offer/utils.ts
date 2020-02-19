@@ -12,7 +12,7 @@ export interface BerthData {
 }
 
 export const getOfferData = (data: OFFER_PAGE | undefined): BerthData[] => {
-  if (!data?.harborByServicemapId?.properties) return [];
+  if (!data?.harborByServicemapId?.properties?.piers) return [];
 
   const harborId = data.harborByServicemapId.id;
   const harbor = data.harborByServicemapId.properties.name || '';

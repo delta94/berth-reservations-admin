@@ -75,7 +75,9 @@ const Table = <D extends object>({
   const expanderCol: Column<D> = {
     Cell: ({ row }) => (
       <div
-        {...row.getExpandedToggleProps()}
+        // eslint-disable-next-line
+        // @ts-ignore
+        {...row.getToggleRowExpandedProps()} //TODO: fix the typings when @types/react-table is upgraded
         className={styles.expandArrowWrapper}
       >
         {row.isExpanded ? (
@@ -139,7 +141,7 @@ const Table = <D extends object>({
     headerGroups,
     rows,
     prepareRow,
-    flatColumns,
+    flatHeaders,
   } = useTable(
     {
       columns: tableColumns,
@@ -212,7 +214,7 @@ const Table = <D extends object>({
         </tr>
         {renderSubComponent && row.isExpanded && (
           <tr className={classNames(styles.tableRow, styles.expandedRow)}>
-            <td className={styles.tableData} colSpan={flatColumns.length}>
+            <td className={styles.tableData} colSpan={flatHeaders.length}>
               {renderSubComponent(row)}
             </td>
           </tr>
