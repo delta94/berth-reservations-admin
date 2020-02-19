@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 import { BerthMooringType } from "./../../../../__generated__/globalTypes";
@@ -79,7 +80,7 @@ export interface INDIVIDUAL_HARBOR_harbor_properties {
   imageFile: string | null;
   servicemapId: string | null;
   maximumWidth: number | null;
-  piers: INDIVIDUAL_HARBOR_harbor_properties_piers;
+  piers: INDIVIDUAL_HARBOR_harbor_properties_piers | null;
 }
 
 export interface INDIVIDUAL_HARBOR_harbor {

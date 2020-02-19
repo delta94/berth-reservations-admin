@@ -33,31 +33,31 @@ const OfferPageContainer: React.FC = () => {
           {cell.value}
         </InternalLink>
       ),
-      Header: t('offer.tableHeaders.harbor'),
+      Header: t('offer.tableHeaders.harbor') || '',
       accessor: 'harbor',
     },
     {
-      Header: t('offer.tableHeaders.pier'),
+      Header: t('offer.tableHeaders.pier') || '',
       accessor: 'pier',
     },
     {
-      Header: t('offer.tableHeaders.berth'),
+      Header: t('offer.tableHeaders.berth') || '',
       accessor: 'berth',
     },
     {
-      Header: t('offer.tableHeaders.width'),
+      Header: t('offer.tableHeaders.width') || '',
       accessor: 'width',
     },
     {
-      Header: t('offer.tableHeaders.length'),
+      Header: t('offer.tableHeaders.length') || '',
       accessor: 'length',
     },
     {
-      Header: t('offer.tableHeaders.draught'),
+      Header: t('offer.tableHeaders.draught') || '',
       accessor: 'draught',
     },
     {
-      Header: t('offer.tableHeaders.mooringType'),
+      Header: t('offer.tableHeaders.mooringType') || '',
       accessor: 'mooringType',
     },
   ];
