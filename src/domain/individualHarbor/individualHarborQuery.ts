@@ -2,12 +2,6 @@ import { gql } from 'apollo-boost';
 
 export const INDIVIDUAL_HARBOR_QUERY = gql`
   query INDIVIDUAL_HARBOR($id: ID!) {
-    __type(name: "BerthMooringType") {
-      enumValues {
-        name
-        description
-      }
-    }
     harbor(id: $id) {
       id
       properties {

@@ -9,17 +9,6 @@ import { BerthMooringType } from "./../../../../__generated__/globalTypes";
 // GraphQL query operation: INDIVIDUAL_HARBOR
 // ====================================================
 
-export interface INDIVIDUAL_HARBOR___type_enumValues {
-  __typename: "__EnumValue";
-  name: string;
-  description: string | null;
-}
-
-export interface INDIVIDUAL_HARBOR___type {
-  __typename: "__Type";
-  enumValues: INDIVIDUAL_HARBOR___type_enumValues[] | null;
-}
-
 export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_berthType {
   __typename: "BerthTypeNode";
   width: number;
@@ -90,7 +79,6 @@ export interface INDIVIDUAL_HARBOR_harbor {
 }
 
 export interface INDIVIDUAL_HARBOR {
-  __type: INDIVIDUAL_HARBOR___type | null;
   harbor: INDIVIDUAL_HARBOR_harbor | null;
 }
 

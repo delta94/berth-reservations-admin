@@ -57,7 +57,7 @@ export type Berth = {
   identifier: string;
   length: string;
   width: string;
-  mooring: string;
+  mooringType: string;
 };
 
 export const getBerths = (data: INDIVIDUAL_HARBOR | undefined) => {
@@ -71,11 +71,6 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined) => {
       (prev, berthEdge) => {
         if (!berthEdge || !berthEdge.node) return prev;
 
-        const mooringType = berthEdge.node.berthType.mooringType;
-        const mooring =
-          data.__type?.enumValues &&
-          data.__type?.enumValues.find(mooring => mooring.name === mooringType);
-
         return [
           ...prev,
           {
@@ -83,7 +78,7 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined) => {
             length: berthEdge.node.berthType.length
               ? `${berthEdge.node.berthType.length / 100} m`
               : '',
-            mooring: mooring?.description ? mooring.description : '',
+            mooringType: berthEdge.node.berthType.mooringType,
             number: berthEdge.node.number,
             width: berthEdge.node.berthType.width
               ? `${berthEdge.node.berthType.width / 100} m`

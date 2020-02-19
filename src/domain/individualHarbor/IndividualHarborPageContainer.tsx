@@ -46,8 +46,9 @@ const IndividualHarborPageContainer: React.SFC = () => {
       accessor: 'width',
     },
     {
+      Cell: ({ cell }) => t([`common.mooringTypes.${cell.value}`, cell.value]),
       Header: t('individualHarbor.tableHeaders.mooring') || '',
-      accessor: 'mooring',
+      accessor: 'mooringType',
     },
   ];
   const berths = getBerths(data);

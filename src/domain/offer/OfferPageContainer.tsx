@@ -57,6 +57,7 @@ const OfferPageContainer: React.FC = () => {
       accessor: 'draught',
     },
     {
+      Cell: ({ cell }) => t([`common.mooringTypes.${cell.value}`, cell.value]),
       Header: t('offer.tableHeaders.mooringType') || '',
       accessor: 'mooringType',
     },
