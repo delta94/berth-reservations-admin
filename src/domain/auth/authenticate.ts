@@ -12,7 +12,7 @@ import {
 } from './state/BackendAuthenticationActions';
 import { BackendTokenResponse } from './types/BackendAuthenticationTypes';
 
-export const loginTunnistamo = (path?: string) => {
+export const loginTunnistamo = (path?: { pathname: string }) => {
   userManager.signinRedirect(
     path ? { data: { path } } : { data: { path: '/' } }
   );
