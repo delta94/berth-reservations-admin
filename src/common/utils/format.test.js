@@ -26,7 +26,7 @@ describe('format', () => {
     });
 
     it('should fallback to the Finnish locale when the second argument is not provided', () => {
-      expect(formatWeight(1)).toBe('1 kg');
+      expect(formatWeight(1.5)).toBe('1,5 kg');
     });
 
     it('should return "-" if the value is undefined/null', () => {

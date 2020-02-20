@@ -42,8 +42,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test:watch": "react-scripts test --watch",
+    "test": "TZ=UTC react-scripts test",
+    "test:watch": "TZ=UTC react-scripts test --watch",
     "eject": "react-scripts eject",
     "lint": "eslint --ext js,ts,tsx src",
     "ci": "CI=true yarn test --verbose --runInBand --coverage",
