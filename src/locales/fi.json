@@ -28,6 +28,17 @@
     },
     "header": {
       "logout": "Kirjaudu ulos"
+    },
+    "mooringTypes": {
+      "NO_STERN_TO_MOORING": "Ilman peräkiinnitystä",
+      "SINGLE_SLIP_PLACE": "Aisapaikka",
+      "SIDE_SLIP_PLACE": "Kävelyaisapaikka",
+      "STERN_BUOY_PLACE": "Peräpoijupaikka",
+      "STERN_POLE_MOORING": "Paaluperäkiinnitys",
+      "QUAYSIDE_MOORING": "Sivukiinnitys",
+      "DINGHY_PLACE": "Jollapaikka",
+      "SEA_BUOY_MOORING": "Poiju (merellä)",
+      "TRAWLER_PLACE": "Traileripaikka"
     }
   },
   "login": {
