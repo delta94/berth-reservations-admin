@@ -6,11 +6,12 @@ import ApplicationsPage from './ApplicationsPage';
 import Table, { Column } from '../../common/table/Table';
 import InternalLink from '../../common/internalLink/InternalLink';
 import ApplicationDetails from './applicationDetails/ApplicationDetails';
-import { BERTH_APPLICATIONS_QUERY } from './queries';
-import { BERTH_APPLICATIONS } from './__generated__/BERTH_APPLICATIONS';
-import { getBerthApplicationData, formatDate, ApplicationData } from './utils';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
+import { BERTH_APPLICATIONS } from './__generated__/BERTH_APPLICATIONS';
+import { getBerthApplicationData, ApplicationData } from './utils';
+import { formatDate } from '../../common/utils/format';
 import Chip, { ChipProps } from '../../common/chip/Chip';
+import { BERTH_APPLICATIONS_QUERY } from './queries';
 import { ApplicationStatus } from '../../../__generated__/globalTypes';
 
 export interface TableData {
