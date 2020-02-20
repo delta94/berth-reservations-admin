@@ -1,7 +1,7 @@
-export const formatDimension = (value: number | null, locale = 'fi-FI') => {
+export const formatDimension = (value: number | null, locale: string) => {
   if (!value) return null;
 
-  const localizedValues = new Intl.NumberFormat(locale, {
+  const localizedValues = new Intl.NumberFormat([locale, 'fi-FI'], {
     style: 'decimal',
     minimumFractionDigits: 1,
   }).format(value);
@@ -9,15 +9,15 @@ export const formatDimension = (value: number | null, locale = 'fi-FI') => {
   return `${localizedValues} m`;
 };
 
-export const formatWeight = (value: number | null, locale = 'fi-FI') => {
+export const formatWeight = (value: number | null, locale: string) => {
   if (!value) return null;
 
-  const localizedValues = new Intl.NumberFormat(locale, {
+  const localizedValues = new Intl.NumberFormat([locale, 'fi-FI'], {
     style: 'decimal',
   }).format(value);
 
   return `${localizedValues} kg`;
 };
 
-export const formatDate = (date: string, locale = 'fi-FI') =>
-  new Date(date).toLocaleString(locale);
+export const formatDate = (date: string, locale: string) =>
+  new Date(date).toLocaleString([locale, 'fi-FI']);

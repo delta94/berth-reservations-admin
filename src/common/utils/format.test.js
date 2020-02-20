@@ -10,8 +10,8 @@ describe('format', () => {
       expect(formatDimension(1, 'en-US')).toMatch('m');
     });
 
-    it('should fallback to the Finnish locale when the second argument is not provided', () => {
-      expect(formatDimension(1)).toBe('1,0 m');
+    it('should fallback to the Finnish locale when the second argument is an unknown string', () => {
+      expect(formatDimension(1, 'foo')).toBe('1,0 m');
     });
 
     it('should return "-" if the value is undefined/null', () => {
@@ -25,8 +25,8 @@ describe('format', () => {
       expect(formatWeight(1, 'en-US')).toMatch('kg');
     });
 
-    it('should fallback to the Finnish locale when the second argument is not provided', () => {
-      expect(formatWeight(1.5)).toBe('1,5 kg');
+    it('should fallback to the Finnish locale when the second argument is an unknown string', () => {
+      expect(formatWeight(1.5, 'foo')).toBe('1,5 kg');
     });
 
     it('should return "-" if the value is undefined/null', () => {
@@ -42,8 +42,10 @@ describe('format', () => {
       ).toMatchSnapshot();
     });
 
-    it('should fallback to the Finnish locale when the second argument is not provided', () => {
-      expect(formatDate('2018-11-28T12:26:28.146227+00:00')).toMatchSnapshot();
+    it('should fallback to the Finnish locale when the second argument is an unknown string', () => {
+      expect(
+        formatDate('2018-11-28T12:26:28.146227+00:00', 'foo')
+      ).toMatchSnapshot();
     });
   });
 });

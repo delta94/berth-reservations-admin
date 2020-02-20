@@ -54,7 +54,7 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
   harborChoices,
   accessibilityRequired,
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const notNull = (choice: HarborChoice | null): choice is HarborChoice =>
     !!choice;
 
@@ -95,19 +95,19 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
           <Section>
             <LabelValuePair
               label={t('applications.applicationDetails.boatWidth')}
-              value={formatDimension(boatWidth)}
+              value={formatDimension(boatWidth, i18n.language)}
             />
             <LabelValuePair
               label={t('applications.applicationDetails.boatLength')}
-              value={formatDimension(boatLength)}
+              value={formatDimension(boatLength, i18n.language)}
             />
             <LabelValuePair
               label={t('applications.applicationDetails.boatDepth')}
-              value={formatDimension(boatDraught)}
+              value={formatDimension(boatDraught, i18n.language)}
             />
             <LabelValuePair
               label={t('applications.applicationDetails.boatWeight')}
-              value={formatWeight(boatWeight)}
+              value={formatWeight(boatWeight, i18n.language)}
             />
           </Section>
           <Section>

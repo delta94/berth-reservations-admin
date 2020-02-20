@@ -125,7 +125,7 @@ const ApplicationsPageContainer: React.SFC = () => {
           renderSubComponent={row => (
             <ApplicationDetails
               {...row.original}
-              createdAt={formatDate(row.original.createdAt)}
+              createdAt={formatDate(row.original.createdAt, i18n.language)}
               status={
                 row.original.status &&
                 t(APPLICATION_STATUS[row.original.status].label)
