@@ -36,7 +36,7 @@ describe('format', () => {
   });
 
   describe('formatDate', () => {
-    it('should add "kg" unit to to the supplied value', () => {
+    it('should format the date according to the supplied locale', () => {
       expect(
         formatDate('2018-11-28T12:26:28.146227+00:00', 'en-US')
       ).toMatchSnapshot();

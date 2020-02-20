@@ -21,7 +21,7 @@ const LabelValuePair = ({
       {label}:
     </span>
     <span className={classNames(styles.value, styles[align])}>
-      {value ? value : '-'}
+      {value || '-'}
     </span>
   </div>
 );
