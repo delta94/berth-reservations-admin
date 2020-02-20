@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`format formatDate should add "kg" unit to to the supplied value 1`] = `"11/28/2018, 2:26:28 PM"`;
+
+exports[`format formatDate should fallback to the Finnish locale when the second argument is not provided 1`] = `"28.11.2018 klo 14.26.28"`;
