@@ -55,8 +55,8 @@ export const getIndividualHarborData = (
 export type Berth = {
   number: string;
   identifier: string;
-  length: string;
-  width: string;
+  length: number;
+  width: number;
   mooringType: string;
 };
 
@@ -66,7 +66,7 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined) => {
   return data.harbor.properties.piers.edges.reduce<Berth[]>((acc, pierEdge) => {
     if (!pierEdge?.node?.properties) return [];
 
-    const identifier = pierEdge.node.properties.identifier;
+    const { identifier } = pierEdge.node.properties;
     const berths = pierEdge.node.properties.berths.edges.reduce<Berth[]>(
       (prev, berthEdge) => {
         if (!berthEdge || !berthEdge.node) return prev;
@@ -75,14 +75,10 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined) => {
           ...prev,
           {
             identifier,
-            length: berthEdge.node.berthType.length
-              ? `${berthEdge.node.berthType.length / 100} m`
-              : '',
+            length: berthEdge.node.berthType.length,
             mooringType: berthEdge.node.berthType.mooringType,
             number: berthEdge.node.number,
-            width: berthEdge.node.berthType.width
-              ? `${berthEdge.node.berthType.width / 100} m`
-              : '',
+            width: berthEdge.node.berthType.width,
           },
         ];
       },

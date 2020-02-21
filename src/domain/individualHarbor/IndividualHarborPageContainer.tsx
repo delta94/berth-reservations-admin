@@ -10,6 +10,7 @@ import { getIndividualHarborData, getBerths, Berth } from './utils/utils';
 import IndividualHarborPage from './individualHarborPage/IndividualHarborPage';
 import HarborProperties from './harborProperties/HarborProperties';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
+import { formatDimension } from '../../common/utils/format';
 
 const IndividualHarborPageContainer: React.SFC = () => {
   const { id } = useParams<{ id: string }>();
@@ -17,7 +18,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
     INDIVIDUAL_HARBOR_QUERY,
     { variables: { id } }
   );
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   if (error) return <p>Error</p>;
 
@@ -38,10 +39,12 @@ const IndividualHarborPageContainer: React.SFC = () => {
       accessor: 'identifier',
     },
     {
+      Cell: ({ cell }) => formatDimension(cell.value, i18n.language),
       Header: t('individualHarbor.tableHeaders.length') || '',
       accessor: 'length',
     },
     {
+      Cell: ({ cell }) => formatDimension(cell.value, i18n.language),
       Header: t('individualHarbor.tableHeaders.width') || '',
       accessor: 'width',
     },

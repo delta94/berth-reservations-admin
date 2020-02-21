@@ -20,7 +20,9 @@ const LabelValuePair = ({
     <span className={classNames(styles.label, styles[labelColor])}>
       {label}:
     </span>
-    <span className={classNames(styles.value, styles[align])}>{value}</span>
+    <span className={classNames(styles.value, styles[align])}>
+      {value || '-'}
+    </span>
   </div>
 );
 

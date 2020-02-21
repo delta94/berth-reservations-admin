@@ -11,6 +11,7 @@ import InternalLink from '../../../common/internalLink/InternalLink';
 import Text from '../../../common/text/Text';
 import List from '../../../common/list/List';
 import ListItem from '../../../common/list/ListItem';
+import { formatDimension, formatWeight } from '../../../common/utils/format';
 
 interface HarborChoice {
   harborName: string;
@@ -26,10 +27,10 @@ export interface ApplicationDetailsProps {
   status: string | null;
   boatType?: string | null;
   boatRegistrationNumber: string;
-  boatWidth: string;
-  boatLength: string;
-  boatDraught: string | null;
-  boatWeight: string | null;
+  boatWidth: number;
+  boatLength: number;
+  boatDraught: number | null;
+  boatWeight: number | null;
   boatName: string;
   boatModel: string;
   harborChoices: Array<HarborChoice | null>;
@@ -53,10 +54,9 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
   harborChoices,
   accessibilityRequired,
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const notNull = (choice: HarborChoice | null): choice is HarborChoice =>
     !!choice;
-
   const routerQuery = new URLSearchParams(useLocation().search);
 
   return (
@@ -94,19 +94,19 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
           <Section>
             <LabelValuePair
               label={t('applications.applicationDetails.boatWidth')}
-              value={`${boatWidth}`}
+              value={formatDimension(boatWidth, i18n.language)}
             />
             <LabelValuePair
               label={t('applications.applicationDetails.boatLength')}
-              value={`${boatLength}`}
+              value={formatDimension(boatLength, i18n.language)}
             />
             <LabelValuePair
               label={t('applications.applicationDetails.boatDepth')}
-              value={`${boatDraught || ''}`}
+              value={formatDimension(boatDraught, i18n.language)}
             />
             <LabelValuePair
               label={t('applications.applicationDetails.boatWeight')}
-              value={`${boatWeight || ''}`}
+              value={formatWeight(boatWeight, i18n.language)}
             />
           </Section>
           <Section>
@@ -135,7 +135,7 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
                         {`${t('applications.applicationDetails.choice')} 
                       ${i + 1}: `}
                       </Text>
-                      <InternalLink to={`offer/${id}?${routerQuery}`}>
+                      <InternalLink to={`/offer/${id}?${routerQuery}`}>
                         {harborName}
                       </InternalLink>
                     </ListItem>
