@@ -3,15 +3,11 @@ import { formatDimension, formatWeight, formatDate } from './format';
 describe('format', () => {
   describe('formatDimension', () => {
     it('should add at least one fraction number', () => {
-      expect(formatDimension(1, 'en-US')).toMatch('1.0');
+      expect(formatDimension(1, 'fi')).toMatch('1,0');
     });
 
     it('should add "m" unit to to the supplied value', () => {
-      expect(formatDimension(1, 'en-US')).toMatch('m');
-    });
-
-    it('should fallback to the Finnish locale when the second argument is an unknown string', () => {
-      expect(formatDimension(1, 'foo')).toBe('1,0 m');
+      expect(formatDimension(1, 'fi')).toMatch('m');
     });
 
     it('should return "-" if the value is undefined/null', () => {
@@ -22,11 +18,7 @@ describe('format', () => {
 
   describe('formatWeight', () => {
     it('should add "kg" unit to to the supplied value', () => {
-      expect(formatWeight(1, 'en-US')).toMatch('kg');
-    });
-
-    it('should fallback to the Finnish locale when the second argument is an unknown string', () => {
-      expect(formatWeight(1.5, 'foo')).toBe('1,5 kg');
+      expect(formatWeight(1, 'fi')).toMatch('kg');
     });
 
     it('should return "-" if the value is undefined/null', () => {
@@ -38,13 +30,7 @@ describe('format', () => {
   describe('formatDate', () => {
     it('should format the date according to the supplied locale', () => {
       expect(
-        formatDate('2018-11-28T12:26:28.146227+00:00', 'en-US')
-      ).toMatchSnapshot();
-    });
-
-    it('should fallback to the Finnish locale when the second argument is an unknown string', () => {
-      expect(
-        formatDate('2018-11-28T12:26:28.146227+00:00', 'foo')
+        formatDate('2018-11-28T12:26:28.146227+00:00', 'fi')
       ).toMatchSnapshot();
     });
   });
