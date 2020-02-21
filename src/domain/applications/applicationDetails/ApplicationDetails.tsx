@@ -57,7 +57,6 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
   const { t, i18n } = useTranslation();
   const notNull = (choice: HarborChoice | null): choice is HarborChoice =>
     !!choice;
-
   const routerQuery = new URLSearchParams(useLocation().search);
 
   return (
@@ -136,7 +135,7 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
                         {`${t('applications.applicationDetails.choice')} 
                       ${i + 1}: `}
                       </Text>
-                      <InternalLink to={`offer/${id}?${routerQuery}`}>
+                      <InternalLink to={`/offer/${id}?${routerQuery}`}>
                         {harborName}
                       </InternalLink>
                     </ListItem>
