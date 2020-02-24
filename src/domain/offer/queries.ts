@@ -11,7 +11,7 @@ export const OFFER_PAGE_QUERY = gql`
       id
       properties {
         name
-        piers {
+        piers(forApplication: $applicationId) {
           edges {
             node {
               id
