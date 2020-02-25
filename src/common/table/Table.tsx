@@ -21,10 +21,15 @@ import iconStyles from '../icons/icon.module.scss';
 
 export type Column<D extends object> = ColumnType<D>;
 
+interface TState<D extends object> {
+  selectedRows: Array<Row<D>['original']>;
+}
+
 type Props<D extends object> = {
   data: D[];
   canSelectRows?: boolean;
   canSelectOneRow?: boolean;
+  renderTableTools?: (tableState: TState<D>) => React.ReactNode;
   renderSubComponent?: (row: Row<D>) => React.ReactNode;
   renderMainHeader?: (props: HeaderProps<D>) => React.ReactNode;
 } & TableOptions<D>;
@@ -38,6 +43,7 @@ const Table = <D extends object>({
   data: tableData,
   canSelectRows,
   canSelectOneRow,
+  renderTableTools,
   renderSubComponent,
   renderMainHeader,
 }: Props<D>) => {
@@ -142,6 +148,7 @@ const Table = <D extends object>({
     rows,
     prepareRow,
     flatHeaders,
+    selectedFlatRows,
   } = useTable(
     {
       columns: tableColumns,
@@ -224,10 +231,15 @@ const Table = <D extends object>({
   };
 
   return (
-    <table {...getTableProps()} className={styles.table}>
-      <thead>{headerGroups.map(renderTableHead)}</thead>
-      <tbody {...getTableBodyProps()}>{rows.map(renderTableBody)}</tbody>
-    </table>
+    <>
+      {renderTableTools?.({
+        selectedRows: selectedFlatRows.map(row => row.original),
+      })}
+      <table {...getTableProps()} className={styles.table}>
+        <thead>{headerGroups.map(renderTableHead)}</thead>
+        <tbody {...getTableBodyProps()}>{rows.map(renderTableBody)}</tbody>
+      </table>
+    </>
   );
 };
 
