@@ -1,0 +1,16 @@
+@import 'spacings';
+
+.tableTools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: units(1);
+}
+
+.chip {
+  margin-left: units(0.5);
+}
+
+.button {
+  margin-left: units(1);
+}
