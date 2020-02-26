@@ -9,6 +9,11 @@ import { ApplicationStatus } from "./../../../../__generated__/globalTypes";
 // GraphQL query operation: BERTH_APPLICATIONS
 // ====================================================
 
+export interface BERTH_APPLICATIONS_berthApplications_edges_node_customer {
+  __typename: "BerthProfileNode";
+  id: string;
+}
+
 export interface BERTH_APPLICATIONS_berthApplications_edges_node_berthSwitch {
   __typename: "BerthSwitchType";
   id: string;
@@ -24,6 +29,7 @@ export interface BERTH_APPLICATIONS_berthApplications_edges_node_harborChoices {
 export interface BERTH_APPLICATIONS_berthApplications_edges_node {
   __typename: "BerthApplicationNode";
   id: string;
+  customer: BERTH_APPLICATIONS_berthApplications_edges_node_customer | null;
   berthSwitch: BERTH_APPLICATIONS_berthApplications_edges_node_berthSwitch | null;
   createdAt: any;
   municipality: string;
@@ -36,7 +42,7 @@ export interface BERTH_APPLICATIONS_berthApplications_edges_node {
   boatName: string;
   boatModel: string;
   accessibilityRequired: boolean;
-  status: ApplicationStatus | null;
+  status: ApplicationStatus;
   harborChoices: (BERTH_APPLICATIONS_berthApplications_edges_node_harborChoices | null)[] | null;
 }
 

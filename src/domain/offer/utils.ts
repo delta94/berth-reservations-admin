@@ -5,6 +5,7 @@ export interface BerthData {
   harbor: string;
   pier: string;
   berth: string;
+  berthId: string;
   width: number | null;
   length: number | null;
   draught: number | null;
@@ -33,6 +34,7 @@ export const getOfferData = (data: OFFER_PAGE | undefined): BerthData[] => {
             harbor,
             pier: pierIdentifier,
             berth: berth.node.number,
+            berthId: berth.node.id,
             width: berth.node.berthType.width,
             length: berth.node.berthType.length,
             draught: null,

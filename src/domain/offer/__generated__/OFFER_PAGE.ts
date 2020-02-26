@@ -9,11 +9,23 @@ import { ApplicationStatus, BerthMooringType } from "./../../../../__generated__
 // GraphQL query operation: OFFER_PAGE
 // ====================================================
 
+export interface OFFER_PAGE_berthApplication_berthSwitch {
+  __typename: "BerthSwitchType";
+  id: string;
+}
+
+export interface OFFER_PAGE_berthApplication_customer {
+  __typename: "BerthProfileNode";
+  id: string;
+}
+
 export interface OFFER_PAGE_berthApplication {
   __typename: "BerthApplicationNode";
   id: string;
   createdAt: any;
-  status: ApplicationStatus | null;
+  status: ApplicationStatus;
+  berthSwitch: OFFER_PAGE_berthApplication_berthSwitch | null;
+  customer: OFFER_PAGE_berthApplication_customer | null;
 }
 
 export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_berthType {
