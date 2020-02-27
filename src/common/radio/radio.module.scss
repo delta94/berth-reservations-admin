@@ -2,7 +2,7 @@
 @import 'colours';
 
 .radio {
-  --radio-dimension: #{units(1)};
+  --radio-dimension: 20px;
   --padding: 2px;
   --color: #{$gray-200};
 
@@ -56,11 +56,11 @@
 }
 
 .large {
-  --radio-dimension: #{units(1.5)};
-  --padding: #{units(0.25)};
+  --radio-dimension: 24px;
+  --padding: 3px;
 }
 
 .small {
-  --radio-dimension: #{units(0.75)};
+  --radio-dimension: 16px;
   --padding: 1px;
 }
