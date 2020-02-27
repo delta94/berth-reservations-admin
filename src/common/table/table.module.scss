@@ -51,8 +51,15 @@ $rows-spacing: units(0.25);
   }
 
   .selector {
-    min-width: unset;
+    min-width: auto;
     width: units(2);
+  }
+
+  .radioSelector {
+    min-width: auto;
+    width: units(3);
+    padding-left: units(0.75);
+    padding-right: units(0.75);
   }
 
   .expander {

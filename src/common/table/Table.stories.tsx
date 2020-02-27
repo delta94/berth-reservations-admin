@@ -32,7 +32,22 @@ const columns: Column<DataType>[] = [
   },
 ];
 
-export const Simple = () => (
+export const table = () => (
+  <Table
+    data={MockData}
+    columns={columns}
+    renderSubComponent={row => {
+      return row.index;
+    }}
+    renderMainHeader={() => 'Demos'}
+  />
+);
+
+table.story = {
+  name: 'Default',
+};
+
+export const withSelector = () => (
   <Table
     data={MockData}
     columns={columns}
@@ -41,5 +56,17 @@ export const Simple = () => (
     }}
     renderMainHeader={() => 'Demos'}
     canSelectRows
+  />
+);
+
+export const withRadioSelector = () => (
+  <Table
+    data={MockData}
+    columns={columns}
+    renderSubComponent={row => {
+      return row.index;
+    }}
+    renderMainHeader={() => 'Demos'}
+    canSelectOneRow
   />
 );

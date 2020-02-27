@@ -32,6 +32,7 @@ type Props<D extends object> = {
 const EXPANDER = 'EXPANDER';
 const MAIN_HEADER = 'MAIN_HEADER';
 const SELECTOR = 'SELECTOR';
+const RADIO_SELECTOR = 'RADIO_SELECTOR';
 
 const Table = <D extends object>({
   columns,
@@ -62,14 +63,7 @@ const Table = <D extends object>({
         }}
       />
     ),
-    Header: ({ getToggleAllRowsSelectedProps, toggleAllRowsSelected }) => (
-      <Radio
-        size="large"
-        {...getToggleAllRowsSelectedProps()}
-        onChange={() => toggleAllRowsSelected(false)}
-      />
-    ),
-    id: SELECTOR,
+    id: RADIO_SELECTOR,
   };
 
   const expanderCol: Column<D> = {
@@ -160,6 +154,7 @@ const Table = <D extends object>({
           className={classNames(styles.tableHeader, {
             [styles.mainHeader]: renderMainHeader && column.depth === 0,
             [styles.selector]: column.id === SELECTOR,
+            [styles.radioSelector]: column.id === RADIO_SELECTOR,
             [styles.expander]: column.id === EXPANDER,
           })}
         >
@@ -205,6 +200,7 @@ const Table = <D extends object>({
               <div
                 className={classNames(styles.tableCell, {
                   [styles.selector]: cell.column.id === SELECTOR,
+                  [styles.radioSelector]: cell.column.id === RADIO_SELECTOR,
                 })}
               >
                 {cell.render('Cell')}
