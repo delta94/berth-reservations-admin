@@ -40,11 +40,29 @@ export enum InvoicingType {
   PAPER_INVOICE = "PAPER_INVOICE",
 }
 
+export enum LeaseStatus {
+  DRAFTED = "DRAFTED",
+  EXPIRED = "EXPIRED",
+  OFFERED = "OFFERED",
+  PAID = "PAID",
+  REFUSED = "REFUSED",
+}
+
 export enum ServiceType {
   BERTH = "BERTH",
   GODCHILDREN_OF_CULTURE = "GODCHILDREN_OF_CULTURE",
   HKI_MY_DATA = "HKI_MY_DATA",
   YOUTH_MEMBERSHIP = "YOUTH_MEMBERSHIP",
+}
+
+export interface CreateBerthLeaseMutationInput {
+  applicationId: string;
+  berthId: string;
+  boatId?: string | null;
+  startDate?: any | null;
+  endDate?: any | null;
+  comment?: string | null;
+  clientMutationId?: string | null;
 }
 
 //==============================================================

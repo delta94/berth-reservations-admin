@@ -149,6 +149,11 @@
       "length": "Pituus m",
       "draught": "Syvyys m",
       "mooringType": "Kiinnitys"
+    },
+    "tableTools": {
+      "berths": "VENEPAIKAT",
+      "return": "Palaa valitsematta",
+      "submit": "Siirrä hakemukselle"
     }
   },
   "customers": {

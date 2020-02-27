@@ -10,9 +10,9 @@ import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { BERTH_APPLICATIONS } from './__generated__/BERTH_APPLICATIONS';
 import { getBerthApplicationData, ApplicationData } from './utils';
 import { formatDate } from '../../common/utils/format';
-import Chip, { ChipProps } from '../../common/chip/Chip';
+import Chip from '../../common/chip/Chip';
+import { APPLICATION_STATUS } from '../../common/utils/consonants';
 import { BERTH_APPLICATIONS_QUERY } from './queries';
-import { ApplicationStatus } from '../../../__generated__/globalTypes';
 
 export interface TableData {
   id: string;
@@ -30,29 +30,6 @@ export interface TableData {
 }
 
 type ColumnType = Column<ApplicationData> & { accessor: keyof ApplicationData };
-
-type ApplicationStatusType = {
-  [key in ApplicationStatus]: {
-    label: string;
-    color: ChipProps['color'];
-  };
-};
-
-const APPLICATION_STATUS: ApplicationStatusType = {
-  PENDING: { label: 'applications.status.pending', color: 'yellow' },
-  OFFER_GENERATED: {
-    label: 'applications.status.offerGenerated',
-    color: 'blue',
-  },
-  OFFER_SENT: { label: 'applications.status.offerSent', color: 'green' },
-  HANDLED: { label: 'applications.status.handled', color: 'blue' },
-  EXPIRED: { label: 'applications.status.expired', color: 'grey' },
-  NO_SUITABLE_BERTHS: { label: 'applications.status.noSuitable', color: 'red' },
-  NO_SUITABLE_BERTHS_NOTIFIED: {
-    label: 'applications.status.noSuitableNotified',
-    color: 'orange',
-  },
-};
 
 const ApplicationsPageContainer: React.SFC = () => {
   const { t, i18n } = useTranslation();
@@ -93,13 +70,12 @@ const ApplicationsPageContainer: React.SFC = () => {
       accessor: 'municipality',
     },
     {
-      Cell: ({ cell }) =>
-        cell.value && (
-          <Chip
-            color={APPLICATION_STATUS[cell.value].color}
-            label={t(APPLICATION_STATUS[cell.value].label)}
-          />
-        ),
+      Cell: ({ cell }) => (
+        <Chip
+          color={APPLICATION_STATUS[cell.value].color}
+          label={t(APPLICATION_STATUS[cell.value].label)}
+        />
+      ),
       Header: t('applications.tableHeaders.status') || '',
       accessor: 'status',
     },
@@ -125,7 +101,11 @@ const ApplicationsPageContainer: React.SFC = () => {
           renderSubComponent={row => (
             <ApplicationDetails
               {...row.original}
-              createdAt={formatDate(row.original.createdAt, i18n.language)}
+              createdAt={formatDate(
+                row.original.createdAt,
+                i18n.language,
+                true
+              )}
               status={
                 row.original.status &&
                 t(APPLICATION_STATUS[row.original.status].label)

@@ -6,6 +6,12 @@ export const OFFER_PAGE_QUERY = gql`
       id
       createdAt
       status
+      berthSwitch {
+        id
+      }
+      customer {
+        id
+      }
     }
     harborByServicemapId(servicemapId: $servicemapId) {
       id

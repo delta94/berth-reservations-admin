@@ -26,9 +26,6 @@ export interface ApplicationData {
   accessibilityRequired: boolean;
 }
 
-export const formatDate = (date: string, locale = 'fi') =>
-  new Date(date).toLocaleString(locale);
-
 export const getBerthApplicationData = (
   data: BERTH_APPLICATIONS | undefined
 ): ApplicationData[] => {

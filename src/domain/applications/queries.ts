@@ -6,6 +6,9 @@ export const BERTH_APPLICATIONS_QUERY = gql`
       edges {
         node {
           id
+          customer {
+            id
+          }
           berthSwitch {
             id
           }
