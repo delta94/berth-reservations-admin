@@ -45,9 +45,11 @@ const Table = <D extends object>({
   const { t } = useTranslation();
 
   const selectorCol: Column<D> = {
-    Cell: ({ row }) => <Checkbox {...row.getToggleRowSelectedProps()} />,
+    Cell: ({ row }) => (
+      <Checkbox size="large" {...row.getToggleRowSelectedProps()} />
+    ),
     Header: ({ getToggleAllRowsSelectedProps }) => (
-      <Checkbox {...getToggleAllRowsSelectedProps()} />
+      <Checkbox size="large" {...getToggleAllRowsSelectedProps()} />
     ),
     id: SELECTOR,
   };
