@@ -136,6 +136,8 @@
       "boatBrand": "Merkki",
       "selectedPorts": "VALITUT SATAMAT",
       "choice": "Toive",
+      "connectedLease": "Liitetty satamapaikka",
+      "deleteLease": "Poista ehdotettu paikka",
       "accessible": "Tarvitsen esteettömän paikan"
     }
   },

@@ -19,6 +19,12 @@ interface HarborChoice {
   priority: number;
 }
 
+interface Lease {
+  id: string;
+  harborId: string;
+  harborName: string;
+}
+
 export interface ApplicationDetailsProps {
   id: string;
   applicationType: string;
@@ -34,6 +40,8 @@ export interface ApplicationDetailsProps {
   boatName: string;
   boatModel: string;
   harborChoices: Array<HarborChoice | null>;
+  lease?: Lease | null;
+  handleDeleteLease?: (id: string) => void;
   accessibilityRequired: boolean;
 }
 
@@ -52,6 +60,8 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
   boatName,
   boatModel,
   harborChoices,
+  lease,
+  handleDeleteLease,
   accessibilityRequired,
 }) => {
   const { t, i18n } = useTranslation();
@@ -121,28 +131,48 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
           </Section>
         </div>
         <div>
-          <Section title={t('applications.applicationDetails.selectedPorts')}>
-            <List noBullets>
-              {[...harborChoices]
-                .filter(notNull)
-                .sort((choiceA, choiceB) => choiceA.priority - choiceB.priority)
-                .map(({ harborName, harbor }, i) => {
-                  routerQuery.set('harbor', harbor);
+          {lease ? (
+            <Section
+              title={t('applications.applicationDetails.connectedLease')}
+            >
+              {lease.harborName}
+              {handleDeleteLease && (
+                <button
+                  className={styles.deleteButton}
+                  onClick={() => handleDeleteLease(lease.id)}
+                >
+                  <Text color="brand">
+                    {t('applications.applicationDetails.deleteLease')}
+                  </Text>
+                </button>
+              )}
+            </Section>
+          ) : (
+            <Section title={t('applications.applicationDetails.selectedPorts')}>
+              <List noBullets>
+                {[...harborChoices]
+                  .filter(notNull)
+                  .sort(
+                    (choiceA, choiceB) => choiceA.priority - choiceB.priority
+                  )
+                  .map(({ harborName, harbor }, i) => {
+                    routerQuery.set('harbor', harbor);
 
-                  return (
-                    <ListItem key={i}>
-                      <Text>
-                        {`${t('applications.applicationDetails.choice')} 
+                    return (
+                      <ListItem key={i}>
+                        <Text>
+                          {`${t('applications.applicationDetails.choice')} 
                       ${i + 1}: `}
-                      </Text>
-                      <InternalLink to={`/offer/${id}?${routerQuery}`}>
-                        {harborName}
-                      </InternalLink>
-                    </ListItem>
-                  );
-                })}
-            </List>
-          </Section>
+                        </Text>
+                        <InternalLink to={`/offer/${id}?${routerQuery}`}>
+                          {harborName}
+                        </InternalLink>
+                      </ListItem>
+                    );
+                  })}
+              </List>
+            </Section>
+          )}
           <Section>
             <Checkbox
               label={t('applications.applicationDetails.accessible')}
