@@ -50,9 +50,11 @@ $rows-spacing: units(0.25);
     vertical-align: baseline;
   }
 
-  .selector {
-    min-width: unset;
-    width: units(2);
+  .selector,
+  .radioSelector {
+    min-width: units(4);
+    width: units(4);
+    text-align: center;
   }
 
   .expander {
