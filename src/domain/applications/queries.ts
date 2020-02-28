@@ -24,6 +24,21 @@ export const BERTH_APPLICATIONS_QUERY = gql`
           boatModel
           accessibilityRequired
           status
+          lease {
+            id
+            berth {
+              pier {
+                properties {
+                  harbor {
+                    id
+                    properties {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
           harborChoices {
             harbor
             priority

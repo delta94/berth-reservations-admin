@@ -19,6 +19,38 @@ export interface BERTH_APPLICATIONS_berthApplications_edges_node_berthSwitch {
   id: string;
 }
 
+export interface BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth_pier_properties_harbor_properties {
+  __typename: "HarborProperties";
+  name: string | null;
+}
+
+export interface BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth_pier_properties_harbor {
+  __typename: "HarborNode";
+  id: string;
+  properties: BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth_pier_properties_harbor_properties | null;
+}
+
+export interface BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth_pier_properties {
+  __typename: "PierProperties";
+  harbor: BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth_pier_properties_harbor;
+}
+
+export interface BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth_pier {
+  __typename: "PierNode";
+  properties: BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth_pier_properties | null;
+}
+
+export interface BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth {
+  __typename: "BerthNode";
+  pier: BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth_pier;
+}
+
+export interface BERTH_APPLICATIONS_berthApplications_edges_node_lease {
+  __typename: "BerthLeaseNode";
+  id: string;
+  berth: BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth | null;
+}
+
 export interface BERTH_APPLICATIONS_berthApplications_edges_node_harborChoices {
   __typename: "HarborChoiceType";
   harbor: string;
@@ -43,6 +75,7 @@ export interface BERTH_APPLICATIONS_berthApplications_edges_node {
   boatModel: string;
   accessibilityRequired: boolean;
   status: ApplicationStatus;
+  lease: BERTH_APPLICATIONS_berthApplications_edges_node_lease | null;
   harborChoices: (BERTH_APPLICATIONS_berthApplications_edges_node_harborChoices | null)[] | null;
 }
 

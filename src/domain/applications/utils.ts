@@ -6,6 +6,12 @@ interface HarborChoice {
   priority: number;
 }
 
+interface Lease {
+  id: string;
+  harborName: string;
+  harborId: string;
+}
+
 export interface ApplicationData {
   id: string;
   isSwitch: boolean;
@@ -13,7 +19,7 @@ export interface ApplicationData {
   createdAt: string;
   municipality: string;
   status: string | null;
-  lease: string;
+  lease: Lease | null;
   boatType?: string | null;
   boatRegistrationNumber: string;
   boatWidth: number;
@@ -41,6 +47,7 @@ export const getBerthApplicationData = (
             createdAt,
             municipality,
             status,
+            lease,
             boatDraught,
             boatRegistrationNumber,
             boatModel,
@@ -52,6 +59,16 @@ export const getBerthApplicationData = (
             harborChoices = [],
             accessibilityRequired,
           } = application.node;
+          let leaseProps: Lease | null = null;
+
+          if (lease?.berth?.pier.properties?.harbor) {
+            leaseProps = {
+              id: lease.id,
+              harborId: lease.berth.pier.properties.harbor.id,
+              harborName:
+                lease.berth.pier.properties.harbor.properties?.name || '',
+            };
+          }
 
           const applicationData = {
             id,
@@ -60,7 +77,7 @@ export const getBerthApplicationData = (
             createdAt,
             municipality,
             status,
-            lease: '', //TODO: replace it with the actual data when https://helsinkisolutionoffice.atlassian.net/browse/VEN-348 is implemented.
+            lease: leaseProps,
             boatRegistrationNumber,
             boatModel,
             boatName,
