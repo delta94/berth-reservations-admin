@@ -2298,13 +2298,9 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "InvoicingType",
-                "ofType": null
-              }
+              "kind": "ENUM",
+              "name": "InvoicingType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -2314,13 +2310,9 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -2340,23 +2332,52 @@
           {
             "name": "boats",
             "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "BoatNode",
-                    "ofType": null
-                  }
-                }
+            "args": [
+              {
+                "name": "before",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "after",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "first",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "last",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
               }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "BoatNodeConnection",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -2407,13 +2428,9 @@
               }
             ],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "BerthApplicationNodeConnection",
-                "ofType": null
-              }
+              "kind": "OBJECT",
+              "name": "BerthApplicationNodeConnection",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -2464,13 +2481,9 @@
               }
             ],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "BerthLeaseNodeConnection",
-                "ofType": null
-              }
+              "kind": "OBJECT",
+              "name": "BerthLeaseNodeConnection",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -2551,6 +2564,11 @@
           {
             "kind": "OBJECT",
             "name": "AllowedDataFieldNode",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "BoatNode",
             "ofType": null
           },
           {
@@ -4342,6 +4360,92 @@
       },
       {
         "kind": "OBJECT",
+        "name": "BoatNodeConnection",
+        "description": null,
+        "fields": [
+          {
+            "name": "pageInfo",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PageInfo",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "edges",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "BoatNodeEdge",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "BoatNodeEdge",
+        "description": null,
+        "fields": [
+          {
+            "name": "node",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "BoatNode",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "cursor",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
         "name": "BoatNode",
         "description": null,
         "fields": [
@@ -4354,7 +4458,7 @@
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
-                "name": "UUID",
+                "name": "ID",
                 "ofType": null
               }
             },
@@ -4652,17 +4756,13 @@
           }
         ],
         "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "SCALAR",
-        "name": "UUID",
-        "description": null,
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Node",
+            "ofType": null
+          }
+        ],
         "enumValues": null,
         "possibleTypes": null
       },
@@ -4692,13 +4792,9 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "InvoicingType",
-                "ofType": null
-              }
+              "kind": "ENUM",
+              "name": "InvoicingType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -4708,13 +4804,9 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -4734,23 +4826,52 @@
           {
             "name": "boats",
             "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "BoatNode",
-                    "ofType": null
-                  }
-                }
+            "args": [
+              {
+                "name": "before",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "after",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "first",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "last",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null
               }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "BoatNodeConnection",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -4801,13 +4922,9 @@
               }
             ],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "BerthApplicationNodeConnection",
-                "ofType": null
-              }
+              "kind": "OBJECT",
+              "name": "BerthApplicationNodeConnection",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -4858,13 +4975,9 @@
               }
             ],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "BerthLeaseNodeConnection",
-                "ofType": null
-              }
+              "kind": "OBJECT",
+              "name": "BerthLeaseNodeConnection",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -7849,6 +7962,16 @@
         ],
         "inputFields": null,
         "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "SCALAR",
+        "name": "UUID",
+        "description": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
         "enumValues": null,
         "possibleTypes": null
       },

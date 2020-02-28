@@ -34,8 +34,8 @@ export interface INDIVIDUAL_CUSTOMER_profile {
   primaryEmail: INDIVIDUAL_CUSTOMER_profile_primaryEmail | null;
   primaryPhone: INDIVIDUAL_CUSTOMER_profile_primaryPhone | null;
   primaryAddress: INDIVIDUAL_CUSTOMER_profile_primaryAddress | null;
-  invoicingType: InvoicingType;
-  comment: string;
+  invoicingType: InvoicingType | null;
+  comment: string | null;
 }
 
 export interface INDIVIDUAL_CUSTOMER {
