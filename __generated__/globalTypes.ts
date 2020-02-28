@@ -65,6 +65,11 @@ export interface CreateBerthLeaseMutationInput {
   clientMutationId?: string | null;
 }
 
+export interface DeleteBerthLeaseMutationInput {
+  id: string;
+  clientMutationId?: string | null;
+}
+
 //==============================================================
 // END Enums and Input Objects
 //==============================================================
