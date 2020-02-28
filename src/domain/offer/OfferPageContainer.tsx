@@ -12,9 +12,12 @@ import { OFFER_PAGE } from './__generated__/OFFER_PAGE';
 import { BerthData, getOfferData } from './utils';
 import { formatDimension, formatDate } from '../../common/utils/format';
 import { CREATE_LEASE_MUTATION } from './mutations';
-import { CREATE_LEASE } from './__generated__/CREATE_LEASE';
-import { CreateBerthLeaseMutationInput } from '../../../__generated__/globalTypes';
+import {
+  CREATE_LEASE,
+  CREATE_LEASEVariables as CREATE_LEASE_VARS,
+} from './__generated__/CREATE_LEASE';
 import TableTools from './tableTools/TableTools';
+import { BERTH_APPLICATIONS_QUERY } from '../applications/queries';
 
 type ColumnType = Column<BerthData> & { accessor: keyof BerthData };
 
@@ -33,10 +36,9 @@ const OfferPageContainer: React.FC = () => {
   const [
     createBerthLease,
     { data: mutationData, loading: isSubmitting },
-  ] = useMutation<
-    { CREATE_LEASE: CREATE_LEASE },
-    { input: CreateBerthLeaseMutationInput }
-  >(CREATE_LEASE_MUTATION);
+  ] = useMutation<CREATE_LEASE, CREATE_LEASE_VARS>(CREATE_LEASE_MUTATION, {
+    refetchQueries: [{ query: BERTH_APPLICATIONS_QUERY }],
+  });
   const { t, i18n } = useTranslation();
 
   const columns: ColumnType[] = [
