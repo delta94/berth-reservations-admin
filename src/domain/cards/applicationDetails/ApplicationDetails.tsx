@@ -1,0 +1,195 @@
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router';
+
+import Section from '../../../common/section/Section';
+import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
+import Grid from '../../../common/grid/Grid';
+import Checkbox from '../../../common/checkbox/Checkbox';
+import styles from './applicationDetails.module.scss';
+import InternalLink from '../../../common/internalLink/InternalLink';
+import Text from '../../../common/text/Text';
+import List from '../../../common/list/List';
+import ListItem from '../../../common/list/ListItem';
+import {
+  formatDimension,
+  formatWeight,
+  formatDate,
+} from '../../../common/utils/format';
+import { APPLICATION_STATUS } from '../../../common/utils/consonants';
+
+interface HarborChoice {
+  harborName: string;
+  harbor: string;
+  priority: number;
+}
+
+interface Lease {
+  id: string;
+  harborId: string;
+  harborName: string;
+}
+
+export interface ApplicationDetailsProps {
+  id: string;
+  applicationType: string;
+  createdAt: string;
+  queue: number | null;
+  status: string;
+  boatType?: string | null;
+  boatRegistrationNumber: string;
+  boatWidth: number;
+  boatLength: number;
+  boatDraught: number | null;
+  boatWeight: number | null;
+  boatName: string;
+  boatModel: string;
+  harborChoices: Array<HarborChoice | null>;
+  lease?: Lease | null;
+  handleDeleteLease?: (id: string) => void;
+  accessibilityRequired: boolean;
+}
+
+const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
+  id,
+  applicationType,
+  createdAt,
+  queue,
+  status,
+  boatType,
+  boatRegistrationNumber,
+  boatWidth,
+  boatLength,
+  boatDraught,
+  boatWeight,
+  boatName,
+  boatModel,
+  harborChoices,
+  lease,
+  handleDeleteLease,
+  accessibilityRequired,
+}) => {
+  const { t, i18n } = useTranslation();
+  const notNull = (choice: HarborChoice | null): choice is HarborChoice =>
+    !!choice;
+  const routerQuery = new URLSearchParams(useLocation().search);
+
+  return (
+    <div className={styles.applicationsDetails}>
+      <Grid colsCount={3}>
+        <Section title={t('applications.applicationDetails.application')}>
+          <LabelValuePair
+            label={t('applications.applicationDetails.applicationType')}
+            value={applicationType}
+          />
+          <LabelValuePair
+            label={t('applications.applicationDetails.receivedDate')}
+            value={formatDate(createdAt, i18n.language, true)}
+          />
+          <LabelValuePair
+            label={t('applications.applicationDetails.queueNumber')}
+            value={`${queue || ''}`}
+          />
+          <LabelValuePair
+            label={t('applications.applicationDetails.status')}
+            value={t(APPLICATION_STATUS[status].label)}
+          />
+        </Section>
+        <div>
+          <Section title={t('applications.applicationDetails.boatInfo')}>
+            <LabelValuePair
+              label={t('applications.applicationDetails.boatType')}
+              value={boatType}
+            />
+            <LabelValuePair
+              label={t('applications.applicationDetails.registrationNumber')}
+              value={boatRegistrationNumber}
+            />
+          </Section>
+          <Section>
+            <LabelValuePair
+              label={t('applications.applicationDetails.boatWidth')}
+              value={formatDimension(boatWidth, i18n.language)}
+            />
+            <LabelValuePair
+              label={t('applications.applicationDetails.boatLength')}
+              value={formatDimension(boatLength, i18n.language)}
+            />
+            <LabelValuePair
+              label={t('applications.applicationDetails.boatDepth')}
+              value={formatDimension(boatDraught, i18n.language)}
+            />
+            <LabelValuePair
+              label={t('applications.applicationDetails.boatWeight')}
+              value={formatWeight(boatWeight, i18n.language)}
+            />
+          </Section>
+          <Section>
+            <LabelValuePair
+              label={t('applications.applicationDetails.boatName')}
+              value={boatName}
+            />
+            <LabelValuePair
+              label={t('applications.applicationDetails.boatBrand')}
+              value={boatModel}
+            />
+          </Section>
+        </div>
+        <div>
+          {lease ? (
+            <Section
+              title={t('applications.applicationDetails.connectedLease')}
+            >
+              {lease.harborName}
+              {handleDeleteLease && (
+                <button
+                  className={styles.deleteButton}
+                  onClick={() => handleDeleteLease(lease.id)}
+                >
+                  <Text color="brand">
+                    {t('applications.applicationDetails.deleteLease')}
+                  </Text>
+                </button>
+              )}
+            </Section>
+          ) : (
+            <Section title={t('applications.applicationDetails.selectedPorts')}>
+              <List noBullets>
+                {[...harborChoices]
+                  .filter(notNull)
+                  .sort(
+                    (choiceA, choiceB) => choiceA.priority - choiceB.priority
+                  )
+                  .map(({ harborName, harbor }, i) => {
+                    routerQuery.set('harbor', harbor);
+
+                    return (
+                      <ListItem key={i}>
+                        <Text>
+                          {`${t('applications.applicationDetails.choice')} 
+                      ${i + 1}: `}
+                        </Text>
+                        <InternalLink to={`/offer/${id}?${routerQuery}`}>
+                          {harborName}
+                        </InternalLink>
+                      </ListItem>
+                    );
+                  })}
+              </List>
+            </Section>
+          )}
+          <Section>
+            <Checkbox
+              label={t('applications.applicationDetails.accessible')}
+              checked={accessibilityRequired}
+              size="large"
+              readOnly
+            />
+          </Section>
+        </div>
+      </Grid>
+    </div>
+  );
+};
+
+export default ApplicationDetails;

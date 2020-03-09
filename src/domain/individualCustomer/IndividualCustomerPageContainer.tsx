@@ -9,7 +9,7 @@ import Card from '../../common/card/Card';
 import CardHeader from '../../common/cardHeader/CardHeader';
 import CardBody from '../../common/cardBody/CardBody';
 import BillsCard from './billsCard/BillsCard';
-import CustomerInfoCard from './customerInfoCard/CustomerInfoCard';
+import CustomerInfoCard from '../cards/customerInfoCard/CustomerInfoCard';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import ApplicationCard from './applicationCard/ApplicationCard';
 import BoatsCard from './boatsCard/BoatsCard';

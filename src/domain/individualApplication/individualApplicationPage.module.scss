@@ -1,0 +1,31 @@
+@import 'colours';
+@import 'spacings';
+
+.individualApplicationPage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: max-content;
+  grid-gap: units(1.5);
+  min-height: 100%;
+  padding: units(2);
+  background-color: $gray-50;
+}
+
+.pageHeader {
+  grid-column: 1 / -1;
+  justify-self: center;
+  display: flex;
+}
+
+.customersTable {
+  grid-column: 1 / -1;
+}
+
+.applicationDetails {
+  grid-column: 1 / -1;
+}
+
+.chip {
+  margin-bottom: auto;
+  margin-left: units(0.5);
+}

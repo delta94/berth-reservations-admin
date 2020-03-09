@@ -8,6 +8,8 @@ import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 import Section from '../../../common/section/Section';
 
 export interface CustomerInfoCardProps {
+  customerId?: string;
+  className?: string;
   firstName: string;
   lastName: string;
   primaryAddress?: {
@@ -21,6 +23,7 @@ export interface CustomerInfoCardProps {
 }
 
 const CustomerInfoCard: React.SFC<CustomerInfoCardProps> = ({
+  className,
   firstName,
   lastName,
   primaryAddress,
@@ -31,7 +34,7 @@ const CustomerInfoCard: React.SFC<CustomerInfoCardProps> = ({
   const { t } = useTranslation();
 
   return (
-    <Card>
+    <Card className={className}>
       <CardHeader title={t('individualCustomer.customerInformation.title')} />
       <CardBody>
         <Section
