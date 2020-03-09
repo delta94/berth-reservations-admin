@@ -18,7 +18,7 @@ export interface ApplicationData {
   queue: number | null;
   createdAt: string;
   municipality: string;
-  status: string | null;
+  status: string;
   lease: Lease | null;
   boatType?: string | null;
   boatRegistrationNumber: string;

@@ -117,7 +117,7 @@ const OfferPageContainer: React.FC = () => {
           columns={columns}
           renderSubComponent={row => 'placeholder'}
           renderMainHeader={() => t('offer.tableHeaders.mainHeader')}
-          renderTableTools={state => {
+          renderTableToolsTop={state => {
             const berthId = state.selectedRows[0]?.berthId;
             const isDisabled =
               isSubmitting ||
