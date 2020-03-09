@@ -40,7 +40,7 @@ export interface IndividualApplicationPageProps {
   customerInfo: CustomerInfoCardProps;
   applicationDetails: ApplicationDetailsProps;
   handleLinkCustomer(customerId: string): void;
-  handleCreateCustomer?(): void;
+  handleCreateCustomer(): void;
 }
 
 const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({

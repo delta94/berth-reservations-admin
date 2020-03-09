@@ -141,6 +141,12 @@
       "accessible": "Tarvitsen esteettömän paikan"
     }
   },
+  "individualApplication": {
+    "customerTableTools": {
+      "linkCustomer": "Liitä valittuun",
+      "createNewCustomer": "Luo uusi asiakas"
+    }
+  },
   "offer": {
     "tableHeaders": {
       "mainHeader": "Kaikki",

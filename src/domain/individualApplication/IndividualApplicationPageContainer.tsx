@@ -117,29 +117,26 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     });
   };
 
-  const handleCreateCustomer =
-    customerInfo && filteredCustomersData?.length === 0
-      ? () => {
-          const { firstName, lastName, primaryAddress } = customerInfo;
-          const phone = customerInfo.phone || '';
-          const email = customerInfo.email || '';
-          const address = primaryAddress?.address || '';
-          const postalCode = primaryAddress?.postalCode || '';
-          const city = primaryAddress?.city || '';
+  const handleCreateCustomer = () => {
+    const { firstName, lastName, primaryAddress } = customerInfo;
+    const phone = customerInfo.phone || '';
+    const email = customerInfo.email || '';
+    const address = primaryAddress?.address || '';
+    const postalCode = primaryAddress?.postalCode || '';
+    const city = primaryAddress?.city || '';
 
-          createNewCustomer({
-            variables: {
-              firstName,
-              lastName,
-              address,
-              postalCode,
-              city,
-              phone,
-              email,
-            },
-          });
-        }
-      : undefined;
+    createNewCustomer({
+      variables: {
+        firstName,
+        lastName,
+        address,
+        postalCode,
+        city,
+        phone,
+        email,
+      },
+    });
+  };
 
   return (
     <IndividualApplicationPage
