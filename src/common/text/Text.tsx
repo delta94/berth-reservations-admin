@@ -7,7 +7,7 @@ export interface TextProps {
   color?: 'standard' | 'brand' | 'critical' | 'secondary' | 'info';
   as?: 'span' | 'em' | 'strong' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   size?: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxl' | 'xxxl';
-  bold?: boolean;
+  weight?: 'bold' | 'normalWeight' | 'light';
   italic?: boolean;
 }
 
@@ -15,7 +15,7 @@ const Text: React.SFC<TextProps> = ({
   color = 'standard',
   size,
   as: Element = 'span',
-  bold,
+  weight,
   italic,
   children,
 }) => {
@@ -26,8 +26,8 @@ const Text: React.SFC<TextProps> = ({
         styles[color],
         styles[Element],
         size && styles[size],
+        weight && styles[weight],
         {
-          [styles.bold]: bold,
           [styles.italic]: italic,
         }
       )}

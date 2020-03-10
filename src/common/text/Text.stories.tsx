@@ -11,7 +11,7 @@ export const variations = () => (
   <>
     <Text>default</Text>
     <br />
-    <Text bold>bold</Text>
+    <Text weight="bold">bold</Text>
     <br />
     <Text italic>italic</Text>
     <br />

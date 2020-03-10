@@ -81,7 +81,7 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
   return (
     <div className={styles.individualApplicationPage}>
       <div className={styles.pageHeader}>
-        <Text as="h2" size="xl">
+        <Text as="h2" size="xl" weight="normalWeight">
           {applicationDetails.isSwitch
             ? t('applications.applicationType.switchApplication')
             : t('applications.applicationType.newApplication')}{' '}
