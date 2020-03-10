@@ -2,6 +2,8 @@ import React from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useParams } from 'react-router';
 
+import IndividualApplicationPage from './IndividualApplicationPage';
+import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import {
   INDIVIDUAL_APPLICATION_QUERY,
   FILTERED_CUSTOMERS_QUERY,
@@ -11,7 +13,6 @@ import {
   INDIVIDUAL_APPLICATIONVariables as INDIVIDUAL_APPLICATION_VARS,
 } from './__generated__/INDIVIDUAL_APPLICATION';
 import { useDeleteBerthApplication } from '../mutations/deleteBerthApplication';
-import IndividualApplicationPage from './IndividualApplicationPage';
 import {
   FILTERED_CUSTOMERS,
   FILTERED_CUSTOMERSVariables as FILTERED_CUSTOMERS_VARS,
@@ -84,7 +85,10 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     }
   );
 
-  if (error || !data?.berthApplication) return <div>error</div>;
+  if (error) return <LoadingSpinner isLoading={loading}>error</LoadingSpinner>;
+
+  if (!data?.berthApplication)
+    return <LoadingSpinner isLoading={loading}>no data</LoadingSpinner>;
 
   const handleDeleteLease = (id: string) => {
     deleteDraftedApplication({
@@ -138,14 +142,16 @@ const IndividualCustomerPageContainer: React.SFC = () => {
   };
 
   return (
-    <IndividualApplicationPage
-      applicationId={id}
-      handleLinkCustomer={handleLinkCustomer}
-      handleCreateCustomer={handleCreateCustomer}
-      similarCustomersData={filteredCustomersData}
-      customerInfo={customerInfo}
-      applicationDetails={applicationDetails}
-    />
+    <LoadingSpinner isLoading={loading}>
+      <IndividualApplicationPage
+        applicationId={id}
+        handleLinkCustomer={handleLinkCustomer}
+        handleCreateCustomer={handleCreateCustomer}
+        similarCustomersData={filteredCustomersData}
+        customerInfo={customerInfo}
+        applicationDetails={applicationDetails}
+      />
+    </LoadingSpinner>
   );
 };
 
