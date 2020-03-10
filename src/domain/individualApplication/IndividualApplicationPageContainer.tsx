@@ -56,34 +56,29 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     },
   });
 
-  const [
-    deleteDraftedApplication,
-    { loading: isDeleting },
-  ] = useDeleteBerthApplication();
+  // TODO: handle errors
+  const [deleteDraftedApplication] = useDeleteBerthApplication();
 
-  const [
-    linkCustomer,
-    { data: updatedBerthData, loading: isUpdating },
-  ] = useMutation<UPDATE_BERTH_APPLICATION, UPDATE_BERTH_APPLICATION_VARS>(
-    UPDATE_BERTH_APPLICATION_MUTATION
-  );
+  // TODO: handle errors
+  const [linkCustomer] = useMutation<
+    UPDATE_BERTH_APPLICATION,
+    UPDATE_BERTH_APPLICATION_VARS
+  >(UPDATE_BERTH_APPLICATION_MUTATION);
 
-  const [
-    createNewCustomer,
-    { data: mutationData, loading: isSubmitting },
-  ] = useMutation<CREATE_NEW_PROFILE, CREATE_NEW_PROFILE_VARS>(
-    CREATE_NEW_PROFILE_MUTATION,
-    {
-      refetchQueries: [
-        {
-          query: FILTERED_CUSTOMERS_QUERY,
-          variables: {
-            firstName: data?.berthApplication?.firstName,
-          },
+  // TODO: handle errors
+  const [createNewCustomer] = useMutation<
+    CREATE_NEW_PROFILE,
+    CREATE_NEW_PROFILE_VARS
+  >(CREATE_NEW_PROFILE_MUTATION, {
+    refetchQueries: [
+      {
+        query: FILTERED_CUSTOMERS_QUERY,
+        variables: {
+          firstName: data?.berthApplication?.firstName,
         },
-      ],
-    }
-  );
+      },
+    ],
+  });
 
   if (error) return <LoadingSpinner isLoading={loading}>error</LoadingSpinner>;
 
