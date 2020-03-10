@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 
 import styles from './labelValuePair.module.scss';
 
 export interface LabelValuePairProps {
   label: string;
-  value?: string | null;
+  value: ReactNode;
   labelColor?: 'standard' | 'brand' | 'critical' | 'secondary';
   align?: 'left' | 'center' | 'right';
 }

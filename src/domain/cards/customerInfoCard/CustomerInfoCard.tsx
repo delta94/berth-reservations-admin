@@ -6,6 +6,7 @@ import CardHeader from '../../../common/cardHeader/CardHeader';
 import CardBody from '../../../common/cardBody/CardBody';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 import Section from '../../../common/section/Section';
+import InternalLink from '../../../common/internalLink/InternalLink';
 
 export interface CustomerInfoCardProps {
   customerId?: string;
@@ -24,6 +25,7 @@ export interface CustomerInfoCardProps {
 
 const CustomerInfoCard: React.SFC<CustomerInfoCardProps> = ({
   className,
+  customerId,
   firstName,
   lastName,
   primaryAddress,
@@ -44,11 +46,27 @@ const CustomerInfoCard: React.SFC<CustomerInfoCardProps> = ({
         >
           <LabelValuePair
             label={t('individualCustomer.customerInformation.firstName')}
-            value={firstName}
+            value={
+              customerId ? (
+                <InternalLink to={`/customers/${customerId}`}>
+                  {firstName}
+                </InternalLink>
+              ) : (
+                firstName
+              )
+            }
           />
           <LabelValuePair
             label={t('individualCustomer.customerInformation.lastName')}
-            value={lastName}
+            value={
+              customerId ? (
+                <InternalLink to={`/customers/${customerId}`}>
+                  {lastName}
+                </InternalLink>
+              ) : (
+                lastName
+              )
+            }
           />
         </Section>
         <Section>
