@@ -47,7 +47,7 @@ export interface FILTERED_CUSTOMERS_profiles_edges_node_berthLeases_edges_node_b
 
 export interface FILTERED_CUSTOMERS_profiles_edges_node_berthLeases_edges_node {
   __typename: "BerthLeaseNode";
-  berth: FILTERED_CUSTOMERS_profiles_edges_node_berthLeases_edges_node_berth | null;
+  berth: FILTERED_CUSTOMERS_profiles_edges_node_berthLeases_edges_node_berth;
 }
 
 export interface FILTERED_CUSTOMERS_profiles_edges_node_berthLeases_edges {

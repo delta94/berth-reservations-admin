@@ -3,6 +3,7 @@ import { HashRouter } from 'react-router-dom';
 import { action } from '@storybook/addon-actions';
 
 import ApplicationDetails from './ApplicationDetails';
+import { ApplicationStatus } from '../../../../__generated__/globalTypes';
 
 export default {
   component: ApplicationDetails,
@@ -13,10 +14,10 @@ export default {
 export const applicationDetails = () => (
   <ApplicationDetails
     id="123456"
-    applicationType="Vaihtohakemus"
+    isSwitch
     createdAt="23.8.2019, klo 21.06"
     queue={245}
-    status="Ei käsitelty"
+    status={ApplicationStatus.OFFER_GENERATED}
     boatType="Purjevene / moottoripursi"
     boatRegistrationNumber="A 12345"
     boatWidth={3.2}
@@ -40,10 +41,10 @@ applicationDetails.story = {
 export const withAssignedLease = () => (
   <ApplicationDetails
     id="123456"
-    applicationType="Vaihtohakemus"
+    isSwitch
     createdAt="23.8.2019, klo 21.06"
     queue={245}
-    status="Ei käsitelty"
+    status={ApplicationStatus.OFFER_GENERATED}
     boatType="Purjevene / moottoripursi"
     boatRegistrationNumber="A 12345"
     boatWidth={3.2}

@@ -54,7 +54,7 @@ export interface INDIVIDUAL_APPLICATION_berthApplication_lease_berth {
 export interface INDIVIDUAL_APPLICATION_berthApplication_lease {
   __typename: "BerthLeaseNode";
   id: string;
-  berth: INDIVIDUAL_APPLICATION_berthApplication_lease_berth | null;
+  berth: INDIVIDUAL_APPLICATION_berthApplication_lease_berth;
 }
 
 export interface INDIVIDUAL_APPLICATION_berthApplication_harborChoices {
