@@ -1,6 +1,5 @@
 import React from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
-import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 
 import {

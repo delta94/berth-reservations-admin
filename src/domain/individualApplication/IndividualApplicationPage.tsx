@@ -74,7 +74,9 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
     <div className={styles.individualApplicationPage}>
       <div className={styles.pageHeader}>
         <Text as="h2" size="xl">
-          {applicationDetails.applicationType}{' '}
+          {applicationDetails.isSwitch
+            ? t('applications.applicationType.switchApplication')
+            : t('applications.applicationType.newApplication')}{' '}
           {formatDate(applicationDetails.createdAt, i18n.language)}
         </Text>
         <Chip
@@ -117,11 +119,7 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
         <Card className={styles.applicationDetails}>
           <CardHeader title={'HAKEMUKSET'} />
           <CardBody>
-            <ApplicationDetails
-              {...applicationDetails}
-              queue={null}
-              applicationType="exchange"
-            />
+            <ApplicationDetails {...applicationDetails} queue={null} />
           </CardBody>
         </Card>
       )}

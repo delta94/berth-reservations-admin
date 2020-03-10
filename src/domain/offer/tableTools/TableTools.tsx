@@ -7,11 +7,12 @@ import styles from './tableTools.module.scss';
 import Text from '../../../common/text/Text';
 import Chip from '../../../common/chip/Chip';
 import { APPLICATION_STATUS } from '../../../common/utils/consonants';
+import { ApplicationStatus } from '../../../../__generated__/globalTypes';
 
 export interface TableToolsProps {
   applicationDate: string;
   applicationType: string;
-  applicationStatus: string;
+  applicationStatus: ApplicationStatus;
   disableSubmit: boolean;
   handleReturn(): void;
   handleSubmit(): void;

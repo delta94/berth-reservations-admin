@@ -28,15 +28,9 @@ export const getCustomerInfoData = (
   };
 };
 
-const getApplicationType = (isSwitch: boolean) =>
-  isSwitch
-    ? 'applications.applicationType.switchApplication'
-    : 'applications.applicationType.newApplication';
-
 export const getApplicationDetailsData = (
   berthApplication: BERTH_APPLICATION
 ): ApplicationDetailsProps => {
-  const applicationType = getApplicationType(!!berthApplication?.berthSwitch);
   const harborChoices = berthApplication.harborChoices || [];
   const lease = berthApplication.lease
     ? {
@@ -51,7 +45,7 @@ export const getApplicationDetailsData = (
 
   return {
     ...berthApplication,
-    applicationType,
+    isSwitch: !!berthApplication?.berthSwitch,
     queue: null,
     harborChoices,
     lease,

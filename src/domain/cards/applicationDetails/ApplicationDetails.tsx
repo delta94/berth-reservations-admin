@@ -17,6 +17,7 @@ import {
   formatDate,
 } from '../../../common/utils/format';
 import { APPLICATION_STATUS } from '../../../common/utils/consonants';
+import { ApplicationStatus } from '../../../../__generated__/globalTypes';
 
 interface HarborChoice {
   harborName: string;
@@ -32,10 +33,10 @@ interface Lease {
 
 export interface ApplicationDetailsProps {
   id: string;
-  applicationType: string;
+  isSwitch: boolean;
   createdAt: string;
   queue: number | null;
-  status: string;
+  status: ApplicationStatus;
   boatType?: string | null;
   boatRegistrationNumber: string;
   boatWidth: number;
@@ -52,7 +53,7 @@ export interface ApplicationDetailsProps {
 
 const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
   id,
-  applicationType,
+  isSwitch,
   createdAt,
   queue,
   status,
@@ -80,7 +81,11 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
         <Section title={t('applications.applicationDetails.application')}>
           <LabelValuePair
             label={t('applications.applicationDetails.applicationType')}
-            value={applicationType}
+            value={
+              isSwitch
+                ? t('applications.applicationType.switchApplication')
+                : t('applications.applicationType.newApplication')
+            }
           />
           <LabelValuePair
             label={t('applications.applicationDetails.receivedDate')}
