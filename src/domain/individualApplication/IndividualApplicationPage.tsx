@@ -53,19 +53,27 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
   const { t, i18n } = useTranslation();
   const columns: ColumnType[] = [
     {
-      Header: 'Nimi',
+      Header: t('individualApplication.customersTable.name') || '',
       accessor: 'name',
     },
     {
-      Header: 'municipality',
+      Cell: ({ cell }) =>
+        (cell.value as CUSTOMER_GROUP) === CUSTOMER_GROUP.PRIVATE
+          ? t('individualApplication.customersTable.privateCustomer')
+          : t('individualApplication.customersTable.companyCustomer'),
+      Header: t('individualApplication.customersTable.customerGroup') || '',
+      accessor: 'customerGroup',
+    },
+    {
+      Header: t('individualApplication.customersTable.municipality') || '',
       accessor: 'city',
     },
     {
-      Header: 'Address',
+      Header: t('individualApplication.customersTable.address') || '',
       accessor: 'address',
     },
     {
-      Header: 'Venepaikka',
+      Header: t('individualApplication.customersTable.berths') || '',
       accessor: 'berth',
     },
   ];
@@ -91,7 +99,9 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
           className={styles.customersTable}
           data={similarCustomersData}
           columns={columns}
-          renderMainHeader={() => t('harbors.tableHeaders.mainHeader')}
+          renderMainHeader={() =>
+            t('individualApplication.customersTable.mainHeader')
+          }
           renderTableToolsBottom={({ selectedRows }) => {
             const onLinkCustomer = selectedRows.length
               ? () => handleLinkCustomer(selectedRows[0].id)
@@ -105,7 +115,7 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
             );
           }}
           renderEmptyStateRow={() => (
-            <div>Rajauksella ei löytynyt asiakastietoja</div>
+            <div>{t('individualApplication.customersTable.emptyState')}</div>
           )}
           canSelectOneRow
         />
@@ -117,7 +127,9 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
       </Card>
       {applicationDetails && (
         <Card className={styles.applicationDetails}>
-          <CardHeader title={'HAKEMUKSET'} />
+          <CardHeader
+            title={t('individualApplication.applicationDetails.title')}
+          />
           <CardBody>
             <ApplicationDetails {...applicationDetails} queue={null} />
           </CardBody>

@@ -142,9 +142,23 @@
     }
   },
   "individualApplication": {
+    "customersTable": {
+      "mainHeader": "LIITÄ HAKEMUS OLEMASSA OLEVAAN ASIAKASPROFIILIIN",
+      "name": "Nimi",
+      "customerGroup": "Asiakasryhmä",
+      "municipality": "Kotikunta",
+      "address": "Jakeluosoite",
+      "berths": "Venepaikat",
+      "privateCustomer": "Yksityinen",
+      "companyCustomer": "Yritys",
+      "emptyState": "Rajauksella ei löytynyt asiakastietoja"
+    },
     "customerTableTools": {
       "linkCustomer": "Liitä valittuun",
       "createNewCustomer": "Luo uusi asiakas"
+    },
+    "applicationDetails": {
+      "title": "HAKEMUKSET"
     }
   },
   "offer": {
