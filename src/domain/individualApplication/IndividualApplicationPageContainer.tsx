@@ -60,13 +60,13 @@ const IndividualCustomerPageContainer: React.SFC = () => {
   const [deleteDraftedApplication] = useDeleteBerthApplication();
 
   // TODO: handle errors
-  const [linkCustomer] = useMutation<
+  const [linkCustomer, { error: linkCustomerErr }] = useMutation<
     UPDATE_BERTH_APPLICATION,
     UPDATE_BERTH_APPLICATION_VARS
   >(UPDATE_BERTH_APPLICATION_MUTATION);
 
   // TODO: handle errors
-  const [createNewCustomer] = useMutation<
+  const [createNewCustomer, { error: newCustomerErr }] = useMutation<
     CREATE_NEW_PROFILE,
     CREATE_NEW_PROFILE_VARS
   >(CREATE_NEW_PROFILE_MUTATION, {
@@ -81,9 +81,9 @@ const IndividualCustomerPageContainer: React.SFC = () => {
   });
 
   if (error) return <LoadingSpinner isLoading={loading}>error</LoadingSpinner>;
-
   if (!data?.berthApplication)
     return <LoadingSpinner isLoading={loading}>no data</LoadingSpinner>;
+  if (linkCustomerErr || newCustomerErr) return <>something went wrong</>;
 
   const handleDeleteLease = (id: string) => {
     deleteDraftedApplication({
@@ -107,13 +107,12 @@ const IndividualCustomerPageContainer: React.SFC = () => {
 
   const applicationDetails = { ...applicationDetailsData, handleDeleteLease };
 
-  const handleLinkCustomer = (customerId: string) => {
+  const handleLinkCustomer = (customerId: string) =>
     linkCustomer({
       variables: {
         input: { id, customerId },
       },
-    });
-  };
+    }).catch(() => console.error('Something went wrong'));
 
   const handleCreateCustomer = () => {
     const { firstName, lastName, primaryAddress } = customerInfo;
@@ -133,7 +132,7 @@ const IndividualCustomerPageContainer: React.SFC = () => {
         phone,
         email,
       },
-    });
+    }).catch(() => console.error('Something went wrong'));
   };
 
   return (
