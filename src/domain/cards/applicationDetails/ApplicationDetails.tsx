@@ -97,7 +97,7 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
           />
           <LabelValuePair
             label={t('applications.applicationDetails.status')}
-            value={t(APPLICATION_STATUS[status].label)}
+            value={t(APPLICATION_STATUS[status]?.label)}
           />
         </Section>
         <div>
