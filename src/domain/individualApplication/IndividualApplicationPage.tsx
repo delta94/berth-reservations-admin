@@ -29,7 +29,7 @@ export interface CustomerData {
   customerGroup: CUSTOMER_GROUP;
   city?: string;
   address?: string;
-  berth?: string | null;
+  berths?: string | null;
 }
 
 type ColumnType = Column<CustomerData> & { accessor: keyof CustomerData };
@@ -73,8 +73,13 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
       accessor: 'address',
     },
     {
+      Cell: ({ cell }) => (
+        <div title={cell.value} className={styles.berthsCell}>
+          {cell.value}
+        </div>
+      ),
       Header: t('individualApplication.customersTable.berths') || '',
-      accessor: 'berth',
+      accessor: 'berths',
     },
   ];
 

@@ -21,6 +21,13 @@
   grid-column: 1 / -1;
 }
 
+.berthsCell {
+  max-width: 32em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .applicationDetails {
   grid-column: 1 / -1;
 }

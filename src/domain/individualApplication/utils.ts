@@ -68,9 +68,9 @@ export const getFilteredCustomersData = (
       berthLeases,
     } = edge.node;
 
-    const berth = berthLeases?.edges.find(
-      edge => edge?.node?.berth?.pier.properties?.harbor.properties?.name
-    )?.node?.berth?.pier.properties?.harbor.properties?.name; // Note: leases will be ordered by created_at date when https://helsinkisolutionoffice.atlassian.net/browse/VEN-514 is resolved
+    const berths = berthLeases?.edges
+      .map(edge => edge?.node?.berth?.pier.properties?.harbor.properties?.name)
+      .join(', ');
 
     return [
       ...acc,
@@ -82,7 +82,7 @@ export const getFilteredCustomersData = (
         customerGroup: company
           ? CUSTOMER_GROUP.COMPANY
           : CUSTOMER_GROUP.PRIVATE,
-        berth,
+        berths,
       },
     ];
   }, []);

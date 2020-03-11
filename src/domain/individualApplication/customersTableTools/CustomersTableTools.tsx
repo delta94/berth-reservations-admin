@@ -17,17 +17,10 @@ const CustomersTableTools: React.SFC<CustomersTableToolsProps> = ({
 
   return (
     <div className={styles.customersTableTools}>
-      <Button
-        disabled={!handleLinkCustomer}
-        onClick={() => handleLinkCustomer?.()}
-      >
+      <Button disabled={!handleLinkCustomer} onClick={handleLinkCustomer}>
         {t('individualApplication.customerTableTools.linkCustomer')}
       </Button>
-      <Button
-        color="supplementary"
-        disabled={!handleCreateCustomer}
-        onClick={() => handleCreateCustomer()}
-      >
+      <Button color="supplementary" onClick={handleCreateCustomer}>
         {t('individualApplication.customerTableTools.createNewCustomer')}
       </Button>
     </div>
