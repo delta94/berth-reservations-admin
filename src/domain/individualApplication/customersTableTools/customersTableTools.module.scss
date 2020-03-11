@@ -1,0 +1,11 @@
+@import 'spacings';
+
+.customersTableTools {
+  margin-top: units(0.5);
+  display: flex;
+  justify-content: flex-end;
+
+  & > * {
+    margin-left: units(0.75);
+  }
+}

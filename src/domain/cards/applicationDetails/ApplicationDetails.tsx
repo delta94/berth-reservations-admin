@@ -11,7 +11,13 @@ import InternalLink from '../../../common/internalLink/InternalLink';
 import Text from '../../../common/text/Text';
 import List from '../../../common/list/List';
 import ListItem from '../../../common/list/ListItem';
-import { formatDimension, formatWeight } from '../../../common/utils/format';
+import {
+  formatDimension,
+  formatWeight,
+  formatDate,
+} from '../../../common/utils/format';
+import { APPLICATION_STATUS } from '../../../common/utils/consonants';
+import { ApplicationStatus } from '../../../../__generated__/globalTypes';
 
 interface HarborChoice {
   harborName: string;
@@ -27,10 +33,10 @@ interface Lease {
 
 export interface ApplicationDetailsProps {
   id: string;
-  applicationType: string;
+  isSwitch: boolean;
   createdAt: string;
   queue: number | null;
-  status: string | null;
+  status: ApplicationStatus;
   boatType?: string | null;
   boatRegistrationNumber: string;
   boatWidth: number;
@@ -47,7 +53,7 @@ export interface ApplicationDetailsProps {
 
 const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
   id,
-  applicationType,
+  isSwitch,
   createdAt,
   queue,
   status,
@@ -75,11 +81,15 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
         <Section title={t('applications.applicationDetails.application')}>
           <LabelValuePair
             label={t('applications.applicationDetails.applicationType')}
-            value={applicationType}
+            value={
+              isSwitch
+                ? t('applications.applicationType.switchApplication')
+                : t('applications.applicationType.newApplication')
+            }
           />
           <LabelValuePair
             label={t('applications.applicationDetails.receivedDate')}
-            value={createdAt}
+            value={formatDate(createdAt, i18n.language, true)}
           />
           <LabelValuePair
             label={t('applications.applicationDetails.queueNumber')}
@@ -87,7 +97,7 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
           />
           <LabelValuePair
             label={t('applications.applicationDetails.status')}
-            value={status}
+            value={t(APPLICATION_STATUS[status]?.label)}
           />
         </Section>
         <div>

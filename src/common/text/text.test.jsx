@@ -6,7 +6,7 @@ import Text from './Text';
 describe('Text', () => {
   const getWrapper = props => shallow(<Text {...props} />);
 
-  it('renders noramlly', () => {
+  it('renders normally', () => {
     const wrapper = getWrapper({ children: 'test' });
     expect(wrapper.html()).toMatchSnapshot();
   });
@@ -28,8 +28,8 @@ describe('Text', () => {
     expect(wrapper.hasClass(size)).toBe(true);
   });
 
-  it('should add bold as a className if the supplied bold prop is true', () => {
-    const wrapper = getWrapper({ bold: true, children: 'test' });
+  it('should add bold as a className if the supplied weight prop has a value of bold', () => {
+    const wrapper = getWrapper({ weight: 'bold', children: 'test' });
     expect(wrapper.hasClass('bold')).toBe(true);
   });
 

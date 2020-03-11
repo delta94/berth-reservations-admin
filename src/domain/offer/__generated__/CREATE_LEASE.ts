@@ -12,7 +12,7 @@ import { CreateBerthLeaseMutationInput, LeaseStatus } from "./../../../../__gene
 export interface CREATE_LEASE_createBerthLease_berthLease {
   __typename: "BerthLeaseNode";
   id: string;
-  status: LeaseStatus | null;
+  status: LeaseStatus;
 }
 
 export interface CREATE_LEASE_createBerthLease {

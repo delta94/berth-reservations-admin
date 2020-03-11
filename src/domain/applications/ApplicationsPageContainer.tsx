@@ -1,11 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 
 import ApplicationsPage from './ApplicationsPage';
 import Table, { Column } from '../../common/table/Table';
 import InternalLink from '../../common/internalLink/InternalLink';
-import ApplicationDetails from './applicationDetails/ApplicationDetails';
+import ApplicationDetails from '../cards/applicationDetails/ApplicationDetails';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { BERTH_APPLICATIONS } from './__generated__/BERTH_APPLICATIONS';
 import { getBerthApplicationData, ApplicationData } from './utils';
@@ -13,11 +13,8 @@ import { formatDate } from '../../common/utils/format';
 import Chip from '../../common/chip/Chip';
 import { APPLICATION_STATUS } from '../../common/utils/consonants';
 import { BERTH_APPLICATIONS_QUERY } from './queries';
-import {
-  DELETE_DRAFTED_APPLICATION,
-  DELETE_DRAFTED_APPLICATIONVariables as DELETE_DRAFTED_APPLICATION_VARS,
-} from './__generated__/DELETE_DRAFTED_APPLICATION';
-import { DELETE_DRAFTED_APPLICATION_MUTATION } from './mutations';
+import { useDeleteBerthApplication } from '../mutations/deleteBerthApplication';
+import { ApplicationStatus } from '../../../__generated__/globalTypes';
 
 export interface TableData {
   id: string;
@@ -41,27 +38,22 @@ const ApplicationsPageContainer: React.SFC = () => {
   const { loading, error, data } = useQuery<BERTH_APPLICATIONS>(
     BERTH_APPLICATIONS_QUERY
   );
-  const [deleteDraftedApplication, { loading: isDeleting }] = useMutation<
-    DELETE_DRAFTED_APPLICATION,
-    DELETE_DRAFTED_APPLICATION_VARS
-  >(DELETE_DRAFTED_APPLICATION_MUTATION, {
-    refetchQueries: [{ query: BERTH_APPLICATIONS_QUERY }],
-  });
+  const [
+    deleteDraftedApplication,
+    { loading: isDeleting },
+  ] = useDeleteBerthApplication();
 
   if (error) {
     return <LoadingSpinner isLoading={loading}>error</LoadingSpinner>;
   }
 
-  const getApplicationType = (isSwitch: boolean) =>
-    isSwitch
-      ? t('applications.applicationType.switchApplication')
-      : t('applications.applicationType.newApplication');
-
   const columns: ColumnType[] = [
     {
       Cell: ({ cell }) => (
         <InternalLink to={`/applications/${cell.row.original.id}`}>
-          {getApplicationType(cell.value)}
+          {cell.value
+            ? t('applications.applicationType.switchApplication')
+            : t('applications.applicationType.newApplication')}
         </InternalLink>
       ),
       Header: t('applications.tableHeaders.applicationType') || '',
@@ -81,10 +73,10 @@ const ApplicationsPageContainer: React.SFC = () => {
       accessor: 'municipality',
     },
     {
-      Cell: ({ cell }) => (
+      Cell: ({ cell: { value } }) => (
         <Chip
-          color={APPLICATION_STATUS[cell.value].color}
-          label={t(APPLICATION_STATUS[cell.value].label)}
+          color={APPLICATION_STATUS[value as ApplicationStatus].color}
+          label={t(APPLICATION_STATUS[value as ApplicationStatus].label)}
         />
       ),
       Header: t('applications.tableHeaders.status') || '',
@@ -123,16 +115,6 @@ const ApplicationsPageContainer: React.SFC = () => {
           renderSubComponent={row => (
             <ApplicationDetails
               {...row.original}
-              createdAt={formatDate(
-                row.original.createdAt,
-                i18n.language,
-                true
-              )}
-              status={
-                row.original.status &&
-                t(APPLICATION_STATUS[row.original.status].label)
-              }
-              applicationType={getApplicationType(row.original.isSwitch)}
               handleDeleteLease={handleDeleteLease}
             />
           )}

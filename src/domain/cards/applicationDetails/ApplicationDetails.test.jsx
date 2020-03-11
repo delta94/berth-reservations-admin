@@ -7,9 +7,9 @@ import ApplicationDetails from './ApplicationDetails';
 const mockProps = {
   id: '54321',
   applicationType: 'Vaihtohakemus',
-  createdAt: '23.8.2019, klo 21.06',
+  createdAt: 'Wed Oct 23 2019 15:15:05 GMT+0300 (Eastern European Summer Time)',
   queue: 245,
-  status: 'Ei käsitelty',
+  status: 'PENDING',
   boatType: 'Purjevene / moottoripursi',
   boatRegistrationNumber: 'A 12345',
   boatWidth: 3.2,

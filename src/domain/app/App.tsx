@@ -25,6 +25,7 @@ import { store } from './state/AppStore';
 import { BackendTokenResponse } from '../auth/types/BackendAuthenticationTypes';
 import i18n from '../../locales/i18n';
 import ApplicationsPage from '../applications/ApplicationsPageContainer';
+import IndividualApplicationPage from '../individualApplication/IndividualApplicationPageContainer';
 
 const {
   REACT_APP_TUNNISTAMO_URI,
@@ -103,6 +104,11 @@ const App: React.FC = () => {
                   exact
                   path="/customers"
                   component={CustomersPage}
+                />
+                <PrivateRoute
+                  exact
+                  path="/applications/:id"
+                  component={IndividualApplicationPage}
                 />
                 <PrivateRoute
                   exact

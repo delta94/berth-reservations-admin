@@ -48,7 +48,7 @@ export interface BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth {
 export interface BERTH_APPLICATIONS_berthApplications_edges_node_lease {
   __typename: "BerthLeaseNode";
   id: string;
-  berth: BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth | null;
+  berth: BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth;
 }
 
 export interface BERTH_APPLICATIONS_berthApplications_edges_node_harborChoices {

@@ -1,4 +1,5 @@
 import { BERTH_APPLICATIONS } from './__generated__/BERTH_APPLICATIONS';
+import { ApplicationStatus } from '../../../__generated__/globalTypes';
 
 interface HarborChoice {
   harbor: string;
@@ -18,7 +19,7 @@ export interface ApplicationData {
   queue: number | null;
   createdAt: string;
   municipality: string;
-  status: string | null;
+  status: ApplicationStatus;
   lease: Lease | null;
   boatType?: string | null;
   boatRegistrationNumber: string;
