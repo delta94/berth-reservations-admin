@@ -1,5 +1,5 @@
 import { BERTH_APPLICATIONS } from './__generated__/BERTH_APPLICATIONS';
-import { ApplicationStatus } from '../../../__generated__/globalTypes';
+import { ApplicationStatus } from '../../@types/__generated__/globalTypes';
 
 interface HarborChoice {
   harbor: string;

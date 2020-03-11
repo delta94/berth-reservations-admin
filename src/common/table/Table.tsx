@@ -13,11 +13,10 @@ import {
   Column as ColumnType,
 } from 'react-table';
 
-import { IconArrowLeft, IconAngleDown, IconAngleUp } from '../../common/icons';
 import Checkbox from '../checkbox/Checkbox';
 import Radio from '../radio/Radio';
 import styles from './table.module.scss';
-import iconStyles from '../icons/icon.module.scss';
+import Icon from '../icons/Icon';
 
 export type Column<D extends object> = ColumnType<D>;
 
@@ -87,17 +86,13 @@ const Table = <D extends object>({
         className={styles.expandArrowWrapper}
       >
         {row.isExpanded ? (
-          <IconAngleUp
-            className={classNames(iconStyles.icon, iconStyles.small)}
-          />
+          <Icon shape="IconAngleUp" size="small" />
         ) : (
-          <IconAngleDown
-            className={classNames(iconStyles.icon, iconStyles.small)}
-          />
+          <Icon shape="IconAngleDown" size="small" />
         )}
       </div>
     ),
-    Header: ({ state, toggleAllRowsExpanded }) => (
+    Header: ({ toggleAllRowsExpanded }) => (
       <span onClick={() => toggleAllRowsExpanded(false)}>
         {t('common.table.minimizeAll')}
       </span>
@@ -168,22 +163,18 @@ const Table = <D extends object>({
         >
           {column.render('Header')}
           {column.isSorted && (
-            <div className={styles.arrow}>
+            <div className={styles.sortingArrows}>
               {column.isSortedDesc ? (
-                <IconArrowLeft
-                  className={classNames(
-                    iconStyles.icon,
-                    iconStyles.small,
-                    iconStyles.left
-                  )}
+                <Icon
+                  className={styles.arrowUp}
+                  shape="IconArrowLeft"
+                  size="small"
                 />
               ) : (
-                <IconArrowLeft
-                  className={classNames(
-                    iconStyles.icon,
-                    iconStyles.small,
-                    iconStyles.right
-                  )}
+                <Icon
+                  className={styles.arrowDown}
+                  shape="IconArrowLeft"
+                  size="small"
                 />
               )}
             </div>
