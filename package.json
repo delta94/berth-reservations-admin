@@ -48,7 +48,7 @@
     "lint": "eslint --ext js,ts,tsx src",
     "ci": "CI=true yarn test --verbose --runInBand --coverage",
     "codegen": "yarn schema:download && yarn types:generate",
-    "types:generate": "apollo codegen:generate --localSchemaFile=schema.json --target=typescript --includes=\"./src/**/*.ts\" --tagName=gql",
+    "types:generate": "apollo codegen:generate --globalTypesFile=./src/@types/__generated__/globalTypes.ts --localSchemaFile=schema.json --target=typescript --includes=\"./src/**/*.ts\" --tagName=gql",
     "schema:download": "apollo service:download --endpoint=https://venepaikka-federation.test.kuva.hel.ninja/",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",

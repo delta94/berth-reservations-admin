@@ -1,5 +1,5 @@
 import { ChipProps } from '../../common/chip/Chip';
-import { ApplicationStatus } from '../../../__generated__/globalTypes';
+import { ApplicationStatus } from '../../@types/__generated__/globalTypes';
 
 type ApplicationStatusType = {
   [key in ApplicationStatus]: {

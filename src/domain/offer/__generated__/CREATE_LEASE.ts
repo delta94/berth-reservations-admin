@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { CreateBerthLeaseMutationInput, LeaseStatus } from "./../../../../__generated__/globalTypes";
+import { CreateBerthLeaseMutationInput, LeaseStatus } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL mutation operation: CREATE_LEASE
