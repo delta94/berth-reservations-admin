@@ -52,7 +52,7 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     FILTERED_CUSTOMERS_VARS
   >(FILTERED_CUSTOMERS_QUERY, {
     variables: {
-      firstName: data?.berthApplication?.firstName,
+      lastName: data?.berthApplication?.lastName,
     },
   });
 
@@ -74,7 +74,7 @@ const IndividualCustomerPageContainer: React.SFC = () => {
       {
         query: FILTERED_CUSTOMERS_QUERY,
         variables: {
-          firstName: data?.berthApplication?.firstName,
+          lastName: data?.berthApplication?.lastName,
         },
       },
     ],
