@@ -163,7 +163,8 @@
   },
   "offer": {
     "tableHeaders": {
-      "mainHeader": "Kaikki",
+      "all": "Kaikki",
+      "pierFilterBtn": "Laituri {{pier}}",
       "harbor": "Satama",
       "pier": "Laituri",
       "berth": "Paikka",

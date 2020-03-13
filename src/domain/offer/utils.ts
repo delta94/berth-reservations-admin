@@ -50,3 +50,17 @@ export const getOfferData = (data: OFFER_PAGE | undefined): BerthData[] => {
 
   return allBerths;
 };
+
+export const getAllPiersIdentifiers = (
+  data: OFFER_PAGE | undefined
+): string[] => {
+  const piers = data?.harborByServicemapId?.properties?.piers?.edges ?? [];
+
+  return piers.reduce<string[]>((acc, pier) => {
+    const identifier = pier?.node?.properties?.identifier;
+
+    if (!identifier || (identifier && acc.includes(identifier))) return acc;
+
+    return [...acc, identifier];
+  }, []);
+};

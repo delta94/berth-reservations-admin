@@ -1,0 +1,32 @@
+@import 'spacings';
+@import 'colours';
+
+.filterBtn {
+  $active-color: $white;
+  $indicator-margin: units(0.5);
+
+  margin-right: units(2);
+  color: $blue-100;
+  font-weight: normal;
+
+  &.active {
+    position: relative;
+    height: 100%;
+    color: $active-color;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 4px;
+      width: calc(100% + 2 * #{$indicator-margin});
+      left: -#{$indicator-margin};
+      bottom: -#{units(1)};
+      background-color: $active-color;
+    }
+  }
+
+  &:hover {
+    color: $active-color;
+  }
+}
