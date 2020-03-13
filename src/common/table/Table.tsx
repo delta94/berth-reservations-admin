@@ -6,6 +6,7 @@ import {
   useExpanded,
   useSortBy,
   useRowSelect,
+  useFilters,
   TableOptions,
   HeaderProps,
   Row,
@@ -144,6 +145,7 @@ const Table = <D extends object>({
       columns: tableColumns,
       data,
     },
+    useFilters,
     useSortBy,
     useExpanded,
     useRowSelect
