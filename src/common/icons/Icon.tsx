@@ -8,7 +8,7 @@ export interface IconProps {
   className?: string;
   outlined?: boolean;
   shape: keyof typeof Icons;
-  color?: 'standard' | 'disabled' | 'brand';
+  color?: 'standard' | 'disabled' | 'brand' | 'secondary';
   size?: 'small' | 'medium' | 'large';
 }
 
