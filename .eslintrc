@@ -35,5 +35,6 @@
     "no-plusplus": "error",
     "no-undef": "warn",
     "object-curly-spacing": ["warn", "always"],
+    "import/namespace": ["error", { "allowComputed": true }]
   }
 }

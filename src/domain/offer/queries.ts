@@ -23,11 +23,29 @@ export const OFFER_PAGE_QUERY = gql`
               id
               properties {
                 identifier
+                electricity
+                gate
+                water
+                lighting
+                wasteCollection
                 berths {
                   edges {
                     node {
                       id
                       number
+                      comment
+                      isAccessible
+                      leases {
+                        edges {
+                          node {
+                            startDate
+                            endDate
+                            customer {
+                              id
+                            }
+                          }
+                        }
+                      }
                       berthType {
                         width
                         length

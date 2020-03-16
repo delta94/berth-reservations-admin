@@ -38,3 +38,4 @@ export { default as IconDirections } from './IconDirections';
 export { default as IconHouse } from './IconHouse';
 export { default as IconPerson } from './IconPerson';
 export { default as IconRead } from './IconRead';
+export { default as IconAccessibility } from './IconAccessibility';

@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { DeleteBerthLeaseMutationInput } from "./../../../../__generated__/globalTypes";
+import { DeleteBerthLeaseMutationInput } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL mutation operation: DELETE_DRAFTED_APPLICATION

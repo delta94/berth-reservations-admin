@@ -17,7 +17,7 @@ import {
   formatDate,
 } from '../../../common/utils/format';
 import { APPLICATION_STATUS } from '../../../common/utils/consonants';
-import { ApplicationStatus } from '../../../../__generated__/globalTypes';
+import { ApplicationStatus } from '../../../@types/__generated__/globalTypes';
 
 interface HarborChoice {
   harborName: string;

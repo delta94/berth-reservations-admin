@@ -13,6 +13,7 @@
 }
 
 $rows-spacing: units(0.25);
+$padding: units(1);
 
 .table {
   border-collapse: separate;
@@ -23,7 +24,7 @@ $rows-spacing: units(0.25);
     @extend %pseudo-divider;
 
     text-align: left;
-    padding: units(1);
+    padding: $padding;
     font-weight: normal;
     position: relative;
     border-bottom: solid 2px $gray-500;
@@ -31,19 +32,26 @@ $rows-spacing: units(0.25);
 
   .mainHeader {
     background-color: $blue-500;
-    padding-top: units(1);
-    padding-bottom: units(1);
     color: $white;
     font-weight: bold;
     border: none;
   }
 
-  .arrow {
+  .sortingArrows {
     display: inline-flex;
     position: absolute;
     top: 0;
     bottom: 0;
+    right: $padding;
     align-items: center;
+  }
+
+  .arrowUp {
+    transform: rotate(270deg);
+  }
+
+  .arrowDown {
+    transform: rotate(90deg);
   }
 
   .tableRow {
@@ -63,7 +71,7 @@ $rows-spacing: units(0.25);
 
     position: relative;
     margin: units(0.5) 0;
-    padding: units(1);
+    padding: $padding;
     min-width: units(4);
   }
 

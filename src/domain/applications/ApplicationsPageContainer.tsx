@@ -14,7 +14,7 @@ import Chip from '../../common/chip/Chip';
 import { APPLICATION_STATUS } from '../../common/utils/consonants';
 import { BERTH_APPLICATIONS_QUERY } from './queries';
 import { useDeleteBerthApplication } from '../mutations/deleteBerthApplication';
-import { ApplicationStatus } from '../../../__generated__/globalTypes';
+import { ApplicationStatus } from '../../@types/__generated__/globalTypes';
 
 export interface TableData {
   id: string;

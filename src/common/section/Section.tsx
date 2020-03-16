@@ -1,16 +1,15 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import styles from './section.module.scss';
 import Text from '../text/Text';
+import styles from './section.module.scss';
 
 export interface SectionProps {
   title?: string;
-  children: React.ReactNode;
   className?: string;
 }
 
-const Section = ({ title, children, className }: SectionProps) => (
+const Section: React.SFC<SectionProps> = ({ title, children, className }) => (
   <article className={classNames(styles.section, className)}>
     {title && (
       <Text as="h4" size="m">

@@ -163,7 +163,8 @@
   },
   "offer": {
     "tableHeaders": {
-      "mainHeader": "Kaikki",
+      "all": "Kaikki",
+      "pierFilterBtn": "Laituri {{pier}}",
       "harbor": "Satama",
       "pier": "Laituri",
       "berth": "Paikka",
@@ -176,6 +177,16 @@
       "berths": "VENEPAIKAT",
       "return": "Palaa valitsematta",
       "submit": "Siirrä hakemukselle"
+    },
+    "berthDetails": {
+      "gate": "Portti",
+      "electricity": "Sähkö",
+      "water": "Vesi",
+      "lighting": "Valaistus",
+      "waste": "Roskat",
+      "accessible": "Esteetön paikka",
+      "previousLeases": "EDELLISET VUOKRALAISET",
+      "comment": "HUOMIOT"
     }
   },
   "customers": {

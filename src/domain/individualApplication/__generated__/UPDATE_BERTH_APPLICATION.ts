@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { UpdateBerthApplicationInput } from "./../../../../__generated__/globalTypes";
+import { UpdateBerthApplicationInput } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL mutation operation: UPDATE_BERTH_APPLICATION
