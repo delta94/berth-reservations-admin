@@ -17,7 +17,7 @@ interface Lease {
 
 export interface BerthDetailsProps {
   leases: Lease[];
-  comment?: string;
+  comment: string;
   gate: boolean | null;
   electricity: boolean | null;
   water: boolean | null;
