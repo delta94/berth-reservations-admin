@@ -9,7 +9,7 @@ import Table, { Column } from '../../common/table/Table';
 import OfferPage from './OfferPage';
 import InternalLink from '../../common/internalLink/InternalLink';
 import { OFFER_PAGE } from './__generated__/OFFER_PAGE';
-import { BerthData, getOfferData } from './utils';
+import { BerthData, getOfferData, getAllPiersIdentifiers } from './utils';
 import { formatDimension, formatDate } from '../../common/utils/format';
 import { CREATE_LEASE_MUTATION } from './mutations';
 import {
@@ -18,6 +18,8 @@ import {
 } from './__generated__/CREATE_LEASE';
 import TableTools from './tableTools/TableTools';
 import { BERTH_APPLICATIONS_QUERY } from '../applications/queries';
+import BerthDetails from './berthDetails/BerthDetails';
+import TableHeader from './tableHeader/TableHeader';
 
 type ColumnType = Column<BerthData> & { accessor: keyof BerthData };
 
@@ -108,6 +110,7 @@ const OfferPageContainer: React.FC = () => {
   const applicationType = getApplicationType(
     !!data.berthApplication.berthSwitch
   );
+  const piersIdentifiers = getAllPiersIdentifiers(data);
 
   return (
     <LoadingSpinner isLoading={loading}>
@@ -115,8 +118,19 @@ const OfferPageContainer: React.FC = () => {
         <Table
           data={tableData}
           columns={columns}
-          renderSubComponent={row => 'placeholder'}
-          renderMainHeader={() => t('offer.tableHeaders.mainHeader')}
+          renderSubComponent={row => {
+            const { properties, leases, comment } = row.original;
+            return (
+              <BerthDetails leases={leases} comment={comment} {...properties} />
+            );
+          }}
+          renderMainHeader={props => (
+            <TableHeader
+              activeFilters={props.state.filters.map(filter => filter.value)}
+              filters={piersIdentifiers}
+              handleSetFilter={filter => props.setFilter('pier', filter)}
+            />
+          )}
           renderTableToolsTop={state => {
             const berthId = state.selectedRows[0]?.berthId;
             const isDisabled =

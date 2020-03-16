@@ -1,5 +1,11 @@
 import { OFFER_PAGE } from './__generated__/OFFER_PAGE';
 
+interface Lease {
+  startDate: string;
+  endDate: string;
+  customerId: string;
+}
+
 export interface BerthData {
   harborId: string;
   harbor: string;
@@ -10,6 +16,16 @@ export interface BerthData {
   length: number | null;
   draught: number | null;
   mooringType: string;
+  leases: Lease[];
+  comment: string;
+  properties: {
+    lighting: boolean | null;
+    water: boolean | null;
+    gate: boolean | null;
+    electricity: boolean | null;
+    wasteCollection: boolean | null;
+    isAccessible: boolean | null;
+  };
 }
 
 export const getOfferData = (data: OFFER_PAGE | undefined): BerthData[] => {
@@ -22,23 +38,46 @@ export const getOfferData = (data: OFFER_PAGE | undefined): BerthData[] => {
   >((acc, pier) => {
     if (!pier?.node?.properties) return acc;
 
-    const pierIdentifier = pier.node.properties.identifier;
+    const { properties } = pier.node;
     const berths = pier.node.properties.berths.edges.reduce<BerthData[]>(
       (acc, berth) => {
         if (!berth?.node) return acc;
+
+        const leases =
+          berth.node.leases?.edges.reduce<Lease[]>((acc, edge) => {
+            if (!edge?.node) return acc;
+            return [
+              ...acc,
+              {
+                startDate: edge.node.startDate,
+                endDate: edge.node.endDate,
+                customerId: edge.node.customer.id,
+              },
+            ];
+          }, []) ?? [];
 
         return [
           ...acc,
           {
             harborId,
             harbor,
-            pier: pierIdentifier,
+            pier: properties.identifier,
             berth: berth.node.number,
             berthId: berth.node.id,
             width: berth.node.berthType.width,
             length: berth.node.berthType.length,
-            draught: null,
+            draught: null, // TODO: replace it when draught is implemented in the backend
             mooringType: berth.node.berthType.mooringType,
+            leases,
+            comment: berth.node.comment,
+            properties: {
+              lighting: properties.lighting,
+              water: properties.water,
+              gate: properties.gate,
+              electricity: properties.electricity,
+              wasteCollection: properties.wasteCollection,
+              isAccessible: berth.node.isAccessible,
+            },
           },
         ];
       },

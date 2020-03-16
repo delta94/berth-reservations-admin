@@ -28,20 +28,16 @@ export interface OFFER_PAGE_berthApplication {
   customer: OFFER_PAGE_berthApplication_customer | null;
 }
 
-export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_pier_properties {
-  __typename: "PierProperties";
-  electricity: boolean;
-}
-
-export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_pier {
-  __typename: "PierNode";
-  properties: OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_pier_properties | null;
+export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node_customer {
+  __typename: "BerthProfileNode";
+  id: string;
 }
 
 export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node {
   __typename: "BerthLeaseNode";
   startDate: any;
   endDate: any;
+  customer: OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node_customer;
 }
 
 export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_leases_edges {
@@ -66,7 +62,7 @@ export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_pro
   id: string;
   number: string;
   comment: string;
-  pier: OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_pier;
+  isAccessible: boolean | null;
   leases: OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_leases | null;
   berthType: OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_berthType;
 }
@@ -84,6 +80,11 @@ export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_pro
 export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties {
   __typename: "PierProperties";
   identifier: string;
+  electricity: boolean;
+  gate: boolean;
+  water: boolean;
+  lighting: boolean;
+  wasteCollection: boolean;
   berths: OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths;
 }
 
