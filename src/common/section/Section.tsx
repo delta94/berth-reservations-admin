@@ -12,7 +12,7 @@ export interface SectionProps {
 const Section: React.SFC<SectionProps> = ({ title, children, className }) => (
   <article className={classNames(styles.section, className)}>
     {title && (
-      <Text as="h4" size="m">
+      <Text as="h4" size="m" className={styles.title}>
         {title}
       </Text>
     )}

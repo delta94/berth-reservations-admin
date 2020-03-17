@@ -1,6 +1,11 @@
 @import 'spacings';
 
 .section {
+  padding-top: units(0.75);
+  padding-bottom: units(0.75);
+}
+
+.title {
   margin-bottom: units(1);
 }
 
