@@ -63,7 +63,16 @@ const IndividualCustomerPageContainer: React.SFC = () => {
   const [linkCustomer, { error: linkCustomerErr }] = useMutation<
     UPDATE_BERTH_APPLICATION,
     UPDATE_BERTH_APPLICATION_VARS
-  >(UPDATE_BERTH_APPLICATION_MUTATION);
+  >(UPDATE_BERTH_APPLICATION_MUTATION, {
+    refetchQueries: [
+      {
+        query: INDIVIDUAL_APPLICATION_QUERY,
+        variables: {
+          id,
+        },
+      },
+    ],
+  });
 
   // TODO: handle errors
   const [createNewCustomer, { error: newCustomerErr }] = useMutation<
