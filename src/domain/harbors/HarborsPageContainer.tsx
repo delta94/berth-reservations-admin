@@ -10,14 +10,13 @@ import HarborsPage from './HarborsList';
 const HarborsContainer: React.FC = () => {
   const { loading, error, data } = useQuery<HARBORS>(HARBORS_QUERY);
 
-  if (error) return <p>Error</p>;
+  if (loading) return <LoadingSpinner isLoading={loading} />;
+  if (!data) return <div>No data...</div>;
+  if (error) return <div>Error</div>;
+
   const tableData: HarborData[] = getHarborsData(data);
 
-  return (
-    <LoadingSpinner isLoading={loading}>
-      <HarborsPage data={tableData} />
-    </LoadingSpinner>
-  );
+  return <HarborsPage data={tableData} />;
 };
 
 export default HarborsContainer;

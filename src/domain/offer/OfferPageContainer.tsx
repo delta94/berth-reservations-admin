@@ -83,12 +83,9 @@ const OfferPageContainer: React.FC = () => {
     },
   ];
 
-  if (error || !data?.berthApplication)
-    return (
-      <LoadingSpinner isLoading={loading}>
-        <p>Error</p>
-      </LoadingSpinner>
-    );
+  if (loading) return <LoadingSpinner isLoading={loading} />;
+  if (!data?.berthApplication) return <div>No data...</div>;
+  if (error) return <div>Error</div>;
 
   if (mutationData) {
     return <Redirect to="/applications" />;
@@ -113,58 +110,56 @@ const OfferPageContainer: React.FC = () => {
   const piersIdentifiers = getAllPiersIdentifiers(data);
 
   return (
-    <LoadingSpinner isLoading={loading}>
-      <OfferPage>
-        <Table
-          data={tableData}
-          columns={columns}
-          renderSubComponent={row => {
-            const { properties, leases, comment } = row.original;
-            return (
-              <BerthDetails leases={leases} comment={comment} {...properties} />
-            );
-          }}
-          renderMainHeader={props => (
-            <TableHeader
-              activeFilters={props.state.filters.map(filter => filter.value)}
-              filters={piersIdentifiers}
-              handleSetFilter={filter => props.setFilter('pier', filter)}
-            />
-          )}
-          renderTableToolsTop={state => {
-            const berthId = state.selectedRows[0]?.berthId;
-            const isDisabled =
-              isSubmitting ||
-              !applicationId ||
-              !berthId ||
-              !data.berthApplication?.customer;
+    <OfferPage>
+      <Table
+        data={tableData}
+        columns={columns}
+        renderSubComponent={row => {
+          const { properties, leases, comment } = row.original;
+          return (
+            <BerthDetails leases={leases} comment={comment} {...properties} />
+          );
+        }}
+        renderMainHeader={props => (
+          <TableHeader
+            activeFilters={props.state.filters.map(filter => filter.value)}
+            filters={piersIdentifiers}
+            handleSetFilter={filter => props.setFilter('pier', filter)}
+          />
+        )}
+        renderTableToolsTop={state => {
+          const berthId = state.selectedRows[0]?.berthId;
+          const isDisabled =
+            isSubmitting ||
+            !applicationId ||
+            !berthId ||
+            !data.berthApplication?.customer;
 
-            const handleSubmit = () => {
-              createBerthLease({
-                variables: {
-                  input: {
-                    applicationId: applicationId || '',
-                    berthId,
-                  },
+          const handleSubmit = () => {
+            createBerthLease({
+              variables: {
+                input: {
+                  applicationId: applicationId || '',
+                  berthId,
                 },
-              });
-            };
+              },
+            });
+          };
 
-            return (
-              <TableTools
-                applicationDate={applicationDate}
-                applicationType={applicationType}
-                applicationStatus={applicationStatus}
-                disableSubmit={isDisabled}
-                handleSubmit={handleSubmit}
-                handleReturn={handleReturn}
-              />
-            );
-          }}
-          canSelectOneRow
-        />
-      </OfferPage>
-    </LoadingSpinner>
+          return (
+            <TableTools
+              applicationDate={applicationDate}
+              applicationType={applicationType}
+              applicationStatus={applicationStatus}
+              disableSubmit={isDisabled}
+              handleSubmit={handleSubmit}
+              handleReturn={handleReturn}
+            />
+          );
+        }}
+        canSelectOneRow
+      />
+    </OfferPage>
   );
 };
 

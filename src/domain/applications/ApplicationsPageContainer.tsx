@@ -43,9 +43,9 @@ const ApplicationsPageContainer: React.SFC = () => {
     { loading: isDeleting },
   ] = useDeleteBerthApplication();
 
-  if (error) {
-    return <LoadingSpinner isLoading={loading}>error</LoadingSpinner>;
-  }
+  if (loading || isDeleting) return <LoadingSpinner isLoading={loading} />;
+  if (!data) return <div>No data...</div>;
+  if (error) return <div>Error</div>;
 
   const columns: ColumnType[] = [
     {
@@ -107,22 +107,20 @@ const ApplicationsPageContainer: React.SFC = () => {
   const tableData = getBerthApplicationData(data);
 
   return (
-    <LoadingSpinner isLoading={loading || isDeleting}>
-      <ApplicationsPage>
-        <Table
-          data={tableData}
-          columns={columns}
-          renderSubComponent={row => (
-            <ApplicationDetails
-              {...row.original}
-              handleDeleteLease={handleDeleteLease}
-            />
-          )}
-          renderMainHeader={() => t('applications.tableHeaders.mainHeader')}
-          canSelectRows
-        />
-      </ApplicationsPage>
-    </LoadingSpinner>
+    <ApplicationsPage>
+      <Table
+        data={tableData}
+        columns={columns}
+        renderSubComponent={row => (
+          <ApplicationDetails
+            {...row.original}
+            handleDeleteLease={handleDeleteLease}
+          />
+        )}
+        renderMainHeader={() => t('applications.tableHeaders.mainHeader')}
+        canSelectRows
+      />
+    </ApplicationsPage>
   );
 };
 
