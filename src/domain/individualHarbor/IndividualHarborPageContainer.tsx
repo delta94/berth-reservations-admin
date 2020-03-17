@@ -20,10 +20,12 @@ const IndividualHarborPageContainer: React.SFC = () => {
   );
   const { t, i18n } = useTranslation();
 
-  if (error) return <p>Error</p>;
+  if (loading) return <LoadingSpinner isLoading={loading} />;
+  if (error) return <div>Error</div>;
 
   const harbor = getIndividualHarborData(data);
-  if (!harbor) return <p>No data...</p>;
+
+  if (!harbor) return <div>No data...</div>;
 
   type ColumnType = Column<Berth> & {
     accessor: keyof Berth;
@@ -57,33 +59,31 @@ const IndividualHarborPageContainer: React.SFC = () => {
   const berths = getBerths(data);
 
   return (
-    <LoadingSpinner isLoading={loading}>
-      <IndividualHarborPage>
-        <HarborProperties
-          name={harbor.name || ''}
-          imageUrl={harbor.imageFile || ''}
-          servicemapId={harbor.servicemapId || ''}
-          address={`${harbor.streetAddress} ${harbor.zipCode} ${harbor.municipality}`}
-          properties={{
-            electricity: harbor.electricity,
-            gate: harbor.gate,
-            lighting: harbor.lighting,
-            maximumWidth: harbor.maximumWidth || 0,
-            numberOfPlaces: harbor.numberOfPlaces || 0,
-            numberOfFreePlaces: harbor.numberOfPlaces || 0,
-            queue: harbor.numberOfPlaces || 0,
-            wasteCollection: harbor.wasteCollection,
-            water: harbor.water,
-          }}
-        />
-        <Table
-          data={berths}
-          columns={columns}
-          renderMainHeader={() => t('individualHarbor.tableHeaders.mainHeader')}
-          canSelectRows
-        />
-      </IndividualHarborPage>
-    </LoadingSpinner>
+    <IndividualHarborPage>
+      <HarborProperties
+        name={harbor.name || ''}
+        imageUrl={harbor.imageFile || ''}
+        servicemapId={harbor.servicemapId || ''}
+        address={`${harbor.streetAddress} ${harbor.zipCode} ${harbor.municipality}`}
+        properties={{
+          electricity: harbor.electricity,
+          gate: harbor.gate,
+          lighting: harbor.lighting,
+          maximumWidth: harbor.maximumWidth || 0,
+          numberOfPlaces: harbor.numberOfPlaces || 0,
+          numberOfFreePlaces: harbor.numberOfPlaces || 0,
+          queue: harbor.numberOfPlaces || 0,
+          wasteCollection: harbor.wasteCollection,
+          water: harbor.water,
+        }}
+      />
+      <Table
+        data={berths}
+        columns={columns}
+        renderMainHeader={() => t('individualHarbor.tableHeaders.mainHeader')}
+        canSelectRows
+      />
+    </IndividualHarborPage>
   );
 };
 

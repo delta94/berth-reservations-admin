@@ -80,9 +80,9 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     ],
   });
 
-  if (error) return <LoadingSpinner isLoading={loading}>error</LoadingSpinner>;
-  if (!data?.berthApplication)
-    return <LoadingSpinner isLoading={loading}>no data</LoadingSpinner>;
+  if (loading) return <LoadingSpinner isLoading={loading} />;
+  if (!data?.berthApplication) return <div>No data...</div>;
+  if (error) return <div>Error</div>;
   if (linkCustomerErr || newCustomerErr) return <>something went wrong</>;
 
   const handleDeleteLease = (id: string) => {
@@ -136,16 +136,14 @@ const IndividualCustomerPageContainer: React.SFC = () => {
   };
 
   return (
-    <LoadingSpinner isLoading={loading}>
-      <IndividualApplicationPage
-        applicationId={id}
-        handleLinkCustomer={handleLinkCustomer}
-        handleCreateCustomer={handleCreateCustomer}
-        similarCustomersData={filteredCustomersData}
-        customerInfo={customerInfo}
-        applicationDetails={applicationDetails}
-      />
-    </LoadingSpinner>
+    <IndividualApplicationPage
+      applicationId={id}
+      handleLinkCustomer={handleLinkCustomer}
+      handleCreateCustomer={handleCreateCustomer}
+      similarCustomersData={filteredCustomersData}
+      customerInfo={customerInfo}
+      applicationDetails={applicationDetails}
+    />
   );
 };
 

@@ -10,21 +10,17 @@ import CustomersPage from './CustomersPage';
 
 const CustomersPageContainer: React.FC = () => {
   const { loading, error, data } = useQuery<CUSTOMERS>(CUSTOMER_QUERY);
-  if (error)
-    return (
-      <CustomersPage>
-        <p>Error</p>
-      </CustomersPage>
-    );
+
+  if (loading) return <LoadingSpinner isLoading={loading} />;
+  if (!data) return <div>No data...</div>;
+  if (error) return <div>Error</div>;
 
   const tableData = getCustomersData(data);
 
   return (
-    <LoadingSpinner isLoading={loading}>
-      <CustomersPage>
-        <CustomerList data={tableData} />
-      </CustomersPage>
-    </LoadingSpinner>
+    <CustomersPage>
+      <CustomerList data={tableData} />
+    </CustomersPage>
   );
 };
 

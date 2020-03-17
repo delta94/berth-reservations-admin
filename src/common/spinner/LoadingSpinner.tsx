@@ -4,7 +4,6 @@ import styles from './loadingSpinner.module.scss';
 
 export interface LoadingSpinnerProps {
   isLoading: boolean;
-  children: React.ReactNode;
 }
 
 const LoadingSpinner: React.SFC<LoadingSpinnerProps> = ({
