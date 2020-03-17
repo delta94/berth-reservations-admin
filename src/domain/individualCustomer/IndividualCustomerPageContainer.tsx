@@ -13,7 +13,8 @@ import CustomerInfoCard from '../cards/customerInfoCard/CustomerInfoCard';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import ApplicationCard from './applicationCard/ApplicationCard';
 import BoatsCard from './boatsCard/BoatsCard';
-import BerthsCard from './berthsCard/BerthsCard';
+import LeasesCard from './leasesCard/LeasesCard';
+import { getLeases } from './utils';
 
 const IndividualHarborPageContainer: React.SFC = () => {
   const { id } = useParams<{ id: string }>();
@@ -46,6 +47,8 @@ const IndividualHarborPageContainer: React.SFC = () => {
     primaryEmail,
     comment,
   } = data.profile;
+
+  const leases = getLeases(data.profile);
 
   return (
     <LoadingSpinner isLoading={loading}>
@@ -99,15 +102,9 @@ const IndividualHarborPageContainer: React.SFC = () => {
           <CardHeader title="LASKUHISTORIA" />
           <CardBody>Placeholder</CardBody>
         </Card>
-        <BerthsCard
-          berths={[
-            {
-              id: '1234',
-              address: 'Pursilahdenranta B 31',
-              valid: '14.6.2019 - 10.9.2019',
-              handleShowContract: () => alert("Here's your contract"),
-            },
-          ]}
+        <LeasesCard
+          handleShowContract={id => alert(`Here's your contract for ${id}`)}
+          leases={leases}
         />
         <Card>
           <CardHeader title="TALVISÄILYTYSPAIKAT" />

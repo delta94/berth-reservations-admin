@@ -19,6 +19,29 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
       }
       invoicingType
       comment
+      berthLeases {
+        edges {
+          node {
+            id
+            startDate
+            endDate
+            berth {
+              number
+              pier {
+                properties {
+                  identifier
+                  harbor {
+                    id
+                    properties {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 `;
