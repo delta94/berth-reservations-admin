@@ -26,6 +26,52 @@ export interface INDIVIDUAL_CUSTOMER_profile_primaryAddress {
   city: string;
 }
 
+export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth_pier_properties_harbor_properties {
+  __typename: "HarborProperties";
+  name: string | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth_pier_properties_harbor {
+  __typename: "HarborNode";
+  id: string;
+  properties: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth_pier_properties_harbor_properties | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth_pier_properties {
+  __typename: "PierProperties";
+  identifier: string;
+  harbor: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth_pier_properties_harbor;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth_pier {
+  __typename: "PierNode";
+  properties: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth_pier_properties | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth {
+  __typename: "BerthNode";
+  number: string;
+  pier: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth_pier;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node {
+  __typename: "BerthLeaseNode";
+  id: string;
+  startDate: any;
+  endDate: any;
+  berth: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges {
+  __typename: "BerthLeaseNodeEdge";
+  node: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_berthLeases {
+  __typename: "BerthLeaseNodeConnection";
+  edges: (INDIVIDUAL_CUSTOMER_profile_berthLeases_edges | null)[];
+}
+
 export interface INDIVIDUAL_CUSTOMER_profile {
   __typename: "ProfileNode";
   id: string;
@@ -36,6 +82,7 @@ export interface INDIVIDUAL_CUSTOMER_profile {
   primaryAddress: INDIVIDUAL_CUSTOMER_profile_primaryAddress | null;
   invoicingType: InvoicingType | null;
   comment: string | null;
+  berthLeases: INDIVIDUAL_CUSTOMER_profile_berthLeases | null;
 }
 
 export interface INDIVIDUAL_CUSTOMER {
