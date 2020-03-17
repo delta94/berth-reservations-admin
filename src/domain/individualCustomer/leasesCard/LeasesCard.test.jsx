@@ -52,7 +52,7 @@ describe('BerthsCard', () => {
 
     button.simulate('click');
 
-    expect(initialProps.handleShowContract).toHaveNthReturnedWith(
+    expect(initialProps.handleShowContract).toHaveBeenNthCalledWith(
       1,
       firstLeaseId
     );
