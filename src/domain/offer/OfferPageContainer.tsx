@@ -125,6 +125,7 @@ const OfferPageContainer: React.FC = () => {
             activeFilters={props.state.filters.map(filter => filter.value)}
             filters={piersIdentifiers}
             handleSetFilter={filter => props.setFilter('pier', filter)}
+            filterPrefix={t('offer.tableHeaders.pierFilterBtn')}
           />
         )}
         renderTableToolsTop={state => {

@@ -19,7 +19,8 @@
   },
   "common": {
     "table": {
-      "minimizeAll": "Pienennä kaikki"
+      "minimizeAll": "Pienennä kaikki",
+      "all": "Kaikki"
     },
     "sidebar": {
       "harbors": "Venepaikat",
@@ -163,8 +164,7 @@
   },
   "offer": {
     "tableHeaders": {
-      "all": "Kaikki",
-      "pierFilterBtn": "Laituri {{pier}}",
+      "pierFilterBtn": "Laituri",
       "harbor": "Satama",
       "pier": "Laituri",
       "berth": "Paikka",
