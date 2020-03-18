@@ -90,16 +90,26 @@ export const getOfferData = (data: OFFER_PAGE | undefined): BerthData[] => {
   return allBerths;
 };
 
+interface PierTab {
+  label: string;
+  value: string;
+  enabled: boolean;
+}
+
 export const getAllPiersIdentifiers = (
   data: OFFER_PAGE | undefined
-): string[] => {
+): PierTab[] => {
   const piers = data?.harborByServicemapId?.properties?.piers?.edges ?? [];
 
-  return piers.reduce<string[]>((acc, pier) => {
-    const identifier = pier?.node?.properties?.identifier;
+  return piers.reduce<PierTab[]>((acc, pier) => {
+    if (!pier?.node?.properties) return acc;
 
-    if (!identifier || (identifier && acc.includes(identifier))) return acc;
+    const pierTab = {
+      label: pier.node.properties.identifier,
+      value: pier.node.properties.identifier,
+      enabled: !!pier.node.properties?.berths.edges.length,
+    };
 
-    return [...acc, identifier];
+    return [...acc, pierTab];
   }, []);
 };

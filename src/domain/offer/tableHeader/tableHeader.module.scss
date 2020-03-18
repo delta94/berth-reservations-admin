@@ -26,6 +26,11 @@
     }
   }
 
+  &.disabled {
+    color: $blue-300;
+    pointer-events: none;
+  }
+
   &:hover {
     color: $active-color;
   }
