@@ -56,6 +56,7 @@ const OfferPageContainer: React.FC = () => {
     {
       Header: t('offer.tableHeaders.pier') || '',
       accessor: 'pier',
+      filter: 'exactText',
     },
     {
       Header: t('offer.tableHeaders.berth') || '',
