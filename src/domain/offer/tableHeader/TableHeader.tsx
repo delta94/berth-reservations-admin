@@ -19,7 +19,7 @@ export interface TableHeaderProps {
 const TableHeader: React.SFC<TableHeaderProps> = ({
   activeFilters, // Note: this filters might include other active filters from the table
   filters,
-  filterPrefix,
+  filterPrefix = '',
   handleSetFilter,
 }) => {
   const { t } = useTranslation();
