@@ -125,12 +125,10 @@ const ApplicationsPageContainer: React.SFC = () => {
             {
               value: true,
               label: t('applications.tableHeaders.switchFilter'),
-              enabled: true,
             },
             {
               value: false,
               label: t('applications.tableHeaders.newApplicationFilter'),
-              enabled: true,
             },
           ];
           return (

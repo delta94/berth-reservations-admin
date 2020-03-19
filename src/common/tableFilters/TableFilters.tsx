@@ -7,7 +7,7 @@ import styles from './tableFilters.module.scss';
 interface Tab<T> {
   label: string;
   value: T;
-  enabled: boolean;
+  disabled?: boolean;
 }
 export interface TableFiltersProps<T = string | number | boolean> {
   activeFilters?: T[];
@@ -29,9 +29,9 @@ const TableFilters: React.SFC<TableFiltersProps> = ({
       key={i}
       className={classNames(styles.filterBtn, {
         [styles.active]: activeFilters?.includes(filter.value),
-        [styles.disabled]: !filter.enabled,
+        [styles.disabled]: filter.disabled,
       })}
-      disabled={!filter.enabled}
+      disabled={filter.disabled}
       onClick={() => handleSetFilter(filter.value)}
     >
       {`${filterPrefix} ${filter.label}`}

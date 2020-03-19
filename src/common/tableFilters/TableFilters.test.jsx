@@ -10,12 +10,10 @@ describe('TableFilters', () => {
       {
         label: 'A',
         value: 'A',
-        enabled: true,
       },
       {
         label: 'B',
         value: 'B',
-        enabled: true,
       },
     ],
     handleSetFilter,
@@ -49,12 +47,10 @@ describe('TableFilters', () => {
       {
         label: 'Foo',
         value: 'Foo',
-        enabled: true,
       },
       {
         label: 'Bar',
         value: 'Bar',
-        enabled: true,
       },
     ];
     const fooFilterValue = filters[0].value;
@@ -73,7 +69,7 @@ describe('TableFilters', () => {
       {
         label: 'Foo',
         value: 'Foo',
-        enabled: false,
+        disabled: true,
       },
     ];
     const filterValue = filters[0].value;
