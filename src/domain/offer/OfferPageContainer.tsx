@@ -19,7 +19,7 @@ import {
 import TableTools from './tableTools/TableTools';
 import { BERTH_APPLICATIONS_QUERY } from '../applications/queries';
 import BerthDetails from './berthDetails/BerthDetails';
-import TableHeader from './tableHeader/TableHeader';
+import TableFilters from '../../common/tableFilters/TableFilters';
 
 type ColumnType = Column<BerthData> & { accessor: keyof BerthData };
 
@@ -122,7 +122,7 @@ const OfferPageContainer: React.FC = () => {
           );
         }}
         renderMainHeader={props => (
-          <TableHeader
+          <TableFilters
             activeFilters={props.state.filters.map(filter => filter.value)}
             filters={piersIdentifiers}
             handleSetFilter={filter => props.setFilter('pier', filter)}
