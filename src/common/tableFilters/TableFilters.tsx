@@ -2,21 +2,21 @@ import React from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 
-import styles from './tableHeader.module.scss';
+import styles from './tableFilters.module.scss';
 
-interface Tab {
+interface Tab<T> {
   label: string;
-  value: string;
+  value: T;
   enabled: boolean;
 }
-export interface TableHeaderProps {
-  activeFilters?: string[];
-  filters: Tab[];
+export interface TableFiltersProps<T = string | number | boolean> {
+  activeFilters?: T[];
+  filters: Tab<T>[];
   filterPrefix?: string;
-  handleSetFilter(filter?: string): void;
+  handleSetFilter(filter?: T): void;
 }
 
-const TableHeader: React.SFC<TableHeaderProps> = ({
+const TableFilters: React.SFC<TableFiltersProps> = ({
   activeFilters, // Note: this filters might include other active filters from the table
   filters,
   filterPrefix = '',
@@ -28,25 +28,25 @@ const TableHeader: React.SFC<TableHeaderProps> = ({
     <button
       key={i}
       className={classNames(styles.filterBtn, {
-        [styles.active]: activeFilters?.includes(filter.label),
+        [styles.active]: activeFilters?.includes(filter.value),
         [styles.disabled]: !filter.enabled,
       })}
       disabled={!filter.enabled}
-      onClick={() => handleSetFilter(filter.label)}
+      onClick={() => handleSetFilter(filter.value)}
     >
       {`${filterPrefix} ${filter.label}`}
     </button>
   ));
 
-  const noActiveFilter =
-    filters.filter(filterVal => activeFilters?.includes(filterVal.label))
+  const hasNoActiveFilters =
+    filters.filter(filterVal => activeFilters?.includes(filterVal.value))
       .length === 0;
 
   return (
     <>
       <button
         className={classNames(styles.filterBtn, {
-          [styles.active]: noActiveFilter,
+          [styles.active]: hasNoActiveFilters,
         })}
         onClick={() => handleSetFilter()}
       >
@@ -57,4 +57,4 @@ const TableHeader: React.SFC<TableHeaderProps> = ({
   );
 };
 
-export default TableHeader;
+export default TableFilters;

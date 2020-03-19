@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import TableHeader from './TableHeader';
+import TableFilters from './TableFilters';
 
-describe('TableHeader', () => {
+describe('TableFilters', () => {
   const handleSetFilter = jest.fn();
   const initialProps = {
     filters: [
@@ -22,7 +22,7 @@ describe('TableHeader', () => {
   };
 
   const getWrapper = (props = {}) =>
-    shallow(<TableHeader {...initialProps} {...props} />);
+    shallow(<TableFilters {...initialProps} {...props} />);
 
   beforeEach(() => {
     handleSetFilter.mockRestore();
