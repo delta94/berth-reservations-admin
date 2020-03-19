@@ -56,50 +56,59 @@ const Table = <D extends object>({
 }: Props<D>) => {
   const { t } = useTranslation();
 
-  const selectorCol: Column<D> = {
-    Cell: ({ row }) => (
-      <Checkbox size="large" {...row.getToggleRowSelectedProps()} />
-    ),
-    Header: ({ getToggleAllRowsSelectedProps }) => (
-      <Checkbox size="large" {...getToggleAllRowsSelectedProps()} />
-    ),
-    id: SELECTOR,
-  };
+  const selectorCol: Column<D> = React.useMemo(
+    () => ({
+      Cell: ({ row }) => (
+        <Checkbox size="large" {...row.getToggleRowSelectedProps()} />
+      ),
+      Header: ({ getToggleAllRowsSelectedProps }) => (
+        <Checkbox size="large" {...getToggleAllRowsSelectedProps()} />
+      ),
+      id: SELECTOR,
+    }),
+    []
+  );
 
-  const radioSelectorCol: Column<D> = {
-    Cell: ({ row, toggleAllRowsSelected, toggleRowSelected }) => (
-      <Radio
-        size="large"
-        {...row.getToggleRowSelectedProps()}
-        onChange={() => {
-          toggleAllRowsSelected(false);
-          toggleRowSelected(row.id);
-        }}
-      />
-    ),
-    id: RADIO_SELECTOR,
-  };
+  const radioSelectorCol: Column<D> = React.useMemo(
+    () => ({
+      Cell: ({ row, toggleAllRowsSelected, toggleRowSelected }) => (
+        <Radio
+          size="large"
+          {...row.getToggleRowSelectedProps()}
+          onChange={() => {
+            toggleAllRowsSelected(false);
+            toggleRowSelected(row.id);
+          }}
+        />
+      ),
+      id: RADIO_SELECTOR,
+    }),
+    []
+  );
 
-  const expanderCol: Column<D> = {
-    Cell: ({ row }) => (
-      <div
-        {...row.getToggleRowExpandedProps()}
-        className={styles.expandArrowWrapper}
-      >
-        {row.isExpanded ? (
-          <Icon shape="IconAngleUp" size="small" />
-        ) : (
-          <Icon shape="IconAngleDown" size="small" />
-        )}
-      </div>
-    ),
-    Header: ({ toggleAllRowsExpanded }) => (
-      <span onClick={() => toggleAllRowsExpanded(false)}>
-        {t('common.table.minimizeAll')}
-      </span>
-    ),
-    id: EXPANDER,
-  };
+  const expanderCol: Column<D> = React.useMemo(
+    () => ({
+      Cell: ({ row }) => (
+        <div
+          {...row.getToggleRowExpandedProps()}
+          className={styles.expandArrowWrapper}
+        >
+          {row.isExpanded ? (
+            <Icon shape="IconAngleUp" size="small" />
+          ) : (
+            <Icon shape="IconAngleDown" size="small" />
+          )}
+        </div>
+      ),
+      Header: ({ toggleAllRowsExpanded }) => (
+        <span onClick={() => toggleAllRowsExpanded(false)}>
+          {t('common.table.minimizeAll')}
+        </span>
+      ),
+      id: EXPANDER,
+    }),
+    [t]
+  );
 
   const tableColumns = React.useMemo(() => {
     const headers = [

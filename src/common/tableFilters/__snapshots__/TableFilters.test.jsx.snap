@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableFilters renders normally 1`] = `"<button class=\\"filterBtn active\\">Kaikki</button><button class=\\"filterBtn\\"> A</button><button class=\\"filterBtn\\"> B</button>"`;

@@ -11,6 +11,7 @@ import { BERTH_APPLICATIONS } from './__generated__/BERTH_APPLICATIONS';
 import { getBerthApplicationData, ApplicationData } from './utils';
 import { formatDate } from '../../common/utils/format';
 import Chip from '../../common/chip/Chip';
+import TableFilters from '../../common/tableFilters/TableFilters';
 import { APPLICATION_STATUS } from '../../common/utils/consonants';
 import { BERTH_APPLICATIONS_QUERY } from './queries';
 import { useDeleteBerthApplication } from '../mutations/deleteBerthApplication';
@@ -58,6 +59,8 @@ const ApplicationsPageContainer: React.SFC = () => {
       ),
       Header: t('applications.tableHeaders.applicationType') || '',
       accessor: 'isSwitch',
+      sortType: 'basic',
+      filter: 'exact',
     },
     {
       Header: t('applications.tableHeaders.queue') || '',
@@ -117,7 +120,25 @@ const ApplicationsPageContainer: React.SFC = () => {
             handleDeleteLease={handleDeleteLease}
           />
         )}
-        renderMainHeader={() => t('applications.tableHeaders.mainHeader')}
+        renderMainHeader={props => {
+          const filters = [
+            {
+              value: true,
+              label: t('applications.tableHeaders.switchFilter'),
+            },
+            {
+              value: false,
+              label: t('applications.tableHeaders.newApplicationFilter'),
+            },
+          ];
+          return (
+            <TableFilters
+              activeFilters={props.state.filters.map(filter => filter.value)}
+              filters={filters}
+              handleSetFilter={filter => props.setFilter('isSwitch', filter)}
+            />
+          );
+        }}
         canSelectRows
       />
     </ApplicationsPage>

@@ -93,7 +93,7 @@ export const getOfferData = (data: OFFER_PAGE | undefined): BerthData[] => {
 interface PierTab {
   label: string;
   value: string;
-  enabled: boolean;
+  disabled: boolean;
 }
 
 export const getAllPiersIdentifiers = (
@@ -107,7 +107,7 @@ export const getAllPiersIdentifiers = (
     const pierTab = {
       label: pier.node.properties.identifier,
       value: pier.node.properties.identifier,
-      enabled: !!pier.node.properties?.berths.edges.length,
+      disabled: !pier.node.properties?.berths.edges.length,
     };
 
     return [...acc, pierTab];

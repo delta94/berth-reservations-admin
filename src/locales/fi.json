@@ -98,7 +98,8 @@
   },
   "applications": {
     "tableHeaders": {
-      "mainHeader": "HAKEMUKSET",
+      "switchFilter": "Vaihto sataman sisällä",
+      "newApplicationFilter": "Uudet hakemukset",
       "applicationType": "Hakemustyyppi",
       "queue": "Jono",
       "pvm": "PVM",
