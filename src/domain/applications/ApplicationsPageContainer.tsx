@@ -32,7 +32,7 @@ export interface TableData {
   startDate?: string;
 }
 
-type ColumnType = Column<ApplicationData>;
+type ColumnType = Column<ApplicationData> & { accessor: keyof ApplicationData };
 
 const ApplicationsPageContainer: React.SFC = () => {
   const { t, i18n } = useTranslation();
@@ -136,7 +136,6 @@ const ApplicationsPageContainer: React.SFC = () => {
               activeFilters={props.state.filters.map(filter => filter.value)}
               filters={filters}
               handleSetFilter={filter => props.setFilter('isSwitch', filter)}
-              filterPrefix={t('offer.tableHeaders.pierFilterBtn')}
             />
           );
         }}
