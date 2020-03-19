@@ -5,14 +5,17 @@
   $active-color: $white;
   $indicator-margin: units(0.5);
 
-  margin-right: units(2);
+  margin-right: units(3);
   color: $blue-100;
   font-weight: normal;
+  text-transform: inherit;
+  letter-spacing: 0.01em;
 
   &.active {
     position: relative;
     height: 100%;
     color: $active-color;
+    text-shadow: 0px 0px 0.02em $active-color;
 
     &::after {
       content: '';
