@@ -9,9 +9,11 @@ import Text from '../../../common/text/Text';
 import Grid from '../../../common/grid/Grid';
 import Property from '../property/Property';
 import styles from './harborProperties.module.scss';
+import Section from '../../../common/section/Section';
+import placeholder from './harborPlaceholder.svg';
 
 export interface HarborPropertiesProps {
-  imageUrl: string;
+  imageUrl: string | null;
   name: string;
   address: string;
   servicemapId: string;
@@ -47,20 +49,24 @@ const HarborProperties: React.SFC<HarborPropertiesProps> = ({
           <div className={styles.details}>
             <img
               alt="Harbor's location"
-              src={imageUrl}
+              src={imageUrl ? imageUrl : placeholder}
               className={styles.image}
             />
-            <div className={styles.desc}>
-              <Text as="h2" size="xxl">
-                {name}
-              </Text>
-              <Text>{address}</Text>
-              <ExternalLink href={serviceMapUrl} variant="withArrow">
-                {t('harbors.details.serviceMap')}
-              </ExternalLink>
+            <div>
+              <Section>
+                <Text as="h2" size="xxl">
+                  {name}
+                </Text>
+                <Text>{address}</Text>
+              </Section>
+              <Section>
+                <ExternalLink href={serviceMapUrl} variant="withArrow">
+                  {t('harbors.details.serviceMap')}
+                </ExternalLink>
+              </Section>
             </div>
           </div>
-          <Grid colsCount={5}>
+          <Grid colsCount={5} className={styles.propsGrid}>
             <div />
             <Property
               label={t('individualHarbor.harborProperties.numberOfPlaces')}

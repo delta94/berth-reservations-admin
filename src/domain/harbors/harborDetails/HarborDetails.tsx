@@ -35,7 +35,7 @@ const HarborDetails: React.SFC<Props> = ({
   const serviceMapUrl = `${process.env.REACT_APP_SERVICE_MAP_URI}${servicemapId}`;
 
   return (
-    <Grid>
+    <Grid colsCount={3}>
       <div className={classNames(styles.section, styles.harborAddress)}>
         <img className={styles.image} src={imageSrc} alt="map" />
         <div className={classNames(styles.address)}>

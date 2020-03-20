@@ -62,7 +62,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
     <IndividualHarborPage>
       <HarborProperties
         name={harbor.name || ''}
-        imageUrl={harbor.imageFile || ''}
+        imageUrl={harbor.imageFile}
         servicemapId={harbor.servicemapId || ''}
         address={`${harbor.streetAddress} ${harbor.zipCode} ${harbor.municipality}`}
         properties={{
