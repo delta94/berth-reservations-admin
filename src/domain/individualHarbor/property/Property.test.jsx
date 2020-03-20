@@ -14,7 +14,7 @@ describe('Property', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('renders Text component h3 value for as prop when iconName is not supplied', () => {
+  it('renders Text component with strong value for as prop when iconName is not supplied', () => {
     const counter = 9;
     const wrapper = getWrapper({ counter });
 
@@ -23,6 +23,6 @@ describe('Property', () => {
         .find(Text)
         .first()
         .prop('as')
-    ).toBe('h3');
+    ).toBe('strong');
   });
 });
