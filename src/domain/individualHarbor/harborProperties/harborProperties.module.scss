@@ -3,10 +3,7 @@
 .harborProperties {
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
-  flex-basis: 100%;
-  flex-grow: 1;
-  flex-shrink: 1;
+  align-items: flex-start;
 }
 
 .details {
@@ -16,18 +13,13 @@
   min-width: 60%;
 }
 
-.desc {
-  display: flex;
-  flex-direction: column;
-
-  & > * {
-    margin-bottom: units(0.5);
-  }
+.image {
+  width: 270px;
+  min-width: 270px;
+  margin-right: units(1.5);
+  object-fit: cover;
 }
 
-.image {
-  max-height: units(16);
-  margin-right: units(1.5);
-  max-width: 50%;
-  object-fit: cover;
+.propsGrid {
+  grid-row-gap: units(1.5);
 }

@@ -3,38 +3,44 @@ import classNames from 'classnames';
 
 import Text from '../../../common/text/Text';
 import styles from './property.module.scss';
-import IconOutline from './IconOutline';
+import Icon, { IconShapes } from '../../../common/icons/Icon';
 
 interface PropertyProps {
   active?: boolean;
-  Icon?: Function;
+  iconShape?: IconShapes;
   counter?: number;
   label: string;
+  className?: string;
 }
 
 const Property: React.SFC<PropertyProps> = ({
   active = true,
   counter = 0,
   label,
-  Icon,
+  iconShape,
+  className,
 }) => {
   return (
-    <div className={styles.property}>
-      {Icon ? (
-        <IconOutline>
-          <Icon
-            className={classNames(styles.icon, {
-              [styles.disabled]: false,
-            })}
-          />
-        </IconOutline>
+    <div className={classNames(styles.property, className)}>
+      {iconShape ? (
+        <Icon
+          color={active ? 'standard' : 'secondary'}
+          shape={iconShape}
+          outlined
+          size="large"
+        />
       ) : (
-        <Text as="h3" size="xxxl" color={active ? 'standard' : 'secondary'}>
+        <Text color={active ? 'standard' : 'secondary'} as="strong" size="xxxl">
           {counter}
         </Text>
       )}
 
-      <Text as="strong" size="s" color={active ? 'standard' : 'secondary'}>
+      <Text
+        className={styles.label}
+        weight="bold"
+        size="s"
+        color={active ? 'standard' : 'secondary'}
+      >
         {label}
       </Text>
     </div>

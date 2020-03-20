@@ -4,12 +4,15 @@ import classNames from 'classnames';
 import styles from './grid.module.scss';
 
 export interface GridProps {
-  colsCount?: number;
+  colsCount: number;
+  className?: string;
 }
 
-const Grid: React.SFC<GridProps> = ({ colsCount = 3, children }) => {
+const Grid: React.SFC<GridProps> = ({ colsCount = 3, children, className }) => {
   return (
-    <div className={classNames(styles.grid, styles[`cols${colsCount}`])}>
+    <div
+      className={classNames(styles.grid, styles[`cols${colsCount}`], className)}
+    >
       {children}
     </div>
   );

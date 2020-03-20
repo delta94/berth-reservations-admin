@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
 import Table, { Column } from '../../common/table/Table';
-import { INDIVIDUAL_HARBOR_QUERY } from './individualHarborQuery';
+import { INDIVIDUAL_HARBOR_QUERY } from './queries';
 import { INDIVIDUAL_HARBOR } from './__generated__/INDIVIDUAL_HARBOR';
 import { getIndividualHarborData, getBerths, Berth } from './utils/utils';
 import IndividualHarborPage from './individualHarborPage/IndividualHarborPage';
@@ -62,7 +62,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
     <IndividualHarborPage>
       <HarborProperties
         name={harbor.name || ''}
-        imageUrl={harbor.imageFile || ''}
+        imageUrl={harbor.imageFile}
         servicemapId={harbor.servicemapId || ''}
         address={`${harbor.streetAddress} ${harbor.zipCode} ${harbor.municipality}`}
         properties={{

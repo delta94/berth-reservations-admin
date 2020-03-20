@@ -4,10 +4,12 @@ import classNames from 'classnames';
 import * as Icons from './';
 import styles from './icon.module.scss';
 
+export type IconShapes = keyof typeof Icons;
+
 export interface IconProps {
   className?: string;
   outlined?: boolean;
-  shape: keyof typeof Icons;
+  shape: IconShapes;
   color?: 'standard' | 'disabled' | 'brand' | 'secondary';
   size?: 'small' | 'medium' | 'large';
 }
