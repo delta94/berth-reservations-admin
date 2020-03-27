@@ -1,4 +1,4 @@
-import ApolloClient, { gql } from 'apollo-boost';
+import ApolloClient, { gql, InMemoryCache } from 'apollo-boost';
 
 import i18n from '../../locales/i18n';
 import authService from '../auth/authService';
@@ -13,7 +13,10 @@ const typeDefs = gql`
   }
 `;
 
+const cache = new InMemoryCache();
+
 const apolloClient = new ApolloClient({
+  cache,
   typeDefs,
   resolvers: {
     Query: {
@@ -40,5 +43,7 @@ const apolloClient = new ApolloClient({
   },
   uri: process.env.REACT_APP_API_URI,
 });
+
+cache.writeData({ data: { currentUser: null } });
 
 export default apolloClient;
