@@ -1,4 +1,4 @@
-import { UserManager, User, UserManagerSettings } from 'oidc-client';
+import { UserManager, User, UserManagerSettings, Log } from 'oidc-client';
 import axios from 'axios';
 
 const origin = window.location.origin;
@@ -21,13 +21,24 @@ class AuthService {
     };
     /* eslint-enable @typescript-eslint/camelcase */
 
+    // Logger
+    Log.logger = console;
+    Log.level = Log.ERROR;
+
+    // User Manager instance
     this.userManager = new UserManager(settings);
+
+    // Public methods
     this.getUser = this.getUser.bind(this);
+    this.getTokens = this.getTokens.bind(this);
+    this.isAuthenticated = this.isAuthenticated.bind(this);
     this.login = this.login.bind(this);
-    this.renewToken = this.renewToken.bind(this);
     this.endLogin = this.endLogin.bind(this);
+    this.renewToken = this.renewToken.bind(this);
+    this.endRenewToken = this.endRenewToken.bind(this);
     this.logout = this.logout.bind(this);
 
+    // Events
     this.userManager.events.addAccessTokenExpired(e => {
       this.logout();
     });
@@ -51,7 +62,7 @@ class AuthService {
     return localStorage.getItem(API_TOKENS);
   }
 
-  public isAuthenticated = () => {
+  public isAuthenticated() {
     const oidcStorage = sessionStorage.getItem(
       `oidc.user:${process.env.REACT_APP_TUNNISTAMO_URI}:${process.env.REACT_APP_TUNNISTAMO_CLIENT_ID}`
     );
@@ -60,7 +71,7 @@ class AuthService {
     return (
       !!oidcStorage && !!JSON.parse(oidcStorage).access_token && !!apiTokens
     );
-  };
+  }
 
   public login(path = '/'): Promise<void> {
     return this.userManager.signinRedirect({ data: { path } });
