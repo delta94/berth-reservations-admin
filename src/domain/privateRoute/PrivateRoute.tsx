@@ -1,14 +1,11 @@
 import React from 'react';
 import { Route, Redirect, RouteProps, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
-import { StoreState } from '../app/types/AppTypes';
+import authService from '../auth/authService';
 
 const PrivateRoute: React.SFC<RouteProps> = props => {
   const location = useLocation();
-  const isAuthenticated = useSelector<StoreState, string | undefined>(
-    store => store.authentication.tunnistamo.user?.access_token
-  );
+  const isAuthenticated = authService.isAuthenticated();
 
   if (isAuthenticated) return <Route {...props} />;
 
