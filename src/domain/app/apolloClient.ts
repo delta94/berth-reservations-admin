@@ -5,6 +5,7 @@ import authService from '../auth/authService';
 
 const typeDefs = gql`
   type CurrentUser {
+    id: ID!
     name: String
     email: String
   }
@@ -25,9 +26,9 @@ const apolloClient = new ApolloClient({
 
         if (!user) return null;
 
-        const { name, email } = user.profile;
+        const { name, email, sub } = user.profile;
 
-        return { __typename: 'CurrentUser', name, email };
+        return { __typename: 'CurrentUser', id: sub, name, email };
       },
     },
   },

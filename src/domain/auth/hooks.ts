@@ -3,7 +3,8 @@ import { useQuery } from '@apollo/react-hooks';
 
 const GET_USER = gql`
   query GetUserName {
-    currentUser @client {
+    currentUser @client(always: true) {
+      id
       name
       email
     }
