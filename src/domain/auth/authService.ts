@@ -2,24 +2,24 @@ import { UserManager, User, UserManagerSettings, Log } from 'oidc-client';
 import axios from 'axios';
 
 const origin = window.location.origin;
-const API_TOKENS = 'apiTokens';
+export const API_TOKENS = 'apiTokens';
 
 class AuthService {
   private userManager: UserManager;
 
   constructor() {
-    /* eslint-disable @typescript-eslint/camelcase */
     const settings: UserManagerSettings = {
+      /* eslint-disable @typescript-eslint/camelcase */
       authority: process.env.REACT_APP_TUNNISTAMO_URI,
       automaticSilentRenew: true,
       client_id: process.env.REACT_APP_TUNNISTAMO_CLIENT_ID,
       redirect_uri: `${origin}/callback`,
       post_logout_redirect_uri: origin,
       response_type: 'id_token token',
-      silent_redirect_uri: `${origin}/silent-callback.html`,
+      silent_redirect_uri: `${origin}/silent-callback`,
       scope: process.env.REACT_APP_TUNNISTAMO_SCOPE,
+      /* eslint-enable @typescript-eslint/camelcase */
     };
-    /* eslint-enable @typescript-eslint/camelcase */
 
     // Logger
     Log.logger = console;
@@ -66,7 +66,7 @@ class AuthService {
     const oidcStorage = sessionStorage.getItem(
       `oidc.user:${process.env.REACT_APP_TUNNISTAMO_URI}:${process.env.REACT_APP_TUNNISTAMO_CLIENT_ID}`
     );
-    const apiTokens = localStorage.getItem(API_TOKENS);
+    const apiTokens = this.getTokens();
 
     return (
       !!oidcStorage && !!JSON.parse(oidcStorage).access_token && !!apiTokens
@@ -79,14 +79,15 @@ class AuthService {
 
   public endLogin(): Promise<User> {
     return this.userManager.signinRedirectCallback().then(async user => {
-      const { data: apiTokens } = await axios
-        .create({
+      const { data: apiTokens } = await axios.get(
+        `${process.env.REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT}/`,
+        {
           baseURL: process.env.REACT_APP_TUNNISTAMO_URI,
           headers: {
             Authorization: `bearer ${user.access_token}`,
           },
-        })
-        .post(`${process.env.REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT}/`);
+        }
+      );
 
       localStorage.setItem(API_TOKENS, JSON.stringify(apiTokens));
 
