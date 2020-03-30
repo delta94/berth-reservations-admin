@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
+import { Notification } from 'hds-react';
 
 import ApplicationsPage from './ApplicationsPage';
 import Table, { Column } from '../../common/table/Table';
@@ -45,8 +46,21 @@ const ApplicationsPageContainer: React.SFC = () => {
   ] = useDeleteBerthApplication();
 
   if (loading || isDeleting) return <LoadingSpinner isLoading={loading} />;
-  if (!data) return <div>No data...</div>;
-  if (error) return <div>Error</div>;
+  if (!data)
+    return (
+      <Notification labelText={t('common.notification.noData.label')}>
+        {t('common.notification.noData.description')}
+      </Notification>
+    );
+  if (error)
+    return (
+      <Notification
+        labelText={t('common.notification.error.label')}
+        type="error"
+      >
+        {t('common.notification.error.description')}
+      </Notification>
+    );
 
   const columns: ColumnType[] = [
     {

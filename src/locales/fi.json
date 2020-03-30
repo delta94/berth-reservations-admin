@@ -40,6 +40,16 @@
       "DINGHY_PLACE": "Jollapaikka",
       "SEA_BUOY_MOORING": "Poiju (merellä)",
       "TRAWLER_PLACE": "Traileripaikka"
+    },
+    "notification": {
+      "noData": {
+        "label": "Ei tietoja",
+        "description": "Ei tietoja"
+      },
+      "error": {
+        "label": "Virhe",
+        "description": "Tapahtui virhe"
+      }
     }
   },
   "login": {
