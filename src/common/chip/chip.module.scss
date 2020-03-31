@@ -8,6 +8,7 @@
   background-color: var(--background-color);
   color: var(--color);
   padding: units(0.25) units(0.75);
+  white-space: nowrap;
 
   &.grey {
     --background-color: #{$gray-100};
