@@ -58,6 +58,7 @@ interface LargeBoat extends Boat {
 
 export const getBoats = (profile: CUSTOMER_PROFILE) => {
   if (!profile.boats) return [];
+
   const boats = profile.boats.edges.reduce<(Boat | LargeBoat)[]>(
     (acc, edge) => {
       if (!edge?.node) return acc;
@@ -66,5 +67,6 @@ export const getBoats = (profile: CUSTOMER_PROFILE) => {
     },
     []
   );
+
   return boats;
 };
