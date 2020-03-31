@@ -19,6 +19,26 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
       }
       invoicingType
       comment
+      boats {
+        edges {
+          node {
+            id
+            boatType {
+              id
+              name
+            }
+            width
+            length
+            draught
+            weight
+            name
+            model
+            registrationNumber
+            propulsion
+            hullMaterial
+          }
+        }
+      }
       berthLeases {
         edges {
           node {

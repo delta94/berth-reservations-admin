@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils getBoats should return an array of boat objects 1`] = `
+Array [
+  Object {
+    "boatType": Object {
+      "id": "6",
+      "name": "Purjevene / moottoripursi",
+    },
+    "draught": null,
+    "id": "fb2a761f-ccc2-421a-9e32-0957b2510be9",
+    "length": 7,
+    "model": "",
+    "name": "Boaty McBerth",
+    "registrationNumber": "VEN-101",
+    "weight": null,
+    "width": 2.5,
+  },
+  Object {
+    "boatType": Object {
+      "id": "2",
+      "name": "Soutuvene",
+    },
+    "draught": null,
+    "id": "2250193b-aecd-4402-bb12-56a2142ae644",
+    "length": 3,
+    "model": "",
+    "name": "RowRowRowYourBoat",
+    "registrationNumber": "",
+    "weight": null,
+    "width": 1,
+  },
+]
+`;
