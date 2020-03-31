@@ -1,4 +1,4 @@
-import { INDIVIDUAL_CUSTOMER_profile as INDIVIDUAL_CUSTOMER_PROFILE } from './__generated__/INDIVIDUAL_CUSTOMER';
+import { INDIVIDUAL_CUSTOMER_profile as CUSTOMER_PROFILE } from './__generated__/INDIVIDUAL_CUSTOMER';
 
 interface Lease {
   id: string;
@@ -9,7 +9,7 @@ interface Lease {
   endDate: string;
 }
 
-export const getLeases = (profile: INDIVIDUAL_CUSTOMER_PROFILE): Lease[] => {
+export const getLeases = (profile: CUSTOMER_PROFILE): Lease[] => {
   if (!profile.berthLeases?.edges) return [];
 
   return profile.berthLeases.edges.reduce<Lease[]>((acc, edge) => {
@@ -35,4 +35,36 @@ export const getLeases = (profile: INDIVIDUAL_CUSTOMER_PROFILE): Lease[] => {
 
     return [...acc, lease];
   }, []);
+};
+
+interface Boat {
+  id: string;
+  boatType: { id: string; name: string | null };
+  registrationNumber: string;
+  width: number;
+  length: number;
+  draught: number | null;
+  weight: number | null;
+  name: string;
+  model: string;
+}
+
+interface LargeBoat extends Boat {
+  propulsion: string;
+  hullMaterial: string;
+  boatIsInspected: boolean;
+  boatIsInsured: boolean;
+}
+
+export const getBoats = (profile: CUSTOMER_PROFILE) => {
+  if (!profile.boats) return [];
+  const boats = profile.boats.edges.reduce<(Boat | LargeBoat)[]>(
+    (acc, edge) => {
+      if (!edge?.node) return acc;
+
+      return [...acc, edge.node];
+    },
+    []
+  );
+  return boats;
 };

@@ -26,6 +26,37 @@ export interface INDIVIDUAL_CUSTOMER_profile_primaryAddress {
   city: string;
 }
 
+export interface INDIVIDUAL_CUSTOMER_profile_boats_edges_node_boatType {
+  __typename: "BoatTypeType";
+  id: string;
+  name: string | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_boats_edges_node {
+  __typename: "BoatNode";
+  id: string;
+  boatType: INDIVIDUAL_CUSTOMER_profile_boats_edges_node_boatType;
+  width: number;
+  length: number;
+  draught: number | null;
+  weight: number | null;
+  name: string;
+  model: string;
+  registrationNumber: string;
+  propulsion: string;
+  hullMaterial: string;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_boats_edges {
+  __typename: "BoatNodeEdge";
+  node: INDIVIDUAL_CUSTOMER_profile_boats_edges_node | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_boats {
+  __typename: "BoatNodeConnection";
+  edges: (INDIVIDUAL_CUSTOMER_profile_boats_edges | null)[];
+}
+
 export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth_pier_properties_harbor_properties {
   __typename: "HarborProperties";
   name: string | null;
@@ -82,6 +113,7 @@ export interface INDIVIDUAL_CUSTOMER_profile {
   primaryAddress: INDIVIDUAL_CUSTOMER_profile_primaryAddress | null;
   invoicingType: InvoicingType | null;
   comment: string | null;
+  boats: INDIVIDUAL_CUSTOMER_profile_boats | null;
   berthLeases: INDIVIDUAL_CUSTOMER_profile_berthLeases | null;
 }
 

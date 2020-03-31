@@ -14,7 +14,7 @@ import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import ApplicationCard from './applicationCard/ApplicationCard';
 import BoatsCard from './boatsCard/BoatsCard';
 import LeasesCard from './leasesCard/LeasesCard';
-import { getLeases } from './utils';
+import { getLeases, getBoats } from './utils';
 
 const IndividualHarborPageContainer: React.SFC = () => {
   const { id } = useParams<{ id: string }>();
@@ -37,6 +37,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
   } = data.profile;
 
   const leases = getLeases(data.profile);
+  const boats = getBoats(data.profile);
 
   return (
     <IndividualCustomerPage>
@@ -97,50 +98,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
         <CardHeader title="TALVISÄILYTYSPAIKAT" />
         <CardBody>Placeholder</CardBody>
       </Card>
-      <BoatsCard
-        boats={[
-          {
-            id: '1234',
-            boatType: 'Purjevene / moottoripursi',
-            registrationNumber: 'A 12345',
-            boatWidth: '3,2 m',
-            boatLength: '6 m',
-            boatDepth: '0,8 m',
-            boatWeight: '350 kg',
-            boatName: 'Cama la Yano',
-            boatBrand: 'Marine',
-          },
-          {
-            id: '5432',
-            boatType: 'Purjevene / moottoripursi',
-            registrationNumber: 'A 67890',
-            boatWidth: '2,3 m',
-            boatLength: '4 m',
-            boatDepth: '0,8 m',
-            boatWeight: '200 kg',
-            boatName: 'Huh hah hei',
-            boatBrand: 'Boaty',
-          },
-          {
-            id: '9999',
-            boatType: 'Suuri alus (yli 20t)',
-            registrationNumber: 'A 67890',
-            boatWidth: '5,5 m',
-            boatLength: '22 m',
-            boatDepth: '1,5 m',
-            boatWeight: '24 000 kg',
-            boatName: 'Caraboudjan',
-            boatBrand: 'Buster',
-            boatPower: 'Polttoöljy',
-            boatMaterial: 'Teräs',
-            purpose:
-              'Kalastus kesällä, muuten huviveneily ja joskus viedään anoppi katsomaan valaita',
-            inspection:
-              'Voimassa 31.12.2019 Tarkastettu 24.12.2018 Santtu Satamapäällikkö',
-            insurance: 'Tarkastettu 24.12.2018 Santtu Satamapäällikkö',
-          },
-        ]}
-      />
+      <BoatsCard boats={boats} />
     </IndividualCustomerPage>
   );
 };

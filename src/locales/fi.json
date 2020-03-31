@@ -18,6 +18,8 @@
     }
   },
   "common": {
+    "yes": "Kyllä",
+    "no": "Ei",
     "table": {
       "minimizeAll": "Pienennä kaikki",
       "all": "Kaikki"
@@ -266,14 +268,14 @@
       "title": "ASIAKKAAN VENEET",
       "boatType": "Veneen tyyppi",
       "registrationNumber": "Rekisterinumero",
-      "boatWidth": "Veneen leveys",
-      "boatLength": "Veneen pituus",
-      "boatDepth": "Veneen syväys",
-      "boatWeight": "Veneen paino",
-      "boatName": "Nimi",
-      "boatBrand": "Merkki",
-      "boatPower": "Käyttövoima",
-      "boatMaterial": "Runkomateriaali",
+      "width": "Veneen leveys",
+      "length": "Veneen pituus",
+      "draught": "Veneen syväys",
+      "weight": "Veneen paino",
+      "name": "Nimi",
+      "model": "Merkki",
+      "propulsion": "Käyttövoima",
+      "hullMaterial": "Runkomateriaali",
       "purpose": "Käyttötarkoitus",
       "inspection": "Katsastustodistus",
       "insurance": "Vakuutuskirjaote"
