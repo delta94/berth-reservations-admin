@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useParams, useHistory, Redirect } from 'react-router';
+import { Notification } from 'hds-react';
 
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { OFFER_PAGE_QUERY } from './queries';
@@ -85,8 +86,21 @@ const OfferPageContainer: React.FC = () => {
   ];
 
   if (loading) return <LoadingSpinner isLoading={loading} />;
-  if (!data?.berthApplication) return <div>No data...</div>;
-  if (error) return <div>Error</div>;
+  if (!data?.berthApplication)
+    return (
+      <Notification labelText={t('common.notification.noData.label')}>
+        {t('common.notification.noData.description')}
+      </Notification>
+    );
+  if (error)
+    return (
+      <Notification
+        labelText={t('common.notification.error.label')}
+        type="error"
+      >
+        {t('common.notification.error.description')}
+      </Notification>
+    );
 
   if (mutationData) {
     return <Redirect to="/applications" />;

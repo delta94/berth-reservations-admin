@@ -1,5 +1,7 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
+import { Notification } from 'hds-react';
 
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { HARBORS_QUERY } from './harborsQuery';
@@ -8,11 +10,25 @@ import { HARBORS } from './__generated__/HARBORS';
 import HarborsPage from './HarborsList';
 
 const HarborsContainer: React.FC = () => {
+  const { t } = useTranslation();
   const { loading, error, data } = useQuery<HARBORS>(HARBORS_QUERY);
 
   if (loading) return <LoadingSpinner isLoading={loading} />;
-  if (!data) return <div>No data...</div>;
-  if (error) return <div>Error</div>;
+  if (!data)
+    return (
+      <Notification labelText={t('common.notification.noData.label')}>
+        {t('common.notification.noData.description')}
+      </Notification>
+    );
+  if (error)
+    return (
+      <Notification
+        labelText={t('common.notification.error.label')}
+        type="error"
+      >
+        {t('common.notification.error.description')}
+      </Notification>
+    );
 
   const tableData: HarborData[] = getHarborsData(data);
 

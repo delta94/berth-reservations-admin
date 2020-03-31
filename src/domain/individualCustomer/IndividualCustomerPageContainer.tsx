@@ -1,6 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
+import { Notification } from 'hds-react';
 
 import IndividualCustomerPage from './individualCustomerPage/IndividualCustomerPage';
 import { INDIVIDUAL_CUSTOMER_QUERY } from './queries';
@@ -17,6 +19,7 @@ import LeasesCard from './leasesCard/LeasesCard';
 import { getLeases, getBoats } from './utils';
 
 const IndividualHarborPageContainer: React.SFC = () => {
+  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const { loading, error, data } = useQuery<INDIVIDUAL_CUSTOMER>(
     INDIVIDUAL_CUSTOMER_QUERY,
@@ -24,8 +27,21 @@ const IndividualHarborPageContainer: React.SFC = () => {
   );
 
   if (loading) return <LoadingSpinner isLoading={loading} />;
-  if (!data?.profile) return <div>No data...</div>;
-  if (error) return <div>Error</div>;
+  if (!data?.profile)
+    return (
+      <Notification labelText={t('common.notification.noData.label')}>
+        {t('common.notification.noData.description')}
+      </Notification>
+    );
+  if (error)
+    return (
+      <Notification
+        labelText={t('common.notification.error.label')}
+        type="error"
+      >
+        {t('common.notification.error.description')}
+      </Notification>
+    );
 
   const {
     firstName,

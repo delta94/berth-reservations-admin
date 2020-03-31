@@ -1,5 +1,4 @@
 import { ApolloProvider } from '@apollo/react-hooks';
-import ApolloClient from 'apollo-boost';
 import React from 'react';
 import {
   BrowserRouter as Router,
@@ -7,12 +6,8 @@ import {
   Switch,
   Redirect,
 } from 'react-router-dom';
-import { OidcProvider } from 'redux-oidc';
-import { Provider } from 'react-redux';
-import axios, { AxiosResponse } from 'axios';
 
-import OidcCallback from '../auth/OidcCallback';
-import userManager from '../auth/userManager';
+import apolloClient from './apolloClient';
 import CustomersPage from '../customers/CustomerPageContainer';
 import HarborsPage from '../harbors/HarborsPageContainer';
 import IndividualHarborPage from '../individualHarbor/IndividualHarborPageContainer';
@@ -21,111 +16,54 @@ import OfferPage from '../offer/OfferPageContainer';
 import LoginPage from '../login/LoginPage';
 import Page from '../page/Page';
 import PrivateRoute from '../privateRoute/PrivateRoute';
-import { store } from './state/AppStore';
-import { BackendTokenResponse } from '../auth/types/BackendAuthenticationTypes';
-import i18n from '../../locales/i18n';
 import ApplicationsPage from '../applications/ApplicationsPageContainer';
 import IndividualApplicationPage from '../individualApplication/IndividualApplicationPageContainer';
-
-const {
-  REACT_APP_TUNNISTAMO_URI,
-  REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT,
-} = process.env;
-
-const client = new ApolloClient({
-  request: async operation => {
-    try {
-      const accessToken = store.getState().authentication.tunnistamo.user
-        .access_token;
-
-      const res: AxiosResponse<BackendTokenResponse> = await axios.post(
-        `${REACT_APP_TUNNISTAMO_URI}/${REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT}/`,
-        {},
-        {
-          headers: {
-            Authorization: `bearer ${accessToken}`,
-          },
-        }
-      );
-
-      const apiTokens = res.data;
-
-      operation.setContext({
-        headers: {
-          'Accept-Language': i18n.language,
-          'Api-Tokens': JSON.stringify(apiTokens),
-        },
-      });
-    } catch (e) {
-      // User not authenticated
-      // eslint-disable-next-line no-console
-      console.error(e);
-      // TODO: add error-handler
-    }
-  },
-  uri: process.env.REACT_APP_API_URI,
-});
+import CallbackPage from '../auth/callbackPage/CallbackPage';
+import SilentRenewPage from '../auth/silentRenewPage/SilentRenewPage';
 
 const App: React.FC = () => {
   return (
-    <Provider store={store}>
-      <OidcProvider store={store} userManager={userManager}>
-        <ApolloProvider client={client}>
-          <Router>
+    <ApolloProvider client={apolloClient}>
+      <Router>
+        <Switch>
+          <Route path="/login" component={LoginPage} />
+          <Route exact path="/silent-callback" component={SilentRenewPage} />
+          <Route exact path="/callback" component={CallbackPage} />
+          <Redirect exact from="/" to="/harbors" />
+          <Page>
             <Switch>
-              <Route path="/login" component={LoginPage} />
-              <Route
+              <PrivateRoute
                 exact
-                path="/silent_renew"
-                render={() => {
-                  userManager.signinSilentCallback();
-                  return null;
-                }}
+                path="/harbors/:id"
+                component={IndividualHarborPage}
               />
-              <Route exact path="/callback" component={OidcCallback} />
-              <Route
+              <PrivateRoute exact path="/harbors" component={HarborsPage} />
+              <PrivateRoute
                 exact
-                path="/"
-                render={() => <Redirect exact from="/" to="/harbors" />}
+                path="/customers/:id"
+                component={IndividualCustomerPage}
               />
-              <Page>
-                <PrivateRoute
-                  exact
-                  path="/harbors/:id"
-                  component={IndividualHarborPage}
-                />
-                <PrivateRoute exact path="/harbors" component={HarborsPage} />
-                <PrivateRoute
-                  exact
-                  path="/customers/:id"
-                  component={IndividualCustomerPage}
-                />
-                <PrivateRoute
-                  exact
-                  path="/customers"
-                  component={CustomersPage}
-                />
-                <PrivateRoute
-                  exact
-                  path="/applications/:id"
-                  component={IndividualApplicationPage}
-                />
-                <PrivateRoute
-                  exact
-                  path="/applications"
-                  component={ApplicationsPage}
-                />
-                <PrivateRoute
-                  exact
-                  path="/offer/:applicationId"
-                  component={OfferPage}
-                />
-              </Page>
+              <PrivateRoute exact path="/customers" component={CustomersPage} />
+              <PrivateRoute
+                exact
+                path="/applications/:id"
+                component={IndividualApplicationPage}
+              />
+              <PrivateRoute
+                exact
+                path="/applications"
+                component={ApplicationsPage}
+              />
+              <PrivateRoute
+                exact
+                path="/offer/:applicationId"
+                component={OfferPage}
+              />
             </Switch>
-          </Router>
-        </ApolloProvider>
-      </OidcProvider>
-    </Provider>
+          </Page>
+        </Switch>
+      </Router>
+    </ApolloProvider>
   );
 };
 
