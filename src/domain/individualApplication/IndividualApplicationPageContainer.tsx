@@ -1,6 +1,8 @@
 import React from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
+import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
+import { Notification } from 'hds-react';
 
 import IndividualApplicationPage from './IndividualApplicationPage';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
@@ -36,6 +38,7 @@ import {
 } from './utils';
 
 const IndividualCustomerPageContainer: React.SFC = () => {
+  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
 
   const { loading, error, data } = useQuery<
@@ -90,8 +93,21 @@ const IndividualCustomerPageContainer: React.SFC = () => {
   });
 
   if (loading) return <LoadingSpinner isLoading={loading} />;
-  if (!data?.berthApplication) return <div>No data...</div>;
-  if (error) return <div>Error</div>;
+  if (!data?.berthApplication)
+    return (
+      <Notification labelText={t('common.notification.noData.label')}>
+        {t('common.notification.noData.description')}
+      </Notification>
+    );
+  if (error)
+    return (
+      <Notification
+        labelText={t('common.notification.error.label')}
+        type="error"
+      >
+        {t('common.notification.error.description')}
+      </Notification>
+    );
   if (linkCustomerErr || newCustomerErr) return <>something went wrong</>;
 
   const handleDeleteLease = (id: string) => {
