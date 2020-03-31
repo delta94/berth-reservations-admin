@@ -98,7 +98,7 @@
   },
   "applications": {
     "tableHeaders": {
-      "switchFilter": "Vaihto sataman sisällä",
+      "switchFilter": "Vaihtohakemukset",
       "newApplicationFilter": "Uudet hakemukset",
       "applicationType": "Hakemustyyppi",
       "queue": "Jono",
