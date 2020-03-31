@@ -31,7 +31,7 @@ const CustomerListComponent = ({ data }: CustomerListComponentProps) => {
   const columns: ColumnType[] = [
     {
       Cell: ({ cell }) => (
-        <InternalLink to={`/customers/${cell.row.original.id}}`}>
+        <InternalLink to={`/customers/${cell.row.original.id}`}>
           {cell.value}
         </InternalLink>
       ),

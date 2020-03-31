@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouteComponentProps, useLocation } from 'react-router-dom';
+import { RouteComponentProps, useLocation, Redirect } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'hds-react';
 
@@ -8,13 +8,17 @@ import Text from '../../common/text/Text';
 import styles from './loginPage.module.scss';
 import Header from '../../common/header/Header';
 import Layout from '../../common/layout/Layout';
-import { loginTunnistamo } from '../auth/authenticate';
+import authService from '../auth/authService';
+
+type LocationState = { from: Location } | null | undefined;
 
 const LoginPage: React.SFC<RouteComponentProps> = props => {
   const { t } = useTranslation();
-  const location = useLocation<{ from: { pathname: string } }>();
-  const { from } = location.state || { from: { pathname: '/' } };
-  const login = () => loginTunnistamo(from);
+  const location = useLocation<LocationState>();
+  const isAuthenticated = authService.isAuthenticated();
+  const pathname = location.state?.from?.pathname ?? '/';
+
+  if (isAuthenticated) return <Redirect to={pathname} />;
 
   return (
     <Layout
@@ -29,7 +33,9 @@ const LoginPage: React.SFC<RouteComponentProps> = props => {
         <div className={styles.contentWrapper}>
           <Text as="h3">{t('login.heading')}</Text>
         </div>
-        <Button onClick={login}>{t('login.loginButton')}</Button>
+        <Button onClick={() => authService.login(pathname)}>
+          {t('login.loginButton')}
+        </Button>
       </div>
     </Layout>
   );
