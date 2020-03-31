@@ -47,11 +47,13 @@ const HarborProperties: React.SFC<HarborPropertiesProps> = ({
       <CardBody>
         <div className={styles.harborProperties}>
           <div className={styles.details}>
-            <img
-              alt="Harbor's location"
-              src={imageUrl ? imageUrl : placeholder}
-              className={styles.image}
-            />
+            <div className={styles.imageWrapper}>
+              <img
+                alt="Harbor's location"
+                src={imageUrl ? imageUrl : placeholder}
+                className={styles.image}
+              />
+            </div>
             <div>
               <Section>
                 <Text as="h2" size="xxl">
