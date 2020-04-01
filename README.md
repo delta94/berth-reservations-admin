@@ -1,4 +1,4 @@
-## Berth Reservation Admin
+# Berth Reservation Admin
 
 [![Build Status](https://travis-ci.com/City-of-Helsinki/berth-reservations-admin.svg?branch=develop)](https://travis-ci.com/City-of-Helsinki/berth-reservations-admin) [![Codecov](https://codecov.io/gh/City-of-Helsinki/berth-reservations-admin/branch/develop/graph/badge.svg)](https://codecov.io/gh/City-of-Helsinki/berth-reservations-admin/branch/develop/graph/badge.svg) [![Dependency Status](https://img.shields.io/david/City-of-Helsinki/berth-reservations-admin?branch=develop)](https://img.shields.io/david/City-of-Helsinki/berth-reservations-admin?branch=develop) [![devDependencies Status](https://david-dm.org/city-of-helsinki/berth-reservations-admin/dev-status.svg?branch=develop)](https://david-dm.org/city-of-helsinki/berth-reservations-admin?type=dev&branch=develop) [![GitHub license](https://img.shields.io/github/license/City-of-Helsinki/berth-reservations-admin)](https://img.shields.io/github/license/City-of-Helsinki/berth-reservations-admin)
 
@@ -6,51 +6,43 @@ Staff interface for Venepaikka.
 
 Environments:
 
-Storybook:
-https://city-of-helsinki.github.io/berth-reservations-admin/?path=/story/*
-
-Staging:
-https://venepaikka-admin.test.kuva.hel.ninja
-
-GraphQL API URL:
-https://venepaikka-federation.test.kuva.hel.ninja/
-
-GraphQL API overview: https://venepaikka-federation.test.kuva.hel.ninja/voyager
+- [Storybook](https://city-of-helsinki.github.io/berth-reservations-admin/?path=/story/*)
+- [Staging](https://venepaikka-admin.test.kuva.hel.ninja)
+- [GraphQL API URL](https://venepaikka-federation.test.kuva.hel.ninja/)
+- [GraphQL API overview](https://venepaikka-federation.test.kuva.hel.ninja/voyager)
 
 ---
 
 ## Requirements
 
 - Node 12.x
-- yarn
+- Yarn
 - Git
 - Docker and docker-compose
-- Recommended editor for this project is VSCode.
+- Recommended editor for this project is Visual Studio Code
 
-## Common Setup
+## Common setup
 
 Clone the repo and install the dependencies.
 
 ```bash
 git clone https://github.com/City-of-Helsinki/berth-reservations-admin.git
 cd berth-reservations-admin
-```
 
-```bash
 yarn
 ```
 
-After cloning this repository, create a new `.env.development.local` file from the provided `.env.example` file and change `REACT_APP_API_URI`.
+After cloning this repository, create a new `.env.development.local` file from the provided `.env` file to be able to change environment variables such as `REACT_APP_API_URI`.
 
 ```bash
-$ cp .env.example .env.development.local
+cp .env.example .env.development.local
 ```
 
 ## Development environment setup
 
-### Storybook development environment
+### Storybook development
 
-To start the storybook development server, run the following
+To start the Storybook development server, run the following:
 
 ```bash
 yarn storybook
@@ -58,7 +50,7 @@ yarn storybook
 
 Open [http://localhost:6006](http://localhost:6006) and take a look around.
 
-### Admin UI development environment
+### React development environment
 
 To start the development server, run the following
 
@@ -70,70 +62,84 @@ Open [http://localhost:3000](http://localhost:3000) and take a look around.
 
 ### Testing
 
-To run tests:
+To run tests, run:
 
 ```bash
-$ yarn test
+yarn test
 ```
 
 ### Dockerized development environment
 
-1. Check if Docker and docker CLI installed, port `3000` is free, not occupied by running server.
+1. Check that Docker and Docker CLI are installed, and port `3000` is free and not occupied by a running server.
 
-2. Make sure you have env variables in `.env.development.local`, otherwise extend it from example by:
+2. Make sure you have env variables in `.env.development.local`, otherwise extend it from the example by:
+
+   ```bash
+   cp .env .env.development.local
    ```
-   $ cp .env.example .env.development.local
+
+3. Start building Docker image and start container:
+
+   ```bash
+   docker-compose up
    ```
-3. Start building docker image and start container:
-   ```
-   $ docker-compose up
-   ```
-4. Open `localhost:3000` on browser.
 
-### Starting dockerized production environment
+4. Open [http://localhost:3000](http://localhost:3000).
 
-1. Check if Docker and docker CLI installed, port `80` is free, not occupied by running server.
+### Dockerized production environment
 
-2. Build docker image with:
+1. Check that Docker and Docker CLI are installed, port `80` is free and not occupied by a running server.
 
-```
-$ docker build -t berth-reservation-admin .
-```
+2. Build Docker image with:
 
-3. Start docker container with:
-   ```
-   $ docker container run -p 80:80 -d berth-reservation-admin
-   ```
-4. Open `http://localhost` on browser.
+    ```bash
+    docker build -t berth-reservation-admin .
+    ```
 
-## Useful docker command
+3. Start Docker container with:
 
-- To rebuild the docker images:
+    ```bash
+    docker container run -p 80:80 -d berth-reservation-admin
+    ```
+
+4. Open [http://localhost](http://localhost).
+
+## Useful Docker commands
+
+- To rebuild the Docker images:
+
+  ```bash
+  docker-compose up --force-recreate --build
   ```
-  $ docker-compose up --force-recreate --build
+
+- To enter inside Docker container environment:
+
+  ```bash
+  docker-compose exec app sh
   ```
-- To enter inside docker container environment:
+
+- Remove Docker container if needed:
+
+  ```bash
+  docker rm -f berth-reservation-admin
   ```
-  $ docker-compose exec app sh
+
+- Remove Docker image:
+
+  ```bash
+  docker rmi berth-reservations-admin_app
   ```
-- Remove docker container if needed:
-  ```
-  $ docker rm -f berth-reservation-admin
-  ```
-- Remove docker image:
-  ```
-  $ docker rmi berth-reservations-admin_app
-  ```
-- Running command inside Docker environment (test for example):
-  (Make sure docker container is running)
+
+- Running commands inside the Docker environment (tests for example):
+  (Make sure Docker container is running)
   `$ docker-compose run app YOUR_COMMAND_HERE`
-- Encounter `node-sass` issue ? try to go inside docker container environment and run `npm rebuild node-sass`
+  - Encounter `node-sass` issue ? Try going inside the Docker container environment and running `npm rebuild node-sass`
 
 ## Deployment
 
 ### Storybook deployment
 
-Storybook is used for in development and there's not CI/CD pipeline set up. To deploy a new version of storybook, run the following:
+Storybook is used for development and there's no CI/CD pipeline set up. To deploy a new version of Storybook, run the following:
 
 ```bash
 yarn deploy-storybook
@@ -141,6 +147,6 @@ yarn deploy-storybook
 
 To verify deployment, open [https://city-of-helsinki.github.io/berth-reservations-admin/](https://city-of-helsinki.github.io/berth-reservations-admin/) and check that everything is looking ok.
 
-### Admin UI staging
+### Staging deployment
 
 Staging deployment is handled by CI/CD pipeline for new commits on `develop` branch.
