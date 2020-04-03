@@ -1,14 +1,14 @@
 import React from 'react';
 
-import ApplicationCard from './ApplicationCard';
+import ApplicationsCard from './ApplicationsCard';
 
 export default {
-  component: ApplicationCard,
-  title: 'ApplicationCard',
+  component: ApplicationsCard,
+  title: 'ApplicationsCard',
 };
 
-export const applicationCard = () => (
-  <ApplicationCard
+export const applicationsCard = () => (
+  <ApplicationsCard
     applicationType="Vaihtohakemus"
     receivedDate="23.8.2019, klo 21.06"
     queueNumber={245}
@@ -29,6 +29,6 @@ export const applicationCard = () => (
   />
 );
 
-applicationCard.story = {
+applicationCards.story = {
   name: 'Default',
 };
