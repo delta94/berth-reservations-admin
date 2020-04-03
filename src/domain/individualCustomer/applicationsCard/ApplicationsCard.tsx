@@ -49,7 +49,7 @@ const ApplicationsCard: React.SFC<ApplicationsCardProps> = ({
   const { t } = useTranslation();
 
   return (
-    <Card className={styles.applicationCard}>
+    <Card className={styles.applicationsCard}>
       <CardHeader title={t('individualCustomer.application.title')} />
       {applications.map(application => (
         <CardBody key={application.id}>

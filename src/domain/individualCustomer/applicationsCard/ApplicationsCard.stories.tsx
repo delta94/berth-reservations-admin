@@ -29,6 +29,6 @@ export const applicationsCard = () => (
   />
 );
 
-applicationCards.story = {
+applicationsCard.story = {
   name: 'Default',
 };

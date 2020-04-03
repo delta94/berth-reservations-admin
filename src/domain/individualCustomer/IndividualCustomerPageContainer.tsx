@@ -13,7 +13,7 @@ import CardBody from '../../common/cardBody/CardBody';
 import BillsCard from './billsCard/BillsCard';
 import CustomerInfoCard from '../cards/customerInfoCard/CustomerInfoCard';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
-import ApplicationCard from './applicationsCard/ApplicationsCard';
+import ApplicationsCard from './applicationsCard/ApplicationsCard';
 import BoatsCard from './boatsCard/BoatsCard';
 import LeasesCard from './leasesCard/LeasesCard';
 import { getLeases, getBoats, getApplications } from './utils';
@@ -70,7 +70,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
         <CardHeader title="VIIMEAIKAINEN TOIMINTA" />
         <CardBody>Placeholder</CardBody>
       </Card>
-      <ApplicationCard applications={applications} />
+      <ApplicationsCard applications={applications} />
       <BillsCard
         berthPlace="Pursilahdenranta B 31"
         contractPeriod="14.9.2019 - 10.6.2019"
