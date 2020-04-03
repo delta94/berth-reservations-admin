@@ -77,6 +77,11 @@ $padding: units(1);
     min-width: units(4);
   }
 
+  .subComponent {
+    @extend .tableCell;
+    padding: units(1.5);
+  }
+
   .selector,
   .radioSelector {
     min-width: units(4);

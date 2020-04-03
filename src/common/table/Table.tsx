@@ -219,7 +219,7 @@ const Table = <D extends object>({
         </tr>
         {renderSubComponent && row.isExpanded && (
           <tr className={classNames(styles.tableRow, styles.expandedRow)}>
-            <td className={styles.tableCell} colSpan={flatHeaders.length}>
+            <td className={styles.subComponent} colSpan={flatHeaders.length}>
               {renderSubComponent(row)}
             </td>
           </tr>
