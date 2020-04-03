@@ -62,6 +62,47 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
           }
         }
       }
+      berthApplications {
+        edges {
+          node {
+            id
+            berthSwitch {
+              id
+            }
+            createdAt
+            status
+            lease {
+              id
+              berth {
+                pier {
+                  properties {
+                    harbor {
+                      id
+                      properties {
+                        name
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            boatType
+            boatRegistrationNumber
+            boatWidth
+            boatLength
+            boatDraught
+            boatWeight
+            boatName
+            boatModel
+            harborChoices {
+              harbor
+              priority
+              harborName
+            }
+            accessibilityRequired
+          }
+        }
+      }
     }
   }
 `;

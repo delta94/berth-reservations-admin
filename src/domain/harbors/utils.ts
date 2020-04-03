@@ -15,7 +15,7 @@ export interface HarborData {
   wwwUrl: string | null;
   imageFile: string | null;
   servicemapId: string | null;
-  maximumWidth: number | null;
+  maxWidth: number | null;
 }
 
 export const getHarborsData = (data: HARBORS | undefined) => {
@@ -60,7 +60,7 @@ export const getHarborsData = (data: HARBORS | undefined) => {
           {
             id: harbor.node.id,
             imageFile: harbor.node.properties.imageFile,
-            maximumWidth: harbor.node.properties.maximumWidth,
+            maxWidth: harbor.node.properties.maxWidth,
             municipality: harbor.node.properties.municipality,
             name: harbor.node.properties.name || '-',
             numberOfPlaces: harbor.node.properties.numberOfPlaces || 0,

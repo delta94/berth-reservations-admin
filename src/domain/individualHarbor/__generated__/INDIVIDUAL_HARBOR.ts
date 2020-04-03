@@ -61,14 +61,14 @@ export interface INDIVIDUAL_HARBOR_harbor_properties_piers {
 export interface INDIVIDUAL_HARBOR_harbor_properties {
   __typename: "HarborProperties";
   name: string | null;
-  numberOfPlaces: number | null;
+  numberOfPlaces: number;
   streetAddress: string | null;
   zipCode: string;
   municipality: string | null;
   wwwUrl: string;
   imageFile: string | null;
   servicemapId: string | null;
-  maximumWidth: number | null;
+  maxWidth: number | null;
   piers: INDIVIDUAL_HARBOR_harbor_properties_piers | null;
 }
 

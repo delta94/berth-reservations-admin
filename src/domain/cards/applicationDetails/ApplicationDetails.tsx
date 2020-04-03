@@ -37,6 +37,7 @@ export interface ApplicationDetailsProps {
   createdAt: string;
   queue: number | null;
   status: ApplicationStatus;
+  lease?: Lease | null;
   boatType?: string | null;
   boatRegistrationNumber: string;
   boatWidth: number;
@@ -46,9 +47,8 @@ export interface ApplicationDetailsProps {
   boatName: string;
   boatModel: string;
   harborChoices: Array<HarborChoice | null>;
-  lease?: Lease | null;
-  handleDeleteLease?: (id: string) => void;
   accessibilityRequired: boolean;
+  handleDeleteLease?: (id: string) => void;
 }
 
 const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
@@ -76,124 +76,118 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
   const routerQuery = new URLSearchParams(useLocation().search);
 
   return (
-    <div className={styles.applicationsDetails}>
-      <Grid colsCount={3}>
-        <Section title={t('applications.applicationDetails.application')}>
+    <Grid colsCount={3}>
+      <Section title={t('applications.applicationDetails.application')}>
+        <LabelValuePair
+          label={t('applications.applicationDetails.applicationType')}
+          value={
+            isSwitch
+              ? t('applications.applicationType.switchApplication')
+              : t('applications.applicationType.newApplication')
+          }
+        />
+        <LabelValuePair
+          label={t('applications.applicationDetails.receivedDate')}
+          value={formatDate(createdAt, i18n.language, true)}
+        />
+        <LabelValuePair
+          label={t('applications.applicationDetails.queueNumber')}
+          value={`${queue || ''}`}
+        />
+        <LabelValuePair
+          label={t('applications.applicationDetails.status')}
+          value={t(APPLICATION_STATUS[status]?.label)}
+        />
+      </Section>
+      <div>
+        <Section title={t('applications.applicationDetails.boatInfo')}>
           <LabelValuePair
-            label={t('applications.applicationDetails.applicationType')}
-            value={
-              isSwitch
-                ? t('applications.applicationType.switchApplication')
-                : t('applications.applicationType.newApplication')
-            }
+            label={t('applications.applicationDetails.boatType')}
+            value={boatType}
           />
           <LabelValuePair
-            label={t('applications.applicationDetails.receivedDate')}
-            value={formatDate(createdAt, i18n.language, true)}
-          />
-          <LabelValuePair
-            label={t('applications.applicationDetails.queueNumber')}
-            value={`${queue || ''}`}
-          />
-          <LabelValuePair
-            label={t('applications.applicationDetails.status')}
-            value={t(APPLICATION_STATUS[status]?.label)}
+            label={t('applications.applicationDetails.registrationNumber')}
+            value={boatRegistrationNumber}
           />
         </Section>
-        <div>
-          <Section title={t('applications.applicationDetails.boatInfo')}>
-            <LabelValuePair
-              label={t('applications.applicationDetails.boatType')}
-              value={boatType}
-            />
-            <LabelValuePair
-              label={t('applications.applicationDetails.registrationNumber')}
-              value={boatRegistrationNumber}
-            />
+        <Section>
+          <LabelValuePair
+            label={t('applications.applicationDetails.boatWidth')}
+            value={formatDimension(boatWidth, i18n.language)}
+          />
+          <LabelValuePair
+            label={t('applications.applicationDetails.boatLength')}
+            value={formatDimension(boatLength, i18n.language)}
+          />
+          <LabelValuePair
+            label={t('applications.applicationDetails.boatDepth')}
+            value={formatDimension(boatDraught, i18n.language)}
+          />
+          <LabelValuePair
+            label={t('applications.applicationDetails.boatWeight')}
+            value={formatWeight(boatWeight, i18n.language)}
+          />
+        </Section>
+        <Section>
+          <LabelValuePair
+            label={t('applications.applicationDetails.boatName')}
+            value={boatName}
+          />
+          <LabelValuePair
+            label={t('applications.applicationDetails.boatBrand')}
+            value={boatModel}
+          />
+        </Section>
+      </div>
+      <div>
+        {lease ? (
+          <Section title={t('applications.applicationDetails.connectedLease')}>
+            {lease.harborName}
+            {handleDeleteLease && (
+              <button
+                className={styles.deleteButton}
+                onClick={() => handleDeleteLease(lease.id)}
+              >
+                <Text color="brand">
+                  {t('applications.applicationDetails.deleteLease')}
+                </Text>
+              </button>
+            )}
           </Section>
-          <Section>
-            <LabelValuePair
-              label={t('applications.applicationDetails.boatWidth')}
-              value={formatDimension(boatWidth, i18n.language)}
-            />
-            <LabelValuePair
-              label={t('applications.applicationDetails.boatLength')}
-              value={formatDimension(boatLength, i18n.language)}
-            />
-            <LabelValuePair
-              label={t('applications.applicationDetails.boatDepth')}
-              value={formatDimension(boatDraught, i18n.language)}
-            />
-            <LabelValuePair
-              label={t('applications.applicationDetails.boatWeight')}
-              value={formatWeight(boatWeight, i18n.language)}
-            />
-          </Section>
-          <Section>
-            <LabelValuePair
-              label={t('applications.applicationDetails.boatName')}
-              value={boatName}
-            />
-            <LabelValuePair
-              label={t('applications.applicationDetails.boatBrand')}
-              value={boatModel}
-            />
-          </Section>
-        </div>
-        <div>
-          {lease ? (
-            <Section
-              title={t('applications.applicationDetails.connectedLease')}
-            >
-              {lease.harborName}
-              {handleDeleteLease && (
-                <button
-                  className={styles.deleteButton}
-                  onClick={() => handleDeleteLease(lease.id)}
-                >
-                  <Text color="brand">
-                    {t('applications.applicationDetails.deleteLease')}
-                  </Text>
-                </button>
-              )}
-            </Section>
-          ) : (
-            <Section title={t('applications.applicationDetails.selectedPorts')}>
-              <List noBullets>
-                {[...harborChoices]
-                  .filter(notNull)
-                  .sort(
-                    (choiceA, choiceB) => choiceA.priority - choiceB.priority
-                  )
-                  .map(({ harborName, harbor }, i) => {
-                    routerQuery.set('harbor', harbor);
+        ) : (
+          <Section title={t('applications.applicationDetails.selectedPorts')}>
+            <List noBullets>
+              {[...harborChoices]
+                .filter(notNull)
+                .sort((choiceA, choiceB) => choiceA.priority - choiceB.priority)
+                .map(({ harborName, harbor }, i) => {
+                  routerQuery.set('harbor', harbor);
 
-                    return (
-                      <ListItem key={i}>
-                        <Text>
-                          {`${t('applications.applicationDetails.choice')} 
+                  return (
+                    <ListItem key={i}>
+                      <Text>
+                        {`${t('applications.applicationDetails.choice')} 
                       ${i + 1}: `}
-                        </Text>
-                        <InternalLink to={`/offer/${id}?${routerQuery}`}>
-                          {harborName}
-                        </InternalLink>
-                      </ListItem>
-                    );
-                  })}
-              </List>
-            </Section>
-          )}
-          <Section>
-            <Checkbox
-              label={t('applications.applicationDetails.accessible')}
-              checked={accessibilityRequired}
-              size="large"
-              readOnly
-            />
+                      </Text>
+                      <InternalLink to={`/offer/${id}?${routerQuery}`}>
+                        {harborName}
+                      </InternalLink>
+                    </ListItem>
+                  );
+                })}
+            </List>
           </Section>
-        </div>
-      </Grid>
-    </div>
+        )}
+        <Section>
+          <Checkbox
+            label={t('applications.applicationDetails.accessible')}
+            checked={accessibilityRequired}
+            size="large"
+            readOnly
+          />
+        </Section>
+      </div>
+    </Grid>
   );
 };
 

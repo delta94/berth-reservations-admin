@@ -16,7 +16,7 @@ type Props = {
   municipality: HarborData['municipality'];
   wwwUrl: HarborData['wwwUrl'];
   servicemapId: HarborData['servicemapId'];
-  maximumWidth: HarborData['maximumWidth'];
+  maxWidth: HarborData['maxWidth'];
 };
 
 const HarborDetails: React.SFC<Props> = ({
@@ -26,7 +26,7 @@ const HarborDetails: React.SFC<Props> = ({
   municipality,
   wwwUrl,
   servicemapId,
-  maximumWidth,
+  maxWidth,
 }) => {
   const { t } = useTranslation();
   const address = `${streetAddress} ${zipCode} ${municipality}`;
@@ -53,9 +53,9 @@ const HarborDetails: React.SFC<Props> = ({
       <div className={classNames(styles.section)}>
         <Section>
           <LabelValuePair
-            label={t('harbors.details.maximumWidth')}
+            label={t('harbors.details.maxWidth')}
             labelColor="brand"
-            value={maximumWidth ? `${maximumWidth}m` : '-'}
+            value={maxWidth ? `${maxWidth}m` : '-'}
           />
           <LabelValuePair
             label={t('harbors.details.mooring')}

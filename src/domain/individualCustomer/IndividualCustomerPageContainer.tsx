@@ -13,10 +13,10 @@ import CardBody from '../../common/cardBody/CardBody';
 import BillsCard from './billsCard/BillsCard';
 import CustomerInfoCard from '../cards/customerInfoCard/CustomerInfoCard';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
-import ApplicationCard from './applicationCard/ApplicationCard';
+import ApplicationsCard from './applicationsCard/ApplicationsCard';
 import BoatsCard from './boatsCard/BoatsCard';
 import LeasesCard from './leasesCard/LeasesCard';
-import { getLeases, getBoats } from './utils';
+import { getLeases, getBoats, getApplications } from './utils';
 
 const IndividualHarborPageContainer: React.SFC = () => {
   const { t } = useTranslation();
@@ -54,6 +54,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
 
   const leases = getLeases(data.profile);
   const boats = getBoats(data.profile);
+  const applications = getApplications(data.profile);
 
   return (
     <IndividualCustomerPage>
@@ -69,25 +70,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
         <CardHeader title="VIIMEAIKAINEN TOIMINTA" />
         <CardBody>Placeholder</CardBody>
       </Card>
-      <ApplicationCard
-        applicationType="Vaihtohakemus"
-        receivedDate="23.8.2019, klo 21.06"
-        queueNumber={245}
-        status="Ei käsitelty"
-        boatType="Purjevene / moottoripursi"
-        registrationNumber="A 12345"
-        boatWidth="3,2 m"
-        boatLength="6 m"
-        boatDepth="0,8 m"
-        boatWeight="350 kg"
-        boatName="Cama la Yano"
-        boatBrand="Marine"
-        selectedPorts={[
-          { title: 'Pursilahdenranta', id: '123' },
-          { title: 'Pursilahdenranta', id: '123' },
-        ]}
-        accessible={true}
-      />
+      <ApplicationsCard applications={applications} />
       <BillsCard
         berthPlace="Pursilahdenranta B 31"
         contractPeriod="14.9.2019 - 10.6.2019"

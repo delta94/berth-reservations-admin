@@ -77,7 +77,7 @@
       "comments": "HUOMIOT",
       "serviceMap": "Palvelukartta",
       "portMap": "Satamakartta (PDF)",
-      "maximumWidth": "Max leveys",
+      "maxWidth": "Max leveys",
       "mooring": "Kiinnitys",
       "chief": "Päällikkö",
       "maintenanceTeam": "Huoltotiimi",
@@ -94,7 +94,7 @@
       "wasteCollection": "Jätehuolto",
       "gate": "Portti",
       "lighting": "Valaistus",
-      "maximumWidth": "Max. leveys",
+      "maxWidth": "Max. leveys",
       "queue": "Jonossa"
     },
     "tableHeaders": {
@@ -218,7 +218,7 @@
       "address": "OSOITE",
       "serviceMap": "Palvelukartta",
       "portMap": "Satamakartta (PDF)",
-      "maximumWidth": "Max leveys",
+      "maxWidth": "Max leveys",
       "mooring": "Kiinnitys",
       "chief": "Päällikkö",
       "maintenanceTeam": "Huoltotiimi",
