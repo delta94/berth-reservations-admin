@@ -34,14 +34,14 @@ export interface HARBORS_harbors_edges_node_properties_piers {
 export interface HARBORS_harbors_edges_node_properties {
   __typename: "HarborProperties";
   name: string | null;
-  numberOfPlaces: number | null;
+  numberOfPlaces: number;
   streetAddress: string | null;
   zipCode: string;
   municipality: string | null;
   wwwUrl: string;
   imageFile: string | null;
   servicemapId: string | null;
-  maximumWidth: number | null;
+  maxWidth: number | null;
   piers: HARBORS_harbors_edges_node_properties_piers | null;
 }
 

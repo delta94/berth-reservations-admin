@@ -20,7 +20,7 @@ export interface HarborPropertiesProps {
   properties: {
     electricity: boolean;
     gate: boolean;
-    maximumWidth: number;
+    maxWidth: number;
     queue: number;
     numberOfFreePlaces: number;
     numberOfPlaces: number;
@@ -82,8 +82,8 @@ const HarborProperties: React.SFC<HarborPropertiesProps> = ({
               label={t('individualHarbor.harborProperties.queue')}
             />
             <Property
-              counter={properties.maximumWidth}
-              label={t('individualHarbor.harborProperties.maximumWidth')}
+              counter={properties.maxWidth}
+              label={t('individualHarbor.harborProperties.maxWidth')}
             />
 
             <Property
