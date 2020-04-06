@@ -20,9 +20,11 @@
   "common": {
     "yes": "Kyllä",
     "no": "Ei",
+    "search": "Haku",
     "table": {
       "minimizeAll": "Pienennä kaikki",
-      "all": "Kaikki"
+      "all": "Kaikki",
+      "noMatches": "Ei hakua vastaavia osumia"
     },
     "sidebar": {
       "harbors": "Venepaikat",

@@ -1,103 +1,120 @@
 @import 'colours';
 @import 'spacings';
 
-%pseudo-divider:not(:last-of-type)::after {
-  position: absolute;
+$rows-spacing: units(0.25);
+$padding: units(0.5) units(1);
+
+.tableWrapper {
   display: block;
-  content: '';
-  width: 1px;
-  background-color: $gray-200;
-  top: units(0.5);
-  bottom: units(0.5);
-  right: 0;
+  overflow-x: scroll;
 }
 
-$rows-spacing: units(0.25);
-$padding: units(1);
-
 .table {
-  border-collapse: separate;
-  border-spacing: 0 $rows-spacing;
   width: 100%;
+  table-layout: fixed;
 
-  .tableHeader {
-    @extend %pseudo-divider;
-
-    text-align: left;
-    padding: $padding;
-    font-weight: normal;
+  .tableCell {
     position: relative;
+    padding: $padding;
+    min-width: units(4);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: inherit;
+    overflow-x: scroll;
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      border-right: solid 1px $gray-200;
+    }
+  }
+
+  .header {
     border-bottom: solid 2px $gray-500;
+    margin-bottom: $rows-spacing;
+    padding: units(0.5) 0;
+
+    &.mainHeader {
+      background-color: $blue-500;
+      color: $white;
+      font-weight: bold;
+      border: none;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin: 0;
+      padding: 0;
+
+      & .tableCell {
+        margin: 0;
+        padding: units(1);
+      }
+    }
   }
 
-  .mainHeader {
-    background-color: $blue-500;
-    color: $white;
-    font-weight: bold;
-    border: none;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+  .headerCell {
+    @extend .tableCell;
+
+    position: relative;
+    white-space: normal;
   }
 
-  .sortingArrows {
+  .sortArrowWrapper {
     display: inline-flex;
     position: absolute;
     top: 0;
     bottom: 0;
-    right: $padding;
+    right: 0;
     align-items: center;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+
+    &.isSorted {
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 0s linear 0s, opacity 300ms;
+    }
   }
 
-  .arrowUp {
-    transform: rotate(270deg);
+  .sortArrow {
+    transition: transform 0.25s;
+
+    &.sortArrowUp {
+      transform: rotate(270deg);
+    }
+
+    &.sortArrowDown {
+      transform: rotate(90deg);
+    }
   }
 
-  .arrowDown {
-    transform: rotate(90deg);
-  }
-
-  .tableRow {
+  .rowWrapper {
     background-color: $white;
-  }
+    padding: units(0.5) 0;
+    margin-bottom: $rows-spacing;
 
-  .expandedRow {
-    box-shadow: 0px -#{$rows-spacing} 0px 0px $white;
-  }
-
-  .selected {
-    box-shadow: 0px 0px 0px 1px $blue-500;
-  }
-
-  .tableCell {
-    @extend %pseudo-divider;
-
-    position: relative;
-    margin: units(0.5) 0;
-    padding: $padding;
-    min-width: units(4);
+    &.isSelected {
+      box-shadow: inset 0px 0px 0px 1px $blue-500;
+    }
   }
 
   .subComponent {
-    @extend .tableCell;
+    display: block;
     padding: units(1.5);
+    margin-top: -#{$rows-spacing};
   }
 
   .selector,
   .radioSelector {
-    min-width: units(4);
-    width: units(4);
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    max-width: units(4);
   }
 
   .expander {
-    margin: 0 auto;
-    min-width: unset;
-    text-align: center;
-    width: units(2);
-    cursor: pointer;
-  }
-
-  .expandArrowWrapper {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    max-width: units(6);
   }
 }

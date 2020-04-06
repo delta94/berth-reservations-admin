@@ -7,11 +7,15 @@ import {
   useSortBy,
   useRowSelect,
   useFilters,
+  useGlobalFilter,
   TableOptions,
   HeaderProps,
   Row,
   HeaderGroup,
   Column as ColumnType,
+  UseGlobalFiltersInstanceProps,
+  useFlexLayout,
+  TableState,
 } from 'react-table';
 
 import Checkbox from '../checkbox/Checkbox';
@@ -21,17 +25,26 @@ import Icon from '../icons/Icon';
 
 export type Column<D extends object> = ColumnType<D>;
 
-interface TState<D extends object> {
+interface TState<D extends object> extends TableState<D> {
   selectedRows: Array<Row<D>['original']>;
 }
+
+interface Setters<D extends object> {
+  setGlobalFilter: UseGlobalFiltersInstanceProps<D>['setGlobalFilter'];
+}
+
+type TableToolsFn<D extends object> = (
+  tableState: TState<D>,
+  setters: Setters<D>
+) => React.ReactNode;
 
 type Props<D extends object> = {
   className?: string;
   data: D[];
   canSelectRows?: boolean;
   canSelectOneRow?: boolean;
-  renderTableToolsTop?: (tableState: TState<D>) => React.ReactNode;
-  renderTableToolsBottom?: (tableState: TState<D>) => React.ReactNode;
+  renderTableToolsTop?: TableToolsFn<D>;
+  renderTableToolsBottom?: TableToolsFn<D>;
   renderSubComponent?: (row: Row<D>) => React.ReactNode;
   renderMainHeader?: (props: HeaderProps<D>) => React.ReactNode;
   renderEmptyStateRow?: () => React.ReactNode;
@@ -41,6 +54,18 @@ const EXPANDER = 'EXPANDER';
 const MAIN_HEADER = 'MAIN_HEADER';
 const SELECTOR = 'SELECTOR';
 const RADIO_SELECTOR = 'RADIO_SELECTOR';
+
+const BASE_COL_WIDTH = 150;
+
+export enum COLUMN_WIDTH {
+  'XXS' = 0.25 * BASE_COL_WIDTH,
+  'XS' = 0.5 * BASE_COL_WIDTH,
+  'S' = 0.75 * BASE_COL_WIDTH,
+  'M' = 1 * BASE_COL_WIDTH,
+  'L' = 1.5 * BASE_COL_WIDTH,
+  'XL' = 2 * BASE_COL_WIDTH,
+  'XXL' = 3 * BASE_COL_WIDTH,
+}
 
 const Table = <D extends object>({
   className,
@@ -89,10 +114,7 @@ const Table = <D extends object>({
   const expanderCol: Column<D> = React.useMemo(
     () => ({
       Cell: ({ row }) => (
-        <div
-          {...row.getToggleRowExpandedProps()}
-          className={styles.expandArrowWrapper}
-        >
+        <div {...row.getToggleRowExpandedProps()}>
           {row.isExpanded ? (
             <Icon shape="IconAngleUp" size="small" />
           ) : (
@@ -101,11 +123,12 @@ const Table = <D extends object>({
         </div>
       ),
       Header: ({ toggleAllRowsExpanded }) => (
-        <span onClick={() => toggleAllRowsExpanded(false)}>
+        <button onClick={() => toggleAllRowsExpanded(false)}>
           {t('common.table.minimizeAll')}
-        </span>
+        </button>
       ),
       id: EXPANDER,
+      minWidth: 0,
     }),
     [t]
   );
@@ -146,111 +169,121 @@ const Table = <D extends object>({
     headerGroups,
     rows,
     prepareRow,
-    flatHeaders,
     selectedFlatRows,
-    visibleColumns,
+    setGlobalFilter,
+    state,
   } = useTable(
     {
       columns: tableColumns,
       data,
     },
     useFilters,
+    useGlobalFilter,
+    useFlexLayout,
     useSortBy,
     useExpanded,
     useRowSelect
   );
 
-  const renderTableHead = (headerGroup: HeaderGroup<D>) => (
-    <tr {...headerGroup.getHeaderGroupProps()}>
+  const renderTableHead = (headerGroup: HeaderGroup<D>, index: number) => (
+    <div
+      {...headerGroup.getHeaderGroupProps()}
+      className={classNames(styles.header, {
+        [styles.mainHeader]: renderMainHeader && index === 0,
+      })}
+    >
       {headerGroup.headers.map(column => (
-        <th
+        <div
           {...column.getHeaderProps(column.getSortByToggleProps())}
-          className={classNames(styles.tableHeader, {
-            [styles.mainHeader]: renderMainHeader && column.depth === 0,
+          className={classNames(styles.headerCell, {
             [styles.selector]: column.id === SELECTOR,
             [styles.radioSelector]: column.id === RADIO_SELECTOR,
             [styles.expander]: column.id === EXPANDER,
           })}
         >
           {column.render('Header')}
-          {column.isSorted && (
-            <div className={styles.sortingArrows}>
-              {column.isSortedDesc ? (
-                <Icon
-                  className={styles.arrowUp}
-                  shape="IconArrowLeft"
-                  size="small"
-                />
-              ) : (
-                <Icon
-                  className={styles.arrowDown}
-                  shape="IconArrowLeft"
-                  size="small"
-                />
-              )}
+          {column.canSort && (
+            <div
+              className={classNames(styles.sortArrowWrapper, {
+                [styles.isSorted]: column.isSorted,
+              })}
+            >
+              <Icon
+                className={classNames(styles.sortArrow, {
+                  [styles.sortArrowUp]: column.isSortedDesc,
+                  [styles.sortArrowDown]: !column.isSortedDesc,
+                })}
+                shape="IconArrowLeft"
+                size="small"
+              />
             </div>
           )}
-        </th>
+        </div>
       ))}
-    </tr>
+    </div>
   );
 
   const renderTableBody = (row: Row<D>) => {
     prepareRow(row);
     return (
-      <React.Fragment key={row.index}>
-        <tr
-          {...row.getRowProps()}
-          className={classNames(styles.tableRow, {
-            [styles.selected]: row.isSelected,
-          })}
-        >
+      <div
+        key={row.index}
+        className={classNames(styles.rowWrapper, {
+          [styles.isSelected]: row.isSelected,
+        })}
+      >
+        <div {...row.getRowProps()}>
           {row.cells.map(cell => (
-            <td
+            <div
               {...cell.getCellProps()}
               className={classNames(styles.tableCell, {
                 [styles.selector]: cell.column.id === SELECTOR,
                 [styles.radioSelector]: cell.column.id === RADIO_SELECTOR,
+                [styles.expander]: cell.column.id === EXPANDER,
               })}
             >
               {cell.render('Cell')}
-            </td>
+            </div>
           ))}
-        </tr>
+        </div>
         {renderSubComponent && row.isExpanded && (
-          <tr className={classNames(styles.tableRow, styles.expandedRow)}>
-            <td className={styles.subComponent} colSpan={flatHeaders.length}>
-              {renderSubComponent(row)}
-            </td>
-          </tr>
+          <div className={styles.subComponent}>{renderSubComponent(row)}</div>
         )}
-      </React.Fragment>
+      </div>
     );
   };
 
   const renderEmptyBody = () => (
-    <tr className={styles.tableRow}>
-      <td className={styles.tableCell} colSpan={visibleColumns.length}>
-        {renderEmptyStateRow?.()}
-      </td>
-    </tr>
+    <div className={styles.rowWrapper} role="row">
+      {state.globalFilter ? (
+        <div className={styles.tableCell}>{t('common.table.noMatches')}</div>
+      ) : (
+        renderEmptyStateRow?.()
+      )}
+    </div>
   );
 
-  return (
-    <div className={className}>
-      {renderTableToolsTop?.({
+  const renderTableTools = (fn?: TableToolsFn<D>) => {
+    return fn?.(
+      {
+        ...state,
         selectedRows: selectedFlatRows.map(row => row.original),
-      })}
-      <table {...getTableProps()} className={styles.table}>
-        <thead>{headerGroups.map(renderTableHead)}</thead>
-        <tbody {...getTableBodyProps()}>
+      },
+      { setGlobalFilter }
+    );
+  };
+
+  return (
+    <div className={classNames(styles.tableWrapper, className)}>
+      {renderTableTools(renderTableToolsTop)}
+      <div {...getTableProps()} className={styles.table}>
+        {headerGroups.map(renderTableHead)}
+        <div {...getTableBodyProps()}>
           {rows.map(renderTableBody)}
           {rows.length === 0 && renderEmptyBody()}
-        </tbody>
-      </table>
-      {renderTableToolsBottom?.({
-        selectedRows: selectedFlatRows.map(row => row.original),
-      })}
+        </div>
+      </div>
+      {renderTableTools(renderTableToolsBottom)}
     </div>
   );
 };
