@@ -10,7 +10,7 @@ import { UpdateBerthApplicationInput } from "./../../../@types/__generated__/glo
 // ====================================================
 
 export interface UPDATE_BERTH_APPLICATION_updateBerthApplication_berthApplication_customer {
-  __typename: "BerthProfileNode";
+  __typename: "ProfileNode";
   id: string;
 }
 
