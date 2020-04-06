@@ -32,3 +32,19 @@ Array [
   },
 ]
 `;
+
+exports[`utils getLeases should return an array of lease objects 1`] = `
+Array [
+  Object {
+    "berthNum": "30",
+    "endDate": "2019-09-14",
+    "harbor": Object {
+      "id": "78e5a1bc-5fde-470e-8236-298427877d0f",
+      "name": "Puotilan venesatama",
+    },
+    "id": "e4876a7d-86fc-4c13-90fa-2b2e4e935431",
+    "pierIdentifier": "A",
+    "startDate": "2019-05-06",
+  },
+]
+`;
