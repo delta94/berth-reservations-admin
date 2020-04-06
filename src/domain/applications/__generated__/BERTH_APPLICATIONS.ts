@@ -10,7 +10,7 @@ import { ApplicationStatus } from "./../../../@types/__generated__/globalTypes";
 // ====================================================
 
 export interface BERTH_APPLICATIONS_berthApplications_edges_node_customer {
-  __typename: "BerthProfileNode";
+  __typename: "ProfileNode";
   id: string;
 }
 
