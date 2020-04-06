@@ -1,0 +1,13 @@
+@import 'colours';
+@import 'spacings';
+
+.harborsTableTools {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: units(0.5);
+}
+
+.filterField {
+  background-color: $white;
+  width: 25%;
+}
