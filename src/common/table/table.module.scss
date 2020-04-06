@@ -2,7 +2,8 @@
 @import 'spacings';
 
 $rows-spacing: units(0.25);
-$padding: units(0.5) units(1);
+$cell-padding-vertical: units(0.5);
+$cell-padding-horizontal: units(1);
 
 .tableWrapper {
   display: block;
@@ -15,7 +16,7 @@ $padding: units(0.5) units(1);
 
   .tableCell {
     position: relative;
-    padding: $padding;
+    padding: $cell-padding-vertical $cell-padding-horizontal;
     min-width: units(4);
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -29,28 +30,6 @@ $padding: units(0.5) units(1);
     }
   }
 
-  .header {
-    border-bottom: solid 2px $gray-500;
-    margin-bottom: $rows-spacing;
-    padding: units(0.5) 0;
-
-    &.mainHeader {
-      background-color: $blue-500;
-      color: $white;
-      font-weight: bold;
-      border: none;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-      margin: 0;
-      padding: 0;
-
-      & .tableCell {
-        margin: 0;
-        padding: units(1);
-      }
-    }
-  }
-
   .headerCell {
     @extend .tableCell;
 
@@ -58,14 +37,35 @@ $padding: units(0.5) units(1);
     white-space: normal;
   }
 
+  .header {
+    border-bottom: solid 2px $gray-500;
+    margin-bottom: $rows-spacing;
+    padding: units(0.5) 0;
+  }
+
+  .mainHeader {
+    background-color: $blue-500;
+    color: $white;
+    font-weight: bold;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin: 0;
+    padding: 0;
+
+    & .tableCell {
+      margin: 0;
+      padding: units(1);
+    }
+  }
+
   .sortArrowWrapper {
     display: inline-flex;
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 0;
+    right: $cell-padding-horizontal;
     align-items: center;
-
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s linear 300ms, opacity 300ms;
@@ -91,7 +91,7 @@ $padding: units(0.5) units(1);
 
   .rowWrapper {
     background-color: $white;
-    padding: units(0.5) 0;
+    padding: $cell-padding-horizontal 0;
     margin-bottom: $rows-spacing;
 
     &.isSelected {
