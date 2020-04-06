@@ -103,9 +103,15 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
       {similarCustomersData && (
         <>
           <Notification
-            labelText={t('individualApplication.noCustomerProfileNotification')}
+            labelText={t(
+              'individualApplication.noCustomerProfileNotification.label'
+            )}
             type="warning"
-          />
+          >
+            {t(
+              'individualApplication.noCustomerProfileNotification.description'
+            )}
+          </Notification>
           <Table
             className={styles.customersTable}
             data={similarCustomersData}
