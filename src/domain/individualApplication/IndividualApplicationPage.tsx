@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Notification } from 'hds-react';
 
 import styles from './individualApplicationPage.module.scss';
 import Card from '../../common/card/Card';
@@ -100,30 +101,36 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
       </div>
 
       {similarCustomersData && (
-        <Table
-          className={styles.customersTable}
-          data={similarCustomersData}
-          columns={columns}
-          renderMainHeader={() =>
-            t('individualApplication.customersTable.mainHeader')
-          }
-          renderTableToolsBottom={({ selectedRows }) => {
-            const onLinkCustomer = selectedRows.length
-              ? () => handleLinkCustomer(selectedRows[0].id)
-              : undefined;
+        <>
+          <Notification
+            labelText={t('individualApplication.noCustomerProfileNotification')}
+            type="warning"
+          />
+          <Table
+            className={styles.customersTable}
+            data={similarCustomersData}
+            columns={columns}
+            renderMainHeader={() =>
+              t('individualApplication.customersTable.mainHeader')
+            }
+            renderTableToolsBottom={({ selectedRows }) => {
+              const onLinkCustomer = selectedRows.length
+                ? () => handleLinkCustomer(selectedRows[0].id)
+                : undefined;
 
-            return (
-              <CustomersTableTools
-                handleLinkCustomer={onLinkCustomer}
-                handleCreateCustomer={handleCreateCustomer}
-              />
-            );
-          }}
-          renderEmptyStateRow={() => (
-            <div>{t('individualApplication.customersTable.emptyState')}</div>
-          )}
-          canSelectOneRow
-        />
+              return (
+                <CustomersTableTools
+                  handleLinkCustomer={onLinkCustomer}
+                  handleCreateCustomer={handleCreateCustomer}
+                />
+              );
+            }}
+            renderEmptyStateRow={() => (
+              <div>{t('individualApplication.customersTable.emptyState')}</div>
+            )}
+            canSelectOneRow
+          />
+        </>
       )}
       <CustomerInfoCard {...customerInfo} />
       <Card>
