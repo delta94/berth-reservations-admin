@@ -255,11 +255,11 @@ const Table = <D extends object>({
 
   const renderEmptyBody = () => (
     <div className={styles.rowWrapper} role="row">
-      {state.globalFilter ? (
-        <div className={styles.tableCell}>{t('common.table.noMatches')}</div>
-      ) : (
-        renderEmptyStateRow?.()
-      )}
+      <div className={styles.tableCell}>
+        {state.globalFilter
+          ? t('common.table.noMatches')
+          : renderEmptyStateRow?.()}
+      </div>
     </div>
   );
 
