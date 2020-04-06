@@ -158,7 +158,10 @@
     }
   },
   "individualApplication": {
-    "noCustomerProfileNotification": "Hakemusta ei ole liitetty mihinkään asiakkaaseen. Liitä hakemus olemassa olevaan asiakasprofiiliin tai luo uusi asiakasprofiili hakemuksen tiedoilla.",
+    "noCustomerProfileNotification": {
+      "label": "Hakemusta ei ole liitetty mihinkään asiakkaaseen",
+      "description": "Liitä hakemus olemassa olevaan asiakasprofiiliin tai luo uusi asiakasprofiili hakemuksen tiedoilla."
+    },
     "customersTable": {
       "mainHeader": "LIITÄ HAKEMUS OLEMASSA OLEVAAN ASIAKASPROFIILIIN",
       "name": "Nimi",
