@@ -1,4 +1,7 @@
-import { INDIVIDUAL_CUSTOMER_profile as CUSTOMER_PROFILE } from './__generated__/INDIVIDUAL_CUSTOMER';
+import {
+  INDIVIDUAL_CUSTOMER_profile as CUSTOMER_PROFILE,
+  INDIVIDUAL_CUSTOMER_boatTypes as BOAT_TYPES,
+} from './__generated__/INDIVIDUAL_CUSTOMER';
 import { ApplicationStatus } from '../../@types/__generated__/globalTypes';
 
 interface Lease {
@@ -103,9 +106,12 @@ export interface Application {
   accessibilityRequired: boolean;
 }
 
-export const getApplications = (profile: CUSTOMER_PROFILE) => {
+export const getApplications = (
+  profile: CUSTOMER_PROFILE,
+  boatTypes: BOAT_TYPES[]
+) => {
   return (
-    profile.berthApplications?.edges.reduce<Application[]>((acc, edge) => {
+    profile?.berthApplications?.edges.reduce<Application[]>((acc, edge) => {
       if (edge?.node) {
         const {
           id,
@@ -149,7 +155,7 @@ export const getApplications = (profile: CUSTOMER_PROFILE) => {
           boatLength,
           boatDraught,
           boatWeight,
-          boatType,
+          boatType: boatTypes?.find(({ id }) => id === boatType)?.name,
           harborChoices: harborChoices || [],
           accessibilityRequired,
         };

@@ -91,8 +91,15 @@ export interface INDIVIDUAL_APPLICATION_berthApplication {
   harborChoices: (INDIVIDUAL_APPLICATION_berthApplication_harborChoices | null)[] | null;
 }
 
+export interface INDIVIDUAL_APPLICATION_boatTypes {
+  __typename: "BoatTypeType";
+  id: string;
+  name: string | null;
+}
+
 export interface INDIVIDUAL_APPLICATION {
   berthApplication: INDIVIDUAL_APPLICATION_berthApplication | null;
+  boatTypes: INDIVIDUAL_APPLICATION_boatTypes[] | null;
 }
 
 export interface INDIVIDUAL_APPLICATIONVariables {

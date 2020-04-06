@@ -108,5 +108,9 @@ export const INDIVIDUAL_APPLICATION_QUERY = gql`
         harborName
       }
     }
+    boatTypes {
+      id
+      name
+    }
   }
 `;

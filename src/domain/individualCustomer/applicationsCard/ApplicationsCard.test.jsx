@@ -8,11 +8,12 @@ const mockProps = {
   applications: [
     {
       id: '54321',
-      applicationType: 'Vaihtohakemus',
+      isSwitch: true,
       createdAt:
         'Wed Oct 23 2019 15:15:05 GMT+0300 (Eastern European Summer Time)',
       queue: 245,
       status: 'PENDING',
+      lease: null,
       boatType: 'Purjevene / moottoripursi',
       boatRegistrationNumber: 'A 12345',
       boatWidth: 3.2,
@@ -22,8 +23,8 @@ const mockProps = {
       boatName: 'Cama la Yano',
       boatModel: 'Marine',
       harborChoices: [
-        { harbor: '123', priority: 1 },
-        { harbor: '321', priority: 3 },
+        { harbor: '123', harborName: 'first choice', priority: 1 },
+        { harbor: '321', harborName: 'second choice', priority: 3 },
       ],
       accessibilityRequired: true,
     },
