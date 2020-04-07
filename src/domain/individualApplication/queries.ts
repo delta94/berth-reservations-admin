@@ -25,8 +25,10 @@ export const FILTERED_CUSTOMERS_QUERY = gql`
             edges {
               node {
                 berth {
+                  number
                   pier {
                     properties {
+                      identifier
                       harbor {
                         id
                         properties {
@@ -90,8 +92,10 @@ export const INDIVIDUAL_APPLICATION_QUERY = gql`
       lease {
         id
         berth {
+          number
           pier {
             properties {
+              identifier
               harbor {
                 id
                 properties {

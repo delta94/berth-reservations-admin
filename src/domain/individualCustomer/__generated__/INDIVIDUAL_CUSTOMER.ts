@@ -121,6 +121,7 @@ export interface INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_lease_
 
 export interface INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_lease_berth_pier_properties {
   __typename: "PierProperties";
+  identifier: string;
   harbor: INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_lease_berth_pier_properties_harbor;
 }
 
@@ -131,6 +132,7 @@ export interface INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_lease_
 
 export interface INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_lease_berth {
   __typename: "BerthNode";
+  number: string;
   pier: INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_lease_berth_pier;
 }
 

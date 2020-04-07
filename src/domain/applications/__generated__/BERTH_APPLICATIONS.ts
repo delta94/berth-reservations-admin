@@ -10,7 +10,7 @@ import { ApplicationStatus } from "./../../../@types/__generated__/globalTypes";
 // ====================================================
 
 export interface BERTH_APPLICATIONS_berthApplications_edges_node_customer {
-  __typename: "BerthProfileNode";
+  __typename: "ProfileNode";
   id: string;
 }
 
@@ -32,6 +32,7 @@ export interface BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth_pie
 
 export interface BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth_pier_properties {
   __typename: "PierProperties";
+  identifier: string;
   harbor: BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth_pier_properties_harbor;
 }
 
@@ -42,6 +43,7 @@ export interface BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth_pie
 
 export interface BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth {
   __typename: "BerthNode";
+  number: string;
   pier: BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth_pier;
 }
 

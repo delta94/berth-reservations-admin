@@ -32,6 +32,7 @@ export interface FILTERED_CUSTOMERS_profiles_edges_node_berthLeases_edges_node_b
 
 export interface FILTERED_CUSTOMERS_profiles_edges_node_berthLeases_edges_node_berth_pier_properties {
   __typename: "PierProperties";
+  identifier: string;
   harbor: FILTERED_CUSTOMERS_profiles_edges_node_berthLeases_edges_node_berth_pier_properties_harbor;
 }
 
@@ -42,6 +43,7 @@ export interface FILTERED_CUSTOMERS_profiles_edges_node_berthLeases_edges_node_b
 
 export interface FILTERED_CUSTOMERS_profiles_edges_node_berthLeases_edges_node_berth {
   __typename: "BerthNode";
+  number: string;
   pier: FILTERED_CUSTOMERS_profiles_edges_node_berthLeases_edges_node_berth_pier;
 }
 

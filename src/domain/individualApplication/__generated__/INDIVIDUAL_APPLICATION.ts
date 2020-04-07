@@ -15,7 +15,7 @@ export interface INDIVIDUAL_APPLICATION_berthApplication_customer_company {
 }
 
 export interface INDIVIDUAL_APPLICATION_berthApplication_customer {
-  __typename: "BerthProfileNode";
+  __typename: "ProfileNode";
   id: string;
   company: INDIVIDUAL_APPLICATION_berthApplication_customer_company | null;
 }
@@ -38,6 +38,7 @@ export interface INDIVIDUAL_APPLICATION_berthApplication_lease_berth_pier_proper
 
 export interface INDIVIDUAL_APPLICATION_berthApplication_lease_berth_pier_properties {
   __typename: "PierProperties";
+  identifier: string;
   harbor: INDIVIDUAL_APPLICATION_berthApplication_lease_berth_pier_properties_harbor;
 }
 
@@ -48,6 +49,7 @@ export interface INDIVIDUAL_APPLICATION_berthApplication_lease_berth_pier {
 
 export interface INDIVIDUAL_APPLICATION_berthApplication_lease_berth {
   __typename: "BerthNode";
+  number: string;
   pier: INDIVIDUAL_APPLICATION_berthApplication_lease_berth_pier;
 }
 

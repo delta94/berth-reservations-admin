@@ -27,8 +27,10 @@ export const BERTH_APPLICATIONS_QUERY = gql`
           lease {
             id
             berth {
+              number
               pier {
                 properties {
+                  identifier
                   harbor {
                     id
                     properties {

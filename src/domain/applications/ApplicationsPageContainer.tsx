@@ -103,7 +103,13 @@ const ApplicationsPageContainer: React.SFC = () => {
       Cell: ({ cell }) =>
         cell.value && (
           <InternalLink to={`/harbors/${cell.value.harborId}`}>
-            {cell.value.harborName}
+            {[
+              cell.value.harborName,
+              cell.value.pierIdentifier,
+              cell.value.berthNum,
+            ]
+              .filter(Boolean)
+              .join(' ')}
           </InternalLink>
         ),
       Header: t('applications.tableHeaders.lease') || '',

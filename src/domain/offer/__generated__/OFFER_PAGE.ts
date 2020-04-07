@@ -15,7 +15,7 @@ export interface OFFER_PAGE_berthApplication_berthSwitch {
 }
 
 export interface OFFER_PAGE_berthApplication_customer {
-  __typename: "BerthProfileNode";
+  __typename: "ProfileNode";
   id: string;
 }
 
@@ -29,7 +29,7 @@ export interface OFFER_PAGE_berthApplication {
 }
 
 export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node_customer {
-  __typename: "BerthProfileNode";
+  __typename: "ProfileNode";
   id: string;
 }
 
