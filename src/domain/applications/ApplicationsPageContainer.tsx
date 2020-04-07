@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { Notification } from 'hds-react';
 
 import ApplicationsPage from './ApplicationsPage';
-import Table, { Column } from '../../common/table/Table';
+import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
 import InternalLink from '../../common/internalLink/InternalLink';
 import ApplicationDetails from '../cards/applicationDetails/ApplicationDetails';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
@@ -75,19 +75,23 @@ const ApplicationsPageContainer: React.SFC = () => {
       accessor: 'isSwitch',
       sortType: 'basic',
       filter: 'exact',
-    },
-    {
-      Header: t('applications.tableHeaders.queue') || '',
-      accessor: 'queue',
+      width: COLUMN_WIDTH.M,
     },
     {
       Cell: ({ cell }) => formatDate(cell.value, i18n.language),
       Header: t('applications.tableHeaders.pvm') || '',
       accessor: 'createdAt',
+      width: COLUMN_WIDTH.S,
+    },
+    {
+      Header: t('applications.tableHeaders.queue') || '',
+      accessor: 'queue',
+      width: COLUMN_WIDTH.XS,
     },
     {
       Header: t('applications.tableHeaders.municipality') || '',
       accessor: 'municipality',
+      width: COLUMN_WIDTH.S,
     },
     {
       Cell: ({ cell: { value } }) => (
@@ -98,6 +102,7 @@ const ApplicationsPageContainer: React.SFC = () => {
       ),
       Header: t('applications.tableHeaders.status') || '',
       accessor: 'status',
+      width: COLUMN_WIDTH.M,
     },
     {
       Cell: ({ cell }) =>
@@ -108,6 +113,7 @@ const ApplicationsPageContainer: React.SFC = () => {
         ),
       Header: t('applications.tableHeaders.lease') || '',
       accessor: 'lease',
+      width: COLUMN_WIDTH.XL,
     },
   ];
 

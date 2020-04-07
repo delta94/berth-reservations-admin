@@ -1,5 +1,8 @@
 import { ApplicationDetailsProps } from '../cards/applicationDetails/ApplicationDetails';
-import { INDIVIDUAL_APPLICATION_berthApplication as BERTH_APPLICATION } from './__generated__/INDIVIDUAL_APPLICATION';
+import {
+  INDIVIDUAL_APPLICATION_berthApplication as BERTH_APPLICATION,
+  INDIVIDUAL_APPLICATION_boatTypes as BOAT_TYPES,
+} from './__generated__/INDIVIDUAL_APPLICATION';
 import { CustomerInfoCardProps } from '../cards/customerInfoCard/CustomerInfoCard';
 import { FILTERED_CUSTOMERS } from './__generated__/FILTERED_CUSTOMERS';
 import { CustomerData, CUSTOMER_GROUP } from './IndividualApplicationPage';
@@ -28,8 +31,15 @@ export const getCustomerInfoData = (
   };
 };
 
+interface Lease {
+  id: string;
+  harborName: string;
+  harborId: string;
+}
+
 export const getApplicationDetailsData = (
-  berthApplication: BERTH_APPLICATION
+  berthApplication: BERTH_APPLICATION,
+  boatTypes: BOAT_TYPES[]
 ): ApplicationDetailsProps => {
   const harborChoices = berthApplication.harborChoices || [];
   const lease = berthApplication.lease
@@ -49,6 +59,8 @@ export const getApplicationDetailsData = (
     queue: null,
     harborChoices,
     lease,
+    boatType: boatTypes.find(({ id }) => id === berthApplication.boatType)
+      ?.name,
   };
 };
 

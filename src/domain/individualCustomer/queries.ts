@@ -105,5 +105,9 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
         }
       }
     }
+    boatTypes {
+      id
+      name
+    }
   }
 `;

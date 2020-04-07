@@ -192,8 +192,15 @@ export interface INDIVIDUAL_CUSTOMER_profile {
   berthApplications: INDIVIDUAL_CUSTOMER_profile_berthApplications | null;
 }
 
+export interface INDIVIDUAL_CUSTOMER_boatTypes {
+  __typename: "BoatTypeType";
+  id: string;
+  name: string | null;
+}
+
 export interface INDIVIDUAL_CUSTOMER {
   profile: INDIVIDUAL_CUSTOMER_profile | null;
+  boatTypes: INDIVIDUAL_CUSTOMER_boatTypes[] | null;
 }
 
 export interface INDIVIDUAL_CUSTOMERVariables {

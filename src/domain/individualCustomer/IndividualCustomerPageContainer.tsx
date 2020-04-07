@@ -54,7 +54,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
 
   const leases = getLeases(data.profile);
   const boats = getBoats(data.profile);
-  const applications = getApplications(data.profile);
+  const applications = getApplications(data.profile, data.boatTypes || []);
 
   return (
     <IndividualCustomerPage>

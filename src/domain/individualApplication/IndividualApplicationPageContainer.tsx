@@ -123,7 +123,8 @@ const IndividualCustomerPageContainer: React.SFC = () => {
   const customerInfo = getCustomerInfoData(data.berthApplication);
 
   const applicationDetailsData = getApplicationDetailsData(
-    data.berthApplication
+    data.berthApplication,
+    data.boatTypes || []
   );
 
   const filteredCustomersData = !data.berthApplication.customer

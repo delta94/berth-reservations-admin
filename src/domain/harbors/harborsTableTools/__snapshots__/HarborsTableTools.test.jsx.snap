@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HarborsTableTools renders normally 1`] = `"<div class=\\"harborsTableTools\\"><div class=\\"_1cealf9APZDUwwgivaltwb filterField\\"><div class=\\"_1ru3hdCZ3qhTQ_EVvRwBIh\\"><input type=\\"text\\" class=\\"_35GDyiOFLPVMWYFM4_BMWV CQwbnf7hlQrao8Za4G1Wo\\" id=\\"harborListGlobalFilter\\" placeholder=\\"Haku\\"/></div></div></div>"`;
