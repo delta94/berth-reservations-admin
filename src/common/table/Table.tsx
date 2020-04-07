@@ -115,11 +115,13 @@ const Table = <D extends object>({
     () => ({
       Cell: ({ row }) => (
         <div {...row.getToggleRowExpandedProps()}>
-          {row.isExpanded ? (
-            <Icon shape="IconAngleUp" size="small" />
-          ) : (
-            <Icon shape="IconAngleDown" size="small" />
-          )}
+          <Icon
+            shape="IconAngleDown"
+            size="small"
+            className={classNames(styles.expandArrow, {
+              [styles.isExpanded]: row.isExpanded,
+            })}
+          />
         </div>
       ),
       Header: ({ toggleAllRowsExpanded }) => (
@@ -210,7 +212,6 @@ const Table = <D extends object>({
             >
               <Icon
                 className={classNames(styles.sortArrow, {
-                  [styles.sortArrowUp]: column.isSortedDesc,
                   [styles.sortArrowDown]: !column.isSortedDesc,
                 })}
                 shape="IconArrowLeft"

@@ -4,6 +4,7 @@
 $rows-spacing: units(0.25);
 $cell-padding-vertical: units(0.5);
 $cell-padding-horizontal: units(1);
+$transition-duration: 300ms;
 
 .tableWrapper {
   display: block;
@@ -68,21 +69,19 @@ $cell-padding-horizontal: units(1);
     align-items: center;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s linear 300ms, opacity 300ms;
+    transition: visibility 0s linear $transition-duration,
+      opacity $transition-duration;
 
     &.isSorted {
       visibility: visible;
       opacity: 1;
-      transition: visibility 0s linear 0s, opacity 300ms;
+      transition: visibility 0s linear 0s, opacity $transition-duration;
     }
   }
 
   .sortArrow {
     transition: transform 0.25s;
-
-    &.sortArrowUp {
-      transform: rotate(270deg);
-    }
+    transform: rotate(270deg);
 
     &.sortArrowDown {
       transform: rotate(90deg);
@@ -116,5 +115,13 @@ $cell-padding-horizontal: units(1);
     display: flex;
     justify-content: center;
     max-width: units(6);
+  }
+
+  .expandArrow {
+    transition: transform $transition-duration;
+
+    &.isExpanded {
+      transform: rotate(180deg);
+    }
   }
 }
