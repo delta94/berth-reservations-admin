@@ -275,13 +275,15 @@ const Table = <D extends object>({
   };
 
   return (
-    <div className={classNames(styles.tableWrapper, className)}>
+    <div className={className}>
       {renderTableTools(renderTableToolsTop)}
-      <div {...getTableProps()} className={styles.table}>
-        {headerGroups.map(renderTableHead)}
-        <div {...getTableBodyProps()}>
-          {rows.map(renderTableBody)}
-          {rows.length === 0 && renderEmptyBody()}
+      <div className={styles.tableWrapper}>
+        <div {...getTableProps()} className={styles.table}>
+          {headerGroups.map(renderTableHead)}
+          <div {...getTableBodyProps()}>
+            {rows.map(renderTableBody)}
+            {rows.length === 0 && renderEmptyBody()}
+          </div>
         </div>
       </div>
       {renderTableTools(renderTableToolsBottom)}
