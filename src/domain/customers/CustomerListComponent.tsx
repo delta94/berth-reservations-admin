@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Column } from 'react-table';
 
-import Table from '../../common/table/Table';
+import Table, { COLUMN_WIDTH } from '../../common/table/Table';
 import InternalLink from '../../common/internalLink/InternalLink';
 import CustomerDetails from './customerDetails/CustomerDetails';
 
@@ -37,26 +37,32 @@ const CustomerListComponent = ({ data }: CustomerListComponentProps) => {
       ),
       Header: t('customers.tableHeaders.name') || '',
       accessor: 'name',
+      width: COLUMN_WIDTH.M,
     },
     {
       Header: t('customers.tableHeaders.group') || '',
       accessor: 'group',
+      width: COLUMN_WIDTH.S,
     },
     {
       Header: t('customers.tableHeaders.municipality') || '',
       accessor: 'city',
+      width: COLUMN_WIDTH.S,
     },
     {
       Header: t('customers.tableHeaders.berths') || '',
       accessor: 'berths',
+      width: COLUMN_WIDTH.L,
     },
     {
       Header: t('customers.tableHeaders.invoice') || '',
       accessor: 'invoice',
+      width: COLUMN_WIDTH.S,
     },
     {
       Header: t('customers.tableHeaders.boats') || '',
       accessor: 'boats',
+      width: COLUMN_WIDTH.XS,
     },
   ];
 

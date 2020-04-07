@@ -1,12 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Table, { Column } from '../../common/table/Table';
+import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
 import HarborDetails from './harborDetails/HarborDetails';
 import InternalLink from '../../common/internalLink/InternalLink';
 import styles from './harborsPage.module.scss';
 import Icon from '../../common/icons/Icon';
 import { HarborData } from './utils';
+import HarborsTableTools from './harborsTableTools/HarborsTableTools';
 
 export interface IconProps {
   disabled?: boolean;
@@ -35,10 +36,12 @@ const HarborsList: React.FC<HarborsPageProps> = ({ data = [] }) => {
       ),
       Header: t('harbors.tableHeaders.harbor') || '',
       accessor: 'name',
+      width: COLUMN_WIDTH.XL,
     },
     {
       Header: t('harbors.tableHeaders.places') || '',
       accessor: 'numberOfPlaces',
+      width: COLUMN_WIDTH.S,
     },
     {
       Cell: ({ cell }) => (
@@ -50,6 +53,7 @@ const HarborsList: React.FC<HarborsPageProps> = ({ data = [] }) => {
       ),
       Header: () => <Icon outlined shape="IconPlug" />,
       accessor: 'electricity',
+      width: COLUMN_WIDTH.XS,
     },
     {
       Cell: ({ cell }) => (
@@ -61,6 +65,7 @@ const HarborsList: React.FC<HarborsPageProps> = ({ data = [] }) => {
       ),
       Header: () => <Icon outlined shape="IconFence" />,
       accessor: 'gate',
+      width: COLUMN_WIDTH.XS,
     },
     {
       Cell: ({ cell }) => (
@@ -72,6 +77,7 @@ const HarborsList: React.FC<HarborsPageProps> = ({ data = [] }) => {
       ),
       Header: () => <Icon outlined shape="IconStreetLight" />,
       accessor: 'lighting',
+      width: COLUMN_WIDTH.XS,
     },
     {
       Cell: ({ cell }) => (
@@ -83,6 +89,7 @@ const HarborsList: React.FC<HarborsPageProps> = ({ data = [] }) => {
       ),
       Header: () => <Icon outlined shape="IconWaterTap" />,
       accessor: 'water',
+      width: COLUMN_WIDTH.XS,
     },
     {
       Cell: ({ cell }) => (
@@ -94,6 +101,7 @@ const HarborsList: React.FC<HarborsPageProps> = ({ data = [] }) => {
       ),
       Header: () => <Icon outlined shape="IconTrash" />,
       accessor: 'wasteCollection',
+      width: COLUMN_WIDTH.XS,
     },
   ];
 
@@ -102,6 +110,9 @@ const HarborsList: React.FC<HarborsPageProps> = ({ data = [] }) => {
       <Table
         data={data}
         columns={columns}
+        renderTableToolsTop={(_, setters) => (
+          <HarborsTableTools handleGlobalFilter={setters.setGlobalFilter} />
+        )}
         renderSubComponent={row => <HarborDetails {...row.original} />}
         renderMainHeader={() => t('harbors.tableHeaders.mainHeader')}
         canSelectRows

@@ -15,7 +15,7 @@ export interface INDIVIDUAL_APPLICATION_berthApplication_customer_company {
 }
 
 export interface INDIVIDUAL_APPLICATION_berthApplication_customer {
-  __typename: "BerthProfileNode";
+  __typename: "ProfileNode";
   id: string;
   company: INDIVIDUAL_APPLICATION_berthApplication_customer_company | null;
 }
