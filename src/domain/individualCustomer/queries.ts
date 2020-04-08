@@ -43,6 +43,7 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
         edges {
           node {
             id
+            status
             startDate
             endDate
             berth {

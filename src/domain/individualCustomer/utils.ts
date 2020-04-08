@@ -17,7 +17,7 @@ export const getLeases = (profile: CUSTOMER_PROFILE): Lease[] => {
   if (!profile.berthLeases?.edges) return [];
 
   return profile.berthLeases.edges.reduce<Lease[]>((acc, edge) => {
-    if (!edge?.node) return acc;
+    if (!edge?.node || edge?.node?.status !== 'PAID') return acc;
 
     const berthNum = edge.node.berth.number;
     const pierIdentifier = edge.node.berth.pier.properties?.identifier || null;
