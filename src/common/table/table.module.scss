@@ -16,15 +16,15 @@ $transition-duration: 300ms;
   table-layout: fixed;
 
   .tableCell {
+    display: flex;
+    align-items: center;
     position: relative;
     padding: $cell-padding-vertical $cell-padding-horizontal;
     min-width: units(4);
     white-space: nowrap;
     text-overflow: ellipsis;
     color: inherit;
-    overflow-x: scroll;
-    display: flex;
-    align-items: center;
+    overflow: hidden;
 
     &:not(:last-child) {
       border-right: solid 1px $gray-200;

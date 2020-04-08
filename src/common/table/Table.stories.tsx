@@ -5,6 +5,13 @@ import Table, { Column } from './Table';
 export default {
   component: Table,
   title: 'Table',
+  decorators: [
+    storyFn => (
+      <div style={{ backgroundColor: '#f1f1f1', height: '100vh' }}>
+        {storyFn()}
+      </div>
+    ),
+  ],
 };
 
 const MockData = [
