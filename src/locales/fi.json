@@ -83,7 +83,8 @@
       "mooring": "Kiinnitys",
       "chief": "Päällikkö",
       "maintenanceTeam": "Huoltotiimi",
-      "recentActivities": "Viimeaikainen toiminta"
+      "recentActivities": "Viimeaikainen toiminta",
+      "address": "Osoite"
     }
   },
   "individualHarbor": {
