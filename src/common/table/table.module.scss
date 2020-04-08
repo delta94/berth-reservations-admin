@@ -8,7 +8,6 @@ $transition-duration: 300ms;
 
 .tableWrapper {
   display: block;
-  overflow-x: scroll;
 }
 
 .table {
@@ -42,6 +41,10 @@ $transition-duration: 300ms;
     border-bottom: solid 2px $gray-500;
     margin-bottom: $rows-spacing;
     padding: units(0.5) 0;
+    position: sticky;
+    top: units(3);
+    background-color: $gray-50;
+    z-index: 1;
   }
 
   .mainHeader {
@@ -53,6 +56,7 @@ $transition-duration: 300ms;
     letter-spacing: 0.03em;
     margin: 0;
     padding: 0;
+    top: 0;
 
     & .tableCell {
       margin: 0;
