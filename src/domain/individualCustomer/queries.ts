@@ -75,8 +75,10 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
             lease {
               id
               berth {
+                number
                 pier {
                   properties {
+                    identifier
                     harbor {
                       id
                       properties {

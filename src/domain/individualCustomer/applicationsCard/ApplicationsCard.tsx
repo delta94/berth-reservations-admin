@@ -18,6 +18,8 @@ interface Lease {
   id: string;
   harborId: string;
   harborName: string;
+  pierIdentifier: string;
+  berthNum: string;
 }
 
 interface Application {

@@ -50,6 +50,9 @@ export const getApplicationDetailsData = (
           berthApplication.lease.berth?.pier.properties?.harbor.properties
             ?.name || '',
         id: berthApplication.lease.id,
+        pierIdentifier:
+          berthApplication.lease.berth?.pier.properties?.identifier || '',
+        berthNum: berthApplication.lease.berth?.number || '',
       }
     : null;
 
