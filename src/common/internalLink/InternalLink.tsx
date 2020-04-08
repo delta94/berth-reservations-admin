@@ -18,6 +18,7 @@ const InternalLink: React.SFC<Props> = ({
   return (
     <Link
       {...props}
+      title={typeof children === 'string' ? (children as string) : undefined}
       className={classNames(styles.internalLink, styles[color], {
         [styles.underlined]: underlined,
       })}

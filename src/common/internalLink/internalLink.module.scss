@@ -6,6 +6,8 @@
 
   text-decoration: none;
   color: var(--vene-internal-link-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   & > :first-child {
     margin-right: units(1);
@@ -22,14 +24,6 @@
 
 .critical {
   --vene-internal-link-color: #{$red-500};
-}
-
-.text {
-  border: none;
-  color: var(--vene-button-color);
-  fill: var(--vene-button-color);
-  background: none;
-  padding: 0;
 }
 
 .hasIcon {
