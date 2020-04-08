@@ -14,7 +14,12 @@ export default {
 export const applicationDetails = () => (
   <ApplicationDetails
     id="123456"
-    isSwitch
+    berthSwitch={{
+      harborId: '123',
+      harborName: 'harbor',
+      pierIdentifier: 'pier',
+      berthNum: 'berth',
+    }}
     createdAt="23.8.2019, klo 21.06"
     queue={245}
     status={ApplicationStatus.OFFER_GENERATED}
@@ -41,7 +46,12 @@ applicationDetails.story = {
 export const withAssignedLease = () => (
   <ApplicationDetails
     id="123456"
-    isSwitch
+    berthSwitch={{
+      harborId: '123',
+      harborName: 'harbor',
+      pierIdentifier: 'pier',
+      berthNum: 'berth',
+    }}
     createdAt="23.8.2019, klo 21.06"
     queue={245}
     status={ApplicationStatus.OFFER_GENERATED}

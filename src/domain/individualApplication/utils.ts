@@ -37,12 +37,19 @@ interface Lease {
   harborId: string;
 }
 
+interface BerthSwitch {
+  harborId: string;
+  harborName: string;
+  berthNum: string;
+  pierIdentifier: string;
+}
+
 export const getApplicationDetailsData = (
   berthApplication: BERTH_APPLICATION,
   boatTypes: BOAT_TYPES[]
 ): ApplicationDetailsProps => {
   const harborChoices = berthApplication.harborChoices || [];
-  const lease = berthApplication.lease
+  const lease: Lease | null = berthApplication.lease
     ? {
         harborId:
           berthApplication.lease.berth?.pier.properties?.harbor.id || '',
@@ -55,10 +62,18 @@ export const getApplicationDetailsData = (
         berthNum: berthApplication.lease.berth?.number || '',
       }
     : null;
+  const berthSwitch: BerthSwitch | null = berthApplication.berthSwitch
+    ? {
+        harborId: berthApplication.berthSwitch.harbor,
+        harborName: berthApplication.berthSwitch.harborName,
+        berthNum: berthApplication.berthSwitch.berthNumber,
+        pierIdentifier: berthApplication.berthSwitch.pier,
+      }
+    : null;
 
   return {
     ...berthApplication,
-    isSwitch: !!berthApplication?.berthSwitch,
+    berthSwitch,
     queue: null,
     harborChoices,
     lease,

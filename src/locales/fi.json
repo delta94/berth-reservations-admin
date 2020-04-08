@@ -155,7 +155,9 @@
       "choice": "Toive",
       "connectedLease": "Liitetty satamapaikka",
       "deleteLease": "Poista ehdotettu paikka",
-      "accessible": "Tarvitsen esteettömän paikan"
+      "accessible": "Tarvitsen esteettömän paikan",
+      "currentBerth": "NYKYINEN VENEPAIKKA",
+      "portAndBerth": "Satama ja paikka"
     }
   },
   "individualApplication": {

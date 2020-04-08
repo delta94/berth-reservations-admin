@@ -15,9 +15,17 @@ interface Lease {
   berthNum: string;
 }
 
+interface BerthSwitch {
+  harborId: string;
+  harborName: string;
+  berthNum: string;
+  pierIdentifier: string;
+}
+
 export interface ApplicationData {
   id: string;
   isSwitch: boolean;
+  berthSwitch: BerthSwitch | null;
   queue: number | null;
   createdAt: string;
   municipality: string;
@@ -62,8 +70,8 @@ export const getBerthApplicationData = (
             harborChoices = [],
             accessibilityRequired,
           } = application.node;
-          let leaseProps: Lease | null = null;
 
+          let leaseProps: Lease | null = null;
           if (lease?.berth?.pier.properties?.harbor) {
             leaseProps = {
               id: lease.id,
@@ -75,9 +83,19 @@ export const getBerthApplicationData = (
             };
           }
 
+          const berthSwitchProps = berthSwitch
+            ? {
+                harborId: berthSwitch.harbor,
+                harborName: berthSwitch.harborName,
+                berthNum: berthSwitch.berthNumber,
+                pierIdentifier: berthSwitch.pier,
+              }
+            : null;
+
           const applicationData = {
             id,
             isSwitch: !!berthSwitch,
+            berthSwitch: berthSwitchProps,
             queue: null,
             createdAt,
             municipality,

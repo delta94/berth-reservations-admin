@@ -22,9 +22,16 @@ interface Lease {
   berthNum: string;
 }
 
+interface BerthSwitch {
+  harborId: string;
+  harborName: string;
+  berthNum: string;
+  pierIdentifier: string;
+}
+
 interface Application {
   id: string;
-  isSwitch: boolean;
+  berthSwitch: BerthSwitch | null;
   createdAt: string;
   queue: number | null;
   status: ApplicationStatus;

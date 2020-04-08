@@ -33,9 +33,16 @@ interface Lease {
   berthNum: string;
 }
 
+interface BerthSwitch {
+  harborId: string;
+  harborName: string;
+  berthNum: string;
+  pierIdentifier: string;
+}
+
 export interface ApplicationDetailsProps {
   id: string;
-  isSwitch: boolean;
+  berthSwitch: BerthSwitch | null;
   createdAt: string;
   queue: number | null;
   status: ApplicationStatus;
@@ -55,7 +62,7 @@ export interface ApplicationDetailsProps {
 
 const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
   id,
-  isSwitch,
+  berthSwitch,
   createdAt,
   queue,
   status,
@@ -79,28 +86,40 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
 
   return (
     <Grid colsCount={3}>
-      <Section title={t('applications.applicationDetails.application')}>
-        <LabelValuePair
-          label={t('applications.applicationDetails.applicationType')}
-          value={
-            isSwitch
-              ? t('applications.applicationType.switchApplication')
-              : t('applications.applicationType.newApplication')
-          }
-        />
-        <LabelValuePair
-          label={t('applications.applicationDetails.receivedDate')}
-          value={formatDate(createdAt, i18n.language, true)}
-        />
-        <LabelValuePair
-          label={t('applications.applicationDetails.queueNumber')}
-          value={`${queue || ''}`}
-        />
-        <LabelValuePair
-          label={t('applications.applicationDetails.status')}
-          value={t(APPLICATION_STATUS[status]?.label)}
-        />
-      </Section>
+      <div>
+        <Section title={t('applications.applicationDetails.application')}>
+          <LabelValuePair
+            label={t('applications.applicationDetails.applicationType')}
+            value={
+              berthSwitch !== null
+                ? t('applications.applicationType.switchApplication')
+                : t('applications.applicationType.newApplication')
+            }
+          />
+          <LabelValuePair
+            label={t('applications.applicationDetails.receivedDate')}
+            value={formatDate(createdAt, i18n.language, true)}
+          />
+          <LabelValuePair
+            label={t('applications.applicationDetails.queueNumber')}
+            value={`${queue || ''}`}
+          />
+          <LabelValuePair
+            label={t('applications.applicationDetails.status')}
+            value={t(APPLICATION_STATUS[status]?.label)}
+          />
+        </Section>
+        {berthSwitch !== null && (
+          <Section title={t('applications.applicationDetails.currentBerth')}>
+            <LabelValuePair
+              label={t('applications.applicationDetails.portAndBerth')}
+              value={`${berthSwitch.harborName} ${berthSwitch.pierIdentifier} ${berthSwitch.berthNum}`}
+            />
+          </Section>
+          // TODO: Link to harbor
+          // TODO: Date range
+        )}
+      </div>
       <div>
         <Section title={t('applications.applicationDetails.boatInfo')}>
           <LabelValuePair

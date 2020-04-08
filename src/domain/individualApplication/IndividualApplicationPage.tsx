@@ -88,7 +88,7 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
     <div className={styles.individualApplicationPage}>
       <div className={styles.pageHeader}>
         <Text as="h2" size="xl" weight="normalWeight">
-          {applicationDetails.isSwitch
+          {applicationDetails.berthSwitch !== null
             ? t('applications.applicationType.switchApplication')
             : t('applications.applicationType.newApplication')}{' '}
           {formatDate(applicationDetails.createdAt, i18n.language)}

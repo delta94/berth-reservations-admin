@@ -12,7 +12,12 @@ export default {
 const applications = [
   {
     id: '54321',
-    isSwitch: true,
+    berthSwitch: {
+      harborId: '123',
+      harborName: 'harbor',
+      pierIdentifier: 'pier',
+      berthNum: 'berth',
+    },
     createdAt:
       'Wed Oct 23 2019 15:15:05 GMT+0300 (Eastern European Summer Time)',
     queue: 245,

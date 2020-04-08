@@ -106,7 +106,10 @@ export interface INDIVIDUAL_CUSTOMER_profile_berthLeases {
 
 export interface INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_berthSwitch {
   __typename: "BerthSwitchType";
-  id: string;
+  berthNumber: string;
+  harbor: string;
+  harborName: string;
+  pier: string;
 }
 
 export interface INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_lease_berth_pier_properties_harbor_properties {

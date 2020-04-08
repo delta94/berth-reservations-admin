@@ -17,6 +17,10 @@ export interface BERTH_APPLICATIONS_berthApplications_edges_node_customer {
 export interface BERTH_APPLICATIONS_berthApplications_edges_node_berthSwitch {
   __typename: "BerthSwitchType";
   id: string;
+  berthNumber: string;
+  harbor: string;
+  harborName: string;
+  pier: string;
 }
 
 export interface BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth_pier_properties_harbor_properties {

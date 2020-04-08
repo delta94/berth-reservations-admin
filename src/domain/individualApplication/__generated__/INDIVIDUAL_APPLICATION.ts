@@ -23,6 +23,10 @@ export interface INDIVIDUAL_APPLICATION_berthApplication_customer {
 export interface INDIVIDUAL_APPLICATION_berthApplication_berthSwitch {
   __typename: "BerthSwitchType";
   id: string;
+  berthNumber: string;
+  harbor: string;
+  harborName: string;
+  pier: string;
 }
 
 export interface INDIVIDUAL_APPLICATION_berthApplication_lease_berth_pier_properties_harbor_properties {

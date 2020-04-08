@@ -11,6 +11,10 @@ export const BERTH_APPLICATIONS_QUERY = gql`
           }
           berthSwitch {
             id
+            berthNumber
+            harbor
+            harborName
+            pier
           }
           createdAt
           municipality
