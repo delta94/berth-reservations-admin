@@ -11,6 +11,8 @@ interface Lease {
   id: string;
   harborName: string;
   harborId: string;
+  pierIdentifier: string;
+  berthNum: string;
 }
 
 export interface ApplicationData {
@@ -68,6 +70,8 @@ export const getBerthApplicationData = (
               harborId: lease.berth.pier.properties.harbor.id,
               harborName:
                 lease.berth.pier.properties.harbor.properties?.name || '',
+              pierIdentifier: lease.berth.pier.properties?.identifier || '',
+              berthNum: lease.berth.number || '',
             };
           }
 

@@ -29,6 +29,8 @@ interface Lease {
   id: string;
   harborId: string;
   harborName: string;
+  pierIdentifier: string;
+  berthNum: string;
 }
 
 export interface ApplicationDetailsProps {
@@ -142,7 +144,9 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
       <div>
         {lease ? (
           <Section title={t('applications.applicationDetails.connectedLease')}>
-            {lease.harborName}
+            {[lease.harborName, lease.pierIdentifier, lease.berthNum]
+              .filter(Boolean)
+              .join(' ')}
             {handleDeleteLease && (
               <button
                 className={styles.deleteButton}

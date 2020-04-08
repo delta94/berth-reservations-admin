@@ -43,6 +43,7 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
         edges {
           node {
             id
+            status
             startDate
             endDate
             berth {
@@ -74,8 +75,10 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
             lease {
               id
               berth {
+                number
                 pier {
                   properties {
+                    identifier
                     harbor {
                       id
                       properties {

@@ -17,7 +17,7 @@ export const getLeases = (profile: CUSTOMER_PROFILE): Lease[] => {
   if (!profile.berthLeases?.edges) return [];
 
   return profile.berthLeases.edges.reduce<Lease[]>((acc, edge) => {
-    if (!edge?.node) return acc;
+    if (!edge?.node || edge?.node?.status !== 'PAID') return acc;
 
     const berthNum = edge.node.berth.number;
     const pierIdentifier = edge.node.berth.pier.properties?.identifier || null;
@@ -85,6 +85,8 @@ interface ApplicationLease {
   id: string;
   harborName: string;
   harborId: string;
+  pierIdentifier: string;
+  berthNum: string;
 }
 
 export interface Application {
@@ -138,6 +140,8 @@ export const getApplications = (
             harborId: lease.berth.pier.properties.harbor.id,
             harborName:
               lease.berth.pier.properties.harbor.properties?.name || '',
+            pierIdentifier: lease.berth.pier.properties.identifier,
+            berthNum: lease.berth.number,
           };
         }
 

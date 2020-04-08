@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { InvoicingType, ApplicationStatus } from "./../../../@types/__generated__/globalTypes";
+import { InvoicingType, LeaseStatus, ApplicationStatus } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: INDIVIDUAL_CUSTOMER
@@ -88,6 +88,7 @@ export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth {
 export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node {
   __typename: "BerthLeaseNode";
   id: string;
+  status: LeaseStatus;
   startDate: any;
   endDate: any;
   berth: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth;
@@ -121,6 +122,7 @@ export interface INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_lease_
 
 export interface INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_lease_berth_pier_properties {
   __typename: "PierProperties";
+  identifier: string;
   harbor: INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_lease_berth_pier_properties_harbor;
 }
 
@@ -131,6 +133,7 @@ export interface INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_lease_
 
 export interface INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_lease_berth {
   __typename: "BerthNode";
+  number: string;
   pier: INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_lease_berth_pier;
 }
 
