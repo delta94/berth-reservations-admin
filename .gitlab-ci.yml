@@ -28,7 +28,7 @@ build-staging:
     DOCKER_IMAGE_NAME: "$CI_PROJECT_NAME-staging"
     DOCKER_BUILD_ARG_REACT_APP_SERVICE_MAP_URI: "https://palvelukartta.hel.fi/unit/"
     DOCKER_BUILD_ARG_REACT_APP_API_URI: https://venepaikka-federation.test.kuva.hel.ninja/
-    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_URI: https://tunnistamo.test.kuva.hel.ninja
+    DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_URI: https://api.hel.fi/sso-test
     DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT: "api-tokens"
     DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_API_TOKEN_RENEW_ENDPOINT: "silent_renew"
     DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_LOGOUT_ENDPOINT: "logout"
