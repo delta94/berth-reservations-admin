@@ -116,8 +116,6 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
               value={`${berthSwitch.harborName} ${berthSwitch.pierIdentifier} ${berthSwitch.berthNum}`}
             />
           </Section>
-          // TODO: Link to harbor
-          // TODO: Date range
         )}
       </div>
       <div>
