@@ -1,0 +1,45 @@
+@import 'spacings';
+
+.column {
+  &:not(:first-child) {
+    padding-left: units(1);
+  }
+}
+
+.iconRow {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.property {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  &:not(:first-child) {
+    margin-left: units(1);
+  }
+}
+
+.propertyLabel {
+  font-weight: bold;
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.alignLeft {
+  align-self: start;
+}
+
+.alignRight {
+  align-self: end;
+}
+
+.button {
+  margin-left: units(1);
+}

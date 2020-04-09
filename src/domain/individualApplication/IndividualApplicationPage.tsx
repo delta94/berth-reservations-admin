@@ -18,6 +18,7 @@ import { APPLICATION_STATUS } from '../../common/utils/consonants';
 import CustomerInfoCard, {
   CustomerInfoCardProps,
 } from '../cards/customerInfoCard/CustomerInfoCard';
+import OfferCard from './offerCard/OfferCard';
 
 export enum CUSTOMER_GROUP {
   PRIVATE = 'PRIVATE',
@@ -156,6 +157,7 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
           </CardBody>
         </Card>
       )}
+      <OfferCard berth={'test'} />
     </div>
   );
 };
