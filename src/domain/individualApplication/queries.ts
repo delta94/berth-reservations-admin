@@ -75,11 +75,14 @@ export const INDIVIDUAL_APPLICATION_QUERY = gql`
         }
       }
       berthSwitch {
-        id
         berthNumber
         harbor
         harborName
+        id
         pier
+        reason {
+          title
+        }
       }
       createdAt
       municipality

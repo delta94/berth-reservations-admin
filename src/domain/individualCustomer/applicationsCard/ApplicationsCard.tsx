@@ -15,18 +15,19 @@ interface HarborChoice {
 }
 
 interface Lease {
-  id: string;
+  berthNum: string;
   harborId: string;
   harborName: string;
+  id: string;
   pierIdentifier: string;
-  berthNum: string;
 }
 
 interface BerthSwitch {
+  berthNum: string;
   harborId: string;
   harborName: string;
-  berthNum: string;
   pierIdentifier: string;
+  reason: string | null;
 }
 
 interface Application {

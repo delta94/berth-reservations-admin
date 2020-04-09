@@ -94,6 +94,7 @@ interface BerthSwitch {
   harborName: string;
   berthNum: string;
   pierIdentifier: string;
+  reason: string | null;
 }
 
 export interface Application {
@@ -143,20 +144,21 @@ export const getApplications = (
 
         if (lease?.berth?.pier.properties?.harbor) {
           leaseProps = {
-            id: lease.id,
+            berthNum: lease.berth.number,
             harborId: lease.berth.pier.properties.harbor.id,
             harborName:
               lease.berth.pier.properties.harbor.properties?.name || '',
+            id: lease.id,
             pierIdentifier: lease.berth.pier.properties.identifier,
-            berthNum: lease.berth.number,
           };
         }
         const berthSwitchProps = berthSwitch
           ? {
+              berthNum: berthSwitch.berthNumber,
               harborId: berthSwitch.harbor,
               harborName: berthSwitch.harborName,
-              berthNum: berthSwitch.berthNumber,
               pierIdentifier: berthSwitch.pier,
+              reason: berthSwitch.reason?.title || null,
             }
           : null;
 

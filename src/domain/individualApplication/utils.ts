@@ -32,16 +32,19 @@ export const getCustomerInfoData = (
 };
 
 interface Lease {
-  id: string;
-  harborName: string;
+  berthNum: string;
   harborId: string;
+  harborName: string;
+  id: string;
+  pierIdentifier: string;
 }
 
 interface BerthSwitch {
+  berthNum: string;
   harborId: string;
   harborName: string;
-  berthNum: string;
   pierIdentifier: string;
+  reason: string | null;
 }
 
 export const getApplicationDetailsData = (
@@ -57,9 +60,9 @@ export const getApplicationDetailsData = (
           berthApplication.lease.berth?.pier.properties?.harbor.properties
             ?.name || '',
         id: berthApplication.lease.id,
+        berthNum: berthApplication.lease.berth?.number || '',
         pierIdentifier:
           berthApplication.lease.berth?.pier.properties?.identifier || '',
-        berthNum: berthApplication.lease.berth?.number || '',
       }
     : null;
   const berthSwitch: BerthSwitch | null = berthApplication.berthSwitch
@@ -68,6 +71,7 @@ export const getApplicationDetailsData = (
         harborName: berthApplication.berthSwitch.harborName,
         berthNum: berthApplication.berthSwitch.berthNumber,
         pierIdentifier: berthApplication.berthSwitch.pier,
+        reason: berthApplication.berthSwitch.reason?.title || null,
       }
     : null;
 

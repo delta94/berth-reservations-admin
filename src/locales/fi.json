@@ -157,7 +157,8 @@
       "deleteLease": "Poista ehdotettu paikka",
       "accessible": "Tarvitsen esteettömän paikan",
       "currentBerth": "NYKYINEN VENEPAIKKA",
-      "portAndBerth": "Satama ja paikka"
+      "portAndBerth": "Satama ja paikka",
+      "reason": "Erityistoive"
     }
   },
   "individualApplication": {

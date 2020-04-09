@@ -71,7 +71,11 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
               berthNumber
               harbor
               harborName
+              id
               pier
+              reason {
+                title
+              }
             }
             createdAt
             status
