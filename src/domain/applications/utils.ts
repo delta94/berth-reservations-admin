@@ -84,15 +84,13 @@ export const getBerthApplicationData = (
             };
           }
 
-          const berthSwitchProps = berthSwitch
-            ? {
-                berthNum: berthSwitch.berthNumber,
-                harborId: berthSwitch.harbor,
-                harborName: berthSwitch.harborName,
-                pierIdentifier: berthSwitch.pier,
-                reason: berthSwitch.reason?.title || null,
-              }
-            : null;
+          const berthSwitchProps = berthSwitch && {
+            berthNum: berthSwitch.berthNumber,
+            harborId: berthSwitch.harbor,
+            harborName: berthSwitch.harborName,
+            pierIdentifier: berthSwitch.pier,
+            reason: berthSwitch.reason?.title || null,
+          };
 
           const applicationData = {
             id,
