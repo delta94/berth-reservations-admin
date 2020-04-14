@@ -28,7 +28,7 @@ export interface OfferCardProps {
 const OfferCard: React.FunctionComponent<OfferCardProps> = ({
   berth: { name, wasteManagement, electricity, lighting, gate, water },
 }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const isNotNull = (property: boolean | null): property is boolean =>
     property !== null;
   const getColor = (property: boolean) => (property ? 'standard' : 'secondary');
@@ -45,18 +45,18 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
   ];
 
   return (
-    <Card>
-      <CardHeader title={'TARJOUS'} />
+    <Card className={classNames(styles.offerCard)}>
+      <CardHeader title={t('offer.title').toUpperCase()} />
       <CardBody>
         <Grid colsCount={3}>
-          <div className={classNames(styles.column)}>
-            <Section title={'VENEPAIKKA'}>
+          <div>
+            <Section title={t('common.terminology.berth')}>
               <InternalLink to="/" underlined>
                 {name}
               </InternalLink>
             </Section>
             <Section>
-              <div className={classNames(styles.iconRow)}>
+              <div className={classNames(styles.berthProperties)}>
                 {properties.map(
                   ({ prop, key, icon }) =>
                     isNotNull(prop) && (
@@ -74,19 +74,31 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
               </div>
             </Section>
           </div>
-          <div className={classNames(styles.column)}>
-            <Section title={'PAIKAN TIEDOT'}>
-              <LabelValuePair label={'Kiinnitystyyppi'} value={'Peräpoiju'} />
-              <LabelValuePair label={'Leveys'} value={'4,0 m'} />
-              <LabelValuePair label={'Pituus'} value={'8,0m'} />
-              <LabelValuePair label={'Syvyys'} value={'2,2 m'} />
+          <div>
+            <Section title={t('offer.berthDetails.title')}>
+              <LabelValuePair
+                label={t('offer.berthDetails.mooringType')}
+                value={t('common.mooringTypes.STERN_BUOY_PLACE')}
+              />
+              <LabelValuePair
+                label={t('common.terminology.width')}
+                value={'4,0 m'}
+              />
+              <LabelValuePair
+                label={t('common.terminology.length')}
+                value={'8,0m'}
+              />
+              <LabelValuePair
+                label={t('common.terminology.draught')}
+                value={'2,2 m'}
+              />
             </Section>
             <Section>
-              <span>Esteetön paikka</span>
+              <span>{t('offer.berthDetails.accessible')}</span>
             </Section>
             <Section>
               <LabelValuePair
-                label={'Huoltotiedot'}
+                label={t('offer.berthDetails.maintenanceDetails')}
                 value={
                   <>
                     <span>234</span>
@@ -96,54 +108,84 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
                 }
               />
               <LabelValuePair
-                label={'Huomiot'}
-                value={'Pohjassa on iso kivi'}
+                label={t('offer.berthDetails.comment')}
+                value={'Placeholder'}
               />
             </Section>
           </div>
-          <div className={classNames(styles.column)}>
-            <Section title={'LASKU'}>
-              <LabelValuePair label={'Perushinta'} value={'284,00 €'} />
-              <LabelValuePair label={'Kiinnitys'} value={'79,52 €'} />
-              <LabelValuePair label={'Sähkö'} value={'34,08 €'} />
-              <LabelValuePair label={'Vesi'} value={'5,68 €'} />
-              <LabelValuePair label={'Jäte'} value={'22,72 €'} />
-              <LabelValuePair label={'Portti'} value={'4,00 €'} />
-              <LabelValuePair label={'Valaistus'} value={'10,00 €'} />
+          <div>
+            <Section title={t('offer.billing.title')}>
+              <LabelValuePair
+                label={t('offer.billing.basePrice')}
+                value={'284,00 €'}
+              />
+              <LabelValuePair
+                label={t('offer.billing.mooring')}
+                value={'79,52 €'}
+              />
+              <LabelValuePair
+                label={t('offer.billing.electricity')}
+                value={'34,08 €'}
+              />
+              <LabelValuePair
+                label={t('offer.billing.water')}
+                value={'5,68 €'}
+              />
+              <LabelValuePair
+                label={t('offer.billing.waste')}
+                value={'22,72 €'}
+              />
+              <LabelValuePair
+                label={t('offer.billing.gate')}
+                value={'4,00 €'}
+              />
+              <LabelValuePair
+                label={t('offer.billing.lighting')}
+                value={'10,00 €'}
+              />
             </Section>
             <Section>
-              <LabelValuePair label={'Lisäpalvelut'} value={'Muokkaa'} />
-              <LabelValuePair label={'Pysäköintilupa'} value={'75 €'} />
+              <LabelValuePair
+                label={t('offer.billing.additionalServices')}
+                value={t('common.edit')}
+              />
+              <LabelValuePair
+                label={t('offer.billing.parkingPermit')}
+                value={'75 €'}
+              />
             </Section>
             <hr />
             <Section>
-              <LabelValuePair label={'YHTEENSÄ'} value={'515 €'} />
+              <LabelValuePair
+                label={t('offer.billing.total').toUpperCase()}
+                value={'515 €'}
+              />
             </Section>
           </div>
         </Grid>
         <hr />
         <div className={classNames(styles.buttonRow)}>
           <Button className={classNames(styles.alignLeft)}>
-            Hyväksy ja lähetä tarjous
+            {t('offer.billing.acceptAndSend')}
           </Button>
           <div>
             <Button
               color="supplementary"
               className={classNames(styles.button, styles.alignRight)}
             >
-              Näytä lasku
+              {t('offer.billing.showBill')}
             </Button>
             <Button
               color="supplementary"
               className={classNames(styles.button, styles.alignRight)}
             >
-              Näytä sopimus
+              {t('offer.billing.showContract')}
             </Button>
             <Button
               color="supplementary"
               className={classNames(styles.button, styles.alignRight)}
             >
-              Poista tarjous
+              {t('offer.billing.removeOffer')}
             </Button>
           </div>
         </div>

@@ -1,15 +1,14 @@
 @import 'spacings';
 
-.column {
-  &:not(:first-child) {
-    padding-left: units(1);
-  }
+.offerCard {
+  grid-column: 1 / -1;
 }
 
-.iconRow {
+.berthProperties {
   display: flex;
   flex-direction: row;
   width: 100%;
+  max-width: units(24);
 }
 
 .property {

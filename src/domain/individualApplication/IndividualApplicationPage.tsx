@@ -157,7 +157,16 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
           </CardBody>
         </Card>
       )}
-      <OfferCard berth={'test'} />
+      <OfferCard
+        berth={{
+          name: 'Placeholder',
+          wasteManagement: true,
+          electricity: true,
+          lighting: true,
+          gate: false,
+          water: true,
+        }}
+      />
     </div>
   );
 };

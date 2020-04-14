@@ -32,7 +32,8 @@ const TableTools: React.SFC<TableToolsProps> = ({
     <div className={styles.tableTools}>
       <div>
         <Text size="l">
-          {t('offer.tableTools.berths')}: {applicationType} {applicationDate}
+          {t('offer.tableTools.berths').toUpperCase()}: {applicationType}{' '}
+          {applicationDate}
         </Text>
         <Chip
           className={styles.chip}
