@@ -75,7 +75,10 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
     },
     {
       Cell: ({ cell }) => (
-        <div title={cell.value} className={styles.berthsCell}>
+        <div
+          title={cell.value !== null ? cell.value : undefined}
+          className={styles.berthsCell}
+        >
           {cell.value}
         </div>
       ),
