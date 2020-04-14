@@ -20,9 +20,19 @@ export interface INDIVIDUAL_APPLICATION_berthApplication_customer {
   company: INDIVIDUAL_APPLICATION_berthApplication_customer_company | null;
 }
 
+export interface INDIVIDUAL_APPLICATION_berthApplication_berthSwitch_reason {
+  __typename: "BerthSwitchReasonType";
+  title: string | null;
+}
+
 export interface INDIVIDUAL_APPLICATION_berthApplication_berthSwitch {
   __typename: "BerthSwitchType";
+  berthNumber: string;
+  harbor: string;
+  harborName: string;
   id: string;
+  pier: string;
+  reason: INDIVIDUAL_APPLICATION_berthApplication_berthSwitch_reason | null;
 }
 
 export interface INDIVIDUAL_APPLICATION_berthApplication_lease_berth_pier_properties_harbor_properties {

@@ -15,16 +15,24 @@ interface HarborChoice {
 }
 
 interface Lease {
+  berthNum: string;
+  harborId: string;
+  harborName: string;
   id: string;
+  pierIdentifier: string;
+}
+
+interface BerthSwitch {
+  berthNum: string;
   harborId: string;
   harborName: string;
   pierIdentifier: string;
-  berthNum: string;
+  reason: string | null;
 }
 
 interface Application {
   id: string;
-  isSwitch: boolean;
+  berthSwitch: BerthSwitch | null;
   createdAt: string;
   queue: number | null;
   status: ApplicationStatus;

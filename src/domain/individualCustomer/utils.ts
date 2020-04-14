@@ -89,9 +89,17 @@ interface ApplicationLease {
   berthNum: string;
 }
 
+interface BerthSwitch {
+  harborId: string;
+  harborName: string;
+  berthNum: string;
+  pierIdentifier: string;
+  reason: string | null;
+}
+
 export interface Application {
   id: string;
-  isSwitch: boolean;
+  berthSwitch: BerthSwitch | null;
   createdAt: string;
   queue: number | null;
   status: ApplicationStatus;
@@ -136,18 +144,27 @@ export const getApplications = (
 
         if (lease?.berth?.pier.properties?.harbor) {
           leaseProps = {
-            id: lease.id,
+            berthNum: lease.berth.number,
             harborId: lease.berth.pier.properties.harbor.id,
             harborName:
               lease.berth.pier.properties.harbor.properties?.name || '',
+            id: lease.id,
             pierIdentifier: lease.berth.pier.properties.identifier,
-            berthNum: lease.berth.number,
           };
         }
+        const berthSwitchProps = berthSwitch
+          ? {
+              berthNum: berthSwitch.berthNumber,
+              harborId: berthSwitch.harbor,
+              harborName: berthSwitch.harborName,
+              pierIdentifier: berthSwitch.pier,
+              reason: berthSwitch.reason?.title || null,
+            }
+          : null;
 
         const applicationData = {
           id,
-          isSwitch: !!berthSwitch,
+          berthSwitch: berthSwitchProps,
           queue: null,
           createdAt,
           status,

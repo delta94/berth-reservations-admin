@@ -8,16 +8,25 @@ interface HarborChoice {
 }
 
 interface Lease {
-  id: string;
-  harborName: string;
-  harborId: string;
-  pierIdentifier: string;
   berthNum: string;
+  harborId: string;
+  harborName: string;
+  id: string;
+  pierIdentifier: string;
+}
+
+interface BerthSwitch {
+  berthNum: string;
+  harborId: string;
+  harborName: string;
+  pierIdentifier: string;
+  reason: string | null;
 }
 
 export interface ApplicationData {
   id: string;
   isSwitch: boolean;
+  berthSwitch: BerthSwitch | null;
   queue: number | null;
   createdAt: string;
   municipality: string;
@@ -62,22 +71,31 @@ export const getBerthApplicationData = (
             harborChoices = [],
             accessibilityRequired,
           } = application.node;
-          let leaseProps: Lease | null = null;
 
+          let leaseProps: Lease | null = null;
           if (lease?.berth?.pier.properties?.harbor) {
             leaseProps = {
-              id: lease.id,
+              berthNum: lease.berth.number || '',
               harborId: lease.berth.pier.properties.harbor.id,
               harborName:
                 lease.berth.pier.properties.harbor.properties?.name || '',
+              id: lease.id,
               pierIdentifier: lease.berth.pier.properties?.identifier || '',
-              berthNum: lease.berth.number || '',
             };
           }
+
+          const berthSwitchProps = berthSwitch && {
+            berthNum: berthSwitch.berthNumber,
+            harborId: berthSwitch.harbor,
+            harborName: berthSwitch.harborName,
+            pierIdentifier: berthSwitch.pier,
+            reason: berthSwitch.reason?.title || null,
+          };
 
           const applicationData = {
             id,
             isSwitch: !!berthSwitch,
+            berthSwitch: berthSwitchProps,
             queue: null,
             createdAt,
             municipality,

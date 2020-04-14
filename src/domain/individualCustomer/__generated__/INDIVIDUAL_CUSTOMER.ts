@@ -104,9 +104,19 @@ export interface INDIVIDUAL_CUSTOMER_profile_berthLeases {
   edges: (INDIVIDUAL_CUSTOMER_profile_berthLeases_edges | null)[];
 }
 
+export interface INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_berthSwitch_reason {
+  __typename: "BerthSwitchReasonType";
+  title: string | null;
+}
+
 export interface INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_berthSwitch {
   __typename: "BerthSwitchType";
+  berthNumber: string;
+  harbor: string;
+  harborName: string;
   id: string;
+  pier: string;
+  reason: INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_berthSwitch_reason | null;
 }
 
 export interface INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_lease_berth_pier_properties_harbor_properties {

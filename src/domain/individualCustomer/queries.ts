@@ -68,7 +68,14 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
           node {
             id
             berthSwitch {
+              berthNumber
+              harbor
+              harborName
               id
+              pier
+              reason {
+                title
+              }
             }
             createdAt
             status

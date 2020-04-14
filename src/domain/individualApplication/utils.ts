@@ -32,9 +32,19 @@ export const getCustomerInfoData = (
 };
 
 interface Lease {
-  id: string;
-  harborName: string;
+  berthNum: string;
   harborId: string;
+  harborName: string;
+  id: string;
+  pierIdentifier: string;
+}
+
+interface BerthSwitch {
+  berthNum: string;
+  harborId: string;
+  harborName: string;
+  pierIdentifier: string;
+  reason: string | null;
 }
 
 export const getApplicationDetailsData = (
@@ -42,7 +52,7 @@ export const getApplicationDetailsData = (
   boatTypes: BOAT_TYPES[]
 ): ApplicationDetailsProps => {
   const harborChoices = berthApplication.harborChoices || [];
-  const lease = berthApplication.lease
+  const lease: Lease | null = berthApplication.lease
     ? {
         harborId:
           berthApplication.lease.berth?.pier.properties?.harbor.id || '',
@@ -50,15 +60,24 @@ export const getApplicationDetailsData = (
           berthApplication.lease.berth?.pier.properties?.harbor.properties
             ?.name || '',
         id: berthApplication.lease.id,
+        berthNum: berthApplication.lease.berth?.number || '',
         pierIdentifier:
           berthApplication.lease.berth?.pier.properties?.identifier || '',
-        berthNum: berthApplication.lease.berth?.number || '',
+      }
+    : null;
+  const berthSwitch: BerthSwitch | null = berthApplication.berthSwitch
+    ? {
+        harborId: berthApplication.berthSwitch.harbor,
+        harborName: berthApplication.berthSwitch.harborName,
+        berthNum: berthApplication.berthSwitch.berthNumber,
+        pierIdentifier: berthApplication.berthSwitch.pier,
+        reason: berthApplication.berthSwitch.reason?.title || null,
       }
     : null;
 
   return {
     ...berthApplication,
-    isSwitch: !!berthApplication?.berthSwitch,
+    berthSwitch,
     queue: null,
     harborChoices,
     lease,

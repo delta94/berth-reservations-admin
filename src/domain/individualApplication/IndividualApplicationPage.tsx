@@ -75,7 +75,10 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
     },
     {
       Cell: ({ cell }) => (
-        <div title={cell.value} className={styles.berthsCell}>
+        <div
+          title={cell.value !== null ? cell.value : undefined}
+          className={styles.berthsCell}
+        >
           {cell.value}
         </div>
       ),
@@ -88,7 +91,7 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
     <div className={styles.individualApplicationPage}>
       <div className={styles.pageHeader}>
         <Text as="h2" size="xl" weight="normalWeight">
-          {applicationDetails.isSwitch
+          {applicationDetails.berthSwitch !== null
             ? t('applications.applicationType.switchApplication')
             : t('applications.applicationType.newApplication')}{' '}
           {formatDate(applicationDetails.createdAt, i18n.language)}

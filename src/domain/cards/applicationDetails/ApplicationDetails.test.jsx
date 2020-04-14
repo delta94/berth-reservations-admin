@@ -6,6 +6,7 @@ import ApplicationDetails from './ApplicationDetails';
 
 const mockProps = {
   id: '54321',
+  berthSwitch: null,
   applicationType: 'Vaihtohakemus',
   createdAt: 'Wed Oct 23 2019 15:15:05 GMT+0300 (Eastern European Summer Time)',
   queue: 245,

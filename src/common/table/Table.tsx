@@ -16,6 +16,8 @@ import {
   UseGlobalFiltersInstanceProps,
   useFlexLayout,
   TableState,
+  UseFiltersColumnOptions,
+  UseSortByColumnOptions,
 } from 'react-table';
 
 import Checkbox from '../checkbox/Checkbox';
@@ -23,7 +25,9 @@ import Radio from '../radio/Radio';
 import styles from './table.module.scss';
 import Icon from '../icons/Icon';
 
-export type Column<D extends object> = ColumnType<D>;
+export type Column<D extends object> = ColumnType<D> &
+  UseFiltersColumnOptions<D> &
+  UseSortByColumnOptions<D>;
 
 interface TState<D extends object> extends TableState<D> {
   selectedRows: Array<Row<D>['original']>;
@@ -61,7 +65,7 @@ export enum COLUMN_WIDTH {
   'XXS' = 0.25 * BASE_COL_WIDTH,
   'XS' = 0.5 * BASE_COL_WIDTH,
   'S' = 0.75 * BASE_COL_WIDTH,
-  'M' = 1 * BASE_COL_WIDTH,
+  'M' = BASE_COL_WIDTH,
   'L' = 1.5 * BASE_COL_WIDTH,
   'XL' = 2 * BASE_COL_WIDTH,
   'XXL' = 3 * BASE_COL_WIDTH,
@@ -83,7 +87,7 @@ const Table = <D extends object>({
 
   const selectorCol: Column<D> = React.useMemo(
     () => ({
-      Cell: ({ row }) => (
+      Cell: ({ row }: { row: any }) => (
         <Checkbox size="large" {...row.getToggleRowSelectedProps()} />
       ),
       Header: ({ getToggleAllRowsSelectedProps }) => (
@@ -96,7 +100,15 @@ const Table = <D extends object>({
 
   const radioSelectorCol: Column<D> = React.useMemo(
     () => ({
-      Cell: ({ row, toggleAllRowsSelected, toggleRowSelected }) => (
+      Cell: ({
+        row,
+        toggleAllRowsSelected,
+        toggleRowSelected,
+      }: {
+        row: any;
+        toggleAllRowsSelected: (selected: boolean) => void;
+        toggleRowSelected: (rowId: string) => void;
+      }) => (
         <Radio
           size="large"
           {...row.getToggleRowSelectedProps()}
@@ -113,7 +125,7 @@ const Table = <D extends object>({
 
   const expanderCol: Column<D> = React.useMemo(
     () => ({
-      Cell: ({ row }) => (
+      Cell: ({ row }: { row: any }) => (
         <div {...row.getToggleRowExpandedProps()}>
           <Icon
             shape="IconAngleDown"
