@@ -25,9 +25,10 @@ $transition-duration: 300ms;
     text-overflow: ellipsis;
     color: inherit;
     overflow: hidden;
+    border-right: solid 1px $gray-200;
 
-    &:not(:last-child) {
-      border-right: solid 1px $gray-200;
+    &:last-child {
+      border-right: none;
     }
   }
 
@@ -122,6 +123,19 @@ $transition-duration: 300ms;
 
     &.isExpanded {
       transform: rotate(180deg);
+    }
+  }
+
+  &.basic {
+    .rowWrapper {
+      margin: 0;
+      border-bottom: 1px solid $gray-500;
+      padding: 0;
+      background-color: unset;
+    }
+
+    .tableCell {
+      border: none;
     }
   }
 }
