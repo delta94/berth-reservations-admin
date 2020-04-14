@@ -60,7 +60,7 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
                 {properties.map(
                   ({ prop, key, icon }) =>
                     isNotNull(prop) && (
-                      <div className={styles.property}>
+                      <div className={styles.property} key={key}>
                         <Icon shape={icon} color={getColor(prop)} outlined />
                         <Text
                           className={styles.propertyLabel}
