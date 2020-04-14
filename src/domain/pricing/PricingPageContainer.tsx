@@ -181,7 +181,7 @@ const PricingPageContainer: React.SFC = () => {
       area: 'Laivalahti',
       privateCustomer: formatPrice(10.6, i18n.language),
       company: formatPrice(21.2, i18n.language),
-      period: 'kause',
+      period: 'kausi',
     },
     {
       id: '14',
