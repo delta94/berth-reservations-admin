@@ -167,7 +167,11 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
       </div>
       <div>
         {lease ? (
-          <Section title={t('applications.applicationDetails.connectedLease')}>
+          <Section
+            title={t(
+              'applications.applicationDetails.connectedLease'
+            ).toUpperCase()}
+          >
             {[lease.harborName, lease.pierIdentifier, lease.berthNum]
               .filter(Boolean)
               .join(' ')}

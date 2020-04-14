@@ -50,7 +50,7 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
       <CardBody>
         <Grid colsCount={3}>
           <div>
-            <Section title={t('common.terminology.berth')}>
+            <Section title={t('common.terminology.berth').toUpperCase()}>
               <InternalLink to="/" underlined>
                 {name}
               </InternalLink>
@@ -75,7 +75,7 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
             </Section>
           </div>
           <div>
-            <Section title={t('offer.berthDetails.title')}>
+            <Section title={t('offer.berthDetails.title').toUpperCase()}>
               <LabelValuePair
                 label={t('offer.berthDetails.mooringType')}
                 value={t('common.mooringTypes.STERN_BUOY_PLACE')}
@@ -114,7 +114,7 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
             </Section>
           </div>
           <div>
-            <Section title={t('offer.billing.title')}>
+            <Section title={t('offer.billing.title').toUpperCase()}>
               <LabelValuePair
                 label={t('offer.billing.basePrice')}
                 value={'284,00 €'}
