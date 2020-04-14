@@ -18,6 +18,7 @@ import Page from '../page/Page';
 import PrivateRoute from '../privateRoute/PrivateRoute';
 import ApplicationsPage from '../applications/ApplicationsPageContainer';
 import IndividualApplicationPage from '../individualApplication/IndividualApplicationPageContainer';
+import PricingPage from '../pricing/PricingPageContainer';
 import CallbackPage from '../auth/callbackPage/CallbackPage';
 import SilentRenewPage from '../auth/silentRenewPage/SilentRenewPage';
 
@@ -59,6 +60,7 @@ const App: React.FC = () => {
                 path="/offer/:applicationId"
                 component={OfferPage}
               />
+              <PrivateRoute exact path="/pricing" component={PricingPage} />
             </Switch>
           </Page>
         </Switch>

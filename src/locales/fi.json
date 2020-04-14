@@ -307,5 +307,42 @@
       "portAndPlace": "Satama ja paikka",
       "valid": "Voimassa"
     }
+  },
+  "pricing": {
+    "heading": "Hinnasto",
+    "harbor": {
+      "title": "Venepaikka",
+      "description": "Perushinta. Hinnat sisältävät alv 24 %.",
+      "width": "Leveys",
+      "privateCustomer": "Yksityinen",
+      "company": "Yritys",
+      "period": "Aika",
+      "edit": "Muokkaa"
+    },
+    "winterStorage": {
+      "title": "Talvisäilytyspaikka",
+      "description": "Perushinta €/m2. Hinnat sisältävät alv 24 %.",
+      "area": "Alue",
+      "privateCustomer": "Yksityinen",
+      "company": "Yritys",
+      "period": "Aika",
+      "edit": "Muokkaa"
+    },
+    "harborServices": {
+      "title": "Satamapalvelut",
+      "description": "Hinnat sisältävät alv 24 %.",
+      "service": "Palvelu",
+      "price": "Hinta",
+      "period": "Aika",
+      "edit": "Muokkaa"
+    },
+    "otherServices": {
+      "title": "Lisäpalvelut",
+      "service": "Palvelu",
+      "price": "Hinta",
+      "tax": "ALV",
+      "period": "Aika",
+      "edit": "Muokkaa"
+    }
   }
 }
