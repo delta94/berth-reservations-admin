@@ -4,7 +4,12 @@ import { useTranslation } from 'react-i18next';
 
 import Layout from '../../common/layout/Layout';
 import Sidebar from '../../common/sidebar/Sidebar';
-import { IconApplications, IconBoat, IconPerson } from '../../common/icons';
+import {
+  IconApplications,
+  IconBoat,
+  IconPerson,
+  IconInvoice,
+} from '../../common/icons';
 import InternalLink from '../../common/internalLink/NavLink';
 import PageHeader from '../pageHeader/PageHeaderContainer';
 import styles from '../../common/icons/icon.module.scss';
@@ -42,6 +47,14 @@ const Page: React.SFC = ({ children }) => {
               icon={<IconPerson className={styles.icon} />}
             >
               {t('common.sidebar.customers')}
+            </InternalLink>,
+            <InternalLink
+              key="pricing"
+              to="/pricing"
+              onClick={() => history.push('/pricing')}
+              icon={<IconInvoice className={styles.icon} />}
+            >
+              {t('common.sidebar.pricing')}
             </InternalLink>,
           ]}
         </Sidebar>
