@@ -1,21 +1,13 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import Layout from '../../common/layout/Layout';
 import Sidebar from '../../common/sidebar/Sidebar';
-import {
-  IconApplications,
-  IconBoat,
-  IconPerson,
-  IconInvoice,
-} from '../../common/icons';
-import InternalLink from '../../common/internalLink/NavLink';
+import InternalNavLink from '../../common/internalNavLink/InternalNavLink';
 import PageHeader from '../pageHeader/PageHeaderContainer';
-import styles from '../../common/icons/icon.module.scss';
+import Icon from '../../common/icons/Icon';
 
 const Page: React.SFC = ({ children }) => {
-  const history = useHistory();
   const { t } = useTranslation();
 
   return (
@@ -24,38 +16,34 @@ const Page: React.SFC = ({ children }) => {
       sidebar={
         <Sidebar>
           {[
-            <InternalLink
+            <InternalNavLink
               key="harbors"
               to="/harbors"
-              onClick={() => history.push('/harbors')}
-              icon={<IconBoat className={styles.icon} />}
+              icon={<Icon shape="IconBoat" />}
             >
               {t('common.sidebar.harbors')}
-            </InternalLink>,
-            <InternalLink
+            </InternalNavLink>,
+            <InternalNavLink
               key="applications"
               to="/applications"
-              onClick={() => history.push('/applications')}
-              icon={<IconApplications className={styles.icon} />}
+              icon={<Icon shape="IconApplications" />}
             >
               {t('common.sidebar.applications')}
-            </InternalLink>,
-            <InternalLink
+            </InternalNavLink>,
+            <InternalNavLink
               key="customers"
               to="/customers"
-              onClick={() => history.push('/customers')}
-              icon={<IconPerson className={styles.icon} />}
+              icon={<Icon shape="IconPerson" />}
             >
               {t('common.sidebar.customers')}
-            </InternalLink>,
-            <InternalLink
+            </InternalNavLink>,
+            <InternalNavLink
               key="pricing"
               to="/pricing"
-              onClick={() => history.push('/pricing')}
-              icon={<IconInvoice className={styles.icon} />}
+              icon={<Icon shape="IconInvoice" />}
             >
               {t('common.sidebar.pricing')}
-            </InternalLink>,
+            </InternalNavLink>,
           ]}
         </Sidebar>
       }

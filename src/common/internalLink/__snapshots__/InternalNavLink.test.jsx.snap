@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InternalNavLink renders normally 1`] = `"<a aria-current=\\"page\\" class=\\"internalNavLink standard isActive\\" href=\\"#/\\"><div class=\\"label\\">Home Page</div></a>"`;
