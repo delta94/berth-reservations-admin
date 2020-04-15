@@ -294,7 +294,9 @@ const Table = <D extends object>({
       <div className={styles.tableWrapper}>
         <div
           {...getTableProps()}
-          className={classNames(styles.table, styles[theme])}
+          className={classNames(styles.table, styles[theme], {
+            [styles.noMainHeader]: !renderMainHeader,
+          })}
         >
           {headerGroups.map(renderTableHead)}
           <div {...getTableBodyProps()}>

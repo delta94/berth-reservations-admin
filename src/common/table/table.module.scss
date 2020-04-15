@@ -66,6 +66,10 @@ $transition-duration: 300ms;
     }
   }
 
+  &.noMainHeader .header {
+    top: 0;
+  }
+
   .sortArrowWrapper {
     display: inline-flex;
     position: absolute;
