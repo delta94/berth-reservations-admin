@@ -1,16 +1,16 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { HashRouter, Link } from 'react-router-dom';
+import { HashRouter, NavLink } from 'react-router-dom';
 
-import NavLink from './NavLink';
+import InternalNavLink from './InternalNavLink';
 
-describe('InternalLink', () => {
+describe('InternalNavLink', () => {
   const getWrapper = ({ children = 'Home Page', ...props } = {}) =>
     shallow(
       <HashRouter>
-        <NavLink to="/" {...props}>
+        <InternalNavLink to="/" {...props}>
           {children}
-        </NavLink>
+        </InternalNavLink>
       </HashRouter>
     );
 
@@ -20,13 +20,13 @@ describe('InternalLink', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('renders Link component', () => {
+  it('renders NavLink component', () => {
     const wrapper = mount(
       <HashRouter>
-        <NavLink to="/">foo</NavLink>
+        <InternalNavLink to="/">foo</InternalNavLink>
       </HashRouter>
     );
 
-    expect(wrapper.find(Link)).toHaveLength(1);
+    expect(wrapper.find(NavLink)).toHaveLength(1);
   });
 });

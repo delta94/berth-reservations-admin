@@ -1,0 +1,47 @@
+@import 'colours';
+@import 'spacings';
+@import 'fonts';
+
+.internalNavLink {
+  --vene-internal-link-color: #{$gray-700};
+
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+  padding: units(0.5) units(1) units(0.5) units(1.5);
+  color: var(--vene-internal-link-color);
+
+  &:hover {
+    background-color: $gray-50;
+  }
+
+  &.isActive {
+    background-color: $gray-100;
+    font-weight: 500;
+  }
+}
+
+.icon {
+  margin-right: units(0.75);
+}
+
+.label {
+  flex-grow: 1;
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+.brand {
+  --vene-internal-link-color: #{$blue-500};
+}
+
+.critical {
+  --vene-internal-link-color: #{$red-500};
+}
+
+.secondary {
+  --vene-internal-link-color: #{$gray-600};
+}
