@@ -1,5 +1,5 @@
 export const formatDimension = (value: number | null, locale: string) => {
-  if (!value) return null;
+  if (!value) return '-';
 
   const localizedValues = new Intl.NumberFormat(locale, {
     style: 'decimal',
@@ -10,7 +10,7 @@ export const formatDimension = (value: number | null, locale: string) => {
 };
 
 export const formatWeight = (value: number | null, locale: string) => {
-  if (!value) return null;
+  if (!value) return '-';
 
   const localizedValues = new Intl.NumberFormat(locale, {
     style: 'decimal',

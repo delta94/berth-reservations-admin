@@ -16,9 +16,9 @@ describe('format', () => {
       expect(formatDimension(1, 'fi')).toMatch('m');
     });
 
-    it('should return null if the value is undefined/null', () => {
-      expect(formatDimension()).toBeNull();
-      expect(formatDimension(null)).toBeNull();
+    it('should return "-" if the value is undefined/null', () => {
+      expect(formatDimension()).toBe('-');
+      expect(formatDimension(null)).toBe('-');
     });
   });
 
@@ -27,9 +27,9 @@ describe('format', () => {
       expect(formatWeight(1, 'fi')).toMatch('kg');
     });
 
-    it('should return null if the value is undefined/null', () => {
-      expect(formatWeight()).toBeNull();
-      expect(formatWeight(null)).toBeNull();
+    it('should return "-" if the value is undefined/null', () => {
+      expect(formatWeight()).toBe('-');
+      expect(formatWeight(null)).toBe('-');
     });
   });
 
