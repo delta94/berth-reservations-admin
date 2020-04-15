@@ -29,7 +29,8 @@
     "sidebar": {
       "harbors": "Venepaikat",
       "applications": "Hakemukset",
-      "customers": "Asiakkaat"
+      "customers": "Asiakkaat",
+      "pricing": "Hinnasto"
     },
     "header": {
       "logout": "Kirjaudu ulos"

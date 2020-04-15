@@ -132,6 +132,11 @@ $transition-duration: 300ms;
   }
 
   &.basic {
+    .header {
+      background-color: $white;
+      font-weight: bold;
+    }
+
     .rowWrapper {
       margin: 0;
       border-bottom: 1px solid $gray-500;

@@ -58,24 +58,24 @@ const PricingPage: React.SFC<PricingPageProps> = ({
 
   const harborCols: Column<BerthPrice>[] = [
     {
-      Header: <Text as="strong">{t('pricing.harbor.width')}</Text>,
+      Header: t('pricing.harbor.width') || '',
       accessor: 'width',
     },
     {
-      Header: <Text as="strong">{t('pricing.harbor.privateCustomer')}</Text>,
+      Header: t('pricing.harbor.privateCustomer') || '',
       accessor: 'privateCustomer',
     },
     {
-      Header: <Text as="strong">{t('pricing.harbor.company')}</Text>,
+      Header: t('pricing.harbor.company') || '',
       accessor: 'company',
     },
     {
-      Header: <Text as="strong">{t('pricing.harbor.period')}</Text>,
+      Header: t('pricing.harbor.period') || '',
       accessor: 'period',
     },
     {
       id: 'edit',
-      Header: <Text as="strong">{t('pricing.harbor.edit')}</Text>,
+      Header: t('pricing.harbor.edit') || '',
       sortType: 'none',
       width: COLUMN_WIDTH.S,
       Cell: (
@@ -88,26 +88,24 @@ const PricingPage: React.SFC<PricingPageProps> = ({
 
   const winterStorageCols: Column<WinterStoragePrice>[] = [
     {
-      Header: <Text as="strong">{t('pricing.winterStorage.area')}</Text>,
+      Header: t('pricing.winterStorage.area') || '',
       accessor: 'area',
     },
     {
-      Header: (
-        <Text as="strong">{t('pricing.winterStorage.privateCustomer')}</Text>
-      ),
+      Header: t('pricing.winterStorage.privateCustomer') || '',
       accessor: 'privateCustomer',
     },
     {
-      Header: <Text as="strong">{t('pricing.winterStorage.company')}</Text>,
+      Header: t('pricing.winterStorage.company') || '',
       accessor: 'company',
     },
     {
-      Header: <Text as="strong">{t('pricing.winterStorage.period')}</Text>,
+      Header: t('pricing.winterStorage.period') || '',
       accessor: 'period',
     },
     {
       id: 'edit',
-      Header: <Text as="strong">{t('pricing.winterStorage.edit')}</Text>,
+      Header: t('pricing.winterStorage.edit') || '',
       sortType: 'none',
       width: COLUMN_WIDTH.S,
       Cell: (
@@ -120,23 +118,23 @@ const PricingPage: React.SFC<PricingPageProps> = ({
 
   const harborServicesCols: Column<HarborService>[] = [
     {
-      Header: <Text as="strong">{t('pricing.harborServices.service')}</Text>,
+      Header: t('pricing.harborServices.service') || '',
       width: COLUMN_WIDTH.L,
       accessor: 'service',
     },
     {
-      Header: <Text as="strong">{t('pricing.harborServices.price')}</Text>,
+      Header: t('pricing.harborServices.price') || '',
       width: COLUMN_WIDTH.XS,
       accessor: 'price',
     },
     {
-      Header: <Text as="strong">{t('pricing.harborServices.period')}</Text>,
+      Header: t('pricing.harborServices.period') || '',
       width: COLUMN_WIDTH.S,
       accessor: 'period',
     },
     {
       id: 'edit',
-      Header: <Text as="strong">{t('pricing.harborServices.edit')}</Text>,
+      Header: t('pricing.harborServices.edit') || '',
       sortType: 'none',
       width: COLUMN_WIDTH.S,
       Cell: (
@@ -149,28 +147,28 @@ const PricingPage: React.SFC<PricingPageProps> = ({
 
   const otherServicesCols: Column<AdditionalService>[] = [
     {
-      Header: <Text as="strong">{t('pricing.otherServices.service')}</Text>,
+      Header: t('pricing.otherServices.service') || '',
       width: COLUMN_WIDTH.L,
       accessor: 'service',
     },
     {
-      Header: <Text as="strong">{t('pricing.otherServices.price')}</Text>,
+      Header: t('pricing.otherServices.price') || '',
       width: COLUMN_WIDTH.XS,
       accessor: 'price',
     },
     {
-      Header: <Text as="strong">{t('pricing.otherServices.tax')}</Text>,
+      Header: t('pricing.otherServices.tax') || '',
       width: COLUMN_WIDTH.XS,
       accessor: 'tax',
     },
     {
-      Header: <Text as="strong">{t('pricing.otherServices.period')}</Text>,
+      Header: t('pricing.otherServices.period') || '',
       width: COLUMN_WIDTH.S,
       accessor: 'period',
     },
     {
       id: 'edit',
-      Header: <Text as="strong">{t('pricing.otherServices.edit')}</Text>,
+      Header: t('pricing.otherServices.edit') || '',
       sortType: 'none',
       width: COLUMN_WIDTH.S,
       Cell: (
