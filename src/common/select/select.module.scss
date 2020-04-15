@@ -1,0 +1,53 @@
+@import 'fonts';
+@import 'colours';
+@import 'spacings';
+
+.select {
+  display: inline-block;
+  font-size: font-size(18);
+  line-height: 1.15;
+  padding: units(1) units(0.75);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 2px solid $gray-200;
+  border-radius: 0;
+  background-color: $white;
+  background-image: url('./angleDown.svg'), linear-gradient($white, $white);
+  background-repeat: no-repeat, repeat;
+  background-position: right units(1) top 50%, 0 0;
+  background-size: 1em auto, 100%;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &:hover {
+    border-color: #888;
+  }
+
+  &:focus {
+    border-color: $black;
+  }
+
+  &.disabled {
+    background: $gray-100;
+    border-color: $gray-100;
+    color: $gray-700;
+  }
+}
+
+.select option {
+  font-weight: normal;
+}
+
+.labelText {
+  display: inline-block;
+  margin-bottom: units(0.25);
+  font-size: font-size(14);
+  font-weight: bold;
+}

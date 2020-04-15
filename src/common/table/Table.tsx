@@ -47,6 +47,7 @@ type Props<D extends object> = {
   data: D[];
   canSelectRows?: boolean;
   canSelectOneRow?: boolean;
+  theme?: 'basic' | 'primary';
   renderTableToolsTop?: TableToolsFn<D>;
   renderTableToolsBottom?: TableToolsFn<D>;
   renderSubComponent?: (row: Row<D>) => React.ReactNode;
@@ -77,6 +78,7 @@ const Table = <D extends object>({
   data: tableData,
   canSelectRows,
   canSelectOneRow,
+  theme = 'primary',
   renderTableToolsTop,
   renderTableToolsBottom,
   renderSubComponent,
@@ -290,7 +292,12 @@ const Table = <D extends object>({
     <div className={className}>
       {renderTableTools(renderTableToolsTop)}
       <div className={styles.tableWrapper}>
-        <div {...getTableProps()} className={styles.table}>
+        <div
+          {...getTableProps()}
+          className={classNames(styles.table, styles[theme], {
+            [styles.noMainHeader]: !renderMainHeader,
+          })}
+        >
           {headerGroups.map(renderTableHead)}
           <div {...getTableBodyProps()}>
             {rows.map(renderTableBody)}

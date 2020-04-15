@@ -1,4 +1,10 @@
-import { formatDimension, formatWeight, formatDate } from './format';
+import {
+  formatDimension,
+  formatWeight,
+  formatDate,
+  formatPrice,
+  formatPercentage,
+} from './format';
 
 describe('format', () => {
   describe('formatDimension', () => {
@@ -11,8 +17,8 @@ describe('format', () => {
     });
 
     it('should return "-" if the value is undefined/null', () => {
-      expect(formatDimension()).toBeNull();
-      expect(formatDimension(null)).toBeNull();
+      expect(formatDimension()).toBe('-');
+      expect(formatDimension(null)).toBe('-');
     });
   });
 
@@ -22,8 +28,8 @@ describe('format', () => {
     });
 
     it('should return "-" if the value is undefined/null', () => {
-      expect(formatWeight()).toBeNull();
-      expect(formatWeight(null)).toBeNull();
+      expect(formatWeight()).toBe('-');
+      expect(formatWeight(null)).toBe('-');
     });
   });
 
@@ -38,6 +44,22 @@ describe('format', () => {
       expect(
         formatDate('2018-11-28T12:26:28.146227+00:00', 'fi', true)
       ).toMatchSnapshot();
+    });
+  });
+
+  describe('formatPrice', () => {
+    it('should add at least two fraction numbers', () => {
+      expect(formatPrice(1, 'fi')).toMatch('1,00');
+    });
+
+    it('should add the currency unit to to the supplied value', () => {
+      expect(formatPrice(1, 'fi')).toMatch('€');
+    });
+  });
+
+  describe('formatPercentage', () => {
+    it('should add the percentage sign to to the supplied value', () => {
+      expect(formatPercentage(1, 'fi')).toMatch('%');
     });
   });
 });

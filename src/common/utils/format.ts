@@ -1,5 +1,5 @@
 export const formatDimension = (value: number | null, locale: string) => {
-  if (!value) return null;
+  if (!value) return '-';
 
   const localizedValues = new Intl.NumberFormat(locale, {
     style: 'decimal',
@@ -10,7 +10,7 @@ export const formatDimension = (value: number | null, locale: string) => {
 };
 
 export const formatWeight = (value: number | null, locale: string) => {
-  if (!value) return null;
+  if (!value) return '-';
 
   const localizedValues = new Intl.NumberFormat(locale, {
     style: 'decimal',
@@ -32,4 +32,18 @@ export const formatDate = (date: string, locale: string, withTime = false) => {
   const options = withTime ? { ...dateOpts, ...timeOpts } : dateOpts;
 
   return new Date(date).toLocaleString(locale, options);
+};
+
+export const formatPrice = (value: number, locale: string) => {
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: 'EUR',
+    minimumIntegerDigits: 2,
+  }).format(value);
+};
+
+export const formatPercentage = (value: number, locale: string) => {
+  return new Intl.NumberFormat(locale, {
+    style: 'percent',
+  }).format(value);
 };
