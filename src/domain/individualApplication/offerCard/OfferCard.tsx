@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from 'hds-react/lib';
-import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 
 import Card from '../../../common/card/Card';
@@ -74,7 +73,7 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
   ];
 
   return (
-    <Card className={classNames(styles.offerCard)}>
+    <Card className={styles.offerCard}>
       <CardHeader title={t('offer.title').toUpperCase()} />
       <CardBody>
         <Grid colsCount={3}>
@@ -87,16 +86,13 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
               </InternalLink>
             </Section>
             <Section>
-              <div className={classNames(styles.berthProperties)}>
+              <div className={styles.berthProperties}>
                 {properties.map(
                   ({ prop, key, icon }) =>
                     isNotNull(prop) && (
                       <div className={styles.property} key={key}>
                         <Icon shape={icon} color={getColor(prop)} outlined />
-                        <Text
-                          className={styles.propertyLabel}
-                          color={getColor(prop)}
-                        >
+                        <Text weight="bold" color={getColor(prop)}>
                           {t(`offer.berthDetails.${key}`)}
                         </Text>
                       </div>
@@ -134,13 +130,9 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
                 label={t('offer.berthDetails.maintenanceDetails')}
                 value={
                   <>
-                    <button className={classNames(styles.placeholderLink)}>
-                      123
-                    </button>
+                    <InternalLink to="/">123</InternalLink>
                     <br />
-                    <button className={classNames(styles.placeholderLink)}>
-                      456
-                    </button>
+                    <InternalLink to="/">456</InternalLink>
                   </>
                 }
               />
@@ -184,11 +176,7 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
             <Section>
               <LabelValuePair
                 label={t('offer.billing.additionalServices')}
-                value={
-                  <button className={classNames(styles.placeholderLink)}>
-                    {t('common.edit')}
-                  </button>
-                }
+                value={<InternalLink to="/">{t('common.edit')}</InternalLink>}
               />
               <LabelValuePair
                 label={t('offer.billing.parkingPermit')}
@@ -205,30 +193,22 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
           </div>
         </Grid>
         <hr />
-        <div className={classNames(styles.buttonRow)}>
+        <div className={styles.buttonRow}>
           <div>
-            <Button className={classNames(styles.alignLeft)} disabled>
+            <Button className={styles.alignLeft} disabled>
               {t('offer.billing.acceptAndSend')}
             </Button>
           </div>
           <div>
-            <Button
-              color="supplementary"
-              className={classNames(styles.button)}
-              disabled
-            >
+            <Button color="supplementary" className={styles.button} disabled>
               {t('offer.billing.showBill')}
             </Button>
-            <Button
-              color="supplementary"
-              className={classNames(styles.button)}
-              disabled
-            >
+            <Button color="supplementary" className={styles.button} disabled>
               {t('offer.billing.showContract')}
             </Button>
             <Button
               color="supplementary"
-              className={classNames(styles.button)}
+              className={styles.button}
               onClick={() => handleDeleteLease(id)}
             >
               {t('offer.billing.removeOffer')}
