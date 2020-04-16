@@ -7,6 +7,7 @@ export const INDIVIDUAL_HARBOR_QUERY = gql`
       properties {
         name
         numberOfPlaces
+        numberOfFreePlaces
         streetAddress
         zipCode
         municipality

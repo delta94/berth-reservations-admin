@@ -71,6 +71,7 @@ const HarborProperties: React.SFC<HarborPropertiesProps> = ({
           <Grid colsCount={5} className={styles.propsGrid}>
             <div />
             <Property
+              counter={properties.numberOfPlaces}
               label={t('individualHarbor.harborProperties.numberOfPlaces')}
             />
             <Property
