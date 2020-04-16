@@ -12,13 +12,13 @@
   margin-right: units(0.5);
   min-width: units(8);
   color: var(--vene-label-color);
+  flex: 1;
 }
 
 .value {
   text-align: left;
-  margin-right: units(1);
-  flex-grow: 1;
   margin-right: 0;
+  flex: 1;
 
   &.right {
     text-align: right;

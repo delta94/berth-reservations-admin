@@ -18,6 +18,7 @@ import { APPLICATION_STATUS } from '../../common/utils/consonants';
 import CustomerInfoCard, {
   CustomerInfoCardProps,
 } from '../cards/customerInfoCard/CustomerInfoCard';
+import OfferCard, { OfferCardProps } from './offerCard/OfferCard';
 
 export enum CUSTOMER_GROUP {
   PRIVATE = 'PRIVATE',
@@ -40,6 +41,7 @@ export interface IndividualApplicationPageProps {
   similarCustomersData: CustomerData[] | null;
   customerInfo: CustomerInfoCardProps;
   applicationDetails: ApplicationDetailsProps;
+  offerDetails: OfferCardProps | null;
   handleLinkCustomer(customerId: string): void;
   handleCreateCustomer(): void;
 }
@@ -48,6 +50,7 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
   similarCustomersData,
   customerInfo,
   applicationDetails,
+  offerDetails,
   handleLinkCustomer,
   handleCreateCustomer,
 }) => {
@@ -156,6 +159,7 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
           </CardBody>
         </Card>
       )}
+      {offerDetails && <OfferCard {...offerDetails} />}
     </div>
   );
 };

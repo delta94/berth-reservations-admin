@@ -2,10 +2,13 @@ import { ApplicationDetailsProps } from '../cards/applicationDetails/Application
 import {
   INDIVIDUAL_APPLICATION_berthApplication as BERTH_APPLICATION,
   INDIVIDUAL_APPLICATION_boatTypes as BOAT_TYPES,
+  INDIVIDUAL_APPLICATION_berthApplication_lease as BERTH_LEASE,
 } from './__generated__/INDIVIDUAL_APPLICATION';
 import { CustomerInfoCardProps } from '../cards/customerInfoCard/CustomerInfoCard';
 import { FILTERED_CUSTOMERS } from './__generated__/FILTERED_CUSTOMERS';
 import { CustomerData, CUSTOMER_GROUP } from './IndividualApplicationPage';
+import { OfferCardProps } from './offerCard/OfferCard';
+import { BerthMooringType } from '../../@types/__generated__/globalTypes';
 
 export const getCustomerInfoData = (
   berthApplication: BERTH_APPLICATION
@@ -120,4 +123,48 @@ export const getFilteredCustomersData = (
       },
     ];
   }, []);
+};
+
+interface LeaseDetails {
+  id: string;
+  berthComment: string;
+  berthDepth: number | null;
+  berthIsAccessible: boolean;
+  berthLength: number | null;
+  berthMooringType: BerthMooringType | null;
+  berthNum: string;
+  berthWidth: number | null;
+  electricity: boolean;
+  gate: boolean;
+  harborName: string;
+  lighting: boolean;
+  pierIdentifier: string;
+  wasteCollection: boolean;
+  water: boolean;
+}
+
+export const getOfferDetailsData = (
+  lease: BERTH_LEASE
+): Omit<OfferCardProps, 'handleDeleteLease'> => {
+  const leaseDetails: LeaseDetails | null = {
+    id: lease.id,
+    berthComment: lease.berth?.comment || '',
+    berthDepth: lease.berth?.berthType.depth || null,
+    berthIsAccessible: lease.berth?.isAccessible || false,
+    berthLength: lease.berth?.berthType.length || null,
+    berthMooringType: lease.berth?.berthType.mooringType || null,
+    berthNum: lease.berth?.number || '',
+    berthWidth: lease.berth?.berthType.width || null,
+    electricity: lease.berth?.pier.properties?.electricity || false,
+    gate: lease.berth?.pier.properties?.gate || false,
+    harborName: lease.berth?.pier.properties?.harbor.properties?.name || '',
+    lighting: lease.berth?.pier.properties?.lighting || false,
+    pierIdentifier: lease.berth?.pier.properties?.identifier || '',
+    wasteCollection: lease.berth?.pier.properties?.wasteCollection || false,
+    water: lease.berth?.pier.properties?.water || false,
+  };
+
+  return {
+    leaseDetails,
+  };
 };

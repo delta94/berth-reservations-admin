@@ -128,11 +128,11 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
         )}
       </div>
       <Grid colsCount={3}>
-        <Section title={t('offer.berthDetails.previousLeases')}>
+        <Section title={t('offer.berthDetails.previousLeases').toUpperCase()}>
           {leasesElements.length ? leasesElements : '-'}
         </Section>
         <Section
-          title={t('offer.berthDetails.comment')}
+          title={t('offer.berthDetails.comment').toUpperCase()}
           className={styles.comment}
         >
           <Text>{comment || '-'}</Text>
