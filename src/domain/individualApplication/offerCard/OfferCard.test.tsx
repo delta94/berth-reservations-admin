@@ -3,16 +3,25 @@ import { shallow } from 'enzyme';
 import { HashRouter } from 'react-router-dom';
 
 import OfferCard from './OfferCard';
+import { BerthMooringType } from '../../../@types/__generated__/globalTypes';
 
 describe('OfferCard', () => {
   const getWrapper = (
     props = {
-      berth: {
-        name: 'Test',
-        wasteManagement: true,
+      leaseDetails: {
+        berthComment: 'Testi',
+        berthDepth: 3,
+        berthIsAccessible: true,
+        berthLength: 6,
+        berthMooringType: BerthMooringType.DINGHY_PLACE,
+        berthNum: '1',
+        berthWidth: 4,
         electricity: true,
-        lighting: true,
         gate: true,
+        harborName: 'Testisatama',
+        lighting: true,
+        pierIdentifier: 'Testilaituri',
+        wasteCollection: true,
         water: true,
       },
     }

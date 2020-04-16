@@ -35,6 +35,7 @@ import {
   getApplicationDetailsData,
   getCustomerInfoData,
   getFilteredCustomersData,
+  getOfferDetailsData,
 } from './utils';
 
 const IndividualCustomerPageContainer: React.SFC = () => {
@@ -133,6 +134,10 @@ const IndividualCustomerPageContainer: React.SFC = () => {
 
   const applicationDetails = { ...applicationDetailsData, handleDeleteLease };
 
+  const offerDetailsData = data.berthApplication.lease
+    ? getOfferDetailsData(data.berthApplication.lease)
+    : null;
+
   const handleLinkCustomer = (customerId: string) =>
     linkCustomer({
       variables: {
@@ -169,6 +174,7 @@ const IndividualCustomerPageContainer: React.SFC = () => {
       similarCustomersData={filteredCustomersData}
       customerInfo={customerInfo}
       applicationDetails={applicationDetails}
+      offerDetails={offerDetailsData}
     />
   );
 };

@@ -13,22 +13,47 @@ import styles from './offerCard.module.scss';
 import InternalLink from '../../../common/internalLink/InternalLink';
 import Icon, { IconShapes } from '../../../common/icons/Icon';
 import Text from '../../../common/text/Text';
+import { formatDimension } from '../../../common/utils/format';
+import { BerthMooringType } from '../../../@types/__generated__/globalTypes';
 
 export interface OfferCardProps {
-  berth: {
-    name: string;
-    wasteManagement: boolean | null;
-    electricity: boolean | null;
-    lighting: boolean | null;
-    gate: boolean | null;
-    water: boolean | null;
+  leaseDetails: {
+    berthComment: string;
+    berthDepth: number | null;
+    berthIsAccessible: boolean;
+    berthLength: number | null;
+    berthMooringType: BerthMooringType | null;
+    berthNum: string;
+    berthWidth: number | null;
+    electricity: boolean;
+    gate: boolean;
+    harborName: string;
+    lighting: boolean;
+    pierIdentifier: string;
+    wasteCollection: boolean;
+    water: boolean;
   };
 }
 
 const OfferCard: React.FunctionComponent<OfferCardProps> = ({
-  berth: { name, wasteManagement, electricity, lighting, gate, water },
+  leaseDetails: {
+    berthComment,
+    berthDepth,
+    berthIsAccessible,
+    berthLength,
+    berthMooringType,
+    berthNum,
+    berthWidth,
+    electricity,
+    gate,
+    harborName,
+    lighting,
+    pierIdentifier,
+    wasteCollection,
+    water,
+  },
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const isNotNull = (property: boolean | null): property is boolean =>
     property !== null;
   const getColor = (property: boolean) => (property ? 'standard' : 'secondary');
@@ -37,7 +62,7 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
     key: string;
     icon: IconShapes;
   }[] = [
-    { prop: wasteManagement, key: 'waste', icon: 'IconTrash' },
+    { prop: wasteCollection, key: 'waste', icon: 'IconTrash' },
     { prop: electricity, key: 'electricity', icon: 'IconPlug' },
     { prop: lighting, key: 'lighting', icon: 'IconStreetLight' },
     { prop: gate, key: 'gate', icon: 'IconFence' },
@@ -52,7 +77,9 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
           <div>
             <Section title={t('common.terminology.berth').toUpperCase()}>
               <InternalLink to="/" underlined>
-                {name}
+                {[harborName, pierIdentifier, berthNum]
+                  .filter(Boolean)
+                  .join(' ')}
               </InternalLink>
             </Section>
             <Section>
@@ -78,38 +105,44 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
             <Section title={t('offer.berthDetails.title').toUpperCase()}>
               <LabelValuePair
                 label={t('offer.berthDetails.mooringType')}
-                value={t('common.mooringTypes.STERN_BUOY_PLACE')}
+                value={t([`common.mooringTypes.${berthMooringType}`])}
               />
               <LabelValuePair
                 label={t('common.terminology.width')}
-                value={'4,0 m'}
+                value={formatDimension(berthWidth, i18n.language)}
               />
               <LabelValuePair
                 label={t('common.terminology.length')}
-                value={'8,0m'}
+                value={formatDimension(berthLength, i18n.language)}
               />
               <LabelValuePair
-                label={t('common.terminology.draught')}
-                value={'2,2 m'}
+                label={t('common.terminology.depth')}
+                value={formatDimension(berthDepth, i18n.language)}
               />
             </Section>
-            <Section>
-              <span>{t('offer.berthDetails.accessible')}</span>
-            </Section>
+            {berthIsAccessible && (
+              <Section>
+                <span>{t('offer.berthDetails.accessible')}</span>
+              </Section>
+            )}
             <Section>
               <LabelValuePair
                 label={t('offer.berthDetails.maintenanceDetails')}
                 value={
                   <>
-                    <span>234</span>
+                    <button className={classNames(styles.placeholderLink)}>
+                      123
+                    </button>
                     <br />
-                    <span>456</span>
+                    <button className={classNames(styles.placeholderLink)}>
+                      456
+                    </button>
                   </>
                 }
               />
               <LabelValuePair
                 label={t('offer.berthDetails.comment')}
-                value={'Placeholder'}
+                value={berthComment}
               />
             </Section>
           </div>
@@ -147,7 +180,11 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
             <Section>
               <LabelValuePair
                 label={t('offer.billing.additionalServices')}
-                value={t('common.edit')}
+                value={
+                  <button className={classNames(styles.placeholderLink)}>
+                    {t('common.edit')}
+                  </button>
+                }
               />
               <LabelValuePair
                 label={t('offer.billing.parkingPermit')}
@@ -165,26 +202,27 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
         </Grid>
         <hr />
         <div className={classNames(styles.buttonRow)}>
-          <Button className={classNames(styles.alignLeft)}>
-            {t('offer.billing.acceptAndSend')}
-          </Button>
+          <div>
+            <Button className={classNames(styles.alignLeft)} disabled>
+              {t('offer.billing.acceptAndSend')}
+            </Button>
+          </div>
           <div>
             <Button
               color="supplementary"
-              className={classNames(styles.button, styles.alignRight)}
+              className={classNames(styles.button)}
+              disabled
             >
               {t('offer.billing.showBill')}
             </Button>
             <Button
               color="supplementary"
-              className={classNames(styles.button, styles.alignRight)}
+              className={classNames(styles.button)}
+              disabled
             >
               {t('offer.billing.showContract')}
             </Button>
-            <Button
-              color="supplementary"
-              className={classNames(styles.button, styles.alignRight)}
-            >
+            <Button color="supplementary" className={classNames(styles.button)}>
               {t('offer.billing.removeOffer')}
             </Button>
           </div>

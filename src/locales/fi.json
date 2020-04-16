@@ -50,7 +50,8 @@
     "terminology": {
       "width": "Leveys",
       "length": "Pituus",
-      "draught": "Syvyys",
+      "depth": "Syvyys",
+      "draught": "Syväys",
       "berth": "Venepaikka"
     },
     "notification": {

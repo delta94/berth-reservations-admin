@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { ApplicationStatus } from "./../../../@types/__generated__/globalTypes";
+import { ApplicationStatus, BerthMooringType } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: INDIVIDUAL_APPLICATION
@@ -35,6 +35,14 @@ export interface INDIVIDUAL_APPLICATION_berthApplication_berthSwitch {
   reason: INDIVIDUAL_APPLICATION_berthApplication_berthSwitch_reason | null;
 }
 
+export interface INDIVIDUAL_APPLICATION_berthApplication_lease_berth_berthType {
+  __typename: "BerthTypeNode";
+  depth: number | null;
+  length: number;
+  mooringType: BerthMooringType;
+  width: number;
+}
+
 export interface INDIVIDUAL_APPLICATION_berthApplication_lease_berth_pier_properties_harbor_properties {
   __typename: "HarborProperties";
   name: string | null;
@@ -49,6 +57,12 @@ export interface INDIVIDUAL_APPLICATION_berthApplication_lease_berth_pier_proper
 export interface INDIVIDUAL_APPLICATION_berthApplication_lease_berth_pier_properties {
   __typename: "PierProperties";
   identifier: string;
+  electricity: boolean;
+  gate: boolean;
+  lighting: boolean;
+  mooring: boolean;
+  wasteCollection: boolean;
+  water: boolean;
   harbor: INDIVIDUAL_APPLICATION_berthApplication_lease_berth_pier_properties_harbor;
 }
 
@@ -59,6 +73,9 @@ export interface INDIVIDUAL_APPLICATION_berthApplication_lease_berth_pier {
 
 export interface INDIVIDUAL_APPLICATION_berthApplication_lease_berth {
   __typename: "BerthNode";
+  berthType: INDIVIDUAL_APPLICATION_berthApplication_lease_berth_berthType;
+  comment: string;
+  isAccessible: boolean | null;
   number: string;
   pier: INDIVIDUAL_APPLICATION_berthApplication_lease_berth_pier;
 }
