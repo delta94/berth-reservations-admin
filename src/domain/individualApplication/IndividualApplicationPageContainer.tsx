@@ -134,8 +134,11 @@ const IndividualCustomerPageContainer: React.SFC = () => {
 
   const applicationDetails = { ...applicationDetailsData, handleDeleteLease };
 
-  const offerDetailsData = data.berthApplication.lease
-    ? getOfferDetailsData(data.berthApplication.lease)
+  const offerDetails = data.berthApplication.lease
+    ? {
+        ...getOfferDetailsData(data.berthApplication.lease),
+        handleDeleteLease,
+      }
     : null;
 
   const handleLinkCustomer = (customerId: string) =>
@@ -174,7 +177,7 @@ const IndividualCustomerPageContainer: React.SFC = () => {
       similarCustomersData={filteredCustomersData}
       customerInfo={customerInfo}
       applicationDetails={applicationDetails}
-      offerDetails={offerDetailsData}
+      offerDetails={offerDetails}
     />
   );
 };

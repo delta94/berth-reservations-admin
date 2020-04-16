@@ -18,6 +18,7 @@ import { BerthMooringType } from '../../../@types/__generated__/globalTypes';
 
 export interface OfferCardProps {
   leaseDetails: {
+    id: string;
     berthComment: string;
     berthDepth: number | null;
     berthIsAccessible: boolean;
@@ -33,10 +34,12 @@ export interface OfferCardProps {
     wasteCollection: boolean;
     water: boolean;
   };
+  handleDeleteLease: (id: string) => void;
 }
 
 const OfferCard: React.FunctionComponent<OfferCardProps> = ({
   leaseDetails: {
+    id,
     berthComment,
     berthDepth,
     berthIsAccessible,
@@ -52,6 +55,7 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
     wasteCollection,
     water,
   },
+  handleDeleteLease,
 }) => {
   const { t, i18n } = useTranslation();
   const isNotNull = (property: boolean | null): property is boolean =>
@@ -222,7 +226,11 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
             >
               {t('offer.billing.showContract')}
             </Button>
-            <Button color="supplementary" className={classNames(styles.button)}>
+            <Button
+              color="supplementary"
+              className={classNames(styles.button)}
+              onClick={() => handleDeleteLease(id)}
+            >
               {t('offer.billing.removeOffer')}
             </Button>
           </div>

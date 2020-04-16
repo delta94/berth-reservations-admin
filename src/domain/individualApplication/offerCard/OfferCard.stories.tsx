@@ -1,5 +1,6 @@
 import React from 'react';
 import { HashRouter } from 'react-router-dom';
+import { action } from '@storybook/addon-actions';
 
 import OfferCard from './OfferCard';
 import { BerthMooringType } from '../../../@types/__generated__/globalTypes';
@@ -25,6 +26,7 @@ export default {
 export const offerCard = () => (
   <OfferCard
     leaseDetails={{
+      id: '123456',
       berthComment: 'Testi',
       berthDepth: 3,
       berthIsAccessible: true,
@@ -40,6 +42,7 @@ export const offerCard = () => (
       wasteCollection: true,
       water: true,
     }}
+    handleDeleteLease={action('lease deleted')}
   />
 );
 

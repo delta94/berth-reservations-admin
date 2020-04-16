@@ -126,6 +126,7 @@ export const getFilteredCustomersData = (
 };
 
 interface LeaseDetails {
+  id: string;
   berthComment: string;
   berthDepth: number | null;
   berthIsAccessible: boolean;
@@ -142,8 +143,11 @@ interface LeaseDetails {
   water: boolean;
 }
 
-export const getOfferDetailsData = (lease: BERTH_LEASE): OfferCardProps => {
+export const getOfferDetailsData = (
+  lease: BERTH_LEASE
+): Omit<OfferCardProps, 'handleDeleteLease'> => {
   const leaseDetails: LeaseDetails | null = {
+    id: lease.id,
     berthComment: lease.berth?.comment || '',
     berthDepth: lease.berth?.berthType.depth || null,
     berthIsAccessible: lease.berth?.isAccessible || false,

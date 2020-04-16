@@ -9,6 +9,7 @@ describe('OfferCard', () => {
   const getWrapper = (
     props = {
       leaseDetails: {
+        id: '123456',
         berthComment: 'Testi',
         berthDepth: 3,
         berthIsAccessible: true,
@@ -24,6 +25,7 @@ describe('OfferCard', () => {
         wasteCollection: true,
         water: true,
       },
+      handleDeleteLease: jest.fn(),
     }
   ) =>
     shallow(
