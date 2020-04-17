@@ -184,6 +184,9 @@
       "berths": "Venepaikat",
       "privateCustomer": "Yksityinen",
       "companyCustomer": "Yritys",
+      "internalCustomer": "Sisäinen",
+      "nonBillableCustomer": "Ei laskutettava",
+      "otherCustomer": "Muu",
       "emptyState": "Rajauksella ei löytynyt asiakastietoja"
     },
     "customerTableTools": {

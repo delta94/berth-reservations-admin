@@ -64,10 +64,22 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
       accessor: 'name',
     },
     {
-      Cell: ({ cell }) =>
-        (cell.value as CUSTOMER_GROUP) === CUSTOMER_GROUP.PRIVATE
-          ? t('individualApplication.customersTable.privateCustomer')
-          : t('individualApplication.customersTable.companyCustomer'),
+      Cell: ({ cell }) => {
+        switch (cell.value as CUSTOMER_GROUP) {
+          case CUSTOMER_GROUP.PRIVATE:
+            return t('individualApplication.customersTable.privateCustomer');
+          case CUSTOMER_GROUP.COMPANY:
+            return t('individualApplication.customersTable.companyCustomer');
+          case CUSTOMER_GROUP.INTERNAL:
+            return t('individualApplication.customersTable.internalCustomer');
+          case CUSTOMER_GROUP.NON_BILLABLE:
+            return t(
+              'individualApplication.customersTable.nonBillableCustomer'
+            );
+          case CUSTOMER_GROUP.OTHER:
+            return t('individualApplication.customersTable.otherCustomer');
+        }
+      },
       Header: t('individualApplication.customersTable.customerGroup') || '',
       accessor: 'customerGroup',
     },
