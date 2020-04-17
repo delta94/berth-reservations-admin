@@ -1,14 +1,17 @@
 import { ApplicationDetailsProps } from '../cards/applicationDetails/ApplicationDetails';
 import {
   INDIVIDUAL_APPLICATION_berthApplication as BERTH_APPLICATION,
-  INDIVIDUAL_APPLICATION_boatTypes as BOAT_TYPES,
   INDIVIDUAL_APPLICATION_berthApplication_lease as BERTH_LEASE,
+  INDIVIDUAL_APPLICATION_boatTypes as BOAT_TYPES,
 } from './__generated__/INDIVIDUAL_APPLICATION';
 import { CustomerInfoCardProps } from '../cards/customerInfoCard/CustomerInfoCard';
 import { FILTERED_CUSTOMERS } from './__generated__/FILTERED_CUSTOMERS';
-import { CustomerData, CUSTOMER_GROUP } from './IndividualApplicationPage';
+import { CUSTOMER_GROUP, CustomerData } from './IndividualApplicationPage';
 import { OfferCardProps } from './offerCard/OfferCard';
-import { BerthMooringType } from '../../@types/__generated__/globalTypes';
+import {
+  BerthMooringType,
+  OrganizationType,
+} from '../../@types/__generated__/globalTypes';
 
 export const getCustomerInfoData = (
   berthApplication: BERTH_APPLICATION
@@ -89,6 +92,25 @@ export const getApplicationDetailsData = (
   };
 };
 
+const mapCustomerGroup = (
+  organization: { organizationType: OrganizationType } | null
+): CUSTOMER_GROUP => {
+  if (organization === null) {
+    return CUSTOMER_GROUP.PRIVATE;
+  }
+
+  switch (organization.organizationType) {
+    case OrganizationType.COMPANY:
+      return CUSTOMER_GROUP.COMPANY;
+    case OrganizationType.INTERNAL:
+      return CUSTOMER_GROUP.INTERNAL;
+    case OrganizationType.NON_BILLABLE:
+      return CUSTOMER_GROUP.NON_BILLABLE;
+    case OrganizationType.OTHER:
+      return CUSTOMER_GROUP.OTHER_ORGANIZATION;
+  }
+};
+
 export const getFilteredCustomersData = (
   data?: FILTERED_CUSTOMERS
 ): CustomerData[] | null => {
@@ -101,7 +123,7 @@ export const getFilteredCustomersData = (
       firstName,
       lastName,
       primaryAddress,
-      company,
+      organization,
       berthLeases,
     } = edge.node;
 
@@ -116,9 +138,7 @@ export const getFilteredCustomersData = (
         name: `${lastName}, ${firstName}`,
         city: primaryAddress?.city,
         address: primaryAddress?.address,
-        customerGroup: company
-          ? CUSTOMER_GROUP.COMPANY
-          : CUSTOMER_GROUP.PRIVATE,
+        customerGroup: mapCustomerGroup(organization),
         berths,
       },
     ];

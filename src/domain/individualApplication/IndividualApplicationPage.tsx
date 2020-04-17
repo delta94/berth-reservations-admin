@@ -23,6 +23,9 @@ import OfferCard, { OfferCardProps } from './offerCard/OfferCard';
 export enum CUSTOMER_GROUP {
   PRIVATE = 'PRIVATE',
   COMPANY = 'COMPANY',
+  INTERNAL = 'INTERNAL',
+  NON_BILLABLE = 'NON_BILLABLE',
+  OTHER_ORGANIZATION = 'OTHER_ORGANIZATION',
 }
 
 export interface CustomerData {
@@ -61,10 +64,24 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
       accessor: 'name',
     },
     {
-      Cell: ({ cell }) =>
-        (cell.value as CUSTOMER_GROUP) === CUSTOMER_GROUP.PRIVATE
-          ? t('individualApplication.customersTable.privateCustomer')
-          : t('individualApplication.customersTable.companyCustomer'),
+      Cell: ({ cell }) => {
+        switch (cell.value as CUSTOMER_GROUP) {
+          case CUSTOMER_GROUP.PRIVATE:
+            return t('individualApplication.customersTable.privateCustomer');
+          case CUSTOMER_GROUP.COMPANY:
+            return t('individualApplication.customersTable.companyCustomer');
+          case CUSTOMER_GROUP.INTERNAL:
+            return t('individualApplication.customersTable.internalCustomer');
+          case CUSTOMER_GROUP.NON_BILLABLE:
+            return t(
+              'individualApplication.customersTable.nonBillableCustomer'
+            );
+          case CUSTOMER_GROUP.OTHER_ORGANIZATION:
+            return t(
+              'individualApplication.customersTable.otherOrganizationCustomer'
+            );
+        }
+      },
       Header: t('individualApplication.customersTable.customerGroup') || '',
       accessor: 'customerGroup',
     },

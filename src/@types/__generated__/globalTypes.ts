@@ -48,6 +48,13 @@ export enum LeaseStatus {
   REFUSED = "REFUSED",
 }
 
+export enum OrganizationType {
+  COMPANY = "COMPANY",
+  INTERNAL = "INTERNAL",
+  NON_BILLABLE = "NON_BILLABLE",
+  OTHER = "OTHER",
+}
+
 export enum ServiceType {
   BERTH = "BERTH",
   GODCHILDREN_OF_CULTURE = "GODCHILDREN_OF_CULTURE",
