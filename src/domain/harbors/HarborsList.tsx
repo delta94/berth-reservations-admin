@@ -44,6 +44,11 @@ const HarborsList: React.FC<HarborsPageProps> = ({ data = [] }) => {
       width: COLUMN_WIDTH.S,
     },
     {
+      Header: t('harbors.tableHeaders.freePlaces') || '',
+      accessor: 'numberOfFreePlaces',
+      width: COLUMN_WIDTH.S,
+    },
+    {
       Cell: ({ cell }) => (
         <Icon
           outlined

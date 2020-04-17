@@ -76,7 +76,8 @@
     "tableHeaders": {
       "mainHeader": "Satamat",
       "harbor": "Satama",
-      "places": "Paikkoja"
+      "places": "Paikkoja",
+      "freePlaces": "Vapaita"
     },
     "details": {
       "customer": "ASIAKAS",
@@ -117,7 +118,8 @@
       "width": "Leveys",
       "mooring": "Kiinnitys",
       "harbor": "Satama",
-      "places": "Paikkoja"
+      "places": "Paikkoja",
+      "freePlaces": "Vapaita"
     }
   },
   "applications": {
