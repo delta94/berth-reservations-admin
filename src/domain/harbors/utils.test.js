@@ -8,7 +8,8 @@ const mockedData = {
           id: 'SGFyYm9yTm9kZTpmN2M2YTQwZjAtOWViMi0zZjgyMTI0YjY0OGI=',
           properties: {
             name: 'Harbor 1',
-            numberOfPlaces: null,
+            numberOfPlaces: 3,
+            numberOfFreePlaces: 2,
             piers: {
               edges: [
                 {
@@ -32,7 +33,8 @@ const mockedData = {
           id: 'SGFyYm9yTm9kZTplZDM1Q1ZTgtOGUyYS0zYmQxNDk4NjYzMDI=',
           properties: {
             name: 'Harbor 2',
-            numberOfPlaces: null,
+            numberOfPlaces: 4,
+            numberOfFreePlaces: null,
             piers: {
               edges: [
                 {
