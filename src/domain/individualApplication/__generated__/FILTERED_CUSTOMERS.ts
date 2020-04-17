@@ -14,8 +14,8 @@ export interface FILTERED_CUSTOMERS_profiles_edges_node_primaryAddress {
   city: string;
 }
 
-export interface FILTERED_CUSTOMERS_profiles_edges_node_company {
-  __typename: "CompanyType";
+export interface FILTERED_CUSTOMERS_profiles_edges_node_organization {
+  __typename: "OrganizationNode";
   businessId: string;
 }
 
@@ -88,7 +88,7 @@ export interface FILTERED_CUSTOMERS_profiles_edges_node {
   firstName: string;
   lastName: string;
   primaryAddress: FILTERED_CUSTOMERS_profiles_edges_node_primaryAddress | null;
-  company: FILTERED_CUSTOMERS_profiles_edges_node_company | null;
+  organization: FILTERED_CUSTOMERS_profiles_edges_node_organization | null;
   berthLeases: FILTERED_CUSTOMERS_profiles_edges_node_berthLeases | null;
   berthApplications: FILTERED_CUSTOMERS_profiles_edges_node_berthApplications | null;
 }

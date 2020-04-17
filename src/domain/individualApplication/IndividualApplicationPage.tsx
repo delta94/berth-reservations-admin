@@ -22,7 +22,7 @@ import OfferCard, { OfferCardProps } from './offerCard/OfferCard';
 
 export enum CUSTOMER_GROUP {
   PRIVATE = 'PRIVATE',
-  COMPANY = 'COMPANY',
+  ORGANIZATION = 'ORGANIZATION',
 }
 
 export interface CustomerData {

@@ -9,15 +9,15 @@ import { ApplicationStatus, BerthMooringType } from "./../../../@types/__generat
 // GraphQL query operation: INDIVIDUAL_APPLICATION
 // ====================================================
 
-export interface INDIVIDUAL_APPLICATION_berthApplication_customer_company {
-  __typename: "CompanyType";
+export interface INDIVIDUAL_APPLICATION_berthApplication_customer_organization {
+  __typename: "OrganizationNode";
   businessId: string;
 }
 
 export interface INDIVIDUAL_APPLICATION_berthApplication_customer {
   __typename: "ProfileNode";
   id: string;
-  company: INDIVIDUAL_APPLICATION_berthApplication_customer_company | null;
+  organization: INDIVIDUAL_APPLICATION_berthApplication_customer_organization | null;
 }
 
 export interface INDIVIDUAL_APPLICATION_berthApplication_berthSwitch_reason {

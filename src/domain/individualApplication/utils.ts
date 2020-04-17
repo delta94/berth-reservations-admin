@@ -1,12 +1,12 @@
 import { ApplicationDetailsProps } from '../cards/applicationDetails/ApplicationDetails';
 import {
   INDIVIDUAL_APPLICATION_berthApplication as BERTH_APPLICATION,
-  INDIVIDUAL_APPLICATION_boatTypes as BOAT_TYPES,
   INDIVIDUAL_APPLICATION_berthApplication_lease as BERTH_LEASE,
+  INDIVIDUAL_APPLICATION_boatTypes as BOAT_TYPES,
 } from './__generated__/INDIVIDUAL_APPLICATION';
 import { CustomerInfoCardProps } from '../cards/customerInfoCard/CustomerInfoCard';
 import { FILTERED_CUSTOMERS } from './__generated__/FILTERED_CUSTOMERS';
-import { CustomerData, CUSTOMER_GROUP } from './IndividualApplicationPage';
+import { CUSTOMER_GROUP, CustomerData } from './IndividualApplicationPage';
 import { OfferCardProps } from './offerCard/OfferCard';
 import { BerthMooringType } from '../../@types/__generated__/globalTypes';
 
@@ -101,7 +101,7 @@ export const getFilteredCustomersData = (
       firstName,
       lastName,
       primaryAddress,
-      company,
+      organization,
       berthLeases,
     } = edge.node;
 
@@ -116,8 +116,8 @@ export const getFilteredCustomersData = (
         name: `${lastName}, ${firstName}`,
         city: primaryAddress?.city,
         address: primaryAddress?.address,
-        customerGroup: company
-          ? CUSTOMER_GROUP.COMPANY
+        customerGroup: organization
+          ? CUSTOMER_GROUP.ORGANIZATION
           : CUSTOMER_GROUP.PRIVATE,
         berths,
       },

@@ -18,7 +18,7 @@ export const FILTERED_CUSTOMERS_QUERY = gql`
             postalCode
             city
           }
-          company {
+          organization {
             businessId
           }
           berthLeases {
@@ -70,7 +70,7 @@ export const INDIVIDUAL_APPLICATION_QUERY = gql`
 
       customer {
         id
-        company {
+        organization {
           businessId
         }
       }
