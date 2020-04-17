@@ -13,14 +13,22 @@ export const berthDetails = () => (
   <BerthDetails
     leases={[
       {
-        customerId: '123',
+        customer: {
+          id: '123',
+          firstName: 'Jack',
+          lastName: 'Jones',
+        },
         startDate:
           'Mon Oct 07 2019 20:38:26 GMT+0300 (Eastern European Summer Time)',
         endDate:
           'Thu Mar 12 2020 15:43:12 GMT+0200 (Eastern European Standard Time)',
       },
       {
-        customerId: '456',
+        customer: {
+          id: '456',
+          firstName: 'Marc',
+          lastName: 'Jacobs',
+        },
         startDate:
           'Sun Jul 14 2019 23:44:24 GMT+0300 (Eastern European Summer Time)',
         endDate:

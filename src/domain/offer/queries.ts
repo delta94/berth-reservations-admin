@@ -38,10 +38,13 @@ export const OFFER_PAGE_QUERY = gql`
                       leases {
                         edges {
                           node {
+                            status
                             startDate
                             endDate
                             customer {
                               id
+                              firstName
+                              lastName
                             }
                           }
                         }

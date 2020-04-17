@@ -10,7 +10,11 @@ import { formatDate } from '../../../common/utils/format';
 import styles from './berthDetails.module.scss';
 
 interface Lease {
-  customerId: string;
+  customer: {
+    id: string;
+    firstName: string;
+    lastName: string;
+  };
   startDate: string;
   endDate: string;
 }
@@ -38,16 +42,15 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
 }) => {
   const { t, i18n } = useTranslation();
 
-  const leasesElements = leases.map(({ startDate, endDate, customerId }, i) => {
+  const leasesElements = leases.map(({ startDate, endDate, customer }, i) => {
     return (
       <div key={i}>
         <Text>{`${formatDate(startDate, i18n.language)} - ${formatDate(
           endDate,
           i18n.language
         )}`}</Text>{' '}
-        <InternalLink to={`/customers/${customerId}`}>
-          {/* TODO: Replace "Asiakas" with the customer's name when VEN-490 is resolved */}
-          Asiakas
+        <InternalLink to={`/customers/${customer.id}`}>
+          {customer.firstName} {customer.lastName}
         </InternalLink>
       </div>
     );
