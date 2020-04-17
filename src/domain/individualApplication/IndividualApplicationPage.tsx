@@ -25,7 +25,7 @@ export enum CUSTOMER_GROUP {
   COMPANY = 'COMPANY',
   INTERNAL = 'INTERNAL',
   NON_BILLABLE = 'NON_BILLABLE',
-  OTHER = 'OTHER',
+  OTHER_ORGANIZATION = 'OTHER_ORGANIZATION',
 }
 
 export interface CustomerData {
@@ -76,7 +76,7 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
             return t(
               'individualApplication.customersTable.nonBillableCustomer'
             );
-          case CUSTOMER_GROUP.OTHER:
+          case CUSTOMER_GROUP.OTHER_ORGANIZATION:
             return t(
               'individualApplication.customersTable.otherOrganizationCustomer'
             );
