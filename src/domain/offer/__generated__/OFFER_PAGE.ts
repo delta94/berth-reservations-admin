@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { ApplicationStatus, BerthMooringType } from "./../../../@types/__generated__/globalTypes";
+import { ApplicationStatus, LeaseStatus, BerthMooringType } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: OFFER_PAGE
@@ -31,10 +31,13 @@ export interface OFFER_PAGE_berthApplication {
 export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node_customer {
   __typename: "ProfileNode";
   id: string;
+  firstName: string;
+  lastName: string;
 }
 
 export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node {
   __typename: "BerthLeaseNode";
+  status: LeaseStatus;
   startDate: any;
   endDate: any;
   customer: OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node_customer;

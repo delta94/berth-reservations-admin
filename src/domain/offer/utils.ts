@@ -1,9 +1,14 @@
 import { OFFER_PAGE } from './__generated__/OFFER_PAGE';
+import { LeaseStatus } from '../../@types/__generated__/globalTypes';
 
 interface Lease {
+  customer: {
+    id: string;
+    firstName: string;
+    lastName: string;
+  };
   startDate: string;
   endDate: string;
-  customerId: string;
 }
 
 export interface BerthData {
@@ -45,13 +50,19 @@ export const getOfferData = (data: OFFER_PAGE | undefined): BerthData[] => {
 
         const leases =
           berth.node.leases?.edges.reduce<Lease[]>((acc, edge) => {
-            if (!edge?.node) return acc;
+            if (!edge?.node || edge?.node?.status !== LeaseStatus.PAID)
+              return acc;
+
             return [
               ...acc,
               {
                 startDate: edge.node.startDate,
                 endDate: edge.node.endDate,
-                customerId: edge.node.customer.id,
+                customer: {
+                  id: edge.node.customer.id,
+                  firstName: edge.node.customer.firstName,
+                  lastName: edge.node.customer.lastName,
+                },
               },
             ];
           }, []) ?? [];
