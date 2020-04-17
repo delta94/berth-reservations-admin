@@ -77,7 +77,9 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
               'individualApplication.customersTable.nonBillableCustomer'
             );
           case CUSTOMER_GROUP.OTHER:
-            return t('individualApplication.customersTable.otherCustomer');
+            return t(
+              'individualApplication.customersTable.otherOrganizationCustomer'
+            );
         }
       },
       Header: t('individualApplication.customersTable.customerGroup') || '',

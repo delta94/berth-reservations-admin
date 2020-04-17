@@ -186,7 +186,7 @@
       "companyCustomer": "Yritys",
       "internalCustomer": "Sisäinen",
       "nonBillableCustomer": "Ei laskutettava",
-      "otherCustomer": "Yhdistys",
+      "otherOrganizationCustomer": "Yhdistys",
       "emptyState": "Rajauksella ei löytynyt asiakastietoja"
     },
     "customerTableTools": {
