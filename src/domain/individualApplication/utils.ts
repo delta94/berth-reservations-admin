@@ -8,7 +8,10 @@ import { CustomerInfoCardProps } from '../cards/customerInfoCard/CustomerInfoCar
 import { FILTERED_CUSTOMERS } from './__generated__/FILTERED_CUSTOMERS';
 import { CUSTOMER_GROUP, CustomerData } from './IndividualApplicationPage';
 import { OfferCardProps } from './offerCard/OfferCard';
-import { BerthMooringType } from '../../@types/__generated__/globalTypes';
+import {
+  BerthMooringType,
+  OrganizationType,
+} from '../../@types/__generated__/globalTypes';
 
 export const getCustomerInfoData = (
   berthApplication: BERTH_APPLICATION
@@ -89,6 +92,12 @@ export const getApplicationDetailsData = (
   };
 };
 
+const mapOrganizationTypeAsCustomerGroup = (
+  organizationType: OrganizationType
+): CUSTOMER_GROUP => {
+  return CUSTOMER_GROUP[organizationType];
+};
+
 export const getFilteredCustomersData = (
   data?: FILTERED_CUSTOMERS
 ): CustomerData[] | null => {
@@ -117,7 +126,7 @@ export const getFilteredCustomersData = (
         city: primaryAddress?.city,
         address: primaryAddress?.address,
         customerGroup: organization
-          ? CUSTOMER_GROUP.ORGANIZATION
+          ? mapOrganizationTypeAsCustomerGroup(organization.organizationType)
           : CUSTOMER_GROUP.PRIVATE,
         berths,
       },

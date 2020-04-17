@@ -20,6 +20,7 @@ export const FILTERED_CUSTOMERS_QUERY = gql`
           }
           organization {
             businessId
+            organizationType
           }
           berthLeases {
             edges {
