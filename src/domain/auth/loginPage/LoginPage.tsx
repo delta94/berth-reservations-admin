@@ -3,12 +3,12 @@ import { RouteComponentProps, useLocation, Redirect } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'hds-react';
 
-import HelsinkiLogo from '../../common/helsinkiLogo/HelsinkiLogo';
-import Text from '../../common/text/Text';
+import HelsinkiLogo from '../../../common/helsinkiLogo/HelsinkiLogo';
+import Text from '../../../common/text/Text';
 import styles from './loginPage.module.scss';
-import Header from '../../common/header/Header';
-import Layout from '../../common/layout/Layout';
-import authService from '../auth/authService';
+import Header from '../../../common/header/Header';
+import Layout from '../../../common/layout/Layout';
+import authService from '../authService';
 
 type LocationState = { from: Location } | null | undefined;
 
