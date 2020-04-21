@@ -63,7 +63,7 @@ export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_pro
 export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node {
   __typename: "BerthNode";
   id: string;
-  number: string;
+  number: number;
   comment: string;
   isAccessible: boolean | null;
   leases: OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_leases | null;

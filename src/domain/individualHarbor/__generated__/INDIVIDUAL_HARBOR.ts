@@ -18,7 +18,7 @@ export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties
 
 export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node {
   __typename: "BerthNode";
-  number: string;
+  number: number;
   berthType: INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_berthType;
 }
 

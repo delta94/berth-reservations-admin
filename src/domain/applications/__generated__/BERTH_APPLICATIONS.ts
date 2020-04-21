@@ -53,7 +53,7 @@ export interface BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth_pie
 
 export interface BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth {
   __typename: "BerthNode";
-  number: string;
+  number: number;
   pier: BERTH_APPLICATIONS_berthApplications_edges_node_lease_berth_pier;
 }
 
