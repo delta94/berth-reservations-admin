@@ -54,6 +54,7 @@ export const IndividualHarborQueryData = {
     properties: {
       name: 'Pajalahden venesatama (Meripuistotie) / Venesatama',
       numberOfPlaces: null,
+      numberOfFreePlaces: null,
       streetAddress: 'Meripuistotie 1a',
       zipCode: '00210',
       municipality: 'Helsinki',

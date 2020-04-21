@@ -62,6 +62,7 @@ export interface INDIVIDUAL_HARBOR_harbor_properties {
   __typename: "HarborProperties";
   name: string | null;
   numberOfPlaces: number;
+  numberOfFreePlaces: number;
   streetAddress: string | null;
   zipCode: string;
   municipality: string | null;

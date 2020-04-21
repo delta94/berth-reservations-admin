@@ -9,6 +9,7 @@ export interface HarborData {
   water: number;
   name: string;
   numberOfPlaces: number;
+  numberOfFreePlaces: number;
   streetAddress: string | null;
   zipCode: string | null;
   municipality: string | null;
@@ -64,6 +65,7 @@ export const getHarborsData = (data: HARBORS | undefined) => {
             municipality: harbor.node.properties.municipality,
             name: harbor.node.properties.name || '-',
             numberOfPlaces: harbor.node.properties.numberOfPlaces || 0,
+            numberOfFreePlaces: harbor.node.properties.numberOfFreePlaces || 0,
             servicemapId: harbor.node.properties.servicemapId,
             streetAddress: harbor.node.properties.streetAddress,
             wwwUrl: harbor.node.properties.wwwUrl,
