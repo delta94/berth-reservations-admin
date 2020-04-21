@@ -12,7 +12,7 @@ import authService from '../authService';
 
 type LocationState = { from: Location } | null | undefined;
 
-const LoginPage: React.SFC<RouteComponentProps> = props => {
+const LoginPage: React.SFC<RouteComponentProps> = () => {
   const { t } = useTranslation();
   const location = useLocation<LocationState>();
   const isAuthenticated = authService.isAuthenticated();
