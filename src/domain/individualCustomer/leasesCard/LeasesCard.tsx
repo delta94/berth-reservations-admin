@@ -19,7 +19,7 @@ interface Harbor {
 export interface Lease {
   id: string;
   harbor: Harbor | null;
-  berthNum: string;
+  berthNum: string | number;
   pierIdentifier: string | null;
   startDate: string;
   endDate: string;

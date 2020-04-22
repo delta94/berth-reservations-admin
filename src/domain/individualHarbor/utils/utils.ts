@@ -53,14 +53,14 @@ export const getIndividualHarborData = (
 };
 
 export type Berth = {
-  number: string;
+  number: number;
   identifier: string;
   length: number;
   width: number;
   mooringType: string;
 };
 
-export const getBerths = (data: INDIVIDUAL_HARBOR | undefined) => {
+export const getBerths = (data: INDIVIDUAL_HARBOR | undefined): Berth[] => {
   if (!data?.harbor?.properties?.piers) return [];
 
   return data.harbor.properties.piers.edges.reduce<Berth[]>((acc, pierEdge) => {
@@ -86,5 +86,52 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined) => {
     );
 
     return [...acc, ...berths];
+  }, []);
+};
+
+export type Pier = {
+  identifier: string;
+  electricity: boolean;
+  wasteCollection: boolean;
+  water: boolean;
+  lighting: boolean;
+  gate: boolean;
+  suitableBoatTypes: string[];
+};
+
+export const getPiers = (data: INDIVIDUAL_HARBOR | undefined): Pier[] => {
+  if (!data?.harbor?.properties?.piers) return [];
+
+  return data.harbor.properties.piers.edges.reduce<Pier[]>((acc, pierEdge) => {
+    if (!pierEdge?.node?.properties) return acc;
+
+    const {
+      identifier,
+      electricity,
+      wasteCollection,
+      water,
+      lighting,
+      gate,
+    } = pierEdge.node.properties;
+
+    const suitableBoatTypes = pierEdge.node.properties.suitableBoatTypes.reduce<
+      string[]
+    >((acc, suitableBoatType) => {
+      if (!suitableBoatType.name) return acc;
+      return [...acc, suitableBoatType.name];
+    }, []);
+
+    return [
+      ...acc,
+      {
+        identifier,
+        electricity,
+        wasteCollection,
+        water,
+        lighting,
+        gate,
+        suitableBoatTypes,
+      },
+    ];
   }, []);
 };

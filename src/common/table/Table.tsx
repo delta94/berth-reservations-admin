@@ -18,6 +18,7 @@ import {
   TableState,
   UseFiltersColumnOptions,
   UseSortByColumnOptions,
+  UseFiltersInstanceProps,
 } from 'react-table';
 
 import Checkbox from '../checkbox/Checkbox';
@@ -35,6 +36,7 @@ interface TState<D extends object> extends TableState<D> {
 
 interface Setters<D extends object> {
   setGlobalFilter: UseGlobalFiltersInstanceProps<D>['setGlobalFilter'];
+  setFilter: UseFiltersInstanceProps<D>['setFilter'];
 }
 
 type TableToolsFn<D extends object> = (
@@ -188,6 +190,7 @@ const Table = <D extends object>({
     selectedFlatRows,
     setGlobalFilter,
     state,
+    setFilter,
   } = useTable(
     {
       columns: tableColumns,
@@ -284,7 +287,7 @@ const Table = <D extends object>({
         ...state,
         selectedRows: selectedFlatRows.map(row => row.original),
       },
-      { setGlobalFilter }
+      { setGlobalFilter, setFilter }
     );
   };
 

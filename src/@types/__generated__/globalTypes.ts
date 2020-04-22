@@ -63,12 +63,12 @@ export enum ServiceType {
 }
 
 export interface CreateBerthLeaseMutationInput {
-  applicationId: string;
-  berthId: string;
   boatId?: string | null;
   startDate?: any | null;
   endDate?: any | null;
   comment?: string | null;
+  applicationId: string;
+  berthId: string;
   clientMutationId?: string | null;
 }
 

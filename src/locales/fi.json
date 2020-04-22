@@ -119,7 +119,12 @@
       "mooring": "Kiinnitys",
       "harbor": "Satama",
       "places": "Paikkoja",
-      "freePlaces": "Vapaita"
+      "freePlaces": "Vapaita",
+      "all": "Kaikki"
+    },
+    "pierProperties": {
+      "pier": "Laituri",
+      "services": "Palvelut"
     }
   },
   "applications": {

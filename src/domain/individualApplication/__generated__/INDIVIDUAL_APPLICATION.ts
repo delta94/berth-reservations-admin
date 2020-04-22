@@ -76,7 +76,7 @@ export interface INDIVIDUAL_APPLICATION_berthApplication_lease_berth {
   berthType: INDIVIDUAL_APPLICATION_berthApplication_lease_berth_berthType;
   comment: string;
   isAccessible: boolean | null;
-  number: string;
+  number: number;
   pier: INDIVIDUAL_APPLICATION_berthApplication_lease_berth_pier;
 }
 

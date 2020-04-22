@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
@@ -6,11 +6,18 @@ import { useTranslation } from 'react-i18next';
 import Table, { Column } from '../../common/table/Table';
 import { INDIVIDUAL_HARBOR_QUERY } from './queries';
 import { INDIVIDUAL_HARBOR } from './__generated__/INDIVIDUAL_HARBOR';
-import { getIndividualHarborData, getBerths, Berth } from './utils/utils';
+import {
+  getIndividualHarborData,
+  getBerths,
+  Berth,
+  getPiers,
+  Pier,
+} from './utils/utils';
 import IndividualHarborPage from './individualHarborPage/IndividualHarborPage';
 import HarborProperties from './harborProperties/HarborProperties';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { formatDimension } from '../../common/utils/format';
+import PierSelectHeader from './pierSelectHeader/PierSelectHeader';
 
 const IndividualHarborPageContainer: React.SFC = () => {
   const { id } = useParams<{ id: string }>();
@@ -19,6 +26,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
     { variables: { id } }
   );
   const { t, i18n } = useTranslation();
+  const [selectedPier, setSelectedPier] = useState<Pier | null>(null);
 
   if (loading) return <LoadingSpinner isLoading={loading} />;
   if (error) return <div>Error</div>;
@@ -39,6 +47,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
     {
       Header: t('individualHarbor.tableHeaders.identifier') || '',
       accessor: 'identifier',
+      filter: 'exactText',
     },
     {
       Cell: ({ cell }) => formatDimension(cell.value, i18n.language),
@@ -56,6 +65,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
       accessor: 'mooringType',
     },
   ];
+  const piers = getPiers(data);
   const berths = getBerths(data);
 
   return (
@@ -80,8 +90,17 @@ const IndividualHarborPageContainer: React.SFC = () => {
       <Table
         data={berths}
         columns={columns}
-        renderMainHeader={() => t('individualHarbor.tableHeaders.mainHeader')}
         canSelectRows
+        renderTableToolsTop={(state, setters) => (
+          <PierSelectHeader
+            piers={piers}
+            selectedPier={selectedPier}
+            onPierSelect={pier => {
+              setSelectedPier(pier);
+              setters.setFilter('identifier', pier?.identifier);
+            }}
+          />
+        )}
       />
     </IndividualHarborPage>
   );

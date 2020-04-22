@@ -1,0 +1,17 @@
+@import 'spacings';
+
+.pierProperties {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: black;
+}
+
+.propertiesGrid {
+  margin: 0 units(1);
+}
+
+.boatTypesGrid {
+  grid-row-gap: units(1.5);
+  grid-column-gap: units(1.5);
+}

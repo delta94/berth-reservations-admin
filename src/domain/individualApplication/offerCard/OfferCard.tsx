@@ -23,7 +23,7 @@ export interface OfferCardProps {
     berthIsAccessible: boolean;
     berthLength: number | null;
     berthMooringType: BerthMooringType | null;
-    berthNum: string;
+    berthNum: number | string;
     berthWidth: number | null;
     electricity: boolean;
     gate: boolean;

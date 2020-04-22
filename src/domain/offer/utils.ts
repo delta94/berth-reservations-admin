@@ -15,7 +15,7 @@ export interface BerthData {
   harborId: string;
   harbor: string;
   pier: string;
-  berth: string;
+  berth: string | number;
   berthId: string;
   width: number | null;
   length: number | null;

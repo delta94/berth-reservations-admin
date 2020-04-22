@@ -8,7 +8,7 @@ interface HarborChoice {
 }
 
 interface Lease {
-  berthNum: string;
+  berthNum: string | number;
   harborId: string;
   harborName: string;
   id: string;
