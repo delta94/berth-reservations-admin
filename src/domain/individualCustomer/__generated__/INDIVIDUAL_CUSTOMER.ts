@@ -81,7 +81,7 @@ export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth_pier {
 
 export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth {
   __typename: "BerthNode";
-  number: string;
+  number: number;
   pier: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth_pier;
 }
 
@@ -143,7 +143,7 @@ export interface INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_lease_
 
 export interface INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_lease_berth {
   __typename: "BerthNode";
-  number: string;
+  number: number;
   pier: INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_lease_berth_pier;
 }
 
