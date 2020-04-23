@@ -3,6 +3,23 @@ import {
   INDIVIDUAL_CUSTOMER_boatTypes as BOAT_TYPES,
 } from './__generated__/INDIVIDUAL_CUSTOMER';
 import { ApplicationStatus } from '../../@types/__generated__/globalTypes';
+import { CustomerProfileCardProps } from '../cards/customerProfileCard/CustomerProfileCard';
+import { mapCustomerGroup } from '../utils';
+
+export const getCustomerProfile = (
+  profile: CUSTOMER_PROFILE
+): CustomerProfileCardProps => {
+  return {
+    customerId: profile.id,
+    customerGroup: mapCustomerGroup(profile.organization),
+    firstName: profile.firstName,
+    lastName: profile.lastName,
+    primaryAddress: profile.primaryAddress,
+    primaryPhone: profile.primaryPhone?.phone,
+    primaryEmail: profile.primaryEmail?.email,
+    ssn: '', // TODO
+  };
+};
 
 interface Lease {
   id: string;

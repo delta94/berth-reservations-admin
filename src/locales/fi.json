@@ -278,18 +278,6 @@
     }
   },
   "individualCustomer": {
-    "customerInformation": {
-      "title": "ASIAKASTIEDOT",
-      "applicantPersonalInfo": "HAKIJAN HENKILÖTIEDOT",
-      "firstName": "Etunimet",
-      "lastName": "Sukunimi",
-      "address": "Jakeluosoite",
-      "postalCode": "Postinumero",
-      "city": "Postitoimipaikka",
-      "phone": "Matkapuhelin",
-      "email": "Sähköpostiosoite",
-      "remarks": "Huomiot"
-    },
     "application": {
       "title": "HAKEMUKSET",
       "application": "HAKEMUS",
@@ -386,5 +374,23 @@
       "period": "Aika",
       "edit": "Muokkaa"
     }
+  },
+  "customerProfile": {
+    "title": "Asiakastiedot",
+    "personalInformation": "Henkilötiedot",
+    "organization": "Yritys / Yhteisö",
+    "contactPerson": "Yhteyshenkilö",
+    "name": "Nimi",
+    "firstName": "Etunimet",
+    "lastName": "Sukunimi",
+    "ssn": "Henkilötunnus",
+    "businessId": "Y-tunnus",
+    "address": "Jakeluosoite",
+    "postalCode": "Postinumero",
+    "city": "Postitoimipaikka",
+    "phone": "Matkapuhelin",
+    "email": "Sähköpostiosoite",
+    "customerGroup": "Asiakasryhmä",
+    "remarks": "Huomiot"
   }
 }

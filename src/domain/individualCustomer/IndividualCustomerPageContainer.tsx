@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
@@ -11,14 +11,19 @@ import Card from '../../common/card/Card';
 import CardHeader from '../../common/cardHeader/CardHeader';
 import CardBody from '../../common/cardBody/CardBody';
 import BillsCard from './billsCard/BillsCard';
-import CustomerInfoCard from '../cards/customerInfoCard/CustomerInfoCard';
+import CustomerProfileCard from '../cards/customerProfileCard/CustomerProfileCard';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import ApplicationsCard from './applicationsCard/ApplicationsCard';
 import BoatsCard from './boatsCard/BoatsCard';
 import LeasesCard from './leasesCard/LeasesCard';
-import { getLeases, getBoats, getApplications } from './utils';
+import {
+  getLeases,
+  getBoats,
+  getApplications,
+  getCustomerProfile,
+} from './utils';
 
-const IndividualHarborPageContainer: React.SFC = () => {
+const IndividualHarborPageContainer: FunctionComponent = () => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const { loading, error, data } = useQuery<INDIVIDUAL_CUSTOMER>(
@@ -43,29 +48,14 @@ const IndividualHarborPageContainer: React.SFC = () => {
       </Notification>
     );
 
-  const {
-    firstName,
-    lastName,
-    primaryAddress,
-    primaryPhone,
-    primaryEmail,
-    comment,
-  } = data.profile;
-
+  const customerProfile = getCustomerProfile(data.profile);
   const leases = getLeases(data.profile);
   const boats = getBoats(data.profile);
   const applications = getApplications(data.profile, data.boatTypes || []);
 
   return (
     <IndividualCustomerPage>
-      <CustomerInfoCard
-        firstName={firstName}
-        lastName={lastName}
-        primaryAddress={primaryAddress}
-        phone={primaryPhone?.phone}
-        email={primaryEmail?.email}
-        comment={comment}
-      />
+      <CustomerProfileCard {...customerProfile} />
       <Card>
         <CardHeader title="VIIMEAIKAINEN TOIMINTA" />
         <CardBody>Placeholder</CardBody>

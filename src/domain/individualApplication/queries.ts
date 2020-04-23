@@ -68,11 +68,11 @@ export const INDIVIDUAL_APPLICATION_QUERY = gql`
       zipCode
       phoneNumber
       email
-
       customer {
         id
         organization {
           businessId
+          organizationType
         }
       }
       berthSwitch {

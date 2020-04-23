@@ -15,9 +15,9 @@ import Text from '../../common/text/Text';
 import { formatDate } from '../../common/utils/format';
 import Chip from '../../common/chip/Chip';
 import { APPLICATION_STATUS } from '../../common/utils/consonants';
-import CustomerInfoCard, {
-  CustomerInfoCardProps,
-} from '../cards/customerInfoCard/CustomerInfoCard';
+import CustomerProfileCard, {
+  CustomerProfileCardProps,
+} from '../cards/customerProfileCard/CustomerProfileCard';
 import OfferCard, { OfferCardProps } from './offerCard/OfferCard';
 import { CUSTOMER_GROUP } from '../types';
 
@@ -35,7 +35,7 @@ type ColumnType = Column<CustomerData> & { accessor: keyof CustomerData };
 export interface IndividualApplicationPageProps {
   applicationId: string;
   similarCustomersData: CustomerData[] | null;
-  customerInfo: CustomerInfoCardProps;
+  customerProfileData: CustomerProfileCardProps;
   applicationDetails: ApplicationDetailsProps;
   offerDetails: OfferCardProps | null;
   handleLinkCustomer(customerId: string): void;
@@ -44,7 +44,7 @@ export interface IndividualApplicationPageProps {
 
 const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
   similarCustomersData,
-  customerInfo,
+  customerProfileData,
   applicationDetails,
   offerDetails,
   handleLinkCustomer,
@@ -138,7 +138,7 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
           />
         </>
       )}
-      <CustomerInfoCard {...customerInfo} />
+      <CustomerProfileCard {...customerProfileData} />
       <Card>
         <CardHeader title={'TOIMINTAHISTORIA'} />
         <CardBody>Placeholder</CardBody>

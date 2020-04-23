@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { ApplicationStatus, BerthMooringType } from "./../../../@types/__generated__/globalTypes";
+import { OrganizationType, ApplicationStatus, BerthMooringType } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: INDIVIDUAL_APPLICATION
@@ -12,6 +12,7 @@ import { ApplicationStatus, BerthMooringType } from "./../../../@types/__generat
 export interface INDIVIDUAL_APPLICATION_berthApplication_customer_organization {
   __typename: "OrganizationNode";
   businessId: string;
+  organizationType: OrganizationType;
 }
 
 export interface INDIVIDUAL_APPLICATION_berthApplication_customer {

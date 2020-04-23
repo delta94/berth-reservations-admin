@@ -4,18 +4,16 @@ import {
   INDIVIDUAL_APPLICATION_berthApplication_lease as BERTH_LEASE,
   INDIVIDUAL_APPLICATION_boatTypes as BOAT_TYPES,
 } from './__generated__/INDIVIDUAL_APPLICATION';
-import { CustomerInfoCardProps } from '../cards/customerInfoCard/CustomerInfoCard';
+import { CustomerProfileCardProps } from '../cards/customerProfileCard/CustomerProfileCard';
+import { CustomerData } from './IndividualApplicationPage';
+import { BerthMooringType } from '../../@types/__generated__/globalTypes';
 import { FILTERED_CUSTOMERS } from './__generated__/FILTERED_CUSTOMERS';
 import { mapCustomerGroup } from '../utils';
 import { OfferCardProps } from './offerCard/OfferCard';
-import {
-  BerthMooringType,
-  OrganizationType,
-} from '../../@types/__generated__/globalTypes';
 
-export const getCustomerInfoData = (
+export const getCustomerProfileData = (
   berthApplication: BERTH_APPLICATION
-): CustomerInfoCardProps => {
+): CustomerProfileCardProps => {
   const {
     firstName,
     lastName,
@@ -29,11 +27,18 @@ export const getCustomerInfoData = (
 
   return {
     customerId: customer?.id,
-    firstName,
-    lastName,
-    primaryAddress: { address, postalCode: zipCode, city: municipality },
-    phone: phoneNumber,
-    email,
+    customerGroup: mapCustomerGroup(customer?.organization),
+    firstName: firstName,
+    lastName: lastName,
+    primaryAddress: {
+      address: address,
+      postalCode: zipCode,
+      city: municipality,
+    },
+    primaryPhone: phoneNumber,
+    primaryEmail: email,
+    showCustomerNameAsLink: customer?.id !== null,
+    ssn: '', // TODO
   };
 };
 

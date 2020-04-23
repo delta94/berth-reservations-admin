@@ -3,22 +3,30 @@ import { gql } from 'apollo-boost';
 export const INDIVIDUAL_CUSTOMER_QUERY = gql`
   query INDIVIDUAL_CUSTOMER($id: ID!) {
     profile(id: $id, serviceType: BERTH) {
-      id
+      comment
       firstName
+      invoicingType
       lastName
-      primaryEmail {
-        email
-      }
-      primaryPhone {
-        phone
+      id
+      organization {
+        address
+        businessId
+        city
+        name
+        organizationType
+        postalCode
       }
       primaryAddress {
         address
         postalCode
         city
       }
-      invoicingType
-      comment
+      primaryEmail {
+        email
+      }
+      primaryPhone {
+        phone
+      }
       boats {
         edges {
           node {
