@@ -87,10 +87,9 @@ describe('CustomerProfileCard', () => {
         ...privateCustomerProfile,
         showCustomerNameAsLink: true,
       });
-      // firstName, lastName, ssn
       expect(
         wrapper.render().find('a.internalLink[href="#/customers/0"]').length
-      ).toEqual(3);
+      ).toEqual(3); // 3: firstName, lastName, ssn
     });
   });
 
@@ -127,10 +126,9 @@ describe('CustomerProfileCard', () => {
         ...organizationCustomerProfile,
         showCustomerNameAsLink: true,
       });
-      // firstName, lastName, ssn
       expect(
         wrapper.render().find('a.internalLink[href="#/customers/0"]').length
-      ).toEqual(3);
+      ).toEqual(3); // 3: firstName, lastName, ssn
     });
   });
 });

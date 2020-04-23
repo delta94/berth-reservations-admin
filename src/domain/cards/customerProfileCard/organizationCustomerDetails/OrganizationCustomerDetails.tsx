@@ -132,9 +132,14 @@ const OrganizationCustomerDetails: FunctionComponent<OrganizationCustomerDetails
           />
         </Section>
       )}
-      <Section>
-        <LabelValuePair label={t('customerProfile.remarks')} value={comment} />
-      </Section>
+      {comment && (
+        <Section>
+          <LabelValuePair
+            label={t('customerProfile.remarks')}
+            value={comment}
+          />
+        </Section>
+      )}
     </>
   );
 };
