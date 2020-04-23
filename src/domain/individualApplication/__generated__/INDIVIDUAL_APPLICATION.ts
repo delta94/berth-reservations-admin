@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { OrganizationType, ApplicationStatus, BerthMooringType } from "./../../../@types/__generated__/globalTypes";
+import { InvoicingType, OrganizationType, ApplicationStatus, BerthMooringType } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: INDIVIDUAL_APPLICATION
@@ -11,14 +11,42 @@ import { OrganizationType, ApplicationStatus, BerthMooringType } from "./../../.
 
 export interface INDIVIDUAL_APPLICATION_berthApplication_customer_organization {
   __typename: "OrganizationNode";
+  address: string;
   businessId: string;
+  city: string;
+  name: string;
   organizationType: OrganizationType;
+  postalCode: string;
+}
+
+export interface INDIVIDUAL_APPLICATION_berthApplication_customer_primaryAddress {
+  __typename: "AddressNode";
+  address: string;
+  postalCode: string;
+  city: string;
+}
+
+export interface INDIVIDUAL_APPLICATION_berthApplication_customer_primaryEmail {
+  __typename: "EmailNode";
+  email: string;
+}
+
+export interface INDIVIDUAL_APPLICATION_berthApplication_customer_primaryPhone {
+  __typename: "PhoneNode";
+  phone: string | null;
 }
 
 export interface INDIVIDUAL_APPLICATION_berthApplication_customer {
   __typename: "ProfileNode";
+  comment: string | null;
+  firstName: string;
+  invoicingType: InvoicingType | null;
+  lastName: string;
   id: string;
   organization: INDIVIDUAL_APPLICATION_berthApplication_customer_organization | null;
+  primaryAddress: INDIVIDUAL_APPLICATION_berthApplication_customer_primaryAddress | null;
+  primaryEmail: INDIVIDUAL_APPLICATION_berthApplication_customer_primaryEmail | null;
+  primaryPhone: INDIVIDUAL_APPLICATION_berthApplication_customer_primaryPhone | null;
 }
 
 export interface INDIVIDUAL_APPLICATION_berthApplication_berthSwitch_reason {

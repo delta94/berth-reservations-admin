@@ -69,10 +69,29 @@ export const INDIVIDUAL_APPLICATION_QUERY = gql`
       phoneNumber
       email
       customer {
+        comment
+        firstName
+        invoicingType
+        lastName
         id
         organization {
+          address
           businessId
+          city
+          name
           organizationType
+          postalCode
+        }
+        primaryAddress {
+          address
+          postalCode
+          city
+        }
+        primaryEmail {
+          email
+        }
+        primaryPhone {
+          phone
         }
       }
       berthSwitch {

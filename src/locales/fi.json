@@ -165,6 +165,7 @@
       "receivedDate": "Vastaanotettu",
       "queueNumber": "Jononumero",
       "status": "Status",
+      "applicantInformation": "Hakijan henkilötiedot",
       "boatInfo": "VENEEN TIEDOT",
       "boatType": "Veneen tyyppi",
       "registrationNumber": "Rekisterinumero",
@@ -203,7 +204,7 @@
       "createNewCustomer": "Luo uusi asiakas"
     },
     "applicationDetails": {
-      "title": "HAKEMUKSET"
+      "title": "HAKEMUS"
     }
   },
   "offer": {

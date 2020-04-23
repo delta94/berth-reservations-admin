@@ -1,6 +1,7 @@
 import { ApplicationDetailsProps } from '../cards/applicationDetails/ApplicationDetails';
 import {
   INDIVIDUAL_APPLICATION_berthApplication as BERTH_APPLICATION,
+  INDIVIDUAL_APPLICATION_berthApplication_customer as CUSTOMER_PROFILE,
   INDIVIDUAL_APPLICATION_berthApplication_lease as BERTH_LEASE,
   INDIVIDUAL_APPLICATION_boatTypes as BOAT_TYPES,
 } from './__generated__/INDIVIDUAL_APPLICATION';
@@ -10,10 +11,42 @@ import { BerthMooringType } from '../../@types/__generated__/globalTypes';
 import { FILTERED_CUSTOMERS } from './__generated__/FILTERED_CUSTOMERS';
 import { mapCustomerGroup } from '../utils';
 import { OfferCardProps } from './offerCard/OfferCard';
+import { PrivateCustomerDetailsProps } from '../cards/customerProfileCard/privateCustomerDetails/PrivateCustomerDetails';
 
-export const getCustomerProfileData = (
-  berthApplication: BERTH_APPLICATION
+export const getCustomerProfile = (
+  profile: CUSTOMER_PROFILE
 ): CustomerProfileCardProps => {
+  return {
+    customerId: profile.id,
+    customerGroup: mapCustomerGroup(profile.organization),
+    firstName: profile.firstName,
+    lastName: profile.lastName,
+    primaryAddress: profile.primaryAddress,
+    primaryPhone: profile.primaryPhone?.phone,
+    primaryEmail: profile.primaryEmail?.email,
+    ssn: '', // TODO
+  };
+};
+
+interface Lease {
+  berthNum: string;
+  harborId: string;
+  harborName: string;
+  id: string;
+  pierIdentifier: string;
+}
+
+interface BerthSwitch {
+  berthNum: string;
+  harborId: string;
+  harborName: string;
+  pierIdentifier: string;
+  reason: string | null;
+}
+
+const getApplicantDetails = (
+  berthApplication: BERTH_APPLICATION
+): PrivateCustomerDetailsProps => {
   const {
     firstName,
     lastName,
@@ -38,30 +71,14 @@ export const getCustomerProfileData = (
     primaryPhone: phoneNumber,
     primaryEmail: email,
     showCustomerNameAsLink: customer?.id !== null,
-    ssn: '', // TODO
   };
 };
-
-interface Lease {
-  berthNum: string;
-  harborId: string;
-  harborName: string;
-  id: string;
-  pierIdentifier: string;
-}
-
-interface BerthSwitch {
-  berthNum: string;
-  harborId: string;
-  harborName: string;
-  pierIdentifier: string;
-  reason: string | null;
-}
 
 export const getApplicationDetailsData = (
   berthApplication: BERTH_APPLICATION,
   boatTypes: BOAT_TYPES[]
-): ApplicationDetailsProps => {
+): ApplicationDetailsProps &
+  Required<Pick<ApplicationDetailsProps, 'applicant'>> => {
   const harborChoices = berthApplication.harborChoices || [];
   const lease: Lease | null = berthApplication.lease
     ? {
@@ -88,6 +105,7 @@ export const getApplicationDetailsData = (
 
   return {
     ...berthApplication,
+    applicant: getApplicantDetails(berthApplication),
     berthSwitch,
     queue: null,
     harborChoices,

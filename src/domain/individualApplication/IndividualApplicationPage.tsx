@@ -35,7 +35,7 @@ type ColumnType = Column<CustomerData> & { accessor: keyof CustomerData };
 export interface IndividualApplicationPageProps {
   applicationId: string;
   similarCustomersData: CustomerData[] | null;
-  customerProfileData: CustomerProfileCardProps;
+  customerProfile: CustomerProfileCardProps | null;
   applicationDetails: ApplicationDetailsProps;
   offerDetails: OfferCardProps | null;
   handleLinkCustomer(customerId: string): void;
@@ -44,7 +44,7 @@ export interface IndividualApplicationPageProps {
 
 const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
   similarCustomersData,
-  customerProfileData,
+  customerProfile,
   applicationDetails,
   offerDetails,
   handleLinkCustomer,
@@ -138,11 +138,15 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
           />
         </>
       )}
-      <CustomerProfileCard {...customerProfileData} />
-      <Card>
-        <CardHeader title={'TOIMINTAHISTORIA'} />
-        <CardBody>Placeholder</CardBody>
-      </Card>
+      {customerProfile && (
+        <>
+          <CustomerProfileCard {...customerProfile} />
+          <Card>
+            <CardHeader title={'TOIMINTAHISTORIA'} />
+            <CardBody>Placeholder</CardBody>
+          </Card>
+        </>
+      )}
       {applicationDetails && (
         <Card className={styles.applicationDetails}>
           <CardHeader
