@@ -6,18 +6,21 @@
 }
 
 .label {
-  --vene-label-color: inherit;
+  --vene-text-color: inherit;
 
   display: inline-block;
   margin-right: units(0.5);
   min-width: units(8);
-  color: var(--vene-label-color);
+  color: var(--vene-text-color);
   flex: 1;
 }
 
 .value {
+  --vene-text-color: inherit;
+
   text-align: left;
   margin-right: 0;
+  color: var(--vene-text-color);
   flex: 1;
 
   &.right {
@@ -26,13 +29,13 @@
 }
 
 .brand {
-  --vene-label-color: #{$blue-500};
+  --vene-text-color: #{$blue-500};
 }
 
 .critical {
-  --vene-label-color: #{$red-500};
+  --vene-text-color: #{$red-500};
 }
 
 .secondary {
-  --vene-label-color: #{$gray-200};
+  --vene-text-color: #{$gray-200};
 }
