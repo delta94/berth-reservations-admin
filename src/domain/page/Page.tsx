@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Layout from '../../common/layout/Layout';
 import Sidebar from '../../common/sidebar/Sidebar';
 import InternalNavLink from '../../common/internalNavLink/InternalNavLink';
-import PageHeader from '../pageHeader/PageHeaderContainer';
+import PageHeader from './pageHeader/PageHeaderContainer';
 import Icon from '../../common/icons/Icon';
 
 const Page: React.SFC = ({ children }) => {

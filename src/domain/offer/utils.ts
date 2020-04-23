@@ -73,7 +73,7 @@ export const getOfferData = (data: OFFER_PAGE | undefined): BerthData[] => {
             harborId,
             harbor,
             pier: properties.identifier,
-            berth: berth.node.number,
+            berth: berth.node.number.toString(10),
             berthId: berth.node.id,
             width: berth.node.berthType.width,
             length: berth.node.berthType.length,

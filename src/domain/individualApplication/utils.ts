@@ -66,7 +66,7 @@ export const getApplicationDetailsData = (
           berthApplication.lease.berth?.pier.properties?.harbor.properties
             ?.name || '',
         id: berthApplication.lease.id,
-        berthNum: berthApplication.lease.berth?.number || '',
+        berthNum: berthApplication.lease.berth?.number.toString(10) || '',
         pierIdentifier:
           berthApplication.lease.berth?.pier.properties?.identifier || '',
       }
@@ -173,7 +173,7 @@ export const getOfferDetailsData = (
     berthIsAccessible: lease.berth?.isAccessible || false,
     berthLength: lease.berth?.berthType.length || null,
     berthMooringType: lease.berth?.berthType.mooringType || null,
-    berthNum: lease.berth?.number || '',
+    berthNum: lease.berth?.number.toString(10) || '',
     berthWidth: lease.berth?.berthType.width || null,
     electricity: lease.berth?.pier.properties?.electricity || false,
     gate: lease.berth?.pier.properties?.gate || false,

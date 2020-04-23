@@ -75,7 +75,7 @@ export const getBerthApplicationData = (
           let leaseProps: Lease | null = null;
           if (lease?.berth?.pier.properties?.harbor) {
             leaseProps = {
-              berthNum: lease.berth.number || '',
+              berthNum: lease.berth.number.toString(10) || '',
               harborId: lease.berth.pier.properties.harbor.id,
               harborName:
                 lease.berth.pier.properties.harbor.properties?.name || '',
