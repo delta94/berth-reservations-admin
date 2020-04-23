@@ -18,6 +18,9 @@ import {
 } from '../../../common/utils/format';
 import { APPLICATION_STATUS } from '../../../common/utils/consonants';
 import { ApplicationStatus } from '../../../@types/__generated__/globalTypes';
+import PrivateCustomerDetails, {
+  PrivateCustomerDetailsProps,
+} from '../customerProfileCard/privateCustomerDetails/PrivateCustomerDetails';
 
 interface HarborChoice {
   harborName: string;
@@ -43,6 +46,7 @@ interface BerthSwitch {
 
 export interface ApplicationDetailsProps {
   id: string;
+  applicant?: PrivateCustomerDetailsProps;
   berthSwitch: BerthSwitch | null;
   createdAt: string;
   queue: number | null;
@@ -63,6 +67,7 @@ export interface ApplicationDetailsProps {
 
 const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
   id,
+  applicant,
   berthSwitch,
   createdAt,
   queue,
@@ -123,6 +128,14 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
               />
             )}
           </Section>
+        )}
+        {applicant && (
+          <PrivateCustomerDetails
+            {...applicant}
+            title={t(
+              'applications.applicationDetails.applicantInformation'
+            ).toUpperCase()}
+          />
         )}
       </div>
       <div>
