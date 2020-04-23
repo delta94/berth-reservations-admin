@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Grid from '../../../common/grid/Grid';
 import Section from '../../../common/section/Section';
 import styles from './customerDetails.module.scss';
+import { CUSTOMER_GROUP } from '../../types';
 
 interface Berth {
   id: string;
@@ -37,7 +38,7 @@ export interface CustomerDetailsProps {
   city?: string;
   phone?: string;
   email?: string;
-  group?: string;
+  customerGroup?: CUSTOMER_GROUP;
   berths: Berth[];
   winterStoragePlaces: WinterStoragePlaces[];
   boats: Boat[];
@@ -53,7 +54,7 @@ const CustomerDetails: React.SFC<CustomerDetailsProps> = ({
   city,
   phone,
   email,
-  group,
+  customerGroup,
   berths,
   winterStoragePlaces,
   boats,
@@ -78,7 +79,7 @@ const CustomerDetails: React.SFC<CustomerDetailsProps> = ({
             <br />
             {email}
             <br />
-            {group}
+            {t([`common.customerGroups.${customerGroup}`])}
           </Section>
         </div>
         <div className={styles.section}>

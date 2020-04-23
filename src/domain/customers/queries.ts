@@ -9,6 +9,10 @@ export const CUSTOMER_QUERY = gql`
           firstName
           lastName
           nickname
+          organization {
+            businessId
+            organizationType
+          }
           primaryAddress {
             address
             city
