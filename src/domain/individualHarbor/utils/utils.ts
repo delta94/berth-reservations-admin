@@ -77,7 +77,7 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined): Berth[] => {
             identifier,
             length: berthEdge.node.berthType.length,
             mooringType: berthEdge.node.berthType.mooringType,
-            number: berthEdge.node.number.toString(10),
+            number: berthEdge.node.number,
             width: berthEdge.node.berthType.width,
           },
         ];
