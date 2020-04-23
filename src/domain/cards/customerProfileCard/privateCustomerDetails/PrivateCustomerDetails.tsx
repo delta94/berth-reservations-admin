@@ -8,6 +8,7 @@ import { CUSTOMER_GROUP } from '../../../types';
 import { InvoicingType } from '../../../../@types/__generated__/globalTypes';
 
 export interface PrivateCustomerDetailsProps {
+  title?: string;
   comment?: string | null;
   customerId?: string;
   customerGroup: CUSTOMER_GROUP;
@@ -26,6 +27,7 @@ export interface PrivateCustomerDetailsProps {
 }
 
 const PrivateCustomerDetails: FunctionComponent<PrivateCustomerDetailsProps> = ({
+  title,
   comment,
   customerId,
   customerGroup,
@@ -42,7 +44,9 @@ const PrivateCustomerDetails: FunctionComponent<PrivateCustomerDetailsProps> = (
 
   return (
     <>
-      <Section title={t('customerProfile.personalInformation').toUpperCase()}>
+      <Section
+        title={title || t('customerProfile.personalInformation').toUpperCase()}
+      >
         <LabelValuePair
           label={t('customerProfile.firstName')}
           value={
