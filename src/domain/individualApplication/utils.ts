@@ -6,7 +6,7 @@ import {
 } from './__generated__/INDIVIDUAL_APPLICATION';
 import { CustomerInfoCardProps } from '../cards/customerInfoCard/CustomerInfoCard';
 import { FILTERED_CUSTOMERS } from './__generated__/FILTERED_CUSTOMERS';
-import { CUSTOMER_GROUP, CustomerData } from './IndividualApplicationPage';
+import { mapCustomerGroup } from '../utils';
 import { OfferCardProps } from './offerCard/OfferCard';
 import {
   BerthMooringType,
@@ -90,25 +90,6 @@ export const getApplicationDetailsData = (
     boatType: boatTypes.find(({ id }) => id === berthApplication.boatType)
       ?.name,
   };
-};
-
-const mapCustomerGroup = (
-  organization: { organizationType: OrganizationType } | null
-): CUSTOMER_GROUP => {
-  if (organization === null) {
-    return CUSTOMER_GROUP.PRIVATE;
-  }
-
-  switch (organization.organizationType) {
-    case OrganizationType.COMPANY:
-      return CUSTOMER_GROUP.COMPANY;
-    case OrganizationType.INTERNAL:
-      return CUSTOMER_GROUP.INTERNAL;
-    case OrganizationType.NON_BILLABLE:
-      return CUSTOMER_GROUP.NON_BILLABLE;
-    case OrganizationType.OTHER:
-      return CUSTOMER_GROUP.OTHER_ORGANIZATION;
-  }
 };
 
 export const getFilteredCustomersData = (

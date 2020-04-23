@@ -19,14 +19,7 @@ import CustomerInfoCard, {
   CustomerInfoCardProps,
 } from '../cards/customerInfoCard/CustomerInfoCard';
 import OfferCard, { OfferCardProps } from './offerCard/OfferCard';
-
-export enum CUSTOMER_GROUP {
-  PRIVATE = 'PRIVATE',
-  COMPANY = 'COMPANY',
-  INTERNAL = 'INTERNAL',
-  NON_BILLABLE = 'NON_BILLABLE',
-  OTHER_ORGANIZATION = 'OTHER_ORGANIZATION',
-}
+import { CUSTOMER_GROUP } from '../types';
 
 export interface CustomerData {
   id: string;
@@ -64,24 +57,8 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
       accessor: 'name',
     },
     {
-      Cell: ({ cell }) => {
-        switch (cell.value as CUSTOMER_GROUP) {
-          case CUSTOMER_GROUP.PRIVATE:
-            return t('individualApplication.customersTable.privateCustomer');
-          case CUSTOMER_GROUP.COMPANY:
-            return t('individualApplication.customersTable.companyCustomer');
-          case CUSTOMER_GROUP.INTERNAL:
-            return t('individualApplication.customersTable.internalCustomer');
-          case CUSTOMER_GROUP.NON_BILLABLE:
-            return t(
-              'individualApplication.customersTable.nonBillableCustomer'
-            );
-          case CUSTOMER_GROUP.OTHER_ORGANIZATION:
-            return t(
-              'individualApplication.customersTable.otherOrganizationCustomer'
-            );
-        }
-      },
+      Cell: ({ cell }) =>
+        t([`common.customerGroups.${cell.value as CUSTOMER_GROUP}`]),
       Header: t('individualApplication.customersTable.customerGroup') || '',
       accessor: 'customerGroup',
     },
