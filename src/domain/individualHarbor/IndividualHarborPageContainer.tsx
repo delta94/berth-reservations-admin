@@ -91,13 +91,14 @@ const IndividualHarborPageContainer: React.SFC = () => {
         data={berths}
         columns={columns}
         canSelectRows
-        renderTableToolsTop={(state, setters) => (
+        styleMainHeader={false}
+        renderMainHeader={props => (
           <PierSelectHeader
             piers={piers}
             selectedPier={selectedPier}
             onPierSelect={pier => {
               setSelectedPier(pier);
-              setters.setFilter('identifier', pier?.identifier);
+              props.setFilter('identifier', pier?.identifier);
             }}
           />
         )}
