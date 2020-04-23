@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { Notification } from 'hds-react';
 
-import IndividualCustomerPage from './individualCustomerPage/IndividualCustomerPage';
+import IndividualCustomerPage from './IndividualCustomerPage';
 import { INDIVIDUAL_CUSTOMER_QUERY } from './queries';
 import { INDIVIDUAL_CUSTOMER } from './__generated__/INDIVIDUAL_CUSTOMER';
 import Card from '../../common/card/Card';
