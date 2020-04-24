@@ -227,10 +227,10 @@ const IndividualCustomerPageContainer: React.SFC = () => {
         setSearchBy,
         handleCreateCustomer,
         searchByOptions: [
-          { value: SearchBy.FIRST_NAME, label: 'Etunimi' },
-          { value: SearchBy.LAST_NAME, label: 'Sukunimi' },
-          { value: SearchBy.EMAIL, label: 'Sähköposti' },
-          { value: SearchBy.ADDRESS, label: 'Osoite' },
+          { value: SearchBy.FIRST_NAME, label: t('common.firstName') },
+          { value: SearchBy.LAST_NAME, label: t('common.lastName') },
+          { value: SearchBy.EMAIL, label: t('common.email') },
+          { value: SearchBy.ADDRESS, label: t('common.address') },
         ],
       }}
       similarCustomersData={filteredCustomersData}
