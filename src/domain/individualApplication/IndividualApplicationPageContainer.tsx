@@ -99,10 +99,6 @@ const IndividualCustomerPageContainer: React.SFC = () => {
 
   useEffect(() => {
     if (!loading && !data?.berthApplication?.customer) {
-      console.log(
-        'data?.berthApplication?.customer',
-        data?.berthApplication?.customer
-      );
       !called ? fetchFilteredCustomers() : refetch();
     }
   }, [
