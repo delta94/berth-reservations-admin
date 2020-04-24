@@ -11,10 +11,10 @@ interface Option {
 export type SelectProps = {
   labelText?: string;
   className?: string;
-  value: string | undefined;
+  value: Option['value'] | undefined;
   options: Option[];
   disabled?: boolean;
-  onChange(): void;
+  onChange: React.ChangeEventHandler<HTMLSelectElement>;
 };
 
 const Select: React.SFC<SelectProps> = ({
@@ -32,17 +32,13 @@ const Select: React.SFC<SelectProps> = ({
   ));
 
   return (
-    <label>
+    <label className={className}>
       <span className={styles.labelText}>{labelText}</span>
       <select
         value={value}
         onChange={onChange}
         disabled={disabled}
-        className={classNames(
-          styles.select,
-          { [styles.disabled]: disabled },
-          className
-        )}
+        className={classNames(styles.select, { [styles.disabled]: disabled })}
       >
         <option>-</option>
         {optionsItems}
