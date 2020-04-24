@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import { useQuery, useMutation, useLazyQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 import { Notification } from 'hds-react';
@@ -61,14 +61,17 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     equalityFn: (prev, next) => prev === next,
   });
 
-  const { data: customersData, refetch } = useQuery<
-    FILTERED_CUSTOMERS,
-    FILTERED_CUSTOMERS_VARS
-  >(FILTERED_CUSTOMERS_QUERY, {
-    variables: {
-      [searchBy]: debouncedSearchVal ?? searchVal,
-    },
-  });
+  const [
+    fetchFilteredCustomers,
+    { data: customersData, refetch, called },
+  ] = useLazyQuery<FILTERED_CUSTOMERS, FILTERED_CUSTOMERS_VARS>(
+    FILTERED_CUSTOMERS_QUERY,
+    {
+      variables: {
+        [searchBy]: debouncedSearchVal ?? searchVal,
+      },
+    }
+  );
 
   // TODO: handle errors
   const [deleteDraftedApplication] = useDeleteBerthApplication();
@@ -95,8 +98,21 @@ const IndividualCustomerPageContainer: React.SFC = () => {
   }, [data, searchBy]);
 
   useEffect(() => {
-    refetch();
-  }, [debouncedSearchVal, refetch]);
+    if (!loading && !data?.berthApplication?.customer) {
+      console.log(
+        'data?.berthApplication?.customer',
+        data?.berthApplication?.customer
+      );
+      !called ? fetchFilteredCustomers() : refetch();
+    }
+  }, [
+    debouncedSearchVal,
+    refetch,
+    fetchFilteredCustomers,
+    called,
+    data,
+    loading,
+  ]);
 
   // TODO: handle errors
   const [linkCustomer, { error: linkCustomerErr }] = useMutation<
