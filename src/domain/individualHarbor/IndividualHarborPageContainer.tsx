@@ -18,7 +18,7 @@ import HarborProperties from './harborProperties/HarborProperties';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { formatDimension } from '../../common/utils/format';
 import PierSelectHeader from './pierSelectHeader/PierSelectHeader';
-import HarborsTableTools from '../harbors/harborsTableTools/HarborsTableTools';
+import GlobalSearchTableTools from '../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';
 
 const IndividualHarborPageContainer: React.SFC = () => {
   const { id } = useParams<{ id: string }>();
@@ -124,7 +124,9 @@ const IndividualHarborPageContainer: React.SFC = () => {
         columns={columns}
         canSelectRows
         renderTableToolsTop={(_, setters) => (
-          <HarborsTableTools handleGlobalFilter={setters.setGlobalFilter} />
+          <GlobalSearchTableTools
+            handleGlobalFilter={setters.setGlobalFilter}
+          />
         )}
         styleMainHeader={false}
         globalFilter={berthTableGlobalFilter}

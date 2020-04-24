@@ -2,14 +2,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { TextInput } from 'hds-react';
 
-import HarborsTableTools from './HarborsTableTools';
+import GlobalSearchTableTools from './GlobalSearchTableTools';
 
-describe('HarborsTableTools', () => {
+describe('GlobalSearchTableTools', () => {
   const mockProps = {
     handleGlobalFilter: jest.fn(),
   };
   const getWrapper = (props = {}) =>
-    shallow(<HarborsTableTools {...mockProps} {...props} />);
+    shallow(<GlobalSearchTableTools {...mockProps} {...props} />);
 
   beforeEach(() => {
     jest.restoreAllMocks();
