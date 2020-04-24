@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { Notification } from 'hds-react';
 
@@ -10,7 +11,9 @@ import ApplicationDetails, {
 } from '../cards/applicationDetails/ApplicationDetails';
 import CardHeader from '../../common/cardHeader/CardHeader';
 import Table, { Column } from '../../common/table/Table';
-import CustomersTableTools from './customersTableTools/CustomersTableTools';
+import CustomersTableTools, {
+  CustomersTableToolsProps,
+} from './customersTableTools/CustomersTableTools';
 import Text from '../../common/text/Text';
 import { formatDate } from '../../common/utils/format';
 import Chip from '../../common/chip/Chip';
@@ -26,6 +29,13 @@ export enum CUSTOMER_GROUP {
   INTERNAL = 'INTERNAL',
   NON_BILLABLE = 'NON_BILLABLE',
   OTHER_ORGANIZATION = 'OTHER_ORGANIZATION',
+}
+
+export enum SearchBy {
+  FIRST_NAME = 'firstName',
+  LAST_NAME = 'lastName',
+  EMAIL = 'email',
+  ADDRESS = 'address',
 }
 
 export interface CustomerData {
@@ -45,8 +55,8 @@ export interface IndividualApplicationPageProps {
   customerInfo: CustomerInfoCardProps;
   applicationDetails: ApplicationDetailsProps;
   offerDetails: OfferCardProps | null;
+  customerTableTools: CustomersTableToolsProps<SearchBy>;
   handleLinkCustomer(customerId: string): void;
-  handleCreateCustomer(): void;
 }
 
 const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
@@ -54,8 +64,8 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
   customerInfo,
   applicationDetails,
   offerDetails,
+  customerTableTools,
   handleLinkCustomer,
-  handleCreateCustomer,
 }) => {
   const { t, i18n } = useTranslation();
   const columns: ColumnType[] = [
@@ -109,7 +119,7 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
 
   return (
     <div className={styles.individualApplicationPage}>
-      <div className={styles.pageHeader}>
+      <div className={classNames(styles.fullWidth, styles.pageHeader)}>
         <Text as="h2" size="xl" weight="normalWeight">
           {applicationDetails.berthSwitch !== null
             ? t('applications.applicationType.switchApplication')
@@ -136,21 +146,21 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
             )}
           </Notification>
           <Table
-            className={styles.customersTable}
+            className={styles.fullWidth}
             data={similarCustomersData}
             columns={columns}
             renderMainHeader={() =>
               t('individualApplication.customersTable.mainHeader')
             }
-            renderTableToolsBottom={({ selectedRows }) => {
+            renderTableToolsTop={({ selectedRows }) => {
               const onLinkCustomer = selectedRows.length
                 ? () => handleLinkCustomer(selectedRows[0].id)
                 : undefined;
 
               return (
                 <CustomersTableTools
+                  {...customerTableTools}
                   handleLinkCustomer={onLinkCustomer}
-                  handleCreateCustomer={handleCreateCustomer}
                 />
               );
             }}
@@ -167,7 +177,7 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
         <CardBody>Placeholder</CardBody>
       </Card>
       {applicationDetails && (
-        <Card className={styles.applicationDetails}>
+        <Card className={styles.fullWidth}>
           <CardHeader
             title={t('individualApplication.applicationDetails.title')}
           />
