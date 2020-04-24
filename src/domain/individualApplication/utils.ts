@@ -38,7 +38,7 @@ export const getCustomerInfoData = (
 };
 
 interface Lease {
-  berthNum: string;
+  berthNum: string | number;
   harborId: string;
   harborName: string;
   id: string;
@@ -152,7 +152,7 @@ interface LeaseDetails {
   berthIsAccessible: boolean;
   berthLength: number | null;
   berthMooringType: BerthMooringType | null;
-  berthNum: string;
+  berthNum: string | number;
   berthWidth: number | null;
   electricity: boolean;
   gate: boolean;

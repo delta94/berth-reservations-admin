@@ -25,6 +25,9 @@ export const INDIVIDUAL_HARBOR_QUERY = gql`
                 water
                 lighting
                 gate
+                suitableBoatTypes {
+                  name
+                }
                 berths {
                   edges {
                     node {

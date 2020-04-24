@@ -18,6 +18,7 @@ import {
   TableState,
   UseFiltersColumnOptions,
   UseSortByColumnOptions,
+  UseFiltersInstanceProps,
 } from 'react-table';
 
 import Checkbox from '../checkbox/Checkbox';
@@ -35,6 +36,7 @@ interface TState<D extends object> extends TableState<D> {
 
 interface Setters<D extends object> {
   setGlobalFilter: UseGlobalFiltersInstanceProps<D>['setGlobalFilter'];
+  setFilter: UseFiltersInstanceProps<D>['setFilter'];
 }
 
 type TableToolsFn<D extends object> = (
@@ -47,6 +49,7 @@ type Props<D extends object> = {
   data: D[];
   canSelectRows?: boolean;
   canSelectOneRow?: boolean;
+  styleMainHeader?: boolean;
   theme?: 'basic' | 'primary';
   renderTableToolsTop?: TableToolsFn<D>;
   renderTableToolsBottom?: TableToolsFn<D>;
@@ -78,6 +81,7 @@ const Table = <D extends object>({
   data: tableData,
   canSelectRows,
   canSelectOneRow,
+  styleMainHeader = true,
   theme = 'primary',
   renderTableToolsTop,
   renderTableToolsBottom,
@@ -188,6 +192,7 @@ const Table = <D extends object>({
     selectedFlatRows,
     setGlobalFilter,
     state,
+    setFilter,
   } = useTable(
     {
       columns: tableColumns,
@@ -205,13 +210,17 @@ const Table = <D extends object>({
     <div
       {...headerGroup.getHeaderGroupProps()}
       className={classNames(styles.header, {
-        [styles.mainHeader]: renderMainHeader && index === 0,
+        [styles.mainHeaderReset]:
+          renderMainHeader && !styleMainHeader && index === 0,
+        [styles.mainHeader]: renderMainHeader && styleMainHeader && index === 0,
       })}
     >
       {headerGroup.headers.map(column => (
         <div
           {...column.getHeaderProps(column.getSortByToggleProps())}
-          className={classNames(styles.headerCell, {
+          className={classNames({
+            [styles.headerCell]:
+              !renderMainHeader || styleMainHeader || index !== 0,
             [styles.selector]: column.id === SELECTOR,
             [styles.radioSelector]: column.id === RADIO_SELECTOR,
             [styles.expander]: column.id === EXPANDER,
@@ -284,7 +293,7 @@ const Table = <D extends object>({
         ...state,
         selectedRows: selectedFlatRows.map(row => row.original),
       },
-      { setGlobalFilter }
+      { setGlobalFilter, setFilter }
     );
   };
 
@@ -298,7 +307,9 @@ const Table = <D extends object>({
             [styles.noMainHeader]: !renderMainHeader,
           })}
         >
-          {headerGroups.map(renderTableHead)}
+          <div className={styles.stickyHeaders}>
+            {headerGroups.map(renderTableHead)}
+          </div>
           <div {...getTableBodyProps()}>
             {rows.map(renderTableBody)}
             {rows.length === 0 && renderEmptyBody()}
