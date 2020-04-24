@@ -13,6 +13,7 @@ export type SelectProps = {
   className?: string;
   value: Option['value'] | undefined;
   options: Option[];
+  required?: boolean;
   disabled?: boolean;
   onChange: React.ChangeEventHandler<HTMLSelectElement>;
 };
@@ -23,6 +24,7 @@ const Select: React.SFC<SelectProps> = ({
   value,
   options,
   onChange,
+  required,
   disabled,
 }) => {
   const optionsItems = options.map(({ value, label }) => (
@@ -40,7 +42,7 @@ const Select: React.SFC<SelectProps> = ({
         disabled={disabled}
         className={classNames(styles.select, { [styles.disabled]: disabled })}
       >
-        <option>-</option>
+        {!required && <option>-</option>}
         {optionsItems}
       </select>
     </label>

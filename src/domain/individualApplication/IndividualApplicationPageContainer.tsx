@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 import { Notification } from 'hds-react';
+import { useDebounce } from 'use-debounce';
 
-import IndividualApplicationPage from './IndividualApplicationPage';
+import IndividualApplicationPage, {
+  SearchBy,
+} from './IndividualApplicationPage';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import {
   INDIVIDUAL_APPLICATION_QUERY,
@@ -12,6 +15,7 @@ import {
 } from './queries';
 import {
   INDIVIDUAL_APPLICATION,
+  INDIVIDUAL_APPLICATION_berthApplication as BerthApplication,
   INDIVIDUAL_APPLICATIONVariables as INDIVIDUAL_APPLICATION_VARS,
 } from './__generated__/INDIVIDUAL_APPLICATION';
 import { useDeleteBerthApplication } from '../mutations/deleteBerthApplication';
@@ -41,6 +45,8 @@ import {
 const IndividualCustomerPageContainer: React.SFC = () => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
+  const [searchBy, setSearchBy] = useState<SearchBy>(SearchBy.LAST_NAME);
+  const [searchVal, setSearchVal] = useState<string>();
 
   const { loading, error, data } = useQuery<
     INDIVIDUAL_APPLICATION,
@@ -51,17 +57,46 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     },
   });
 
-  const { data: customersData } = useQuery<
+  const [debouncedSearchVal] = useDebounce(searchVal, 500, {
+    equalityFn: (prev, next) => prev === next,
+  });
+
+  const { data: customersData, refetch } = useQuery<
     FILTERED_CUSTOMERS,
     FILTERED_CUSTOMERS_VARS
   >(FILTERED_CUSTOMERS_QUERY, {
     variables: {
-      lastName: data?.berthApplication?.lastName,
+      [searchBy]: debouncedSearchVal ?? searchVal,
     },
   });
 
   // TODO: handle errors
   const [deleteDraftedApplication] = useDeleteBerthApplication();
+  useEffect(() => {
+    if (!data?.berthApplication) return;
+    let initialSearchBy: keyof BerthApplication;
+
+    switch (searchBy) {
+      case SearchBy.EMAIL:
+        initialSearchBy = 'email';
+        break;
+      case SearchBy.ADDRESS:
+        initialSearchBy = 'address';
+        break;
+      case SearchBy.FIRST_NAME:
+        initialSearchBy = 'firstName';
+        break;
+      default:
+        initialSearchBy = 'lastName';
+        break;
+    }
+
+    setSearchVal(data.berthApplication[initialSearchBy]);
+  }, [data, searchBy]);
+
+  useEffect(() => {
+    refetch();
+  }, [debouncedSearchVal, refetch]);
 
   // TODO: handle errors
   const [linkCustomer, { error: linkCustomerErr }] = useMutation<
@@ -87,7 +122,7 @@ const IndividualCustomerPageContainer: React.SFC = () => {
       {
         query: FILTERED_CUSTOMERS_QUERY,
         variables: {
-          lastName: data?.berthApplication?.lastName,
+          [searchBy]: debouncedSearchVal ?? searchVal,
         },
       },
     ],
@@ -173,7 +208,19 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     <IndividualApplicationPage
       applicationId={id}
       handleLinkCustomer={handleLinkCustomer}
-      handleCreateCustomer={handleCreateCustomer}
+      customerTableTools={{
+        searchVal,
+        searchBy,
+        setSearchVal,
+        setSearchBy,
+        handleCreateCustomer,
+        searchByOptions: [
+          { value: SearchBy.FIRST_NAME, label: 'Etunimi' },
+          { value: SearchBy.LAST_NAME, label: 'Sukunimi' },
+          { value: SearchBy.EMAIL, label: 'Sähköposti' },
+          { value: SearchBy.ADDRESS, label: 'Osoite' },
+        ],
+      }}
       similarCustomersData={filteredCustomersData}
       customerInfo={customerInfo}
       applicationDetails={applicationDetails}
