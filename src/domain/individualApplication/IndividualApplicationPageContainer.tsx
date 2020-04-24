@@ -15,7 +15,6 @@ import {
 } from './queries';
 import {
   INDIVIDUAL_APPLICATION,
-  INDIVIDUAL_APPLICATION_berthApplication as BerthApplication,
   INDIVIDUAL_APPLICATIONVariables as INDIVIDUAL_APPLICATION_VARS,
 } from './__generated__/INDIVIDUAL_APPLICATION';
 import { useDeleteBerthApplication } from '../mutations/deleteBerthApplication';
