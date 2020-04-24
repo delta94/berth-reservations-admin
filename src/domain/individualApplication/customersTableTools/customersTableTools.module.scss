@@ -1,11 +1,23 @@
 @import 'spacings';
+@import 'colours';
 
 .customersTableTools {
-  margin-top: units(0.5);
+  margin-bottom: units(0.75);
   display: flex;
   justify-content: flex-end;
 
   & > * {
     margin-left: units(0.75);
   }
+}
+
+.select {
+  width: 14em;
+}
+
+.searchInput {
+  background-color: $white;
+  margin-left: units(0.5);
+  width: 25%;
+  min-width: 12em;
 }
