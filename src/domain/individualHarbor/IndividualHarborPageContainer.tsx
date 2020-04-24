@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
+import { UseGlobalFiltersOptions } from 'react-table';
 
 import Table, { Column } from '../../common/table/Table';
 import { INDIVIDUAL_HARBOR_QUERY } from './queries';
@@ -11,13 +12,13 @@ import {
   getBerths,
   Berth,
   getPiers,
-  Pier,
 } from './utils/utils';
 import IndividualHarborPage from './individualHarborPage/IndividualHarborPage';
 import HarborProperties from './harborProperties/HarborProperties';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { formatDimension } from '../../common/utils/format';
 import PierSelectHeader from './pierSelectHeader/PierSelectHeader';
+import HarborsTableTools from '../harbors/harborsTableTools/HarborsTableTools';
 
 const IndividualHarborPageContainer: React.SFC = () => {
   const { id } = useParams<{ id: string }>();
@@ -26,7 +27,38 @@ const IndividualHarborPageContainer: React.SFC = () => {
     { variables: { id } }
   );
   const { t, i18n } = useTranslation();
-  const [selectedPier, setSelectedPier] = useState<Pier | null>(null);
+
+  const berthTableGlobalFilter: UseGlobalFiltersOptions<
+    Berth
+  >['globalFilter'] = React.useMemo(
+    () => (rows, _, filterValue) => {
+      return rows.filter(row => {
+        const { number, identifier, length, width, mooringType } = row.original;
+        const numberMatch = String(number) === filterValue;
+        const identifierMatch = String(identifier) === filterValue;
+        const lengthMatch = formatDimension(length, i18n.language)
+          .toLowerCase()
+          .includes(String(filterValue).toLowerCase());
+        const widthMatch = formatDimension(width, i18n.language)
+          .toLowerCase()
+          .includes(String(filterValue).toLowerCase());
+        const mooringTypeMatch = t([
+          `common.mooringTypes.${mooringType}`,
+          mooringType,
+        ])
+          .toLowerCase()
+          .includes(String(filterValue).toLowerCase());
+        return (
+          numberMatch ||
+          identifierMatch ||
+          lengthMatch ||
+          widthMatch ||
+          mooringTypeMatch
+        );
+      });
+    },
+    [t, i18n.language]
+  );
 
   if (loading) return <LoadingSpinner isLoading={loading} />;
   if (error) return <div>Error</div>;
@@ -91,13 +123,20 @@ const IndividualHarborPageContainer: React.SFC = () => {
         data={berths}
         columns={columns}
         canSelectRows
+        renderTableToolsTop={(_, setters) => (
+          <HarborsTableTools handleGlobalFilter={setters.setGlobalFilter} />
+        )}
         styleMainHeader={false}
+        globalFilter={berthTableGlobalFilter}
         renderMainHeader={props => (
           <PierSelectHeader
             piers={piers}
-            selectedPier={selectedPier}
+            selectedPier={piers.find(pier =>
+              props.state.filters
+                .filter(filter => filter.id === 'identifier')
+                .find(filter => filter.value === pier.identifier)
+            )}
             onPierSelect={pier => {
-              setSelectedPier(pier);
               props.setFilter('identifier', pier?.identifier);
             }}
           />
