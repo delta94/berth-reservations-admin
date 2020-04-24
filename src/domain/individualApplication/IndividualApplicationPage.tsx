@@ -34,8 +34,8 @@ export enum CUSTOMER_GROUP {
 export enum SearchBy {
   FIRST_NAME = 'firstName',
   LAST_NAME = 'lastName',
-  EMAIL = 'emails_Email',
-  ADDRESS = 'addresses_Address',
+  EMAIL = 'email',
+  ADDRESS = 'address',
 }
 
 export interface CustomerData {

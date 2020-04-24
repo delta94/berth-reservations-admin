@@ -77,24 +77,8 @@ const IndividualCustomerPageContainer: React.SFC = () => {
   const [deleteDraftedApplication] = useDeleteBerthApplication();
   useEffect(() => {
     if (!data?.berthApplication) return;
-    let initialSearchBy: keyof BerthApplication;
 
-    switch (searchBy) {
-      case SearchBy.EMAIL:
-        initialSearchBy = 'email';
-        break;
-      case SearchBy.ADDRESS:
-        initialSearchBy = 'address';
-        break;
-      case SearchBy.FIRST_NAME:
-        initialSearchBy = 'firstName';
-        break;
-      default:
-        initialSearchBy = 'lastName';
-        break;
-    }
-
-    setSearchVal(data.berthApplication[initialSearchBy]);
+    setSearchVal(data.berthApplication[searchBy]);
   }, [data, searchBy]);
 
   useEffect(() => {

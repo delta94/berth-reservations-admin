@@ -4,15 +4,15 @@ export const FILTERED_CUSTOMERS_QUERY = gql`
   query FILTERED_CUSTOMERS(
     $firstName: String
     $lastName: String
-    $emails_Email: String
-    $addresses_Address: String
+    $email: String
+    $address: String
   ) {
     profiles(
       serviceType: BERTH
       firstName: $firstName
       lastName: $lastName
-      emails_Email: $emails_Email
-      addresses_Address: $addresses_Address
+      emails_Email: $email
+      addresses_Address: $address
       orderBy: "lastName"
     ) {
       edges {
