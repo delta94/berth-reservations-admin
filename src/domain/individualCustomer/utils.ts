@@ -14,6 +14,7 @@ export const getCustomerProfile = (
     customerGroup: mapCustomerGroup(profile.organization),
     firstName: profile.firstName,
     lastName: profile.lastName,
+    organization: profile.organization,
     primaryAddress: profile.primaryAddress,
     primaryPhone: profile.primaryPhone?.phone,
     primaryEmail: profile.primaryEmail?.email,
