@@ -4,14 +4,12 @@ import { useTranslation } from 'react-i18next';
 import Section from '../../../../common/section/Section';
 import LabelValuePair from '../../../../common/labelValuePair/LabelValuePair';
 import InternalLink from '../../../../common/internalLink/InternalLink';
-import { CUSTOMER_GROUP } from '../../../types';
 import { InvoicingType } from '../../../../@types/__generated__/globalTypes';
 
 export interface PrivateCustomerDetailsProps {
   title?: string;
   comment?: string | null;
   customerId?: string;
-  customerGroup: CUSTOMER_GROUP;
   firstName: string;
   invoicingType?: InvoicingType;
   lastName: string;
@@ -31,7 +29,6 @@ const PrivateCustomerDetails: FunctionComponent<PrivateCustomerDetailsProps> = (
   title,
   comment,
   customerId,
-  customerGroup,
   firstName,
   lastName,
   invoicingType,
@@ -110,7 +107,7 @@ const PrivateCustomerDetails: FunctionComponent<PrivateCustomerDetailsProps> = (
       <Section>
         <LabelValuePair
           label={t('customerProfile.customerGroup')}
-          value={t([`common.customerGroups.${customerGroup}`])}
+          value={t([`common.privateCustomer`])}
         />
         {invoicingType && (
           <LabelValuePair

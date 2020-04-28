@@ -22,7 +22,7 @@ import CustomerProfileCard, {
   CustomerProfileCardProps,
 } from '../cards/customerProfileCard/CustomerProfileCard';
 import OfferCard, { OfferCardProps } from './offerCard/OfferCard';
-import { CUSTOMER_GROUP } from '../types';
+import { OrganizationType } from '../../@types/__generated__/globalTypes';
 
 export enum SearchBy {
   FIRST_NAME = 'firstName',
@@ -34,10 +34,10 @@ export enum SearchBy {
 export interface CustomerData {
   id: string;
   name: string;
-  customerGroup: CUSTOMER_GROUP;
   city?: string;
   address?: string;
   berths?: string | null;
+  organizationType?: OrganizationType;
 }
 
 type ColumnType = Column<CustomerData> & { accessor: keyof CustomerData };
@@ -67,10 +67,14 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
       accessor: 'name',
     },
     {
-      Cell: ({ cell }) =>
-        t([`common.customerGroups.${cell.value as CUSTOMER_GROUP}`]),
-      Header: t('individualApplication.customersTable.customerGroup') || '',
-      accessor: 'customerGroup',
+      Cell: ({ cell }) => {
+        const { value } = cell;
+        return value
+          ? t([`common.organizationTypes.${value as OrganizationType}`])
+          : t([`common.privateCustomer`]);
+      },
+      Header: t('customers.tableHeaders.group') || '',
+      accessor: 'organizationType',
     },
     {
       Header: t('individualApplication.customersTable.municipality') || '',

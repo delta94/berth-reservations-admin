@@ -4,14 +4,12 @@ import {
 } from './__generated__/INDIVIDUAL_CUSTOMER';
 import { ApplicationStatus } from '../../@types/__generated__/globalTypes';
 import { CustomerProfileCardProps } from '../cards/customerProfileCard/CustomerProfileCard';
-import { mapCustomerGroup } from '../utils';
 
 export const getCustomerProfile = (
   profile: CUSTOMER_PROFILE
 ): CustomerProfileCardProps => {
   return {
     customerId: profile.id,
-    customerGroup: mapCustomerGroup(profile.organization),
     firstName: profile.firstName,
     lastName: profile.lastName,
     organization: profile.organization,

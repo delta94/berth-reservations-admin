@@ -5,18 +5,18 @@ import { Column } from 'react-table';
 import Table, { COLUMN_WIDTH } from '../../common/table/Table';
 import InternalLink from '../../common/internalLink/InternalLink';
 import CustomerDetails from './customerDetails/CustomerDetails';
-import { CUSTOMER_GROUP } from '../types';
+import { OrganizationType } from '../../@types/__generated__/globalTypes';
 
 export interface TableData {
   address?: string;
   berths?: string;
   boats?: string;
   city?: string;
-  customerGroup?: CUSTOMER_GROUP;
   email?: string;
   id: string;
   invoice?: string;
   name: string;
+  organizationType?: OrganizationType;
   phone?: string;
   postalCode?: string;
   startDate?: string;
@@ -41,10 +41,14 @@ const CustomerListComponent = ({ data }: CustomerListComponentProps) => {
       width: COLUMN_WIDTH.M,
     },
     {
-      Cell: ({ cell }) =>
-        t([`common.customerGroups.${cell.value as CUSTOMER_GROUP}`]),
+      Cell: ({ cell }) => {
+        const { value } = cell;
+        return value
+          ? t([`common.organizationTypes.${value as OrganizationType}`])
+          : t([`common.privateCustomer`]);
+      },
       Header: t('customers.tableHeaders.group') || '',
-      accessor: 'customerGroup',
+      accessor: 'organizationType',
       width: COLUMN_WIDTH.S,
     },
     {
@@ -82,7 +86,6 @@ const CustomerListComponent = ({ data }: CustomerListComponentProps) => {
             city={row.original.city}
             phone={row.original.phone}
             email={row.original.email}
-            customerGroup={row.original.customerGroup}
             berths={[]}
             winterStoragePlaces={[]}
             boats={[]}

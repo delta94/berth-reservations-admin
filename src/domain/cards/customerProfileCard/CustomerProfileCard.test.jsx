@@ -3,13 +3,14 @@ import { shallow } from 'enzyme';
 import { HashRouter } from 'react-router-dom';
 
 import CustomerProfileCard from './CustomerProfileCard';
-import { CUSTOMER_GROUP } from '../../types';
-import { InvoicingType } from '../../../@types/__generated__/globalTypes';
+import {
+  InvoicingType,
+  OrganizationType,
+} from '../../../@types/__generated__/globalTypes';
 
 const privateCustomerProfile = {
   comment: 'Testikäyttäjä',
   customerId: '0',
-  customerGroup: CUSTOMER_GROUP.PRIVATE,
   firstName: 'Testi',
   invoicingType: InvoicingType.PAPER_INVOICE,
   lastName: 'Käyttäjä',
@@ -26,7 +27,6 @@ const privateCustomerProfile = {
 const organizationCustomerProfile = {
   comment: 'Testikäyttäjä',
   customerId: '0',
-  customerGroup: CUSTOMER_GROUP.COMPANY,
   firstName: 'Testi',
   invoicingType: InvoicingType.PAPER_INVOICE,
   lastName: 'Käyttäjä',
@@ -35,6 +35,7 @@ const organizationCustomerProfile = {
     businessId: '1234567-8',
     city: 'Helsinki',
     name: 'Liikeyritys Oy',
+    organizationType: OrganizationType.COMPANY,
     postalCode: '00100',
   },
   primaryAddress: {
@@ -58,7 +59,6 @@ describe('CustomerProfileCard', () => {
   describe('with the minimum private customer profile fields', () => {
     it('renders normally', () => {
       const wrapper = getWrapper({
-        customerGroup: CUSTOMER_GROUP.PRIVATE,
         firstName: 'Testi',
         lastName: 'Käyttäjä',
       });
@@ -96,7 +96,6 @@ describe('CustomerProfileCard', () => {
   describe('with the minimum organization customer profile fields', () => {
     it('renders normally', () => {
       const wrapper = getWrapper({
-        customerGroup: CUSTOMER_GROUP.COMPANY,
         firstName: 'Testi',
         lastName: 'Käyttäjä',
         organization: organizationCustomerProfile.organization,

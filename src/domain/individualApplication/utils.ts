@@ -9,7 +9,6 @@ import { CustomerProfileCardProps } from '../cards/customerProfileCard/CustomerP
 import { CustomerData } from './IndividualApplicationPage';
 import { BerthMooringType } from '../../@types/__generated__/globalTypes';
 import { FILTERED_CUSTOMERS } from './__generated__/FILTERED_CUSTOMERS';
-import { mapCustomerGroup } from '../utils';
 import { OfferCardProps } from './offerCard/OfferCard';
 import { PrivateCustomerDetailsProps } from '../cards/customerProfileCard/privateCustomerDetails/PrivateCustomerDetails';
 
@@ -18,7 +17,6 @@ export const getCustomerProfile = (
 ): CustomerProfileCardProps => {
   return {
     customerId: profile.id,
-    customerGroup: mapCustomerGroup(profile.organization),
     firstName: profile.firstName,
     lastName: profile.lastName,
     primaryAddress: profile.primaryAddress,
@@ -60,7 +58,6 @@ const getApplicantDetails = (
 
   return {
     customerId: customer?.id,
-    customerGroup: mapCustomerGroup(customer?.organization),
     firstName: firstName,
     lastName: lastName,
     primaryAddress: {
@@ -122,14 +119,7 @@ export const getFilteredCustomersData = (
 
   return data.profiles.edges.reduce<CustomerData[]>((acc, edge) => {
     if (!edge?.node) return acc;
-    const {
-      id,
-      firstName,
-      lastName,
-      primaryAddress,
-      organization,
-      berthLeases,
-    } = edge.node;
+    const { id, firstName, lastName, primaryAddress, berthLeases } = edge.node;
 
     const berths = berthLeases?.edges
       .map(edge => edge?.node?.berth?.pier.properties?.harbor.properties?.name)
@@ -142,7 +132,6 @@ export const getFilteredCustomersData = (
         name: `${lastName}, ${firstName}`,
         city: primaryAddress?.city,
         address: primaryAddress?.address,
-        customerGroup: mapCustomerGroup(organization),
         berths,
       },
     ];

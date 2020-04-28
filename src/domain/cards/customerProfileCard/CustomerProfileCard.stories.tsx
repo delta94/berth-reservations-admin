@@ -3,8 +3,10 @@ import React from 'react';
 import { boolean, withKnobs } from '@storybook/addon-knobs';
 
 import CustomerProfileCard from './CustomerProfileCard';
-import { CUSTOMER_GROUP } from '../../types';
-import { InvoicingType } from '../../../@types/__generated__/globalTypes';
+import {
+  InvoicingType,
+  OrganizationType,
+} from '../../../@types/__generated__/globalTypes';
 
 export default {
   component: CustomerProfileCard,
@@ -38,7 +40,6 @@ const baseCustomerProps = {
   },
   primaryPhone: '+358 040 1234 567',
   primaryEmail: 'matti.meri@itameri.fi',
-  customerGroup: CUSTOMER_GROUP.PRIVATE,
   comment: `
   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   Aenean malesuada id est ut pellentesque.
@@ -60,8 +61,8 @@ const organizationCustomerProps = {
     city: 'Helsinki',
     name: 'Venekuljetukset Oy',
     postalCode: '00100',
+    organizationType: OrganizationType.COMPANY,
   },
-  customerGroup: CUSTOMER_GROUP.COMPANY,
 };
 
 export const organizationCustomer = () => (

@@ -51,12 +51,12 @@
       "SEA_BUOY_MOORING": "Poiju (merellä)",
       "TRAWLER_PLACE": "Traileripaikka"
     },
-    "customerGroups": {
-      "PRIVATE": "Yksityinen",
+    "privateCustomer": "Yksityinen",
+    "organizationTypes": {
       "COMPANY": "Yritys",
       "INTERNAL": "Sisäinen",
       "NON_BILLABLE": "Ei laskutettava",
-      "OTHER_ORGANIZATION": "Yhdistys"
+      "OTHER": "Yhdistys"
     },
     "invoicingTypes": {
       "DIGITAL_INVOICE": "Laskutus sähköisenä",

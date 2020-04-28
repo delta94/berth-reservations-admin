@@ -4,13 +4,14 @@ import { useTranslation } from 'react-i18next';
 import Section from '../../../../common/section/Section';
 import LabelValuePair from '../../../../common/labelValuePair/LabelValuePair';
 import InternalLink from '../../../../common/internalLink/InternalLink';
-import { CUSTOMER_GROUP } from '../../../types';
-import { InvoicingType } from '../../../../@types/__generated__/globalTypes';
+import {
+  InvoicingType,
+  OrganizationType,
+} from '../../../../@types/__generated__/globalTypes';
 
 export interface OrganizationCustomerDetailsProps {
   comment?: string | null;
   customerId?: string;
-  customerGroup: CUSTOMER_GROUP;
   firstName: string;
   invoicingType?: InvoicingType;
   lastName: string;
@@ -19,6 +20,7 @@ export interface OrganizationCustomerDetailsProps {
     businessId: string;
     city: string;
     name: string;
+    organizationType: OrganizationType;
     postalCode: string;
   };
   primaryAddress?: {
@@ -35,7 +37,6 @@ export interface OrganizationCustomerDetailsProps {
 const OrganizationCustomerDetails: FunctionComponent<OrganizationCustomerDetailsProps> = ({
   comment,
   customerId,
-  customerGroup,
   firstName,
   invoicingType,
   lastName,
@@ -76,7 +77,9 @@ const OrganizationCustomerDetails: FunctionComponent<OrganizationCustomerDetails
       <Section>
         <LabelValuePair
           label={t('customerProfile.customerGroup')}
-          value={t([`common.customerGroups.${customerGroup}`])}
+          value={t([
+            `common.organizationTypes.${organization.organizationType}`,
+          ])}
         />
       </Section>
       <Section title={t('customerProfile.contactPerson').toUpperCase()}>
