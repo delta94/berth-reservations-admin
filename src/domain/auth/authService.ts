@@ -16,7 +16,7 @@ class AuthService {
       redirect_uri: `${origin}/callback`,
       post_logout_redirect_uri: origin,
       response_type: 'id_token token',
-      silent_redirect_uri: `${origin}/silent-callback`,
+      silent_redirect_uri: `${origin}/silent-callback.html`,
       scope: process.env.REACT_APP_TUNNISTAMO_SCOPE,
       /* eslint-enable @typescript-eslint/camelcase */
     };
@@ -35,7 +35,6 @@ class AuthService {
     this.login = this.login.bind(this);
     this.endLogin = this.endLogin.bind(this);
     this.renewToken = this.renewToken.bind(this);
-    this.endRenewToken = this.endRenewToken.bind(this);
     this.logout = this.logout.bind(this);
 
     // Events
@@ -43,14 +42,17 @@ class AuthService {
       this.logout();
     });
 
-    this.userManager.events.addSilentRenewError(e => {
-      // TODO: handle errors
-      console.log('silent renew error', e.message);
+    this.userManager.events.addSilentRenewError(() => {
+      this.logout();
     });
 
     this.userManager.events.addUserSignedOut(() => {
       this.userManager.clearStaleState();
       localStorage.removeItem(API_TOKENS);
+    });
+
+    this.userManager.events.addUserLoaded(user => {
+      this.fetchApiTokens(user);
     });
   }
 
@@ -79,17 +81,7 @@ class AuthService {
 
   public endLogin(): Promise<User> {
     return this.userManager.signinRedirectCallback().then(async user => {
-      const { data: apiTokens } = await axios.get(
-        `${process.env.REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT}/`,
-        {
-          baseURL: process.env.REACT_APP_TUNNISTAMO_URI,
-          headers: {
-            Authorization: `bearer ${user.access_token}`,
-          },
-        }
-      );
-
-      localStorage.setItem(API_TOKENS, JSON.stringify(apiTokens));
+      this.fetchApiTokens(user);
 
       return user;
     });
@@ -99,14 +91,24 @@ class AuthService {
     return this.userManager.signinSilent();
   }
 
-  public endRenewToken(): Promise<User | undefined> {
-    return this.userManager.signinSilentCallback();
-  }
-
   public logout(): Promise<void> {
     return this.userManager.signoutRedirect().then(() => {
       localStorage.removeItem(API_TOKENS);
     });
+  }
+
+  private async fetchApiTokens(user: User): Promise<void> {
+    const { data: apiTokens } = await axios.get(
+      `${process.env.REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT}/`,
+      {
+        baseURL: process.env.REACT_APP_TUNNISTAMO_URI,
+        headers: {
+          Authorization: `bearer ${user.access_token}`,
+        },
+      }
+    );
+
+    localStorage.setItem(API_TOKENS, JSON.stringify(apiTokens));
   }
 }
 

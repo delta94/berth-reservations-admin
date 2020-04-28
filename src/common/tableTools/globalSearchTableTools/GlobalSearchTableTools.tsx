@@ -2,23 +2,23 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { TextInput } from 'hds-react';
 
-import styles from './harborsTableTools.module.scss';
+import styles from './globalSearchTableTools.module.scss';
 
-export interface HarborsTableToolsProps {
+export interface GlobalSearchTableToolsProps {
   handleGlobalFilter(value?: string): void;
 }
 
-const HarborsTableTools: React.SFC<HarborsTableToolsProps> = ({
+const GlobalSearchTableTools: React.SFC<GlobalSearchTableToolsProps> = ({
   handleGlobalFilter,
 }) => {
   const { t } = useTranslation();
 
   return (
-    <div className={styles.harborsTableTools}>
+    <div className={styles.globalSearchTableTools}>
       <TextInput
         className={styles.filterField}
         placeholder={t('common.search')}
-        id="harborListGlobalFilter"
+        id="textSearchGlobalFilter"
         onChange={e =>
           handleGlobalFilter(
             (e.target as HTMLTextAreaElement).value || undefined
@@ -29,4 +29,4 @@ const HarborsTableTools: React.SFC<HarborsTableToolsProps> = ({
   );
 };
 
-export default HarborsTableTools;
+export default GlobalSearchTableTools;
