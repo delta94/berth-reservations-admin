@@ -7,7 +7,7 @@ import InternalLink from '../../common/internalLink/InternalLink';
 import styles from './harborsPage.module.scss';
 import Icon from '../../common/icons/Icon';
 import { HarborData } from './utils';
-import HarborsTableTools from './harborsTableTools/HarborsTableTools';
+import GlobalSearchTableTools from '../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';
 
 export interface IconProps {
   disabled?: boolean;
@@ -116,7 +116,9 @@ const HarborsList: React.FC<HarborsPageProps> = ({ data = [] }) => {
         data={data}
         columns={columns}
         renderTableToolsTop={(_, setters) => (
-          <HarborsTableTools handleGlobalFilter={setters.setGlobalFilter} />
+          <GlobalSearchTableTools
+            handleGlobalFilter={setters.setGlobalFilter}
+          />
         )}
         renderSubComponent={row => <HarborDetails {...row.original} />}
         renderMainHeader={() => t('harbors.tableHeaders.mainHeader')}
