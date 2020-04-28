@@ -28,26 +28,29 @@ const IndividualHarborPageContainer: React.SFC = () => {
   );
   const { t, i18n } = useTranslation();
 
+  const includesCaseInsensitive = React.useCallback(
+    (target: string, value: string): boolean => {
+      return target
+        .toLocaleLowerCase(i18n.language)
+        .includes(value.toLocaleLowerCase(i18n.language));
+    },
+    [i18n.language]
+  );
+
   const berthTableGlobalFilter: UseGlobalFiltersOptions<
     Berth
   >['globalFilter'] = React.useMemo(
     () => (rows, _, filterValue) => {
       return rows.filter(row => {
-        const { number, identifier, length, width, mooringType } = row.original;
+        const { number, identifier, length, width, mooringType } = row.values;
         const numberMatch = String(number) === filterValue;
         const identifierMatch = String(identifier) === filterValue;
-        const lengthMatch = formatDimension(length, i18n.language)
-          .toLowerCase()
-          .includes(String(filterValue).toLowerCase());
-        const widthMatch = formatDimension(width, i18n.language)
-          .toLowerCase()
-          .includes(String(filterValue).toLowerCase());
-        const mooringTypeMatch = t([
-          `common.mooringTypes.${mooringType}`,
+        const lengthMatch = includesCaseInsensitive(length, filterValue);
+        const widthMatch = includesCaseInsensitive(width, filterValue);
+        const mooringTypeMatch = includesCaseInsensitive(
           mooringType,
-        ])
-          .toLowerCase()
-          .includes(String(filterValue).toLowerCase());
+          filterValue
+        );
         return (
           numberMatch ||
           identifierMatch ||
@@ -57,7 +60,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
         );
       });
     },
-    [t, i18n.language]
+    [includesCaseInsensitive]
   );
 
   if (loading) return <LoadingSpinner isLoading={loading} />;
@@ -67,11 +70,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
 
   if (!harbor) return <div>No data...</div>;
 
-  type ColumnType = Column<Berth> & {
-    accessor: keyof Berth;
-  };
-
-  const columns: ColumnType[] = [
+  const columns: Column<Berth>[] = [
     {
       Header: t('individualHarbor.tableHeaders.number') || '',
       accessor: 'number',
@@ -82,19 +81,20 @@ const IndividualHarborPageContainer: React.SFC = () => {
       filter: 'exactText',
     },
     {
-      Cell: ({ cell }) => formatDimension(cell.value, i18n.language),
       Header: t('individualHarbor.tableHeaders.length') || '',
-      accessor: 'length',
+      accessor: ({ length }) => formatDimension(length, i18n.language),
+      id: 'length',
     },
     {
-      Cell: ({ cell }) => formatDimension(cell.value, i18n.language),
       Header: t('individualHarbor.tableHeaders.width') || '',
-      accessor: 'width',
+      accessor: ({ width }) => formatDimension(width, i18n.language),
+      id: 'width',
     },
     {
-      Cell: ({ cell }) => t([`common.mooringTypes.${cell.value}`, cell.value]),
       Header: t('individualHarbor.tableHeaders.mooring') || '',
-      accessor: 'mooringType',
+      accessor: ({ mooringType }) =>
+        t([`common.mooringTypes.${mooringType}`, mooringType]),
+      id: 'mooringType',
     },
   ];
   const piers = getPiers(data);
