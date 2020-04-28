@@ -88,6 +88,32 @@
   "home": {
     "title": "Venepaikka admin interface"
   },
+  "forms": {
+    "common": {
+      "edit": "Muokkaa",
+      "errors": {
+        "required": "Tämä kenttä on pakollinen.",
+        "numberType": "Kentän pitää olla numero."
+      },
+      "error": "Tapahtui virhe. Yritä uudestaan.",
+      "create": "Luo",
+      "update": "Tallenna",
+      "delete": "Poista",
+      "cancel": "Peruuta"
+    },
+    "berth": {
+      "title": "Venepaikka",
+      "pier": "Laituri",
+      "number": "Paikka",
+      "width": "Leveys (m)",
+      "length": "Pituus (m)",
+      "depth": "Syvyys (m)",
+      "mooringType": "Kiinnitystapa",
+      "comment": "Huomiot",
+      "isActive": "Paikka on käytössä",
+      "delete": "Poista venepaikka"
+    }
+  },
   "harbors": {
     "tableHeaders": {
       "mainHeader": "Satamat",

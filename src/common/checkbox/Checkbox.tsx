@@ -19,6 +19,7 @@ const Checkbox: React.SFC<CheckboxProps> = ({
   label,
   size = 'medium',
   readOnly,
+  id,
 }) => {
   return (
     <label>
@@ -31,6 +32,7 @@ const Checkbox: React.SFC<CheckboxProps> = ({
       >
         {checked && <Check className={styles.check} />}
         <input
+          id={id}
           checked={checked}
           onChange={onChange}
           className={styles.input}

@@ -16,6 +16,7 @@ export type SelectProps = {
   required?: boolean;
   disabled?: boolean;
   onChange: React.ChangeEventHandler<HTMLSelectElement>;
+  id?: string;
 };
 
 const Select: React.SFC<SelectProps> = ({
@@ -26,6 +27,7 @@ const Select: React.SFC<SelectProps> = ({
   onChange,
   required,
   disabled,
+  id,
 }) => {
   const optionsItems = options.map(({ value, label }) => (
     <option key={value} value={value}>
@@ -37,6 +39,7 @@ const Select: React.SFC<SelectProps> = ({
     <label className={className}>
       <span className={styles.labelText}>{labelText}</span>
       <select
+        id={id}
         value={value}
         onChange={onChange}
         disabled={disabled}

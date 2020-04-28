@@ -53,6 +53,7 @@ export const getIndividualHarborData = (
 };
 
 export type Berth = {
+  id: string;
   number: number;
   identifier: string;
   length: number;
@@ -74,6 +75,7 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined): Berth[] => {
         return [
           ...prev,
           {
+            id: berthEdge.node.id,
             identifier,
             length: berthEdge.node.length,
             mooringType: berthEdge.node.mooringType,

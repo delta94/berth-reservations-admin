@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`domain/individualHarbor/BerthForm initially renders loading spinner 1`] = `"<div class=\\"spinnerWrapper\\"><div class=\\"spinner\\"></div></div>"`;
+
+exports[`domain/individualHarbor/BerthForm renders content after loading 1`] = `"<div class=\\"spinnerWrapper\\"><div class=\\"spinner\\"></div></div>"`;

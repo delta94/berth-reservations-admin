@@ -31,6 +31,7 @@ export const INDIVIDUAL_HARBOR_QUERY = gql`
                 berths {
                   edges {
                     node {
+                      id
                       number
                       width
                       length

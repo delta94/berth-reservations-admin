@@ -12,11 +12,14 @@
     "@types/node": "12.7.9",
     "@types/react": "16.9.4",
     "@types/react-dom": "16.9.1",
+    "@types/react-modal": "^3.10.5",
     "@types/react-router-dom": "^5.1.0",
     "@types/react-table": "^7.0.13",
+    "@types/yup": "^0.28.0",
     "apollo-boost": "^0.4.7",
     "axios": "^0.19.0",
     "classnames": "^2.2.6",
+    "formik": "^2.1.4",
     "graphql": "^14.5.8",
     "hds-core": "^0.4.1",
     "hds-react": "^0.5.4",
@@ -26,12 +29,14 @@
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-i18next": "^10.13.1",
+    "react-modal": "^3.11.2",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.3.0",
     "react-table": "^7.0.4",
     "typescript": "^3.8.3",
-    "use-debounce": "^3.4.1"
+    "use-debounce": "^3.4.1",
+    "yup": "^0.28.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -40,6 +45,7 @@
     "test:watch": "TZ=UTC NODE_ICU_DATA=node_modules/full-icu react-scripts test --watch",
     "eject": "react-scripts eject",
     "lint": "eslint --ext js,ts,tsx src",
+    "lint:fix": "eslint --fix --ext js,ts,tsx src",
     "ci": "CI=true yarn test --verbose --runInBand --coverage",
     "types:generate": "apollo codegen:generate --globalTypesFile=./src/@types/__generated__/globalTypes.ts --target=typescript --includes=\"./src/**/*.ts\" --tagName=gql",
     "storybook": "start-storybook -p 6006",
@@ -63,6 +69,7 @@
     ]
   },
   "devDependencies": {
+    "@apollo/react-testing": "^3.1.4",
     "@storybook/addon-a11y": "^5.3.13",
     "@storybook/addon-actions": "^5.3.13",
     "@storybook/addon-docs": "^5.3.13",
@@ -84,6 +91,7 @@
     "full-icu": "^1.3.0",
     "husky": "4.2.5",
     "jest-localstorage-mock": "^2.4.0",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "wait-for-expect": "^3.0.2"
   }
 }

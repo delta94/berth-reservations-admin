@@ -1,0 +1,18 @@
+@import 'spacings';
+
+.form {
+  > * {
+    margin: units(2) 0;
+  }
+}
+
+.grid {
+  grid-row-gap: units(1);
+  grid-column-gap: units(1);
+}
+
+.formActionButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: units(4);
+}

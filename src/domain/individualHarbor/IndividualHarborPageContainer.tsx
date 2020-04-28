@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
@@ -18,8 +18,11 @@ import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { formatDimension } from '../../common/utils/format';
 import PierSelectHeader from './pierSelectHeader/PierSelectHeader';
 import GlobalSearchTableTools from '../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';
+import BerthFormModal from './forms/berthForm/BerthFormModal';
+import Text from '../../common/text/Text';
 
 const IndividualHarborPageContainer: React.SFC = () => {
+  const [berthModal, setBerthModal] = useState<string | null>(null);
   const { id } = useParams<{ id: string }>();
   const { loading, error, data } = useQuery<INDIVIDUAL_HARBOR>(
     INDIVIDUAL_HARBOR_QUERY,
@@ -96,6 +99,11 @@ const IndividualHarborPageContainer: React.SFC = () => {
             handleGlobalFilter={setters.setGlobalFilter}
           />
         )}
+        renderSubComponent={row => (
+          <button onClick={() => setBerthModal(row.original.id)}>
+            <Text color="brand">{t('forms.common.edit')}</Text>
+          </button>
+        )}
         styleMainHeader={false}
         renderMainHeader={props => (
           <PierSelectHeader
@@ -111,6 +119,17 @@ const IndividualHarborPageContainer: React.SFC = () => {
           />
         )}
       />
+      {berthModal && (
+        <BerthFormModal
+          berthId={berthModal}
+          onCancel={() => setBerthModal(null)}
+          onDelete={() => setBerthModal(null)}
+          onCreate={() => setBerthModal(null)}
+          refetchQueries={[
+            { query: INDIVIDUAL_HARBOR_QUERY, variables: { id } },
+          ]}
+        />
+      )}
     </IndividualHarborPage>
   );
 };
