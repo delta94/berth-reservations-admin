@@ -1,6 +1,7 @@
 $z-index: (
   table-header  : 1,
   dropdown      : 2,
+  modal         : 3,
 );
 
 @function z-index($key) {

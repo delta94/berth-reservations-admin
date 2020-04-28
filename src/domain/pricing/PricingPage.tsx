@@ -8,35 +8,40 @@ import CardHeader from '../../common/cardHeader/CardHeader';
 import CardBody from '../../common/cardBody/CardBody';
 import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
 import Section from '../../common/section/Section';
+import {
+  formatDimension,
+  formatPercentage,
+  formatPrice,
+} from '../../common/utils/format';
 
-interface BerthPrice {
+export interface BerthPrice {
   id: string;
-  width: string | null;
-  privateCustomer: string;
-  company: string;
+  width: number | null;
+  privateCustomer: number;
+  company: number;
   period: string;
 }
 
-interface WinterStoragePrice {
+export interface WinterStoragePrice {
   id: string;
   area: string;
-  privateCustomer: string;
-  company: string;
+  privateCustomer: number;
+  company: number;
   period: string;
 }
 
-interface HarborService {
+export interface HarborService {
   id: string;
   service: string;
-  price: string;
+  price: number;
   period: string;
 }
 
-interface AdditionalService {
+export interface AdditionalService {
   id: string;
   service: string;
-  price: string;
-  tax: string;
+  price: number;
+  tax: number;
   period: string;
 }
 
@@ -53,21 +58,24 @@ const PricingPage: React.SFC<PricingPageProps> = ({
   harborServices,
   otherServices,
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const openModal = () => alert('Muokkaa');
 
   const harborCols: Column<BerthPrice>[] = [
     {
       Header: t('pricing.harbor.width') || '',
       accessor: 'width',
+      Cell: ({ cell }) => formatDimension(cell.value, i18n.language),
     },
     {
       Header: t('pricing.harbor.privateCustomer') || '',
       accessor: 'privateCustomer',
+      Cell: ({ cell }) => formatPrice(cell.value, i18n.language),
     },
     {
       Header: t('pricing.harbor.company') || '',
       accessor: 'company',
+      Cell: ({ cell }) => formatPrice(cell.value, i18n.language),
     },
     {
       Header: t('pricing.harbor.period') || '',
@@ -94,10 +102,12 @@ const PricingPage: React.SFC<PricingPageProps> = ({
     {
       Header: t('pricing.winterStorage.privateCustomer') || '',
       accessor: 'privateCustomer',
+      Cell: ({ cell }) => formatPrice(cell.value, i18n.language),
     },
     {
       Header: t('pricing.winterStorage.company') || '',
       accessor: 'company',
+      Cell: ({ cell }) => formatPrice(cell.value, i18n.language),
     },
     {
       Header: t('pricing.winterStorage.period') || '',
@@ -126,6 +136,7 @@ const PricingPage: React.SFC<PricingPageProps> = ({
       Header: t('pricing.harborServices.price') || '',
       width: COLUMN_WIDTH.XS,
       accessor: 'price',
+      Cell: ({ cell }) => formatPrice(cell.value, i18n.language),
     },
     {
       Header: t('pricing.harborServices.period') || '',
@@ -155,11 +166,13 @@ const PricingPage: React.SFC<PricingPageProps> = ({
       Header: t('pricing.otherServices.price') || '',
       width: COLUMN_WIDTH.XS,
       accessor: 'price',
+      Cell: ({ cell }) => formatPrice(cell.value, i18n.language),
     },
     {
       Header: t('pricing.otherServices.tax') || '',
       width: COLUMN_WIDTH.XS,
       accessor: 'tax',
+      Cell: ({ cell }) => formatPercentage(cell.value, i18n.language),
     },
     {
       Header: t('pricing.otherServices.period') || '',
