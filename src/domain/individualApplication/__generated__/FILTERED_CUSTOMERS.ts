@@ -113,4 +113,6 @@ export interface FILTERED_CUSTOMERS {
 export interface FILTERED_CUSTOMERSVariables {
   firstName?: string | null;
   lastName?: string | null;
+  email?: string | null;
+  address?: string | null;
 }

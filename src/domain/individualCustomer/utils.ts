@@ -25,7 +25,7 @@ export const getCustomerProfile = (
 interface Lease {
   id: string;
   harbor: { id: string; name: string } | null;
-  berthNum: string;
+  berthNum: string | number;
   pierIdentifier: string | null;
   startDate: string;
   endDate: string;
@@ -104,7 +104,7 @@ interface ApplicationLease {
   harborName: string;
   harborId: string;
   pierIdentifier: string;
-  berthNum: string;
+  berthNum: string | number;
 }
 
 interface BerthSwitch {

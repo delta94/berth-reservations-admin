@@ -22,6 +22,10 @@
     "no": "Ei",
     "search": "Haku",
     "edit": "Muokkaa",
+    "firstName": "Etunimi",
+    "lastName": "Sukunimi",
+    "email": "Sähköposti",
+    "address": "Osoite",
     "table": {
       "minimizeAll": "Pienennä kaikki",
       "all": "Kaikki",
@@ -131,7 +135,12 @@
       "mooring": "Kiinnitys",
       "harbor": "Satama",
       "places": "Paikkoja",
-      "freePlaces": "Vapaita"
+      "freePlaces": "Vapaita",
+      "all": "Kaikki"
+    },
+    "pierProperties": {
+      "pier": "Laituri",
+      "services": "Palvelut"
     }
   },
   "applications": {

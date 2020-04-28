@@ -9,6 +9,11 @@ import { BerthMooringType } from "./../../../@types/__generated__/globalTypes";
 // GraphQL query operation: INDIVIDUAL_HARBOR
 // ====================================================
 
+export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_suitableBoatTypes {
+  __typename: "BoatTypeType";
+  name: string | null;
+}
+
 export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_berthType {
   __typename: "BerthTypeNode";
   width: number;
@@ -40,6 +45,7 @@ export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties
   water: boolean;
   lighting: boolean;
   gate: boolean;
+  suitableBoatTypes: INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_suitableBoatTypes[];
   berths: INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths;
 }
 

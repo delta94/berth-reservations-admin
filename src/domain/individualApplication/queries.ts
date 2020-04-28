@@ -1,11 +1,18 @@
 import { gql } from 'apollo-boost';
 
 export const FILTERED_CUSTOMERS_QUERY = gql`
-  query FILTERED_CUSTOMERS($firstName: String, $lastName: String) {
+  query FILTERED_CUSTOMERS(
+    $firstName: String
+    $lastName: String
+    $email: String
+    $address: String
+  ) {
     profiles(
       serviceType: BERTH
       firstName: $firstName
       lastName: $lastName
+      emails_Email: $email
+      addresses_Address: $address
       orderBy: "lastName"
     ) {
       edges {

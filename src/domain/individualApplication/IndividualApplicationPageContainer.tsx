@@ -1,10 +1,13 @@
-import React from 'react';
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import React, { useState, useEffect } from 'react';
+import { useQuery, useMutation, useLazyQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 import { Notification } from 'hds-react';
+import { useDebounce } from 'use-debounce';
 
-import IndividualApplicationPage from './IndividualApplicationPage';
+import IndividualApplicationPage, {
+  SearchBy,
+} from './IndividualApplicationPage';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import {
   INDIVIDUAL_APPLICATION_QUERY,
@@ -41,6 +44,8 @@ import {
 const IndividualCustomerPageContainer: React.SFC = () => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
+  const [searchBy, setSearchBy] = useState<SearchBy>(SearchBy.LAST_NAME);
+  const [searchVal, setSearchVal] = useState<string>();
 
   const { loading, error, data } = useQuery<
     INDIVIDUAL_APPLICATION,
@@ -51,17 +56,42 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     },
   });
 
-  const { data: customersData } = useQuery<
-    FILTERED_CUSTOMERS,
-    FILTERED_CUSTOMERS_VARS
-  >(FILTERED_CUSTOMERS_QUERY, {
-    variables: {
-      lastName: data?.berthApplication?.lastName,
-    },
+  const [debouncedSearchVal] = useDebounce(searchVal, 500, {
+    equalityFn: (prev, next) => prev === next,
   });
+
+  const [
+    fetchFilteredCustomers,
+    { data: customersData, refetch, called },
+  ] = useLazyQuery<FILTERED_CUSTOMERS, FILTERED_CUSTOMERS_VARS>(
+    FILTERED_CUSTOMERS_QUERY,
+    {
+      variables: {
+        [searchBy]: debouncedSearchVal ?? searchVal,
+      },
+    }
+  );
 
   // TODO: handle errors
   const [deleteDraftedApplication] = useDeleteBerthApplication();
+  useEffect(() => {
+    if (!data?.berthApplication) return;
+
+    setSearchVal(data.berthApplication[searchBy]);
+  }, [data, searchBy]);
+
+  useEffect(() => {
+    if (!loading && !data?.berthApplication?.customer) {
+      !called ? fetchFilteredCustomers() : refetch();
+    }
+  }, [
+    debouncedSearchVal,
+    refetch,
+    fetchFilteredCustomers,
+    called,
+    data,
+    loading,
+  ]);
 
   // TODO: handle errors
   const [linkCustomer, { error: linkCustomerErr }] = useMutation<
@@ -87,7 +117,7 @@ const IndividualCustomerPageContainer: React.SFC = () => {
       {
         query: FILTERED_CUSTOMERS_QUERY,
         variables: {
-          lastName: data?.berthApplication?.lastName,
+          [searchBy]: debouncedSearchVal ?? searchVal,
         },
       },
     ],
@@ -181,7 +211,19 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     <IndividualApplicationPage
       applicationId={id}
       handleLinkCustomer={handleLinkCustomer}
-      handleCreateCustomer={handleCreateCustomer}
+      customerTableTools={{
+        searchVal,
+        searchBy,
+        setSearchVal,
+        setSearchBy,
+        handleCreateCustomer,
+        searchByOptions: [
+          { value: SearchBy.FIRST_NAME, label: t('common.firstName') },
+          { value: SearchBy.LAST_NAME, label: t('common.lastName') },
+          { value: SearchBy.EMAIL, label: t('common.email') },
+          { value: SearchBy.ADDRESS, label: t('common.address') },
+        ],
+      }}
       similarCustomersData={filteredCustomersData}
       customerProfile={customerProfile}
       applicationDetails={applicationDetails}

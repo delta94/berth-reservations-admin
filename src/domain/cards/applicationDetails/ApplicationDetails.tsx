@@ -29,7 +29,7 @@ interface HarborChoice {
 }
 
 interface Lease {
-  berthNum: string;
+  berthNum: string | number;
   harborId: string;
   harborName: string;
   id: string;
@@ -37,7 +37,7 @@ interface Lease {
 }
 
 interface BerthSwitch {
-  berthNum: string;
+  berthNum: string | number;
   harborId: string;
   harborName: string;
   pierIdentifier: string;
