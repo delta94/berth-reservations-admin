@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
@@ -11,13 +11,13 @@ import {
   getBerths,
   Berth,
   getPiers,
-  Pier,
 } from './utils/utils';
 import IndividualHarborPage from './individualHarborPage/IndividualHarborPage';
 import HarborProperties from './harborProperties/HarborProperties';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { formatDimension } from '../../common/utils/format';
 import PierSelectHeader from './pierSelectHeader/PierSelectHeader';
+import GlobalSearchTableTools from '../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';
 
 const IndividualHarborPageContainer: React.SFC = () => {
   const { id } = useParams<{ id: string }>();
@@ -26,7 +26,6 @@ const IndividualHarborPageContainer: React.SFC = () => {
     { variables: { id } }
   );
   const { t, i18n } = useTranslation();
-  const [selectedPier, setSelectedPier] = useState<Pier | null>(null);
 
   if (loading) return <LoadingSpinner isLoading={loading} />;
   if (error) return <div>Error</div>;
@@ -35,34 +34,35 @@ const IndividualHarborPageContainer: React.SFC = () => {
 
   if (!harbor) return <div>No data...</div>;
 
-  type ColumnType = Column<Berth> & {
-    accessor: keyof Berth;
-  };
-
-  const columns: ColumnType[] = [
+  const columns: Column<Berth>[] = [
     {
       Header: t('individualHarbor.tableHeaders.number') || '',
       accessor: 'number',
+      filter: 'text',
     },
     {
       Header: t('individualHarbor.tableHeaders.identifier') || '',
       accessor: 'identifier',
-      filter: 'exactText',
+      filter: 'text',
     },
     {
-      Cell: ({ cell }) => formatDimension(cell.value, i18n.language),
       Header: t('individualHarbor.tableHeaders.length') || '',
-      accessor: 'length',
+      accessor: ({ length }) => formatDimension(length, i18n.language),
+      id: 'length',
+      filter: 'text',
     },
     {
-      Cell: ({ cell }) => formatDimension(cell.value, i18n.language),
       Header: t('individualHarbor.tableHeaders.width') || '',
-      accessor: 'width',
+      accessor: ({ width }) => formatDimension(width, i18n.language),
+      id: 'width',
+      filter: 'text',
     },
     {
-      Cell: ({ cell }) => t([`common.mooringTypes.${cell.value}`, cell.value]),
       Header: t('individualHarbor.tableHeaders.mooring') || '',
-      accessor: 'mooringType',
+      accessor: ({ mooringType }) =>
+        t([`common.mooringTypes.${mooringType}`, mooringType]),
+      id: 'mooringType',
+      filter: 'text',
     },
   ];
   const piers = getPiers(data);
@@ -91,13 +91,21 @@ const IndividualHarborPageContainer: React.SFC = () => {
         data={berths}
         columns={columns}
         canSelectRows
+        renderTableToolsTop={(_, setters) => (
+          <GlobalSearchTableTools
+            handleGlobalFilter={setters.setGlobalFilter}
+          />
+        )}
         styleMainHeader={false}
         renderMainHeader={props => (
           <PierSelectHeader
             piers={piers}
-            selectedPier={selectedPier}
+            selectedPier={piers.find(pier =>
+              props.state.filters
+                .filter(filter => filter.id === 'identifier')
+                .find(filter => filter.value === pier.identifier)
+            )}
             onPierSelect={pier => {
-              setSelectedPier(pier);
               props.setFilter('identifier', pier?.identifier);
             }}
           />

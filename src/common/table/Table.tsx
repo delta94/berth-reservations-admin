@@ -19,6 +19,7 @@ import {
   UseFiltersColumnOptions,
   UseSortByColumnOptions,
   UseFiltersInstanceProps,
+  UseGlobalFiltersOptions,
 } from 'react-table';
 
 import Checkbox from '../checkbox/Checkbox';
@@ -56,6 +57,7 @@ type Props<D extends object> = {
   renderSubComponent?: (row: Row<D>) => React.ReactNode;
   renderMainHeader?: (props: HeaderProps<D>) => React.ReactNode;
   renderEmptyStateRow?: () => React.ReactNode;
+  globalFilter?: UseGlobalFiltersOptions<D>['globalFilter'];
 } & TableOptions<D>;
 
 const EXPANDER = 'EXPANDER';
@@ -88,6 +90,7 @@ const Table = <D extends object>({
   renderSubComponent,
   renderMainHeader,
   renderEmptyStateRow,
+  globalFilter,
 }: Props<D>) => {
   const { t } = useTranslation();
 
@@ -197,6 +200,7 @@ const Table = <D extends object>({
     {
       columns: tableColumns,
       data,
+      globalFilter,
     },
     useFilters,
     useGlobalFilter,

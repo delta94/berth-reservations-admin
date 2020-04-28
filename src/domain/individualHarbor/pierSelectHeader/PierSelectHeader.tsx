@@ -9,7 +9,7 @@ import PierProperties from './pierProperties/PierProperties';
 interface PierSelectHeaderProps {
   readonly className?: string;
   readonly piers: Pier[];
-  readonly selectedPier: Pier | null;
+  readonly selectedPier?: Pier | null;
   onPierSelect(pier: Pier | null): void;
 }
 
