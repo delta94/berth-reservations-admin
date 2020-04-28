@@ -13,7 +13,6 @@ export interface PrivateCustomerDetailsProps {
   firstName: string;
   invoicingType?: InvoicingType;
   lastName: string;
-  organization?: null;
   primaryAddress?: {
     address: string;
     postalCode: string;

@@ -9,14 +9,19 @@ export const getCustomerProfile = (
   profile: CUSTOMER_PROFILE
 ): CustomerProfileCardProps => {
   return {
-    customerId: profile.id,
-    firstName: profile.firstName,
-    lastName: profile.lastName,
-    organization: profile.organization,
-    primaryAddress: profile.primaryAddress,
-    primaryPhone: profile.primaryPhone?.phone,
-    primaryEmail: profile.primaryEmail?.email,
-    ssn: '', // TODO
+    ...{
+      customerId: profile.id,
+      firstName: profile.firstName,
+      lastName: profile.lastName,
+      organization: profile.organization,
+      primaryAddress: profile.primaryAddress,
+      primaryPhone: profile.primaryPhone?.phone,
+      primaryEmail: profile.primaryEmail?.email,
+      ssn: '', // TODO
+    },
+    ...(profile.organization && {
+      organization: profile.organization,
+    }),
   };
 };
 

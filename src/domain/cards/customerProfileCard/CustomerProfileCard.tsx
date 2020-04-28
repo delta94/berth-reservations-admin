@@ -15,14 +15,8 @@ export type CustomerProfileCardProps = {
   className?: string;
 } & (PrivateCustomerDetailsProps | OrganizationCustomerDetailsProps);
 
-const customerHasOrganization = (
-  props: CustomerProfileCardProps
-): props is OrganizationCustomerDetailsProps => {
-  return props.organization !== undefined && props.organization !== null;
-};
-
 const renderDetails = (props: CustomerProfileCardProps) => {
-  if (customerHasOrganization(props)) {
+  if ('organization' in props && props.organization !== null) {
     return <OrganizationCustomerDetails {...props} />;
   } else {
     return <PrivateCustomerDetails {...props} />;
