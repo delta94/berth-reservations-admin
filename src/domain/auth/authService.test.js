@@ -144,22 +144,15 @@ describe('authService', () => {
       expect(user).toBe(mockUser);
     });
 
-    it('should call axios.get with the access_token attached as an Authorization header', async () => {
+    it('should call fetchApiTokens with the user object', async () => {
+      jest.spyOn(authService, 'fetchApiTokens');
       jest
         .spyOn(userManager, 'signinRedirectCallback')
         .mockReturnValue(Promise.resolve(mockUser));
 
       await authService.endLogin();
 
-      expect(axios.get).toHaveBeenNthCalledWith(
-        1,
-        expect.any(String),
-        expect.objectContaining({
-          baseURL: expect.any(String),
-          /* eslint-disable-next-line @typescript-eslint/camelcase */
-          headers: { Authorization: `bearer ${access_token}` },
-        })
-      );
+      expect(authService.fetchApiTokens).toHaveBeenNthCalledWith(1, mockUser);
     });
   });
 
@@ -183,31 +176,6 @@ describe('authService', () => {
     });
   });
 
-  describe('endRenewToken', () => {
-    it('should call signinSilentCallback from oidc', () => {
-      const signinSilentCallback = jest.spyOn(
-        userManager,
-        'signinSilentCallback'
-      );
-
-      authService.endRenewToken();
-
-      expect(signinSilentCallback).toHaveBeenCalledTimes(1);
-    });
-
-    it('should resolve to the user value which has been resolved from signinSilentCallback', async () => {
-      const mockUser = { name: 'Delores Willms' };
-
-      jest
-        .spyOn(userManager, 'signinSilentCallback')
-        .mockResolvedValueOnce(mockUser);
-
-      const user = await authService.endRenewToken();
-
-      expect(user).toBe(mockUser);
-    });
-  });
-
   describe('logout', () => {
     it('should call signoutRedirect from oidc', () => {
       const signoutRedirect = jest.spyOn(userManager, 'signoutRedirect');
@@ -225,6 +193,40 @@ describe('authService', () => {
       await authService.logout();
 
       expect(localStorage.getItem(API_TOKENS)).toBeNull();
+    });
+  });
+
+  describe('fetchApiTokens', () => {
+    /* eslint-disable-next-line @typescript-eslint/camelcase */
+    const access_token = 'db237bc3-e197-43de-8c86-3feea4c5f886';
+    const mockUser = {
+      name: 'Penelope Krajcik',
+      /* eslint-disable-next-line @typescript-eslint/camelcase */
+      access_token,
+    };
+
+    beforeEach(() => {
+      axios.get.mockReset();
+
+      axios.get.mockResolvedValue({
+        data: {
+          firstToken: '71ffd52c-5985-46d3-b445-490554f4012a',
+          secondToken: 'de7c2a83-07f2-46bf-8417-8f648adbc7be',
+        },
+      });
+    });
+    it('should call axios.get with the right arguments', async () => {
+      await authService.fetchApiTokens(mockUser);
+
+      expect(axios.get).toHaveBeenCalledTimes(1);
+      expect(axios.get.mock.calls[0]).toMatchSnapshot();
+    });
+
+    it('should call localStorage.setItem with the right arguments', async () => {
+      await authService.fetchApiTokens(mockUser);
+
+      expect(localStorage.setItem).toHaveBeenCalledTimes(1);
+      expect(localStorage.setItem.mock.calls[0]).toMatchSnapshot();
     });
   });
 });

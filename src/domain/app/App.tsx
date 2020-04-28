@@ -20,7 +20,6 @@ import ApplicationsPage from '../applications/ApplicationsPageContainer';
 import IndividualApplicationPage from '../individualApplication/IndividualApplicationPageContainer';
 import PricingPage from '../pricing/PricingPageContainer';
 import CallbackPage from '../auth/callbackPage/CallbackPage';
-import SilentRenewPage from '../auth/silentRenewPage/SilentRenewPage';
 
 const App: React.FC = () => {
   return (
@@ -28,7 +27,6 @@ const App: React.FC = () => {
       <Router>
         <Switch>
           <Route path="/login" component={LoginPage} />
-          <Route exact path="/silent-callback" component={SilentRenewPage} />
           <Route exact path="/callback" component={CallbackPage} />
           <Redirect exact from="/" to="/harbors" />
           <Page>
