@@ -2,7 +2,6 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { UseGlobalFiltersOptions } from 'react-table';
 
 import Table, { Column } from '../../common/table/Table';
 import { INDIVIDUAL_HARBOR_QUERY } from './queries';
@@ -28,41 +27,6 @@ const IndividualHarborPageContainer: React.SFC = () => {
   );
   const { t, i18n } = useTranslation();
 
-  const includesCaseInsensitive = React.useCallback(
-    (target: string, value: string): boolean => {
-      return target
-        .toLocaleLowerCase(i18n.language)
-        .includes(value.toLocaleLowerCase(i18n.language));
-    },
-    [i18n.language]
-  );
-
-  const berthTableGlobalFilter: UseGlobalFiltersOptions<
-    Berth
-  >['globalFilter'] = React.useMemo(
-    () => (rows, _, filterValue) => {
-      return rows.filter(row => {
-        const { number, identifier, length, width, mooringType } = row.values;
-        const numberMatch = String(number) === filterValue;
-        const identifierMatch = String(identifier) === filterValue;
-        const lengthMatch = includesCaseInsensitive(length, filterValue);
-        const widthMatch = includesCaseInsensitive(width, filterValue);
-        const mooringTypeMatch = includesCaseInsensitive(
-          mooringType,
-          filterValue
-        );
-        return (
-          numberMatch ||
-          identifierMatch ||
-          lengthMatch ||
-          widthMatch ||
-          mooringTypeMatch
-        );
-      });
-    },
-    [includesCaseInsensitive]
-  );
-
   if (loading) return <LoadingSpinner isLoading={loading} />;
   if (error) return <div>Error</div>;
 
@@ -74,27 +38,31 @@ const IndividualHarborPageContainer: React.SFC = () => {
     {
       Header: t('individualHarbor.tableHeaders.number') || '',
       accessor: 'number',
+      filter: 'text',
     },
     {
       Header: t('individualHarbor.tableHeaders.identifier') || '',
       accessor: 'identifier',
-      filter: 'exactText',
+      filter: 'text',
     },
     {
       Header: t('individualHarbor.tableHeaders.length') || '',
       accessor: ({ length }) => formatDimension(length, i18n.language),
       id: 'length',
+      filter: 'text',
     },
     {
       Header: t('individualHarbor.tableHeaders.width') || '',
       accessor: ({ width }) => formatDimension(width, i18n.language),
       id: 'width',
+      filter: 'text',
     },
     {
       Header: t('individualHarbor.tableHeaders.mooring') || '',
       accessor: ({ mooringType }) =>
         t([`common.mooringTypes.${mooringType}`, mooringType]),
       id: 'mooringType',
+      filter: 'text',
     },
   ];
   const piers = getPiers(data);
@@ -129,7 +97,6 @@ const IndividualHarborPageContainer: React.SFC = () => {
           />
         )}
         styleMainHeader={false}
-        globalFilter={berthTableGlobalFilter}
         renderMainHeader={props => (
           <PierSelectHeader
             piers={piers}
