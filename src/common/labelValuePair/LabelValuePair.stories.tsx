@@ -22,3 +22,7 @@ export const branded = () => (
 export const rightAligned = () => (
   <LabelValuePair label="foo" align="right" value={'bar'} labelColor="brand" />
 );
+
+export const labelless = () => (
+  <LabelValuePair value="bar" valueColor="critical" />
+);

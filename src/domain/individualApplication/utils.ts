@@ -1,39 +1,28 @@
 import { ApplicationDetailsProps } from '../cards/applicationDetails/ApplicationDetails';
 import {
   INDIVIDUAL_APPLICATION_berthApplication as BERTH_APPLICATION,
+  INDIVIDUAL_APPLICATION_berthApplication_customer as CUSTOMER_PROFILE,
   INDIVIDUAL_APPLICATION_berthApplication_lease as BERTH_LEASE,
   INDIVIDUAL_APPLICATION_boatTypes as BOAT_TYPES,
 } from './__generated__/INDIVIDUAL_APPLICATION';
-import { CustomerInfoCardProps } from '../cards/customerInfoCard/CustomerInfoCard';
+import { CustomerProfileCardProps } from '../cards/customerProfileCard/CustomerProfileCard';
+import { CustomerData } from './IndividualApplicationPage';
+import { BerthMooringType } from '../../@types/__generated__/globalTypes';
 import { FILTERED_CUSTOMERS } from './__generated__/FILTERED_CUSTOMERS';
-import { CUSTOMER_GROUP, CustomerData } from './IndividualApplicationPage';
 import { OfferCardProps } from './offerCard/OfferCard';
-import {
-  BerthMooringType,
-  OrganizationType,
-} from '../../@types/__generated__/globalTypes';
+import { PrivateCustomerDetailsProps } from '../cards/customerProfileCard/privateCustomerDetails/PrivateCustomerDetails';
 
-export const getCustomerInfoData = (
-  berthApplication: BERTH_APPLICATION
-): CustomerInfoCardProps => {
-  const {
-    firstName,
-    lastName,
-    address,
-    zipCode,
-    municipality,
-    phoneNumber,
-    email,
-    customer,
-  } = berthApplication;
-
+export const getCustomerProfile = (
+  profile: CUSTOMER_PROFILE
+): CustomerProfileCardProps => {
   return {
-    customerId: customer?.id,
-    firstName,
-    lastName,
-    primaryAddress: { address, postalCode: zipCode, city: municipality },
-    phone: phoneNumber,
-    email,
+    customerId: profile.id,
+    firstName: profile.firstName,
+    lastName: profile.lastName,
+    primaryAddress: profile.primaryAddress,
+    primaryPhone: profile.primaryPhone?.phone,
+    primaryEmail: profile.primaryEmail?.email,
+    ssn: '', // TODO
   };
 };
 
@@ -53,10 +42,40 @@ interface BerthSwitch {
   reason: string | null;
 }
 
+const getApplicantDetails = (
+  berthApplication: BERTH_APPLICATION
+): PrivateCustomerDetailsProps => {
+  const {
+    firstName,
+    lastName,
+    address,
+    zipCode,
+    municipality,
+    phoneNumber,
+    email,
+    customer,
+  } = berthApplication;
+
+  return {
+    customerId: customer?.id,
+    firstName: firstName,
+    lastName: lastName,
+    primaryAddress: {
+      address: address,
+      postalCode: zipCode,
+      city: municipality,
+    },
+    primaryPhone: phoneNumber,
+    primaryEmail: email,
+    showCustomerNameAsLink: customer?.id !== null,
+  };
+};
+
 export const getApplicationDetailsData = (
   berthApplication: BERTH_APPLICATION,
   boatTypes: BOAT_TYPES[]
-): ApplicationDetailsProps => {
+): ApplicationDetailsProps &
+  Required<Pick<ApplicationDetailsProps, 'applicant'>> => {
   const harborChoices = berthApplication.harborChoices || [];
   const lease: Lease | null = berthApplication.lease
     ? {
@@ -83,6 +102,7 @@ export const getApplicationDetailsData = (
 
   return {
     ...berthApplication,
+    applicant: getApplicantDetails(berthApplication),
     berthSwitch,
     queue: null,
     harborChoices,
@@ -92,25 +112,6 @@ export const getApplicationDetailsData = (
   };
 };
 
-const mapCustomerGroup = (
-  organization: { organizationType: OrganizationType } | null
-): CUSTOMER_GROUP => {
-  if (organization === null) {
-    return CUSTOMER_GROUP.PRIVATE;
-  }
-
-  switch (organization.organizationType) {
-    case OrganizationType.COMPANY:
-      return CUSTOMER_GROUP.COMPANY;
-    case OrganizationType.INTERNAL:
-      return CUSTOMER_GROUP.INTERNAL;
-    case OrganizationType.NON_BILLABLE:
-      return CUSTOMER_GROUP.NON_BILLABLE;
-    case OrganizationType.OTHER:
-      return CUSTOMER_GROUP.OTHER_ORGANIZATION;
-  }
-};
-
 export const getFilteredCustomersData = (
   data?: FILTERED_CUSTOMERS
 ): CustomerData[] | null => {
@@ -118,14 +119,7 @@ export const getFilteredCustomersData = (
 
   return data.profiles.edges.reduce<CustomerData[]>((acc, edge) => {
     if (!edge?.node) return acc;
-    const {
-      id,
-      firstName,
-      lastName,
-      primaryAddress,
-      organization,
-      berthLeases,
-    } = edge.node;
+    const { id, firstName, lastName, primaryAddress, berthLeases } = edge.node;
 
     const berths = berthLeases?.edges
       .map(edge => edge?.node?.berth?.pier.properties?.harbor.properties?.name)
@@ -138,7 +132,6 @@ export const getFilteredCustomersData = (
         name: `${lastName}, ${firstName}`,
         city: primaryAddress?.city,
         address: primaryAddress?.address,
-        customerGroup: mapCustomerGroup(organization),
         berths,
       },
     ];

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Grid from '../../../common/grid/Grid';
 import Section from '../../../common/section/Section';
 import styles from './customerDetails.module.scss';
+import { OrganizationType } from '../../../@types/__generated__/globalTypes';
 
 interface Berth {
   id: string;
@@ -37,13 +38,13 @@ export interface CustomerDetailsProps {
   city?: string;
   phone?: string;
   email?: string;
-  group?: string;
   berths: Berth[];
   winterStoragePlaces: WinterStoragePlaces[];
   boats: Boat[];
   applications: Application[];
   bills: Bill[];
   comment: string;
+  organizationType?: OrganizationType;
 }
 
 const CustomerDetails: React.SFC<CustomerDetailsProps> = ({
@@ -53,13 +54,13 @@ const CustomerDetails: React.SFC<CustomerDetailsProps> = ({
   city,
   phone,
   email,
-  group,
   berths,
   winterStoragePlaces,
   boats,
   applications,
   bills,
   comment,
+  organizationType,
 }) => {
   const { t } = useTranslation();
 
@@ -78,7 +79,9 @@ const CustomerDetails: React.SFC<CustomerDetailsProps> = ({
             <br />
             {email}
             <br />
-            {group}
+            {organizationType
+              ? t([`common.organizationTypes.${organizationType}`])
+              : t([`common.privateCustomer`])}
           </Section>
         </div>
         <div className={styles.section}>

@@ -51,6 +51,18 @@
       "SEA_BUOY_MOORING": "Poiju (merellä)",
       "TRAWLER_PLACE": "Traileripaikka"
     },
+    "privateCustomer": "Yksityinen",
+    "organizationTypes": {
+      "COMPANY": "Yritys",
+      "INTERNAL": "Sisäinen",
+      "NON_BILLABLE": "Ei laskutettava",
+      "OTHER": "Yhdistys"
+    },
+    "invoicingTypes": {
+      "DIGITAL_INVOICE": "Laskutus sähköisenä",
+      "ONLINE_PAYMENT": "Verkkomaksu",
+      "PAPER_INVOICE": "Laskutus paperisena"
+    },
     "terminology": {
       "width": "Leveys",
       "length": "Pituus",
@@ -162,6 +174,7 @@
       "receivedDate": "Vastaanotettu",
       "queueNumber": "Jononumero",
       "status": "Status",
+      "applicantInformation": "Hakijan henkilötiedot",
       "boatInfo": "VENEEN TIEDOT",
       "boatType": "Veneen tyyppi",
       "registrationNumber": "Rekisterinumero",
@@ -193,11 +206,6 @@
       "municipality": "Kotikunta",
       "address": "Jakeluosoite",
       "berths": "Venepaikat",
-      "privateCustomer": "Yksityinen",
-      "companyCustomer": "Yritys",
-      "internalCustomer": "Sisäinen",
-      "nonBillableCustomer": "Ei laskutettava",
-      "otherOrganizationCustomer": "Yhdistys",
       "emptyState": "Rajauksella ei löytynyt asiakastietoja"
     },
     "customerTableTools": {
@@ -205,7 +213,7 @@
       "createNewCustomer": "Luo uusi asiakas"
     },
     "applicationDetails": {
-      "title": "HAKEMUKSET"
+      "title": "HAKEMUS"
     }
   },
   "offer": {
@@ -280,18 +288,6 @@
     }
   },
   "individualCustomer": {
-    "customerInformation": {
-      "title": "ASIAKASTIEDOT",
-      "applicantPersonalInfo": "HAKIJAN HENKILÖTIEDOT",
-      "firstName": "Etunimet",
-      "lastName": "Sukunimi",
-      "address": "Jakeluosoite",
-      "postalCode": "Postinumero",
-      "city": "Postitoimipaikka",
-      "phone": "Matkapuhelin",
-      "email": "Sähköpostiosoite",
-      "remarks": "Huomiot"
-    },
     "application": {
       "title": "HAKEMUKSET",
       "application": "HAKEMUS",
@@ -388,5 +384,23 @@
       "period": "Aika",
       "edit": "Muokkaa"
     }
+  },
+  "customerProfile": {
+    "title": "Asiakastiedot",
+    "personalInformation": "Henkilötiedot",
+    "organization": "Yritys / Yhteisö",
+    "contactPerson": "Yhteyshenkilö",
+    "name": "Nimi",
+    "firstName": "Etunimet",
+    "lastName": "Sukunimi",
+    "ssn": "Henkilötunnus",
+    "businessId": "Y-tunnus",
+    "address": "Jakeluosoite",
+    "postalCode": "Postinumero",
+    "city": "Postitoimipaikka",
+    "phone": "Matkapuhelin",
+    "email": "Sähköpostiosoite",
+    "customerGroup": "Asiakasryhmä",
+    "remarks": "Huomiot"
   }
 }

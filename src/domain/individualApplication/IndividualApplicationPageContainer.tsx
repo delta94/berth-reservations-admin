@@ -36,7 +36,7 @@ import {
 } from './__generated__/CREATE_NEW_PROFILE';
 import {
   getApplicationDetailsData,
-  getCustomerInfoData,
+  getCustomerProfile,
   getFilteredCustomersData,
   getOfferDetailsData,
 } from './utils';
@@ -151,7 +151,9 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     });
   };
 
-  const customerInfo = getCustomerInfoData(data.berthApplication);
+  const customerProfile = data.berthApplication.customer
+    ? getCustomerProfile(data.berthApplication.customer)
+    : null;
 
   const applicationDetailsData = getApplicationDetailsData(
     data.berthApplication,
@@ -179,9 +181,15 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     }).catch(() => console.error('Something went wrong'));
 
   const handleCreateCustomer = () => {
-    const { firstName, lastName, primaryAddress } = customerInfo;
-    const phone = customerInfo.phone || '';
-    const email = customerInfo.email || '';
+    const {
+      firstName,
+      lastName,
+      primaryAddress,
+      primaryEmail,
+      primaryPhone,
+    } = applicationDetails.applicant;
+    const phone = primaryPhone || '';
+    const email = primaryEmail || '';
     const address = primaryAddress?.address || '';
     const postalCode = primaryAddress?.postalCode || '';
     const city = primaryAddress?.city || '';
@@ -217,7 +225,7 @@ const IndividualCustomerPageContainer: React.SFC = () => {
         ],
       }}
       similarCustomersData={filteredCustomersData}
-      customerInfo={customerInfo}
+      customerProfile={customerProfile}
       applicationDetails={applicationDetails}
       offerDetails={offerDetails}
     />

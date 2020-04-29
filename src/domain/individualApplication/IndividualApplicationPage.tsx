@@ -18,18 +18,11 @@ import Text from '../../common/text/Text';
 import { formatDate } from '../../common/utils/format';
 import Chip from '../../common/chip/Chip';
 import { APPLICATION_STATUS } from '../../common/utils/consonants';
-import CustomerInfoCard, {
-  CustomerInfoCardProps,
-} from '../cards/customerInfoCard/CustomerInfoCard';
+import CustomerProfileCard, {
+  CustomerProfileCardProps,
+} from '../cards/customerProfileCard/CustomerProfileCard';
 import OfferCard, { OfferCardProps } from './offerCard/OfferCard';
-
-export enum CUSTOMER_GROUP {
-  PRIVATE = 'PRIVATE',
-  COMPANY = 'COMPANY',
-  INTERNAL = 'INTERNAL',
-  NON_BILLABLE = 'NON_BILLABLE',
-  OTHER_ORGANIZATION = 'OTHER_ORGANIZATION',
-}
+import { OrganizationType } from '../../@types/__generated__/globalTypes';
 
 export enum SearchBy {
   FIRST_NAME = 'firstName',
@@ -41,10 +34,10 @@ export enum SearchBy {
 export interface CustomerData {
   id: string;
   name: string;
-  customerGroup: CUSTOMER_GROUP;
   city?: string;
   address?: string;
   berths?: string | null;
+  organizationType?: OrganizationType;
 }
 
 type ColumnType = Column<CustomerData> & { accessor: keyof CustomerData };
@@ -52,7 +45,7 @@ type ColumnType = Column<CustomerData> & { accessor: keyof CustomerData };
 export interface IndividualApplicationPageProps {
   applicationId: string;
   similarCustomersData: CustomerData[] | null;
-  customerInfo: CustomerInfoCardProps;
+  customerProfile: CustomerProfileCardProps | null;
   applicationDetails: ApplicationDetailsProps;
   offerDetails: OfferCardProps | null;
   customerTableTools: CustomersTableToolsProps<SearchBy>;
@@ -61,7 +54,7 @@ export interface IndividualApplicationPageProps {
 
 const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
   similarCustomersData,
-  customerInfo,
+  customerProfile,
   applicationDetails,
   offerDetails,
   customerTableTools,
@@ -75,25 +68,13 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
     },
     {
       Cell: ({ cell }) => {
-        switch (cell.value as CUSTOMER_GROUP) {
-          case CUSTOMER_GROUP.PRIVATE:
-            return t('individualApplication.customersTable.privateCustomer');
-          case CUSTOMER_GROUP.COMPANY:
-            return t('individualApplication.customersTable.companyCustomer');
-          case CUSTOMER_GROUP.INTERNAL:
-            return t('individualApplication.customersTable.internalCustomer');
-          case CUSTOMER_GROUP.NON_BILLABLE:
-            return t(
-              'individualApplication.customersTable.nonBillableCustomer'
-            );
-          case CUSTOMER_GROUP.OTHER_ORGANIZATION:
-            return t(
-              'individualApplication.customersTable.otherOrganizationCustomer'
-            );
-        }
+        const { value } = cell;
+        return value
+          ? t([`common.organizationTypes.${value as OrganizationType}`])
+          : t([`common.privateCustomer`]);
       },
-      Header: t('individualApplication.customersTable.customerGroup') || '',
-      accessor: 'customerGroup',
+      Header: t('customers.tableHeaders.group') || '',
+      accessor: 'organizationType',
     },
     {
       Header: t('individualApplication.customersTable.municipality') || '',
@@ -171,11 +152,15 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
           />
         </>
       )}
-      <CustomerInfoCard {...customerInfo} />
-      <Card>
-        <CardHeader title={'TOIMINTAHISTORIA'} />
-        <CardBody>Placeholder</CardBody>
-      </Card>
+      {customerProfile && (
+        <>
+          <CustomerProfileCard {...customerProfile} />
+          <Card>
+            <CardHeader title={'TOIMINTAHISTORIA'} />
+            <CardBody>Placeholder</CardBody>
+          </Card>
+        </>
+      )}
       {applicationDetails && (
         <Card className={styles.fullWidth}>
           <CardHeader

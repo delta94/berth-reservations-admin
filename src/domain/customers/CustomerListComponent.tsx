@@ -5,19 +5,20 @@ import { Column } from 'react-table';
 import Table, { COLUMN_WIDTH } from '../../common/table/Table';
 import InternalLink from '../../common/internalLink/InternalLink';
 import CustomerDetails from './customerDetails/CustomerDetails';
+import { OrganizationType } from '../../@types/__generated__/globalTypes';
 
 export interface TableData {
-  id: string;
-  email?: string;
-  phone?: string;
   address?: string;
-  city?: string;
-  postalCode?: string;
   berths?: string;
   boats?: string;
-  group?: string;
+  city?: string;
+  email?: string;
+  id: string;
   invoice?: string;
   name: string;
+  organizationType?: OrganizationType;
+  phone?: string;
+  postalCode?: string;
   startDate?: string;
 }
 
@@ -40,8 +41,14 @@ const CustomerListComponent = ({ data }: CustomerListComponentProps) => {
       width: COLUMN_WIDTH.M,
     },
     {
+      Cell: ({ cell }) => {
+        const { value } = cell;
+        return value
+          ? t([`common.organizationTypes.${value as OrganizationType}`])
+          : t([`common.privateCustomer`]);
+      },
       Header: t('customers.tableHeaders.group') || '',
-      accessor: 'group',
+      accessor: 'organizationType',
       width: COLUMN_WIDTH.S,
     },
     {
@@ -79,7 +86,6 @@ const CustomerListComponent = ({ data }: CustomerListComponentProps) => {
             city={row.original.city}
             phone={row.original.phone}
             email={row.original.email}
-            group={row.original.group}
             berths={[]}
             winterStoragePlaces={[]}
             boats={[]}

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import IndividualCustomerPage from './IndividualCustomerPage';
-import Card from '../../../common/card/Card';
+import Card from '../../common/card/Card';
 
 export default {
   component: IndividualCustomerPage,

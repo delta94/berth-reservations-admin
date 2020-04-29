@@ -3,11 +3,17 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { ServiceType, ContactMethod } from "./../../../@types/__generated__/globalTypes";
+import { OrganizationType, ServiceType, ContactMethod } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: CUSTOMERS
 // ====================================================
+
+export interface CUSTOMERS_profiles_edges_node_organization {
+  __typename: "OrganizationNode";
+  businessId: string;
+  organizationType: OrganizationType;
+}
 
 export interface CUSTOMERS_profiles_edges_node_primaryAddress {
   __typename: "AddressNode";
@@ -54,6 +60,7 @@ export interface CUSTOMERS_profiles_edges_node {
   firstName: string;
   lastName: string;
   nickname: string;
+  organization: CUSTOMERS_profiles_edges_node_organization | null;
   primaryAddress: CUSTOMERS_profiles_edges_node_primaryAddress | null;
   primaryPhone: CUSTOMERS_profiles_edges_node_primaryPhone | null;
   primaryEmail: CUSTOMERS_profiles_edges_node_primaryEmail | null;

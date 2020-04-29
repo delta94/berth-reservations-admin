@@ -3,11 +3,28 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { InvoicingType, LeaseStatus, ApplicationStatus } from "./../../../@types/__generated__/globalTypes";
+import { InvoicingType, OrganizationType, LeaseStatus, ApplicationStatus } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: INDIVIDUAL_CUSTOMER
 // ====================================================
+
+export interface INDIVIDUAL_CUSTOMER_profile_organization {
+  __typename: "OrganizationNode";
+  address: string;
+  businessId: string;
+  city: string;
+  name: string;
+  organizationType: OrganizationType;
+  postalCode: string;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_primaryAddress {
+  __typename: "AddressNode";
+  address: string;
+  postalCode: string;
+  city: string;
+}
 
 export interface INDIVIDUAL_CUSTOMER_profile_primaryEmail {
   __typename: "EmailNode";
@@ -17,13 +34,6 @@ export interface INDIVIDUAL_CUSTOMER_profile_primaryEmail {
 export interface INDIVIDUAL_CUSTOMER_profile_primaryPhone {
   __typename: "PhoneNode";
   phone: string | null;
-}
-
-export interface INDIVIDUAL_CUSTOMER_profile_primaryAddress {
-  __typename: "AddressNode";
-  address: string;
-  postalCode: string;
-  city: string;
 }
 
 export interface INDIVIDUAL_CUSTOMER_profile_boats_edges_node_boatType {
@@ -191,14 +201,15 @@ export interface INDIVIDUAL_CUSTOMER_profile_berthApplications {
 
 export interface INDIVIDUAL_CUSTOMER_profile {
   __typename: "ProfileNode";
-  id: string;
+  comment: string | null;
   firstName: string;
+  invoicingType: InvoicingType | null;
   lastName: string;
+  id: string;
+  organization: INDIVIDUAL_CUSTOMER_profile_organization | null;
+  primaryAddress: INDIVIDUAL_CUSTOMER_profile_primaryAddress | null;
   primaryEmail: INDIVIDUAL_CUSTOMER_profile_primaryEmail | null;
   primaryPhone: INDIVIDUAL_CUSTOMER_profile_primaryPhone | null;
-  primaryAddress: INDIVIDUAL_CUSTOMER_profile_primaryAddress | null;
-  invoicingType: InvoicingType | null;
-  comment: string | null;
   boats: INDIVIDUAL_CUSTOMER_profile_boats | null;
   berthLeases: INDIVIDUAL_CUSTOMER_profile_berthLeases | null;
   berthApplications: INDIVIDUAL_CUSTOMER_profile_berthApplications | null;
