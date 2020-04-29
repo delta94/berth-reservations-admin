@@ -55,6 +55,7 @@ export interface INDIVIDUAL_CUSTOMER_profile_boats_edges_node {
   registrationNumber: string;
   propulsion: string;
   hullMaterial: string;
+  intendedUse: string;
 }
 
 export interface INDIVIDUAL_CUSTOMER_profile_boats_edges {

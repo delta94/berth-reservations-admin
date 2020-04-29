@@ -15,4 +15,5 @@ export interface LargeBoat extends Boat {
   hullMaterial: string;
   boatIsInspected: boolean;
   boatIsInsured: boolean;
+  intendedUse: string;
 }

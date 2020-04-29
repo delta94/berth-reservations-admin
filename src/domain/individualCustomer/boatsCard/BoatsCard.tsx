@@ -75,6 +75,10 @@ const BoatsCard: React.SFC<BoatsCardProps> = ({ boats }) => {
                   label={t('individualCustomer.customerBoats.hullMaterial')}
                   value={boat.hullMaterial}
                 />
+                <LabelValuePair
+                  label={t('individualCustomer.customerBoats.purpose')}
+                  value={boat.intendedUse}
+                />
               </Section>
               <Section>
                 <LabelValuePair
