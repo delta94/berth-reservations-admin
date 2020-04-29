@@ -14,17 +14,12 @@ export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties
   name: string | null;
 }
 
-export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_berthType {
-  __typename: "BerthTypeNode";
-  width: number;
-  length: number;
-  mooringType: BerthMooringType;
-}
-
 export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node {
   __typename: "BerthNode";
   number: number;
-  berthType: INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_berthType;
+  width: number;
+  length: number;
+  mooringType: BerthMooringType;
 }
 
 export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges {

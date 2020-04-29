@@ -33,6 +33,9 @@ export const OFFER_PAGE_QUERY = gql`
                     node {
                       id
                       number
+                      width
+                      length
+                      mooringType
                       comment
                       isAccessible
                       leases {
@@ -48,11 +51,6 @@ export const OFFER_PAGE_QUERY = gql`
                             }
                           }
                         }
-                      }
-                      berthType {
-                        width
-                        length
-                        mooringType
                       }
                     }
                   }

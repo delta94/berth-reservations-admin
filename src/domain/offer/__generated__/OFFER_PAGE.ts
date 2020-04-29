@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { ApplicationStatus, LeaseStatus, BerthMooringType } from "./../../../@types/__generated__/globalTypes";
+import { ApplicationStatus, BerthMooringType, LeaseStatus } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: OFFER_PAGE
@@ -53,21 +53,16 @@ export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_pro
   edges: (OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_leases_edges | null)[];
 }
 
-export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_berthType {
-  __typename: "BerthTypeNode";
-  width: number;
-  length: number;
-  mooringType: BerthMooringType;
-}
-
 export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node {
   __typename: "BerthNode";
   id: string;
   number: number;
+  width: number;
+  length: number;
+  mooringType: BerthMooringType;
   comment: string;
   isAccessible: boolean | null;
   leases: OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_leases | null;
-  berthType: OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_berthType;
 }
 
 export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges {
