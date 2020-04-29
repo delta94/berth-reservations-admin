@@ -8,27 +8,9 @@ import Section from '../../../common/section/Section';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 import { formatWeight, formatDimension } from '../../../common/utils/format';
 import styles from './boatsCard.module.scss';
+import { Boat, LargeBoat } from '../types';
 
 const LARGE_BOAT_ID = '8';
-
-interface Boat {
-  id: string;
-  boatType: { id: string; name: string | null };
-  registrationNumber: string;
-  width: number;
-  length: number;
-  draught: number | null;
-  weight: number | null;
-  name: string;
-  model: string;
-}
-
-interface LargeBoat extends Boat {
-  propulsion: string;
-  hullMaterial: string;
-  boatIsInspected: boolean;
-  boatIsInsured: boolean;
-}
 
 export interface BoatsCardProps {
   boats: (Boat | LargeBoat)[];

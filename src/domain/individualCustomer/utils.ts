@@ -3,6 +3,7 @@ import {
   INDIVIDUAL_CUSTOMER_boatTypes as BOAT_TYPES,
 } from './__generated__/INDIVIDUAL_CUSTOMER';
 import { ApplicationStatus } from '../../@types/__generated__/globalTypes';
+import { Boat, LargeBoat } from './types';
 import { CustomerProfileCardProps } from '../cards/customerProfileCard/CustomerProfileCard';
 
 export const getCustomerProfile = (
@@ -61,25 +62,6 @@ export const getLeases = (profile: CUSTOMER_PROFILE): Lease[] => {
     return [...acc, lease];
   }, []);
 };
-
-interface Boat {
-  id: string;
-  boatType: { id: string; name: string | null };
-  registrationNumber: string;
-  width: number;
-  length: number;
-  draught: number | null;
-  weight: number | null;
-  name: string;
-  model: string;
-}
-
-interface LargeBoat extends Boat {
-  propulsion: string;
-  hullMaterial: string;
-  boatIsInspected: boolean;
-  boatIsInsured: boolean;
-}
 
 export const getBoats = (profile: CUSTOMER_PROFILE) => {
   if (!profile.boats) return [];
