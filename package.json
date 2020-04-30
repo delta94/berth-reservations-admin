@@ -45,7 +45,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
-    "pre-commit": "yarn types:generate && yarn lint"
+    "pre-push": "yarn types:generate && yarn lint"
   },
   "eslintConfig": {
     "extends": "react-app"
