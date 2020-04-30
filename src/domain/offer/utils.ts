@@ -75,10 +75,10 @@ export const getOfferData = (data: OFFER_PAGE | undefined): BerthData[] => {
             pier: properties.identifier,
             berth: berth.node.number.toString(10),
             berthId: berth.node.id,
-            width: berth.node.berthType.width,
-            length: berth.node.berthType.length,
+            width: berth.node.width,
+            length: berth.node.length,
             draught: null, // TODO: replace it when draught is implemented in the backend
-            mooringType: berth.node.berthType.mooringType,
+            mooringType: berth.node.mooringType,
             leases,
             comment: berth.node.comment,
             properties: {

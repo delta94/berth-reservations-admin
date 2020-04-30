@@ -126,12 +126,10 @@ export const INDIVIDUAL_APPLICATION_QUERY = gql`
       lease {
         id
         berth {
-          berthType {
-            depth
-            length
-            mooringType
-            width
-          }
+          depth
+          length
+          mooringType
+          width
           comment
           isAccessible
           number

@@ -32,11 +32,9 @@ export const INDIVIDUAL_HARBOR_QUERY = gql`
                   edges {
                     node {
                       number
-                      berthType {
-                        width
-                        length
-                        mooringType
-                      }
+                      width
+                      length
+                      mooringType
                     }
                   }
                 }

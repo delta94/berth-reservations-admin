@@ -75,10 +75,10 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined): Berth[] => {
           ...prev,
           {
             identifier,
-            length: berthEdge.node.berthType.length,
-            mooringType: berthEdge.node.berthType.mooringType,
+            length: berthEdge.node.length,
+            mooringType: berthEdge.node.mooringType,
             number: berthEdge.node.number,
-            width: berthEdge.node.berthType.width,
+            width: berthEdge.node.width,
           },
         ];
       },

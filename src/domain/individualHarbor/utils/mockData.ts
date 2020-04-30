@@ -74,12 +74,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '01',
-                        berthType: {
-                          width: 250,
-                          length: 600,
-                          mooringType: 'SINGLE_SLIP_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 250,
+                        length: 600,
+                        mooringType: 'SINGLE_SLIP_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
@@ -87,12 +84,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '02',
-                        berthType: {
-                          width: 350,
-                          length: 800,
-                          mooringType: 'SIDE_SLIP_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 350,
+                        length: 800,
+                        mooringType: 'SIDE_SLIP_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
@@ -100,12 +94,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '03',
-                        berthType: {
-                          width: 250,
-                          length: 600,
-                          mooringType: 'SINGLE_SLIP_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 250,
+                        length: 600,
+                        mooringType: 'SINGLE_SLIP_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
@@ -113,12 +104,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '04',
-                        berthType: {
-                          width: 350,
-                          length: 800,
-                          mooringType: 'SIDE_SLIP_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 350,
+                        length: 800,
+                        mooringType: 'SIDE_SLIP_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
@@ -141,12 +129,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '01',
-                        berthType: {
-                          width: 250,
-                          length: 900,
-                          mooringType: 'STERN_BUOY_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 250,
+                        length: 900,
+                        mooringType: 'STERN_BUOY_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
@@ -154,12 +139,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '02',
-                        berthType: {
-                          width: 300,
-                          length: 900,
-                          mooringType: 'STERN_BUOY_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 300,
+                        length: 900,
+                        mooringType: 'STERN_BUOY_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
@@ -167,12 +149,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '03',
-                        berthType: {
-                          width: 300,
-                          length: 900,
-                          mooringType: 'STERN_BUOY_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 300,
+                        length: 900,
+                        mooringType: 'STERN_BUOY_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
@@ -180,12 +159,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '04',
-                        berthType: {
-                          width: 300,
-                          length: 900,
-                          mooringType: 'STERN_BUOY_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 300,
+                        length: 900,
+                        mooringType: 'STERN_BUOY_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
@@ -193,12 +169,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '05',
-                        berthType: {
-                          width: 300,
-                          length: 900,
-                          mooringType: 'STERN_BUOY_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 300,
+                        length: 900,
+                        mooringType: 'STERN_BUOY_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
@@ -206,12 +179,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '06',
-                        berthType: {
-                          width: 300,
-                          length: 900,
-                          mooringType: 'STERN_BUOY_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 300,
+                        length: 900,
+                        mooringType: 'STERN_BUOY_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
@@ -219,12 +189,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '07',
-                        berthType: {
-                          width: 300,
-                          length: 900,
-                          mooringType: 'STERN_BUOY_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 300,
+                        length: 900,
+                        mooringType: 'STERN_BUOY_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
@@ -232,12 +199,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '08',
-                        berthType: {
-                          width: 300,
-                          length: 900,
-                          mooringType: 'STERN_BUOY_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 300,
+                        length: 900,
+                        mooringType: 'STERN_BUOY_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
@@ -245,12 +209,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '09',
-                        berthType: {
-                          width: 300,
-                          length: 900,
-                          mooringType: 'STERN_BUOY_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 300,
+                        length: 900,
+                        mooringType: 'STERN_BUOY_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
@@ -258,12 +219,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '10',
-                        berthType: {
-                          width: 300,
-                          length: 900,
-                          mooringType: 'STERN_BUOY_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 300,
+                        length: 900,
+                        mooringType: 'STERN_BUOY_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
@@ -271,12 +229,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '11',
-                        berthType: {
-                          width: 300,
-                          length: 900,
-                          mooringType: 'STERN_BUOY_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 300,
+                        length: 900,
+                        mooringType: 'STERN_BUOY_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
@@ -284,12 +239,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '12',
-                        berthType: {
-                          width: 300,
-                          length: 900,
-                          mooringType: 'STERN_BUOY_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 300,
+                        length: 900,
+                        mooringType: 'STERN_BUOY_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
@@ -297,12 +249,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '13',
-                        berthType: {
-                          width: 300,
-                          length: 900,
-                          mooringType: 'STERN_BUOY_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 300,
+                        length: 900,
+                        mooringType: 'STERN_BUOY_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
@@ -310,12 +259,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '14',
-                        berthType: {
-                          width: 300,
-                          length: 900,
-                          mooringType: 'STERN_BUOY_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 300,
+                        length: 900,
+                        mooringType: 'STERN_BUOY_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
@@ -323,12 +269,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '15',
-                        berthType: {
-                          width: 300,
-                          length: 900,
-                          mooringType: 'STERN_BUOY_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 300,
+                        length: 900,
+                        mooringType: 'STERN_BUOY_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
@@ -336,12 +279,9 @@ export const IndividualHarborQueryData = {
                     {
                       node: {
                         number: '16',
-                        berthType: {
-                          width: 300,
-                          length: 900,
-                          mooringType: 'STERN_BUOY_PLACE',
-                          __typename: 'BerthTypeNode',
-                        },
+                        width: 300,
+                        length: 900,
+                        mooringType: 'STERN_BUOY_PLACE',
                         __typename: 'BerthNode',
                       },
                       __typename: 'BerthNodeEdge',
