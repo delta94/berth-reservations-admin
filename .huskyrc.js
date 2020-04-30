@@ -1,5 +1,5 @@
 module.exports = {
   hooks: {
-    "pre-commit": "yarn pre-commit"
+    "pre-push": "yarn pre-push"
   }
 };
