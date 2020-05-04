@@ -3,11 +3,11 @@ import { TextInput } from 'hds-react/lib';
 import { Field } from 'formik';
 import { useTranslation } from 'react-i18next';
 
-import styles from './modals.module.scss';
-import Grid from '../../../common/grid/Grid';
-import Select from '../../../common/select/Select';
-import { formatDimension } from '../../../common/utils/format';
-import FormTypeField from './FormTypeField';
+import styles from '../modals.module.scss';
+import Grid from '../../../../common/grid/Grid';
+import Select from '../../../../common/select/Select';
+import { formatDimension } from '../../../../common/utils/format';
+import FormTypeTitle from '../FormTypeTitle';
 
 const BerthsPricingFields: FunctionComponent = () => {
   const { t } = useTranslation();
@@ -17,7 +17,7 @@ const BerthsPricingFields: FunctionComponent = () => {
 
   return (
     <>
-      <FormTypeField
+      <FormTypeTitle
         label={t('common.terminology.dataEntry')}
         value={t('pricing.berths.title')}
       />

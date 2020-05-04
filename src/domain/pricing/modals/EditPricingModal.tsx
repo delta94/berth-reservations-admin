@@ -10,10 +10,10 @@ import {
   HarborService,
   WinterStoragePrice,
 } from '../PricingPage';
-import BerthsPricingFields from './BerthsPricingFields';
-import WinterStoragePricingFields from './WinterStoragePricingFields';
-import HarborServicesPricingFields from './HarborServicesPricingFields';
-import AdditionalServicesFields from './AdditionalServicesFields';
+import BerthsPricingFields from './fields/BerthsPricingFields';
+import WinterStoragePricingFields from './fields/WinterStoragePricingFields';
+import HarborServicesPricingFields from './fields/HarborServicesPricingFields';
+import AdditionalServicesPricingFields from './fields/AdditionalServicesPricingFields';
 import styles from './modals.module.scss';
 
 export enum EDIT_PRICING_FORM_TYPES {
@@ -63,7 +63,7 @@ const EditPricingModal: FunctionComponent<EditPricingModalProps> = ({
       case EDIT_PRICING_FORM_TYPES.HARBOR_SERVICES:
         return <HarborServicesPricingFields />;
       case EDIT_PRICING_FORM_TYPES.ADDITIONAL_SERVICES:
-        return <AdditionalServicesFields />;
+        return <AdditionalServicesPricingFields />;
     }
   };
 

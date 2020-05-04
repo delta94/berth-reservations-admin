@@ -7,7 +7,7 @@ export interface FormTypeFieldProps {
   value: string;
 }
 
-const FormTypeField: FunctionComponent<FormTypeFieldProps> = ({
+const FormTypeTitle: FunctionComponent<FormTypeFieldProps> = ({
   label,
   value,
 }) => (
@@ -19,4 +19,4 @@ const FormTypeField: FunctionComponent<FormTypeFieldProps> = ({
   </div>
 );
 
-export default FormTypeField;
+export default FormTypeTitle;

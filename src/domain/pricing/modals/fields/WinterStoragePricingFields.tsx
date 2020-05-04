@@ -3,10 +3,10 @@ import { TextInput } from 'hds-react/lib';
 import { Field } from 'formik';
 import { useTranslation } from 'react-i18next';
 
-import styles from './modals.module.scss';
-import Grid from '../../../common/grid/Grid';
-import Select from '../../../common/select/Select';
-import FormTypeField from './FormTypeField';
+import styles from '../modals.module.scss';
+import Grid from '../../../../common/grid/Grid';
+import Select from '../../../../common/select/Select';
+import FormTypeTitle from '../FormTypeTitle';
 
 const WinterStoragePricingFields: FunctionComponent = () => {
   const { t } = useTranslation();
@@ -16,7 +16,7 @@ const WinterStoragePricingFields: FunctionComponent = () => {
 
   return (
     <>
-      <FormTypeField
+      <FormTypeTitle
         label={t('common.terminology.dataEntry')}
         value={t('pricing.winterStorage.title')}
       />
