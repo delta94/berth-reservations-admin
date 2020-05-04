@@ -338,7 +338,8 @@
       "hullMaterial": "Runkomateriaali",
       "purpose": "Käyttötarkoitus",
       "inspection": "Katsastustodistus",
-      "insurance": "Vakuutuskirjaote"
+      "insurance": "Vakuutuskirjaote",
+      "validUntil": "Voimassa {{validUntil}} asti"
     },
     "leases": {
       "title": "VENEPAIKAT",

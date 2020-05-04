@@ -6,9 +6,10 @@ import CardBody from '../../../common/cardBody/CardBody';
 import CardHeader from '../../../common/cardHeader/CardHeader';
 import Section from '../../../common/section/Section';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
-import { formatWeight, formatDimension } from '../../../common/utils/format';
+import { formatDimension, formatWeight } from '../../../common/utils/format';
 import styles from './boatsCard.module.scss';
 import { Boat, LargeBoat } from '../types';
+import BoatCertificates from './BoatCertificates';
 
 const LARGE_BOAT_ID = '8';
 
@@ -80,20 +81,7 @@ const BoatsCard: React.SFC<BoatsCardProps> = ({ boats }) => {
                   value={boat.intendedUse}
                 />
               </Section>
-              <Section>
-                <LabelValuePair
-                  label={t('individualCustomer.customerBoats.inspection')}
-                  value={
-                    boat.boatIsInspected ? t('common.yes') : t('common.no')
-                  }
-                />
-              </Section>
-              <Section>
-                <LabelValuePair
-                  label={t('individualCustomer.customerBoats.insurance')}
-                  value={boat.boatIsInsured ? t('common.yes') : t('common.no')}
-                />
-              </Section>
+              <BoatCertificates boat={boat} />
             </>
           )}
         </CardBody>
