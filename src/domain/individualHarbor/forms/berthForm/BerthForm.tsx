@@ -83,14 +83,7 @@ const BerthForm: React.FC<BerthFormProps> = ({
       initialValues={initialValues}
       validationSchema={berthSchema}
       onSubmit={values => {
-        const {
-          width,
-          length,
-          mooringType,
-          comment,
-          isActive,
-          ...rest
-        } = values;
+        const { width, length, mooringType, comment, isActive } = values;
         updateBerth({
           variables: {
             input: {
