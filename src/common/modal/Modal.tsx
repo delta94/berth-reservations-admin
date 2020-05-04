@@ -10,7 +10,6 @@ interface ModalProps {
   label: string;
   toggleModal: (value: boolean) => void;
   setFormIsFilling?: (value: boolean) => void;
-  showHeading?: boolean;
   className?: string;
 }
 
