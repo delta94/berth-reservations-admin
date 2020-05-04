@@ -2,8 +2,7 @@ import {
   INDIVIDUAL_CUSTOMER_profile as CUSTOMER_PROFILE,
   INDIVIDUAL_CUSTOMER_boatTypes as BOAT_TYPES,
 } from './__generated__/INDIVIDUAL_CUSTOMER';
-import { ApplicationStatus } from '../../@types/__generated__/globalTypes';
-import { Boat, LargeBoat } from './types';
+import { Application, ApplicationLease, Boat, LargeBoat } from './types';
 import { CustomerProfileCardProps } from '../cards/customerProfileCard/CustomerProfileCard';
 
 export const getCustomerProfile = (
@@ -77,47 +76,6 @@ export const getBoats = (profile: CUSTOMER_PROFILE) => {
 
   return boats;
 };
-
-interface HarborChoice {
-  harbor: string;
-  harborName: string;
-  priority: number;
-}
-
-interface ApplicationLease {
-  id: string;
-  harborName: string;
-  harborId: string;
-  pierIdentifier: string;
-  berthNum: string | number;
-}
-
-interface BerthSwitch {
-  harborId: string;
-  harborName: string;
-  berthNum: string;
-  pierIdentifier: string;
-  reason: string | null;
-}
-
-export interface Application {
-  id: string;
-  berthSwitch: BerthSwitch | null;
-  createdAt: string;
-  queue: number | null;
-  status: ApplicationStatus;
-  lease: ApplicationLease | null;
-  boatType?: string | null;
-  boatRegistrationNumber: string;
-  boatWidth: number;
-  boatLength: number;
-  boatDraught: number | null;
-  boatWeight: number | null;
-  boatName: string;
-  boatModel: string;
-  harborChoices: Array<HarborChoice | null>;
-  accessibilityRequired: boolean;
-}
 
 export const getApplications = (
   profile: CUSTOMER_PROFILE,
