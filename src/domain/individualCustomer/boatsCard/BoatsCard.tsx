@@ -10,8 +10,7 @@ import { formatDimension, formatWeight } from '../../../common/utils/format';
 import styles from './boatsCard.module.scss';
 import { Boat, LargeBoat } from '../types';
 import BoatCertificates from './BoatCertificates';
-
-const LARGE_BOAT_ID = '8';
+import { isLargeBoat } from './boatsCardUtils';
 
 export interface BoatsCardProps {
   boats: (Boat | LargeBoat)[];
@@ -19,8 +18,6 @@ export interface BoatsCardProps {
 
 const BoatsCard: React.SFC<BoatsCardProps> = ({ boats }) => {
   const { t, i18n } = useTranslation();
-  const isLargeBoat = (boat: LargeBoat | Boat): boat is LargeBoat =>
-    (boat as LargeBoat).boatType.id === LARGE_BOAT_ID;
 
   return (
     <Card className={styles.boatsCard}>
