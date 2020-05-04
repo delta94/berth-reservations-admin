@@ -45,6 +45,13 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
             propulsion
             hullMaterial
             intendedUse
+            certificates {
+              file
+              certificateType
+              validUntil
+              checkedAt
+              checkedBy
+            }
           }
         }
       }

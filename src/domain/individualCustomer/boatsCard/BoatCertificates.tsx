@@ -1,17 +1,21 @@
 import React from 'react';
 
-import { Boat, LargeBoat } from '../types';
+import { BoatCert } from '../types';
 import BoatCertificate from './BoatCertificate';
 
 interface BoatCertificatesProps {
-  boat: Boat | LargeBoat;
+  certificates: BoatCert[];
 }
 
-const BoatCertificates: React.FC<BoatCertificatesProps> = ({ boat }) => {
+const BoatCertificates: React.FC<BoatCertificatesProps> = ({
+  certificates,
+}) => {
+  console.log('c', certificates);
+
   return (
     <>
-      <BoatCertificate boat={boat} />
-      <BoatCertificate boat={boat} />
+      <BoatCertificate certificate={undefined as any} />
+      <BoatCertificate certificate={undefined as any} />
     </>
   );
 };

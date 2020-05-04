@@ -42,8 +42,7 @@ const largeBoat: LargeBoat = {
   propulsion: 'Bensin',
   hullMaterial: 'Aluminium',
   intendedUse: 'For fun',
-  boatIsInspected: true,
-  boatIsInsured: true,
+  certificates: [],
 };
 
 export const oneBoat = () => <BoatsCard boats={[boat]} />;

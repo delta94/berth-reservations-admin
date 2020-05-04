@@ -1,3 +1,5 @@
+import { BoatCertificateType } from '../../@types/__generated__/globalTypes';
+
 export interface Boat {
   id: string;
   boatType: { id: string; name: string | null };
@@ -13,7 +15,14 @@ export interface Boat {
 export interface LargeBoat extends Boat {
   propulsion: string;
   hullMaterial: string;
-  boatIsInspected: boolean;
-  boatIsInsured: boolean;
   intendedUse: string;
+  certificates: BoatCert[];
+}
+
+export interface BoatCert {
+  file: string | null;
+  certificateType: BoatCertificateType;
+  validUntil: string | null;
+  checkedAt: string;
+  checkedBy: string | null;
 }

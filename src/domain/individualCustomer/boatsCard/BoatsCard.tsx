@@ -81,7 +81,7 @@ const BoatsCard: React.SFC<BoatsCardProps> = ({ boats }) => {
                   value={boat.intendedUse}
                 />
               </Section>
-              <BoatCertificates boat={boat} />
+              <BoatCertificates certificates={boat.certificates} />
             </>
           )}
         </CardBody>

@@ -2,17 +2,17 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Section from '../../../common/section/Section';
-import { Boat, LargeBoat } from '../types';
+import { BoatCert } from '../types';
 import styles from './boatsCard.module.scss';
 import Text from '../../../common/text/Text';
 import ExternalLink from '../../../common/externalLink/ExternalLink';
 import { formatDate } from '../../../common/utils/format';
 
 export interface BoatCertificateProps {
-  boat: Boat | LargeBoat;
+  certificate: BoatCert;
 }
 
-const BoatCertificate: React.FC<BoatCertificateProps> = ({ boat }) => {
+const BoatCertificate: React.FC<BoatCertificateProps> = ({ certificate }) => {
   const { t, i18n } = useTranslation();
 
   const validUntil = formatDate('2020-09-26', i18n.language);
