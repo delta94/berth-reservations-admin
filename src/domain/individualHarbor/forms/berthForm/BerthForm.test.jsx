@@ -1,36 +1,49 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { MockedProvider, wait } from '@apollo/react-testing';
+import { MockedProvider } from '@apollo/react-testing';
 import BerthForm from './BerthForm';
 import { INDIVIDUAL_BERTH_QUERY } from './queries';
-import { DELETE_BERTH_MUTATION, UPDATE_BERTH_MUTATION } from './mutations';
+import { UPDATE_BERTH_MUTATION } from './mutations';
 import LoadingSpinner from '../../../../common/spinner/LoadingSpinner';
-import { INDIVIDUAL_HARBOR_QUERY } from '../../queries';
-import waitForExpect from "wait-for-expect";
+import waitForExpect from 'wait-for-expect';
+import { act } from 'react-dom/test-utils';
 
 describe('domain/individualHarbor/BerthForm', () => {
   const queryMock = {
-    request: { query: INDIVIDUAL_BERTH_QUERY },
+    request: { query: INDIVIDUAL_BERTH_QUERY, variables: { id: 'a' } },
     result: {
-      berth: {
-        number: 2,
-        comment: '',
-        isActive: true,
-        pier: {
-          id: '-',
-          properties: {
-            identifier: '-',
-            __typename: 'PierProperties',
+      data: {
+        berth: {
+          number: 2,
+          comment: '',
+          isActive: true,
+          pier: {
+            id: '-',
+            properties: {
+              identifier: '-',
+              __typename: 'PierProperties',
+            },
+            __typename: 'PierNode',
           },
-          __typename: 'PierNode',
+          mooringType: 'SINGLE_SLIP_PLACE',
+          width: 2.25,
+          length: 5,
+          depth: null,
+          __typename: 'BerthNode',
         },
-        mooringType: 'SINGLE_SLIP_PLACE',
-        width: 2.25,
-        length: 5,
-        depth: null,
-        __typename: 'BerthNode',
       },
     },
+  };
+
+  const waitForContent = async (wrapper) => {
+    await act(async () => {
+      await waitForExpect(() => {
+        wrapper.update();
+        expect(
+          wrapper.contains(<LoadingSpinner isLoading={true} />)
+        ).toBeFalsy();
+      });
+    });
   };
 
   it('initially renders loading spinner', () => {
@@ -45,88 +58,53 @@ describe('domain/individualHarbor/BerthForm', () => {
 
   it('renders content after loading', async () => {
     const wrapper = mount(
-        <MockedProvider mocks={[queryMock]}>
-          <BerthForm berthId="a" />
-        </MockedProvider>
+      <MockedProvider mocks={[queryMock]}>
+        <BerthForm berthId="a" />
+      </MockedProvider>
     );
-    await waitForExpect(() => {
-      expect(wrapper.contains(<LoadingSpinner isLoading={true} />)).toBeFalsy();
-    });
+    await waitForContent(wrapper);
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('calls update mutation on save', () => {
+  it('calls update mutation on save', async () => {
     let updateMockCalled = false;
+    const onUpdateMock = jest.fn();
     const updateMock = {
-      request: { query: UPDATE_BERTH_MUTATION, variables: { id: 'a' } },
+      request: {
+        query: UPDATE_BERTH_MUTATION,
+        variables: {
+          input: {
+            id: 'a',
+            width: 2.25,
+            length: 5,
+            mooringType: 'SINGLE_SLIP_PLACE',
+            comment: '',
+            isActive: true,
+          },
+        },
+      },
       result: () => {
         updateMockCalled = true;
-        return { clientMutationId: '-' };
+        return {
+          data: { updateBerth: { clientMutationId: '-', __typename: 'ID' } },
+        };
       },
     };
     const wrapper = mount(
-      <MockedProvider mocks={[queryMock, updateMock]}>
-        <BerthForm berthId="a" />
+      // We need queryMock twice here, because MockedProvider requires an
+      // instance for each query made and the original query is refetched after updates.
+      <MockedProvider mocks={[queryMock, queryMock, updateMock]}>
+        <BerthForm berthId="a" onUpdate={onUpdateMock} />
       </MockedProvider>
     );
-
-    wrapper.find('button').at(2).simulate('click');
-    expect(updateMockCalled).toBe(true);
-  });
-
-  it('calls delete mutation on delete', () => {
-    let deleteMockCalled = false;
-    const deleteMock = {
-      request: { query: DELETE_BERTH_MUTATION, variables: { id: 'a' } },
-      result: () => {
-        deleteMockCalled = true;
-        return { clientMutationId: '-' };
-      },
-    };
-    const wrapper = mount(
-      <MockedProvider mocks={[queryMock, deleteMock]}>
-        <BerthForm berthId="a" />
-      </MockedProvider>
-    );
-
-    wrapper.find('button').at(1).simulate('click');
-    expect(deleteMockCalled).toBe(true);
-  });
-
-  it('calls BerthForm refetchQueries on update and delete', () => {
-    const onUpdateMock = jest.fn();
-    const onDeleteMock = jest.fn();
-    const onCancelMock = jest.fn();
-    let passedRefetchQueryMockCall = jest.fn();
-    const refetchQuery = {
-      request: { query: INDIVIDUAL_HARBOR_QUERY, variables: { id: 'a' } },
-      result: () => {
-        passedRefetchQueryMockCall.call(this);
-        return {};
-      },
-    };
-    const wrapper = mount(
-      <MockedProvider mocks={[queryMock]}>
-        <BerthForm
-          berthId="a"
-          refetchQueries={[refetchQuery]}
-          onUpdate={onUpdateMock}
-          onDelete={onDeleteMock}
-          onCancel={onCancelMock}
-        />
-      </MockedProvider>
-    );
-
-    wrapper.find('button').at(0).simulate('click');
-    expect(passedRefetchQueryMockCall).toBeCalledTimes(0);
-    expect(onCancelMock).toBeCalledTimes(1);
-
-    wrapper.find('button').at(1).simulate('click');
-    expect(passedRefetchQueryMockCall).toBeCalledTimes(2);
-    expect(onDeleteMock).toBeCalledTimes(1);
-
-    wrapper.find('button').at(2).simulate('click');
-    expect(passedRefetchQueryMockCall).toBeCalledTimes(1);
-    expect(onUpdateMock).toBeCalledTimes(1);
+    await waitForContent(wrapper);
+    await act(async () => {
+      wrapper.find('form').simulate('submit');
+      await waitForExpect(() => {
+        wrapper.update();
+        expect(onUpdateMock).toBeCalledTimes(1);
+        expect(updateMockCalled).toBe(true);
+      });
+    });
   });
 });

@@ -70,7 +70,7 @@ const BerthForm: React.FC<BerthFormProps> = ({
     length: Yup.number()
       .typeError(t('forms.common.errors.numberType'))
       .required(t('forms.common.errors.required')),
-    depth: Yup.number().typeError(t('forms.common.errors.numberType')),
+    depth: Yup.mixed<number | null>().typeError(t('forms.common.errors.numberType')),
     mooringType: Yup.string().required(t('forms.common.errors.required')),
   });
 
