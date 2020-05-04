@@ -6,31 +6,37 @@ import { useTranslation } from 'react-i18next';
 import styles from './modals.module.scss';
 import Grid from '../../../common/grid/Grid';
 import Select from '../../../common/select/Select';
+import { formatPercentage } from '../../../common/utils/format';
 import FormTypeField from './FormTypeField';
 
-const WinterStoragePricingFields: FunctionComponent = () => {
-  const { t } = useTranslation();
+const AdditionalServicesFields: FunctionComponent = () => {
+  const { t, i18n } = useTranslation();
 
-  const areaOptions = ['Kaisaniemi'];
+  const serviceOptions = [
+    'trawlerSummerStorage',
+    'parkingPermit',
+    'dinghyPlace',
+  ];
+  const taxOptions = [24];
   const periodOptions = ['season', 'month', 'year'];
 
   return (
     <>
       <FormTypeField
         label={t('common.terminology.dataEntry')}
-        value={t('pricing.winterStorage.title')}
+        value={t('pricing.additionalServices.title')}
       />
       <hr />
-      <Grid colsCount={2} className={styles.row}>
+      <Grid colsCount={1} className={styles.row}>
         <Field
           required={true}
           as={Select}
-          id="area"
-          name="area"
-          labelText={t('pricing.winterStorage.area')}
-          options={areaOptions.map(option => ({
+          id="service"
+          name="service"
+          labelText={t('pricing.additionalServices.service')}
+          options={serviceOptions.map(option => ({
             value: option,
-            label: option,
+            label: t([`common.terminology.${option}`]),
           }))}
         />
       </Grid>
@@ -38,16 +44,20 @@ const WinterStoragePricingFields: FunctionComponent = () => {
         <Field
           required={true}
           as={TextInput}
-          id="privateCustomer"
-          name="privateCustomer"
-          labelText={`${t('pricing.winterStorage.privateCustomer')} (€)`}
+          id="price"
+          name="price"
+          labelText={`${t('pricing.additionalServices.price')} (€)`}
         />
         <Field
           required={true}
-          as={TextInput}
-          id="company"
-          name="company"
-          labelText={`${t('pricing.winterStorage.company')} (€)`}
+          as={Select}
+          id="tax"
+          name="tax"
+          labelText={t('pricing.additionalServices.tax')}
+          options={taxOptions.map(option => ({
+            value: option,
+            label: formatPercentage(option * 0.01, i18n.language),
+          }))}
         />
       </Grid>
       <Grid colsCount={2} className={styles.row}>
@@ -55,7 +65,8 @@ const WinterStoragePricingFields: FunctionComponent = () => {
           required={true}
           as={Select}
           id="period"
-          labelText={t('pricing.winterStorage.period')}
+          name="period"
+          labelText={t('pricing.additionalServices.period')}
           options={periodOptions.map(option => ({
             value: option,
             label: t([`common.periodTypes.${option}`]),
@@ -66,4 +77,4 @@ const WinterStoragePricingFields: FunctionComponent = () => {
   );
 };
 
-export default WinterStoragePricingFields;
+export default AdditionalServicesFields;

@@ -1,55 +1,77 @@
 import React, { FunctionComponent } from 'react';
 import { TextInput } from 'hds-react/lib';
+import { Field } from 'formik';
+import { useTranslation } from 'react-i18next';
 
 import styles from './modals.module.scss';
 import Grid from '../../../common/grid/Grid';
 import Select from '../../../common/select/Select';
-import { HarborService } from '../PricingPage';
+import FormTypeField from './FormTypeField';
 
-export interface HarborServicesPricingFieldsProps {
-  placeholder?: null;
-  initialValues: HarborService;
-}
+const HarborServicesPricingFields: FunctionComponent = () => {
+  const { t } = useTranslation();
 
-const HarborServicesPricingFields: FunctionComponent<HarborServicesPricingFieldsProps> = () => {
+  const serviceOptions = [
+    'mooring',
+    'electricity',
+    'water',
+    'wasteCollection',
+    'gate',
+    'lighting',
+  ];
+  const unitOptions = ['%', '€'];
+  const periodOptions = ['season', 'month', 'year'];
+
   return (
     <>
-      <div className={styles.row}>
-        <TextInput
-          id="baz"
-          labelText="Tietue"
-          value="Satamapalvelut"
-          disabled
-        />
-      </div>
+      <FormTypeField
+        label={t('common.terminology.dataEntry')}
+        value={t('pricing.harborServices.title')}
+      />
       <hr />
       <Grid colsCount={1} className={styles.row}>
-        <Select
-          labelText="Palvelu"
-          value={'Vesi'}
-          options={['Vesi'].map(option => {
-            return { value: option, label: option };
-          })}
-          onChange={() => console.log('Test')}
+        <Field
+          required={true}
+          component={Select}
+          id="service"
+          labelText={t('pricing.harborServices.service')}
+          options={serviceOptions.map(option => ({
+            value: option,
+            label: t([`common.terminology.${option}`]),
+          }))}
         />
       </Grid>
       <Grid colsCount={2} className={styles.row}>
-        <TextInput id="foo" labelText="Hinta (€)" value="2" />
-        <Select
-          labelText="Yksikkö"
-          value={'%'}
-          options={['%', '€'].map(option => {
-            return { value: option, label: option };
-          })}
-          onChange={() => console.log('Test')}
+        <Field
+          required={true}
+          as={TextInput}
+          id="price"
+          name="price"
+          labelText={t('pricing.harborServices.price')}
+        />
+        <Field
+          required={true}
+          as={Select}
+          id="unit"
+          name="unit"
+          labelText={t('pricing.harborServices.unit')}
+          options={unitOptions.map(option => ({
+            value: option,
+            label: option,
+          }))}
         />
       </Grid>
       <Grid colsCount={2} className={styles.row}>
-        <Select
-          labelText="Aika"
-          value={'Kausi'}
-          options={[{ value: 'Kausi', label: 'Kausi' }]}
-          onChange={() => console.log('Test')}
+        <Field
+          required={true}
+          as={Select}
+          id="period"
+          name="period"
+          labelText={t('pricing.harborServices.period')}
+          options={periodOptions.map(option => ({
+            value: option,
+            label: t([`common.periodTypes.${option}`]),
+          }))}
         />
       </Grid>
     </>

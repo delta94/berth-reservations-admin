@@ -2,6 +2,19 @@
 @import 'spacings';
 @import 'z-index';
 
+.formTitle {
+}
+
+.formTitleLabel {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.formTitleValue {
+  margin-top: units(0.25);
+  font-size: 18px;
+}
+
 .row {
   margin: units(2) 0;
 

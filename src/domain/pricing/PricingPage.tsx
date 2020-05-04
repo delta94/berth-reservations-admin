@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Row } from 'react-table';
 
 import Text from '../../common/text/Text';
 import styles from './pricingPage.module.scss';
@@ -13,6 +14,7 @@ import {
   formatPercentage,
   formatPrice,
 } from '../../common/utils/format';
+import { EDIT_PRICING_FORM_TYPES } from './modals/EditPricingModal';
 
 export interface BerthPrice {
   id: string;
@@ -46,51 +48,69 @@ export interface AdditionalService {
 }
 
 export interface PricingPageProps {
-  harborData: BerthPrice[];
+  berthsData: BerthPrice[];
   winterStorageData: WinterStoragePrice[];
-  harborServices: HarborService[];
-  otherServices: AdditionalService[];
+  harborServicesData: HarborService[];
+  additionalServicesData: AdditionalService[];
+  openModal: (
+    formType: EDIT_PRICING_FORM_TYPES,
+    initialValues:
+      | BerthPrice
+      | WinterStoragePrice
+      | HarborService
+      | AdditionalService
+  ) => void;
 }
 
 const PricingPage: React.SFC<PricingPageProps> = ({
-  harborData,
+  berthsData,
   winterStorageData,
-  harborServices,
-  otherServices,
+  harborServicesData,
+  additionalServicesData,
+  openModal,
 }) => {
   const { t, i18n } = useTranslation();
-  const openModal = () => alert('Muokkaa');
 
   const harborCols: Column<BerthPrice>[] = [
     {
-      Header: t('pricing.harbor.width') || '',
+      Header: t('pricing.berths.width') || '',
       accessor: 'width',
       Cell: ({ cell }) => formatDimension(cell.value, i18n.language),
     },
     {
-      Header: t('pricing.harbor.privateCustomer') || '',
+      Header: t('pricing.berths.privateCustomer') || '',
       accessor: 'privateCustomer',
       Cell: ({ cell }) => formatPrice(cell.value, i18n.language),
     },
     {
-      Header: t('pricing.harbor.company') || '',
+      Header: t('pricing.berths.company') || '',
       accessor: 'company',
       Cell: ({ cell }) => formatPrice(cell.value, i18n.language),
     },
     {
-      Header: t('pricing.harbor.period') || '',
+      Header: t('pricing.berths.period') || '',
       accessor: 'period',
+      Cell: ({ cell }) => t([`common.periodTypes.${cell.value}`]),
     },
     {
       id: 'edit',
-      Header: t('pricing.harbor.edit') || '',
+      Header: t('common.edit') || '',
       sortType: 'none',
       width: COLUMN_WIDTH.S,
-      Cell: (
-        <button onClick={openModal}>
-          <Text color="brand">{t('pricing.harbor.edit')}</Text>
-        </button>
-      ),
+      Cell: ({ row }: { row: Row<BerthPrice> }) => {
+        return (
+          <button
+            onClick={() =>
+              openModal(
+                EDIT_PRICING_FORM_TYPES.BERTHS,
+                row.values as BerthPrice
+              )
+            }
+          >
+            <Text color="brand">{t('common.edit')}</Text>
+          </button>
+        );
+      },
     },
   ];
 
@@ -112,15 +132,23 @@ const PricingPage: React.SFC<PricingPageProps> = ({
     {
       Header: t('pricing.winterStorage.period') || '',
       accessor: 'period',
+      Cell: ({ cell }) => t([`common.periodTypes.${cell.value}`]),
     },
     {
       id: 'edit',
-      Header: t('pricing.winterStorage.edit') || '',
+      Header: t('common.edit') || '',
       sortType: 'none',
       width: COLUMN_WIDTH.S,
-      Cell: (
-        <button onClick={openModal}>
-          <Text color="brand">{t('pricing.winterStorage.edit')}</Text>
+      Cell: ({ row }: { row: Row }) => (
+        <button
+          onClick={() =>
+            openModal(
+              EDIT_PRICING_FORM_TYPES.WINTER_STORAGE,
+              row.values as WinterStoragePrice
+            )
+          }
+        >
+          <Text color="brand">{t('common.edit')}</Text>
         </button>
       ),
     },
@@ -131,6 +159,7 @@ const PricingPage: React.SFC<PricingPageProps> = ({
       Header: t('pricing.harborServices.service') || '',
       width: COLUMN_WIDTH.L,
       accessor: 'service',
+      Cell: ({ cell }) => t([`common.terminology.${cell.value}`]),
     },
     {
       Header: t('pricing.harborServices.price') || '',
@@ -142,51 +171,68 @@ const PricingPage: React.SFC<PricingPageProps> = ({
       Header: t('pricing.harborServices.period') || '',
       width: COLUMN_WIDTH.S,
       accessor: 'period',
+      Cell: ({ cell }) => t([`common.periodTypes.${cell.value}`]),
     },
     {
       id: 'edit',
-      Header: t('pricing.harborServices.edit') || '',
+      Header: t('common.edit') || '',
       sortType: 'none',
       width: COLUMN_WIDTH.S,
-      Cell: (
-        <button onClick={openModal}>
-          <Text color="brand">{t('pricing.harborServices.edit')}</Text>
+      Cell: ({ row }: { row: Row }) => (
+        <button
+          onClick={() =>
+            openModal(
+              EDIT_PRICING_FORM_TYPES.HARBOR_SERVICES,
+              row.values as HarborService
+            )
+          }
+        >
+          <Text color="brand">{t('common.edit')}</Text>
         </button>
       ),
     },
   ];
 
-  const otherServicesCols: Column<AdditionalService>[] = [
+  const additionalServicesCols: Column<AdditionalService>[] = [
     {
-      Header: t('pricing.otherServices.service') || '',
+      Header: t('pricing.additionalServices.service') || '',
       width: COLUMN_WIDTH.L,
       accessor: 'service',
+      Cell: ({ cell }) => t([`common.terminology.${cell.value}`]),
     },
     {
-      Header: t('pricing.otherServices.price') || '',
+      Header: t('pricing.additionalServices.price') || '',
       width: COLUMN_WIDTH.XS,
       accessor: 'price',
       Cell: ({ cell }) => formatPrice(cell.value, i18n.language),
     },
     {
-      Header: t('pricing.otherServices.tax') || '',
+      Header: t('pricing.additionalServices.tax') || '',
       width: COLUMN_WIDTH.XS,
       accessor: 'tax',
       Cell: ({ cell }) => formatPercentage(cell.value, i18n.language),
     },
     {
-      Header: t('pricing.otherServices.period') || '',
+      Header: t('pricing.additionalServices.period') || '',
       width: COLUMN_WIDTH.S,
       accessor: 'period',
+      Cell: ({ cell }) => t([`common.periodTypes.${cell.value}`]),
     },
     {
       id: 'edit',
-      Header: t('pricing.otherServices.edit') || '',
+      Header: t('common.edit') || '',
       sortType: 'none',
       width: COLUMN_WIDTH.S,
-      Cell: (
-        <button onClick={openModal}>
-          <Text color="brand">{t('pricing.otherServices.edit')}</Text>
+      Cell: ({ row }: { row: Row }) => (
+        <button
+          onClick={() =>
+            openModal(
+              EDIT_PRICING_FORM_TYPES.ADDITIONAL_SERVICES,
+              row.values as AdditionalService
+            )
+          }
+        >
+          <Text color="brand">{t('common.edit')}</Text>
         </button>
       ),
     },
@@ -203,10 +249,10 @@ const PricingPage: React.SFC<PricingPageProps> = ({
         {t('pricing.heading')}
       </Text>
       <Card className={styles.fullWidth}>
-        <CardHeader title={t('pricing.harbor.title')} />
+        <CardHeader title={t('pricing.berths.title')} />
         <CardBody>
-          <Section>{t('pricing.harbor.description')}</Section>
-          <Table columns={harborCols} data={harborData} theme="basic" />
+          <Section>{t('pricing.berths.description')}</Section>
+          <Table columns={harborCols} data={berthsData} theme="basic" />
         </CardBody>
       </Card>
       <Card className={styles.fullWidth}>
@@ -226,17 +272,17 @@ const PricingPage: React.SFC<PricingPageProps> = ({
           <Section>{t('pricing.harborServices.description')}</Section>
           <Table
             columns={harborServicesCols}
-            data={harborServices}
+            data={harborServicesData}
             theme="basic"
           />
         </CardBody>
       </Card>
       <Card>
-        <CardHeader title={t('pricing.otherServices.title')} />
+        <CardHeader title={t('pricing.additionalServices.title')} />
         <CardBody>
           <Table
-            columns={otherServicesCols}
-            data={otherServices}
+            columns={additionalServicesCols}
+            data={additionalServicesData}
             theme="basic"
           />
         </CardBody>

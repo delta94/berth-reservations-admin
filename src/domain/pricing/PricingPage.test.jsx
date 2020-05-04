@@ -52,7 +52,7 @@ const harborServices = [
   },
 ];
 
-const otherServices = [
+const additionalServices = [
   {
     id: '1',
     service: 'Trailerin kesäsäilytys',
@@ -73,7 +73,7 @@ const mockProps = {
   harborData,
   winterStorageData,
   harborServices,
-  otherServices,
+  additionalServices,
 };
 
 describe('PricingPage', () => {

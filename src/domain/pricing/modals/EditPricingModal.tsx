@@ -1,4 +1,7 @@
 import React, { FunctionComponent } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Form, Formik, FormikErrors } from 'formik';
+import { Button } from 'hds-react/lib';
 
 import Modal from '../../../common/modal/Modal';
 import {
@@ -7,7 +10,11 @@ import {
   HarborService,
   WinterStoragePrice,
 } from '../PricingPage';
-import EditBerthPricingForm from './EditBerthPricingForm';
+import BerthsPricingFields from './BerthsPricingFields';
+import WinterStoragePricingFields from './WinterStoragePricingFields';
+import HarborServicesPricingFields from './HarborServicesPricingFields';
+import AdditionalServicesFields from './AdditionalServicesFields';
+import styles from './modals.module.scss';
 
 export enum EDIT_PRICING_FORM_TYPES {
   BERTHS = 'BERTHS',
@@ -28,59 +35,67 @@ export interface EditPricingModalProps {
   formType: EDIT_PRICING_FORM_TYPES;
 }
 
-/* const renderFormFields = (
-  formType: EditPricingModalProps['formType'],
-  initialValues: EditPricingModalProps['initialValues']
-) => {
-  switch (formType) {
-    case EDIT_PRICING_FORM_TYPES.ADDITIONAL_SERVICES:
-      return (
-        <AdditionalServicesPricingFields
-          initialValues={initialValues as AdditionalService}
-        />
-      );
-    case EDIT_PRICING_FORM_TYPES.BERTHS:
-      return <EditBerthPricingForm initialValues={initialValues as BerthPrice} />;
-    case EDIT_PRICING_FORM_TYPES.HARBOR_SERVICES:
-      return (
-        <HarborServicesPricingFields
-          initialValues={initialValues as HarborService}
-        />
-      );
-    case EDIT_PRICING_FORM_TYPES.WINTER_STORAGE:
-      return (
-        <WinterStoragePricingFields
-          initialValues={initialValues as WinterStoragePrice}
-        />
-      );
-    case null:
-      return undefined;
-  }
-}; */
+const EditPricingModal: FunctionComponent<EditPricingModalProps> = ({
+  isOpen,
+  closeModal,
+  formType,
+  initialValues,
+}) => {
+  const [isFilling, setFormIsFilling] = React.useState(false);
+  const { t } = useTranslation();
 
-const renderForm = (props: EditPricingModalProps) => {
-  const { formType, initialValues, closeModal } = props;
-  switch (formType) {
-    case EDIT_PRICING_FORM_TYPES.BERTHS:
-      return (
-        <EditBerthPricingForm
-          initialValues={initialValues as BerthPrice}
-          closeModal={closeModal}
-        />
-      );
-  }
-};
+  const validate = () => {
+    if (!isFilling) {
+      setFormIsFilling(true);
+    }
+    const errors: FormikErrors<
+      BerthPrice | WinterStoragePrice | HarborService | AdditionalService
+    > = {};
+    return errors;
+  };
 
-const EditPricingModal: FunctionComponent<EditPricingModalProps> = props => {
-  const { isOpen, closeModal } = props;
+  const renderFormFields = (formType: EDIT_PRICING_FORM_TYPES) => {
+    switch (formType) {
+      case EDIT_PRICING_FORM_TYPES.BERTHS:
+        return <BerthsPricingFields />;
+      case EDIT_PRICING_FORM_TYPES.WINTER_STORAGE:
+        return <WinterStoragePricingFields />;
+      case EDIT_PRICING_FORM_TYPES.HARBOR_SERVICES:
+        return <HarborServicesPricingFields />;
+      case EDIT_PRICING_FORM_TYPES.ADDITIONAL_SERVICES:
+        return <AdditionalServicesFields />;
+    }
+  };
 
   return (
     <Modal
       isOpen={isOpen}
-      label={'Hinnaston muokkaus'.toUpperCase()}
+      label={t('pricing.editModalHeading').toUpperCase()}
       toggleModal={closeModal}
     >
-      {renderForm(props)}
+      <Formik
+        initialValues={initialValues}
+        onSubmit={values => console.log('Form submit:', values)}
+        validate={validate}
+      >
+        {({ isSubmitting }: { isSubmitting: boolean }) => (
+          <Form>
+            {renderFormFields(formType)}
+            <div className={styles.buttonRow}>
+              <Button color="supplementary" onClick={() => closeModal()}>
+                {t('common.cancel')}
+              </Button>
+              <Button
+                type="submit"
+                className={styles.alignRight}
+                disabled={isSubmitting}
+              >
+                {t('common.save')}
+              </Button>
+            </div>
+          </Form>
+        )}
+      </Formik>
     </Modal>
   );
 };
