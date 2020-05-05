@@ -8,6 +8,7 @@ import InternalLink from '../../../common/internalLink/InternalLink';
 import Section from '../../../common/section/Section';
 import { formatDate } from '../../../common/utils/format';
 import styles from './berthDetails.module.scss';
+import { LeaseStatus } from '../../../@types/__generated__/globalTypes';
 
 interface Lease {
   customer: {
@@ -17,17 +18,19 @@ interface Lease {
   };
   startDate: string;
   endDate: string;
+  status: string;
+  isActive: boolean;
 }
 
 export interface BerthDetailsProps {
   leases: Lease[];
   comment: string;
-  gate: boolean | null;
-  electricity: boolean | null;
-  water: boolean | null;
-  lighting: boolean | null;
-  wasteCollection: boolean | null;
-  isAccessible: boolean | null;
+  gate?: boolean | null;
+  electricity?: boolean | null;
+  water?: boolean | null;
+  lighting?: boolean | null;
+  wasteCollection?: boolean | null;
+  isAccessible?: boolean | null;
 }
 
 const BerthDetails: React.SFC<BerthDetailsProps> = ({
@@ -42,28 +45,28 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
 }) => {
   const { t, i18n } = useTranslation();
 
-  const leasesElements = leases.map(({ startDate, endDate, customer }, i) => {
-    return (
-      <div key={i}>
-        <Text>{`${formatDate(startDate, i18n.language)} - ${formatDate(
-          endDate,
-          i18n.language
-        )}`}</Text>{' '}
-        <InternalLink to={`/customers/${customer.id}`}>
-          {customer.firstName} {customer.lastName}
-        </InternalLink>
-      </div>
-    );
-  });
+  const expiredLeasesElements = leases
+    .filter(lease => lease.status === LeaseStatus.PAID && !lease.isActive)
+    .map(({ startDate, endDate, customer }, i) => {
+      return (
+        <div key={i}>
+          <Text>{`${formatDate(startDate, i18n.language)} - ${formatDate(
+            endDate,
+            i18n.language
+          )}`}</Text>{' '}
+          <InternalLink to={`/customers/${customer.id}`}>
+            {customer.firstName} {customer.lastName}
+          </InternalLink>
+        </div>
+      );
+    });
 
-  const isNotNull = (property: boolean | null): property is boolean =>
-    property !== null;
   const getColor = (property: boolean) => (property ? 'standard' : 'secondary');
 
   return (
     <div className={styles.berthDetails}>
       <div className={styles.berthProperties}>
-        {isNotNull(gate) && (
+        {gate && (
           <div className={styles.property}>
             <Icon shape="IconFence" color={getColor(gate)} outlined />
             <Text className={styles.propertyLabel} color={getColor(gate)}>
@@ -71,7 +74,7 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
             </Text>
           </div>
         )}
-        {isNotNull(electricity) && (
+        {electricity && (
           <div className={styles.property}>
             <Icon shape="IconPlug" color={getColor(electricity)} outlined />
             <Text
@@ -82,7 +85,7 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
             </Text>
           </div>
         )}
-        {isNotNull(water) && (
+        {water && (
           <div className={styles.property}>
             <Icon shape="IconWaterTap" color={getColor(water)} outlined />
             <Text className={styles.propertyLabel} color={getColor(water)}>
@@ -90,7 +93,7 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
             </Text>
           </div>
         )}
-        {isNotNull(lighting) && (
+        {lighting && (
           <div className={styles.property}>
             <Icon shape="IconStreetLight" color={getColor(lighting)} outlined />
             <Text className={styles.propertyLabel} color={getColor(lighting)}>
@@ -98,7 +101,7 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
             </Text>
           </div>
         )}
-        {isNotNull(wasteCollection) && (
+        {wasteCollection && (
           <div className={styles.property}>
             <Icon
               shape="IconTrash"
@@ -114,7 +117,7 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
           </div>
         )}
 
-        {isNotNull(isAccessible) && (
+        {isAccessible && (
           <div className={styles.property}>
             <Icon
               shape="IconAccessibility"
@@ -132,7 +135,7 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
       </div>
       <Grid colsCount={3}>
         <Section title={t('offer.berthDetails.previousLeases').toUpperCase()}>
-          {leasesElements.length ? leasesElements : '-'}
+          {expiredLeasesElements.length ? expiredLeasesElements : '-'}
         </Section>
         <Section
           title={t('offer.berthDetails.comment').toUpperCase()}

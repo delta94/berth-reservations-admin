@@ -35,6 +35,24 @@ export const INDIVIDUAL_HARBOR_QUERY = gql`
                       width
                       length
                       mooringType
+                      comment
+                      leases {
+                        edges {
+                          node {
+                            application {
+                              customer {
+                                id
+                                firstName
+                                lastName
+                              }
+                            }
+                            status
+                            startDate
+                            endDate
+                            isActive
+                          }
+                        }
+                      }
                     }
                   }
                 }

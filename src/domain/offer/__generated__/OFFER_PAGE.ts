@@ -40,6 +40,7 @@ export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_pro
   status: LeaseStatus;
   startDate: any;
   endDate: any;
+  isActive: boolean;
   customer: OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node_customer;
 }
 

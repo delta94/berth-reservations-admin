@@ -18,6 +18,7 @@ import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { formatDimension } from '../../common/utils/format';
 import PierSelectHeader from './pierSelectHeader/PierSelectHeader';
 import GlobalSearchTableTools from '../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';
+import BerthDetails from '../cards/berthDetails/BerthDetails';
 
 const IndividualHarborPageContainer: React.SFC = () => {
   const { id } = useParams<{ id: string }>();
@@ -108,6 +109,12 @@ const IndividualHarborPageContainer: React.SFC = () => {
             onPierSelect={pier => {
               props.setFilter('identifier', pier?.identifier);
             }}
+          />
+        )}
+        renderSubComponent={row => (
+          <BerthDetails
+            leases={row.original.leases ? row.original.leases : []}
+            comment={row.original.comment}
           />
         )}
       />

@@ -7,8 +7,10 @@ interface Lease {
     firstName: string;
     lastName: string;
   };
+  status: string;
   startDate: string;
   endDate: string;
+  isActive: boolean;
 }
 
 export interface BerthData {
@@ -58,6 +60,8 @@ export const getOfferData = (data: OFFER_PAGE | undefined): BerthData[] => {
               {
                 startDate: edge.node.startDate,
                 endDate: edge.node.endDate,
+                status: edge.node.status,
+                isActive: edge.node.isActive,
                 customer: {
                   id: edge.node.customer.id,
                   firstName: edge.node.customer.firstName,
