@@ -24,7 +24,7 @@ const BoatsCard: React.SFC<BoatsCardProps> = ({ boats }) => {
       <CardHeader title={t('individualCustomer.customerBoats.title')} />
       {boats.map(boat => (
         <CardBody key={boat.id}>
-          <Section>
+          <Section title={t('individualCustomer.customerBoats.boatInfo')}>
             <LabelValuePair
               label={t('individualCustomer.customerBoats.boatType')}
               value={boat.boatType.name}

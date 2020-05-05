@@ -326,6 +326,7 @@
     },
     "customerBoats": {
       "title": "ASIAKKAAN VENEET",
+      "boatInfo": "VENEEN TIEDOT",
       "boatType": "Veneen tyyppi",
       "registrationNumber": "Rekisterinumero",
       "width": "Veneen leveys",
