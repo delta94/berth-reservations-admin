@@ -1,5 +1,5 @@
-import { BoatCert } from '../types';
-import { BoatCertificateType } from '../../../@types/__generated__/globalTypes';
+import { BoatCert } from '../../types';
+import { BoatCertificateType } from '../../../../@types/__generated__/globalTypes';
 
 export const insuraceCert: BoatCert = {
   file:

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import BoatsCard from './BoatsCard';
+import BoatsCard from '../BoatsCard';
 
 const mockProps = {
   boats: [

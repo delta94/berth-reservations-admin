@@ -3,10 +3,10 @@ import {
   getFilename,
   getValidUntilColor,
   isLargeBoat,
-} from './boatsCardUtils';
-import { Boat, BoatCert, LargeBoat } from '../types';
-import { BoatCertificateType } from '../../../@types/__generated__/globalTypes';
-import { inspectionCert, insuraceCert } from './mockData';
+} from '../boatsCardUtils';
+import { Boat, BoatCert, LargeBoat } from '../../types';
+import { BoatCertificateType } from '../../../../@types/__generated__/globalTypes';
+import { inspectionCert, insuraceCert } from '../__fixtures__/mockData';
 
 const boat: Partial<Boat> = {
   id: '1',

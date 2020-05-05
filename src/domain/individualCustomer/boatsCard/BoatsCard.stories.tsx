@@ -2,7 +2,7 @@ import React from 'react';
 
 import BoatsCard from './BoatsCard';
 import { Boat, LargeBoat } from '../types';
-import { inspectionCert, insuraceCert } from './mockData';
+import { inspectionCert, insuraceCert } from './__fixtures__/mockData';
 
 export default {
   component: BoatsCard,
