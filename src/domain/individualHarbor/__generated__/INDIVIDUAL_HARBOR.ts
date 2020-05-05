@@ -50,6 +50,7 @@ export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties
   number: number;
   width: number;
   length: number;
+  depth: number | null;
   mooringType: BerthMooringType;
   comment: string;
   leases: INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_leases | null;

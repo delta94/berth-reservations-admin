@@ -69,6 +69,7 @@ export type Berth = {
   identifier: string;
   length: number;
   width: number;
+  depth: number | null;
   mooringType: string;
   comment: string;
   leases?: Lease[];
@@ -113,6 +114,7 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined): Berth[] => {
             mooringType: berthEdge.node.mooringType,
             number: berthEdge.node.number,
             width: berthEdge.node.width,
+            depth: berthEdge.node.depth,
             comment: berthEdge.node.comment,
             leases,
           },

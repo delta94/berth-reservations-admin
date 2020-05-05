@@ -34,6 +34,7 @@ export const INDIVIDUAL_HARBOR_QUERY = gql`
                       number
                       width
                       length
+                      depth
                       mooringType
                       comment
                       leases {
