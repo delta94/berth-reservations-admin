@@ -2,6 +2,8 @@ import React from 'react';
 
 import { BoatCert } from '../types';
 import BoatCertificate from './BoatCertificate';
+import { getCertificate } from './boatsCardUtils';
+import { BoatCertificateType } from '../../../@types/__generated__/globalTypes';
 
 interface BoatCertificatesProps {
   certificates: BoatCert[];
@@ -10,12 +12,16 @@ interface BoatCertificatesProps {
 const BoatCertificates: React.FC<BoatCertificatesProps> = ({
   certificates,
 }) => {
-  console.log('c', certificates);
+  const insurance = getCertificate(certificates, BoatCertificateType.INSURANCE);
+  const inspection = getCertificate(
+    certificates,
+    BoatCertificateType.INSPECTION
+  );
 
   return (
     <>
-      <BoatCertificate certificate={undefined as any} />
-      <BoatCertificate certificate={undefined as any} />
+      {inspection && <BoatCertificate certificate={inspection} />}
+      {insurance && <BoatCertificate certificate={insurance} />}
     </>
   );
 };

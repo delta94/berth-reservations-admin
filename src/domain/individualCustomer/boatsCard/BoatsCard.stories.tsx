@@ -2,6 +2,7 @@ import React from 'react';
 
 import BoatsCard from './BoatsCard';
 import { Boat, LargeBoat } from '../types';
+import { inspectionCert, insuraceCert } from './mockData';
 
 export default {
   component: BoatsCard,
@@ -42,7 +43,7 @@ const largeBoat: LargeBoat = {
   propulsion: 'Bensin',
   hullMaterial: 'Aluminium',
   intendedUse: 'For fun',
-  certificates: [],
+  certificates: [inspectionCert, insuraceCert],
 };
 
 export const oneBoat = () => <BoatsCard boats={[boat]} />;

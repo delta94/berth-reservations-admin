@@ -339,7 +339,8 @@
       "purpose": "Käyttötarkoitus",
       "inspection": "Katsastustodistus",
       "insurance": "Vakuutuskirjaote",
-      "validUntil": "Voimassa {{validUntil}} asti"
+      "validUntil": "Voimassa {{validUntil}} asti",
+      "fileMissing": "Tiedosto puuttuu"
     },
     "leases": {
       "title": "VENEPAIKAT",
