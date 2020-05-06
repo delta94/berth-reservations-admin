@@ -8,33 +8,34 @@ import LoadingSpinner from '../../../../../common/spinner/LoadingSpinner';
 import waitForExpect from 'wait-for-expect';
 import { act } from 'react-dom/test-utils';
 
-describe('domain/individualHarbor/BerthEditForm', () => {
-  const queryMock = {
-    request: { query: INDIVIDUAL_BERTH_QUERY, variables: { id: 'a' } },
-    result: {
-      data: {
-        berth: {
-          number: 2,
-          comment: '',
-          isActive: true,
-          pier: {
-            id: '-',
-            properties: {
-              identifier: '-',
-              __typename: 'PierProperties',
-            },
-            __typename: 'PierNode',
+const pierOptions = [{ id: 'a', identifier: 'A' }];
+const queryMock = {
+  request: { query: INDIVIDUAL_BERTH_QUERY, variables: { id: 'a' } },
+  result: {
+    data: {
+      berth: {
+        number: 2,
+        comment: '',
+        isActive: true,
+        pier: {
+          id: pierOptions[0].id,
+          properties: {
+            identifier: pierOptions[0].identifier,
+            __typename: 'PierProperties',
           },
-          mooringType: 'SINGLE_SLIP_PLACE',
-          width: 2.25,
-          length: 5,
-          depth: null,
-          __typename: 'BerthNode',
+          __typename: 'PierNode',
         },
+        mooringType: 'SINGLE_SLIP_PLACE',
+        width: 2.25,
+        length: 5,
+        depth: null,
+        __typename: 'BerthNode',
       },
     },
-  };
+  },
+};
 
+describe('domain/individualHarbor/BerthEditForm', () => {
   const waitForContent = async (wrapper) => {
     await act(async () => {
       await waitForExpect(() => {
@@ -49,7 +50,7 @@ describe('domain/individualHarbor/BerthEditForm', () => {
   it('initially renders loading spinner', () => {
     const wrapper = mount(
       <MockedProvider mocks={[queryMock]}>
-        <BerthEditForm berthId="a" />
+        <BerthEditForm berthId="a" pierOptions={pierOptions} />
       </MockedProvider>
     );
     expect(wrapper.contains(<LoadingSpinner isLoading={true} />)).toBeTruthy();
@@ -59,7 +60,7 @@ describe('domain/individualHarbor/BerthEditForm', () => {
   it('renders content after loading', async () => {
     const wrapper = mount(
       <MockedProvider mocks={[queryMock]}>
-        <BerthEditForm berthId="a" />
+        <BerthEditForm berthId="a" pierOptions={pierOptions}/>
       </MockedProvider>
     );
     await waitForContent(wrapper);
@@ -75,6 +76,8 @@ describe('domain/individualHarbor/BerthEditForm', () => {
         variables: {
           input: {
             id: 'a',
+            number: 2,
+            pierId: pierOptions[0].id,
             width: 2.25,
             length: 5,
             mooringType: 'SINGLE_SLIP_PLACE',
@@ -94,7 +97,7 @@ describe('domain/individualHarbor/BerthEditForm', () => {
       // We need queryMock twice here, because MockedProvider requires an
       // instance for each query made and the original query is refetched after updates.
       <MockedProvider mocks={[queryMock, queryMock, updateMock]}>
-        <BerthEditForm berthId="a" onSubmit={onUpdateMock} />
+        <BerthEditForm berthId="a" onSubmit={onUpdateMock} pierOptions={pierOptions}/>
       </MockedProvider>
     );
     await waitForContent(wrapper);

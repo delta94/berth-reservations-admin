@@ -33,7 +33,6 @@ const BerthCreateForm: React.FC<BerthCreateFormProps> = ({
 
   return (
     <BerthForm
-      initialValues={{}}
       onCancel={onCancel}
       onSubmitText={t('forms.common.create')}
       onSubmit={values => {

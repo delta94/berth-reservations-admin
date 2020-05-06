@@ -167,6 +167,10 @@
     "pierProperties": {
       "pier": "Laituri",
       "services": "Palvelut"
+    },
+    "tableTools": {
+      "addPier": "Lisää laituri",
+      "addBerth": "Lisää venepaikka"
     }
   },
   "applications": {

@@ -22,7 +22,7 @@ import { Pier } from '../../utils/utils';
 interface BerthEditFormProps
   extends Omit<FormProps<Berth>, 'initialValues' | 'onCreate'> {
   berthId: string;
-  pierOptions?: Pier[];
+  pierOptions: Pier[];
 }
 
 const BerthEditForm: React.FC<BerthEditFormProps> = ({
@@ -73,11 +73,21 @@ const BerthEditForm: React.FC<BerthEditFormProps> = ({
       }
       onSubmitText={t('forms.common.update')}
       onSubmit={values => {
-        const { width, length, mooringType, comment, isActive } = values;
+        const {
+          number,
+          pierId,
+          width,
+          length,
+          mooringType,
+          comment,
+          isActive,
+        } = values;
         updateBerth({
           variables: {
             input: {
               id: berthId,
+              pierId,
+              number,
               width,
               length,
               mooringType,

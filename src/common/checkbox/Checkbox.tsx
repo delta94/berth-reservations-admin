@@ -14,6 +14,7 @@ export type CheckboxProps = Omit<
 
 const Checkbox: React.SFC<CheckboxProps> = ({
   checked,
+  defaultChecked,
   disabled,
   onChange,
   label,
@@ -34,6 +35,7 @@ const Checkbox: React.SFC<CheckboxProps> = ({
         <input
           id={id}
           checked={checked}
+          defaultChecked={defaultChecked}
           onChange={onChange}
           className={styles.input}
           type="checkbox"

@@ -23,6 +23,7 @@ import Text from '../../common/text/Text';
 import Modal from '../../common/modal/Modal';
 import BerthEditForm from './forms/berthForm/BerthEditForm';
 import BerthCreateForm from './forms/berthForm/BerthCreateForm';
+import IndividualHarborTableTools from './individualHarborTableTools/IndividualHarborTableTools';
 
 const IndividualHarborPageContainer: React.SFC = () => {
   const [berthToEdit, setBerthToEdit] = useState<string | null>(null);
@@ -99,12 +100,13 @@ const IndividualHarborPageContainer: React.SFC = () => {
         columns={columns}
         canSelectRows
         renderTableToolsTop={(_, setters) => (
-          <>
-            <Button onClick={() => setCreatingBerth(true)}>luo</Button>
-            <GlobalSearchTableTools
-              handleGlobalFilter={setters.setGlobalFilter}
-            />
-          </>
+          <IndividualHarborTableTools
+            onAddBerth={() => setCreatingBerth(true)}
+            onAddPier={() => {
+              /* TODO */
+            }}
+            handleGlobalFilter={setters.setGlobalFilter}
+          />
         )}
         renderSubComponent={row => (
           <button onClick={() => setBerthToEdit(row.original.id)}>
@@ -136,6 +138,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
             refetchQueries={[
               { query: INDIVIDUAL_HARBOR_QUERY, variables: { id } },
             ]}
+            pierOptions={piers}
           />
         </Modal>
       )}

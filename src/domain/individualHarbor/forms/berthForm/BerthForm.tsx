@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
 import { Button, TextInput } from 'hds-react';
+import { ObjectSchema } from 'yup';
 
 import { Berth, FormProps } from './types';
 import { BerthMooringType } from '../../../../@types/__generated__/globalTypes';
@@ -12,15 +13,21 @@ import Select from '../../../../common/select/Select';
 import Checkbox from '../../../../common/checkbox/Checkbox';
 import styles from './berthForm.module.scss';
 import { Pier } from '../../utils/utils';
+import Text from '../../../../common/text/Text';
 
 interface BerthFormProps extends FormProps<Berth> {
   onSubmitText?: string;
-  pierOptions?: Pier[];
+  pierOptions: Pier[];
 }
 
-const getBerthValidationSchema = (t: TFunction) =>
-  Yup.object().shape({
-    pier: Yup.string().required(t('forms.common.errors.required')),
+const getBerthValidationSchema = (
+  t: TFunction,
+  pierOptions: Pier[]
+): ObjectSchema => {
+  return Yup.object().shape({
+    pierId: Yup.string()
+      .oneOf(pierOptions.map(pier => pier.id))
+      .required(t('forms.common.errors.required')),
     number: Yup.number()
       .typeError(t('forms.common.errors.numberType'))
       .required(t('forms.common.errors.required')),
@@ -30,11 +37,11 @@ const getBerthValidationSchema = (t: TFunction) =>
     length: Yup.number()
       .typeError(t('forms.common.errors.numberType'))
       .required(t('forms.common.errors.required')),
-    depth: Yup.mixed<number | null>().typeError(
-      t('forms.common.errors.numberType')
-    ),
-    mooringType: Yup.string().required(t('forms.common.errors.required')),
+    mooringType: Yup.string()
+      .oneOf(Object.keys(BerthMooringType))
+      .required(t('forms.common.errors.required')),
   });
+};
 
 const BerthForm: React.FC<BerthFormProps> = ({
   initialValues,
@@ -46,54 +53,59 @@ const BerthForm: React.FC<BerthFormProps> = ({
   pierOptions,
 }) => {
   const { t } = useTranslation();
-  const validationSchema = getBerthValidationSchema(t);
+  const validationSchema = getBerthValidationSchema(t, pierOptions);
+
+  const initial =
+    initialValues ??
+    ({
+      pierId: pierOptions[0].id,
+      mooringType: Object.keys(BerthMooringType)[0],
+      comment: '',
+      isActive: true,
+    } as Berth);
 
   return (
     <Formik
-      initialValues={initialValues ?? {}}
-      validationSchema={validationSchema}
+      initialValues={initial}
       onSubmit={values => onSubmit?.(values)}
       validateOnBlur={false}
       validateOnChange={false}
+      validationSchema={validationSchema}
     >
       {({ values, errors, handleChange, handleSubmit }) => (
         <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.heading}>
+            <Text as="h4">{t('forms.berth.title')}</Text>
+            {onDelete && (
+              <button disabled={isSubmitting} onClick={() => onDelete(values)}>
+                <Text color="critical">{t('forms.common.delete')}</Text>
+              </button>
+            )}
+          </div>
           <Grid colsCount={3} className={styles.grid}>
-            {!pierOptions && (
-              <TextInput
-                id="pier"
-                readOnly
-                value={values.pier}
-                labelText={t('forms.berth.pier')}
-                invalid={!!errors.pier}
-                invalidText={errors.pier}
-              />
-            )}
-            {pierOptions && (
-              <Select
-                id="pierId"
-                required
-                value={values.pierId}
-                options={pierOptions.map(pier => {
-                  return {
-                    label: pier.identifier,
-                    value: pier.id,
-                  };
-                })}
-                onChange={handleChange}
-                labelText={t('forms.berth.pier')}
-              />
-            )}
+            <Select
+              id="pierId"
+              value={values.pierId}
+              options={pierOptions.map(pier => {
+                return {
+                  label: pier.identifier,
+                  value: pier.id,
+                };
+              })}
+              onChange={handleChange}
+              labelText={t('forms.berth.pier')}
+              required
+            />
             <TextInput
               id="number"
               type="number"
               value={String(values.number)}
+              onChange={handleChange}
               labelText={t('forms.berth.number')}
               invalid={!!errors.number}
               invalidText={errors.number}
             />
             <div />
-
             <TextInput
               id="width"
               type="number"
@@ -139,7 +151,6 @@ const BerthForm: React.FC<BerthFormProps> = ({
             onChange={handleChange}
             required
           />
-
           <TextInput
             id="comment"
             onChange={handleChange}
@@ -147,8 +158,14 @@ const BerthForm: React.FC<BerthFormProps> = ({
             labelText={t('forms.berth.comment')}
           />
           <Checkbox
-            id="isActive"
-            onChange={handleChange}
+            onChange={event =>
+              handleChange({
+                target: {
+                  id: 'isActive',
+                  value: event.target.checked,
+                },
+              })
+            }
             checked={values.isActive}
             label={t('forms.berth.isActive')}
           />
@@ -160,15 +177,6 @@ const BerthForm: React.FC<BerthFormProps> = ({
             >
               {t('forms.common.cancel')}
             </Button>
-            {onDelete && (
-              <Button
-                disabled={isSubmitting}
-                color={'secondary'}
-                onClick={() => onDelete(values)}
-              >
-                {t('forms.common.delete')}
-              </Button>
-            )}
             <Button type="submit" disabled={isSubmitting}>
               {onSubmitText}
             </Button>
