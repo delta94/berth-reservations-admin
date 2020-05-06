@@ -14,11 +14,11 @@ import {
   formatPercentage,
   formatPrice,
 } from '../../common/utils/format';
-import { EDIT_PRICING_FORM_TYPES } from './modals/EditPricingModal';
+import { PRICING_TYPES } from './editModal/fields/EditFormFields';
 
 export interface BerthPrice {
   id: string;
-  width: number | null;
+  width: number;
   privateCustomer: number;
   company: number;
   period: string;
@@ -36,6 +36,7 @@ export interface HarborService {
   id: string;
   service: string;
   price: number;
+  unit: string;
   period: string;
 }
 
@@ -53,7 +54,7 @@ export interface PricingPageProps {
   harborServicesData: HarborService[];
   additionalServicesData: AdditionalService[];
   openModal: (
-    formType: EDIT_PRICING_FORM_TYPES,
+    formType: PRICING_TYPES,
     initialValues:
       | BerthPrice
       | WinterStoragePrice
@@ -101,10 +102,7 @@ const PricingPage: React.SFC<PricingPageProps> = ({
         return (
           <button
             onClick={() =>
-              openModal(
-                EDIT_PRICING_FORM_TYPES.BERTHS,
-                row.values as BerthPrice
-              )
+              openModal(PRICING_TYPES.BERTHS, row.values as BerthPrice)
             }
           >
             <Text color="brand">{t('common.edit')}</Text>
@@ -143,7 +141,7 @@ const PricingPage: React.SFC<PricingPageProps> = ({
         <button
           onClick={() =>
             openModal(
-              EDIT_PRICING_FORM_TYPES.WINTER_STORAGE,
+              PRICING_TYPES.WINTER_STORAGE,
               row.values as WinterStoragePrice
             )
           }
@@ -182,7 +180,7 @@ const PricingPage: React.SFC<PricingPageProps> = ({
         <button
           onClick={() =>
             openModal(
-              EDIT_PRICING_FORM_TYPES.HARBOR_SERVICES,
+              PRICING_TYPES.HARBOR_SERVICES,
               row.values as HarborService
             )
           }
@@ -227,7 +225,7 @@ const PricingPage: React.SFC<PricingPageProps> = ({
         <button
           onClick={() =>
             openModal(
-              EDIT_PRICING_FORM_TYPES.ADDITIONAL_SERVICES,
+              PRICING_TYPES.ADDITIONAL_SERVICES,
               row.values as AdditionalService
             )
           }

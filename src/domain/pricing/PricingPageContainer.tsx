@@ -2,9 +2,7 @@ import React, { FunctionComponent, useState } from 'react';
 
 import placeholderData from './placeholderData';
 import PricingPage from './PricingPage';
-import EditPricingModal, {
-  EditPricingModalProps,
-} from './modals/EditPricingModal';
+import EditModal, { EditPricingModalProps } from './editModal/EditModal';
 
 type ModalState =
   | {
@@ -41,7 +39,7 @@ const PricingPageContainer: FunctionComponent = () => {
   return (
     <>
       {editModalValues.isOpen && (
-        <EditPricingModal
+        <EditModal
           {...editModalValues}
           closeModal={closeModal}
           onSubmit={() => alert('Submit')}

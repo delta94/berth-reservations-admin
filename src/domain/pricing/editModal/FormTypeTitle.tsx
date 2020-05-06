@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-import styles from './modals.module.scss';
+import styles from './editModal.module.scss';
 
 export interface FormTypeFieldProps {
   label: string;

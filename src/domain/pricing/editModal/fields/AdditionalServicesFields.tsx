@@ -3,13 +3,13 @@ import { TextInput } from 'hds-react/lib';
 import { Field } from 'formik';
 import { useTranslation } from 'react-i18next';
 
-import styles from '../modals.module.scss';
+import styles from '../editModal.module.scss';
 import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
 import { formatPercentage } from '../../../../common/utils/format';
 import FormTypeTitle from '../FormTypeTitle';
 
-const AdditionalServicesPricingFields: FunctionComponent = () => {
+const AdditionalServicesFields: FunctionComponent = () => {
   const { t, i18n } = useTranslation();
 
   const serviceOptions = [
@@ -31,7 +31,6 @@ const AdditionalServicesPricingFields: FunctionComponent = () => {
         <Field
           required={true}
           as={Select}
-          id="service"
           name="service"
           labelText={t('pricing.additionalServices.service')}
           options={serviceOptions.map(option => ({
@@ -51,7 +50,6 @@ const AdditionalServicesPricingFields: FunctionComponent = () => {
         <Field
           required={true}
           as={Select}
-          id="tax"
           name="tax"
           labelText={t('pricing.additionalServices.tax')}
           options={taxOptions.map(option => ({
@@ -64,7 +62,6 @@ const AdditionalServicesPricingFields: FunctionComponent = () => {
         <Field
           required={true}
           as={Select}
-          id="period"
           name="period"
           labelText={t('pricing.additionalServices.period')}
           options={periodOptions.map(option => ({
@@ -77,4 +74,4 @@ const AdditionalServicesPricingFields: FunctionComponent = () => {
   );
 };
 
-export default AdditionalServicesPricingFields;
+export default AdditionalServicesFields;

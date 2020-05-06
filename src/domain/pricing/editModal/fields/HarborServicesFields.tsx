@@ -3,35 +3,41 @@ import { TextInput } from 'hds-react/lib';
 import { Field } from 'formik';
 import { useTranslation } from 'react-i18next';
 
-import styles from '../modals.module.scss';
+import styles from '../editModal.module.scss';
 import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
-import { formatDimension } from '../../../../common/utils/format';
 import FormTypeTitle from '../FormTypeTitle';
 
-const BerthsPricingFields: FunctionComponent = () => {
+const HarborServicesFields: FunctionComponent = () => {
   const { t } = useTranslation();
 
-  const berthWidthOptions = [2, 2.5, 2.75, 3, 4, 5, 5.5, 6, 7];
+  const serviceOptions = [
+    'mooring',
+    'electricity',
+    'water',
+    'wasteCollection',
+    'gate',
+    'lighting',
+  ];
+  const unitOptions = ['%', '€'];
   const periodOptions = ['season', 'month', 'year'];
 
   return (
     <>
       <FormTypeTitle
         label={t('common.terminology.dataEntry')}
-        value={t('pricing.berths.title')}
+        value={t('pricing.harborServices.title')}
       />
       <hr />
-      <Grid colsCount={2} className={styles.row}>
+      <Grid colsCount={1} className={styles.row}>
         <Field
           required={true}
           as={Select}
-          id="width"
-          name="width"
-          labelText={t('pricing.berths.width')}
-          options={berthWidthOptions.map(option => ({
+          name="service"
+          labelText={t('pricing.harborServices.service')}
+          options={serviceOptions.map(option => ({
             value: option,
-            label: formatDimension(option, 'fi'),
+            label: t([`common.terminology.${option}`]),
           }))}
         />
       </Grid>
@@ -39,25 +45,27 @@ const BerthsPricingFields: FunctionComponent = () => {
         <Field
           required={true}
           as={TextInput}
-          id="privateCustomer"
-          name="privateCustomer"
-          labelText={`${t('pricing.berths.privateCustomer')} (€)`}
+          id="price"
+          name="price"
+          labelText={t('pricing.harborServices.price')}
         />
         <Field
           required={true}
-          as={TextInput}
-          id="company"
-          name="company"
-          labelText={`${t('pricing.berths.company')} (€)`}
+          as={Select}
+          name="unit"
+          labelText={t('pricing.harborServices.unit')}
+          options={unitOptions.map(option => ({
+            value: option,
+            label: option,
+          }))}
         />
       </Grid>
       <Grid colsCount={2} className={styles.row}>
         <Field
           required={true}
           as={Select}
-          id="period"
           name="period"
-          labelText={t('pricing.berths.period')}
+          labelText={t('pricing.harborServices.period')}
           options={periodOptions.map(option => ({
             value: option,
             label: t([`common.periodTypes.${option}`]),
@@ -68,4 +76,4 @@ const BerthsPricingFields: FunctionComponent = () => {
   );
 };
 
-export default BerthsPricingFields;
+export default HarborServicesFields;
