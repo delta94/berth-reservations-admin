@@ -6,48 +6,7 @@ import styles from './applicationsCard.module.scss';
 import CardHeader from '../../../common/cardHeader/CardHeader';
 import CardBody from '../../../common/cardBody/CardBody';
 import ApplicationDetails from '../../cards/applicationDetails/ApplicationDetails';
-import { ApplicationStatus } from '../../../@types/__generated__/globalTypes';
-
-interface HarborChoice {
-  harborName: string;
-  harbor: string;
-  priority: number;
-}
-
-interface Lease {
-  berthNum: string | number;
-  harborId: string;
-  harborName: string;
-  id: string;
-  pierIdentifier: string;
-}
-
-interface BerthSwitch {
-  berthNum: string | number;
-  harborId: string;
-  harborName: string;
-  pierIdentifier: string;
-  reason: string | null;
-}
-
-interface Application {
-  id: string;
-  berthSwitch: BerthSwitch | null;
-  createdAt: string;
-  queue: number | null;
-  status: ApplicationStatus;
-  lease: Lease | null;
-  boatType?: string | null;
-  boatRegistrationNumber: string;
-  boatWidth: number;
-  boatLength: number;
-  boatDraught: number | null;
-  boatWeight: number | null;
-  boatName: string;
-  boatModel: string;
-  harborChoices: Array<HarborChoice | null>;
-  accessibilityRequired: boolean;
-}
+import { Application } from '../types';
 
 export interface ApplicationsCardProps {
   applications: Application[];
