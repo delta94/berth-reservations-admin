@@ -28,24 +28,20 @@ const Modal: React.FunctionComponent<ModalProps> = ({
     toggleModal(false);
   };
   return (
-    <>
-      {isOpen && (
-        <ReactModal
-          isOpen={isOpen}
-          onRequestClose={onClose}
-          contentLabel={label}
-          className={styles.modal}
-          overlayClassName={styles.overlay}
-        >
-          <Section
-            title={label}
-            className={classNames(styles.modalContent, className)}
-          >
-            {children}
-          </Section>
-        </ReactModal>
-      )}
-    </>
+    <ReactModal
+      isOpen={isOpen}
+      onRequestClose={onClose}
+      contentLabel={label}
+      className={styles.modal}
+      overlayClassName={styles.overlay}
+    >
+      <Section
+        title={label}
+        className={classNames(styles.modalContent, className)}
+      >
+        {children}
+      </Section>
+    </ReactModal>
   );
 };
 
