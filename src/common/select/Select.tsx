@@ -37,7 +37,7 @@ const Select: React.SFC<SelectProps> = ({
 
   return (
     <label className={className}>
-      <span className={styles.labelText}>{labelText}</span>
+      {labelText && <span className={styles.labelText}>{labelText}</span>}
       <select
         id={id}
         value={value}
