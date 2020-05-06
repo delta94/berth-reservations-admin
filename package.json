@@ -40,7 +40,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "TZ=UTC NODE_ICU_DATA=node_modules/full-icu react-scripts test",
-    "test:watch": "TZ=UTC NODE_ICU_DATA=node_modules/full-icu react-scripts test --watch",
+    "test:coverage": "TZ=UTC NODE_ICU_DATA=node_modules/full-icu react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "eslint --ext js,ts,tsx src",
     "ci": "CI=true yarn test --verbose --runInBand --coverage",
