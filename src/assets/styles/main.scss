@@ -2,6 +2,14 @@
 @import 'boxSizing';
 @import 'colours';
 
+/*
+  This will hide the focus indicator if the element receives focus via the mouse,
+  but it will still show up on keyboard focus.
+*/
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
 @font-face {
   font-family: 'HelsinkiGrotesk';
   src: url('https://makasiini.hel.ninja/delivery/HelsinkiGrotesk/565d73a693abe0776c801607ac28f0bf.woff')
