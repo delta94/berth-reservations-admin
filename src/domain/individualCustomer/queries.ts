@@ -44,6 +44,14 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
             registrationNumber
             propulsion
             hullMaterial
+            intendedUse
+            certificates {
+              file
+              certificateType
+              validUntil
+              checkedAt
+              checkedBy
+            }
           }
         }
       }

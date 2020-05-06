@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { InvoicingType, OrganizationType, LeaseStatus, ApplicationStatus } from "./../../../@types/__generated__/globalTypes";
+import { InvoicingType, OrganizationType, BoatCertificateType, LeaseStatus, ApplicationStatus } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: INDIVIDUAL_CUSTOMER
@@ -42,6 +42,15 @@ export interface INDIVIDUAL_CUSTOMER_profile_boats_edges_node_boatType {
   name: string | null;
 }
 
+export interface INDIVIDUAL_CUSTOMER_profile_boats_edges_node_certificates {
+  __typename: "BoatCertificateNode";
+  file: string | null;
+  certificateType: BoatCertificateType;
+  validUntil: any | null;
+  checkedAt: any;
+  checkedBy: string | null;
+}
+
 export interface INDIVIDUAL_CUSTOMER_profile_boats_edges_node {
   __typename: "BoatNode";
   id: string;
@@ -55,6 +64,8 @@ export interface INDIVIDUAL_CUSTOMER_profile_boats_edges_node {
   registrationNumber: string;
   propulsion: string;
   hullMaterial: string;
+  intendedUse: string;
+  certificates: (INDIVIDUAL_CUSTOMER_profile_boats_edges_node_certificates | null)[];
 }
 
 export interface INDIVIDUAL_CUSTOMER_profile_boats_edges {
