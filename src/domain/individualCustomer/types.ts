@@ -54,6 +54,7 @@ export interface BerthSwitch {
 
 export interface Application {
   id: string;
+  customerId: string;
   berthSwitch: BerthSwitch | null;
   createdAt: string;
   queue: number | null;

@@ -8,6 +8,7 @@ const mockProps = {
   applications: [
     {
       id: '54321',
+      customerId: '47',
       berthSwitch: {
         harborId: '123',
         harborName: 'harbor',

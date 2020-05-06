@@ -125,6 +125,7 @@ export const getApplications = (
 
         const applicationData = {
           id,
+          customerId: profile.id,
           berthSwitch: berthSwitchProps,
           queue: null,
           createdAt,
