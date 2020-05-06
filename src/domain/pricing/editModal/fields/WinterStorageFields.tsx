@@ -1,18 +1,40 @@
 import React, { FunctionComponent } from 'react';
 import { TextInput } from 'hds-react/lib';
-import { Field } from 'formik';
+import { Field, useFormikContext } from 'formik';
 import { useTranslation } from 'react-i18next';
+import { TFunction } from 'i18next';
+import * as Yup from 'yup';
 
 import styles from '../editModal.module.scss';
 import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
 import FormTypeTitle from '../FormTypeTitle';
+import { WinterStoragePrice } from '../../PricingPage';
+
+const areaOptions = ['Kaisaniemi'];
+const periodOptions = ['season', 'month', 'year'];
+
+export const getWinterStorageValidationSchema = (t: TFunction) =>
+  Yup.object().shape({
+    area: Yup.string()
+      .oneOf(areaOptions)
+      .required(t('forms.common.errors.required')),
+    privateCustomer: Yup.number()
+      .positive()
+      .typeError(t('forms.common.errors.numberType'))
+      .required(t('forms.common.errors.required')),
+    company: Yup.number()
+      .positive()
+      .typeError(t('forms.common.errors.numberType'))
+      .required(t('forms.common.errors.required')),
+    period: Yup.string()
+      .oneOf(periodOptions)
+      .required(t('forms.common.errors.required')),
+  });
 
 const WinterStorageFields: FunctionComponent = () => {
   const { t } = useTranslation();
-
-  const areaOptions = ['Kaisaniemi'];
-  const periodOptions = ['season', 'month', 'year'];
+  const { errors } = useFormikContext<WinterStoragePrice>();
 
   return (
     <>
@@ -40,6 +62,8 @@ const WinterStorageFields: FunctionComponent = () => {
           id="privateCustomer"
           name="privateCustomer"
           labelText={`${t('pricing.winterStorage.privateCustomer')} (€)`}
+          invalid={!!errors.privateCustomer}
+          invalidText={errors.privateCustomer}
         />
         <Field
           required={true}
@@ -47,6 +71,8 @@ const WinterStorageFields: FunctionComponent = () => {
           id="company"
           name="company"
           labelText={`${t('pricing.winterStorage.company')} (€)`}
+          invalid={!!errors.company}
+          invalidText={errors.company}
         />
       </Grid>
       <Grid colsCount={2} className={styles.row}>

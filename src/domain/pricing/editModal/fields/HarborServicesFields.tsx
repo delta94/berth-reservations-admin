@@ -1,26 +1,48 @@
 import React, { FunctionComponent } from 'react';
 import { TextInput } from 'hds-react/lib';
-import { Field } from 'formik';
+import { Field, useFormikContext } from 'formik';
 import { useTranslation } from 'react-i18next';
+import { TFunction } from 'i18next';
+import * as Yup from 'yup';
 
 import styles from '../editModal.module.scss';
 import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
 import FormTypeTitle from '../FormTypeTitle';
+import { HarborService } from '../../PricingPage';
+
+const serviceOptions = [
+  'mooring',
+  'electricity',
+  'water',
+  'wasteCollection',
+  'gate',
+  'lighting',
+];
+const unitOptions = ['%', '€'];
+const periodOptions = ['season', 'month', 'year'];
+
+export const getHarborServicesValidationSchema = (t: TFunction) =>
+  Yup.object().shape({
+    service: Yup.string()
+      .oneOf(serviceOptions)
+      .required(t('forms.common.errors.required')),
+    price: Yup.number()
+      .positive()
+      .typeError(t('forms.common.errors.numberType'))
+      .required(t('forms.common.errors.required')),
+    unit: Yup.string()
+      .oneOf(unitOptions)
+      .typeError(t('forms.common.errors.numberType'))
+      .required(t('forms.common.errors.required')),
+    period: Yup.string()
+      .oneOf(periodOptions)
+      .required(t('forms.common.errors.required')),
+  });
 
 const HarborServicesFields: FunctionComponent = () => {
   const { t } = useTranslation();
-
-  const serviceOptions = [
-    'mooring',
-    'electricity',
-    'water',
-    'wasteCollection',
-    'gate',
-    'lighting',
-  ];
-  const unitOptions = ['%', '€'];
-  const periodOptions = ['season', 'month', 'year'];
+  const { errors } = useFormikContext<HarborService>();
 
   return (
     <>
@@ -48,6 +70,8 @@ const HarborServicesFields: FunctionComponent = () => {
           id="price"
           name="price"
           labelText={t('pricing.harborServices.price')}
+          invalid={!!errors.price}
+          invalidText={errors.price}
         />
         <Field
           required={true}

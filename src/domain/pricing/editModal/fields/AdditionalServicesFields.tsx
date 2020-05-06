@@ -1,24 +1,42 @@
 import React, { FunctionComponent } from 'react';
+import * as Yup from 'yup';
 import { TextInput } from 'hds-react/lib';
-import { Field } from 'formik';
+import { Field, useFormikContext } from 'formik';
 import { useTranslation } from 'react-i18next';
+import { TFunction } from 'i18next';
 
 import styles from '../editModal.module.scss';
 import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
 import { formatPercentage } from '../../../../common/utils/format';
 import FormTypeTitle from '../FormTypeTitle';
+import { AdditionalService } from '../../PricingPage';
+
+const serviceOptions = ['trawlerSummerStorage', 'parkingPermit', 'dinghyPlace'];
+const taxOptions = [24];
+const periodOptions = ['season', 'month', 'year'];
+
+export const getAdditionalServicesValidationSchema = (t: TFunction) =>
+  Yup.object().shape({
+    service: Yup.string()
+      .oneOf(serviceOptions)
+      .required(t('forms.common.errors.required')),
+    price: Yup.number()
+      .positive()
+      .typeError(t('forms.common.errors.numberType'))
+      .required(t('forms.common.errors.required')),
+    tax: Yup.number()
+      .oneOf(taxOptions)
+      .typeError(t('forms.common.errors.numberType'))
+      .required(t('forms.common.errors.required')),
+    period: Yup.string()
+      .oneOf(periodOptions)
+      .required(t('forms.common.errors.required')),
+  });
 
 const AdditionalServicesFields: FunctionComponent = () => {
   const { t, i18n } = useTranslation();
-
-  const serviceOptions = [
-    'trawlerSummerStorage',
-    'parkingPermit',
-    'dinghyPlace',
-  ];
-  const taxOptions = [24];
-  const periodOptions = ['season', 'month', 'year'];
+  const { errors } = useFormikContext<AdditionalService>();
 
   return (
     <>
@@ -46,6 +64,8 @@ const AdditionalServicesFields: FunctionComponent = () => {
           id="price"
           name="price"
           labelText={`${t('pricing.additionalServices.price')} (€)`}
+          invalid={!!errors.price}
+          invalidText={errors.price}
         />
         <Field
           required={true}

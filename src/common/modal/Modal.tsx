@@ -9,7 +9,6 @@ interface ModalProps {
   isOpen: boolean;
   label: string;
   toggleModal: (value: boolean) => void;
-  setFormIsFilling?: (value: boolean) => void;
   className?: string;
 }
 
@@ -18,13 +17,9 @@ const Modal: React.FunctionComponent<ModalProps> = ({
   label,
   children,
   toggleModal,
-  setFormIsFilling,
   className,
 }) => {
   const onClose = () => {
-    if (setFormIsFilling) {
-      setFormIsFilling(false);
-    }
     toggleModal(false);
   };
   return (

@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { Form, Formik, FormikErrors } from 'formik';
+import { Form, Formik } from 'formik';
 import { Button } from 'hds-react/lib';
 import { useTranslation } from 'react-i18next';
+import { TFunction } from 'i18next';
 
 import styles from './editModal.module.scss';
 import {
@@ -11,6 +12,10 @@ import {
   WinterStoragePrice,
 } from '../PricingPage';
 import EditFormFields, { PRICING_TYPES } from './fields/EditFormFields';
+import { getAdditionalServicesValidationSchema } from './fields/AdditionalServicesFields';
+import { getBerthsValidationSchema } from './fields/BerthsFields';
+import { getWinterStorageValidationSchema } from './fields/WinterStorageFields';
+import { getHarborServicesValidationSchema } from './fields/HarborServicesFields';
 
 export interface EditPricingFormProps {
   onSubmit: (
@@ -25,6 +30,19 @@ export interface EditPricingFormProps {
   formType: PRICING_TYPES;
 }
 
+const getEditFormValidationSchema = (formType: PRICING_TYPES, t: TFunction) => {
+  switch (formType) {
+    case PRICING_TYPES.BERTHS:
+      return getBerthsValidationSchema(t);
+    case PRICING_TYPES.WINTER_STORAGE:
+      return getWinterStorageValidationSchema(t);
+    case PRICING_TYPES.HARBOR_SERVICES:
+      return getHarborServicesValidationSchema(t);
+    case PRICING_TYPES.ADDITIONAL_SERVICES:
+      return getAdditionalServicesValidationSchema(t);
+  }
+};
+
 const EditForm: FunctionComponent<EditPricingFormProps> = ({
   onSubmit,
   closeModal,
@@ -32,23 +50,13 @@ const EditForm: FunctionComponent<EditPricingFormProps> = ({
   initialValues,
 }) => {
   const { t } = useTranslation();
-  const [isFilling, setFormIsFilling] = React.useState(false);
-
-  const validate = () => {
-    if (!isFilling) {
-      setFormIsFilling(true);
-    }
-    const errors: FormikErrors<
-      BerthPrice | WinterStoragePrice | HarborService | AdditionalService
-    > = {};
-    return errors;
-  };
+  const validationSchema = getEditFormValidationSchema(formType, t);
 
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={onSubmit}
-      validate={validate}
+      validationSchema={validationSchema}
     >
       {({ isSubmitting }: { isSubmitting: boolean }) => (
         <Form>

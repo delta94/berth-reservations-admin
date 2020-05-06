@@ -106,6 +106,16 @@
   "home": {
     "title": "Venepaikka admin interface"
   },
+  "forms": {
+    "common": {
+      "edit": "Muokkaa",
+      "errors": {
+        "required": "Tämä kenttä on pakollinen.",
+        "numberType": "Kentän pitää olla numero."
+      },
+      "error": "Tapahtui virhe. Yritä uudestaan."
+    }
+  },
   "harbors": {
     "tableHeaders": {
       "mainHeader": "Satamat",
