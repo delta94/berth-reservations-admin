@@ -1,65 +1,25 @@
 import React from 'react';
 import { Formik } from 'formik';
-import { TextInput, Button } from 'hds-react';
-import { useMutation, useQuery } from '@apollo/react-hooks';
-import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
+import { useTranslation } from 'react-i18next';
+import { TFunction } from 'i18next';
+import { Button, TextInput } from 'hds-react';
 
-import { INDIVIDUAL_BERTH_QUERY } from './queries';
-import LoadingSpinner from '../../../../common/spinner/LoadingSpinner';
-import { INDIVIDUAL_BERTH } from './__generated__/INDIVIDUAL_BERTH';
-import {
-  UPDATE_BERTH,
-  UPDATE_BERTHVariables as UPDATE_BERTH_VARS,
-} from './__generated__/UPDATE_BERTH';
-import { DELETE_BERTH_MUTATION, UPDATE_BERTH_MUTATION } from './mutations';
-import Grid from '../../../../common/grid/Grid';
-import styles from './berthForm.module.scss';
-import Select from '../../../../common/select/Select';
+import { Berth, FormProps } from './types';
 import { BerthMooringType } from '../../../../@types/__generated__/globalTypes';
+import Grid from '../../../../common/grid/Grid';
+import Select from '../../../../common/select/Select';
 import Checkbox from '../../../../common/checkbox/Checkbox';
-import { Berth, BerthFormProps } from './types';
-import {
-  DELETE_BERTH,
-  DELETE_BERTHVariables as DELETE_BERTH_VARS,
-} from './__generated__/DELETE_BERTH';
-import { getBerth } from './utils/utils';
+import styles from './berthForm.module.scss';
+import { Pier } from '../../utils/utils';
 
-const BerthForm: React.FC<BerthFormProps> = ({
-  berthId,
-  onCancel,
-  onUpdate,
-  onDelete,
-  refetchQueries,
-}) => {
-  const { loading, error, data } = useQuery<INDIVIDUAL_BERTH>(
-    INDIVIDUAL_BERTH_QUERY,
-    { variables: { id: berthId } }
-  );
+interface BerthFormProps extends FormProps<Berth> {
+  onSubmitText: string;
+  pierOptions?: Pier[];
+}
 
-  const [updateBerth, { loading: isSubmitting }] = useMutation<
-    UPDATE_BERTH,
-    UPDATE_BERTH_VARS
-  >(UPDATE_BERTH_MUTATION, {
-    refetchQueries: [
-      ...(refetchQueries ? refetchQueries : []),
-      { query: INDIVIDUAL_BERTH_QUERY, variables: { id: berthId } },
-    ],
-  });
-
-  const [deleteBerth] = useMutation<DELETE_BERTH, DELETE_BERTH_VARS>(
-    DELETE_BERTH_MUTATION,
-    {
-      refetchQueries: refetchQueries ? refetchQueries : [],
-    }
-  );
-
-  const { t } = useTranslation();
-
-  if (loading) return <LoadingSpinner isLoading={loading} />;
-  if (error) return <div>{t('forms.common.error')}</div>;
-
-  const berthSchema = Yup.object().shape({
+const getBerthValidationSchema = (t: TFunction) =>
+  Yup.object().shape({
     pier: Yup.string().required(t('forms.common.errors.required')),
     number: Yup.number()
       .typeError(t('forms.common.errors.numberType'))
@@ -76,43 +36,57 @@ const BerthForm: React.FC<BerthFormProps> = ({
     mooringType: Yup.string().required(t('forms.common.errors.required')),
   });
 
-  const initialValues: Berth = getBerth(data);
+const BerthForm: React.FC<BerthFormProps> = ({
+  initialValues,
+  isSubmitting,
+  onSubmit,
+  onCancel,
+  onDelete,
+  onSubmitText,
+  pierOptions,
+}) => {
+  const { t } = useTranslation();
+  const validationSchema = getBerthValidationSchema(t);
 
   return (
     <Formik
-      initialValues={initialValues}
-      validationSchema={berthSchema}
-      onSubmit={values => {
-        const { width, length, mooringType, comment, isActive } = values;
-        updateBerth({
-          variables: {
-            input: {
-              id: berthId,
-              width,
-              length,
-              mooringType,
-              comment,
-              isActive,
-            },
-          },
-        }).then(() => onUpdate && onUpdate(values));
-      }}
+      initialValues={initialValues ?? {}}
+      validationSchema={validationSchema}
+      onSubmit={values => onSubmit?.(values)}
+      validateOnBlur={false}
+      validateOnChange={false}
     >
-      {({ values, errors, handleChange, handleSubmit, setFieldValue }) => (
+      {({ values, errors, handleChange, handleSubmit }) => (
         <form onSubmit={handleSubmit} className={styles.form}>
           <Grid colsCount={3} className={styles.grid}>
-            <TextInput
-              id="pier"
-              readOnly
-              value={values.pier}
-              labelText={t('forms.berth.pier')}
-              invalid={!!errors.pier}
-              invalidText={errors.pier}
-            />
+            {!pierOptions && (
+              <TextInput
+                id="pier"
+                readOnly
+                value={values.pier}
+                labelText={t('forms.berth.pier')}
+                invalid={!!errors.pier}
+                invalidText={errors.pier}
+              />
+            )}
+            {pierOptions && (
+              <Select
+                id="pierId"
+                required
+                value={values.pierId}
+                options={pierOptions.map(pier => {
+                  return {
+                    label: pier.identifier,
+                    value: pier.id,
+                  };
+                })}
+                onChange={handleChange}
+                labelText={t('forms.berth.pier')}
+              />
+            )}
             <TextInput
               id="number"
               type="number"
-              readOnly
               value={String(values.number)}
               labelText={t('forms.berth.number')}
               invalid={!!errors.number}
@@ -158,7 +132,7 @@ const BerthForm: React.FC<BerthFormProps> = ({
             labelText={t('forms.berth.mooringType')}
             options={Object.keys(BerthMooringType).map(mooringType => {
               return {
-                label: t(`common.mooringTypes.${mooringType}`),
+                label: t([`common.mooringTypes.${mooringType}`, mooringType]),
                 value: mooringType,
               };
             })}
@@ -186,19 +160,17 @@ const BerthForm: React.FC<BerthFormProps> = ({
             >
               {t('forms.common.cancel')}
             </Button>
-            <Button
-              disabled={isSubmitting}
-              color={'secondary'}
-              onClick={() => {
-                deleteBerth({ variables: { input: { id: berthId } } }).then(
-                  () => onDelete && onDelete(values)
-                );
-              }}
-            >
-              {t('forms.common.delete')}
-            </Button>
+            {onDelete && (
+              <Button
+                disabled={isSubmitting}
+                color={'secondary'}
+                onClick={() => onDelete(values)}
+              >
+                {t('forms.common.delete')}
+              </Button>
+            )}
             <Button type="submit" disabled={isSubmitting}>
-              {t('forms.common.update')}
+              {onSubmitText}
             </Button>
           </div>
         </form>

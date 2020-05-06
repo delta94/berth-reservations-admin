@@ -5,15 +5,12 @@ import { BerthMooringType } from '../../../../@types/__generated__/globalTypes';
 export interface FormProps<T> {
   onCancel?(): void;
   onDelete?(deleted: T): void;
-  onCreate?(created: T): void;
-  onUpdate?(updated: T): void;
+  onSubmit?(updated: T): void;
 
+  initialValues?: T;
   // Queries to refetch when mutations are run
   refetchQueries?: PureQueryOptions[];
-}
-
-export interface BerthFormProps extends FormProps<Berth> {
-  berthId: string;
+  isSubmitting?: boolean;
 }
 
 export type Berth = {

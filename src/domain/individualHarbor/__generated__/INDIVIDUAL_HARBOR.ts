@@ -47,6 +47,7 @@ export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties
 
 export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node {
   __typename: "PierNode";
+  id: string;
   properties: INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties | null;
 }
 

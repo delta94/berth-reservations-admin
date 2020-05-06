@@ -92,6 +92,7 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined): Berth[] => {
 };
 
 export type Pier = {
+  id: string;
   identifier: string;
   electricity: boolean;
   wasteCollection: boolean;
@@ -126,6 +127,7 @@ export const getPiers = (data: INDIVIDUAL_HARBOR | undefined): Pier[] => {
     return [
       ...acc,
       {
+        id: pierEdge.node.id,
         identifier,
         electricity,
         wasteCollection,

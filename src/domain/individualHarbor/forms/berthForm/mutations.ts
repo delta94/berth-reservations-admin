@@ -15,3 +15,11 @@ export const DELETE_BERTH_MUTATION = gql`
     }
   }
 `;
+
+export const CREATE_BERTH_MUTATION = gql`
+  mutation CREATE_BERTH($input: CreateBerthMutationInput!) {
+    createBerth(input: $input) {
+      clientMutationId
+    }
+  }
+`;

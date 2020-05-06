@@ -6,8 +6,8 @@ import styles from './modal.module.scss';
 import Section from '../section/Section';
 
 interface ModalProps {
-  isOpen: boolean;
-  label: string;
+  isOpen?: boolean;
+  label?: string;
   toggleModal?: (value: boolean) => void;
   setFormIsFilling?: (value: boolean) => void;
   showHeading?: boolean;
@@ -15,7 +15,7 @@ interface ModalProps {
 }
 
 const Modal: React.FunctionComponent<ModalProps> = ({
-  isOpen,
+  isOpen = true,
   label,
   children,
   toggleModal,

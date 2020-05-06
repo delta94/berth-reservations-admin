@@ -1,14 +1,14 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { MockedProvider } from '@apollo/react-testing';
-import BerthForm from './BerthForm';
-import { INDIVIDUAL_BERTH_QUERY } from './queries';
-import { UPDATE_BERTH_MUTATION } from './mutations';
-import LoadingSpinner from '../../../../common/spinner/LoadingSpinner';
+import BerthEditForm from '../BerthForm';
+import { INDIVIDUAL_BERTH_QUERY } from '../queries';
+import { UPDATE_BERTH_MUTATION } from '../mutations';
+import LoadingSpinner from '../../../../../common/spinner/LoadingSpinner';
 import waitForExpect from 'wait-for-expect';
 import { act } from 'react-dom/test-utils';
 
-describe('domain/individualHarbor/BerthForm', () => {
+describe('domain/individualHarbor/BerthEditForm', () => {
   const queryMock = {
     request: { query: INDIVIDUAL_BERTH_QUERY, variables: { id: 'a' } },
     result: {
@@ -49,7 +49,7 @@ describe('domain/individualHarbor/BerthForm', () => {
   it('initially renders loading spinner', () => {
     const wrapper = mount(
       <MockedProvider mocks={[queryMock]}>
-        <BerthForm berthId="a" />
+        <BerthEditForm berthId="a" />
       </MockedProvider>
     );
     expect(wrapper.contains(<LoadingSpinner isLoading={true} />)).toBeTruthy();
@@ -59,7 +59,7 @@ describe('domain/individualHarbor/BerthForm', () => {
   it('renders content after loading', async () => {
     const wrapper = mount(
       <MockedProvider mocks={[queryMock]}>
-        <BerthForm berthId="a" />
+        <BerthEditForm berthId="a" />
       </MockedProvider>
     );
     await waitForContent(wrapper);
@@ -94,7 +94,7 @@ describe('domain/individualHarbor/BerthForm', () => {
       // We need queryMock twice here, because MockedProvider requires an
       // instance for each query made and the original query is refetched after updates.
       <MockedProvider mocks={[queryMock, queryMock, updateMock]}>
-        <BerthForm berthId="a" onUpdate={onUpdateMock} />
+        <BerthEditForm berthId="a" onSubmit={onUpdateMock} />
       </MockedProvider>
     );
     await waitForContent(wrapper);
