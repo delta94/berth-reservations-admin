@@ -46,7 +46,7 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
   const { t, i18n } = useTranslation();
 
   const expiredLeasesElements = leases
-    .filter(lease => lease.status === LeaseStatus.PAID && !lease.isActive)
+    .filter(lease => !lease.isActive)
     .map(({ startDate, endDate, customer }, i) => {
       return (
         <div key={i}>
