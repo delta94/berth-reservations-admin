@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { MockedProvider } from '@apollo/react-testing';
-import BerthEditForm from '../BerthForm';
+import BerthEditForm from '../BerthEditForm';
 import { INDIVIDUAL_BERTH_QUERY } from '../queries';
 import { UPDATE_BERTH_MUTATION } from '../mutations';
 import LoadingSpinner from '../../../../../common/spinner/LoadingSpinner';

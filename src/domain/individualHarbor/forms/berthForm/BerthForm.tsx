@@ -14,7 +14,7 @@ import styles from './berthForm.module.scss';
 import { Pier } from '../../utils/utils';
 
 interface BerthFormProps extends FormProps<Berth> {
-  onSubmitText: string;
+  onSubmitText?: string;
   pierOptions?: Pier[];
 }
 

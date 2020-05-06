@@ -10,6 +10,7 @@ import { CREATE_BERTH_MUTATION } from './mutations';
 import { Berth, FormProps } from './types';
 import BerthForm from './BerthForm';
 import { Pier } from '../../utils/utils';
+import { CreateBerthMutationInput } from '../../../../@types/__generated__/globalTypes';
 
 interface BerthCreateFormProps
   extends Omit<FormProps<Berth>, 'initialValues' | 'onDelete'> {
@@ -35,12 +36,30 @@ const BerthCreateForm: React.FC<BerthCreateFormProps> = ({
       initialValues={{}}
       onCancel={onCancel}
       onSubmitText={t('forms.common.create')}
-      onSubmit={values => onSubmit?.(values)}
-      /*{
-        createBerth({ variables: { input: { ...values } } }).then(() =>
-          onSubmit?.(values)
-        );
-      }}*/
+      onSubmit={values => {
+        const {
+          pierId,
+          number,
+          width,
+          length,
+          mooringType,
+          comment,
+          isActive,
+        } = values;
+        createBerth({
+          variables: {
+            input: {
+              pierId,
+              number,
+              width,
+              length,
+              mooringType,
+              comment,
+              isActive,
+            } as CreateBerthMutationInput,
+          },
+        }).then(() => onSubmit?.(values));
+      }}
       isSubmitting={isSubmitting}
       pierOptions={pierOptions}
     />
