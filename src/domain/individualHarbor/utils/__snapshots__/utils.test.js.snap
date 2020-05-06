@@ -4,6 +4,7 @@ exports[`utils getBerths should return an array of Berth objects 1`] = `
 Array [
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "10",
     "leases": Array [],
     "length": 600,
@@ -13,6 +14,7 @@ Array [
   },
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "10",
     "leases": Array [],
     "length": 800,
@@ -22,6 +24,7 @@ Array [
   },
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "10",
     "leases": Array [],
     "length": 600,
@@ -31,6 +34,7 @@ Array [
   },
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "10",
     "leases": Array [],
     "length": 800,
@@ -40,6 +44,7 @@ Array [
   },
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "19 b",
     "leases": Array [],
     "length": 900,
@@ -49,6 +54,7 @@ Array [
   },
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "19 b",
     "leases": Array [],
     "length": 900,
@@ -58,6 +64,7 @@ Array [
   },
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "19 b",
     "leases": Array [],
     "length": 900,
@@ -67,6 +74,7 @@ Array [
   },
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "19 b",
     "leases": Array [],
     "length": 900,
@@ -76,6 +84,7 @@ Array [
   },
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "19 b",
     "leases": Array [],
     "length": 900,
@@ -85,6 +94,7 @@ Array [
   },
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "19 b",
     "leases": Array [],
     "length": 900,
@@ -94,6 +104,7 @@ Array [
   },
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "19 b",
     "leases": Array [],
     "length": 900,
@@ -103,6 +114,7 @@ Array [
   },
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "19 b",
     "leases": Array [],
     "length": 900,
@@ -112,6 +124,7 @@ Array [
   },
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "19 b",
     "leases": Array [],
     "length": 900,
@@ -121,6 +134,7 @@ Array [
   },
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "19 b",
     "leases": Array [],
     "length": 900,
@@ -130,6 +144,7 @@ Array [
   },
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "19 b",
     "leases": Array [],
     "length": 900,
@@ -139,6 +154,7 @@ Array [
   },
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "19 b",
     "leases": Array [],
     "length": 900,
@@ -148,6 +164,7 @@ Array [
   },
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "19 b",
     "leases": Array [],
     "length": 900,
@@ -157,6 +174,7 @@ Array [
   },
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "19 b",
     "leases": Array [],
     "length": 900,
@@ -166,6 +184,7 @@ Array [
   },
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "19 b",
     "leases": Array [],
     "length": 900,
@@ -175,6 +194,7 @@ Array [
   },
   Object {
     "comment": undefined,
+    "depth": undefined,
     "identifier": "19 b",
     "leases": Array [],
     "length": 900,
