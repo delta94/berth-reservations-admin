@@ -9,10 +9,8 @@ export const isLargeBoat = (boat: LargeBoat | Boat): boat is LargeBoat =>
 export const getCertificate = (
   certificates: BoatCert[],
   certificateType: BoatCertificateType
-): BoatCert => {
-  return certificates.filter(
-    cert => cert.certificateType === certificateType
-  )[0];
+): BoatCert | undefined => {
+  return certificates.find(cert => cert.certificateType === certificateType);
 };
 
 export const getFilename = (url: string | null): string | undefined => {
