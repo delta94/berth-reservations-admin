@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import classNames from 'classnames';
 
 import styles from './modal.module.scss';
-import Section from '../section/Section';
+import Text from '../../common/text/Text';
 
 interface ModalProps {
   isOpen: boolean;
@@ -27,15 +27,13 @@ const Modal: React.FunctionComponent<ModalProps> = ({
       isOpen={isOpen}
       onRequestClose={onClose}
       contentLabel={label}
-      className={styles.modal}
+      className={classNames(styles.modal, className)}
       overlayClassName={styles.overlay}
     >
-      <Section
-        title={label}
-        className={classNames(styles.modalContent, className)}
-      >
-        {children}
-      </Section>
+      <Text as="h4" color="brand">
+        {label}
+      </Text>
+      {children}
     </ReactModal>
   );
 };
