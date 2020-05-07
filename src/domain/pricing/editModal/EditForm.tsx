@@ -58,11 +58,11 @@ const EditForm: FunctionComponent<EditPricingFormProps> = ({
       onSubmit={onSubmit}
       validationSchema={validationSchema}
     >
-      {({ isSubmitting }: { isSubmitting: boolean }) => (
+      {({ isSubmitting }) => (
         <Form>
           <EditFormFields formType={formType} />
           <div className={styles.buttonRow}>
-            <Button color="supplementary" onClick={() => closeModal()}>
+            <Button color="supplementary" onClick={closeModal}>
               {t('common.cancel')}
             </Button>
             <Button type="submit" disabled={isSubmitting}>
