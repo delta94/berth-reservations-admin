@@ -21,7 +21,6 @@ const IndividualHarborTableTools: React.FC<Props> = ({
     <div className={styles.container}>
       <div className={styles.buttons}>
         <Button
-          disabled
           onClick={onAddPier}
           color="supplementary"
           className={styles.button}

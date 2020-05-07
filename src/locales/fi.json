@@ -135,6 +135,18 @@
       "comment": "Huomiot",
       "isActive": "Paikka on käytössä",
       "delete": "Poista venepaikka"
+    },
+    "pier": {
+      "title": "Laituri",
+      "identifier": "Laituri",
+      "services": "Palvelut",
+      "boatTypes": "Laiturin venetyypit",
+      "wasteCollection": "Jätehuolto",
+      "gate": "Portti",
+      "electricity": "Sähkö",
+      "lighting": "Valaistus",
+      "water": "Vesi",
+      "personalElectricity": "Erillinen sähkösopimus mahdollinen"
     }
   },
   "harbors": {
