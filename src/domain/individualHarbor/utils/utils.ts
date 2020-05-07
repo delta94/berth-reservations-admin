@@ -88,22 +88,8 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined): Berth[] => {
 
         const leases =
           berthEdge?.node?.leases?.edges.reduce<Lease[]>((acc, leaseEdge) => {
-            if (!leaseEdge?.node?.application?.customer) return acc;
-
-            return [
-              ...acc,
-              {
-                startDate: leaseEdge.node.startDate,
-                endDate: leaseEdge.node.endDate,
-                status: leaseEdge.node.status,
-                isActive: leaseEdge.node.isActive,
-                customer: {
-                  id: leaseEdge.node.application.customer.id,
-                  firstName: leaseEdge.node.application.customer.firstName,
-                  lastName: leaseEdge.node.application.customer.lastName,
-                },
-              },
-            ];
+            if (!leaseEdge?.node) return acc;
+            return [...acc, { ...leaseEdge.node }];
           }, []) ?? [];
 
         return [

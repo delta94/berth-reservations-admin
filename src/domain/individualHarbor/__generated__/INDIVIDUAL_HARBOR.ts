@@ -14,21 +14,16 @@ export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties
   name: string | null;
 }
 
-export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node_application_customer {
+export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node_customer {
   __typename: "ProfileNode";
   id: string;
   firstName: string;
   lastName: string;
 }
 
-export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node_application {
-  __typename: "BerthApplicationNode";
-  customer: INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node_application_customer | null;
-}
-
 export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node {
   __typename: "BerthLeaseNode";
-  application: INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node_application | null;
+  customer: INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node_customer;
   status: LeaseStatus;
   startDate: any;
   endDate: any;

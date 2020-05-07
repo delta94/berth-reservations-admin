@@ -40,12 +40,10 @@ export const INDIVIDUAL_HARBOR_QUERY = gql`
                       leases {
                         edges {
                           node {
-                            application {
-                              customer {
-                                id
-                                firstName
-                                lastName
-                              }
+                            customer {
+                              id
+                              firstName
+                              lastName
                             }
                             status
                             startDate
