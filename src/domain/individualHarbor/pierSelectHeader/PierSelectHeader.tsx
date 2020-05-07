@@ -40,7 +40,9 @@ const PierSelectHeader: React.FC<PierSelectHeaderProps> = ({
                 selectedPier && selectedPier.identifier === pier.identifier,
             })}
           >
-            {pier.identifier}
+            {`${t('individualHarbor.tableHeaders.identifier')} ${
+              pier.identifier
+            }`}
           </button>
         ))}
       </div>
