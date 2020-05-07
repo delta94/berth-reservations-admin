@@ -37,28 +37,28 @@ describe('WinterStorageFields', () => {
   describe('Service field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('select[name="area"]');
-      expect(input.props().value).toEqual('Kaisaniemi');
+      expect(input.prop('value')).toEqual('Kaisaniemi');
     });
   });
 
   describe('Private customer field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('input#privateCustomer');
-      expect(input.props().value).toEqual(8.5);
+      expect(input.prop('value')).toEqual(8.5);
     });
   });
 
   describe('Company (customer) field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('input#company');
-      expect(input.props().value).toEqual(17);
+      expect(input.prop('value')).toEqual(17);
     });
   });
 
   describe('Period field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('select[name="period"]');
-      expect(input.props().value).toEqual('season');
+      expect(input.prop('value')).toEqual('season');
     });
   });
 });

@@ -37,28 +37,28 @@ describe('AdditionalServicesFields', () => {
   describe('Service field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('select[name="service"]');
-      expect(input.props().value).toEqual('trawlerSummerStorage');
+      expect(input.prop('value')).toEqual('trawlerSummerStorage');
     });
   });
 
   describe('Price field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('input#price');
-      expect(input.props().value).toEqual(25);
+      expect(input.prop('value')).toEqual(25);
     });
   });
 
   describe('Tax field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('select[name="tax"]');
-      expect(input.props().value).toEqual(24);
+      expect(input.prop('value')).toEqual(24);
     });
   });
 
   describe('Period field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('select[name="period"]');
-      expect(input.props().value).toEqual('season');
+      expect(input.prop('value')).toEqual('season');
     });
   });
 });

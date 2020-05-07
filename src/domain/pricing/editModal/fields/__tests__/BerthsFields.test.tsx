@@ -37,28 +37,28 @@ describe('BerthsFields', () => {
   describe('Width field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('select[name="width"]');
-      expect(input.props().value).toEqual(2);
+      expect(input.prop('value')).toEqual(2);
     });
   });
 
   describe('Private customer field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('input#privateCustomer');
-      expect(input.props().value).toEqual(116);
+      expect(input.prop('value')).toEqual(116);
     });
   });
 
   describe('Company (customer) field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('input#company');
-      expect(input.props().value).toEqual(236);
+      expect(input.prop('value')).toEqual(236);
     });
   });
 
   describe('Period field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('select[name="period"]');
-      expect(input.props().value).toEqual('season');
+      expect(input.prop('value')).toEqual('season');
     });
   });
 });
