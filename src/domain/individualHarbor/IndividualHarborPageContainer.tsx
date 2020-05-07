@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'hds-react/lib';
 
 import Table, { Column } from '../../common/table/Table';
 import { INDIVIDUAL_HARBOR_QUERY } from './queries';
@@ -18,7 +17,6 @@ import HarborProperties from './harborProperties/HarborProperties';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { formatDimension } from '../../common/utils/format';
 import PierSelectHeader from './pierSelectHeader/PierSelectHeader';
-import GlobalSearchTableTools from '../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';
 import Text from '../../common/text/Text';
 import Modal from '../../common/modal/Modal';
 import BerthEditForm from './forms/berthForm/BerthEditForm';
