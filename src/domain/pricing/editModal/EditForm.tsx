@@ -2,7 +2,6 @@ import React, { FunctionComponent } from 'react';
 import { Form, Formik } from 'formik';
 import { Button } from 'hds-react/lib';
 import { useTranslation } from 'react-i18next';
-import { TFunction } from 'i18next';
 
 import styles from './editForm.module.scss';
 import {
@@ -11,11 +10,23 @@ import {
   HarborService,
   WinterStoragePrice,
 } from '../PricingPage';
-import EditFormFields, { PRICING_TYPES } from './fields/EditFormFields';
-import { getAdditionalServicesValidationSchema } from './fields/AdditionalServicesFields';
-import { getBerthsValidationSchema } from './fields/BerthsFields';
-import { getWinterStorageValidationSchema } from './fields/WinterStorageFields';
-import { getHarborServicesValidationSchema } from './fields/HarborServicesFields';
+import AdditionalServicesFields, {
+  getAdditionalServicesValidationSchema,
+} from './fields/AdditionalServicesFields';
+import BerthsFields, { getBerthsValidationSchema } from './fields/BerthsFields';
+import WinterStorageFields, {
+  getWinterStorageValidationSchema,
+} from './fields/WinterStorageFields';
+import HarborServicesFields, {
+  getHarborServicesValidationSchema,
+} from './fields/HarborServicesFields';
+
+export enum EDIT_FORM_TYPE {
+  BERTHS = 'BERTHS',
+  HARBOR_SERVICES = 'HARBOR_SERVICES',
+  WINTER_STORAGE = 'WINTER_STORAGE',
+  ADDITIONAL_SERVICES = 'ADDITIONAL_SERVICES',
+}
 
 export interface EditPricingFormProps {
   onSubmit: (
@@ -27,19 +38,31 @@ export interface EditPricingFormProps {
     | WinterStoragePrice
     | HarborService
     | AdditionalService;
-  formType: PRICING_TYPES;
+  formType: EDIT_FORM_TYPE;
 }
 
-const getEditFormValidationSchema = (formType: PRICING_TYPES, t: TFunction) => {
+const getForm = (formType: EDIT_FORM_TYPE) => {
   switch (formType) {
-    case PRICING_TYPES.BERTHS:
-      return getBerthsValidationSchema(t);
-    case PRICING_TYPES.WINTER_STORAGE:
-      return getWinterStorageValidationSchema(t);
-    case PRICING_TYPES.HARBOR_SERVICES:
-      return getHarborServicesValidationSchema(t);
-    case PRICING_TYPES.ADDITIONAL_SERVICES:
-      return getAdditionalServicesValidationSchema(t);
+    case EDIT_FORM_TYPE.BERTHS:
+      return {
+        getValidationSchema: getBerthsValidationSchema,
+        component: <BerthsFields />,
+      };
+    case EDIT_FORM_TYPE.WINTER_STORAGE:
+      return {
+        getValidationSchema: getWinterStorageValidationSchema,
+        component: <WinterStorageFields />,
+      };
+    case EDIT_FORM_TYPE.HARBOR_SERVICES:
+      return {
+        getValidationSchema: getHarborServicesValidationSchema,
+        component: <HarborServicesFields />,
+      };
+    case EDIT_FORM_TYPE.ADDITIONAL_SERVICES:
+      return {
+        getValidationSchema: getAdditionalServicesValidationSchema,
+        component: <AdditionalServicesFields />,
+      };
   }
 };
 
@@ -50,17 +73,17 @@ const EditForm: FunctionComponent<EditPricingFormProps> = ({
   initialValues,
 }) => {
   const { t } = useTranslation();
-  const validationSchema = getEditFormValidationSchema(formType, t);
+  const form = getForm(formType);
 
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={onSubmit}
-      validationSchema={validationSchema}
+      validationSchema={form.getValidationSchema(t)}
     >
       {({ isSubmitting }) => (
         <Form>
-          <EditFormFields formType={formType} />
+          {form.component}
           <div className={styles.buttonRow}>
             <Button color="supplementary" onClick={closeModal}>
               {t('common.cancel')}

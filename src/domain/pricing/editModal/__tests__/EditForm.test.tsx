@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { Form } from 'formik';
 import { act } from 'react-dom/test-utils';
 
-import EditForm, { EditPricingFormProps } from '../EditForm';
+import EditForm, { EditPricingFormProps, EDIT_FORM_TYPE } from '../EditForm';
 import {
   AdditionalService,
   BerthPrice,
@@ -14,7 +14,6 @@ import BerthsFields from '../fields/BerthsFields';
 import WinterStorageFields from '../fields/WinterStorageFields';
 import HarborServicesFields from '../fields/HarborServicesFields';
 import AdditionalServicesFields from '../fields/AdditionalServicesFields';
-import { PRICING_TYPES } from '../fields/EditFormFields';
 
 const berthsData: BerthPrice = {
   id: '1',
@@ -63,26 +62,26 @@ describe('EditForm', () => {
     string,
     FunctionComponent,
     BerthPrice | WinterStoragePrice | HarborService | AdditionalService,
-    PRICING_TYPES
+    EDIT_FORM_TYPE
   ][] = [
-    ['berths', BerthsFields, berthsData, PRICING_TYPES.BERTHS],
+    ['berths', BerthsFields, berthsData, EDIT_FORM_TYPE.BERTHS],
     [
       'winter storage',
       WinterStorageFields,
       winterStorageData,
-      PRICING_TYPES.WINTER_STORAGE,
+      EDIT_FORM_TYPE.WINTER_STORAGE,
     ],
     [
       'harbor services',
       HarborServicesFields,
       harborServicesData,
-      PRICING_TYPES.HARBOR_SERVICES,
+      EDIT_FORM_TYPE.HARBOR_SERVICES,
     ],
     [
       'additional services',
       AdditionalServicesFields,
       additionalServicesData,
-      PRICING_TYPES.ADDITIONAL_SERVICES,
+      EDIT_FORM_TYPE.ADDITIONAL_SERVICES,
     ],
   ];
 

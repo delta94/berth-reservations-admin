@@ -14,7 +14,7 @@ import {
   formatPercentage,
   formatPrice,
 } from '../../common/utils/format';
-import { PRICING_TYPES } from './editModal/fields/EditFormFields';
+import { EDIT_FORM_TYPE } from './editModal/EditForm';
 
 export interface BerthPrice {
   id: string;
@@ -54,7 +54,7 @@ export interface PricingPageProps {
   harborServicesData: HarborService[];
   additionalServicesData: AdditionalService[];
   openModal: (
-    formType: PRICING_TYPES,
+    formType: EDIT_FORM_TYPE,
     initialValues:
       | BerthPrice
       | WinterStoragePrice
@@ -102,7 +102,7 @@ const PricingPage: React.SFC<PricingPageProps> = ({
         return (
           <button
             onClick={() =>
-              openModal(PRICING_TYPES.BERTHS, row.values as BerthPrice)
+              openModal(EDIT_FORM_TYPE.BERTHS, row.values as BerthPrice)
             }
           >
             <Text color="brand">{t('common.edit')}</Text>
@@ -141,7 +141,7 @@ const PricingPage: React.SFC<PricingPageProps> = ({
         <button
           onClick={() =>
             openModal(
-              PRICING_TYPES.WINTER_STORAGE,
+              EDIT_FORM_TYPE.WINTER_STORAGE,
               row.values as WinterStoragePrice
             )
           }
@@ -180,7 +180,7 @@ const PricingPage: React.SFC<PricingPageProps> = ({
         <button
           onClick={() =>
             openModal(
-              PRICING_TYPES.HARBOR_SERVICES,
+              EDIT_FORM_TYPE.HARBOR_SERVICES,
               row.values as HarborService
             )
           }
@@ -225,7 +225,7 @@ const PricingPage: React.SFC<PricingPageProps> = ({
         <button
           onClick={() =>
             openModal(
-              PRICING_TYPES.ADDITIONAL_SERVICES,
+              EDIT_FORM_TYPE.ADDITIONAL_SERVICES,
               row.values as AdditionalService
             )
           }

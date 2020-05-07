@@ -2,13 +2,12 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import EditModal, { EditPricingModalProps } from '../EditModal';
-import EditForm from '../EditForm';
-import { PRICING_TYPES } from '../fields/EditFormFields';
+import EditForm, { EDIT_FORM_TYPE } from '../EditForm';
 
 describe('EditModal', () => {
   const mockProps: EditPricingModalProps = {
     closeModal: jest.fn(),
-    formType: PRICING_TYPES.BERTHS,
+    formType: EDIT_FORM_TYPE.BERTHS,
     initialValues: {
       id: '1',
       width: 2,

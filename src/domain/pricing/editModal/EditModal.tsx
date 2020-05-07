@@ -8,12 +8,11 @@ import {
   HarborService,
   WinterStoragePrice,
 } from '../PricingPage';
-import EditForm from './EditForm';
-import { PRICING_TYPES } from './fields/EditFormFields';
+import EditForm, { EDIT_FORM_TYPE } from './EditForm';
 
 export interface EditPricingModalProps {
   closeModal: () => void;
-  formType: PRICING_TYPES;
+  formType: EDIT_FORM_TYPE;
   initialValues:
     | BerthPrice
     | WinterStoragePrice
