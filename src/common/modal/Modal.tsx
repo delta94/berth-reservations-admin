@@ -10,6 +10,7 @@ interface ModalProps {
   label: string;
   toggleModal: (value: boolean) => void;
   className?: string;
+  shouldCloseOnOverlayClick?: boolean;
 }
 
 const Modal: React.FunctionComponent<ModalProps> = ({
@@ -18,6 +19,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
   children,
   toggleModal,
   className,
+  shouldCloseOnOverlayClick = true,
 }) => {
   const onClose = () => {
     toggleModal(false);
@@ -30,6 +32,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
       contentLabel={label}
       className={classNames(styles.modal, className)}
       overlayClassName={styles.overlay}
+      shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
     >
       <Text as="h4" color="brand">
         {label}

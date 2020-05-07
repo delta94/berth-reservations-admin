@@ -39,6 +39,7 @@ const EditModal: FunctionComponent<EditPricingModalProps> = ({
       isOpen={isOpen}
       label={t('pricing.editModalHeading').toUpperCase()}
       toggleModal={closeModal}
+      shouldCloseOnOverlayClick={false}
     >
       <EditForm
         closeModal={closeModal}
