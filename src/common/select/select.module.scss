@@ -42,8 +42,9 @@
 }
 
 .labelText {
-  display: inline-block;
-  margin-bottom: units(0.25);
+  display: block;
+  margin-bottom: 0.2em;
   font-size: font-size(14);
   font-weight: bold;
+  line-height: var(--hds-text-sm-line-height);
 }
