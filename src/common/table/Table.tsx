@@ -48,6 +48,7 @@ type TableToolsFn<D extends object> = (
 type Props<D extends object> = {
   className?: string;
   data: D[];
+  loading?: boolean;
   canSelectRows?: boolean;
   canSelectOneRow?: boolean;
   styleMainHeader?: boolean;
@@ -81,6 +82,7 @@ const Table = <D extends object>({
   className,
   columns,
   data: tableData,
+  loading,
   canSelectRows,
   canSelectOneRow,
   styleMainHeader = true,
@@ -270,7 +272,11 @@ const Table = <D extends object>({
                 [styles.expander]: cell.column.id === EXPANDER,
               })}
             >
-              {cell.render('Cell')}
+              {loading ? (
+                <div className={styles.placeholder} />
+              ) : (
+                cell.render('Cell')
+              )}
             </div>
           ))}
         </div>
@@ -281,15 +287,18 @@ const Table = <D extends object>({
     );
   };
 
-  const renderEmptyBody = () => (
-    <div className={styles.rowWrapper} role="row">
-      <div className={styles.tableCell}>
-        {state.globalFilter
-          ? t('common.table.noMatches')
-          : renderEmptyStateRow?.()}
+  const renderEmptyBody = () => {
+    let emptyBodyContent: React.ReactNode = renderEmptyStateRow?.();
+
+    if (state.globalFilter) emptyBodyContent = t('common.table.noMatches');
+    if (loading) emptyBodyContent = <div className={styles.placeholder} />;
+
+    return (
+      <div className={styles.rowWrapper} role="row">
+        <div className={styles.tableCell}>{emptyBodyContent}</div>
       </div>
-    </div>
-  );
+    );
+  };
 
   const renderTableTools = (fn?: TableToolsFn<D>) => {
     return fn?.(
