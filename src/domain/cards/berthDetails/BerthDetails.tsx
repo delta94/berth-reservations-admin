@@ -8,7 +8,6 @@ import InternalLink from '../../../common/internalLink/InternalLink';
 import Section from '../../../common/section/Section';
 import { formatDate } from '../../../common/utils/format';
 import styles from './berthDetails.module.scss';
-import { LeaseStatus } from '../../../@types/__generated__/globalTypes';
 
 interface Lease {
   customer: {
@@ -61,12 +60,15 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
       );
     });
 
+  const isDefined = (
+    property: boolean | null | undefined
+  ): property is boolean => property !== null && property !== undefined;
   const getColor = (property: boolean) => (property ? 'standard' : 'secondary');
 
   return (
     <div className={styles.berthDetails}>
       <div className={styles.berthProperties}>
-        {gate && (
+        {isDefined(gate) && (
           <div className={styles.property}>
             <Icon shape="IconFence" color={getColor(gate)} outlined />
             <Text className={styles.propertyLabel} color={getColor(gate)}>
@@ -74,7 +76,7 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
             </Text>
           </div>
         )}
-        {electricity && (
+        {isDefined(electricity) && (
           <div className={styles.property}>
             <Icon shape="IconPlug" color={getColor(electricity)} outlined />
             <Text
@@ -85,7 +87,7 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
             </Text>
           </div>
         )}
-        {water && (
+        {isDefined(water) && (
           <div className={styles.property}>
             <Icon shape="IconWaterTap" color={getColor(water)} outlined />
             <Text className={styles.propertyLabel} color={getColor(water)}>
@@ -93,7 +95,7 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
             </Text>
           </div>
         )}
-        {lighting && (
+        {isDefined(lighting) && (
           <div className={styles.property}>
             <Icon shape="IconStreetLight" color={getColor(lighting)} outlined />
             <Text className={styles.propertyLabel} color={getColor(lighting)}>
@@ -101,7 +103,7 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
             </Text>
           </div>
         )}
-        {wasteCollection && (
+        {isDefined(wasteCollection) && (
           <div className={styles.property}>
             <Icon
               shape="IconTrash"
@@ -116,8 +118,7 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
             </Text>
           </div>
         )}
-
-        {isAccessible && (
+        {isDefined(isAccessible) && (
           <div className={styles.property}>
             <Icon
               shape="IconAccessibility"
