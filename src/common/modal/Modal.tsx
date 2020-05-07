@@ -24,6 +24,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
   };
   return (
     <ReactModal
+      appElement={document.getElementById('root') as HTMLElement}
       isOpen={isOpen}
       onRequestClose={onClose}
       contentLabel={label}
