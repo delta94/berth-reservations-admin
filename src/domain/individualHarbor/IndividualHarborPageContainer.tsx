@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
+import { Cell } from 'react-table';
 
 import Table, { Column } from '../../common/table/Table';
 import { INDIVIDUAL_HARBOR_QUERY } from './queries';
@@ -18,6 +19,9 @@ import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { formatDimension } from '../../common/utils/format';
 import PierSelectHeader from './pierSelectHeader/PierSelectHeader';
 import GlobalSearchTableTools from '../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';
+import BerthDetails from '../cards/berthDetails/BerthDetails';
+import { LeaseStatus } from '../../@types/__generated__/globalTypes';
+import InternalLink from '../../common/internalLink/InternalLink';
 
 const IndividualHarborPageContainer: React.SFC = () => {
   const { id } = useParams<{ id: string }>();
@@ -46,6 +50,29 @@ const IndividualHarborPageContainer: React.SFC = () => {
       filter: 'text',
     },
     {
+      Cell: ({ cell }: { cell: Cell<Berth> }) => {
+        const activeLease = cell.row.original.leases?.find(
+          lease => lease.isActive && lease.status === LeaseStatus.PAID
+        );
+        if (!activeLease) {
+          return cell.value;
+        }
+        return (
+          <InternalLink to={`/customers/${activeLease.customer.id}}`}>
+            {cell.value}
+          </InternalLink>
+        );
+      },
+      Header: t('individualHarbor.tableHeaders.customer') || '',
+      accessor: ({ leases }) => {
+        const activeLease = leases?.find(lease => lease.isActive);
+        if (!activeLease) return '';
+        return `${activeLease.customer.firstName} ${activeLease.customer.lastName}`;
+      },
+      id: 'leases',
+      filter: 'text',
+    },
+    {
       Header: t('individualHarbor.tableHeaders.length') || '',
       accessor: ({ length }) => formatDimension(length, i18n.language),
       id: 'length',
@@ -55,6 +82,12 @@ const IndividualHarborPageContainer: React.SFC = () => {
       Header: t('individualHarbor.tableHeaders.width') || '',
       accessor: ({ width }) => formatDimension(width, i18n.language),
       id: 'width',
+      filter: 'text',
+    },
+    {
+      Header: t('individualHarbor.tableHeaders.depth') || '',
+      accessor: ({ depth }) => formatDimension(depth, i18n.language),
+      id: 'depth',
       filter: 'text',
     },
     {
@@ -108,6 +141,12 @@ const IndividualHarborPageContainer: React.SFC = () => {
             onPierSelect={pier => {
               props.setFilter('identifier', pier?.identifier);
             }}
+          />
+        )}
+        renderSubComponent={row => (
+          <BerthDetails
+            leases={row.original.leases ?? []}
+            comment={row.original.comment}
           />
         )}
       />

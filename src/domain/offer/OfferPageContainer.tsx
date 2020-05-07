@@ -19,7 +19,7 @@ import {
 } from './__generated__/CREATE_LEASE';
 import TableTools from './tableTools/TableTools';
 import { BERTH_APPLICATIONS_QUERY } from '../applications/queries';
-import BerthDetails from './berthDetails/BerthDetails';
+import BerthDetails from '../cards/berthDetails/BerthDetails';
 import TableFilters from '../../common/tableFilters/TableFilters';
 
 type ColumnType = Column<BerthData> & { accessor: keyof BerthData };
