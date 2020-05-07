@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
 import * as Yup from 'yup';
 
-import styles from '../editModal.module.scss';
+import styles from '../editForm.module.scss';
 import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
 import FormTypeTitle from '../FormTypeTitle';
@@ -38,10 +38,12 @@ const WinterStorageFields: FunctionComponent = () => {
 
   return (
     <>
-      <FormTypeTitle
-        label={t('common.terminology.dataEntry')}
-        value={t('pricing.winterStorage.title')}
-      />
+      <div className={styles.row}>
+        <FormTypeTitle
+          label={t('common.terminology.dataEntry')}
+          value={t('pricing.winterStorage.title')}
+        />
+      </div>
       <hr />
       <Grid colsCount={2} className={styles.row}>
         <Field

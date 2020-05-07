@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-import styles from './editModal.module.scss';
+import styles from './formTypeTitle.module.scss';
 
 export interface FormTypeFieldProps {
   label: string;
@@ -11,11 +11,9 @@ const FormTypeTitle: FunctionComponent<FormTypeFieldProps> = ({
   label,
   value,
 }) => (
-  <div className={styles.row}>
-    <div className={styles.formTitle}>
-      <div className={styles.formTitleLabel}>{label}</div>
-      <div className={styles.formTitleValue}>{value}</div>
-    </div>
+  <div>
+    <div className={styles.formTypeTitleLabel}>{label}</div>
+    <div className={styles.formTypeTitleValue}>{value}</div>
   </div>
 );
 

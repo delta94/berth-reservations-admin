@@ -5,7 +5,7 @@ import { Field, useFormikContext } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
 
-import styles from '../editModal.module.scss';
+import styles from '../editForm.module.scss';
 import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
 import { formatPercentage } from '../../../../common/utils/format';
@@ -40,10 +40,12 @@ const AdditionalServicesFields: FunctionComponent = () => {
 
   return (
     <>
-      <FormTypeTitle
-        label={t('common.terminology.dataEntry')}
-        value={t('pricing.additionalServices.title')}
-      />
+      <div className={styles.row}>
+        <FormTypeTitle
+          label={t('common.terminology.dataEntry')}
+          value={t('pricing.additionalServices.title')}
+        />
+      </div>
       <hr />
       <Grid colsCount={1} className={styles.row}>
         <Field

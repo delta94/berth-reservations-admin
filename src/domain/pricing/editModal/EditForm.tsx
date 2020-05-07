@@ -4,7 +4,7 @@ import { Button } from 'hds-react/lib';
 import { useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
 
-import styles from './editModal.module.scss';
+import styles from './editForm.module.scss';
 import {
   AdditionalService,
   BerthPrice,
@@ -65,11 +65,7 @@ const EditForm: FunctionComponent<EditPricingFormProps> = ({
             <Button color="supplementary" onClick={() => closeModal()}>
               {t('common.cancel')}
             </Button>
-            <Button
-              type="submit"
-              className={styles.alignRight}
-              disabled={isSubmitting}
-            >
+            <Button type="submit" disabled={isSubmitting}>
               {t('common.save')}
             </Button>
           </div>
