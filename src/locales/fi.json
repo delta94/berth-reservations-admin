@@ -24,6 +24,8 @@
     "previous": "Edellinen",
     "search": "Haku",
     "edit": "Muokkaa",
+    "save": "Tallenna",
+    "cancel": "Peruuta",
     "firstName": "Etunimi",
     "lastName": "Sukunimi",
     "email": "Sähköposti",
@@ -65,12 +67,28 @@
       "ONLINE_PAYMENT": "Verkkomaksu",
       "PAPER_INVOICE": "Laskutus paperisena"
     },
+    "periodTypes": {
+      "season": "Kausi",
+      "month": "1 kk",
+      "year": "Vuosi"
+    },
     "terminology": {
-      "width": "Leveys",
-      "length": "Pituus",
+      "berth": "Venepaikka",
+      "dataEntry": "Tietue",
       "depth": "Syvyys",
+      "dinghyPlace": "Jollapaikka",
       "draught": "Syväys",
-      "berth": "Venepaikka"
+      "electricity": "Sähkö",
+      "gate": "Portti",
+      "length": "Pituus",
+      "lighting": "Valaistus",
+      "mooring": "Kiinnitys",
+      "parkingPermit": "Pysäköintilupa",
+      "trawlerSummerStorage": "Trailerin kesäsäilytys",
+      "waste": "Jäte",
+      "wasteCollection": "Jätehuolto",
+      "water": "Vesi",
+      "width": "Leveys"
     },
     "notification": {
       "noData": {
@@ -89,6 +107,16 @@
   },
   "home": {
     "title": "Venepaikka admin interface"
+  },
+  "forms": {
+    "common": {
+      "edit": "Muokkaa",
+      "errors": {
+        "required": "Tämä kenttä on pakollinen.",
+        "numberType": "Kentän pitää olla numero."
+      },
+      "error": "Tapahtui virhe. Yritä uudestaan."
+    }
   },
   "harbors": {
     "tableHeaders": {
@@ -357,14 +385,14 @@
   },
   "pricing": {
     "heading": "Hinnasto",
-    "harbor": {
+    "editModalHeading": "Hinnaston muokkaus",
+    "berths": {
       "title": "Venepaikka",
       "description": "Perushinta. Hinnat sisältävät alv 24 %.",
       "width": "Leveys",
       "privateCustomer": "Yksityinen",
       "company": "Yritys",
-      "period": "Aika",
-      "edit": "Muokkaa"
+      "period": "Aika"
     },
     "winterStorage": {
       "title": "Talvisäilytyspaikka",
@@ -372,24 +400,22 @@
       "area": "Alue",
       "privateCustomer": "Yksityinen",
       "company": "Yritys",
-      "period": "Aika",
-      "edit": "Muokkaa"
+      "period": "Aika"
     },
     "harborServices": {
       "title": "Satamapalvelut",
       "description": "Hinnat sisältävät alv 24 %.",
       "service": "Palvelu",
       "price": "Hinta",
-      "period": "Aika",
-      "edit": "Muokkaa"
+      "unit": "Yksikkö",
+      "period": "Aika"
     },
-    "otherServices": {
+    "additionalServices": {
       "title": "Lisäpalvelut",
       "service": "Palvelu",
       "price": "Hinta",
       "tax": "ALV",
-      "period": "Aika",
-      "edit": "Muokkaa"
+      "period": "Aika"
     }
   },
   "customerProfile": {
