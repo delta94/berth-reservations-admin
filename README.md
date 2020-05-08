@@ -150,3 +150,21 @@ To verify deployment, open [https://city-of-helsinki.github.io/berth-reservation
 ### Staging deployment
 
 Staging deployment is handled by CI/CD pipeline for new commits on `develop` branch.
+
+## Browser tests
+
+Browser tests are written in TypeScript with [TestCafe](https://devexpress.github.io/testcafe/) framework and they are run against [test environment](https://venepaikka-admin.test.kuva.hel.ninja) in CI as Travis Cron Job (daily) with Chrome (headless mode).
+
+### How to run locally
+
+Set test user login credentials
+- Open `.env.development.local` and set `BROWSER_TESTS_UID` and `BROWSER_TESTS_PWD`
+- See the values here: TBD
+
+Running against test
+
+- `yarn browser-test`
+
+Running against local environment
+
+- `yarn browser-test:local`
