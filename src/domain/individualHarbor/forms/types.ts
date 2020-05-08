@@ -31,7 +31,6 @@ export type BoatType = {
 };
 
 export type Pier = {
-  harborId: string;
   identifier?: string;
   suitableBoatTypes?: string[];
   mooring?: boolean;

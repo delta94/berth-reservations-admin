@@ -26,10 +26,12 @@ import BerthDetails from '../cards/berthDetails/BerthDetails';
 import { LeaseStatus } from '../../@types/__generated__/globalTypes';
 import InternalLink from '../../common/internalLink/InternalLink';
 import PierCreateForm from './forms/pierForm/PierCreateForm';
+import PierEditForm from './forms/pierForm/PierEditForm';
 
 const IndividualHarborPageContainer: React.SFC = () => {
   const [berthToEdit, setBerthToEdit] = useState<string | null>(null);
   const [creatingBerth, setCreatingBerth] = useState<boolean>(false);
+  const [pierToEdit, setPierToEdit] = useState<string | null>(null);
   const [creatingPier, setCreatingPier] = useState<boolean>(false);
   const { id } = useParams<{ id: string }>();
   const { loading, error, data } = useQuery<INDIVIDUAL_HARBOR>(
@@ -142,6 +144,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
         renderMainHeader={props => (
           <PierSelectHeader
             piers={piers}
+            onEdit={pier => setPierToEdit(pier.id)}
             selectedPier={piers.find(pier =>
               props.state.filters
                 .filter(filter => filter.id === 'identifier')
@@ -194,6 +197,19 @@ const IndividualHarborPageContainer: React.SFC = () => {
           ]}
         />
       </Modal>
+      {pierToEdit && (
+        <Modal isOpen={!!pierToEdit} toggleModal={() => setPierToEdit(null)}>
+          <PierEditForm
+            pierId={pierToEdit}
+            onCancel={() => setPierToEdit(null)}
+            onDelete={() => setPierToEdit(null)}
+            onSubmit={() => setPierToEdit(null)}
+            refetchQueries={[
+              { query: INDIVIDUAL_HARBOR_QUERY, variables: { id } },
+            ]}
+          />
+        </Modal>
+      )}
     </IndividualHarborPage>
   );
 };

@@ -115,6 +115,11 @@ export interface DeleteBerthMutationInput {
   clientMutationId?: string | null;
 }
 
+export interface DeletePierMutationInput {
+  id: string;
+  clientMutationId?: string | null;
+}
+
 export interface UpdateBerthApplicationInput {
   customerId: string;
   id: string;
@@ -131,6 +136,22 @@ export interface UpdateBerthMutationInput {
   length?: number | null;
   depth?: number | null;
   mooringType?: BerthMooringType | null;
+  id: string;
+  clientMutationId?: string | null;
+}
+
+export interface UpdatePierMutationInput {
+  identifier?: string | null;
+  location?: any | null;
+  electricity?: boolean | null;
+  water?: boolean | null;
+  gate?: boolean | null;
+  harborId?: string | null;
+  suitableBoatTypes?: (string | null)[] | null;
+  mooring?: boolean | null;
+  wasteCollection?: boolean | null;
+  lighting?: boolean | null;
+  personalElectricity?: boolean | null;
   id: string;
   clientMutationId?: string | null;
 }

@@ -7,3 +7,19 @@ export const CREATE_PIER_MUTATION = gql`
     }
   }
 `;
+
+export const UPDATE_PIER_MUTATION = gql`
+  mutation UPDATE_PIER($input: UpdatePierMutationInput!) {
+    updatePier(input: $input) {
+      clientMutationId
+    }
+  }
+`;
+
+export const DELETE_PIER_MUTATION = gql`
+  mutation DELETE_PIER($input: DeletePierMutationInput!) {
+    deletePier(input: $input) {
+      clientMutationId
+    }
+  }
+`;

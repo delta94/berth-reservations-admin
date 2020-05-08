@@ -7,7 +7,7 @@ describe('domain/individualHarbor/PierForm', () => {
   it('renders correctly', () => {
     const wrapper = shallow(
       <PierForm
-        harborId={'test harbor'}
+        initialValues={{ harborId: 'test harbor' }}
         onSubmitText="Luo"
         suitableBoatTypeOptions={[
           { id: '1', name: 'Jollavene' },

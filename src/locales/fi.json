@@ -199,7 +199,8 @@
       "harbor": "Satama",
       "places": "Paikkoja",
       "freePlaces": "Vapaita",
-      "all": "Kaikki"
+      "all": "Kaikki",
+      "editPier": "Muokkaa"
     },
     "pierProperties": {
       "pier": "Laituri",

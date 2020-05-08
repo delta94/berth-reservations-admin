@@ -14,12 +14,12 @@ import { BOAT_TYPES_QUERY } from './queries';
 import LoadingSpinner from '../../../../common/spinner/LoadingSpinner';
 import { getBoatTypes } from './utils/utils';
 
-interface PierFormProps
+interface Props
   extends Omit<FormProps<Pier>, 'initialValues' | 'isSubmitting' | 'onDelete'> {
   harborId: string;
 }
 
-const PierCreateForm: React.FC<PierFormProps> = ({
+const PierCreateForm: React.FC<Props> = ({
   harborId,
   onCancel,
   onSubmit,
@@ -41,11 +41,10 @@ const PierCreateForm: React.FC<PierFormProps> = ({
 
   return (
     <PierForm
-      harborId={harborId}
       onSubmitText={t('forms.common.create')}
       onCancel={onCancel}
       onSubmit={values =>
-        createPier({ variables: { input: values } }).then(() =>
+        createPier({ variables: { input: { ...values, harborId } } }).then(() =>
           onSubmit?.(values)
         )
       }

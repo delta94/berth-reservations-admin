@@ -13,7 +13,6 @@ import Grid from '../../../../common/grid/Grid';
 import Checkbox from '../../../../common/checkbox/Checkbox';
 
 interface PierFormProps extends FormProps<Pier> {
-  harborId: string;
   suitableBoatTypeOptions: BoatType[];
   onSubmitText?: string;
 }
@@ -41,7 +40,6 @@ const PierForm: React.FC<PierFormProps> = ({
   onSubmit,
   onDelete,
   onCancel,
-  harborId,
   suitableBoatTypeOptions,
   onSubmitText,
   isSubmitting,
@@ -60,7 +58,6 @@ const PierForm: React.FC<PierFormProps> = ({
     personalElectricity: false,
     water: false,
     ...initialValues,
-    harborId,
   };
 
   return (
