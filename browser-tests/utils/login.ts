@@ -1,7 +1,7 @@
 import { ssoLogin } from '../pages/ssoLogin';
 import { ClientFunction } from 'testcafe';
 import { login as loginPage } from '../pages/login';
-import { testUsername, testUserPassword } from './settings';
+import { envUrl, testUsername, testUserPassword } from "./settings";
 
 export const login = async (t: TestController) => {
   await t
@@ -11,7 +11,7 @@ export const login = async (t: TestController) => {
     .typeText(ssoLogin.password, testUserPassword())
     .click(ssoLogin.loginButton)
     .expect(getLocation())
-    .contains('venepaikka-admin.test.kuva.hel.ninja')
+    .contains(envUrl())
     .wait(1000);
 
   await t.eval(() => location.reload());

@@ -1,7 +1,8 @@
 import { login } from './utils/login';
 import { harbors } from './pages/harbors';
+import { envUrl } from './utils/settings';
 
-fixture`Navigate and view`.page`https://venepaikka-admin.test.kuva.hel.ninja/`;
+fixture('Navigate and view').page(envUrl());
 
 test('Navigate and view basic data', async t => {
   await login(t);
