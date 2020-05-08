@@ -46,6 +46,7 @@ interface BerthSwitch {
 
 export interface ApplicationDetailsProps {
   id: string;
+  customerId?: string;
   applicant?: PrivateCustomerDetailsProps;
   berthSwitch: BerthSwitch | null;
   createdAt: string;
@@ -67,6 +68,7 @@ export interface ApplicationDetailsProps {
 
 const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
   id,
+  customerId,
   applicant,
   berthSwitch,
   createdAt,
@@ -214,9 +216,13 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
                         {`${t('applications.applicationDetails.choice')} 
                       ${i + 1}: `}
                       </Text>
-                      <InternalLink to={`/offer/${id}?${routerQuery}`}>
-                        {harborName}
-                      </InternalLink>
+                      {!!customerId ? (
+                        <InternalLink to={`/offer/${id}?${routerQuery}`}>
+                          {harborName}
+                        </InternalLink>
+                      ) : (
+                        <Text>{harborName}</Text>
+                      )}
                     </ListItem>
                   );
                 })}

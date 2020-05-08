@@ -102,6 +102,7 @@ export const getApplicationDetailsData = (
 
   return {
     ...berthApplication,
+    customerId: berthApplication.customer?.id,
     applicant: getApplicantDetails(berthApplication),
     berthSwitch,
     queue: null,

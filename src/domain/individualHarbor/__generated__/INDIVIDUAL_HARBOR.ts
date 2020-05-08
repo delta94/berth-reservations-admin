@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { BerthMooringType } from "./../../../@types/__generated__/globalTypes";
+import { BerthMooringType, LeaseStatus } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: INDIVIDUAL_HARBOR
@@ -14,12 +14,41 @@ export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties
   name: string | null;
 }
 
+export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node_customer {
+  __typename: "ProfileNode";
+  id: string;
+  firstName: string;
+  lastName: string;
+}
+
+export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node {
+  __typename: "BerthLeaseNode";
+  customer: INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node_customer;
+  status: LeaseStatus;
+  startDate: any;
+  endDate: any;
+  isActive: boolean;
+}
+
+export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_leases_edges {
+  __typename: "BerthLeaseNodeEdge";
+  node: INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node | null;
+}
+
+export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_leases {
+  __typename: "BerthLeaseNodeConnection";
+  edges: (INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_leases_edges | null)[];
+}
+
 export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node {
   __typename: "BerthNode";
   number: number;
   width: number;
   length: number;
+  depth: number | null;
   mooringType: BerthMooringType;
+  comment: string;
+  leases: INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges_node_leases | null;
 }
 
 export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_berths_edges {

@@ -29,6 +29,11 @@ export enum BerthMooringType {
   TRAWLER_PLACE = "TRAWLER_PLACE",
 }
 
+export enum BoatCertificateType {
+  INSPECTION = "INSPECTION",
+  INSURANCE = "INSURANCE",
+}
+
 export enum ContactMethod {
   EMAIL = "EMAIL",
   SMS = "SMS",

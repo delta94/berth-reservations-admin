@@ -132,8 +132,10 @@
       "mainHeader": "Venepaikat",
       "number": "Paikka",
       "identifier": "Laituri",
+      "customer": "Asiakas",
       "length": "Pituus",
       "width": "Leveys",
+      "depth": "Syvyys",
       "mooring": "Kiinnitys",
       "harbor": "Satama",
       "places": "Paikkoja",
@@ -328,6 +330,7 @@
     },
     "customerBoats": {
       "title": "ASIAKKAAN VENEET",
+      "boatInfo": "VENEEN TIEDOT",
       "boatType": "Veneen tyyppi",
       "registrationNumber": "Rekisterinumero",
       "width": "Veneen leveys",
@@ -340,7 +343,9 @@
       "hullMaterial": "Runkomateriaali",
       "purpose": "Käyttötarkoitus",
       "inspection": "Katsastustodistus",
-      "insurance": "Vakuutuskirjaote"
+      "insurance": "Vakuutuskirjaote",
+      "validUntil": "Voimassa {{validUntil}} asti",
+      "fileMissing": "Tiedosto puuttuu"
     },
     "leases": {
       "title": "VENEPAIKAT",

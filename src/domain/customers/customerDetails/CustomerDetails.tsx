@@ -16,7 +16,7 @@ interface WinterStoragePlaces {
   title: string;
 }
 
-interface Boat {
+interface CustomerListBoat {
   id: string;
   name: string;
 }
@@ -40,7 +40,7 @@ export interface CustomerDetailsProps {
   email?: string;
   berths: Berth[];
   winterStoragePlaces: WinterStoragePlaces[];
-  boats: Boat[];
+  boats: CustomerListBoat[];
   applications: Application[];
   bills: Bill[];
   comment: string;
