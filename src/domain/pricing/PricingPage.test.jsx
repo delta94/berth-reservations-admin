@@ -3,20 +3,20 @@ import { shallow } from 'enzyme';
 
 import PricingPage from './PricingPage';
 
-const harborData = [
+const berthsData = [
   {
     id: '1',
-    width: '2 m',
-    privateCustomer: '116 €',
-    company: '236 €',
-    period: 'kausi',
+    width: 2,
+    privateCustomer: 116,
+    company: 236,
+    period: 'season',
   },
   {
     id: '2',
-    width: '2,5 m',
-    privateCustomer: '158 €',
-    company: '326 €',
-    period: 'kausi',
+    width: 2.5,
+    privateCustomer: 158,
+    company: 326,
+    period: 'season',
   },
 ];
 
@@ -24,56 +24,57 @@ const winterStorageData = [
   {
     id: '1',
     area: 'Kaisaniemi',
-    privateCustomer: '8,5 €',
-    company: '17 €',
-    period: 'kausi',
+    privateCustomer: 8.5,
+    company: 17,
+    period: 'season',
   },
   {
     id: '2',
     area: 'Lähteelä',
-    privateCustomer: '8,5 €',
-    company: '17 €',
-    period: 'kausi',
+    privateCustomer: 8.5,
+    company: 17,
+    period: 'season',
   },
 ];
 
-const harborServices = [
+const harborServicesData = [
   {
     id: '1',
-    service: 'Kiinnitys',
-    price: '28 €',
-    period: 'kausi',
+    service: 'mooring',
+    price: 28,
+    period: 'season',
   },
   {
     id: '2',
-    service: 'Sähkö',
-    price: '28 €',
-    period: 'kausi',
+    service: 'electricity',
+    price: 28,
+    period: 'season',
   },
 ];
 
-const otherServices = [
+const additionalServicesData = [
   {
     id: '1',
-    service: 'Trailerin kesäsäilytys',
-    price: '24 €',
-    tax: '24 %',
-    period: 'kausi',
+    service: 'trawlerSummerStorage',
+    price: 24,
+    tax: 24,
+    period: 'season',
   },
   {
     id: '2',
-    service: 'Pysäköintilupa',
-    price: '24 €',
-    tax: '24 %',
-    period: 'kausi',
+    service: 'parkingPermit',
+    price: 24,
+    tax: 24,
+    period: 'season',
   },
 ];
 
 const mockProps = {
-  harborData,
+  berthsData,
   winterStorageData,
-  harborServices,
-  otherServices,
+  harborServicesData,
+  additionalServicesData,
+  openModal: jest.fn(),
 };
 
 describe('PricingPage', () => {
