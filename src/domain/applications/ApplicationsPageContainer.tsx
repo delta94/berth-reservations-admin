@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { Notification } from 'hds-react';
@@ -7,8 +7,10 @@ import ApplicationsPage from './ApplicationsPage';
 import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
 import InternalLink from '../../common/internalLink/InternalLink';
 import ApplicationDetails from '../cards/applicationDetails/ApplicationDetails';
-import LoadingSpinner from '../../common/spinner/LoadingSpinner';
-import { BERTH_APPLICATIONS } from './__generated__/BERTH_APPLICATIONS';
+import {
+  BERTH_APPLICATIONS,
+  BERTH_APPLICATIONSVariables as BERTH_APPLICATIONS_VARS,
+} from './__generated__/BERTH_APPLICATIONS';
 import { getBerthApplicationData, ApplicationData } from './utils';
 import { formatDate } from '../../common/utils/format';
 import Chip from '../../common/chip/Chip';
@@ -17,6 +19,8 @@ import { APPLICATION_STATUS } from '../../common/utils/consonants';
 import { BERTH_APPLICATIONS_QUERY } from './queries';
 import { useDeleteBerthApplication } from '../mutations/deleteBerthApplication';
 import { ApplicationStatus } from '../../@types/__generated__/globalTypes';
+import Pagination from '../../common/pagination/Pagination';
+import { usePagination } from '../../common/utils/usePagination';
 
 export interface TableData {
   id: string;
@@ -37,21 +41,32 @@ type ColumnType = Column<ApplicationData> & { accessor: keyof ApplicationData };
 
 const ApplicationsPageContainer: React.SFC = () => {
   const { t, i18n } = useTranslation();
-  const { loading, error, data } = useQuery<BERTH_APPLICATIONS>(
-    BERTH_APPLICATIONS_QUERY
-  );
+  const [onlySwitchApps, setOnlySwitchApps] = useState<boolean>();
+
+  const {
+    cursor,
+    pageSize,
+    pageIndex,
+    getPageCount,
+    goToPage,
+  } = usePagination();
+
+  const { loading, error, data } = useQuery<
+    BERTH_APPLICATIONS,
+    BERTH_APPLICATIONS_VARS
+  >(BERTH_APPLICATIONS_QUERY, {
+    variables: {
+      first: pageSize,
+      after: cursor,
+      switchApplications: onlySwitchApps,
+    },
+  });
+
   const [
     deleteDraftedApplication,
     { loading: isDeleting },
   ] = useDeleteBerthApplication();
 
-  if (loading || isDeleting) return <LoadingSpinner isLoading={loading} />;
-  if (!data)
-    return (
-      <Notification labelText={t('common.notification.noData.label')}>
-        {t('common.notification.noData.description')}
-      </Notification>
-    );
   if (error)
     return (
       <Notification
@@ -139,6 +154,7 @@ const ApplicationsPageContainer: React.SFC = () => {
     <ApplicationsPage>
       <Table
         data={tableData}
+        loading={loading || isDeleting}
         columns={columns}
         renderSubComponent={row => (
           <ApplicationDetails
@@ -146,7 +162,7 @@ const ApplicationsPageContainer: React.SFC = () => {
             handleDeleteLease={handleDeleteLease}
           />
         )}
-        renderMainHeader={props => {
+        renderMainHeader={() => {
           const filters = [
             {
               value: true,
@@ -157,15 +173,27 @@ const ApplicationsPageContainer: React.SFC = () => {
               label: t('applications.tableHeaders.newApplicationFilter'),
             },
           ];
+
           return (
             <TableFilters
-              activeFilters={props.state.filters.map(filter => filter.value)}
               filters={filters}
-              handleSetFilter={filter => props.setFilter('isSwitch', filter)}
+              activeFilters={filters
+                .map(filter => filter.value)
+                .filter(value => value === onlySwitchApps)}
+              handleSetFilter={filter => {
+                goToPage(0);
+                setOnlySwitchApps(filter);
+              }}
             />
           );
         }}
+        renderEmptyStateRow={() => t('common.notification.noData.description')}
         canSelectRows
+      />
+      <Pagination
+        forcePage={pageIndex}
+        pageCount={getPageCount(data?.berthApplications?.count)}
+        onPageChange={({ selected }) => goToPage(selected)}
       />
     </ApplicationsPage>
   );
