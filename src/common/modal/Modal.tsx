@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import ReactModal from 'react-modal';
 import classNames from 'classnames';
 
@@ -7,7 +7,7 @@ import Text from '../../common/text/Text';
 
 interface ModalProps {
   isOpen: boolean;
-  label: string;
+  label?: string;
   toggleModal: (value: boolean) => void;
   className?: string;
   shouldCloseOnOverlayClick?: boolean;
@@ -34,9 +34,11 @@ const Modal: React.FunctionComponent<ModalProps> = ({
       overlayClassName={styles.overlay}
       shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
     >
-      <Text as="h4" color="brand">
-        {label}
-      </Text>
+      {label && (
+        <Text as="h4" color="brand">
+          {label}
+        </Text>
+      )}
       {children}
     </ReactModal>
   );

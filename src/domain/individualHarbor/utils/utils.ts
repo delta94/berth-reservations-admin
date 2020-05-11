@@ -65,6 +65,7 @@ interface Lease {
 }
 
 export type Berth = {
+  id: string;
   number: number;
   identifier: string;
   length: number;
@@ -95,6 +96,7 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined): Berth[] => {
         return [
           ...prev,
           {
+            id: berthEdge.node.id,
             identifier,
             length: berthEdge.node.length,
             mooringType: berthEdge.node.mooringType,
@@ -114,6 +116,7 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined): Berth[] => {
 };
 
 export type Pier = {
+  id: string;
   identifier: string;
   electricity: boolean;
   wasteCollection: boolean;
@@ -148,6 +151,7 @@ export const getPiers = (data: INDIVIDUAL_HARBOR | undefined): Pier[] => {
     return [
       ...acc,
       {
+        id: pierEdge.node.id,
         identifier,
         electricity,
         wasteCollection,
