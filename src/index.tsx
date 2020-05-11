@@ -1,3 +1,4 @@
+import 'focus-visible';
 import './assets/styles/main.scss';
 import './locales/i18n';
 

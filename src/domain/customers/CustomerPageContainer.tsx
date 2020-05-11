@@ -1,26 +1,35 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useQuery } from '@apollo/react-hooks';
 import { Notification } from 'hds-react';
+import { useQuery } from '@apollo/react-hooks';
 
-import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { CUSTOMER_QUERY } from './queries';
 import { getCustomersData } from './utils';
-import { CUSTOMERS } from './__generated__/CUSTOMERS';
+import {
+  CUSTOMERS,
+  CUSTOMERSVariables as CUSTOMERS_VARS,
+} from './__generated__/CUSTOMERS';
 import CustomerList from './CustomerListComponent';
 import CustomersPage from './CustomersPage';
+import Pagination from '../../common/pagination/Pagination';
+import { usePagination } from '../../common/utils/usePagination';
 
 const CustomersPageContainer: React.FC = () => {
   const { t } = useTranslation();
-  const { loading, error, data } = useQuery<CUSTOMERS>(CUSTOMER_QUERY);
 
-  if (loading) return <LoadingSpinner isLoading={loading} />;
-  if (!data)
-    return (
-      <Notification labelText={t('common.notification.noData.label')}>
-        {t('common.notification.noData.description')}
-      </Notification>
-    );
+  const {
+    cursor,
+    pageSize,
+    pageIndex,
+    getPageCount,
+    goToPage,
+  } = usePagination();
+
+  const { loading, error, data } = useQuery<CUSTOMERS, CUSTOMERS_VARS>(
+    CUSTOMER_QUERY,
+    { variables: { after: cursor, first: pageSize } }
+  );
+
   if (error)
     return (
       <Notification
@@ -35,7 +44,12 @@ const CustomersPageContainer: React.FC = () => {
 
   return (
     <CustomersPage>
-      <CustomerList data={tableData} />
+      <CustomerList loading={loading} data={tableData} />
+      <Pagination
+        forcePage={pageIndex}
+        pageCount={getPageCount(data?.profiles?.count)}
+        onPageChange={({ selected }) => goToPage(selected)}
+      />
     </CustomersPage>
   );
 };

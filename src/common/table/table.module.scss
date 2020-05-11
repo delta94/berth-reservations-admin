@@ -6,6 +6,16 @@ $rows-spacing: units(0.25);
 $cell-padding-vertical: units(0.5);
 $cell-padding-horizontal: units(1);
 $transition-duration: 300ms;
+$placeholder-bg-size: 1000px;
+
+@keyframes shimmer {
+  0% {
+    background-position: -#{$placeholder-bg-size} 0;
+  }
+  100% {
+    background-position: $placeholder-bg-size 0;
+  }
+}
 
 .tableWrapper {
   display: block;
@@ -29,6 +39,14 @@ $transition-duration: 300ms;
 
     &:last-child {
       border-right: none;
+    }
+
+    .placeholder {
+      height: units(1.5);
+      width: 100%;
+      background: linear-gradient(90deg, $gray-50, $gray-100, $gray-50);
+      background-size: $placeholder-bg-size 100%;
+      animation: shimmer 2s ease-in-out infinite;
     }
   }
 

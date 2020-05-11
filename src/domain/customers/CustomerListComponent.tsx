@@ -24,10 +24,14 @@ export interface TableData {
 
 type ColumnType = Column<TableData> & { accessor: keyof TableData };
 export interface CustomerListComponentProps {
+  loading: boolean;
   data: TableData[];
 }
 
-const CustomerListComponent = ({ data }: CustomerListComponentProps) => {
+const CustomerListComponent = ({
+  data,
+  loading,
+}: CustomerListComponentProps) => {
   const { t } = useTranslation();
   const columns: ColumnType[] = [
     {
@@ -76,6 +80,7 @@ const CustomerListComponent = ({ data }: CustomerListComponentProps) => {
   return (
     <Table
       data={data}
+      loading={loading}
       columns={columns}
       renderSubComponent={row => {
         return (
@@ -96,6 +101,7 @@ const CustomerListComponent = ({ data }: CustomerListComponentProps) => {
         );
       }}
       renderMainHeader={() => t('customers.tableHeaders.mainHeader')}
+      renderEmptyStateRow={() => t('common.notification.noData.description')}
       canSelectRows
     />
   );

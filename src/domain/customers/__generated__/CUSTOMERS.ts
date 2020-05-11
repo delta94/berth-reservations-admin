@@ -76,9 +76,15 @@ export interface CUSTOMERS_profiles_edges {
 
 export interface CUSTOMERS_profiles {
   __typename: "ProfileNodeConnection";
+  count: number | null;
   edges: (CUSTOMERS_profiles_edges | null)[];
 }
 
 export interface CUSTOMERS {
   profiles: CUSTOMERS_profiles | null;
+}
+
+export interface CUSTOMERSVariables {
+  after?: string | null;
+  first: number;
 }
