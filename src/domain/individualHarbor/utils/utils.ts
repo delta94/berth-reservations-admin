@@ -52,13 +52,28 @@ export const getIndividualHarborData = (
   return null;
 };
 
+interface Lease {
+  customer: {
+    id: string;
+    firstName: string;
+    lastName: string;
+  };
+  status: string;
+  startDate: string;
+  endDate: string;
+  isActive: boolean;
+}
+
 export type Berth = {
   id: string;
   number: number;
   identifier: string;
   length: number;
   width: number;
+  depth: number | null;
   mooringType: string;
+  comment: string;
+  leases?: Lease[];
 };
 
 export const getBerths = (data: INDIVIDUAL_HARBOR | undefined): Berth[] => {
@@ -72,6 +87,12 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined): Berth[] => {
       (prev, berthEdge) => {
         if (!berthEdge || !berthEdge.node) return prev;
 
+        const leases =
+          berthEdge?.node?.leases?.edges.reduce<Lease[]>((acc, leaseEdge) => {
+            if (!leaseEdge?.node) return acc;
+            return [...acc, { ...leaseEdge.node }];
+          }, []) ?? [];
+
         return [
           ...prev,
           {
@@ -81,6 +102,9 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined): Berth[] => {
             mooringType: berthEdge.node.mooringType,
             number: berthEdge.node.number,
             width: berthEdge.node.width,
+            depth: berthEdge.node.depth,
+            comment: berthEdge.node.comment,
+            leases,
           },
         ];
       },

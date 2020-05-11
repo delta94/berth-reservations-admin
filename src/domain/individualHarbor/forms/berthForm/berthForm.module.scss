@@ -16,6 +16,10 @@
   margin: 0;
 }
 
+.titleText {
+  text-transform: uppercase;
+}
+
 .grid {
   grid-row-gap: units(1);
   grid-column-gap: units(1);

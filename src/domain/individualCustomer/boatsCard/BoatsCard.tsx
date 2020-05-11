@@ -6,29 +6,11 @@ import CardBody from '../../../common/cardBody/CardBody';
 import CardHeader from '../../../common/cardHeader/CardHeader';
 import Section from '../../../common/section/Section';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
-import { formatWeight, formatDimension } from '../../../common/utils/format';
+import { formatDimension, formatWeight } from '../../../common/utils/format';
 import styles from './boatsCard.module.scss';
-
-const LARGE_BOAT_ID = '8';
-
-interface Boat {
-  id: string;
-  boatType: { id: string; name: string | null };
-  registrationNumber: string;
-  width: number;
-  length: number;
-  draught: number | null;
-  weight: number | null;
-  name: string;
-  model: string;
-}
-
-interface LargeBoat extends Boat {
-  propulsion: string;
-  hullMaterial: string;
-  boatIsInspected: boolean;
-  boatIsInsured: boolean;
-}
+import { Boat, LargeBoat } from '../types';
+import BoatCertificates from './BoatCertificates';
+import { isLargeBoat } from './boatsCardUtils';
 
 export interface BoatsCardProps {
   boats: (Boat | LargeBoat)[];
@@ -36,15 +18,13 @@ export interface BoatsCardProps {
 
 const BoatsCard: React.SFC<BoatsCardProps> = ({ boats }) => {
   const { t, i18n } = useTranslation();
-  const isLargeBoat = (boat: LargeBoat | Boat): boat is LargeBoat =>
-    (boat as LargeBoat).boatType.id === LARGE_BOAT_ID;
 
   return (
     <Card className={styles.boatsCard}>
       <CardHeader title={t('individualCustomer.customerBoats.title')} />
       {boats.map(boat => (
         <CardBody key={boat.id}>
-          <Section>
+          <Section title={t('individualCustomer.customerBoats.boatInfo')}>
             <LabelValuePair
               label={t('individualCustomer.customerBoats.boatType')}
               value={boat.boatType.name}
@@ -93,21 +73,12 @@ const BoatsCard: React.SFC<BoatsCardProps> = ({ boats }) => {
                   label={t('individualCustomer.customerBoats.hullMaterial')}
                   value={boat.hullMaterial}
                 />
-              </Section>
-              <Section>
                 <LabelValuePair
-                  label={t('individualCustomer.customerBoats.inspection')}
-                  value={
-                    boat.boatIsInspected ? t('common.yes') : t('common.no')
-                  }
+                  label={t('individualCustomer.customerBoats.purpose')}
+                  value={boat.intendedUse}
                 />
               </Section>
-              <Section>
-                <LabelValuePair
-                  label={t('individualCustomer.customerBoats.insurance')}
-                  value={boat.boatIsInsured ? t('common.yes') : t('common.no')}
-                />
-              </Section>
+              <BoatCertificates certificates={boat.certificates} />
             </>
           )}
         </CardBody>

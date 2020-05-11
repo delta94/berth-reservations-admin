@@ -3,47 +3,43 @@ import ReactModal from 'react-modal';
 import classNames from 'classnames';
 
 import styles from './modal.module.scss';
-import Section from '../section/Section';
+import Text from '../../common/text/Text';
 
 interface ModalProps {
-  isOpen?: boolean;
+  isOpen: boolean;
   label?: string;
-  toggleModal?: (value: boolean) => void;
-  setFormIsFilling?: (value: boolean) => void;
-  showHeading?: boolean;
+  toggleModal: (value: boolean) => void;
   className?: string;
+  shouldCloseOnOverlayClick?: boolean;
 }
 
 const Modal: React.FunctionComponent<ModalProps> = ({
-  isOpen = true,
+  isOpen,
   label,
   children,
   toggleModal,
-  setFormIsFilling,
   className,
+  shouldCloseOnOverlayClick = true,
 }) => {
   const onClose = () => {
-    if (setFormIsFilling) {
-      setFormIsFilling(false);
-    }
-    if (toggleModal) {
-      toggleModal(false);
-    }
+    toggleModal(false);
   };
   return (
     <ReactModal
+      appElement={document.getElementById('root') as HTMLElement}
       isOpen={isOpen}
       onRequestClose={onClose}
       contentLabel={label}
-      className={styles.modal}
+      className={classNames(styles.modal, className)}
       overlayClassName={styles.overlay}
+      shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
     >
-      <Section
-        title={label}
-        className={classNames(styles.modalContent, className)}
-      >
-        {children}
-      </Section>
+      {label && (
+        <Text as="h4" color="brand">
+          {label}
+        </Text>
+      )}
+      {children}
     </ReactModal>
   );
 };

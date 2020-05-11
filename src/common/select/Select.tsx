@@ -9,6 +9,7 @@ interface Option {
 }
 
 export type SelectProps = {
+  name?: string;
   labelText?: string;
   className?: string;
   value: Option['value'] | undefined;
@@ -19,7 +20,9 @@ export type SelectProps = {
   id?: string;
 };
 
-const Select: React.SFC<SelectProps> = ({
+const Select: React.FC<SelectProps> = ({
+  name,
+  id,
   labelText,
   className,
   value,
@@ -27,7 +30,6 @@ const Select: React.SFC<SelectProps> = ({
   onChange,
   required,
   disabled,
-  id,
 }) => {
   const optionsItems = options.map(({ value, label }) => (
     <option key={value} value={value}>
@@ -39,6 +41,7 @@ const Select: React.SFC<SelectProps> = ({
     <label className={className}>
       {labelText && <span className={styles.labelText}>{labelText}</span>}
       <select
+        name={name}
         id={id}
         value={value}
         onChange={onChange}

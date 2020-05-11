@@ -44,6 +44,7 @@ export const OFFER_PAGE_QUERY = gql`
                             status
                             startDate
                             endDate
+                            isActive
                             customer {
                               id
                               firstName
