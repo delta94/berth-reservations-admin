@@ -111,7 +111,9 @@
       "edit": "Muokkaa",
       "errors": {
         "required": "Tämä kenttä on pakollinen.",
-        "numberType": "Kentän pitää olla numero."
+        "numberType": "Kentän pitää olla numero.",
+        "integer": "Kentän pitää olla kokonaisluku.",
+        "positive": "Kentän pitää olla positiivinen luku."
       },
       "error": "Tapahtui virhe. Yritä uudestaan.",
       "create": "Luo",

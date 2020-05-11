@@ -17,7 +17,7 @@ import Text from '../../../../common/text/Text';
 
 interface BerthFormProps extends FormProps<Berth> {
   onSubmitText?: string;
-  pierOptions: Pier[];
+  pierOptions: [Pier, ...Pier[]];
 }
 
 const getBerthValidationSchema = (
@@ -30,12 +30,16 @@ const getBerthValidationSchema = (
       .required(t('forms.common.errors.required')),
     number: Yup.number()
       .typeError(t('forms.common.errors.numberType'))
+      .positive(t('forms.common.errors.positive'))
+      .integer(t('forms.common.errors.integer'))
       .required(t('forms.common.errors.required')),
     width: Yup.number()
       .typeError(t('forms.common.errors.numberType'))
+      .positive(t('forms.common.errors.positive'))
       .required(t('forms.common.errors.required')),
     length: Yup.number()
       .typeError(t('forms.common.errors.numberType'))
+      .positive(t('forms.common.errors.positive'))
       .required(t('forms.common.errors.required')),
     mooringType: Yup.string()
       .oneOf(Object.keys(BerthMooringType))
@@ -55,14 +59,12 @@ const BerthForm: React.FC<BerthFormProps> = ({
   const { t } = useTranslation();
   const validationSchema = getBerthValidationSchema(t, pierOptions);
 
-  const initial =
-    initialValues ??
-    ({
-      pierId: pierOptions[0].id,
-      mooringType: Object.keys(BerthMooringType)[0],
-      comment: '',
-      isActive: true,
-    } as Berth);
+  const initial: Berth = initialValues ?? {
+    pierId: pierOptions[0].id,
+    mooringType: BerthMooringType.DINGHY_PLACE,
+    comment: '',
+    isActive: true,
+  };
 
   return (
     <Formik
