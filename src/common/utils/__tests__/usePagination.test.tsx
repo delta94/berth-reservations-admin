@@ -10,7 +10,7 @@ describe('usePagination', () => {
 
   const getWrapper = (initialRoute: string) => {
     history = createMemoryHistory({ initialEntries: [initialRoute] });
-    const Wrapper: React.SFC = ({ children }) => (
+    const Wrapper: React.FC = ({ children }) => (
       <Router history={history}>{children}</Router>
     );
 
