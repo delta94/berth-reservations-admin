@@ -24,4 +24,8 @@
   &:focus {
     outline: none;
   }
+  width: 100%;
+  max-width: units(32);
+  max-height: 100%;
+  overflow-y: auto;
 }
