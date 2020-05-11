@@ -33,6 +33,7 @@ export const INDIVIDUAL_HARBOR_QUERY = gql`
                   edges {
                     node {
                       id
+                      isActive
                       number
                       width
                       length

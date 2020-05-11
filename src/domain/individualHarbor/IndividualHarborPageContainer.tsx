@@ -23,8 +23,8 @@ import BerthEditForm from './forms/berthForm/BerthEditForm';
 import BerthCreateForm from './forms/berthForm/BerthCreateForm';
 import IndividualHarborTableTools from './individualHarborTableTools/IndividualHarborTableTools';
 import BerthDetails from '../cards/berthDetails/BerthDetails';
-import { LeaseStatus } from '../../@types/__generated__/globalTypes';
 import InternalLink from '../../common/internalLink/InternalLink';
+import Chip from '../../common/chip/Chip';
 
 const IndividualHarborPageContainer: React.SFC = () => {
   const [berthToEdit, setBerthToEdit] = useState<string | null>(null);
@@ -56,8 +56,17 @@ const IndividualHarborPageContainer: React.SFC = () => {
     },
     {
       Cell: ({ cell }: { cell: Cell<Berth> }) => {
+        const isBerthActive = cell.row.original.isActive;
+        if (!isBerthActive) {
+          return (
+            <Chip
+              color="red"
+              label={t('individualHarbor.berthProperties.inactive')}
+            />
+          );
+        }
         const activeLease = cell.row.original.leases?.find(
-          lease => lease.isActive && lease.status === LeaseStatus.PAID
+          lease => lease.isActive
         );
         if (!activeLease) {
           return cell.value;
