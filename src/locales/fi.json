@@ -20,6 +20,8 @@
   "common": {
     "yes": "Kyllä",
     "no": "Ei",
+    "next": "Seuraava",
+    "previous": "Edellinen",
     "search": "Haku",
     "edit": "Muokkaa",
     "save": "Tallenna",
