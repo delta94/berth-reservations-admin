@@ -295,8 +295,7 @@
       "waste": "Roskat",
       "accessible": "Esteetön paikka",
       "previousLeases": "Edelliset vuokralaiset",
-      "comment": "Huomiot",
-      "edit": "Muokkaa"
+      "comment": "Huomiot"
     },
     "billing": {
       "title": "Lasku",

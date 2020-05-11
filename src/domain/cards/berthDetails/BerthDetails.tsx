@@ -164,7 +164,7 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
         {onEdit && (
           <Section className={styles.editSection}>
             <button onClick={onEdit}>
-              <Text color="brand">{t('offer.berthDetails.edit')}</Text>
+              <Text color="brand">{t('common.edit')}</Text>
             </button>
           </Section>
         )}
