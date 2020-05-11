@@ -14,7 +14,7 @@ export type PaginationProps = Pick<
   className?: string;
 };
 
-const Pagination: React.SFC<PaginationProps> = ({ className, ...rest }) => {
+const Pagination: React.FC<PaginationProps> = ({ className, ...rest }) => {
   const { t } = useTranslation();
 
   return (
