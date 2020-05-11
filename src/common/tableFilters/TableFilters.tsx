@@ -16,12 +16,12 @@ export interface TableFiltersProps<T = string | number | boolean> {
   handleSetFilter(filter?: T): void;
 }
 
-const TableFilters: React.SFC<TableFiltersProps> = ({
+const TableFilters = <T extends string | number | boolean>({
   activeFilters, // Note: this filters might include other active filters from the table
   filters,
   filterPrefix = '',
   handleSetFilter,
-}) => {
+}: TableFiltersProps<T>) => {
   const { t } = useTranslation();
 
   const filtersButtons = filters.map((filter, i) => (
