@@ -60,7 +60,7 @@ const BerthEditForm: React.FC<BerthEditFormProps> = ({
   if (loading) return <LoadingSpinner isLoading={loading} />;
   if (error) return <div>{t('forms.common.error')}</div>;
 
-  const initialValues: Berth = getBerth(data);
+  const initialValues = getBerth(data);
 
   return (
     <BerthForm
