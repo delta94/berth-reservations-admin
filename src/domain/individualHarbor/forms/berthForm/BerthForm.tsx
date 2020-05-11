@@ -17,7 +17,7 @@ import Text from '../../../../common/text/Text';
 
 interface BerthFormProps extends FormProps<Berth> {
   onSubmitText?: string;
-  pierOptions: [Pier, ...Pier[]];
+  pierOptions: Pier[];
 }
 
 const getBerthValidationSchema = (
