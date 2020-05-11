@@ -47,7 +47,7 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
   const { t, i18n } = useTranslation();
 
   const expiredLeasesElements = leases
-    .filter((lease) => !lease.isActive)
+    .filter(lease => !lease.isActive)
     .map(({ startDate, endDate, customer }, i) => {
       return (
         <div key={i}>
@@ -74,7 +74,7 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
     lighting,
     wasteCollection,
     isAccessible,
-  ].find((property) => isDefined(property));
+  ].find(property => isDefined(property));
 
   return (
     <div className={styles.berthDetails}>

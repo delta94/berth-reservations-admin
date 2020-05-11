@@ -57,7 +57,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
     {
       Cell: ({ cell }: { cell: Cell<Berth> }) => {
         const activeLease = cell.row.original.leases?.find(
-          (lease) => lease.isActive && lease.status === LeaseStatus.PAID
+          lease => lease.isActive && lease.status === LeaseStatus.PAID
         );
         if (!activeLease) {
           return cell.value;
@@ -70,7 +70,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
       },
       Header: t('individualHarbor.tableHeaders.customer') || '',
       accessor: ({ leases }) => {
-        const activeLease = leases?.find((lease) => lease.isActive);
+        const activeLease = leases?.find(lease => lease.isActive);
         if (!activeLease) return '';
         return `${activeLease.customer.firstName} ${activeLease.customer.lastName}`;
       },
@@ -139,20 +139,20 @@ const IndividualHarborPageContainer: React.SFC = () => {
           />
         )}
         styleMainHeader={false}
-        renderMainHeader={(props) => (
+        renderMainHeader={props => (
           <PierSelectHeader
             piers={piers}
-            selectedPier={piers.find((pier) =>
+            selectedPier={piers.find(pier =>
               props.state.filters
-                .filter((filter) => filter.id === 'identifier')
-                .find((filter) => filter.value === pier.identifier)
+                .filter(filter => filter.id === 'identifier')
+                .find(filter => filter.value === pier.identifier)
             )}
-            onPierSelect={(pier) => {
+            onPierSelect={pier => {
               props.setFilter('identifier', pier?.identifier);
             }}
           />
         )}
-        renderSubComponent={(row) => (
+        renderSubComponent={row => (
           <BerthDetails
             leases={row.original.leases ?? []}
             comment={row.original.comment}

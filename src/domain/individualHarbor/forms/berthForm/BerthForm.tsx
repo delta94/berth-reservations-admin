@@ -75,7 +75,9 @@ const BerthForm: React.FC<BerthFormProps> = ({
       {({ values, errors, handleChange, handleSubmit }) => (
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.heading}>
-            <Text as="h4" color="brand" className={styles.titleText}>{t('forms.berth.title')}</Text>
+            <Text as="h4" color="brand" className={styles.titleText}>
+              {t('forms.berth.title')}
+            </Text>
             {onDelete && (
               <button disabled={isSubmitting} onClick={() => onDelete(values)}>
                 <Text color="critical">{t('forms.berth.delete')}</Text>
