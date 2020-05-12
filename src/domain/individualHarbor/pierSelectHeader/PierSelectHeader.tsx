@@ -34,9 +34,9 @@ const PierSelectHeader: React.FC<PierSelectHeaderProps> = ({
           >
             {t('individualHarbor.tableHeaders.all')}
           </button>
-          {piers.map((pier, idx) => (
+          {piers.map(pier => (
             <button
-              key={idx}
+              key={pier.id}
               onClick={() => onPierSelect(pier)}
               className={classNames(styles.pierButton, {
                 [styles.pierButtonSelected]:
