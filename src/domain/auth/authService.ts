@@ -90,6 +90,8 @@ class AuthService {
   }
 
   public async logout(): Promise<void> {
+    localStorage.removeItem(API_TOKENS);
+    this.userManager.clearStaleState();
     await this.userManager.signoutRedirect();
     this.userManager.clearStaleState();
     localStorage.removeItem(API_TOKENS);
