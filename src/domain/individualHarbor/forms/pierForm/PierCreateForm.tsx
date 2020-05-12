@@ -26,16 +26,16 @@ const PierCreateForm: React.FC<Props> = ({
   refetchQueries,
 }) => {
   const { loading, error, data } = useQuery<BOAT_TYPES>(BOAT_TYPES_QUERY);
-  const [createPier, { loading: isSubmitting }] = useMutation<
-    CREATE_PIER,
-    CREATE_PIER_VARS
-  >(CREATE_PIER_MUTATION, {
+  const [
+    createPier,
+    { loading: isSubmitting, error: createError },
+  ] = useMutation<CREATE_PIER, CREATE_PIER_VARS>(CREATE_PIER_MUTATION, {
     refetchQueries: refetchQueries ?? [],
   });
   const { t } = useTranslation();
 
   if (loading) return <LoadingSpinner isLoading={loading} />;
-  if (error) return <div>{t('forms.common.error')}</div>;
+  if (error || createError) return <div>{t('forms.common.error')}</div>;
 
   const suitableBoatTypeOptions = getBoatTypes(data);
 

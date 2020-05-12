@@ -34,25 +34,26 @@ const PierEditForm: React.FC<Props> = ({
     PIER_AND_BOAT_TYPES_QUERY,
     { variables: { id: pierId } }
   );
-  const [updatePier, { loading: isSubmitting }] = useMutation<
-    UPDATE_PIER,
-    UPDATE_PIER_VARS
-  >(UPDATE_PIER_MUTATION, {
+  const [
+    updatePier,
+    { loading: isSubmitting, error: updateError },
+  ] = useMutation<UPDATE_PIER, UPDATE_PIER_VARS>(UPDATE_PIER_MUTATION, {
     refetchQueries: [
       ...(refetchQueries ?? []),
       { query: PIER_AND_BOAT_TYPES_QUERY, variables: { id: pierId } },
     ],
   });
-  const [deletePier] = useMutation<DELETE_PIER, DELETE_PIER_VARS>(
-    DELETE_PIER_MUTATION,
-    {
-      refetchQueries: refetchQueries ?? [],
-    }
-  );
+  const [deletePier, { error: deleteError }] = useMutation<
+    DELETE_PIER,
+    DELETE_PIER_VARS
+  >(DELETE_PIER_MUTATION, {
+    refetchQueries: refetchQueries ?? [],
+  });
   const { t } = useTranslation();
 
   if (loading) return <LoadingSpinner isLoading={loading} />;
-  if (error) return <div>{t('forms.common.error')}</div>;
+  if (error || updateError || deleteError)
+    return <div>{t('forms.common.error')}</div>;
 
   const suitableBoatTypeOptions = getBoatTypes(data);
   const initialValues = getPier(data);
