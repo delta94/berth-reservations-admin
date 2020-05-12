@@ -93,8 +93,6 @@ class AuthService {
     localStorage.removeItem(API_TOKENS);
     this.userManager.clearStaleState();
     await this.userManager.signoutRedirect();
-    this.userManager.clearStaleState();
-    localStorage.removeItem(API_TOKENS);
   }
 
   private async fetchApiTokens(user: User): Promise<void> {
