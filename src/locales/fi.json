@@ -187,6 +187,9 @@
       "maxWidth": "Max. leveys",
       "queue": "Jonossa"
     },
+    "berthProperties": {
+      "inactive": "Ei käytössä"
+    },
     "tableHeaders": {
       "mainHeader": "Venepaikat",
       "number": "Paikka",
@@ -312,7 +315,8 @@
       "waste": "Roskat",
       "accessible": "Esteetön paikka",
       "previousLeases": "Edelliset vuokralaiset",
-      "comment": "Huomiot"
+      "comment": "Huomiot",
+      "emptyName": "Ei nimeä"
     },
     "billing": {
       "title": "Lasku",

@@ -54,9 +54,11 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
           <Text>{`${formatDate(startDate, i18n.language)} - ${formatDate(
             endDate,
             i18n.language
-          )}`}</Text>{' '}
+          )}`}</Text>
           <InternalLink to={`/customers/${customer.id}`}>
-            {customer.firstName} {customer.lastName}
+            {customer.firstName !== '' && customer.lastName !== ''
+              ? `${customer.firstName} ${customer.lastName}`
+              : t('offer.berthDetails.emptyName')}
           </InternalLink>
         </div>
       );
