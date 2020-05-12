@@ -7,7 +7,7 @@ import {
   CREATE_BERTHVariables as CREATE_BERTH_VARS,
 } from './__generated__/CREATE_BERTH';
 import { CREATE_BERTH_MUTATION } from './mutations';
-import { Berth, FormProps } from './types';
+import { Berth, FormProps } from '../types';
 import BerthForm from './BerthForm';
 import { Pier } from '../../utils/utils';
 import { CreateBerthMutationInput } from '../../../../@types/__generated__/globalTypes';
