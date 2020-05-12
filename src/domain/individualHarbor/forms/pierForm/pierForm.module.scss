@@ -1,0 +1,34 @@
+@import 'spacings';
+
+.form {
+  > * {
+    margin: units(1) 0;
+  }
+  max-width: 400px;
+  max-height: 80vh;
+  overflow-x: scroll;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.grid {
+  grid-row-gap: units(1);
+  grid-column-gap: units(1);
+}
+
+.formActionButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: units(4);
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+
+}

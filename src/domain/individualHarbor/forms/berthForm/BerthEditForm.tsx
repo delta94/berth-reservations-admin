@@ -10,7 +10,7 @@ import {
   UPDATE_BERTHVariables as UPDATE_BERTH_VARS,
 } from './__generated__/UPDATE_BERTH';
 import { DELETE_BERTH_MUTATION, UPDATE_BERTH_MUTATION } from './mutations';
-import { Berth, FormProps } from './types';
+import { Berth, FormProps } from '../types';
 import {
   DELETE_BERTH,
   DELETE_BERTHVariables as DELETE_BERTH_VARS,
