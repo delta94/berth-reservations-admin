@@ -11,6 +11,7 @@ interface PierSelectHeaderProps {
   readonly piers: Pier[];
   readonly selectedPier?: Pier | null;
   onPierSelect(pier: Pier | null): void;
+  onEdit?(pier: Pier): void;
 }
 
 const PierSelectHeader: React.FC<PierSelectHeaderProps> = ({
@@ -18,33 +19,44 @@ const PierSelectHeader: React.FC<PierSelectHeaderProps> = ({
   piers,
   selectedPier,
   onPierSelect,
+  onEdit,
 }) => {
   const { t } = useTranslation();
   return (
     <div className={classNames(styles.container, className)}>
       <div className={styles.selectContainer}>
-        <button
-          onClick={() => onPierSelect(null)}
-          className={classNames(styles.pierButton, {
-            [styles.pierButtonSelected]: !selectedPier,
-          })}
-        >
-          {t('individualHarbor.tableHeaders.all')}
-        </button>
-        {piers.map((pier, idx) => (
+        <div>
           <button
-            key={idx}
-            onClick={() => onPierSelect(pier)}
+            onClick={() => onPierSelect(null)}
             className={classNames(styles.pierButton, {
-              [styles.pierButtonSelected]:
-                selectedPier && selectedPier.identifier === pier.identifier,
+              [styles.pierButtonSelected]: !selectedPier,
             })}
           >
-            {`${t('individualHarbor.tableHeaders.identifier')} ${
-              pier.identifier
-            }`}
+            {t('individualHarbor.tableHeaders.all')}
           </button>
-        ))}
+          {piers.map(pier => (
+            <button
+              key={pier.id}
+              onClick={() => onPierSelect(pier)}
+              className={classNames(styles.pierButton, {
+                [styles.pierButtonSelected]:
+                  selectedPier && selectedPier.identifier === pier.identifier,
+              })}
+            >
+              {`${t('individualHarbor.tableHeaders.identifier')} ${
+                pier.identifier
+              }`}
+            </button>
+          ))}
+        </div>
+        {selectedPier && (
+          <button
+            onClick={() => onEdit?.(selectedPier)}
+            className={styles.editButton}
+          >
+            {t('individualHarbor.tableHeaders.editPier')}
+          </button>
+        )}
       </div>
       {selectedPier && <PierProperties pier={selectedPier} />}
     </div>

@@ -1,5 +1,5 @@
 import { INDIVIDUAL_BERTH } from '../__generated__/INDIVIDUAL_BERTH';
-import { Berth } from '../types';
+import { Berth } from '../../types';
 
 export const getBerth = (
   berthData: INDIVIDUAL_BERTH | undefined

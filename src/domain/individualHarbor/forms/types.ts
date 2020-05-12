@@ -1,6 +1,6 @@
 import { PureQueryOptions } from 'apollo-client';
 
-import { BerthMooringType } from '../../../../@types/__generated__/globalTypes';
+import { BerthMooringType } from '../../../@types/__generated__/globalTypes';
 
 export interface FormProps<T> {
   onCancel?(): void;
@@ -23,4 +23,21 @@ export type Berth = {
   depth?: number | null;
   pier?: string;
   pierId?: string;
+};
+
+export type BoatType = {
+  id: string;
+  name: string | null;
+};
+
+export type Pier = {
+  identifier?: string;
+  suitableBoatTypes?: string[];
+  mooring?: boolean;
+  wasteCollection?: boolean;
+  lighting?: boolean;
+  electricity?: boolean;
+  water?: boolean;
+  gate?: boolean;
+  personalElectricity?: boolean;
 };

@@ -6,7 +6,7 @@ import { TFunction } from 'i18next';
 import { Button, TextInput } from 'hds-react';
 import { ObjectSchema } from 'yup';
 
-import { Berth, FormProps } from './types';
+import { Berth, FormProps } from '../types';
 import { BerthMooringType } from '../../../../@types/__generated__/globalTypes';
 import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
