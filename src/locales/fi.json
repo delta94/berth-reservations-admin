@@ -113,9 +113,28 @@
       "edit": "Muokkaa",
       "errors": {
         "required": "Tämä kenttä on pakollinen.",
-        "numberType": "Kentän pitää olla numero."
+        "numberType": "Kentän pitää olla numero.",
+        "integer": "Kentän pitää olla kokonaisluku.",
+        "positive": "Kentän pitää olla positiivinen luku."
       },
-      "error": "Tapahtui virhe. Yritä uudestaan."
+      "error": "Tapahtui virhe. Yritä uudestaan.",
+      "create": "Luo",
+      "update": "Tallenna",
+      "delete": "Poista",
+      "cancel": "Peruuta"
+    },
+    "berth": {
+      "delete": "Poista venepaikka",
+      "title": "Venepaikka",
+      "pier": "Laituri",
+      "number": "Paikka",
+      "width": "Leveys (m)",
+      "length": "Pituus (m)",
+      "depth": "Syvyys (m)",
+      "mooringType": "Kiinnitystapa",
+      "comment": "Huomiot",
+      "isActive": "Paikka on käytössä",
+      "delete": "Poista venepaikka"
     }
   },
   "harbors": {
@@ -156,6 +175,9 @@
       "maxWidth": "Max. leveys",
       "queue": "Jonossa"
     },
+    "berthProperties": {
+      "inactive": "Ei käytössä"
+    },
     "tableHeaders": {
       "mainHeader": "Venepaikat",
       "number": "Paikka",
@@ -173,6 +195,10 @@
     "pierProperties": {
       "pier": "Laituri",
       "services": "Palvelut"
+    },
+    "tableTools": {
+      "addPier": "Lisää laituri",
+      "addBerth": "Lisää venepaikka"
     }
   },
   "applications": {
@@ -276,7 +302,8 @@
       "waste": "Roskat",
       "accessible": "Esteetön paikka",
       "previousLeases": "Edelliset vuokralaiset",
-      "comment": "Huomiot"
+      "comment": "Huomiot",
+      "emptyName": "Ei nimeä"
     },
     "billing": {
       "title": "Lasku",

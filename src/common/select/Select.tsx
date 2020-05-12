@@ -10,7 +10,6 @@ interface Option {
 
 export type SelectProps = {
   name?: string;
-  id?: string;
   labelText?: string;
   className?: string;
   value: Option['value'] | undefined;
@@ -18,9 +17,10 @@ export type SelectProps = {
   required?: boolean;
   disabled?: boolean;
   onChange: React.ChangeEventHandler<HTMLSelectElement>;
+  id?: string;
 };
 
-const Select: React.SFC<SelectProps> = ({
+const Select: React.FC<SelectProps> = ({
   name,
   id,
   labelText,
@@ -39,7 +39,7 @@ const Select: React.SFC<SelectProps> = ({
 
   return (
     <label className={className}>
-      <span className={styles.labelText}>{labelText}</span>
+      {labelText && <span className={styles.labelText}>{labelText}</span>}
       <select
         name={name}
         id={id}

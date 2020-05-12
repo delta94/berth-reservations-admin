@@ -77,13 +77,45 @@ export interface CreateBerthLeaseMutationInput {
   clientMutationId?: string | null;
 }
 
+export interface CreateBerthMutationInput {
+  number: number;
+  isActive?: boolean | null;
+  pierId: string;
+  comment?: string | null;
+  isAccessible?: boolean | null;
+  width: number;
+  length: number;
+  depth?: number | null;
+  mooringType: BerthMooringType;
+  clientMutationId?: string | null;
+}
+
 export interface DeleteBerthLeaseMutationInput {
+  id: string;
+  clientMutationId?: string | null;
+}
+
+export interface DeleteBerthMutationInput {
   id: string;
   clientMutationId?: string | null;
 }
 
 export interface UpdateBerthApplicationInput {
   customerId: string;
+  id: string;
+  clientMutationId?: string | null;
+}
+
+export interface UpdateBerthMutationInput {
+  number?: number | null;
+  isActive?: boolean | null;
+  pierId?: string | null;
+  comment?: string | null;
+  isAccessible?: boolean | null;
+  width?: number | null;
+  length?: number | null;
+  depth?: number | null;
+  mooringType?: BerthMooringType | null;
   id: string;
   clientMutationId?: string | null;
 }

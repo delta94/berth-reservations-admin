@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
@@ -18,12 +18,17 @@ import HarborProperties from './harborProperties/HarborProperties';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { formatDimension } from '../../common/utils/format';
 import PierSelectHeader from './pierSelectHeader/PierSelectHeader';
-import GlobalSearchTableTools from '../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';
+import Modal from '../../common/modal/Modal';
+import BerthEditForm from './forms/berthForm/BerthEditForm';
+import BerthCreateForm from './forms/berthForm/BerthCreateForm';
+import IndividualHarborTableTools from './individualHarborTableTools/IndividualHarborTableTools';
 import BerthDetails from '../cards/berthDetails/BerthDetails';
-import { LeaseStatus } from '../../@types/__generated__/globalTypes';
 import InternalLink from '../../common/internalLink/InternalLink';
+import Chip from '../../common/chip/Chip';
 
 const IndividualHarborPageContainer: React.SFC = () => {
+  const [berthToEdit, setBerthToEdit] = useState<string | null>(null);
+  const [creatingBerth, setCreatingBerth] = useState<boolean>(false);
   const { id } = useParams<{ id: string }>();
   const { loading, error, data } = useQuery<INDIVIDUAL_HARBOR>(
     INDIVIDUAL_HARBOR_QUERY,
@@ -51,8 +56,17 @@ const IndividualHarborPageContainer: React.SFC = () => {
     },
     {
       Cell: ({ cell }: { cell: Cell<Berth> }) => {
+        const isBerthActive = cell.row.original.isActive;
+        if (!isBerthActive) {
+          return (
+            <Chip
+              color="red"
+              label={t('individualHarbor.berthProperties.inactive')}
+            />
+          );
+        }
         const activeLease = cell.row.original.leases?.find(
-          lease => lease.isActive && lease.status === LeaseStatus.PAID
+          lease => lease.isActive
         );
         if (!activeLease) {
           return cell.value;
@@ -125,7 +139,11 @@ const IndividualHarborPageContainer: React.SFC = () => {
         columns={columns}
         canSelectRows
         renderTableToolsTop={(_, setters) => (
-          <GlobalSearchTableTools
+          <IndividualHarborTableTools
+            onAddBerth={() => setCreatingBerth(true)}
+            onAddPier={() => {
+              /* TODO */
+            }}
             handleGlobalFilter={setters.setGlobalFilter}
           />
         )}
@@ -147,9 +165,34 @@ const IndividualHarborPageContainer: React.SFC = () => {
           <BerthDetails
             leases={row.original.leases ?? []}
             comment={row.original.comment}
+            onEdit={() => setBerthToEdit(row.original.id)}
           />
         )}
       />
+      {berthToEdit && (
+        <Modal isOpen={!!berthToEdit} toggleModal={() => setBerthToEdit(null)}>
+          <BerthEditForm
+            berthId={berthToEdit}
+            onCancel={() => setBerthToEdit(null)}
+            onDelete={() => setBerthToEdit(null)}
+            onSubmit={() => setBerthToEdit(null)}
+            refetchQueries={[
+              { query: INDIVIDUAL_HARBOR_QUERY, variables: { id } },
+            ]}
+            pierOptions={piers}
+          />
+        </Modal>
+      )}
+      <Modal isOpen={creatingBerth} toggleModal={() => setCreatingBerth(false)}>
+        <BerthCreateForm
+          onCancel={() => setCreatingBerth(false)}
+          onSubmit={() => setCreatingBerth(false)}
+          refetchQueries={[
+            { query: INDIVIDUAL_HARBOR_QUERY, variables: { id } },
+          ]}
+          pierOptions={piers}
+        />
+      </Modal>
     </IndividualHarborPage>
   );
 };

@@ -18,6 +18,7 @@ export const INDIVIDUAL_HARBOR_QUERY = gql`
         piers {
           edges {
             node {
+              id
               properties {
                 identifier
                 electricity
@@ -31,6 +32,8 @@ export const INDIVIDUAL_HARBOR_QUERY = gql`
                 berths {
                   edges {
                     node {
+                      id
+                      isActive
                       number
                       width
                       length
