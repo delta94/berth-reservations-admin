@@ -16,3 +16,13 @@ export const hasPrice = (element: Element) => {
   const price = Number(priceIntegerPart);
   return price > 0;
 };
+
+export const inputHasPrice = (element: HTMLInputElement | Element) => {
+  const value = (element as HTMLInputElement).value;
+  if (!value) {
+    return false;
+  }
+
+  const price = Number(value);
+  return price > 0;
+};

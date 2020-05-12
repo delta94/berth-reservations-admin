@@ -1,7 +1,7 @@
 import { login } from './utils/login';
 import { envUrl } from './utils/settings';
 import { applications } from './pages/applications';
-import { hasLength, hasPrice } from './utils/valueUtils';
+import { hasLength, hasPrice, inputHasPrice } from './utils/valueUtils';
 import { navigation } from './pages/navigation';
 import { harbors } from './pages/harbors';
 import { customers } from './pages/customers';
@@ -37,5 +37,13 @@ test('Navigate and view basic data', async t => {
   await t
     .click(navigation.pricing)
     .expect(pricing.berthPrices.firstPrivatePrice.filter(hasPrice).exists)
+    .ok();
+
+  // Pricing modal
+  await t
+    .click(pricing.berthPrices.editPriceButton)
+    .expect(
+      pricing.berthPrices.priceModal.privatePrice.filter(inputHasPrice).exists
+    )
     .ok();
 });
