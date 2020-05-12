@@ -66,6 +66,7 @@ interface Lease {
 
 export type Berth = {
   id: string;
+  isActive: boolean;
   number: number;
   identifier: string;
   length: number;
@@ -98,6 +99,7 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined): Berth[] => {
           {
             id: berthEdge.node.id,
             identifier,
+            isActive: berthEdge.node.isActive,
             length: berthEdge.node.length,
             mooringType: berthEdge.node.mooringType,
             number: berthEdge.node.number,
