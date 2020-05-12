@@ -79,22 +79,20 @@ class AuthService {
     return this.userManager.signinRedirect({ data: { path } });
   }
 
-  public endLogin(): Promise<User> {
-    return this.userManager.signinRedirectCallback().then(async user => {
-      this.fetchApiTokens(user);
-
-      return user;
-    });
+  public async endLogin(): Promise<User> {
+    const user = await this.userManager.signinRedirectCallback();
+    await this.fetchApiTokens(user);
+    return user;
   }
 
   public renewToken(): Promise<User> {
     return this.userManager.signinSilent();
   }
 
-  public logout(): Promise<void> {
-    return this.userManager.signoutRedirect().then(() => {
-      localStorage.removeItem(API_TOKENS);
-    });
+  public async logout(): Promise<void> {
+    localStorage.removeItem(API_TOKENS);
+    this.userManager.clearStaleState();
+    await this.userManager.signoutRedirect();
   }
 
   private async fetchApiTokens(user: User): Promise<void> {
