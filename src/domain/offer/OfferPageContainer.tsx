@@ -13,10 +13,7 @@ import { OFFER_PAGE } from './__generated__/OFFER_PAGE';
 import { BerthData, getOfferData, getAllPiersIdentifiers } from './utils';
 import { formatDimension, formatDate } from '../../common/utils/format';
 import { CREATE_LEASE_MUTATION } from './mutations';
-import {
-  CREATE_LEASE,
-  CREATE_LEASEVariables as CREATE_LEASE_VARS,
-} from './__generated__/CREATE_LEASE';
+import { CREATE_LEASE, CREATE_LEASEVariables as CREATE_LEASE_VARS } from './__generated__/CREATE_LEASE';
 import TableTools from './tableTools/TableTools';
 import { BERTH_APPLICATIONS_QUERY } from '../applications/queries';
 import BerthDetails from '../cards/berthDetails/BerthDetails';
@@ -36,21 +33,17 @@ const OfferPageContainer: React.FC = () => {
   const { loading, error, data } = useQuery<OFFER_PAGE>(OFFER_PAGE_QUERY, {
     variables: { applicationId, servicemapId: routerQuery.get('harbor') },
   });
-  const [
-    createBerthLease,
-    { data: mutationData, loading: isSubmitting },
-  ] = useMutation<CREATE_LEASE, CREATE_LEASE_VARS>(CREATE_LEASE_MUTATION, {
+  const [createBerthLease, { data: mutationData, loading: isSubmitting }] = useMutation<
+    CREATE_LEASE,
+    CREATE_LEASE_VARS
+  >(CREATE_LEASE_MUTATION, {
     refetchQueries: [{ query: BERTH_APPLICATIONS_QUERY }],
   });
   const { t, i18n } = useTranslation();
 
   const columns: ColumnType[] = [
     {
-      Cell: ({ cell }) => (
-        <InternalLink to={`/harbors/${cell.row.original.harborId}}`}>
-          {cell.value}
-        </InternalLink>
-      ),
+      Cell: ({ cell }) => <InternalLink to={`/harbors/${cell.row.original.harborId}}`}>{cell.value}</InternalLink>,
       Header: t('offer.tableHeaders.harbor') || '',
       accessor: 'harbor',
       width: COLUMN_WIDTH.XL,
@@ -101,10 +94,7 @@ const OfferPageContainer: React.FC = () => {
     );
   if (error)
     return (
-      <Notification
-        labelText={t('common.notification.error.label')}
-        type="error"
-      >
+      <Notification labelText={t('common.notification.error.label')} type="error">
         {t('common.notification.error.description')}
       </Notification>
     );
@@ -116,19 +106,12 @@ const OfferPageContainer: React.FC = () => {
   const tableData = getOfferData(data);
 
   const getApplicationType = (isSwitch: boolean) =>
-    isSwitch
-      ? t('applications.applicationType.switchApplication')
-      : t('applications.applicationType.newApplication');
+    isSwitch ? t('applications.applicationType.switchApplication') : t('applications.applicationType.newApplication');
 
-  const applicationDate = formatDate(
-    data.berthApplication?.createdAt,
-    i18n.language
-  );
+  const applicationDate = formatDate(data.berthApplication?.createdAt, i18n.language);
   const applicationStatus = data.berthApplication.status;
   const handleReturn = () => history.push('/applications');
-  const applicationType = getApplicationType(
-    !!data.berthApplication.berthSwitch
-  );
+  const applicationType = getApplicationType(!!data.berthApplication.berthSwitch);
   const piersIdentifiers = getAllPiersIdentifiers(data);
 
   return (
@@ -136,27 +119,21 @@ const OfferPageContainer: React.FC = () => {
       <Table
         data={tableData}
         columns={columns}
-        renderSubComponent={row => {
+        renderSubComponent={(row) => {
           const { properties, leases, comment } = row.original;
-          return (
-            <BerthDetails leases={leases} comment={comment} {...properties} />
-          );
+          return <BerthDetails leases={leases} comment={comment} {...properties} />;
         }}
-        renderMainHeader={props => (
+        renderMainHeader={(props) => (
           <TableFilters
-            activeFilters={props.state.filters.map(filter => filter.value)}
+            activeFilters={props.state.filters.map((filter) => filter.value)}
             filters={piersIdentifiers}
-            handleSetFilter={filter => props.setFilter('pier', filter)}
+            handleSetFilter={(filter) => props.setFilter('pier', filter)}
             filterPrefix={t('offer.tableHeaders.pierFilterBtn')}
           />
         )}
-        renderTableToolsTop={state => {
+        renderTableToolsTop={(state) => {
           const berthId = state.selectedRows[0]?.berthId;
-          const isDisabled =
-            isSubmitting ||
-            !applicationId ||
-            !berthId ||
-            !data.berthApplication?.customer;
+          const isDisabled = isSubmitting || !applicationId || !berthId || !data.berthApplication?.customer;
 
           const handleSubmit = () => {
             createBerthLease({

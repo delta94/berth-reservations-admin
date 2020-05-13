@@ -9,7 +9,7 @@ export default {
   component: OfferCard,
   title: 'OfferCard',
   decorators: [
-    storyFn => (
+    (storyFn) => (
       <div
         style={{
           padding: '20px',

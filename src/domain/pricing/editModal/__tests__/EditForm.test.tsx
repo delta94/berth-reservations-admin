@@ -4,12 +4,7 @@ import { Form } from 'formik';
 import { act } from 'react-dom/test-utils';
 
 import EditForm, { EditPricingFormProps, EDIT_FORM_TYPE } from '../EditForm';
-import {
-  AdditionalService,
-  BerthPrice,
-  HarborService,
-  WinterStoragePrice,
-} from '../../PricingPage';
+import { AdditionalService, BerthPrice, HarborService, WinterStoragePrice } from '../../PricingPage';
 import BerthsFields from '../fields/BerthsFields';
 import WinterStorageFields from '../fields/WinterStorageFields';
 import HarborServicesFields from '../fields/HarborServicesFields';
@@ -53,9 +48,8 @@ describe('EditForm', () => {
     closeModal: jest.fn(),
   };
 
-  const getWrapper = (
-    props: Pick<EditPricingFormProps, 'initialValues' | 'formType'>
-  ) => mount(<EditForm {...mockProps} {...props} />);
+  const getWrapper = (props: Pick<EditPricingFormProps, 'initialValues' | 'formType'>) =>
+    mount(<EditForm {...mockProps} {...props} />);
 
   // [name, component, data, formType]
   const cases: [
@@ -65,75 +59,57 @@ describe('EditForm', () => {
     EDIT_FORM_TYPE
   ][] = [
     ['berths', BerthsFields, berthsData, EDIT_FORM_TYPE.BERTHS],
-    [
-      'winter storage',
-      WinterStorageFields,
-      winterStorageData,
-      EDIT_FORM_TYPE.WINTER_STORAGE,
-    ],
-    [
-      'harbor services',
-      HarborServicesFields,
-      harborServicesData,
-      EDIT_FORM_TYPE.HARBOR_SERVICES,
-    ],
-    [
-      'additional services',
-      AdditionalServicesFields,
-      additionalServicesData,
-      EDIT_FORM_TYPE.ADDITIONAL_SERVICES,
-    ],
+    ['winter storage', WinterStorageFields, winterStorageData, EDIT_FORM_TYPE.WINTER_STORAGE],
+    ['harbor services', HarborServicesFields, harborServicesData, EDIT_FORM_TYPE.HARBOR_SERVICES],
+    ['additional services', AdditionalServicesFields, additionalServicesData, EDIT_FORM_TYPE.ADDITIONAL_SERVICES],
   ];
 
   afterEach(() => {
     jest.resetAllMocks();
   });
 
-  describe.each(cases)(
-    'with %s data and form type',
-    (name, component, data, formType) => {
-      it(`should render ${component.name}`, () => {
-        const form = getWrapper({
-          initialValues: data,
-          formType: formType,
-        }).find(Form);
+  describe.each(cases)('with %s data and form type', (name, component, data, formType) => {
+    it(`should render ${component.name}`, () => {
+      const form = getWrapper({
+        initialValues: data,
+        formType: formType,
+      }).find(Form);
 
-        expect(form.find(component)).toHaveLength(1);
+      expect(form.find(component)).toHaveLength(1);
+    });
+
+    it('should render a working cancel button', () => {
+      const form = getWrapper({
+        initialValues: data,
+        formType: formType,
+      }).find(Form);
+      const cancelButton = form.find('button').at(0);
+      cancelButton.simulate('click');
+
+      expect(mockProps.closeModal).toHaveBeenCalledTimes(1);
+    });
+
+    it('should render a working submit button', () => {
+      const form = getWrapper({
+        initialValues: data,
+        formType: formType,
+      }).find(Form);
+      const submitButton = form.find('button[type="submit"]');
+
+      expect(submitButton).toHaveLength(1);
+    });
+
+    it('should have working onSubmit', async () => {
+      const form = getWrapper({
+        initialValues: data,
+        formType: formType,
+      }).find(Form);
+
+      await act(async () => {
+        form.simulate('submit');
       });
 
-      it('should render a working cancel button', () => {
-        const form = getWrapper({
-          initialValues: data,
-          formType: formType,
-        }).find(Form);
-        const cancelButton = form.find('button').at(0);
-        cancelButton.simulate('click');
-
-        expect(mockProps.closeModal).toHaveBeenCalledTimes(1);
-      });
-
-      it('should render a working submit button', () => {
-        const form = getWrapper({
-          initialValues: data,
-          formType: formType,
-        }).find(Form);
-        const submitButton = form.find('button[type="submit"]');
-
-        expect(submitButton).toHaveLength(1);
-      });
-
-      it('should have working onSubmit', async () => {
-        const form = getWrapper({
-          initialValues: data,
-          formType: formType,
-        }).find(Form);
-
-        await act(async () => {
-          form.simulate('submit');
-        });
-
-        expect(mockProps.onSubmit).toHaveBeenCalledTimes(1);
-      });
-    }
-  );
+      expect(mockProps.onSubmit).toHaveBeenCalledTimes(1);
+    });
+  });
 });

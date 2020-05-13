@@ -10,12 +10,7 @@ export interface ExternalLinkProps {
   children: React.ReactNode;
 }
 
-const ExternalLink = ({
-  href,
-  underline,
-  variant,
-  children,
-}: ExternalLinkProps) => (
+const ExternalLink = ({ href, underline, variant, children }: ExternalLinkProps) => (
   <ExternalLink href={href} underline={underline} variant={variant}>
     {children}
   </ExternalLink>

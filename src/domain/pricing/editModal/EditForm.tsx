@@ -4,22 +4,11 @@ import { Button } from 'hds-react/lib';
 import { useTranslation } from 'react-i18next';
 
 import styles from './editForm.module.scss';
-import {
-  AdditionalService,
-  BerthPrice,
-  HarborService,
-  WinterStoragePrice,
-} from '../PricingPage';
-import AdditionalServicesFields, {
-  getAdditionalServicesValidationSchema,
-} from './fields/AdditionalServicesFields';
+import { AdditionalService, BerthPrice, HarborService, WinterStoragePrice } from '../PricingPage';
+import AdditionalServicesFields, { getAdditionalServicesValidationSchema } from './fields/AdditionalServicesFields';
 import BerthsFields, { getBerthsValidationSchema } from './fields/BerthsFields';
-import WinterStorageFields, {
-  getWinterStorageValidationSchema,
-} from './fields/WinterStorageFields';
-import HarborServicesFields, {
-  getHarborServicesValidationSchema,
-} from './fields/HarborServicesFields';
+import WinterStorageFields, { getWinterStorageValidationSchema } from './fields/WinterStorageFields';
+import HarborServicesFields, { getHarborServicesValidationSchema } from './fields/HarborServicesFields';
 
 export enum EDIT_FORM_TYPE {
   BERTHS = 'BERTHS',
@@ -29,15 +18,9 @@ export enum EDIT_FORM_TYPE {
 }
 
 export interface EditPricingFormProps {
-  onSubmit: (
-    values: BerthPrice | WinterStoragePrice | HarborService | AdditionalService
-  ) => void;
+  onSubmit: (values: BerthPrice | WinterStoragePrice | HarborService | AdditionalService) => void;
   closeModal: () => void;
-  initialValues:
-    | BerthPrice
-    | WinterStoragePrice
-    | HarborService
-    | AdditionalService;
+  initialValues: BerthPrice | WinterStoragePrice | HarborService | AdditionalService;
   formType: EDIT_FORM_TYPE;
 }
 
@@ -66,21 +49,12 @@ const getForm = (formType: EDIT_FORM_TYPE) => {
   }
 };
 
-const EditForm: FunctionComponent<EditPricingFormProps> = ({
-  onSubmit,
-  closeModal,
-  formType,
-  initialValues,
-}) => {
+const EditForm: FunctionComponent<EditPricingFormProps> = ({ onSubmit, closeModal, formType, initialValues }) => {
   const { t } = useTranslation();
   const form = getForm(formType);
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={onSubmit}
-      validationSchema={form.getValidationSchema(t)}
-    >
+    <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={form.getValidationSchema(t)}>
       {({ isSubmitting }) => (
         <Form>
           {form.component}

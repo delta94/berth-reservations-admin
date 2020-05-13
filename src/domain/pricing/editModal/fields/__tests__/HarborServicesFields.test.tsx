@@ -16,11 +16,7 @@ const mockValues: HarborService = {
 describe('HarborServicesFields', () => {
   const getWrapper = () =>
     mount(
-      <Formik
-        initialValues={mockValues}
-        onSubmit={jest.fn()}
-        validate={jest.fn()}
-      >
+      <Formik initialValues={mockValues} onSubmit={jest.fn()} validate={jest.fn()}>
         {() => (
           <Form>
             <HarborServicesFields />

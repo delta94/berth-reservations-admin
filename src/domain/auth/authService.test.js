@@ -137,9 +137,7 @@ describe('authService', () => {
 
     it('should return the same user object returned from signinRedirectCallback', async () => {
       expect.assertions(1);
-      jest
-        .spyOn(userManager, 'signinRedirectCallback')
-        .mockReturnValue(Promise.resolve(mockUser));
+      jest.spyOn(userManager, 'signinRedirectCallback').mockReturnValue(Promise.resolve(mockUser));
 
       const user = await authService.endLogin();
 
@@ -149,9 +147,7 @@ describe('authService', () => {
     it('should call fetchApiTokens with the user object', async () => {
       expect.assertions(1);
       jest.spyOn(authService, 'fetchApiTokens');
-      jest
-        .spyOn(userManager, 'signinRedirectCallback')
-        .mockResolvedValue(mockUser);
+      jest.spyOn(userManager, 'signinRedirectCallback').mockResolvedValue(mockUser);
 
       await authService.endLogin();
 
@@ -160,9 +156,7 @@ describe('authService', () => {
 
     it('should set the user in localStorage before the function returns', async () => {
       expect.assertions(1);
-      jest
-        .spyOn(userManager, 'signinRedirectCallback')
-        .mockResolvedValue(mockUser);
+      jest.spyOn(userManager, 'signinRedirectCallback').mockResolvedValue(mockUser);
       jest.spyOn(authService, 'fetchApiTokens');
 
       await authService.endLogin();

@@ -8,9 +8,7 @@ export default {
   title: 'Checkbox',
 };
 
-export const withLabel = () => (
-  <Checkbox size="small" onChange={action('clicked')} label="Check me" />
-);
+export const withLabel = () => <Checkbox size="small" onChange={action('clicked')} label="Check me" />;
 
 export const checked = () => (
   <>

@@ -33,7 +33,7 @@ const CustomersTableTools = <T extends string>({
     <div className={classNames(styles.customersTableTools, className)}>
       <Select
         className={styles.select}
-        onChange={e => setSearchBy(e.target.value as T)}
+        onChange={(e) => setSearchBy(e.target.value as T)}
         value={searchBy}
         options={searchByOptions}
         required
@@ -42,7 +42,7 @@ const CustomersTableTools = <T extends string>({
         className={styles.searchInput}
         id="searchSimilarCustomers"
         value={searchVal}
-        onChange={e => setSearchVal((e.target as HTMLInputElement).value)}
+        onChange={(e) => setSearchVal((e.target as HTMLInputElement).value)}
       />
       <Button disabled={!handleLinkCustomer} onClick={handleLinkCustomer}>
         {t('individualApplication.customerTableTools.linkCustomer')}

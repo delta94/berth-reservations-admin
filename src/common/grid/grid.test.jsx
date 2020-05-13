@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import Grid from './Grid';
 
 describe('Grid', () => {
-  const getWrapper = props =>
+  const getWrapper = (props) =>
     shallow(
       <Grid {...props}>
         <div>one</div>

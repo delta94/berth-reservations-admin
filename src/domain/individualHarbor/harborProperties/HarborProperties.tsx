@@ -30,13 +30,7 @@ export interface HarborPropertiesProps {
   };
 }
 
-const HarborProperties: React.SFC<HarborPropertiesProps> = ({
-  name,
-  address,
-  imageUrl,
-  servicemapId,
-  properties,
-}) => {
+const HarborProperties: React.SFC<HarborPropertiesProps> = ({ name, address, imageUrl, servicemapId, properties }) => {
   const { t } = useTranslation();
 
   const serviceMapUrl = `${process.env.REACT_APP_SERVICE_MAP_URI}${servicemapId}`;
@@ -48,11 +42,7 @@ const HarborProperties: React.SFC<HarborPropertiesProps> = ({
         <div className={styles.harborProperties}>
           <div className={styles.details}>
             <div className={styles.imageWrapper}>
-              <img
-                alt="Harbor's location"
-                src={imageUrl ? imageUrl : placeholder}
-                className={styles.image}
-              />
+              <img alt="Harbor's location" src={imageUrl ? imageUrl : placeholder} className={styles.image} />
             </div>
             <div>
               <Section>
@@ -78,14 +68,8 @@ const HarborProperties: React.SFC<HarborPropertiesProps> = ({
               counter={properties.numberOfFreePlaces}
               label={t('individualHarbor.harborProperties.numberOfFreePlaces')}
             />
-            <Property
-              counter={properties.queue}
-              label={t('individualHarbor.harborProperties.queue')}
-            />
-            <Property
-              counter={properties.maxWidth}
-              label={t('individualHarbor.harborProperties.maxWidth')}
-            />
+            <Property counter={properties.queue} label={t('individualHarbor.harborProperties.queue')} />
+            <Property counter={properties.maxWidth} label={t('individualHarbor.harborProperties.maxWidth')} />
 
             <Property
               iconShape="IconTrash"

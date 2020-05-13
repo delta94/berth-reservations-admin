@@ -1,9 +1,4 @@
-import {
-  AdditionalService,
-  BerthPrice,
-  HarborService,
-  WinterStoragePrice,
-} from './PricingPage';
+import { AdditionalService, BerthPrice, HarborService, WinterStoragePrice } from './PricingPage';
 
 const berthPrices: BerthPrice[] = [
   {

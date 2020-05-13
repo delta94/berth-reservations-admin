@@ -14,8 +14,7 @@ describe('Radio', () => {
     onChange,
     checked: true,
   };
-  const getWrapper = (props = {}) =>
-    shallow(<Radio {...initialProps} {...props} />);
+  const getWrapper = (props = {}) => shallow(<Radio {...initialProps} {...props} />);
 
   it('renders normally', () => {
     const wrapper = getWrapper();

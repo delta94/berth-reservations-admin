@@ -3,22 +3,12 @@ import classNames from 'classnames';
 
 import styles from './radio.module.scss';
 
-export type RadioProps = Omit<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  'size'
-> & {
+export type RadioProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> & {
   label?: string;
   size?: 'small' | 'medium' | 'large';
 };
 
-const Radio: React.SFC<RadioProps> = ({
-  checked,
-  disabled,
-  onChange,
-  label,
-  size = 'medium',
-  readOnly,
-}) => {
+const Radio: React.SFC<RadioProps> = ({ checked, disabled, onChange, label, size = 'medium', readOnly }) => {
   return (
     <label>
       <span
@@ -28,13 +18,7 @@ const Radio: React.SFC<RadioProps> = ({
           [styles.readOnly]: readOnly,
         })}
       >
-        <input
-          checked={checked}
-          onChange={onChange}
-          className={styles.input}
-          type="radio"
-          readOnly={readOnly}
-        />
+        <input checked={checked} onChange={onChange} className={styles.input} type="radio" readOnly={readOnly} />
       </span>
       {label && (
         <span

@@ -8,13 +8,7 @@ export default {
   title: 'Pagination',
 };
 
-export const pagination = () => (
-  <Pagination
-    pageCount={10}
-    onPageChange={action('page changed')}
-    forcePage={3}
-  />
-);
+export const pagination = () => <Pagination pageCount={10} onPageChange={action('page changed')} forcePage={3} />;
 
 pagination.story = {
   name: 'Default',

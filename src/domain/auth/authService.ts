@@ -38,7 +38,7 @@ class AuthService {
     this.logout = this.logout.bind(this);
 
     // Events
-    this.userManager.events.addAccessTokenExpired(e => {
+    this.userManager.events.addAccessTokenExpired((e) => {
       this.logout();
     });
 
@@ -51,7 +51,7 @@ class AuthService {
       localStorage.removeItem(API_TOKENS);
     });
 
-    this.userManager.events.addUserLoaded(user => {
+    this.userManager.events.addUserLoaded((user) => {
       this.fetchApiTokens(user);
     });
   }
@@ -70,9 +70,7 @@ class AuthService {
     );
     const apiTokens = this.getTokens();
 
-    return (
-      !!oidcStorage && !!JSON.parse(oidcStorage).access_token && !!apiTokens
-    );
+    return !!oidcStorage && !!JSON.parse(oidcStorage).access_token && !!apiTokens;
   }
 
   public login(path = '/'): Promise<void> {
@@ -96,15 +94,12 @@ class AuthService {
   }
 
   private async fetchApiTokens(user: User): Promise<void> {
-    const { data: apiTokens } = await axios.get(
-      `${process.env.REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT}/`,
-      {
-        baseURL: process.env.REACT_APP_TUNNISTAMO_URI,
-        headers: {
-          Authorization: `bearer ${user.access_token}`,
-        },
-      }
-    );
+    const { data: apiTokens } = await axios.get(`${process.env.REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT}/`, {
+      baseURL: process.env.REACT_APP_TUNNISTAMO_URI,
+      headers: {
+        Authorization: `bearer ${user.access_token}`,
+      },
+    });
 
     localStorage.setItem(API_TOKENS, JSON.stringify(apiTokens));
   }

@@ -17,9 +17,7 @@ const periodOptions = ['season', 'month', 'year'];
 
 export const getBerthsValidationSchema = (t: TFunction) =>
   Yup.object().shape({
-    width: Yup.number()
-      .oneOf(widthOptions)
-      .required(t('forms.common.errors.required')),
+    width: Yup.number().oneOf(widthOptions).required(t('forms.common.errors.required')),
     privateCustomer: Yup.number()
       .positive()
       .typeError(t('forms.common.errors.numberType'))
@@ -28,9 +26,7 @@ export const getBerthsValidationSchema = (t: TFunction) =>
       .positive()
       .typeError(t('forms.common.errors.numberType'))
       .required(t('forms.common.errors.required')),
-    period: Yup.string()
-      .oneOf(periodOptions)
-      .required(t('forms.common.errors.required')),
+    period: Yup.string().oneOf(periodOptions).required(t('forms.common.errors.required')),
   });
 
 const BerthsFields: FunctionComponent = () => {
@@ -40,10 +36,7 @@ const BerthsFields: FunctionComponent = () => {
   return (
     <>
       <div className={styles.row}>
-        <FormTypeTitle
-          label={t('common.terminology.dataEntry')}
-          value={t('pricing.berths.title')}
-        />
+        <FormTypeTitle label={t('common.terminology.dataEntry')} value={t('pricing.berths.title')} />
       </div>
       <hr />
       <Grid colsCount={2} className={styles.row}>
@@ -52,7 +45,7 @@ const BerthsFields: FunctionComponent = () => {
           as={Select}
           name="width"
           labelText={t('pricing.berths.width')}
-          options={widthOptions.map(option => ({
+          options={widthOptions.map((option) => ({
             value: option,
             label: formatDimension(option, 'fi'),
           }))}
@@ -84,7 +77,7 @@ const BerthsFields: FunctionComponent = () => {
           as={Select}
           name="period"
           labelText={t('pricing.berths.period')}
-          options={periodOptions.map(option => ({
+          options={periodOptions.map((option) => ({
             value: option,
             label: t([`common.periodTypes.${option}`]),
           }))}

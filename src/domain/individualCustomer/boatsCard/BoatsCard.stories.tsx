@@ -6,9 +6,7 @@ import { boat, largeBoat } from './__fixtures__/mockData';
 export default {
   component: BoatsCard,
   title: 'BoatsCard',
-  decorators: [
-    storyFn => <div style={{ backgroundColor: 'lightgrey' }}>{storyFn()}</div>,
-  ],
+  decorators: [(storyFn) => <div style={{ backgroundColor: 'lightgrey' }}>{storyFn()}</div>],
 };
 
 export const oneBoat = () => <BoatsCard boats={[boat]} />;

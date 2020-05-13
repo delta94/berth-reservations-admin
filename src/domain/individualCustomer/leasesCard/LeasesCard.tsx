@@ -30,55 +30,31 @@ export interface LeasesCardProps {
   handleShowContract(leaseId: string): void;
 }
 
-const LeasesCard: React.SFC<LeasesCardProps> = ({
-  leases,
-  handleShowContract,
-}) => {
+const LeasesCard: React.SFC<LeasesCardProps> = ({ leases, handleShowContract }) => {
   const { t, i18n } = useTranslation();
 
   return (
     <Card>
       <CardHeader title={t('individualCustomer.leases.title')} />
-      {leases?.map(
-        ({ id, pierIdentifier, harbor, berthNum, startDate, endDate }) => {
-          const berthAddress = `${harbor?.name || ''} ${pierIdentifier ||
-            ''} ${berthNum}`;
-          const leaseDate = `${formatDate(
-            startDate,
-            i18n.language
-          )} - ${formatDate(endDate, i18n.language)}`;
+      {leases?.map(({ id, pierIdentifier, harbor, berthNum, startDate, endDate }) => {
+        const berthAddress = `${harbor?.name || ''} ${pierIdentifier || ''} ${berthNum}`;
+        const leaseDate = `${formatDate(startDate, i18n.language)} - ${formatDate(endDate, i18n.language)}`;
 
-          return (
-            <CardBody key={id}>
-              <Button
-                color="supplementary"
-                onClick={() => handleShowContract(id)}
-                className={styles.button}
-              >
-                {t('individualCustomer.leases.showContract')}
-              </Button>
-              <Section title={t('individualCustomer.leases.berth')}>
-                <LabelValuePair
-                  label={t('individualCustomer.leases.portAndPlace')}
-                  value={
-                    harbor ? (
-                      <InternalLink to={`/harbors/${harbor.id}`}>
-                        {berthAddress}
-                      </InternalLink>
-                    ) : (
-                      berthAddress
-                    )
-                  }
-                />
-                <LabelValuePair
-                  label={t('individualCustomer.leases.valid')}
-                  value={leaseDate}
-                />
-              </Section>
-            </CardBody>
-          );
-        }
-      )}
+        return (
+          <CardBody key={id}>
+            <Button color="supplementary" onClick={() => handleShowContract(id)} className={styles.button}>
+              {t('individualCustomer.leases.showContract')}
+            </Button>
+            <Section title={t('individualCustomer.leases.berth')}>
+              <LabelValuePair
+                label={t('individualCustomer.leases.portAndPlace')}
+                value={harbor ? <InternalLink to={`/harbors/${harbor.id}`}>{berthAddress}</InternalLink> : berthAddress}
+              />
+              <LabelValuePair label={t('individualCustomer.leases.valid')} value={leaseDate} />
+            </Section>
+          </CardBody>
+        );
+      })}
     </Card>
   );
 };

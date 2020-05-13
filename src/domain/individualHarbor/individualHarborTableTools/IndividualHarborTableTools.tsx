@@ -11,27 +11,15 @@ interface Props {
   handleGlobalFilter(value?: string): void;
 }
 
-const IndividualHarborTableTools: React.FC<Props> = ({
-  onAddPier,
-  onAddBerth,
-  handleGlobalFilter,
-}) => {
+const IndividualHarborTableTools: React.FC<Props> = ({ onAddPier, onAddBerth, handleGlobalFilter }) => {
   const { t } = useTranslation();
   return (
     <div className={styles.container}>
       <div className={styles.buttons}>
-        <Button
-          onClick={onAddPier}
-          color="supplementary"
-          className={styles.button}
-        >
+        <Button onClick={onAddPier} color="supplementary" className={styles.button}>
           {t('individualHarbor.tableTools.addPier')}
         </Button>
-        <Button
-          onClick={onAddBerth}
-          color="supplementary"
-          className={styles.button}
-        >
+        <Button onClick={onAddBerth} color="supplementary" className={styles.button}>
           {t('individualHarbor.tableTools.addBerth')}
         </Button>
       </div>

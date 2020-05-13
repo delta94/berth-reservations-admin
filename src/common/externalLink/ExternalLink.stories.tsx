@@ -9,18 +9,12 @@ export default {
 
 export const all = () => (
   <div>
-    <ExternalLink
-      href="https://github.com/City-of-Helsinki/berth-reservations-admin/"
-      variant="default"
-    >
+    <ExternalLink href="https://github.com/City-of-Helsinki/berth-reservations-admin/" variant="default">
       link
     </ExternalLink>
     <br />
 
-    <ExternalLink
-      href="https://github.com/City-of-Helsinki/berth-reservations-admin/"
-      variant="withArrow"
-    >
+    <ExternalLink href="https://github.com/City-of-Helsinki/berth-reservations-admin/" variant="withArrow">
       with arrow
     </ExternalLink>
     <br />

@@ -11,9 +11,7 @@ export const pierForm = () => (
   <PierForm
     initialValues={{ harborId: 'test harbor' }}
     onSubmitText="Luo"
-    onSubmit={values =>
-      alert(`Called submit with values: ${JSON.stringify(values)}`)
-    }
+    onSubmit={(values) => alert(`Called submit with values: ${JSON.stringify(values)}`)}
     suitableBoatTypeOptions={[
       { id: '1', name: 'Jollavene' },
       { id: '2', name: 'Soutuvene' },

@@ -4,7 +4,7 @@ import React from 'react';
 import Card from './Card';
 
 describe('common/Card', () => {
-  const getWrapper = props => {
+  const getWrapper = (props) => {
     return shallow(<Card {...props}>placeholder</Card>);
   };
   it('renders a Card component', () => {

@@ -28,12 +28,10 @@ const makeSvgStyleRules = (color: string) => ({
 
 const stories = storiesOf('Icons', module);
 stories.addDecorator(withKnobs);
-stories.addDecorator(storyFn => (
+stories.addDecorator((storyFn) => (
   <>
     <div style={makeSvgStyleRules('#333')}>{storyFn()}</div>
-    <div style={{ background: '#333', ...makeSvgStyleRules('#fff') }}>
-      {storyFn()}
-    </div>
+    <div style={{ background: '#333', ...makeSvgStyleRules('#fff') }}>{storyFn()}</div>
   </>
 ));
 
@@ -45,18 +43,13 @@ stories.add('Icon', () => (
       outlined={boolean('Outlined', false, 'Icon')}
       shape={select('Shape', shapes(), 'IconAccessibility', 'Icon')}
       size={select('Size', ['small', 'medium', 'large'], 'small', 'Icon')}
-      color={select(
-        'Color',
-        ['standard', 'disabled', 'brand', 'secondary'],
-        'standard',
-        'Icon'
-      )}
+      color={select('Color', ['standard', 'disabled', 'brand', 'secondary'], 'standard', 'Icon')}
     />
   </Wrapper>
 ));
 
 const req = require.context('.', false, /^.\/Icon.+.tsx$/);
-req.keys().forEach(fileName => {
+req.keys().forEach((fileName) => {
   const Component = req(fileName).default;
   const componentName = path.basename(fileName, '.tsx');
   Component.displayName = componentName;

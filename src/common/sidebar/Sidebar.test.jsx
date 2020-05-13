@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import Sidebar from './Sidebar';
 
 describe('Sidebar', () => {
-  const getWrapper = props =>
+  const getWrapper = (props) =>
     shallow(
       <Sidebar {...props}>
         <div>First page</div>

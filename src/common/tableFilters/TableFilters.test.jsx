@@ -19,8 +19,7 @@ describe('TableFilters', () => {
     handleSetFilter,
   };
 
-  const getWrapper = (props = {}) =>
-    shallow(<TableFilters {...initialProps} {...props} />);
+  const getWrapper = (props = {}) => shallow(<TableFilters {...initialProps} {...props} />);
 
   beforeEach(() => {
     handleSetFilter.mockRestore();
@@ -33,9 +32,7 @@ describe('TableFilters', () => {
   });
 
   it('should call handleSetFilters with undefined when the first button is clicked', () => {
-    const firstBtn = getWrapper()
-      .find('button')
-      .first();
+    const firstBtn = getWrapper().find('button').first();
 
     firstBtn.simulate('click');
 
@@ -55,9 +52,7 @@ describe('TableFilters', () => {
     ];
     const fooFilterValue = filters[0].value;
     const buttons = getWrapper({ filters }).find('button');
-    const firstFilterBtn = buttons
-      .findWhere(node => node.text().includes(fooFilterValue))
-      .first();
+    const firstFilterBtn = buttons.findWhere((node) => node.text().includes(fooFilterValue)).first();
 
     firstFilterBtn.simulate('click');
 
@@ -74,9 +69,7 @@ describe('TableFilters', () => {
     ];
     const filterValue = filters[0].value;
     const buttons = getWrapper({ filters }).find('button');
-    const filterBtn = buttons
-      .findWhere(node => node.text().includes(filterValue))
-      .first();
+    const filterBtn = buttons.findWhere((node) => node.text().includes(filterValue)).first();
 
     expect(filterBtn.prop('disabled')).toBe(true);
   });

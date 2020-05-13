@@ -33,16 +33,10 @@ export const getHarborsData = (data: HARBORS | undefined) => {
           (prev, pier) => {
             if (pier?.node?.properties) {
               return {
-                electricity: pier.node.properties.electricity
-                  ? prev.electricity + 1
-                  : prev.electricity,
+                electricity: pier.node.properties.electricity ? prev.electricity + 1 : prev.electricity,
                 gate: pier.node.properties.gate ? prev.gate + 1 : prev.gate,
-                lighting: pier.node.properties.lighting
-                  ? prev.lighting + 1
-                  : prev.lighting,
-                wasteCollection: pier.node.properties.wasteCollection
-                  ? prev.wasteCollection + 1
-                  : prev.wasteCollection,
+                lighting: pier.node.properties.lighting ? prev.lighting + 1 : prev.lighting,
+                wasteCollection: pier.node.properties.wasteCollection ? prev.wasteCollection + 1 : prev.wasteCollection,
                 water: pier.node.properties.water ? prev.water + 1 : prev.water,
               };
             }

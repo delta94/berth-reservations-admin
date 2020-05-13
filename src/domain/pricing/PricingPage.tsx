@@ -9,11 +9,7 @@ import CardHeader from '../../common/cardHeader/CardHeader';
 import CardBody from '../../common/cardBody/CardBody';
 import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
 import Section from '../../common/section/Section';
-import {
-  formatDimension,
-  formatPercentage,
-  formatPrice,
-} from '../../common/utils/format';
+import { formatDimension, formatPercentage, formatPrice } from '../../common/utils/format';
 import { EDIT_FORM_TYPE } from './editModal/EditForm';
 
 export interface BerthPrice {
@@ -55,11 +51,7 @@ export interface PricingPageProps {
   additionalServicesData: AdditionalService[];
   openModal: (
     formType: EDIT_FORM_TYPE,
-    initialValues:
-      | BerthPrice
-      | WinterStoragePrice
-      | HarborService
-      | AdditionalService
+    initialValues: BerthPrice | WinterStoragePrice | HarborService | AdditionalService
   ) => void;
 }
 
@@ -100,11 +92,7 @@ const PricingPage: React.SFC<PricingPageProps> = ({
       width: COLUMN_WIDTH.S,
       Cell: ({ row }: { row: Row<BerthPrice> }) => {
         return (
-          <button
-            onClick={() =>
-              openModal(EDIT_FORM_TYPE.BERTHS, row.values as BerthPrice)
-            }
-          >
+          <button onClick={() => openModal(EDIT_FORM_TYPE.BERTHS, row.values as BerthPrice)}>
             <Text color="brand">{t('common.edit')}</Text>
           </button>
         );
@@ -138,14 +126,7 @@ const PricingPage: React.SFC<PricingPageProps> = ({
       sortType: 'none',
       width: COLUMN_WIDTH.S,
       Cell: ({ row }: { row: Row }) => (
-        <button
-          onClick={() =>
-            openModal(
-              EDIT_FORM_TYPE.WINTER_STORAGE,
-              row.values as WinterStoragePrice
-            )
-          }
-        >
+        <button onClick={() => openModal(EDIT_FORM_TYPE.WINTER_STORAGE, row.values as WinterStoragePrice)}>
           <Text color="brand">{t('common.edit')}</Text>
         </button>
       ),
@@ -177,14 +158,7 @@ const PricingPage: React.SFC<PricingPageProps> = ({
       sortType: 'none',
       width: COLUMN_WIDTH.S,
       Cell: ({ row }: { row: Row }) => (
-        <button
-          onClick={() =>
-            openModal(
-              EDIT_FORM_TYPE.HARBOR_SERVICES,
-              row.values as HarborService
-            )
-          }
-        >
+        <button onClick={() => openModal(EDIT_FORM_TYPE.HARBOR_SERVICES, row.values as HarborService)}>
           <Text color="brand">{t('common.edit')}</Text>
         </button>
       ),
@@ -222,14 +196,7 @@ const PricingPage: React.SFC<PricingPageProps> = ({
       sortType: 'none',
       width: COLUMN_WIDTH.S,
       Cell: ({ row }: { row: Row }) => (
-        <button
-          onClick={() =>
-            openModal(
-              EDIT_FORM_TYPE.ADDITIONAL_SERVICES,
-              row.values as AdditionalService
-            )
-          }
-        >
+        <button onClick={() => openModal(EDIT_FORM_TYPE.ADDITIONAL_SERVICES, row.values as AdditionalService)}>
           <Text color="brand">{t('common.edit')}</Text>
         </button>
       ),
@@ -238,12 +205,7 @@ const PricingPage: React.SFC<PricingPageProps> = ({
 
   return (
     <div className={styles.pricingPage}>
-      <Text
-        className={styles.fullWidth}
-        as="h2"
-        weight="normalWeight"
-        size="xxl"
-      >
+      <Text className={styles.fullWidth} as="h2" weight="normalWeight" size="xxl">
         {t('pricing.heading')}
       </Text>
       <Card className={styles.fullWidth}>
@@ -257,32 +219,20 @@ const PricingPage: React.SFC<PricingPageProps> = ({
         <CardHeader title={t('pricing.winterStorage.title')} />
         <CardBody>
           <Section>{t('pricing.winterStorage.description')}</Section>
-          <Table
-            columns={winterStorageCols}
-            data={winterStorageData}
-            theme="basic"
-          />
+          <Table columns={winterStorageCols} data={winterStorageData} theme="basic" />
         </CardBody>
       </Card>
       <Card>
         <CardHeader title={t('pricing.harborServices.title')} />
         <CardBody>
           <Section>{t('pricing.harborServices.description')}</Section>
-          <Table
-            columns={harborServicesCols}
-            data={harborServicesData}
-            theme="basic"
-          />
+          <Table columns={harborServicesCols} data={harborServicesData} theme="basic" />
         </CardBody>
       </Card>
       <Card>
         <CardHeader title={t('pricing.additionalServices.title')} />
         <CardBody>
-          <Table
-            columns={additionalServicesCols}
-            data={additionalServicesData}
-            theme="basic"
-          />
+          <Table columns={additionalServicesCols} data={additionalServicesData} theme="basic" />
         </CardBody>
       </Card>
     </div>

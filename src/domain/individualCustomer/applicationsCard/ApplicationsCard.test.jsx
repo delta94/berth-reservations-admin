@@ -16,8 +16,7 @@ const mockProps = {
         berthNum: 'berth',
         reason: 'reason',
       },
-      createdAt:
-        'Wed Oct 23 2019 15:15:05 GMT+0300 (Eastern European Summer Time)',
+      createdAt: 'Wed Oct 23 2019 15:15:05 GMT+0300 (Eastern European Summer Time)',
       queue: 245,
       status: 'PENDING',
       lease: null,

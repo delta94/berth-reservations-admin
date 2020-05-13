@@ -8,9 +8,7 @@ export default {
   title: 'Radio',
 };
 
-export const withLabel = () => (
-  <Radio onChange={action('clicked')} label="Check me" />
-);
+export const withLabel = () => <Radio onChange={action('clicked')} label="Check me" />;
 
 export const checked = () => (
   <>

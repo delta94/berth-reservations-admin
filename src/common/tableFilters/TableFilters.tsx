@@ -38,9 +38,7 @@ const TableFilters: React.SFC<TableFiltersProps> = ({
     </button>
   ));
 
-  const hasNoActiveFilters =
-    filters.filter(filterVal => activeFilters?.includes(filterVal.value))
-      .length === 0;
+  const hasNoActiveFilters = filters.filter((filterVal) => activeFilters?.includes(filterVal.value)).length === 0;
 
   return (
     <>

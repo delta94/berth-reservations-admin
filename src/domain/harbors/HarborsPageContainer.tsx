@@ -22,10 +22,7 @@ const HarborsContainer: React.FC = () => {
     );
   if (error)
     return (
-      <Notification
-        labelText={t('common.notification.error.label')}
-        type="error"
-      >
+      <Notification labelText={t('common.notification.error.label')} type="error">
         {t('common.notification.error.description')}
       </Notification>
     );

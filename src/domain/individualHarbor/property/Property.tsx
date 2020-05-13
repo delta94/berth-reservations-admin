@@ -13,34 +13,18 @@ interface PropertyProps {
   className?: string;
 }
 
-const Property: React.SFC<PropertyProps> = ({
-  active = true,
-  counter = 0,
-  label,
-  iconShape,
-  className,
-}) => {
+const Property: React.SFC<PropertyProps> = ({ active = true, counter = 0, label, iconShape, className }) => {
   return (
     <div className={classNames(styles.property, className)}>
       {iconShape ? (
-        <Icon
-          color={active ? 'standard' : 'secondary'}
-          shape={iconShape}
-          outlined
-          size="large"
-        />
+        <Icon color={active ? 'standard' : 'secondary'} shape={iconShape} outlined size="large" />
       ) : (
         <Text color={active ? 'standard' : 'secondary'} as="strong" size="xxxl">
           {counter}
         </Text>
       )}
 
-      <Text
-        className={styles.label}
-        weight="bold"
-        size="s"
-        color={active ? 'standard' : 'secondary'}
-      >
+      <Text className={styles.label} weight="bold" size="s" color={active ? 'standard' : 'secondary'}>
         {label}
       </Text>
     </div>

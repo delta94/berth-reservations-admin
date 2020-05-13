@@ -10,7 +10,7 @@ export const getCertificate = (
   certificates: BoatCert[],
   certificateType: BoatCertificateType
 ): BoatCert | undefined => {
-  return certificates.find(cert => cert.certificateType === certificateType);
+  return certificates.find((cert) => cert.certificateType === certificateType);
 };
 
 export const getFilename = (url: string | null): string | undefined => {
@@ -21,10 +21,7 @@ export const getFilename = (url: string | null): string | undefined => {
   return url.split('/').pop();
 };
 
-export const getValidUntilColor = (
-  validUntil: string
-): 'critical' | 'standard' => {
-  const isBeforeToday =
-    new Date(validUntil) < new Date(new Date().toDateString());
+export const getValidUntilColor = (validUntil: string): 'critical' | 'standard' => {
+  const isBeforeToday = new Date(validUntil) < new Date(new Date().toDateString());
   return isBeforeToday ? 'critical' : 'standard';
 };

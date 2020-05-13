@@ -3,10 +3,7 @@ import { shallow } from 'enzyme';
 import { HashRouter } from 'react-router-dom';
 
 import CustomerProfileCard from './CustomerProfileCard';
-import {
-  InvoicingType,
-  OrganizationType,
-} from '../../../@types/__generated__/globalTypes';
+import { InvoicingType, OrganizationType } from '../../../@types/__generated__/globalTypes';
 
 const privateCustomerProfile = {
   comment: 'Testikäyttäjä',
@@ -49,7 +46,7 @@ const organizationCustomerProfile = {
 };
 
 describe('CustomerProfileCard', () => {
-  const getWrapper = props =>
+  const getWrapper = (props) =>
     shallow(
       <HashRouter>
         <CustomerProfileCard {...props} />
@@ -77,9 +74,7 @@ describe('CustomerProfileCard', () => {
         ...privateCustomerProfile,
         showCustomerNameAsLink: false,
       });
-      expect(
-        wrapper.render().find('a.internalLink[href="#/customers/0"]').length
-      ).toEqual(0);
+      expect(wrapper.render().find('a.internalLink[href="#/customers/0"]').length).toEqual(0);
     });
 
     it('shows the customer names and ssn as links if specified', () => {
@@ -87,9 +82,7 @@ describe('CustomerProfileCard', () => {
         ...privateCustomerProfile,
         showCustomerNameAsLink: true,
       });
-      expect(
-        wrapper.render().find('a.internalLink[href="#/customers/0"]').length
-      ).toEqual(3); // 3: firstName, lastName, ssn
+      expect(wrapper.render().find('a.internalLink[href="#/customers/0"]').length).toEqual(3); // 3: firstName, lastName, ssn
     });
   });
 
@@ -115,9 +108,7 @@ describe('CustomerProfileCard', () => {
         ...organizationCustomerProfile,
         showCustomerNameAsLink: false,
       });
-      expect(
-        wrapper.render().find('a.internalLink[href="#/customers/0"]').length
-      ).toEqual(0);
+      expect(wrapper.render().find('a.internalLink[href="#/customers/0"]').length).toEqual(0);
     });
 
     it('shows the customer names and ssn as links if specified', () => {
@@ -125,9 +116,7 @@ describe('CustomerProfileCard', () => {
         ...organizationCustomerProfile,
         showCustomerNameAsLink: true,
       });
-      expect(
-        wrapper.render().find('a.internalLink[href="#/customers/0"]').length
-      ).toEqual(3); // 3: firstName, lastName, ssn
+      expect(wrapper.render().find('a.internalLink[href="#/customers/0"]').length).toEqual(3); // 3: firstName, lastName, ssn
     });
   });
 });

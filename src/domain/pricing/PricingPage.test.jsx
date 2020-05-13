@@ -78,8 +78,7 @@ const mockProps = {
 };
 
 describe('PricingPage', () => {
-  const getWrapper = (props = {}) =>
-    shallow(<PricingPage {...mockProps} {...props} />);
+  const getWrapper = (props = {}) => shallow(<PricingPage {...mockProps} {...props} />);
 
   it('renders normally', () => {
     const wrapper = getWrapper();

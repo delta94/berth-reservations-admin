@@ -4,10 +4,7 @@ import classNames from 'classnames';
 import { ReactComponent as Check } from './assets/check.svg';
 import styles from './checkbox.module.scss';
 
-export type CheckboxProps = Omit<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  'size'
-> & {
+export type CheckboxProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> & {
   label?: string;
   size?: 'small' | 'medium' | 'large';
 };

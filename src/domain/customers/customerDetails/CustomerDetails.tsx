@@ -79,36 +79,34 @@ const CustomerDetails: React.SFC<CustomerDetailsProps> = ({
             <br />
             {email}
             <br />
-            {organizationType
-              ? t([`common.organizationTypes.${organizationType}`])
-              : t([`common.privateCustomer`])}
+            {organizationType ? t([`common.organizationTypes.${organizationType}`]) : t([`common.privateCustomer`])}
           </Section>
         </div>
         <div className={styles.section}>
           <Section title={t('harbors.details.berths')}>
-            {berths.map(berth => (
+            {berths.map((berth) => (
               <div key={berth.id}>{berth.title}</div>
             ))}
           </Section>
           <Section title={t('harbors.details.winterStoragePlaces')}>
-            {winterStoragePlaces.map(place => (
+            {winterStoragePlaces.map((place) => (
               <div key={place.id}>{place.title}</div>
             ))}
           </Section>
           <Section title={t('harbors.details.boats')}>
-            {boats.map(boat => (
+            {boats.map((boat) => (
               <div key={boat.id}>{boat.name}</div>
             ))}
           </Section>
         </div>
         <div className={styles.section}>
           <Section title={t('harbors.details.applications')}>
-            {applications.map(application => (
+            {applications.map((application) => (
               <div key={application.id}>{application.date}</div>
             ))}
           </Section>
           <Section title={t('harbors.details.bills')}>
-            {bills.map(bill => (
+            {bills.map((bill) => (
               <div key={bill.id}>{bill.date}</div>
             ))}
           </Section>

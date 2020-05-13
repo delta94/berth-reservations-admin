@@ -11,22 +11,13 @@ import Select from '../../../../common/select/Select';
 import FormTypeTitle from '../FormTypeTitle';
 import { HarborService } from '../../PricingPage';
 
-const serviceOptions = [
-  'mooring',
-  'electricity',
-  'water',
-  'wasteCollection',
-  'gate',
-  'lighting',
-];
+const serviceOptions = ['mooring', 'electricity', 'water', 'wasteCollection', 'gate', 'lighting'];
 const unitOptions = ['%', '€'];
 const periodOptions = ['season', 'month', 'year'];
 
 export const getHarborServicesValidationSchema = (t: TFunction) =>
   Yup.object().shape({
-    service: Yup.string()
-      .oneOf(serviceOptions)
-      .required(t('forms.common.errors.required')),
+    service: Yup.string().oneOf(serviceOptions).required(t('forms.common.errors.required')),
     price: Yup.number()
       .positive()
       .typeError(t('forms.common.errors.numberType'))
@@ -35,9 +26,7 @@ export const getHarborServicesValidationSchema = (t: TFunction) =>
       .oneOf(unitOptions)
       .typeError(t('forms.common.errors.numberType'))
       .required(t('forms.common.errors.required')),
-    period: Yup.string()
-      .oneOf(periodOptions)
-      .required(t('forms.common.errors.required')),
+    period: Yup.string().oneOf(periodOptions).required(t('forms.common.errors.required')),
   });
 
 const HarborServicesFields: FunctionComponent = () => {
@@ -47,10 +36,7 @@ const HarborServicesFields: FunctionComponent = () => {
   return (
     <>
       <div className={styles.row}>
-        <FormTypeTitle
-          label={t('common.terminology.dataEntry')}
-          value={t('pricing.harborServices.title')}
-        />
+        <FormTypeTitle label={t('common.terminology.dataEntry')} value={t('pricing.harborServices.title')} />
       </div>
       <hr />
       <Grid colsCount={1} className={styles.row}>
@@ -59,7 +45,7 @@ const HarborServicesFields: FunctionComponent = () => {
           as={Select}
           name="service"
           labelText={t('pricing.harborServices.service')}
-          options={serviceOptions.map(option => ({
+          options={serviceOptions.map((option) => ({
             value: option,
             label: t([`common.terminology.${option}`]),
           }))}
@@ -80,7 +66,7 @@ const HarborServicesFields: FunctionComponent = () => {
           as={Select}
           name="unit"
           labelText={t('pricing.harborServices.unit')}
-          options={unitOptions.map(option => ({
+          options={unitOptions.map((option) => ({
             value: option,
             label: option,
           }))}
@@ -92,7 +78,7 @@ const HarborServicesFields: FunctionComponent = () => {
           as={Select}
           name="period"
           labelText={t('pricing.harborServices.period')}
-          options={periodOptions.map(option => ({
+          options={periodOptions.map((option) => ({
             value: option,
             label: t([`common.periodTypes.${option}`]),
           }))}
