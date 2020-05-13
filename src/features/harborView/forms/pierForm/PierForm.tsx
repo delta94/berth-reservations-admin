@@ -11,6 +11,7 @@ import styles from './pierForm.module.scss';
 import { BoatType, FormProps, Pier } from '../types';
 import Grid from '../../../../common/grid/Grid';
 import Checkbox from '../../../../common/checkbox/Checkbox';
+import FormHeader from '../../../../common/formHeader/FormHeader';
 
 interface PierFormProps extends FormProps<Pier> {
   suitableBoatTypeOptions: BoatType[];
@@ -65,14 +66,12 @@ const PierForm: React.FC<PierFormProps> = ({
     >
       {({ values, errors, handleChange, handleSubmit }) => (
         <form onSubmit={handleSubmit} className={styles.form}>
-          <div className={styles.heading}>
-            <Text as="h4">{t('forms.berth.title')}</Text>
-            {onDelete && (
-              <button type="button" disabled={isSubmitting} onClick={() => onDelete(values)}>
-                <Text color="critical">{t('forms.common.delete')}</Text>
-              </button>
-            )}
-          </div>
+          <FormHeader
+            title={t('forms.pier.title')}
+            isSubmitting={isSubmitting}
+            onDelete={onDelete ? () => onDelete(values) : undefined}
+            onDeleteText={t('forms.pier.delete')}
+          />
 
           <TextInput
             id="identifier"

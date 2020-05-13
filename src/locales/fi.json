@@ -157,6 +157,7 @@
       "maps": "Satamakartat"
     },
     "pier": {
+      "delete": "Poista laituri",
       "title": "Laituri",
       "identifier": "Laituri",
       "services": "Palvelut",

@@ -13,7 +13,7 @@ import Select from '../../../../common/select/Select';
 import Checkbox from '../../../../common/checkbox/Checkbox';
 import styles from './berthForm.module.scss';
 import { Pier } from '../../utils/utils';
-import Text from '../../../../common/text/Text';
+import FormHeader from '../../../../common/formHeader/FormHeader';
 
 interface BerthFormProps extends FormProps<Berth> {
   onSubmitText?: string;
@@ -71,16 +71,12 @@ const BerthForm: React.FC<BerthFormProps> = ({
     >
       {({ values, errors, handleChange, handleSubmit }) => (
         <form onSubmit={handleSubmit} className={styles.form}>
-          <div className={styles.heading}>
-            <Text as="h4" color="brand" className={styles.titleText}>
-              {t('forms.berth.title')}
-            </Text>
-            {onDelete && (
-              <button type="button" disabled={isSubmitting} onClick={() => onDelete(values)}>
-                <Text color="critical">{t('forms.berth.delete')}</Text>
-              </button>
-            )}
-          </div>
+          <FormHeader
+            title={t('forms.berth.title')}
+            isSubmitting={isSubmitting}
+            onDelete={onDelete ? () => onDelete(values) : undefined}
+            onDeleteText={t('forms.berth.delete')}
+          />
           <Grid colsCount={3} className={styles.grid}>
             <Select
               id="pierId"
