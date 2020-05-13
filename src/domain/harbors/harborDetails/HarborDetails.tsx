@@ -44,9 +44,7 @@ const HarborDetails: React.SFC<Props> = ({
               {address}
             </ExternalLink>
             <ExternalLink href="">{t('harbors.details.portMap')}</ExternalLink>
-            <ExternalLink href={serviceMapUrl}>
-              {t('harbors.details.serviceMap')}
-            </ExternalLink>
+            <ExternalLink href={serviceMapUrl}>{t('harbors.details.serviceMap')}</ExternalLink>
           </Section>
         </div>
       </div>
@@ -57,21 +55,9 @@ const HarborDetails: React.SFC<Props> = ({
             labelColor="brand"
             value={maxWidth ? `${maxWidth}m` : '-'}
           />
-          <LabelValuePair
-            label={t('harbors.details.mooring')}
-            labelColor="brand"
-            value="-"
-          />
-          <LabelValuePair
-            label={t('harbors.details.chief')}
-            labelColor="brand"
-            value="-"
-          />
-          <LabelValuePair
-            label={t('harbors.details.maintenanceTeam')}
-            labelColor="brand"
-            value="-"
-          />
+          <LabelValuePair label={t('harbors.details.mooring')} labelColor="brand" value="-" />
+          <LabelValuePair label={t('harbors.details.chief')} labelColor="brand" value="-" />
+          <LabelValuePair label={t('harbors.details.maintenanceTeam')} labelColor="brand" value="-" />
         </Section>
       </div>
       <div className={classNames(styles.section)}>

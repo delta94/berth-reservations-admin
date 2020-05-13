@@ -7,7 +7,7 @@ import dummyHarbors from './__mocks__/mockdata.json';
 
 export default {
   component: HarborsList,
-  decorators: [storyFn => <HashRouter>{storyFn()}</HashRouter>],
+  decorators: [(storyFn) => <HashRouter>{storyFn()}</HashRouter>],
   title: 'HarborsList',
 };
 

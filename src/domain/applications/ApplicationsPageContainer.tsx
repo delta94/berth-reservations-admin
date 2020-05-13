@@ -37,13 +37,8 @@ type ColumnType = Column<ApplicationData> & { accessor: keyof ApplicationData };
 
 const ApplicationsPageContainer: React.SFC = () => {
   const { t, i18n } = useTranslation();
-  const { loading, error, data } = useQuery<BERTH_APPLICATIONS>(
-    BERTH_APPLICATIONS_QUERY
-  );
-  const [
-    deleteDraftedApplication,
-    { loading: isDeleting },
-  ] = useDeleteBerthApplication();
+  const { loading, error, data } = useQuery<BERTH_APPLICATIONS>(BERTH_APPLICATIONS_QUERY);
+  const [deleteDraftedApplication, { loading: isDeleting }] = useDeleteBerthApplication();
 
   if (loading || isDeleting) return <LoadingSpinner isLoading={loading} />;
   if (!data)
@@ -54,10 +49,7 @@ const ApplicationsPageContainer: React.SFC = () => {
     );
   if (error)
     return (
-      <Notification
-        labelText={t('common.notification.error.label')}
-        type="error"
-      >
+      <Notification labelText={t('common.notification.error.label')} type="error">
         {t('common.notification.error.description')}
       </Notification>
     );
@@ -108,13 +100,7 @@ const ApplicationsPageContainer: React.SFC = () => {
       Cell: ({ cell }) =>
         cell.value && (
           <InternalLink to={`/harbors/${cell.value.harborId}`}>
-            {[
-              cell.value.harborName,
-              cell.value.pierIdentifier,
-              cell.value.berthNum,
-            ]
-              .filter(Boolean)
-              .join(' ')}
+            {[cell.value.harborName, cell.value.pierIdentifier, cell.value.berthNum].filter(Boolean).join(' ')}
           </InternalLink>
         ),
       Header: t('applications.tableHeaders.lease') || '',
@@ -140,13 +126,8 @@ const ApplicationsPageContainer: React.SFC = () => {
       <Table
         data={tableData}
         columns={columns}
-        renderSubComponent={row => (
-          <ApplicationDetails
-            {...row.original}
-            handleDeleteLease={handleDeleteLease}
-          />
-        )}
-        renderMainHeader={props => {
+        renderSubComponent={(row) => <ApplicationDetails {...row.original} handleDeleteLease={handleDeleteLease} />}
+        renderMainHeader={(props) => {
           const filters = [
             {
               value: true,
@@ -159,9 +140,9 @@ const ApplicationsPageContainer: React.SFC = () => {
           ];
           return (
             <TableFilters
-              activeFilters={props.state.filters.map(filter => filter.value)}
+              activeFilters={props.state.filters.map((filter) => filter.value)}
               filters={filters}
-              handleSetFilter={filter => props.setFilter('isSwitch', filter)}
+              handleSetFilter={(filter) => props.setFilter('isSwitch', filter)}
             />
           );
         }}

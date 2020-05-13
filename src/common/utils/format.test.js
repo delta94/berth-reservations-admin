@@ -1,10 +1,4 @@
-import {
-  formatDimension,
-  formatWeight,
-  formatDate,
-  formatPrice,
-  formatPercentage,
-} from './format';
+import { formatDimension, formatWeight, formatDate, formatPrice, formatPercentage } from './format';
 
 describe('format', () => {
   describe('formatDimension', () => {
@@ -35,15 +29,11 @@ describe('format', () => {
 
   describe('formatDate', () => {
     it('should format the date according to the supplied locale', () => {
-      expect(
-        formatDate('2018-11-28T12:26:28.146227+00:00', 'fi')
-      ).toMatchSnapshot();
+      expect(formatDate('2018-11-28T12:26:28.146227+00:00', 'fi')).toMatchSnapshot();
     });
 
     it('should include time info when the third argument is true', () => {
-      expect(
-        formatDate('2018-11-28T12:26:28.146227+00:00', 'fi', true)
-      ).toMatchSnapshot();
+      expect(formatDate('2018-11-28T12:26:28.146227+00:00', 'fi', true)).toMatchSnapshot();
     });
   });
 

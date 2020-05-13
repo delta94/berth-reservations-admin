@@ -5,13 +5,7 @@ import Table, { Column } from './Table';
 export default {
   component: Table,
   title: 'Table',
-  decorators: [
-    storyFn => (
-      <div style={{ backgroundColor: '#f1f1f1', height: '100vh' }}>
-        {storyFn()}
-      </div>
-    ),
-  ],
+  decorators: [(storyFn) => <div style={{ backgroundColor: '#f1f1f1', height: '100vh' }}>{storyFn()}</div>],
 };
 
 const MockData = [
@@ -39,9 +33,7 @@ const columns: Column<DataType>[] = [
   },
 ];
 
-export const table = () => (
-  <Table data={MockData} columns={columns} renderMainHeader={() => 'Demos'} />
-);
+export const table = () => <Table data={MockData} columns={columns} renderMainHeader={() => 'Demos'} />;
 
 table.story = {
   name: 'Default',
@@ -51,7 +43,7 @@ export const withSelector = () => (
   <Table
     data={MockData}
     columns={columns}
-    renderSubComponent={row => {
+    renderSubComponent={(row) => {
       return row.index;
     }}
     renderMainHeader={() => 'Demos'}
@@ -63,7 +55,7 @@ export const withRadioSelector = () => (
   <Table
     data={MockData}
     columns={columns}
-    renderSubComponent={row => {
+    renderSubComponent={(row) => {
       return row.index;
     }}
     renderMainHeader={() => 'Demos'}
@@ -75,7 +67,7 @@ export const emptyTable = () => (
   <Table
     data={[]}
     columns={columns}
-    renderSubComponent={row => {
+    renderSubComponent={(row) => {
       return row.index;
     }}
     renderMainHeader={() => 'Demos'}

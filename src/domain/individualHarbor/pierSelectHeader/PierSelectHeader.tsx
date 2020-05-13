@@ -34,26 +34,20 @@ const PierSelectHeader: React.FC<PierSelectHeaderProps> = ({
           >
             {t('individualHarbor.tableHeaders.all')}
           </button>
-          {piers.map(pier => (
+          {piers.map((pier) => (
             <button
               key={pier.id}
               onClick={() => onPierSelect(pier)}
               className={classNames(styles.pierButton, {
-                [styles.pierButtonSelected]:
-                  selectedPier && selectedPier.identifier === pier.identifier,
+                [styles.pierButtonSelected]: selectedPier && selectedPier.identifier === pier.identifier,
               })}
             >
-              {`${t('individualHarbor.tableHeaders.identifier')} ${
-                pier.identifier
-              }`}
+              {`${t('individualHarbor.tableHeaders.identifier')} ${pier.identifier}`}
             </button>
           ))}
         </div>
         {selectedPier && (
-          <button
-            onClick={() => onEdit?.(selectedPier)}
-            className={styles.editButton}
-          >
+          <button onClick={() => onEdit?.(selectedPier)} className={styles.editButton}>
             {t('individualHarbor.tableHeaders.editPier')}
           </button>
         )}

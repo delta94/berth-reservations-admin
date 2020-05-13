@@ -40,9 +40,7 @@ describe('domain/individualHarbor/BerthEditForm', () => {
     await act(async () => {
       await waitForExpect(() => {
         wrapper.update();
-        expect(
-          wrapper.contains(<LoadingSpinner isLoading={true} />)
-        ).toBeFalsy();
+        expect(wrapper.contains(<LoadingSpinner isLoading={true} />)).toBeFalsy();
       });
     });
   };
@@ -60,7 +58,7 @@ describe('domain/individualHarbor/BerthEditForm', () => {
   it('renders content after loading', async () => {
     const wrapper = mount(
       <MockedProvider mocks={[queryMock]}>
-        <BerthEditForm berthId="a" pierOptions={pierOptions}/>
+        <BerthEditForm berthId="a" pierOptions={pierOptions} />
       </MockedProvider>
     );
     await waitForContent(wrapper);
@@ -97,7 +95,7 @@ describe('domain/individualHarbor/BerthEditForm', () => {
       // We need queryMock twice here, because MockedProvider requires an
       // instance for each query made and the original query is refetched after updates.
       <MockedProvider mocks={[queryMock, queryMock, updateMock]}>
-        <BerthEditForm berthId="a" onSubmit={onUpdateMock} pierOptions={pierOptions}/>
+        <BerthEditForm berthId="a" onSubmit={onUpdateMock} pierOptions={pierOptions} />
       </MockedProvider>
     );
     await waitForContent(wrapper);

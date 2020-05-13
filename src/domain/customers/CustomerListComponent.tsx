@@ -28,18 +28,11 @@ export interface CustomerListComponentProps {
   data: TableData[];
 }
 
-const CustomerListComponent = ({
-  data,
-  loading,
-}: CustomerListComponentProps) => {
+const CustomerListComponent = ({ data, loading }: CustomerListComponentProps) => {
   const { t } = useTranslation();
   const columns: ColumnType[] = [
     {
-      Cell: ({ cell }) => (
-        <InternalLink to={`/customers/${cell.row.original.id}`}>
-          {cell.value}
-        </InternalLink>
-      ),
+      Cell: ({ cell }) => <InternalLink to={`/customers/${cell.row.original.id}`}>{cell.value}</InternalLink>,
       Header: t('customers.tableHeaders.name') || '',
       accessor: 'name',
       width: COLUMN_WIDTH.M,
@@ -47,9 +40,7 @@ const CustomerListComponent = ({
     {
       Cell: ({ cell }) => {
         const { value } = cell;
-        return value
-          ? t([`common.organizationTypes.${value as OrganizationType}`])
-          : t([`common.privateCustomer`]);
+        return value ? t([`common.organizationTypes.${value as OrganizationType}`]) : t([`common.privateCustomer`]);
       },
       Header: t('customers.tableHeaders.group') || '',
       accessor: 'organizationType',
@@ -82,7 +73,7 @@ const CustomerListComponent = ({
       data={data}
       loading={loading}
       columns={columns}
-      renderSubComponent={row => {
+      renderSubComponent={(row) => {
         return (
           <CustomerDetails
             name={row.original.name}

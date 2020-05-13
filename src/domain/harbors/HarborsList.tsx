@@ -29,11 +29,7 @@ const HarborsList: React.FC<HarborsPageProps> = ({ data = [] }) => {
 
   const columns: ColumnType[] = [
     {
-      Cell: ({ cell }) => (
-        <InternalLink to={`/harbors/${cell.row.original.id}`}>
-          {cell.value}
-        </InternalLink>
-      ),
+      Cell: ({ cell }) => <InternalLink to={`/harbors/${cell.row.original.id}`}>{cell.value}</InternalLink>,
       Header: t('harbors.tableHeaders.harbor') || '',
       accessor: 'name',
       width: COLUMN_WIDTH.XL,
@@ -49,61 +45,31 @@ const HarborsList: React.FC<HarborsPageProps> = ({ data = [] }) => {
       width: COLUMN_WIDTH.S,
     },
     {
-      Cell: ({ cell }) => (
-        <Icon
-          outlined
-          shape="IconPlug"
-          color={!cell.value ? 'disabled' : 'standard'}
-        />
-      ),
+      Cell: ({ cell }) => <Icon outlined shape="IconPlug" color={!cell.value ? 'disabled' : 'standard'} />,
       Header: () => <Icon outlined shape="IconPlug" />,
       accessor: 'electricity',
       width: COLUMN_WIDTH.XS,
     },
     {
-      Cell: ({ cell }) => (
-        <Icon
-          outlined
-          shape="IconFence"
-          color={!cell.value ? 'disabled' : 'standard'}
-        />
-      ),
+      Cell: ({ cell }) => <Icon outlined shape="IconFence" color={!cell.value ? 'disabled' : 'standard'} />,
       Header: () => <Icon outlined shape="IconFence" />,
       accessor: 'gate',
       width: COLUMN_WIDTH.XS,
     },
     {
-      Cell: ({ cell }) => (
-        <Icon
-          outlined
-          shape="IconStreetLight"
-          color={!cell.value ? 'disabled' : 'standard'}
-        />
-      ),
+      Cell: ({ cell }) => <Icon outlined shape="IconStreetLight" color={!cell.value ? 'disabled' : 'standard'} />,
       Header: () => <Icon outlined shape="IconStreetLight" />,
       accessor: 'lighting',
       width: COLUMN_WIDTH.XS,
     },
     {
-      Cell: ({ cell }) => (
-        <Icon
-          outlined
-          shape="IconWaterTap"
-          color={!cell.value ? 'disabled' : 'standard'}
-        />
-      ),
+      Cell: ({ cell }) => <Icon outlined shape="IconWaterTap" color={!cell.value ? 'disabled' : 'standard'} />,
       Header: () => <Icon outlined shape="IconWaterTap" />,
       accessor: 'water',
       width: COLUMN_WIDTH.XS,
     },
     {
-      Cell: ({ cell }) => (
-        <Icon
-          outlined
-          shape="IconTrash"
-          color={!cell.value ? 'disabled' : 'standard'}
-        />
-      ),
+      Cell: ({ cell }) => <Icon outlined shape="IconTrash" color={!cell.value ? 'disabled' : 'standard'} />,
       Header: () => <Icon outlined shape="IconTrash" />,
       accessor: 'wasteCollection',
       width: COLUMN_WIDTH.XS,
@@ -115,12 +81,8 @@ const HarborsList: React.FC<HarborsPageProps> = ({ data = [] }) => {
       <Table
         data={data}
         columns={columns}
-        renderTableToolsTop={(_, setters) => (
-          <GlobalSearchTableTools
-            handleGlobalFilter={setters.setGlobalFilter}
-          />
-        )}
-        renderSubComponent={row => <HarborDetails {...row.original} />}
+        renderTableToolsTop={(_, setters) => <GlobalSearchTableTools handleGlobalFilter={setters.setGlobalFilter} />}
+        renderSubComponent={(row) => <HarborDetails {...row.original} />}
         renderMainHeader={() => t('harbors.tableHeaders.mainHeader')}
         canSelectRows
       />

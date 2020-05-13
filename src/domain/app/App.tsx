@@ -1,11 +1,6 @@
 import { ApolloProvider } from '@apollo/react-hooks';
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 import apolloClient from './apolloClient';
 import CustomersPage from '../customers/CustomerPageContainer';
@@ -31,33 +26,13 @@ const App: React.FC = () => {
           <Redirect exact from="/" to="/harbors" />
           <Page>
             <Switch>
-              <PrivateRoute
-                exact
-                path="/harbors/:id"
-                component={IndividualHarborPage}
-              />
+              <PrivateRoute exact path="/harbors/:id" component={IndividualHarborPage} />
               <PrivateRoute exact path="/harbors" component={HarborsPage} />
-              <PrivateRoute
-                exact
-                path="/customers/:id"
-                component={IndividualCustomerPage}
-              />
+              <PrivateRoute exact path="/customers/:id" component={IndividualCustomerPage} />
               <PrivateRoute exact path="/customers" component={CustomersPage} />
-              <PrivateRoute
-                exact
-                path="/applications/:id"
-                component={IndividualApplicationPage}
-              />
-              <PrivateRoute
-                exact
-                path="/applications"
-                component={ApplicationsPage}
-              />
-              <PrivateRoute
-                exact
-                path="/offer/:applicationId"
-                component={OfferPage}
-              />
+              <PrivateRoute exact path="/applications/:id" component={IndividualApplicationPage} />
+              <PrivateRoute exact path="/applications" component={ApplicationsPage} />
+              <PrivateRoute exact path="/offer/:applicationId" component={OfferPage} />
               <PrivateRoute exact path="/pricing" component={PricingPage} />
             </Switch>
           </Page>

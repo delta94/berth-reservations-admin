@@ -23,9 +23,7 @@ const PierProperties: React.SFC<PierProperties> = ({ pier }) => {
         <div className={styles.pierProperties}>
           <Section>
             <Text as="h2" size="xl">
-              {`${t('individualHarbor.pierProperties.pier')} ${
-                pier.identifier
-              }`}
+              {`${t('individualHarbor.pierProperties.pier')} ${pier.identifier}`}
             </Text>
             <Text>{t('individualHarbor.pierProperties.services')}</Text>
           </Section>
@@ -36,11 +34,7 @@ const PierProperties: React.SFC<PierProperties> = ({ pier }) => {
                 label={t('individualHarbor.harborProperties.wasteCollection')}
                 active={pier.wasteCollection}
               />
-              <Property
-                iconShape="IconFence"
-                label={t('individualHarbor.harborProperties.gate')}
-                active={pier.gate}
-              />
+              <Property iconShape="IconFence" label={t('individualHarbor.harborProperties.gate')} active={pier.gate} />
               <Property
                 iconShape="IconPlug"
                 label={t('individualHarbor.harborProperties.electricity')}

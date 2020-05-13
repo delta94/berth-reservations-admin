@@ -16,32 +16,16 @@ const Page: React.SFC = ({ children }) => {
       sidebar={
         <Sidebar>
           {[
-            <InternalNavLink
-              key="harbors"
-              to="/harbors"
-              icon={<Icon shape="IconBoat" />}
-            >
+            <InternalNavLink key="harbors" to="/harbors" icon={<Icon shape="IconBoat" />}>
               {t('common.sidebar.harbors')}
             </InternalNavLink>,
-            <InternalNavLink
-              key="applications"
-              to="/applications"
-              icon={<Icon shape="IconApplications" />}
-            >
+            <InternalNavLink key="applications" to="/applications" icon={<Icon shape="IconApplications" />}>
               {t('common.sidebar.applications')}
             </InternalNavLink>,
-            <InternalNavLink
-              key="customers"
-              to="/customers"
-              icon={<Icon shape="IconPerson" />}
-            >
+            <InternalNavLink key="customers" to="/customers" icon={<Icon shape="IconPerson" />}>
               {t('common.sidebar.customers')}
             </InternalNavLink>,
-            <InternalNavLink
-              key="pricing"
-              to="/pricing"
-              icon={<Icon shape="IconInvoice" />}
-            >
+            <InternalNavLink key="pricing" to="/pricing" icon={<Icon shape="IconInvoice" />}>
               {t('common.sidebar.pricing')}
             </InternalNavLink>,
           ]}

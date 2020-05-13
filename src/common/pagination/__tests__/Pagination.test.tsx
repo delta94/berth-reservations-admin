@@ -14,8 +14,7 @@ describe('Pagination', () => {
     jest.resetAllMocks();
   });
 
-  const getWrapper = (props = {}) =>
-    shallow(<Pagination {...initialProps} {...props} />);
+  const getWrapper = (props = {}) => shallow(<Pagination {...initialProps} {...props} />);
 
   it('renders normally', () => {
     const wrapper = getWrapper();

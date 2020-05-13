@@ -1,9 +1,4 @@
-import {
-  getCertificate,
-  getFilename,
-  getValidUntilColor,
-  isLargeBoat,
-} from '../boatsCardUtils';
+import { getCertificate, getFilename, getValidUntilColor, isLargeBoat } from '../boatsCardUtils';
 import { Boat, BoatCert, LargeBoat } from '../../types';
 import { BoatCertificateType } from '../../../../@types/__generated__/globalTypes';
 import { inspectionCert, insuraceCert } from '../__fixtures__/mockData';
@@ -36,15 +31,11 @@ describe('boat card utils', () => {
 
   describe('getCertificate', () => {
     it('should get certificate by type', () => {
-      expect(
-        getCertificate(certificates, BoatCertificateType.INSURANCE)
-      ).toEqual(insuraceCert);
+      expect(getCertificate(certificates, BoatCertificateType.INSURANCE)).toEqual(insuraceCert);
     });
 
     it('should tolerate empty array', () => {
-      expect(getCertificate([], BoatCertificateType.INSURANCE)).toEqual(
-        undefined
-      );
+      expect(getCertificate([], BoatCertificateType.INSURANCE)).toEqual(undefined);
     });
   });
 
@@ -52,8 +43,7 @@ describe('boat card utils', () => {
     it('should get filename', () => {
       expect(
         getFilename(
-          'https://venepaikka-api.test.hel.ninja/media/boats/' +
-            '2c736de2-5659-46ea-ad3f-9c1364307d7d/dummy_pdf1.pdf'
+          'https://venepaikka-api.test.hel.ninja/media/boats/' + '2c736de2-5659-46ea-ad3f-9c1364307d7d/dummy_pdf1.pdf'
         )
       ).toEqual('dummy_pdf1.pdf');
     });

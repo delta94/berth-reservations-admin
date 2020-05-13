@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import List from './List';
 
 describe('List', () => {
-  const getWrapper = props =>
+  const getWrapper = (props) =>
     shallow(
       <List {...props}>
         <li>first</li>

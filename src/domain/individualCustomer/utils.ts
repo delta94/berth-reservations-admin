@@ -5,9 +5,7 @@ import {
 import { Application, ApplicationLease, Boat, LargeBoat } from './types';
 import { CustomerProfileCardProps } from '../cards/customerProfileCard/CustomerProfileCard';
 
-export const getCustomerProfile = (
-  profile: CUSTOMER_PROFILE
-): CustomerProfileCardProps => {
+export const getCustomerProfile = (profile: CUSTOMER_PROFILE): CustomerProfileCardProps => {
   return {
     ...{
       customerId: profile.id,
@@ -65,22 +63,16 @@ export const getLeases = (profile: CUSTOMER_PROFILE): Lease[] => {
 export const getBoats = (profile: CUSTOMER_PROFILE) => {
   if (!profile.boats) return [];
 
-  const boats = profile.boats.edges.reduce<(Boat | LargeBoat)[]>(
-    (acc, edge) => {
-      if (!edge?.node) return acc;
+  const boats = profile.boats.edges.reduce<(Boat | LargeBoat)[]>((acc, edge) => {
+    if (!edge?.node) return acc;
 
-      return [...acc, edge.node];
-    },
-    []
-  );
+    return [...acc, edge.node];
+  }, []);
 
   return boats;
 };
 
-export const getApplications = (
-  profile: CUSTOMER_PROFILE,
-  boatTypes: BOAT_TYPES[]
-) => {
+export const getApplications = (profile: CUSTOMER_PROFILE, boatTypes: BOAT_TYPES[]) => {
   return (
     profile?.berthApplications?.edges.reduce<Application[]>((acc, edge) => {
       if (edge?.node) {
@@ -107,8 +99,7 @@ export const getApplications = (
           leaseProps = {
             berthNum: lease.berth.number.toString(10),
             harborId: lease.berth.pier.properties.harbor.id,
-            harborName:
-              lease.berth.pier.properties.harbor.properties?.name || '',
+            harborName: lease.berth.pier.properties.harbor.properties?.name || '',
             id: lease.id,
             pierIdentifier: lease.berth.pier.properties.identifier,
           };

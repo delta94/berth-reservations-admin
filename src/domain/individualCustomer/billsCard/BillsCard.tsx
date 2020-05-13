@@ -54,26 +54,13 @@ const BillsCard: React.SFC<BillsCardProps> = ({
     <Card>
       <CardHeader title={t('individualCustomer.customerBill.title')} />
       <CardBody>
-        <Button
-          color="supplementary"
-          onClick={handleShowBill}
-          className={styles.button}
-        >
+        <Button color="supplementary" onClick={handleShowBill} className={styles.button}>
           {t('individualCustomer.customerBill.showInvoice')}
         </Button>
         <Section title={t('individualCustomer.customerBill.berthRental')}>
-          <LabelValuePair
-            label={t('individualCustomer.customerBill.berthPlace')}
-            value={berthPlace}
-          />
-          <LabelValuePair
-            label={t('individualCustomer.customerBill.contractPeriod')}
-            value={contractPeriod}
-          />
-          <LabelValuePair
-            label={t('individualCustomer.customerBill.dueDate')}
-            value={dueDate}
-          />
+          <LabelValuePair label={t('individualCustomer.customerBill.berthPlace')} value={berthPlace} />
+          <LabelValuePair label={t('individualCustomer.customerBill.contractPeriod')} value={contractPeriod} />
+          <LabelValuePair label={t('individualCustomer.customerBill.dueDate')} value={dueDate} />
         </Section>
         <Section className={styles.feesSection}>
           <LabelValuePair
@@ -113,11 +100,7 @@ const BillsCard: React.SFC<BillsCardProps> = ({
           />
         </Section>
         <Section className={styles.feesSection}>
-          <LabelValuePair
-            align="right"
-            label={t('individualCustomer.customerBill.total')}
-            value={formatPrice(total)}
-          />
+          <LabelValuePair align="right" label={t('individualCustomer.customerBill.total')} value={formatPrice(total)} />
         </Section>
       </CardBody>
     </Card>

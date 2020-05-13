@@ -32,8 +32,7 @@ const initialProps = {
 };
 
 describe('Table', () => {
-  const getWrapper = (props = {}) =>
-    shallow(<Table {...props} {...initialProps} />);
+  const getWrapper = (props = {}) => shallow(<Table {...props} {...initialProps} />);
 
   it('renders normally', () => {
     const wrapper = getWrapper();

@@ -16,7 +16,7 @@ const CallbackPage: React.SFC<CallbackPageProps> = ({ history }) => {
   useEffect(() => {
     authService
       .endLogin()
-      .then(user => {
+      .then((user) => {
         client.writeData({
           data: { currentUser: { __typename: 'CurrentUser', ...user.profile } },
         });

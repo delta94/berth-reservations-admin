@@ -7,12 +7,7 @@ import { Cell } from 'react-table';
 import Table, { Column } from '../../common/table/Table';
 import { INDIVIDUAL_HARBOR_QUERY } from './queries';
 import { INDIVIDUAL_HARBOR } from './__generated__/INDIVIDUAL_HARBOR';
-import {
-  getIndividualHarborData,
-  getBerths,
-  Berth,
-  getPiers,
-} from './utils/utils';
+import { getIndividualHarborData, getBerths, Berth, getPiers } from './utils/utils';
 import IndividualHarborPage from './individualHarborPage/IndividualHarborPage';
 import HarborProperties from './harborProperties/HarborProperties';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
@@ -34,10 +29,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
   const [pierToEdit, setPierToEdit] = useState<string | null>(null);
   const [creatingPier, setCreatingPier] = useState<boolean>(false);
   const { id } = useParams<{ id: string }>();
-  const { loading, error, data } = useQuery<INDIVIDUAL_HARBOR>(
-    INDIVIDUAL_HARBOR_QUERY,
-    { variables: { id } }
-  );
+  const { loading, error, data } = useQuery<INDIVIDUAL_HARBOR>(INDIVIDUAL_HARBOR_QUERY, { variables: { id } });
   const { t, i18n } = useTranslation();
 
   if (loading) return <LoadingSpinner isLoading={loading} />;
@@ -62,28 +54,17 @@ const IndividualHarborPageContainer: React.SFC = () => {
       Cell: ({ cell }: { cell: Cell<Berth> }) => {
         const isBerthActive = cell.row.original.isActive;
         if (!isBerthActive) {
-          return (
-            <Chip
-              color="red"
-              label={t('individualHarbor.berthProperties.inactive')}
-            />
-          );
+          return <Chip color="red" label={t('individualHarbor.berthProperties.inactive')} />;
         }
-        const activeLease = cell.row.original.leases?.find(
-          lease => lease.isActive
-        );
+        const activeLease = cell.row.original.leases?.find((lease) => lease.isActive);
         if (!activeLease) {
           return cell.value;
         }
-        return (
-          <InternalLink to={`/customers/${activeLease.customer.id}}`}>
-            {cell.value}
-          </InternalLink>
-        );
+        return <InternalLink to={`/customers/${activeLease.customer.id}}`}>{cell.value}</InternalLink>;
       },
       Header: t('individualHarbor.tableHeaders.customer') || '',
       accessor: ({ leases }) => {
-        const activeLease = leases?.find(lease => lease.isActive);
+        const activeLease = leases?.find((lease) => lease.isActive);
         if (!activeLease) return '';
         return `${activeLease.customer.firstName} ${activeLease.customer.lastName}`;
       },
@@ -110,8 +91,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
     },
     {
       Header: t('individualHarbor.tableHeaders.mooring') || '',
-      accessor: ({ mooringType }) =>
-        t([`common.mooringTypes.${mooringType}`, mooringType]),
+      accessor: ({ mooringType }) => t([`common.mooringTypes.${mooringType}`, mooringType]),
       id: 'mooringType',
       filter: 'text',
     },
@@ -150,21 +130,21 @@ const IndividualHarborPageContainer: React.SFC = () => {
           />
         )}
         styleMainHeader={false}
-        renderMainHeader={props => (
+        renderMainHeader={(props) => (
           <PierSelectHeader
             piers={piers}
-            onEdit={pier => setPierToEdit(pier.id)}
-            selectedPier={piers.find(pier =>
+            onEdit={(pier) => setPierToEdit(pier.id)}
+            selectedPier={piers.find((pier) =>
               props.state.filters
-                .filter(filter => filter.id === 'identifier')
-                .find(filter => filter.value === pier.identifier)
+                .filter((filter) => filter.id === 'identifier')
+                .find((filter) => filter.value === pier.identifier)
             )}
-            onPierSelect={pier => {
+            onPierSelect={(pier) => {
               props.setFilter('identifier', pier?.identifier);
             }}
           />
         )}
-        renderSubComponent={row => (
+        renderSubComponent={(row) => (
           <BerthDetails
             leases={row.original.leases ?? []}
             comment={row.original.comment}
@@ -179,9 +159,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
             onCancel={() => setBerthToEdit(null)}
             onDelete={() => setBerthToEdit(null)}
             onSubmit={() => setBerthToEdit(null)}
-            refetchQueries={[
-              { query: INDIVIDUAL_HARBOR_QUERY, variables: { id } },
-            ]}
+            refetchQueries={[{ query: INDIVIDUAL_HARBOR_QUERY, variables: { id } }]}
             pierOptions={piers}
           />
         </Modal>
@@ -190,9 +168,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
         <BerthCreateForm
           onCancel={() => setCreatingBerth(false)}
           onSubmit={() => setCreatingBerth(false)}
-          refetchQueries={[
-            { query: INDIVIDUAL_HARBOR_QUERY, variables: { id } },
-          ]}
+          refetchQueries={[{ query: INDIVIDUAL_HARBOR_QUERY, variables: { id } }]}
           pierOptions={piers}
         />
       </Modal>
@@ -201,9 +177,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
           harborId={id}
           onCancel={() => setCreatingPier(false)}
           onSubmit={() => setCreatingPier(false)}
-          refetchQueries={[
-            { query: INDIVIDUAL_HARBOR_QUERY, variables: { id } },
-          ]}
+          refetchQueries={[{ query: INDIVIDUAL_HARBOR_QUERY, variables: { id } }]}
         />
       </Modal>
       {pierToEdit && (
@@ -213,9 +187,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
             onCancel={() => setPierToEdit(null)}
             onDelete={() => setPierToEdit(null)}
             onSubmit={() => setPierToEdit(null)}
-            refetchQueries={[
-              { query: INDIVIDUAL_HARBOR_QUERY, variables: { id } },
-            ]}
+            refetchQueries={[{ query: INDIVIDUAL_HARBOR_QUERY, variables: { id } }]}
           />
         </Modal>
       )}

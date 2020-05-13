@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import Text from './Text';
 
 describe('Text', () => {
-  const getWrapper = props => shallow(<Text {...props} />);
+  const getWrapper = (props) => shallow(<Text {...props} />);
 
   it('renders normally', () => {
     const wrapper = getWrapper({ children: 'test' });

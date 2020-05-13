@@ -1,7 +1,4 @@
-import {
-  ApplicationStatus,
-  BoatCertificateType,
-} from '../../@types/__generated__/globalTypes';
+import { ApplicationStatus, BoatCertificateType } from '../../@types/__generated__/globalTypes';
 
 export interface Boat {
   id: string;

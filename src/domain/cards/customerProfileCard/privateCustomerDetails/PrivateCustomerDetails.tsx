@@ -41,16 +41,12 @@ const PrivateCustomerDetails: FunctionComponent<PrivateCustomerDetailsProps> = (
 
   return (
     <>
-      <Section
-        title={title || t('customerProfile.personalInformation').toUpperCase()}
-      >
+      <Section title={title || t('customerProfile.personalInformation').toUpperCase()}>
         <LabelValuePair
           label={t('customerProfile.firstName')}
           value={
             showCustomerNameAsLink && customerId ? (
-              <InternalLink to={`/customers/${customerId}`}>
-                {firstName}
-              </InternalLink>
+              <InternalLink to={`/customers/${customerId}`}>{firstName}</InternalLink>
             ) : (
               firstName
             )
@@ -60,9 +56,7 @@ const PrivateCustomerDetails: FunctionComponent<PrivateCustomerDetailsProps> = (
           label={t('customerProfile.lastName')}
           value={
             showCustomerNameAsLink && customerId ? (
-              <InternalLink to={`/customers/${customerId}`}>
-                {lastName}
-              </InternalLink>
+              <InternalLink to={`/customers/${customerId}`}>{lastName}</InternalLink>
             ) : (
               lastName
             )
@@ -80,46 +74,21 @@ const PrivateCustomerDetails: FunctionComponent<PrivateCustomerDetailsProps> = (
         />
       </Section>
       <Section>
-        <LabelValuePair
-          label={t('customerProfile.address')}
-          value={primaryAddress?.address}
-        />
-        <LabelValuePair
-          label={t('customerProfile.postalCode')}
-          value={primaryAddress?.postalCode}
-        />
-        <LabelValuePair
-          label={t('customerProfile.city')}
-          value={primaryAddress?.city}
-        />
+        <LabelValuePair label={t('customerProfile.address')} value={primaryAddress?.address} />
+        <LabelValuePair label={t('customerProfile.postalCode')} value={primaryAddress?.postalCode} />
+        <LabelValuePair label={t('customerProfile.city')} value={primaryAddress?.city} />
       </Section>
       <Section>
-        <LabelValuePair
-          label={t('customerProfile.phone')}
-          value={primaryPhone}
-        />
-        <LabelValuePair
-          label={t('customerProfile.email')}
-          value={primaryEmail}
-        />
+        <LabelValuePair label={t('customerProfile.phone')} value={primaryPhone} />
+        <LabelValuePair label={t('customerProfile.email')} value={primaryEmail} />
       </Section>
       <Section>
-        <LabelValuePair
-          label={t('customerProfile.customerGroup')}
-          value={t([`common.privateCustomer`])}
-        />
-        {invoicingType && (
-          <LabelValuePair
-            value={t([`common.invoicingTypes.${invoicingType}`])}
-          />
-        )}
+        <LabelValuePair label={t('customerProfile.customerGroup')} value={t([`common.privateCustomer`])} />
+        {invoicingType && <LabelValuePair value={t([`common.invoicingTypes.${invoicingType}`])} />}
       </Section>
       {comment && (
         <Section>
-          <LabelValuePair
-            label={t('customerProfile.remarks')}
-            value={comment}
-          />
+          <LabelValuePair label={t('customerProfile.remarks')} value={comment} />
         </Section>
       )}
     </>

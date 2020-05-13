@@ -10,11 +10,7 @@ export interface ExpandableProps {
   onClick?: Function;
 }
 
-const Expandable: React.SFC<ExpandableProps> = ({
-  label,
-  onClick,
-  children,
-}) => {
+const Expandable: React.SFC<ExpandableProps> = ({ label, onClick, children }) => {
   const [expanded, setExpanded] = useState(false);
   const handleClick = () => {
     setExpanded(!expanded);
@@ -24,11 +20,7 @@ const Expandable: React.SFC<ExpandableProps> = ({
   return (
     <>
       <div className={styles.expandable}>
-        <div
-          className={classNames(styles.headerBtn, styles.label)}
-          role="button"
-          onClick={handleClick}
-        >
+        <div className={classNames(styles.headerBtn, styles.label)} role="button" onClick={handleClick}>
           {label}
         </div>
         {children && (

@@ -9,6 +9,4 @@ export default {
 
 export const text = () => <Section>lorem ipsum</Section>;
 
-export const textWithTitle = () => (
-  <Section title="Asiakasryhmä">Yksityinen asiakas</Section>
-);
+export const textWithTitle = () => <Section title="Asiakasryhmä">Yksityinen asiakas</Section>;

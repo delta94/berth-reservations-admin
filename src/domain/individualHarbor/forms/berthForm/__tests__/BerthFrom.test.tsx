@@ -20,9 +20,7 @@ const validValues = {
 
 describe('domain/individualHarbor/BerthForm', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(
-      <BerthForm initialValues={validValues} pierOptions={pierOptions} />
-    );
+    const wrapper = shallow(<BerthForm initialValues={validValues} pierOptions={pierOptions} />);
     expect(wrapper.html()).toMatchSnapshot();
   });
 });

@@ -24,7 +24,7 @@ describe('BerthsCard', () => {
     ],
   };
 
-  const getWrapper = props =>
+  const getWrapper = (props) =>
     shallow(
       <HashRouter>
         <LeasesCard {...initialProps} {...props} />
@@ -52,9 +52,6 @@ describe('BerthsCard', () => {
 
     button.simulate('click');
 
-    expect(initialProps.handleShowContract).toHaveBeenNthCalledWith(
-      1,
-      firstLeaseId
-    );
+    expect(initialProps.handleShowContract).toHaveBeenNthCalledWith(1, firstLeaseId);
   });
 });

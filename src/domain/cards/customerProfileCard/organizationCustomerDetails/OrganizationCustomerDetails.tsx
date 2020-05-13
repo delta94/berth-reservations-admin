@@ -4,10 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Section from '../../../../common/section/Section';
 import LabelValuePair from '../../../../common/labelValuePair/LabelValuePair';
 import InternalLink from '../../../../common/internalLink/InternalLink';
-import {
-  InvoicingType,
-  OrganizationType,
-} from '../../../../@types/__generated__/globalTypes';
+import { InvoicingType, OrganizationType } from '../../../../@types/__generated__/globalTypes';
 
 export interface OrganizationCustomerDetailsProps {
   comment?: string | null;
@@ -51,35 +48,18 @@ const OrganizationCustomerDetails: FunctionComponent<OrganizationCustomerDetails
   return (
     <>
       <Section title={t('customerProfile.organization').toUpperCase()}>
-        <LabelValuePair
-          label={t('customerProfile.name')}
-          value={organization.name}
-        />{' '}
-        <LabelValuePair
-          label={t('customerProfile.businessId')}
-          value={organization.businessId}
-        />
+        <LabelValuePair label={t('customerProfile.name')} value={organization.name} />{' '}
+        <LabelValuePair label={t('customerProfile.businessId')} value={organization.businessId} />
       </Section>
       <Section>
-        <LabelValuePair
-          label={t('customerProfile.address')}
-          value={organization.address}
-        />
-        <LabelValuePair
-          label={t('customerProfile.postalCode')}
-          value={organization.postalCode}
-        />
-        <LabelValuePair
-          label={t('customerProfile.city')}
-          value={organization.city}
-        />
+        <LabelValuePair label={t('customerProfile.address')} value={organization.address} />
+        <LabelValuePair label={t('customerProfile.postalCode')} value={organization.postalCode} />
+        <LabelValuePair label={t('customerProfile.city')} value={organization.city} />
       </Section>
       <Section>
         <LabelValuePair
           label={t('customerProfile.customerGroup')}
-          value={t([
-            `common.organizationTypes.${organization.organizationType}`,
-          ])}
+          value={t([`common.organizationTypes.${organization.organizationType}`])}
         />
       </Section>
       <Section title={t('customerProfile.contactPerson').toUpperCase()}>
@@ -87,9 +67,7 @@ const OrganizationCustomerDetails: FunctionComponent<OrganizationCustomerDetails
           label={t('customerProfile.firstName')}
           value={
             showCustomerNameAsLink && customerId ? (
-              <InternalLink to={`/customers/${customerId}`}>
-                {firstName}
-              </InternalLink>
+              <InternalLink to={`/customers/${customerId}`}>{firstName}</InternalLink>
             ) : (
               firstName
             )
@@ -99,9 +77,7 @@ const OrganizationCustomerDetails: FunctionComponent<OrganizationCustomerDetails
           label={t('customerProfile.lastName')}
           value={
             showCustomerNameAsLink && customerId ? (
-              <InternalLink to={`/customers/${customerId}`}>
-                {lastName}
-              </InternalLink>
+              <InternalLink to={`/customers/${customerId}`}>{lastName}</InternalLink>
             ) : (
               lastName
             )
@@ -119,28 +95,17 @@ const OrganizationCustomerDetails: FunctionComponent<OrganizationCustomerDetails
         />
       </Section>
       <Section>
-        <LabelValuePair
-          label={t('customerProfile.phone')}
-          value={primaryPhone}
-        />
-        <LabelValuePair
-          label={t('customerProfile.email')}
-          value={primaryEmail}
-        />
+        <LabelValuePair label={t('customerProfile.phone')} value={primaryPhone} />
+        <LabelValuePair label={t('customerProfile.email')} value={primaryEmail} />
       </Section>
       {invoicingType && (
         <Section>
-          <LabelValuePair
-            value={t([`common.invoicingTypes.${invoicingType}`])}
-          />
+          <LabelValuePair value={t([`common.invoicingTypes.${invoicingType}`])} />
         </Section>
       )}
       {comment && (
         <Section>
-          <LabelValuePair
-            label={t('customerProfile.remarks')}
-            value={comment}
-          />
+          <LabelValuePair label={t('customerProfile.remarks')} value={comment} />
         </Section>
       )}
     </>

@@ -7,10 +7,7 @@ import Icon from '../icons/Icon';
 import Text from '../text/Text';
 import styles from './pagination.module.scss';
 
-export type PaginationProps = Pick<
-  ReactPaginateProps,
-  'pageCount' | 'onPageChange' | 'initialPage' | 'forcePage'
-> & {
+export type PaginationProps = Pick<ReactPaginateProps, 'pageCount' | 'onPageChange' | 'initialPage' | 'forcePage'> & {
   className?: string;
 };
 

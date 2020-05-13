@@ -9,15 +9,8 @@ export interface HelsinkiLogoProps {
   color?: 'standard' | 'brand' | 'critical' | 'secondary' | 'info' | 'white';
 }
 
-const HelsinkiLogo: React.SFC<HelsinkiLogoProps> = ({
-  size = 'standard',
-  color = 'standard',
-}) => {
-  return (
-    <HelsinkiLogoSVG
-      className={classNames(styles.helsinkiLogo, styles[size], styles[color])}
-    />
-  );
+const HelsinkiLogo: React.SFC<HelsinkiLogoProps> = ({ size = 'standard', color = 'standard' }) => {
+  return <HelsinkiLogoSVG className={classNames(styles.helsinkiLogo, styles[size], styles[color])} />;
 };
 
 export default HelsinkiLogo;

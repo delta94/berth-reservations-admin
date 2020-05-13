@@ -12,15 +12,13 @@ export interface ApplicationsCardProps {
   applications: Application[];
 }
 
-const ApplicationsCard: React.SFC<ApplicationsCardProps> = ({
-  applications,
-}) => {
+const ApplicationsCard: React.SFC<ApplicationsCardProps> = ({ applications }) => {
   const { t } = useTranslation();
 
   return (
     <Card className={styles.applicationsCard}>
       <CardHeader title={t('individualCustomer.application.title')} />
-      {applications.map(application => (
+      {applications.map((application) => (
         <CardBody key={application.id}>
           <ApplicationDetails {...application} />
         </CardBody>

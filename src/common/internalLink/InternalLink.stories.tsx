@@ -5,7 +5,7 @@ import InternalLink from './InternalLink';
 
 export default {
   component: InternalLink,
-  decorators: [storyFn => <HashRouter>{storyFn()}</HashRouter>],
+  decorators: [(storyFn) => <HashRouter>{storyFn()}</HashRouter>],
   title: 'InternalLink',
 };
 

@@ -20,13 +20,10 @@ interface BerthFormProps extends FormProps<Berth> {
   pierOptions: Pier[];
 }
 
-const getBerthValidationSchema = (
-  t: TFunction,
-  pierOptions: Pier[]
-): ObjectSchema => {
+const getBerthValidationSchema = (t: TFunction, pierOptions: Pier[]): ObjectSchema => {
   return Yup.object().shape({
     pierId: Yup.string()
-      .oneOf(pierOptions.map(pier => pier.id))
+      .oneOf(pierOptions.map((pier) => pier.id))
       .required(t('forms.common.errors.required')),
     number: Yup.number()
       .typeError(t('forms.common.errors.numberType'))
@@ -41,9 +38,7 @@ const getBerthValidationSchema = (
       .typeError(t('forms.common.errors.numberType'))
       .positive(t('forms.common.errors.positive'))
       .required(t('forms.common.errors.required')),
-    mooringType: Yup.string()
-      .oneOf(Object.keys(BerthMooringType))
-      .required(t('forms.common.errors.required')),
+    mooringType: Yup.string().oneOf(Object.keys(BerthMooringType)).required(t('forms.common.errors.required')),
   });
 };
 
@@ -69,7 +64,7 @@ const BerthForm: React.FC<BerthFormProps> = ({
   return (
     <Formik
       initialValues={initial}
-      onSubmit={values => onSubmit?.(values)}
+      onSubmit={(values) => onSubmit?.(values)}
       validateOnBlur={false}
       validateOnChange={false}
       validationSchema={validationSchema}
@@ -90,7 +85,7 @@ const BerthForm: React.FC<BerthFormProps> = ({
             <Select
               id="pierId"
               value={values.pierId}
-              options={pierOptions.map(pier => {
+              options={pierOptions.map((pier) => {
                 return {
                   label: pier.identifier,
                   value: pier.id,
@@ -146,7 +141,7 @@ const BerthForm: React.FC<BerthFormProps> = ({
             id="mooringType"
             value={values.mooringType}
             labelText={t('forms.berth.mooringType')}
-            options={Object.keys(BerthMooringType).map(mooringType => {
+            options={Object.keys(BerthMooringType).map((mooringType) => {
               return {
                 label: t([`common.mooringTypes.${mooringType}`, mooringType]),
                 value: mooringType,
@@ -155,14 +150,9 @@ const BerthForm: React.FC<BerthFormProps> = ({
             onChange={handleChange}
             required
           />
-          <TextInput
-            id="comment"
-            onChange={handleChange}
-            value={values.comment}
-            labelText={t('forms.berth.comment')}
-          />
+          <TextInput id="comment" onChange={handleChange} value={values.comment} labelText={t('forms.berth.comment')} />
           <Checkbox
-            onChange={event =>
+            onChange={(event) =>
               handleChange({
                 target: {
                   id: 'isActive',
@@ -174,11 +164,7 @@ const BerthForm: React.FC<BerthFormProps> = ({
             label={t('forms.berth.isActive')}
           />
           <div className={styles.formActionButtons}>
-            <Button
-              disabled={isSubmitting}
-              color={'supplementary'}
-              onClick={onCancel}
-            >
+            <Button disabled={isSubmitting} color={'supplementary'} onClick={onCancel}>
               {t('forms.common.cancel')}
             </Button>
             <Button type="submit" disabled={isSubmitting}>

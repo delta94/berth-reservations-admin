@@ -32,7 +32,7 @@ const apolloClient = new ApolloClient({
       },
     },
   },
-  request: operation => {
+  request: (operation) => {
     const apiTokens = authService.getTokens();
 
     operation.setContext({

@@ -18,8 +18,7 @@ describe('Select', () => {
     jest.restoreAllMocks();
   });
 
-  const getWrapper = (props = {}) =>
-    shallow(<Select {...mockProps} {...props} />);
+  const getWrapper = (props = {}) => shallow(<Select {...mockProps} {...props} />);
 
   it('renders normally', () => {
     const wrapper = getWrapper();

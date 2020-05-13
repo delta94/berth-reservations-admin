@@ -6,10 +6,7 @@ export interface LoadingSpinnerProps {
   isLoading: boolean;
 }
 
-const LoadingSpinner: React.SFC<LoadingSpinnerProps> = ({
-  isLoading,
-  children,
-}) => {
+const LoadingSpinner: React.SFC<LoadingSpinnerProps> = ({ isLoading, children }) => {
   if (isLoading === true) {
     return (
       <div className={styles.spinnerWrapper}>
