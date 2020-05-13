@@ -16,6 +16,7 @@ import { Pier } from '../../utils/utils';
 import FormHeader from '../../../../common/formHeader/FormHeader';
 
 interface BerthFormProps extends FormProps<Berth> {
+  isEditing?: boolean;
   onSubmitText?: string;
   pierOptions: Pier[];
 }
@@ -27,7 +28,7 @@ const getBerthValidationSchema = (t: TFunction, pierOptions: Pier[]): ObjectSche
       .required(t('forms.common.errors.required')),
     number: Yup.number()
       .typeError(t('forms.common.errors.numberType'))
-      .positive(t('forms.common.errors.positive'))
+      .min(0, t('forms.common.errors.nonNegative'))
       .integer(t('forms.common.errors.integer'))
       .required(t('forms.common.errors.required')),
     width: Yup.number()
@@ -42,7 +43,18 @@ const getBerthValidationSchema = (t: TFunction, pierOptions: Pier[]): ObjectSche
   });
 };
 
+const transformValues = (values: any): Berth => {
+  const { number, width, length } = values;
+  return {
+    ...values,
+    number: parseInt(number),
+    width: parseFloat(width),
+    length: parseFloat(length),
+  };
+};
+
 const BerthForm: React.FC<BerthFormProps> = ({
+  isEditing = false,
   initialValues,
   isSubmitting,
   onSubmit,
@@ -64,7 +76,7 @@ const BerthForm: React.FC<BerthFormProps> = ({
   return (
     <Formik
       initialValues={initial}
-      onSubmit={(values) => onSubmit?.(values)}
+      onSubmit={(values) => onSubmit?.(transformValues(values))}
       validateOnBlur={false}
       validateOnChange={false}
       validationSchema={validationSchema}
@@ -90,40 +102,38 @@ const BerthForm: React.FC<BerthFormProps> = ({
               onChange={handleChange}
               labelText={t('forms.berth.pier')}
               required
+              disabled={isEditing}
             />
             <TextInput
               id="number"
-              type="number"
-              value={String(values.number)}
+              value={values.number ? String(values.number) : ''}
               onChange={handleChange}
               labelText={t('forms.berth.number')}
               invalid={!!errors.number}
               helperText={errors.number}
+              disabled={isEditing}
             />
             <div />
             <TextInput
               id="width"
-              type="number"
+              value={values.width ? String(values.width) : ''}
               onChange={handleChange}
-              value={String(values.width)}
               labelText={t('forms.berth.width')}
               invalid={!!errors.width}
               helperText={errors.width}
             />
             <TextInput
               id="length"
-              type="number"
+              value={values.length ? String(values.length) : ''}
               onChange={handleChange}
-              value={String(values.length)}
               labelText={t('forms.berth.length')}
               invalid={!!errors.length}
               helperText={errors.length}
             />
             <TextInput
               id="depth"
-              type="number"
               onChange={handleChange}
-              value={String(values.depth)}
+              value={values.depth ? String(values.depth) : ''}
               labelText={t('forms.berth.depth')}
               invalid={!!errors.depth}
               helperText={errors.depth}

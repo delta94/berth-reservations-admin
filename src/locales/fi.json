@@ -126,7 +126,8 @@
         "numberType": "Kentän pitää olla numero.",
         "integer": "Kentän pitää olla kokonaisluku.",
         "positive": "Kentän pitää olla positiivinen luku.",
-        "maxFileSize": "Tiedosto on liian suuri."
+        "maxFileSize": "Tiedosto on liian suuri.",
+        "nonNegative": "Kenttä ei saa sisältää negatiivista lukua."
       },
       "error": "Tapahtui virhe. Yritä uudestaan.",
       "create": "Luo",

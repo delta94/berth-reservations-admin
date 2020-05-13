@@ -46,6 +46,7 @@ const BerthEditForm: React.FC<BerthEditFormProps> = ({
   return (
     <BerthForm
       initialValues={initialValues}
+      isEditing={true}
       onCancel={onCancel}
       onDelete={(values) => deleteBerth({ variables: { input: { id: berthId } } }).then(() => onDelete?.(values))}
       onSubmitText={t('forms.common.update')}
