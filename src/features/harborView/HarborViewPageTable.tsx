@@ -1,7 +1,6 @@
 import React from 'react';
 import { Cell } from 'react-table';
 import { useTranslation } from 'react-i18next';
-import equal from 'fast-deep-equal';
 
 import HarborViewTableTools from './harborViewTableTools/HarborViewTableTools';
 import PierSelectHeader from './pierSelectHeader/PierSelectHeader';
@@ -127,7 +126,4 @@ const HarborViewPageTable: React.FC<Props> = ({ berths, piers, onAddBerth, onAdd
   );
 };
 
-// Only re-render the table when data has changed.
-export default React.memo(HarborViewPageTable, (prevProps, nextProps) => {
-  return equal(prevProps.piers, nextProps.piers) && equal(prevProps.berths, nextProps.berths);
-});
+export default HarborViewPageTable;

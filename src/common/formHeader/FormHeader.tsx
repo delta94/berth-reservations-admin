@@ -11,12 +11,7 @@ interface Props {
   onDeleteText?: string;
 }
 
-const FormHeader: React.FC<Props> = ({
-  title,
-  isSubmitting,
-  onDelete,
-  onDeleteText,
-}) => {
+const FormHeader: React.FC<Props> = ({ title, isSubmitting, onDelete, onDeleteText }) => {
   const { t } = useTranslation();
   return (
     <div className={styles.heading}>
@@ -25,9 +20,7 @@ const FormHeader: React.FC<Props> = ({
       </Text>
       {onDelete && (
         <button disabled={isSubmitting} onClick={() => onDelete()}>
-          <Text color="critical">
-            {onDeleteText ?? t('forms.common.delete')}
-          </Text>
+          <Text color="critical">{onDeleteText ?? t('forms.common.delete')}</Text>
         </button>
       )}
     </div>
