@@ -17,15 +17,10 @@ interface PierFormProps extends FormProps<Pier> {
   onSubmitText?: string;
 }
 
-const getPierValidationSchema = (
-  t: TFunction,
-  suitableBoatTypeOptions: BoatType[]
-): ObjectSchema => {
+const getPierValidationSchema = (t: TFunction, suitableBoatTypeOptions: BoatType[]): ObjectSchema => {
   return Yup.object().shape({
     identifier: Yup.string().required(t('forms.common.errors.required')),
-    suitableBoatTypes: Yup.array().of(
-      Yup.string().oneOf(suitableBoatTypeOptions.map(boatType => boatType.id))
-    ),
+    suitableBoatTypes: Yup.array().of(Yup.string().oneOf(suitableBoatTypeOptions.map((boatType) => boatType.id))),
     mooring: Yup.boolean(),
     wasteCollection: Yup.boolean(),
     lighting: Yup.boolean(),
@@ -63,7 +58,7 @@ const PierForm: React.FC<PierFormProps> = ({
   return (
     <Formik
       initialValues={initial}
-      onSubmit={values => onSubmit?.(values)}
+      onSubmit={(values) => onSubmit?.(values)}
       validateOnBlur={false}
       validateOnChange={false}
       validationSchema={validationSchema}
@@ -94,16 +89,10 @@ const PierForm: React.FC<PierFormProps> = ({
               <Text weight="bold" size="s">
                 {t('forms.pier.services')}
               </Text>
-              {[
-                'wasteCollection',
-                'gate',
-                'electricity',
-                'lighting',
-                'water',
-              ].map((keyForCheckbox, id) => (
+              {['wasteCollection', 'gate', 'electricity', 'lighting', 'water'].map((keyForCheckbox, id) => (
                 <Checkbox
                   key={id}
-                  onChange={event =>
+                  onChange={(event) =>
                     handleChange({
                       target: {
                         id: keyForCheckbox,
@@ -125,9 +114,7 @@ const PierForm: React.FC<PierFormProps> = ({
                   key={id}
                   onChange={() => {
                     const set = new Set(values.suitableBoatTypes);
-                    set.has(boatType.id)
-                      ? set.delete(boatType.id)
-                      : set.add(boatType.id);
+                    set.has(boatType.id) ? set.delete(boatType.id) : set.add(boatType.id);
                     handleChange({
                       target: {
                         id: 'suitableBoatTypes',
@@ -135,10 +122,7 @@ const PierForm: React.FC<PierFormProps> = ({
                       },
                     });
                   }}
-                  checked={
-                    values.suitableBoatTypes &&
-                    values.suitableBoatTypes.includes(boatType.id)
-                  }
+                  checked={values.suitableBoatTypes && values.suitableBoatTypes.includes(boatType.id)}
                   label={boatType.name ?? ''}
                 />
               ))}
@@ -146,7 +130,7 @@ const PierForm: React.FC<PierFormProps> = ({
           </Grid>
 
           <Checkbox
-            onChange={event =>
+            onChange={(event) =>
               handleChange({
                 target: {
                   id: 'personalElectricity',
@@ -159,11 +143,7 @@ const PierForm: React.FC<PierFormProps> = ({
           />
 
           <div className={styles.formActionButtons}>
-            <Button
-              disabled={isSubmitting}
-              color={'supplementary'}
-              onClick={onCancel}
-            >
+            <Button disabled={isSubmitting} color={'supplementary'} onClick={onCancel}>
               {t('forms.common.cancel')}
             </Button>
             <Button type="submit" disabled={isSubmitting}>

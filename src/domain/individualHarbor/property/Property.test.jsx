@@ -5,8 +5,7 @@ import Property from './Property';
 import Text from '../../../common/text/Text';
 
 describe('Property', () => {
-  const getWrapper = (props = { iconName: 'fence', label: 'Test' }) =>
-    shallow(<Property {...props} />);
+  const getWrapper = (props = { iconName: 'fence', label: 'Test' }) => shallow(<Property {...props} />);
 
   it('renders normally', () => {
     const wrapper = getWrapper();
@@ -18,11 +17,6 @@ describe('Property', () => {
     const counter = 9;
     const wrapper = getWrapper({ counter });
 
-    expect(
-      wrapper
-        .find(Text)
-        .first()
-        .prop('as')
-    ).toBe('strong');
+    expect(wrapper.find(Text).first().prop('as')).toBe('strong');
   });
 });

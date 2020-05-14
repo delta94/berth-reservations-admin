@@ -10,7 +10,7 @@ describe('Expandable', () => {
     jest.restoreAllMocks();
   });
 
-  const getWrapper = props =>
+  const getWrapper = (props) =>
     shallow(
       <Expandable label="Click me" onClick={onClick} {...props}>
         <div>one</div>

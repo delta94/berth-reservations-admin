@@ -22,13 +22,10 @@ const BoatsCard: React.SFC<BoatsCardProps> = ({ boats }) => {
   return (
     <Card className={styles.boatsCard}>
       <CardHeader title={t('individualCustomer.customerBoats.title')} />
-      {boats.map(boat => (
+      {boats.map((boat) => (
         <CardBody key={boat.id}>
           <Section title={t('individualCustomer.customerBoats.boatInfo')}>
-            <LabelValuePair
-              label={t('individualCustomer.customerBoats.boatType')}
-              value={boat.boatType.name}
-            />
+            <LabelValuePair label={t('individualCustomer.customerBoats.boatType')} value={boat.boatType.name} />
             <LabelValuePair
               label={t('individualCustomer.customerBoats.registrationNumber')}
               value={boat.registrationNumber}
@@ -53,30 +50,15 @@ const BoatsCard: React.SFC<BoatsCardProps> = ({ boats }) => {
             />
           </Section>
           <Section>
-            <LabelValuePair
-              label={t('individualCustomer.customerBoats.name')}
-              value={boat.name}
-            />
-            <LabelValuePair
-              label={t('individualCustomer.customerBoats.model')}
-              value={boat.model}
-            />
+            <LabelValuePair label={t('individualCustomer.customerBoats.name')} value={boat.name} />
+            <LabelValuePair label={t('individualCustomer.customerBoats.model')} value={boat.model} />
           </Section>
           {isLargeBoat(boat) && (
             <>
               <Section>
-                <LabelValuePair
-                  label={t('individualCustomer.customerBoats.propulsion')}
-                  value={boat.propulsion}
-                />
-                <LabelValuePair
-                  label={t('individualCustomer.customerBoats.hullMaterial')}
-                  value={boat.hullMaterial}
-                />
-                <LabelValuePair
-                  label={t('individualCustomer.customerBoats.purpose')}
-                  value={boat.intendedUse}
-                />
+                <LabelValuePair label={t('individualCustomer.customerBoats.propulsion')} value={boat.propulsion} />
+                <LabelValuePair label={t('individualCustomer.customerBoats.hullMaterial')} value={boat.hullMaterial} />
+                <LabelValuePair label={t('individualCustomer.customerBoats.purpose')} value={boat.intendedUse} />
               </Section>
               <BoatCertificates certificates={boat.certificates} />
             </>

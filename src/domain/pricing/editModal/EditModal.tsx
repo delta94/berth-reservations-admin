@@ -2,26 +2,15 @@ import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Modal from '../../../common/modal/Modal';
-import {
-  AdditionalService,
-  BerthPrice,
-  HarborService,
-  WinterStoragePrice,
-} from '../PricingPage';
+import { AdditionalService, BerthPrice, HarborService, WinterStoragePrice } from '../PricingPage';
 import EditForm, { EDIT_FORM_TYPE } from './EditForm';
 
 export interface EditPricingModalProps {
   closeModal: () => void;
   formType: EDIT_FORM_TYPE;
-  initialValues:
-    | BerthPrice
-    | WinterStoragePrice
-    | HarborService
-    | AdditionalService;
+  initialValues: BerthPrice | WinterStoragePrice | HarborService | AdditionalService;
   isOpen: boolean;
-  onSubmit: (
-    values: BerthPrice | WinterStoragePrice | HarborService | AdditionalService
-  ) => void;
+  onSubmit: (values: BerthPrice | WinterStoragePrice | HarborService | AdditionalService) => void;
 }
 
 const EditModal: FunctionComponent<EditPricingModalProps> = ({
@@ -40,12 +29,7 @@ const EditModal: FunctionComponent<EditPricingModalProps> = ({
       toggleModal={closeModal}
       shouldCloseOnOverlayClick={false}
     >
-      <EditForm
-        closeModal={closeModal}
-        formType={formType}
-        initialValues={initialValues}
-        onSubmit={onSubmit}
-      />
+      <EditForm closeModal={closeModal} formType={formType} initialValues={initialValues} onSubmit={onSubmit} />
     </Modal>
   );
 };

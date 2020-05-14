@@ -8,7 +8,7 @@ import dummyCustomers from './__mocks__/data.json';
 
 export default {
   component: CustomerListComponent,
-  decorators: [storyFn => <HashRouter>{storyFn()}</HashRouter>],
+  decorators: [(storyFn) => <HashRouter>{storyFn()}</HashRouter>],
   title: 'CustomerList',
 };
 

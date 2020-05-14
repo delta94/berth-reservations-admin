@@ -39,11 +39,7 @@ const PricingPageContainer: FunctionComponent = () => {
   return (
     <>
       {editModalValues.isOpen && (
-        <EditModal
-          {...editModalValues}
-          closeModal={closeModal}
-          onSubmit={() => alert('Submit')}
-        />
+        <EditModal {...editModalValues} closeModal={closeModal} onSubmit={() => alert('Submit')} />
       )}
       <PricingPage
         berthsData={placeholderData.berthPrices}

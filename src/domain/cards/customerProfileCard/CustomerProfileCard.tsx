@@ -4,9 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Card from '../../../common/card/Card';
 import CardHeader from '../../../common/cardHeader/CardHeader';
 import CardBody from '../../../common/cardBody/CardBody';
-import PrivateCustomerDetails, {
-  PrivateCustomerDetailsProps,
-} from './privateCustomerDetails/PrivateCustomerDetails';
+import PrivateCustomerDetails, { PrivateCustomerDetailsProps } from './privateCustomerDetails/PrivateCustomerDetails';
 import OrganizationCustomerDetails, {
   OrganizationCustomerDetailsProps,
 } from './organizationCustomerDetails/OrganizationCustomerDetails';
@@ -23,7 +21,7 @@ const renderDetails = (props: CustomerProfileCardProps) => {
   }
 };
 
-const CustomerProfileCard: FunctionComponent<CustomerProfileCardProps> = props => {
+const CustomerProfileCard: FunctionComponent<CustomerProfileCardProps> = (props) => {
   const { className } = props;
   const { t } = useTranslation();
 

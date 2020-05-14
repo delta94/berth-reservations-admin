@@ -43,18 +43,9 @@ const ApplicationsPageContainer: React.SFC = () => {
   const { t, i18n } = useTranslation();
   const [onlySwitchApps, setOnlySwitchApps] = useState<boolean>();
 
-  const {
-    cursor,
-    pageSize,
-    pageIndex,
-    getPageCount,
-    goToPage,
-  } = usePagination();
+  const { cursor, pageSize, pageIndex, getPageCount, goToPage } = usePagination();
 
-  const { loading, error, data } = useQuery<
-    BERTH_APPLICATIONS,
-    BERTH_APPLICATIONS_VARS
-  >(BERTH_APPLICATIONS_QUERY, {
+  const { loading, error, data } = useQuery<BERTH_APPLICATIONS, BERTH_APPLICATIONS_VARS>(BERTH_APPLICATIONS_QUERY, {
     variables: {
       first: pageSize,
       after: cursor,
@@ -62,17 +53,11 @@ const ApplicationsPageContainer: React.SFC = () => {
     },
   });
 
-  const [
-    deleteDraftedApplication,
-    { loading: isDeleting },
-  ] = useDeleteBerthApplication();
+  const [deleteDraftedApplication, { loading: isDeleting }] = useDeleteBerthApplication();
 
   if (error)
     return (
-      <Notification
-        labelText={t('common.notification.error.label')}
-        type="error"
-      >
+      <Notification labelText={t('common.notification.error.label')} type="error">
         {t('common.notification.error.description')}
       </Notification>
     );
@@ -123,13 +108,7 @@ const ApplicationsPageContainer: React.SFC = () => {
       Cell: ({ cell }) =>
         cell.value && (
           <InternalLink to={`/harbors/${cell.value.harborId}`}>
-            {[
-              cell.value.harborName,
-              cell.value.pierIdentifier,
-              cell.value.berthNum,
-            ]
-              .filter(Boolean)
-              .join(' ')}
+            {[cell.value.harborName, cell.value.pierIdentifier, cell.value.berthNum].filter(Boolean).join(' ')}
           </InternalLink>
         ),
       Header: t('applications.tableHeaders.lease') || '',
@@ -156,12 +135,7 @@ const ApplicationsPageContainer: React.SFC = () => {
         data={tableData}
         loading={loading || isDeleting}
         columns={columns}
-        renderSubComponent={row => (
-          <ApplicationDetails
-            {...row.original}
-            handleDeleteLease={handleDeleteLease}
-          />
-        )}
+        renderSubComponent={(row) => <ApplicationDetails {...row.original} handleDeleteLease={handleDeleteLease} />}
         renderMainHeader={() => {
           const filters = [
             {
@@ -177,10 +151,8 @@ const ApplicationsPageContainer: React.SFC = () => {
           return (
             <TableFilters
               filters={filters}
-              activeFilters={filters
-                .map(filter => filter.value)
-                .filter(value => value === onlySwitchApps)}
-              handleSetFilter={filter => {
+              activeFilters={filters.map((filter) => filter.value).filter((value) => value === onlySwitchApps)}
+              handleSetFilter={(filter) => {
                 goToPage(0);
                 setOnlySwitchApps(filter);
               }}

@@ -6,21 +6,15 @@ import { Notification } from 'hds-react';
 import styles from './individualApplicationPage.module.scss';
 import Card from '../../common/card/Card';
 import CardBody from '../../common/cardBody/CardBody';
-import ApplicationDetails, {
-  ApplicationDetailsProps,
-} from '../cards/applicationDetails/ApplicationDetails';
+import ApplicationDetails, { ApplicationDetailsProps } from '../cards/applicationDetails/ApplicationDetails';
 import CardHeader from '../../common/cardHeader/CardHeader';
 import Table, { Column } from '../../common/table/Table';
-import CustomersTableTools, {
-  CustomersTableToolsProps,
-} from './customersTableTools/CustomersTableTools';
+import CustomersTableTools, { CustomersTableToolsProps } from './customersTableTools/CustomersTableTools';
 import Text from '../../common/text/Text';
 import { formatDate } from '../../common/utils/format';
 import Chip from '../../common/chip/Chip';
 import { APPLICATION_STATUS } from '../../common/utils/consonants';
-import CustomerProfileCard, {
-  CustomerProfileCardProps,
-} from '../cards/customerProfileCard/CustomerProfileCard';
+import CustomerProfileCard, { CustomerProfileCardProps } from '../cards/customerProfileCard/CustomerProfileCard';
 import OfferCard, { OfferCardProps } from './offerCard/OfferCard';
 import { OrganizationType } from '../../@types/__generated__/globalTypes';
 
@@ -69,9 +63,7 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
     {
       Cell: ({ cell }) => {
         const { value } = cell;
-        return value
-          ? t([`common.organizationTypes.${value as OrganizationType}`])
-          : t([`common.privateCustomer`]);
+        return value ? t([`common.organizationTypes.${value as OrganizationType}`]) : t([`common.privateCustomer`]);
       },
       Header: t('customers.tableHeaders.group') || '',
       accessor: 'organizationType',
@@ -86,10 +78,7 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
     },
     {
       Cell: ({ cell }) => (
-        <div
-          title={cell.value !== null ? cell.value : undefined}
-          className={styles.berthsCell}
-        >
+        <div title={cell.value !== null ? cell.value : undefined} className={styles.berthsCell}>
           {cell.value}
         </div>
       ),
@@ -116,38 +105,20 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
 
       {similarCustomersData && (
         <>
-          <Notification
-            labelText={t(
-              'individualApplication.noCustomerProfileNotification.label'
-            )}
-            type="warning"
-          >
-            {t(
-              'individualApplication.noCustomerProfileNotification.description'
-            )}
+          <Notification labelText={t('individualApplication.noCustomerProfileNotification.label')} type="warning">
+            {t('individualApplication.noCustomerProfileNotification.description')}
           </Notification>
           <Table
             className={styles.fullWidth}
             data={similarCustomersData}
             columns={columns}
-            renderMainHeader={() =>
-              t('individualApplication.customersTable.mainHeader')
-            }
+            renderMainHeader={() => t('individualApplication.customersTable.mainHeader')}
             renderTableToolsTop={({ selectedRows }) => {
-              const onLinkCustomer = selectedRows.length
-                ? () => handleLinkCustomer(selectedRows[0].id)
-                : undefined;
+              const onLinkCustomer = selectedRows.length ? () => handleLinkCustomer(selectedRows[0].id) : undefined;
 
-              return (
-                <CustomersTableTools
-                  {...customerTableTools}
-                  handleLinkCustomer={onLinkCustomer}
-                />
-              );
+              return <CustomersTableTools {...customerTableTools} handleLinkCustomer={onLinkCustomer} />;
             }}
-            renderEmptyStateRow={() => (
-              <div>{t('individualApplication.customersTable.emptyState')}</div>
-            )}
+            renderEmptyStateRow={() => <div>{t('individualApplication.customersTable.emptyState')}</div>}
             canSelectOneRow
           />
         </>
@@ -163,9 +134,7 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
       )}
       {applicationDetails && (
         <Card className={styles.fullWidth}>
-          <CardHeader
-            title={t('individualApplication.applicationDetails.title')}
-          />
+          <CardHeader title={t('individualApplication.applicationDetails.title')} />
           <CardBody>
             <ApplicationDetails {...applicationDetails} queue={null} />
           </CardBody>

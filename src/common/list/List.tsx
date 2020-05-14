@@ -9,12 +9,7 @@ export interface ListProps {
   ordered?: boolean;
 }
 
-const List: React.SFC<ListProps> = ({
-  size = 'standard',
-  ordered,
-  noBullets,
-  children,
-}) => {
+const List: React.SFC<ListProps> = ({ size = 'standard', ordered, noBullets, children }) => {
   const Element = ordered ? 'ol' : 'ul';
 
   return (

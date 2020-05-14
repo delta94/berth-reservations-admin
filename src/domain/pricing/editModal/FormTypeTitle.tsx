@@ -7,10 +7,7 @@ export interface FormTypeFieldProps {
   value: string;
 }
 
-const FormTypeTitle: FunctionComponent<FormTypeFieldProps> = ({
-  label,
-  value,
-}) => (
+const FormTypeTitle: FunctionComponent<FormTypeFieldProps> = ({ label, value }) => (
   <div>
     <div className={styles.formTypeTitleLabel}>{label}</div>
     <div className={styles.formTypeTitleValue}>{value}</div>

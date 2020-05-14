@@ -47,14 +47,11 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
   const { t, i18n } = useTranslation();
 
   const expiredLeasesElements = leases
-    .filter(lease => !lease.isActive)
+    .filter((lease) => !lease.isActive)
     .map(({ startDate, endDate, customer }, i) => {
       return (
         <div key={i}>
-          <Text>{`${formatDate(startDate, i18n.language)} - ${formatDate(
-            endDate,
-            i18n.language
-          )}`}</Text>
+          <Text>{`${formatDate(startDate, i18n.language)} - ${formatDate(endDate, i18n.language)}`}</Text>
           <InternalLink to={`/customers/${customer.id}`}>
             {customer.firstName !== '' && customer.lastName !== ''
               ? `${customer.firstName} ${customer.lastName}`
@@ -64,19 +61,13 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
       );
     });
 
-  const isDefined = (
-    property: boolean | null | undefined
-  ): property is boolean => property !== null && property !== undefined;
+  const isDefined = (property: boolean | null | undefined): property is boolean =>
+    property !== null && property !== undefined;
   const getColor = (property: boolean) => (property ? 'standard' : 'secondary');
 
-  const displayProperties = [
-    gate,
-    electricity,
-    water,
-    lighting,
-    wasteCollection,
-    isAccessible,
-  ].find(property => isDefined(property));
+  const displayProperties = [gate, electricity, water, lighting, wasteCollection, isAccessible].find((property) =>
+    isDefined(property)
+  );
 
   return (
     <div className={styles.berthDetails}>
@@ -93,10 +84,7 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
           {isDefined(electricity) && (
             <div className={styles.property}>
               <Icon shape="IconPlug" color={getColor(electricity)} outlined />
-              <Text
-                className={styles.propertyLabel}
-                color={getColor(electricity)}
-              >
+              <Text className={styles.propertyLabel} color={getColor(electricity)}>
                 {t('offer.berthDetails.electricity')}
               </Text>
             </div>
@@ -111,11 +99,7 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
           )}
           {isDefined(lighting) && (
             <div className={styles.property}>
-              <Icon
-                shape="IconStreetLight"
-                color={getColor(lighting)}
-                outlined
-              />
+              <Icon shape="IconStreetLight" color={getColor(lighting)} outlined />
               <Text className={styles.propertyLabel} color={getColor(lighting)}>
                 {t('offer.berthDetails.lighting')}
               </Text>
@@ -123,30 +107,16 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
           )}
           {isDefined(wasteCollection) && (
             <div className={styles.property}>
-              <Icon
-                shape="IconTrash"
-                color={getColor(wasteCollection)}
-                outlined
-              />
-              <Text
-                className={styles.propertyLabel}
-                color={getColor(wasteCollection)}
-              >
+              <Icon shape="IconTrash" color={getColor(wasteCollection)} outlined />
+              <Text className={styles.propertyLabel} color={getColor(wasteCollection)}>
                 {t('offer.berthDetails.waste')}
               </Text>
             </div>
           )}
           {isDefined(isAccessible) && (
             <div className={styles.property}>
-              <Icon
-                shape="IconAccessibility"
-                color={getColor(isAccessible)}
-                outlined
-              />
-              <Text
-                className={styles.propertyLabel}
-                color={getColor(isAccessible)}
-              >
+              <Icon shape="IconAccessibility" color={getColor(isAccessible)} outlined />
+              <Text className={styles.propertyLabel} color={getColor(isAccessible)}>
                 {t('offer.berthDetails.accessible')}
               </Text>
             </div>
@@ -157,10 +127,7 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
         <Section title={t('offer.berthDetails.previousLeases').toUpperCase()}>
           {expiredLeasesElements.length ? expiredLeasesElements : '-'}
         </Section>
-        <Section
-          title={t('offer.berthDetails.comment').toUpperCase()}
-          className={styles.comment}
-        >
+        <Section title={t('offer.berthDetails.comment').toUpperCase()} className={styles.comment}>
           <Text>{comment || '-'}</Text>
         </Section>
         {onEdit && (

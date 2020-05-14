@@ -10,11 +10,7 @@ export interface ChipProps {
 }
 
 const Chip: React.SFC<ChipProps> = ({ color, label, className }) => {
-  return (
-    <span className={classNames(styles.chip, styles[color], className)}>
-      {label}
-    </span>
-  );
+  return <span className={classNames(styles.chip, styles[color], className)}>{label}</span>;
 };
 
 export default Chip;

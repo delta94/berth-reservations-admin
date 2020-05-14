@@ -54,7 +54,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
-    "pre-push": "yarn types:generate && yarn lint"
+    "pre-push": "yarn types:generate && yarn lint",
+    "prettier": "prettier --write \"./src/**/*.{js,ts,jsx,tsx}\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -96,7 +97,7 @@
     "history": "^4.10.1",
     "husky": "4.2.5",
     "jest-localstorage-mock": "^2.4.0",
-    "prettier": "^1.18.2",
+    "prettier": "2.0.5",
     "wait-for-expect": "^3.0.2"
   }
 }

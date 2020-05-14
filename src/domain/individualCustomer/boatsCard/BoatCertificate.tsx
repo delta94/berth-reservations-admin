@@ -15,13 +15,7 @@ export interface BoatCertificateProps {
 
 const BoatCertificate: React.FC<BoatCertificateProps> = ({ certificate }) => {
   const { t, i18n } = useTranslation();
-  const {
-    file,
-    certificateType,
-    validUntil,
-    checkedAt,
-    checkedBy,
-  } = certificate;
+  const { file, certificateType, validUntil, checkedAt, checkedBy } = certificate;
   const headerTextKey = `individualCustomer.customerBoats.${certificateType.toLocaleLowerCase()}`;
   const filename = getFilename(file);
 
@@ -36,9 +30,7 @@ const BoatCertificate: React.FC<BoatCertificateProps> = ({ certificate }) => {
                 {filename}
               </ExternalLink>
             ) : (
-              <Text color={'critical'}>
-                {t('individualCustomer.customerBoats.fileMissing')}
-              </Text>
+              <Text color={'critical'}>{t('individualCustomer.customerBoats.fileMissing')}</Text>
             )}
           </div>
           {validUntil && (
@@ -50,9 +42,7 @@ const BoatCertificate: React.FC<BoatCertificateProps> = ({ certificate }) => {
               </Text>
             </div>
           )}
-          {checkedAt && (
-            <div>Tarkastettu {formatDate(checkedAt, i18n.language)}</div>
-          )}
+          {checkedAt && <div>Tarkastettu {formatDate(checkedAt, i18n.language)}</div>}
           {checkedBy && <div>{checkedBy}</div>}
         </div>
       </div>

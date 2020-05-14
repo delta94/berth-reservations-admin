@@ -27,9 +27,7 @@ import Radio from '../radio/Radio';
 import styles from './table.module.scss';
 import Icon from '../icons/Icon';
 
-export type Column<D extends object> = ColumnType<D> &
-  UseFiltersColumnOptions<D> &
-  UseSortByColumnOptions<D>;
+export type Column<D extends object> = ColumnType<D> & UseFiltersColumnOptions<D> & UseSortByColumnOptions<D>;
 
 interface TState<D extends object> extends TableState<D> {
   selectedRows: Array<Row<D>['original']>;
@@ -40,10 +38,7 @@ interface Setters<D extends object> {
   setFilter: UseFiltersInstanceProps<D>['setFilter'];
 }
 
-type TableToolsFn<D extends object> = (
-  tableState: TState<D>,
-  setters: Setters<D>
-) => React.ReactNode;
+type TableToolsFn<D extends object> = (tableState: TState<D>, setters: Setters<D>) => React.ReactNode;
 
 type Props<D extends object> = {
   className?: string;
@@ -98,12 +93,8 @@ const Table = <D extends object>({
 
   const selectorCol: Column<D> = React.useMemo(
     () => ({
-      Cell: ({ row }: { row: any }) => (
-        <Checkbox size="large" {...row.getToggleRowSelectedProps()} />
-      ),
-      Header: ({ getToggleAllRowsSelectedProps }) => (
-        <Checkbox size="large" {...getToggleAllRowsSelectedProps()} />
-      ),
+      Cell: ({ row }: { row: any }) => <Checkbox size="large" {...row.getToggleRowSelectedProps()} />,
+      Header: ({ getToggleAllRowsSelectedProps }) => <Checkbox size="large" {...getToggleAllRowsSelectedProps()} />,
       id: SELECTOR,
     }),
     []
@@ -148,9 +139,7 @@ const Table = <D extends object>({
         </div>
       ),
       Header: ({ toggleAllRowsExpanded }) => (
-        <button onClick={() => toggleAllRowsExpanded(false)}>
-          {t('common.table.minimizeAll')}
-        </button>
+        <button onClick={() => toggleAllRowsExpanded(false)}>{t('common.table.minimizeAll')}</button>
       ),
       id: EXPANDER,
       minWidth: 0,
@@ -216,17 +205,15 @@ const Table = <D extends object>({
     <div
       {...headerGroup.getHeaderGroupProps()}
       className={classNames(styles.header, {
-        [styles.mainHeaderReset]:
-          renderMainHeader && !styleMainHeader && index === 0,
+        [styles.mainHeaderReset]: renderMainHeader && !styleMainHeader && index === 0,
         [styles.mainHeader]: renderMainHeader && styleMainHeader && index === 0,
       })}
     >
-      {headerGroup.headers.map(column => (
+      {headerGroup.headers.map((column) => (
         <div
           {...column.getHeaderProps(column.getSortByToggleProps())}
           className={classNames({
-            [styles.headerCell]:
-              !renderMainHeader || styleMainHeader || index !== 0,
+            [styles.headerCell]: !renderMainHeader || styleMainHeader || index !== 0,
             [styles.selector]: column.id === SELECTOR,
             [styles.radioSelector]: column.id === RADIO_SELECTOR,
             [styles.expander]: column.id === EXPANDER,
@@ -263,7 +250,7 @@ const Table = <D extends object>({
         })}
       >
         <div {...row.getRowProps()}>
-          {row.cells.map(cell => (
+          {row.cells.map((cell) => (
             <div
               {...cell.getCellProps()}
               className={classNames(styles.tableCell, {
@@ -272,17 +259,11 @@ const Table = <D extends object>({
                 [styles.expander]: cell.column.id === EXPANDER,
               })}
             >
-              {loading ? (
-                <div className={styles.placeholder} />
-              ) : (
-                cell.render('Cell')
-              )}
+              {loading ? <div className={styles.placeholder} /> : cell.render('Cell')}
             </div>
           ))}
         </div>
-        {renderSubComponent && row.isExpanded && (
-          <div className={styles.subComponent}>{renderSubComponent(row)}</div>
-        )}
+        {renderSubComponent && row.isExpanded && <div className={styles.subComponent}>{renderSubComponent(row)}</div>}
       </div>
     );
   };
@@ -304,7 +285,7 @@ const Table = <D extends object>({
     return fn?.(
       {
         ...state,
-        selectedRows: selectedFlatRows.map(row => row.original),
+        selectedRows: selectedFlatRows.map((row) => row.original),
       },
       { setGlobalFilter, setFilter }
     );
@@ -320,9 +301,7 @@ const Table = <D extends object>({
             [styles.noMainHeader]: !renderMainHeader,
           })}
         >
-          <div className={styles.stickyHeaders}>
-            {headerGroups.map(renderTableHead)}
-          </div>
+          <div className={styles.stickyHeaders}>{headerGroups.map(renderTableHead)}</div>
           <div {...getTableBodyProps()}>
             {rows.map(renderTableBody)}
             {rows.length === 0 && renderEmptyBody()}

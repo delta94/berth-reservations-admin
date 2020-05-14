@@ -9,13 +9,7 @@ export interface GridProps {
 }
 
 const Grid: React.SFC<GridProps> = ({ colsCount = 3, children, className }) => {
-  return (
-    <div
-      className={classNames(styles.grid, styles[`cols${colsCount}`], className)}
-    >
-      {children}
-    </div>
-  );
+  return <div className={classNames(styles.grid, styles[`cols${colsCount}`], className)}>{children}</div>;
 };
 
 export default Grid;

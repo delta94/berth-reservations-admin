@@ -10,13 +10,7 @@ import LabelValuePair from '../labelValuePair/LabelValuePair';
 export default {
   component: Card,
   title: 'Card',
-  decorators: [
-    storyFn => (
-      <div style={{ backgroundColor: 'lightgrey', height: '100vh' }}>
-        {storyFn()}
-      </div>
-    ),
-  ],
+  decorators: [(storyFn) => <div style={{ backgroundColor: 'lightgrey', height: '100vh' }}>{storyFn()}</div>],
 };
 
 export const card = () => (
@@ -70,14 +64,8 @@ export const Harbor2 = () => (
     <CardBody>
       <Section>
         <LabelValuePair label="Max leveys" value="2.5m - 4m" />
-        <LabelValuePair
-          label="Kiinnitys"
-          value="Aisa-, Kävelyaisa- ja Peräpoijupaikkoja"
-        />
-        <LabelValuePair
-          label="Päällikkö"
-          value="Mikko Mallikas +358 00 000 000"
-        />
+        <LabelValuePair label="Kiinnitys" value="Aisa-, Kävelyaisa- ja Peräpoijupaikkoja" />
+        <LabelValuePair label="Päällikkö" value="Mikko Mallikas +358 00 000 000" />
         <LabelValuePair label="Huoltotiimi" value="Itäinen veneilytiimi" />
       </Section>
     </CardBody>

@@ -15,14 +15,8 @@ labelValuePair.story = {
   name: 'Default',
 };
 
-export const branded = () => (
-  <LabelValuePair {...dummyProps} labelColor="brand" />
-);
+export const branded = () => <LabelValuePair {...dummyProps} labelColor="brand" />;
 
-export const rightAligned = () => (
-  <LabelValuePair label="foo" align="right" value={'bar'} labelColor="brand" />
-);
+export const rightAligned = () => <LabelValuePair label="foo" align="right" value={'bar'} labelColor="brand" />;
 
-export const labelless = () => (
-  <LabelValuePair value="bar" valueColor="critical" />
-);
+export const labelless = () => <LabelValuePair value="bar" valueColor="critical" />;

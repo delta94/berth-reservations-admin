@@ -32,8 +32,7 @@ const TableTools: React.SFC<TableToolsProps> = ({
     <div className={styles.tableTools}>
       <div>
         <Text size="l">
-          {t('offer.tableTools.berths').toUpperCase()}: {applicationType}{' '}
-          {applicationDate}
+          {t('offer.tableTools.berths').toUpperCase()}: {applicationType} {applicationDate}
         </Text>
         <Chip
           className={styles.chip}
@@ -42,18 +41,10 @@ const TableTools: React.SFC<TableToolsProps> = ({
         />
       </div>
       <div>
-        <Button
-          className={classNames(styles.button)}
-          onClick={handleReturn}
-          color="supplementary"
-        >
+        <Button className={classNames(styles.button)} onClick={handleReturn} color="supplementary">
           {t('offer.tableTools.return')}
         </Button>
-        <Button
-          className={classNames(styles.button)}
-          disabled={disableSubmit}
-          onClick={handleSubmit}
-        >
+        <Button className={classNames(styles.button)} disabled={disableSubmit} onClick={handleSubmit}>
           {t('offer.tableTools.submit')}
         </Button>
       </div>

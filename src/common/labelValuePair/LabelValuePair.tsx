@@ -11,26 +11,10 @@ export interface LabelValuePairProps {
   align?: 'left' | 'center' | 'right';
 }
 
-const LabelValuePair = ({
-  label,
-  value,
-  valueColor,
-  labelColor = 'standard',
-  align = 'left',
-}: LabelValuePairProps) => (
+const LabelValuePair = ({ label, value, valueColor, labelColor = 'standard', align = 'left' }: LabelValuePairProps) => (
   <div className={styles.labelValuePair}>
-    <span className={classNames(styles.label, styles[labelColor])}>
-      {label && `${label}:`}
-    </span>
-    <span
-      className={classNames(
-        styles.value,
-        styles[align],
-        valueColor && styles[valueColor]
-      )}
-    >
-      {value || '-'}
-    </span>
+    <span className={classNames(styles.label, styles[labelColor])}>{label && `${label}:`}</span>
+    <span className={classNames(styles.value, styles[align], valueColor && styles[valueColor])}>{value || '-'}</span>
   </div>
 );
 

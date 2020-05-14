@@ -40,64 +40,58 @@ export const getOfferData = (data: OFFER_PAGE | undefined): BerthData[] => {
 
   const harborId = data.harborByServicemapId.id;
   const harbor = data.harborByServicemapId.properties.name || '';
-  const allBerths = data.harborByServicemapId.properties.piers.edges.reduce<
-    BerthData[]
-  >((acc, pier) => {
+  const allBerths = data.harborByServicemapId.properties.piers.edges.reduce<BerthData[]>((acc, pier) => {
     if (!pier?.node?.properties) return acc;
 
     const { properties } = pier.node;
-    const berths = pier.node.properties.berths.edges.reduce<BerthData[]>(
-      (acc, berth) => {
-        if (!berth?.node) return acc;
+    const berths = pier.node.properties.berths.edges.reduce<BerthData[]>((acc, berth) => {
+      if (!berth?.node) return acc;
 
-        const leases =
-          berth.node.leases?.edges.reduce<Lease[]>((acc, edge) => {
-            if (!edge?.node || edge?.node?.status !== LeaseStatus.PAID)
-              return acc;
+      const leases =
+        berth.node.leases?.edges.reduce<Lease[]>((acc, edge) => {
+          if (!edge?.node || edge?.node?.status !== LeaseStatus.PAID) return acc;
 
-            return [
-              ...acc,
-              {
-                startDate: edge.node.startDate,
-                endDate: edge.node.endDate,
-                status: edge.node.status,
-                isActive: edge.node.isActive,
-                customer: {
-                  id: edge.node.customer.id,
-                  firstName: edge.node.customer.firstName,
-                  lastName: edge.node.customer.lastName,
-                },
+          return [
+            ...acc,
+            {
+              startDate: edge.node.startDate,
+              endDate: edge.node.endDate,
+              status: edge.node.status,
+              isActive: edge.node.isActive,
+              customer: {
+                id: edge.node.customer.id,
+                firstName: edge.node.customer.firstName,
+                lastName: edge.node.customer.lastName,
               },
-            ];
-          }, []) ?? [];
-
-        return [
-          ...acc,
-          {
-            harborId,
-            harbor,
-            pier: properties.identifier,
-            berth: berth.node.number.toString(10),
-            berthId: berth.node.id,
-            width: berth.node.width,
-            length: berth.node.length,
-            draught: null, // TODO: replace it when draught is implemented in the backend
-            mooringType: berth.node.mooringType,
-            leases,
-            comment: berth.node.comment,
-            properties: {
-              lighting: properties.lighting,
-              water: properties.water,
-              gate: properties.gate,
-              electricity: properties.electricity,
-              wasteCollection: properties.wasteCollection,
-              isAccessible: berth.node.isAccessible,
             },
+          ];
+        }, []) ?? [];
+
+      return [
+        ...acc,
+        {
+          harborId,
+          harbor,
+          pier: properties.identifier,
+          berth: berth.node.number.toString(10),
+          berthId: berth.node.id,
+          width: berth.node.width,
+          length: berth.node.length,
+          draught: null, // TODO: replace it when draught is implemented in the backend
+          mooringType: berth.node.mooringType,
+          leases,
+          comment: berth.node.comment,
+          properties: {
+            lighting: properties.lighting,
+            water: properties.water,
+            gate: properties.gate,
+            electricity: properties.electricity,
+            wasteCollection: properties.wasteCollection,
+            isAccessible: berth.node.isAccessible,
           },
-        ];
-      },
-      []
-    );
+        },
+      ];
+    }, []);
 
     return [...acc, ...berths];
   }, []);
@@ -111,9 +105,7 @@ interface PierTab {
   disabled: boolean;
 }
 
-export const getAllPiersIdentifiers = (
-  data: OFFER_PAGE | undefined
-): PierTab[] => {
+export const getAllPiersIdentifiers = (data: OFFER_PAGE | undefined): PierTab[] => {
   const piers = data?.harborByServicemapId?.properties?.piers?.edges ?? [];
 
   return piers.reduce<PierTab[]>((acc, pier) => {

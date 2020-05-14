@@ -90,10 +90,7 @@ describe('utils', () => {
     });
 
     it('should remove the berthLease node that has any status other than PAID', () => {
-      const edges = [
-        ...mockLeases,
-        { node: { ...mockLeases[0].node, status: 'REFUSED' } },
-      ];
+      const edges = [...mockLeases, { node: { ...mockLeases[0].node, status: 'REFUSED' } }];
       const profile = { berthLeases: { edges } };
       const leases = getLeases(profile);
 

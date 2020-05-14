@@ -18,9 +18,7 @@ const periodOptions = ['season', 'month', 'year'];
 
 export const getAdditionalServicesValidationSchema = (t: TFunction) =>
   Yup.object().shape({
-    service: Yup.string()
-      .oneOf(serviceOptions)
-      .required(t('forms.common.errors.required')),
+    service: Yup.string().oneOf(serviceOptions).required(t('forms.common.errors.required')),
     price: Yup.number()
       .positive()
       .typeError(t('forms.common.errors.numberType'))
@@ -29,9 +27,7 @@ export const getAdditionalServicesValidationSchema = (t: TFunction) =>
       .oneOf(taxOptions)
       .typeError(t('forms.common.errors.numberType'))
       .required(t('forms.common.errors.required')),
-    period: Yup.string()
-      .oneOf(periodOptions)
-      .required(t('forms.common.errors.required')),
+    period: Yup.string().oneOf(periodOptions).required(t('forms.common.errors.required')),
   });
 
 const AdditionalServicesFields: FunctionComponent = () => {
@@ -41,10 +37,7 @@ const AdditionalServicesFields: FunctionComponent = () => {
   return (
     <>
       <div className={styles.row}>
-        <FormTypeTitle
-          label={t('common.terminology.dataEntry')}
-          value={t('pricing.additionalServices.title')}
-        />
+        <FormTypeTitle label={t('common.terminology.dataEntry')} value={t('pricing.additionalServices.title')} />
       </div>
       <hr />
       <Grid colsCount={1} className={styles.row}>
@@ -53,7 +46,7 @@ const AdditionalServicesFields: FunctionComponent = () => {
           as={Select}
           name="service"
           labelText={t('pricing.additionalServices.service')}
-          options={serviceOptions.map(option => ({
+          options={serviceOptions.map((option) => ({
             value: option,
             label: t([`common.terminology.${option}`]),
           }))}
@@ -74,7 +67,7 @@ const AdditionalServicesFields: FunctionComponent = () => {
           as={Select}
           name="tax"
           labelText={t('pricing.additionalServices.tax')}
-          options={taxOptions.map(option => ({
+          options={taxOptions.map((option) => ({
             value: option,
             label: formatPercentage(option * 0.01, i18n.language),
           }))}
@@ -86,7 +79,7 @@ const AdditionalServicesFields: FunctionComponent = () => {
           as={Select}
           name="period"
           labelText={t('pricing.additionalServices.period')}
-          options={periodOptions.map(option => ({
+          options={periodOptions.map((option) => ({
             value: option,
             label: t([`common.periodTypes.${option}`]),
           }))}

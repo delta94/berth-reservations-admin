@@ -8,9 +8,7 @@ export interface GlobalSearchTableToolsProps {
   handleGlobalFilter(value?: string): void;
 }
 
-const GlobalSearchTableTools: React.SFC<GlobalSearchTableToolsProps> = ({
-  handleGlobalFilter,
-}) => {
+const GlobalSearchTableTools: React.SFC<GlobalSearchTableToolsProps> = ({ handleGlobalFilter }) => {
   const { t } = useTranslation();
 
   return (
@@ -19,11 +17,7 @@ const GlobalSearchTableTools: React.SFC<GlobalSearchTableToolsProps> = ({
         className={styles.filterField}
         placeholder={t('common.search')}
         id="textSearchGlobalFilter"
-        onChange={e =>
-          handleGlobalFilter(
-            (e.target as HTMLTextAreaElement).value || undefined
-          )
-        }
+        onChange={(e) => handleGlobalFilter((e.target as HTMLTextAreaElement).value || undefined)}
       />
     </div>
   );

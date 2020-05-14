@@ -16,20 +16,12 @@ import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import ApplicationsCard from './applicationsCard/ApplicationsCard';
 import BoatsCard from './boatsCard/BoatsCard';
 import LeasesCard from './leasesCard/LeasesCard';
-import {
-  getLeases,
-  getBoats,
-  getApplications,
-  getCustomerProfile,
-} from './utils';
+import { getLeases, getBoats, getApplications, getCustomerProfile } from './utils';
 
 const IndividualHarborPageContainer: FunctionComponent = () => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
-  const { loading, error, data } = useQuery<INDIVIDUAL_CUSTOMER>(
-    INDIVIDUAL_CUSTOMER_QUERY,
-    { variables: { id } }
-  );
+  const { loading, error, data } = useQuery<INDIVIDUAL_CUSTOMER>(INDIVIDUAL_CUSTOMER_QUERY, { variables: { id } });
 
   if (loading) return <LoadingSpinner isLoading={loading} />;
   if (!data?.profile)
@@ -40,10 +32,7 @@ const IndividualHarborPageContainer: FunctionComponent = () => {
     );
   if (error)
     return (
-      <Notification
-        labelText={t('common.notification.error.label')}
-        type="error"
-      >
+      <Notification labelText={t('common.notification.error.label')} type="error">
         {t('common.notification.error.description')}
       </Notification>
     );
@@ -79,10 +68,7 @@ const IndividualHarborPageContainer: FunctionComponent = () => {
         <CardHeader title="LASKUHISTORIA" />
         <CardBody>Placeholder</CardBody>
       </Card>
-      <LeasesCard
-        handleShowContract={id => alert(`Here's your contract for ${id}`)}
-        leases={leases}
-      />
+      <LeasesCard handleShowContract={(id) => alert(`Here's your contract for ${id}`)} leases={leases} />
       <Card>
         <CardHeader title="TALVISÄILYTYSPAIKAT" />
         <CardBody>Placeholder</CardBody>

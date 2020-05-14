@@ -9,14 +9,9 @@ interface BoatCertificatesProps {
   certificates: BoatCert[];
 }
 
-const BoatCertificates: React.FC<BoatCertificatesProps> = ({
-  certificates,
-}) => {
+const BoatCertificates: React.FC<BoatCertificatesProps> = ({ certificates }) => {
   const insurance = getCertificate(certificates, BoatCertificateType.INSURANCE);
-  const inspection = getCertificate(
-    certificates,
-    BoatCertificateType.INSPECTION
-  );
+  const inspection = getCertificate(certificates, BoatCertificateType.INSPECTION);
 
   return (
     <>

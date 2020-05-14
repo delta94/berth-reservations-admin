@@ -5,14 +5,9 @@ import { useParams } from 'react-router';
 import { Notification } from 'hds-react';
 import { useDebounce } from 'use-debounce';
 
-import IndividualApplicationPage, {
-  SearchBy,
-} from './IndividualApplicationPage';
+import IndividualApplicationPage, { SearchBy } from './IndividualApplicationPage';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
-import {
-  INDIVIDUAL_APPLICATION_QUERY,
-  FILTERED_CUSTOMERS_QUERY,
-} from './queries';
+import { INDIVIDUAL_APPLICATION_QUERY, FILTERED_CUSTOMERS_QUERY } from './queries';
 import {
   INDIVIDUAL_APPLICATION,
   INDIVIDUAL_APPLICATIONVariables as INDIVIDUAL_APPLICATION_VARS,
@@ -22,10 +17,7 @@ import {
   FILTERED_CUSTOMERS,
   FILTERED_CUSTOMERSVariables as FILTERED_CUSTOMERS_VARS,
 } from './__generated__/FILTERED_CUSTOMERS';
-import {
-  UPDATE_BERTH_APPLICATION_MUTATION,
-  CREATE_NEW_PROFILE_MUTATION,
-} from './mutations';
+import { UPDATE_BERTH_APPLICATION_MUTATION, CREATE_NEW_PROFILE_MUTATION } from './mutations';
 import {
   UPDATE_BERTH_APPLICATION,
   UPDATE_BERTH_APPLICATIONVariables as UPDATE_BERTH_APPLICATION_VARS,
@@ -34,12 +26,7 @@ import {
   CREATE_NEW_PROFILE,
   CREATE_NEW_PROFILEVariables as CREATE_NEW_PROFILE_VARS,
 } from './__generated__/CREATE_NEW_PROFILE';
-import {
-  getApplicationDetailsData,
-  getCustomerProfile,
-  getFilteredCustomersData,
-  getOfferDetailsData,
-} from './utils';
+import { getApplicationDetailsData, getCustomerProfile, getFilteredCustomersData, getOfferDetailsData } from './utils';
 
 const IndividualCustomerPageContainer: React.SFC = () => {
   const { t } = useTranslation();
@@ -47,30 +34,27 @@ const IndividualCustomerPageContainer: React.SFC = () => {
   const [searchBy, setSearchBy] = useState<SearchBy>(SearchBy.LAST_NAME);
   const [searchVal, setSearchVal] = useState<string>();
 
-  const { loading, error, data } = useQuery<
-    INDIVIDUAL_APPLICATION,
-    INDIVIDUAL_APPLICATION_VARS
-  >(INDIVIDUAL_APPLICATION_QUERY, {
-    variables: {
-      id,
-    },
-  });
+  const { loading, error, data } = useQuery<INDIVIDUAL_APPLICATION, INDIVIDUAL_APPLICATION_VARS>(
+    INDIVIDUAL_APPLICATION_QUERY,
+    {
+      variables: {
+        id,
+      },
+    }
+  );
 
   const [debouncedSearchVal] = useDebounce(searchVal, 500, {
     equalityFn: (prev, next) => prev === next,
   });
 
-  const [
-    fetchFilteredCustomers,
-    { data: customersData, refetch, called },
-  ] = useLazyQuery<FILTERED_CUSTOMERS, FILTERED_CUSTOMERS_VARS>(
-    FILTERED_CUSTOMERS_QUERY,
-    {
-      variables: {
-        [searchBy]: debouncedSearchVal ?? searchVal,
-      },
-    }
-  );
+  const [fetchFilteredCustomers, { data: customersData, refetch, called }] = useLazyQuery<
+    FILTERED_CUSTOMERS,
+    FILTERED_CUSTOMERS_VARS
+  >(FILTERED_CUSTOMERS_QUERY, {
+    variables: {
+      [searchBy]: debouncedSearchVal ?? searchVal,
+    },
+  });
 
   // TODO: handle errors
   const [deleteDraftedApplication] = useDeleteBerthApplication();
@@ -84,14 +68,7 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     if (!loading && !data?.berthApplication?.customer) {
       !called ? fetchFilteredCustomers() : refetch();
     }
-  }, [
-    debouncedSearchVal,
-    refetch,
-    fetchFilteredCustomers,
-    called,
-    data,
-    loading,
-  ]);
+  }, [debouncedSearchVal, refetch, fetchFilteredCustomers, called, data, loading]);
 
   // TODO: handle errors
   const [linkCustomer, { error: linkCustomerErr }] = useMutation<
@@ -109,19 +86,19 @@ const IndividualCustomerPageContainer: React.SFC = () => {
   });
 
   // TODO: handle errors
-  const [createNewCustomer, { error: newCustomerErr }] = useMutation<
-    CREATE_NEW_PROFILE,
-    CREATE_NEW_PROFILE_VARS
-  >(CREATE_NEW_PROFILE_MUTATION, {
-    refetchQueries: [
-      {
-        query: FILTERED_CUSTOMERS_QUERY,
-        variables: {
-          [searchBy]: debouncedSearchVal ?? searchVal,
+  const [createNewCustomer, { error: newCustomerErr }] = useMutation<CREATE_NEW_PROFILE, CREATE_NEW_PROFILE_VARS>(
+    CREATE_NEW_PROFILE_MUTATION,
+    {
+      refetchQueries: [
+        {
+          query: FILTERED_CUSTOMERS_QUERY,
+          variables: {
+            [searchBy]: debouncedSearchVal ?? searchVal,
+          },
         },
-      },
-    ],
-  });
+      ],
+    }
+  );
 
   if (loading) return <LoadingSpinner isLoading={loading} />;
   if (!data?.berthApplication)
@@ -132,10 +109,7 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     );
   if (error)
     return (
-      <Notification
-        labelText={t('common.notification.error.label')}
-        type="error"
-      >
+      <Notification labelText={t('common.notification.error.label')} type="error">
         {t('common.notification.error.description')}
       </Notification>
     );
@@ -151,18 +125,11 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     });
   };
 
-  const customerProfile = data.berthApplication.customer
-    ? getCustomerProfile(data.berthApplication.customer)
-    : null;
+  const customerProfile = data.berthApplication.customer ? getCustomerProfile(data.berthApplication.customer) : null;
 
-  const applicationDetailsData = getApplicationDetailsData(
-    data.berthApplication,
-    data.boatTypes || []
-  );
+  const applicationDetailsData = getApplicationDetailsData(data.berthApplication, data.boatTypes || []);
 
-  const filteredCustomersData = !data.berthApplication.customer
-    ? getFilteredCustomersData(customersData)
-    : null;
+  const filteredCustomersData = !data.berthApplication.customer ? getFilteredCustomersData(customersData) : null;
 
   const applicationDetails = { ...applicationDetailsData, handleDeleteLease };
 
@@ -181,13 +148,7 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     }).catch(() => console.error('Something went wrong'));
 
   const handleCreateCustomer = () => {
-    const {
-      firstName,
-      lastName,
-      primaryAddress,
-      primaryEmail,
-      primaryPhone,
-    } = applicationDetails.applicant;
+    const { firstName, lastName, primaryAddress, primaryEmail, primaryPhone } = applicationDetails.applicant;
     const phone = primaryPhone || '';
     const email = primaryEmail || '';
     const address = primaryAddress?.address || '';

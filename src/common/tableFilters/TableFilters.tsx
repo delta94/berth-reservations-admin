@@ -38,9 +38,7 @@ const TableFilters = <T extends string | number | boolean>({
     </button>
   ));
 
-  const hasNoActiveFilters =
-    filters.filter(filterVal => activeFilters?.includes(filterVal.value))
-      .length === 0;
+  const hasNoActiveFilters = filters.filter((filterVal) => activeFilters?.includes(filterVal.value)).length === 0;
 
   return (
     <>

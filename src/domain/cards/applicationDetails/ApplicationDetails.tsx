@@ -11,11 +11,7 @@ import InternalLink from '../../../common/internalLink/InternalLink';
 import Text from '../../../common/text/Text';
 import List from '../../../common/list/List';
 import ListItem from '../../../common/list/ListItem';
-import {
-  formatDimension,
-  formatWeight,
-  formatDate,
-} from '../../../common/utils/format';
+import { formatDimension, formatWeight, formatDate } from '../../../common/utils/format';
 import { APPLICATION_STATUS } from '../../../common/utils/consonants';
 import { ApplicationStatus } from '../../../@types/__generated__/globalTypes';
 import PrivateCustomerDetails, {
@@ -88,8 +84,7 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
   accessibilityRequired,
 }) => {
   const { t, i18n } = useTranslation();
-  const notNull = (choice: HarborChoice | null): choice is HarborChoice =>
-    !!choice;
+  const notNull = (choice: HarborChoice | null): choice is HarborChoice => !!choice;
   const routerQuery = new URLSearchParams(useLocation().search);
 
   return (
@@ -108,10 +103,7 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
             label={t('applications.applicationDetails.receivedDate')}
             value={formatDate(createdAt, i18n.language, true)}
           />
-          <LabelValuePair
-            label={t('applications.applicationDetails.queueNumber')}
-            value={`${queue || ''}`}
-          />
+          <LabelValuePair label={t('applications.applicationDetails.queueNumber')} value={`${queue || ''}`} />
           <LabelValuePair
             label={t('applications.applicationDetails.status')}
             value={t(APPLICATION_STATUS[status]?.label)}
@@ -124,28 +116,20 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
               value={`${berthSwitch.harborName} ${berthSwitch.pierIdentifier} ${berthSwitch.berthNum}`}
             />
             {berthSwitch.reason !== null && (
-              <LabelValuePair
-                label={t('applications.applicationDetails.reason')}
-                value={`${berthSwitch.reason}`}
-              />
+              <LabelValuePair label={t('applications.applicationDetails.reason')} value={`${berthSwitch.reason}`} />
             )}
           </Section>
         )}
         {applicant && (
           <PrivateCustomerDetails
             {...applicant}
-            title={t(
-              'applications.applicationDetails.applicantInformation'
-            ).toUpperCase()}
+            title={t('applications.applicationDetails.applicantInformation').toUpperCase()}
           />
         )}
       </div>
       <div>
         <Section title={t('applications.applicationDetails.boatInfo')}>
-          <LabelValuePair
-            label={t('applications.applicationDetails.boatType')}
-            value={boatType}
-          />
+          <LabelValuePair label={t('applications.applicationDetails.boatType')} value={boatType} />
           <LabelValuePair
             label={t('applications.applicationDetails.registrationNumber')}
             value={boatRegistrationNumber}
@@ -170,34 +154,17 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
           />
         </Section>
         <Section>
-          <LabelValuePair
-            label={t('applications.applicationDetails.boatName')}
-            value={boatName}
-          />
-          <LabelValuePair
-            label={t('applications.applicationDetails.boatBrand')}
-            value={boatModel}
-          />
+          <LabelValuePair label={t('applications.applicationDetails.boatName')} value={boatName} />
+          <LabelValuePair label={t('applications.applicationDetails.boatBrand')} value={boatModel} />
         </Section>
       </div>
       <div>
         {lease ? (
-          <Section
-            title={t(
-              'applications.applicationDetails.connectedLease'
-            ).toUpperCase()}
-          >
-            {[lease.harborName, lease.pierIdentifier, lease.berthNum]
-              .filter(Boolean)
-              .join(' ')}
+          <Section title={t('applications.applicationDetails.connectedLease').toUpperCase()}>
+            {[lease.harborName, lease.pierIdentifier, lease.berthNum].filter(Boolean).join(' ')}
             {handleDeleteLease && (
-              <button
-                className={styles.deleteButton}
-                onClick={() => handleDeleteLease(lease.id)}
-              >
-                <Text color="brand">
-                  {t('applications.applicationDetails.deleteLease')}
-                </Text>
+              <button className={styles.deleteButton} onClick={() => handleDeleteLease(lease.id)}>
+                <Text color="brand">{t('applications.applicationDetails.deleteLease')}</Text>
               </button>
             )}
           </Section>
@@ -217,9 +184,7 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
                       ${i + 1}: `}
                       </Text>
                       {!!customerId ? (
-                        <InternalLink to={`/offer/${id}?${routerQuery}`}>
-                          {harborName}
-                        </InternalLink>
+                        <InternalLink to={`/offer/${id}?${routerQuery}`}>{harborName}</InternalLink>
                       ) : (
                         <Text>{harborName}</Text>
                       )}

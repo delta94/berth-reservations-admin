@@ -57,8 +57,7 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
   handleDeleteLease,
 }) => {
   const { t, i18n } = useTranslation();
-  const isNotNull = (property: boolean | null): property is boolean =>
-    property !== null;
+  const isNotNull = (property: boolean | null): property is boolean => property !== null;
   const getColor = (property: boolean) => (property ? 'standard' : 'secondary');
   const properties: {
     prop: boolean | null;
@@ -80,9 +79,7 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
           <div>
             <Section title={t('common.terminology.berth').toUpperCase()}>
               <InternalLink to="/" underlined>
-                {[harborName, pierIdentifier, berthNum]
-                  .filter(Boolean)
-                  .join(' ')}
+                {[harborName, pierIdentifier, berthNum].filter(Boolean).join(' ')}
               </InternalLink>
             </Section>
             <Section>
@@ -136,59 +133,29 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
                   </>
                 }
               />
-              <LabelValuePair
-                label={t('offer.berthDetails.comment')}
-                value={berthComment}
-              />
+              <LabelValuePair label={t('offer.berthDetails.comment')} value={berthComment} />
             </Section>
           </div>
           <div>
             <Section title={t('offer.billing.title').toUpperCase()}>
-              <LabelValuePair
-                label={t('offer.billing.basePrice')}
-                value={'284,00 €'}
-              />
-              <LabelValuePair
-                label={t('offer.billing.mooring')}
-                value={'79,52 €'}
-              />
-              <LabelValuePair
-                label={t('offer.billing.electricity')}
-                value={'34,08 €'}
-              />
-              <LabelValuePair
-                label={t('offer.billing.water')}
-                value={'5,68 €'}
-              />
-              <LabelValuePair
-                label={t('offer.billing.waste')}
-                value={'22,72 €'}
-              />
-              <LabelValuePair
-                label={t('offer.billing.gate')}
-                value={'4,00 €'}
-              />
-              <LabelValuePair
-                label={t('offer.billing.lighting')}
-                value={'10,00 €'}
-              />
+              <LabelValuePair label={t('offer.billing.basePrice')} value={'284,00 €'} />
+              <LabelValuePair label={t('offer.billing.mooring')} value={'79,52 €'} />
+              <LabelValuePair label={t('offer.billing.electricity')} value={'34,08 €'} />
+              <LabelValuePair label={t('offer.billing.water')} value={'5,68 €'} />
+              <LabelValuePair label={t('offer.billing.waste')} value={'22,72 €'} />
+              <LabelValuePair label={t('offer.billing.gate')} value={'4,00 €'} />
+              <LabelValuePair label={t('offer.billing.lighting')} value={'10,00 €'} />
             </Section>
             <Section>
               <LabelValuePair
                 label={t('offer.billing.additionalServices')}
                 value={<InternalLink to="/">{t('common.edit')}</InternalLink>}
               />
-              <LabelValuePair
-                label={t('offer.billing.parkingPermit')}
-                value={'75 €'}
-              />
+              <LabelValuePair label={t('offer.billing.parkingPermit')} value={'75 €'} />
             </Section>
             <hr />
             <Section>
-              <LabelValuePair
-                label={t('offer.billing.total').toUpperCase()}
-                value={'515 €'}
-              />
+              <LabelValuePair label={t('offer.billing.total').toUpperCase()} value={'515 €'} />
             </Section>
           </div>
         </Grid>
@@ -206,11 +173,7 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
             <Button color="supplementary" className={styles.button} disabled>
               {t('offer.billing.showContract')}
             </Button>
-            <Button
-              color="supplementary"
-              className={styles.button}
-              onClick={() => handleDeleteLease(id)}
-            >
+            <Button color="supplementary" className={styles.button} onClick={() => handleDeleteLease(id)}>
               {t('offer.billing.removeOffer')}
             </Button>
           </div>

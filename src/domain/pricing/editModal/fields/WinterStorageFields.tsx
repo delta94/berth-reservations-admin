@@ -16,9 +16,7 @@ const periodOptions = ['season', 'month', 'year'];
 
 export const getWinterStorageValidationSchema = (t: TFunction) =>
   Yup.object().shape({
-    area: Yup.string()
-      .oneOf(areaOptions)
-      .required(t('forms.common.errors.required')),
+    area: Yup.string().oneOf(areaOptions).required(t('forms.common.errors.required')),
     privateCustomer: Yup.number()
       .positive()
       .typeError(t('forms.common.errors.numberType'))
@@ -27,9 +25,7 @@ export const getWinterStorageValidationSchema = (t: TFunction) =>
       .positive()
       .typeError(t('forms.common.errors.numberType'))
       .required(t('forms.common.errors.required')),
-    period: Yup.string()
-      .oneOf(periodOptions)
-      .required(t('forms.common.errors.required')),
+    period: Yup.string().oneOf(periodOptions).required(t('forms.common.errors.required')),
   });
 
 const WinterStorageFields: FunctionComponent = () => {
@@ -39,10 +35,7 @@ const WinterStorageFields: FunctionComponent = () => {
   return (
     <>
       <div className={styles.row}>
-        <FormTypeTitle
-          label={t('common.terminology.dataEntry')}
-          value={t('pricing.winterStorage.title')}
-        />
+        <FormTypeTitle label={t('common.terminology.dataEntry')} value={t('pricing.winterStorage.title')} />
       </div>
       <hr />
       <Grid colsCount={2} className={styles.row}>
@@ -51,7 +44,7 @@ const WinterStorageFields: FunctionComponent = () => {
           as={Select}
           name="area"
           labelText={t('pricing.winterStorage.area')}
-          options={areaOptions.map(option => ({
+          options={areaOptions.map((option) => ({
             value: option,
             label: option,
           }))}
@@ -83,7 +76,7 @@ const WinterStorageFields: FunctionComponent = () => {
           as={Select}
           name="period"
           labelText={t('pricing.winterStorage.period')}
-          options={periodOptions.map(option => ({
+          options={periodOptions.map((option) => ({
             value: option,
             label: t([`common.periodTypes.${option}`]),
           }))}

@@ -7,7 +7,7 @@ import { ApplicationStatus } from '../../../@types/__generated__/globalTypes';
 
 export default {
   component: ApplicationDetails,
-  decorators: [storyFn => <HashRouter>{storyFn()}</HashRouter>],
+  decorators: [(storyFn) => <HashRouter>{storyFn()}</HashRouter>],
   title: 'ApplicationDetails',
 };
 

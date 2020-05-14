@@ -16,11 +16,7 @@ describe('AdditionalServicesFields', () => {
 
   const getWrapper = () =>
     mount(
-      <Formik
-        initialValues={mockValues}
-        onSubmit={jest.fn()}
-        validate={jest.fn()}
-      >
+      <Formik initialValues={mockValues} onSubmit={jest.fn()} validate={jest.fn()}>
         {() => (
           <Form>
             <AdditionalServicesFields />
