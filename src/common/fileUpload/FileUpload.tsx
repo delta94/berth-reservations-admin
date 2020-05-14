@@ -43,17 +43,17 @@ const FileUpload: FunctionComponent<FileUploadProps> = ({
     if (event.currentTarget.files) {
       const newFiles = Array.from(event.currentTarget.files);
       if (multiple) {
-        onChange(Array.isArray(value) ? (value as File[]).concat(newFiles) : newFiles);
+        return onChange(Array.isArray(value) ? (value as File[]).concat(newFiles) : newFiles);
       }
-      onChange(newFiles[0]);
+      return onChange(newFiles[0]);
     }
   };
 
   const removeFromList = (targetFile: File) => {
     if (multiple) {
-      onChange((value as File[]).filter((file) => file !== targetFile));
+      return onChange((value as File[]).filter((file) => file !== targetFile));
     }
-    onChange(undefined);
+    return onChange(undefined);
   };
 
   const renderFileList = (value: FileType) => {
