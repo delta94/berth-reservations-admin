@@ -8,6 +8,7 @@ import {
   useRowSelect,
   useFilters,
   useGlobalFilter,
+  usePagination,
   TableOptions,
   HeaderProps,
   Row,
@@ -48,12 +49,17 @@ type Props<D extends object> = {
   canSelectOneRow?: boolean;
   styleMainHeader?: boolean;
   theme?: 'basic' | 'primary';
+  globalFilter?: UseGlobalFiltersOptions<D>['globalFilter'];
   renderTableToolsTop?: TableToolsFn<D>;
   renderTableToolsBottom?: TableToolsFn<D>;
   renderSubComponent?: (row: Row<D>) => React.ReactNode;
   renderMainHeader?: (props: HeaderProps<D>) => React.ReactNode;
   renderEmptyStateRow?: () => React.ReactNode;
-  globalFilter?: UseGlobalFiltersOptions<D>['globalFilter'];
+  renderPaginator?: (pagination: {
+    pageIndex: number;
+    pageCount: number;
+    goToPage(pageIndex: number): void;
+  }) => React.ReactNode;
 } & TableOptions<D>;
 
 const EXPANDER = 'EXPANDER';
@@ -82,12 +88,14 @@ const Table = <D extends object>({
   canSelectOneRow,
   styleMainHeader = true,
   theme = 'primary',
+  globalFilter,
+  initialState,
   renderTableToolsTop,
   renderTableToolsBottom,
   renderSubComponent,
   renderMainHeader,
   renderEmptyStateRow,
-  globalFilter,
+  renderPaginator,
 }: Props<D>) => {
   const { t } = useTranslation();
 
@@ -178,27 +186,32 @@ const Table = <D extends object>({
   const data = React.useMemo(() => tableData, [tableData]);
 
   const {
+    headerGroups,
+    state,
+    selectedFlatRows,
+    page,
+    rows,
+    pageCount,
+    gotoPage,
     getTableProps,
     getTableBodyProps,
-    headerGroups,
-    rows,
     prepareRow,
-    selectedFlatRows,
     setGlobalFilter,
-    state,
     setFilter,
   } = useTable(
     {
       columns: tableColumns,
       data,
       globalFilter,
+      initialState,
     },
     useFilters,
     useGlobalFilter,
     useFlexLayout,
     useSortBy,
     useExpanded,
-    useRowSelect
+    useRowSelect,
+    usePagination
   );
 
   const renderTableHead = (headerGroup: HeaderGroup<D>, index: number) => (
@@ -303,11 +316,16 @@ const Table = <D extends object>({
         >
           <div className={styles.stickyHeaders}>{headerGroups.map(renderTableHead)}</div>
           <div {...getTableBodyProps()}>
-            {rows.map(renderTableBody)}
+            {(renderPaginator ? page : rows).map(renderTableBody)}
             {rows.length === 0 && renderEmptyBody()}
           </div>
         </div>
       </div>
+      {renderPaginator?.({
+        pageCount,
+        pageIndex: state.pageIndex,
+        goToPage: gotoPage,
+      })}
       {renderTableTools(renderTableToolsBottom)}
     </div>
   );
