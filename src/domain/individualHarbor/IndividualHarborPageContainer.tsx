@@ -23,7 +23,6 @@ import PierCreateForm from './forms/pierForm/PierCreateForm';
 import PierEditForm from './forms/pierForm/PierEditForm';
 import Chip from '../../common/chip/Chip';
 import Pagination from '../../common/pagination/Pagination';
-import { usePagination } from '../../common/utils/usePagination';
 
 const IndividualHarborPageContainer: React.SFC = () => {
   const [berthToEdit, setBerthToEdit] = useState<string | null>(null);
@@ -33,7 +32,6 @@ const IndividualHarborPageContainer: React.SFC = () => {
   const { id } = useParams<{ id: string }>();
   const { loading, error, data } = useQuery<INDIVIDUAL_HARBOR>(INDIVIDUAL_HARBOR_QUERY, { variables: { id } });
   const { t, i18n } = useTranslation();
-  const { pageIndex, goToPage: setPageParam } = usePagination();
 
   if (loading) return <LoadingSpinner isLoading={loading} />;
   if (error) return <div>Error</div>;
@@ -154,16 +152,11 @@ const IndividualHarborPageContainer: React.SFC = () => {
             onEdit={() => setBerthToEdit(row.original.id)}
           />
         )}
-        // client-side pagination
-        initialState={{ pageIndex }}
         renderPaginator={({ pageIndex, pageCount, goToPage }) => (
           <Pagination
             forcePage={pageIndex}
             pageCount={pageCount || 1}
-            onPageChange={({ selected }) => {
-              setPageParam(selected);
-              goToPage(selected);
-            }}
+            onPageChange={({ selected }) => goToPage(selected)}
           />
         )}
       />

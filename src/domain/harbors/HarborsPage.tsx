@@ -9,7 +9,6 @@ import Icon from '../../common/icons/Icon';
 import { HarborData } from './utils';
 import GlobalSearchTableTools from '../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';
 import Pagination from '../../common/pagination/Pagination';
-import { usePagination } from '../../common/utils/usePagination';
 
 type ColumnType = Column<HarborData> & { accessor: keyof HarborData };
 
@@ -20,7 +19,6 @@ export interface HarborsPageProps {
 
 const HarborsPage: React.FC<HarborsPageProps> = ({ data, loading }) => {
   const { t } = useTranslation();
-  const { pageIndex, goToPage: setPageParam } = usePagination();
 
   const columns: ColumnType[] = [
     {
@@ -81,16 +79,11 @@ const HarborsPage: React.FC<HarborsPageProps> = ({ data, loading }) => {
         renderSubComponent={(row) => <HarborDetails {...row.original} />}
         renderMainHeader={() => t('harbors.tableHeaders.mainHeader')}
         renderEmptyStateRow={() => t('common.notification.noData.description')}
-        // client-side pagination
-        initialState={{ pageIndex }}
         renderPaginator={({ pageIndex, pageCount, goToPage }) => (
           <Pagination
             forcePage={pageIndex}
             pageCount={pageCount || 1}
-            onPageChange={({ selected }) => {
-              setPageParam(selected);
-              goToPage(selected);
-            }}
+            onPageChange={({ selected }) => goToPage(selected)}
           />
         )}
         canSelectRows
