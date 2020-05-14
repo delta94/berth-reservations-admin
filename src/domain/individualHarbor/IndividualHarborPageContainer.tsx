@@ -25,6 +25,7 @@ import Chip from '../../common/chip/Chip';
 import Pagination from '../../common/pagination/Pagination';
 
 const IndividualHarborPageContainer: React.SFC = () => {
+  const [editingHarbor, setEditingHarbor] = useState<boolean>(false);
   const [berthToEdit, setBerthToEdit] = useState<string | null>(null);
   const [creatingBerth, setCreatingBerth] = useState<boolean>(false);
   const [pierToEdit, setPierToEdit] = useState<string | null>(null);
@@ -119,6 +120,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
           wasteCollection: harbor.wasteCollection,
           water: harbor.water,
         }}
+        editHarbor={() => setEditingHarbor(true)}
       />
       <Table
         data={berths}
