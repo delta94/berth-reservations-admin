@@ -24,6 +24,7 @@
     "previous": "Edellinen",
     "search": "Haku",
     "edit": "Muokkaa",
+    "add": "Lisää",
     "save": "Tallenna",
     "cancel": "Peruuta",
     "firstName": "Etunimi",
@@ -44,6 +45,9 @@
     "header": {
       "serviceName": "Venepaikat",
       "logout": "Kirjaudu ulos"
+    },
+    "fileUpload": {
+      "maxSize": "Tiedostokoko alle {{maxSize}}"
     },
     "mooringTypes": {
       "NO_STERN_TO_MOORING": "Ilman peräkiinnitystä",
