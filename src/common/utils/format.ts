@@ -47,3 +47,19 @@ export const formatPercentage = (value: number, locale: string) => {
     style: 'percent',
   }).format(value);
 };
+
+export const formatBytes = (value: number, locale: string) => {
+  const formatter = (value: number) =>
+    new Intl.NumberFormat(locale, {
+      style: 'decimal',
+      maximumFractionDigits: 1,
+    }).format(value);
+
+  if (value < 1000) {
+    return `${formatter(value)} B`;
+  } else if (value < 999950) {
+    return `${formatter(value / 1000)} kB`;
+  } else {
+    return `${formatter(value / 1000 / 1000)} MB`;
+  }
+};

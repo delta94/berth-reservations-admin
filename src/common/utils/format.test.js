@@ -1,4 +1,4 @@
-import { formatDimension, formatWeight, formatDate, formatPrice, formatPercentage } from './format';
+import { formatBytes, formatDate, formatDimension, formatPercentage, formatPrice, formatWeight } from './format';
 
 describe('format', () => {
   describe('formatDimension', () => {
@@ -50,6 +50,26 @@ describe('format', () => {
   describe('formatPercentage', () => {
     it('should add the percentage sign to to the supplied value', () => {
       expect(formatPercentage(1, 'fi')).toMatch('%');
+    });
+  });
+
+  describe('formatBytes', () => {
+    it('should format values <1000 as B', () => {
+      expect(formatBytes(0, 'fi')).toMatch('0 B');
+      expect(formatBytes(2, 'fi')).toMatch('2 B');
+      expect(formatBytes(999, 'fi')).toMatch('999 B');
+    });
+    it('should format values >=1000 and <999950 as kB', () => {
+      expect(formatBytes(1000, 'fi')).toMatch('1 kB');
+      expect(formatBytes(1010, 'fi')).toMatch('1 kB');
+      expect(formatBytes(1099, 'fi')).toMatch('1,1 kB');
+      expect(formatBytes(999949, 'fi')).toMatch('999,9 kB');
+    });
+    it('should format values >=999950 as MB', () => {
+      expect(formatBytes(999950, 'fi')).toMatch('1 MB');
+      expect(formatBytes(1000000, 'fi')).toMatch('1 MB');
+      expect(formatBytes(1099000, 'fi')).toMatch('1,1 MB');
+      expect(formatBytes(999900000, 'fi')).toMatch('999,9 MB');
     });
   });
 });
