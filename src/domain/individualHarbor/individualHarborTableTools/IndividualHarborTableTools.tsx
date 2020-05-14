@@ -9,9 +9,10 @@ interface Props {
   onAddPier(): void;
   onAddBerth(): void;
   handleGlobalFilter(value?: string): void;
+  canAddBerth: boolean;
 }
 
-const IndividualHarborTableTools: React.FC<Props> = ({ onAddPier, onAddBerth, handleGlobalFilter }) => {
+const IndividualHarborTableTools: React.FC<Props> = ({ onAddPier, onAddBerth, handleGlobalFilter, canAddBerth }) => {
   const { t } = useTranslation();
   return (
     <div className={styles.container}>
@@ -19,7 +20,7 @@ const IndividualHarborTableTools: React.FC<Props> = ({ onAddPier, onAddBerth, ha
         <Button onClick={onAddPier} color="supplementary" className={styles.button}>
           {t('individualHarbor.tableTools.addPier')}
         </Button>
-        <Button onClick={onAddBerth} color="supplementary" className={styles.button}>
+        <Button onClick={onAddBerth} color="supplementary" className={styles.button} disabled={!canAddBerth}>
           {t('individualHarbor.tableTools.addBerth')}
         </Button>
       </div>
