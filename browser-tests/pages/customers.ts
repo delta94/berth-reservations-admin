@@ -2,9 +2,7 @@ import { Selector } from 'testcafe';
 
 export const customers = {
   customerList: {
-    firstCustomerLink: Selector(
-      'div[class^="customersPage"] div[class^="table_rowWrapper"]:first-of-type a'
-    ),
+    firstCustomerLink: Selector('div[class^="customersPage"] div[class^="table_rowWrapper"]:first-of-type a'),
   },
   customerDetails: {
     firstDataLabel: Selector(
