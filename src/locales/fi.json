@@ -140,6 +140,16 @@
       "comment": "Huomiot",
       "isActive": "Paikka on käytössä"
     },
+    "harbor": {
+      "title": "Satama",
+      "name": "Nimi",
+      "streetAddress": "Osoite",
+      "zipCode": "Postinumero",
+      "municipality": "Postitoimipaikka",
+      "wwwUrl": "WWW-osoite",
+      "imageFile": "Sataman kuva",
+      "harborMaps": "Satamakartat"
+    },
     "pier": {
       "title": "Laituri",
       "identifier": "Laituri",

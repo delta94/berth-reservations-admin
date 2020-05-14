@@ -22,6 +22,7 @@ import InternalLink from '../../common/internalLink/InternalLink';
 import PierCreateForm from './forms/pierForm/PierCreateForm';
 import PierEditForm from './forms/pierForm/PierEditForm';
 import Chip from '../../common/chip/Chip';
+import HarborEditForm from './forms/harborForm/HarborEditForm';
 import Pagination from '../../common/pagination/Pagination';
 
 const IndividualHarborPageContainer: React.SFC = () => {
@@ -203,6 +204,13 @@ const IndividualHarborPageContainer: React.SFC = () => {
           />
         </Modal>
       )}
+      <Modal isOpen={editingHarbor} toggleModal={() => setEditingHarbor(false)}>
+        <HarborEditForm
+          onCancel={() => setEditingHarbor(false)}
+          onSubmit={() => setEditingHarbor(false)}
+          harborId={harbor.id}
+        />
+      </Modal>
     </IndividualHarborPage>
   );
 };
