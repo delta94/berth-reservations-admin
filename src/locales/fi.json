@@ -25,6 +25,7 @@
     "search": "Haku",
     "edit": "Muokkaa",
     "add": "Lisää",
+    "select": "Valitse",
     "save": "Tallenna",
     "cancel": "Peruuta",
     "firstName": "Etunimi",
@@ -148,7 +149,7 @@
       "municipality": "Postitoimipaikka",
       "wwwUrl": "WWW-osoite",
       "imageFile": "Sataman kuva",
-      "harborMaps": "Satamakartat"
+      "maps": "Satamakartat"
     },
     "pier": {
       "title": "Laituri",

@@ -9,7 +9,21 @@ import List from '../list/List';
 import Icon from '../icons/Icon';
 import { formatBytes } from '../utils/format';
 
-type FileType = undefined | File | File[];
+type PersistedFileContainer = {
+  name: string;
+  id?: string;
+  data?: never;
+  markedForDeletion?: boolean;
+};
+
+type NewFileContainer = {
+  name: string;
+  id?: never;
+  data?: File;
+  markedForDeletion?: never;
+};
+
+export type FileContainer = PersistedFileContainer | NewFileContainer;
 
 export interface FileUploadProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> {
   buttonProps?: FileUploadButtonProps;
@@ -19,8 +33,8 @@ export interface FileUploadProps extends Omit<React.InputHTMLAttributes<HTMLInpu
   maxSize?: number;
   multiple?: boolean;
   name: string;
-  onChange: (value: FileType) => void;
-  value?: FileType;
+  onChange: (value: undefined | FileContainer | FileContainer[]) => void;
+  value: undefined | FileContainer | FileContainer[];
 }
 
 const FileUpload: FunctionComponent<FileUploadProps> = ({
@@ -31,7 +45,7 @@ const FileUpload: FunctionComponent<FileUploadProps> = ({
   disabled,
   label,
   maxSize,
-  multiple,
+  multiple = false,
   name,
   onChange,
   value,
@@ -41,40 +55,87 @@ const FileUpload: FunctionComponent<FileUploadProps> = ({
 
   const handleChange: React.InputHTMLAttributes<HTMLInputElement>['onChange'] = (event) => {
     if (event.currentTarget.files) {
-      const newFiles = Array.from(event.currentTarget.files);
+      const eventFiles: FileContainer[] = Array.from(event.currentTarget.files).map((file) => ({
+        name: file.name,
+        data: file,
+      }));
+
       if (multiple) {
-        return onChange(Array.isArray(value) ? (value as File[]).concat(newFiles) : newFiles);
+        return onChange(value === undefined ? eventFiles : (value as FileContainer[]).concat(eventFiles));
       }
-      return onChange(newFiles[0]);
+
+      // single
+      return onChange(eventFiles[0]);
     }
   };
 
-  const removeFromList = (targetFile: File) => {
-    if (multiple) {
-      return onChange((value as File[]).filter((file) => file !== targetFile));
+  const handleDelete = (targetFile: FileContainer) => {
+    // multiple
+    if (Array.isArray(value)) {
+      return onChange(
+        value.reduce((acc: FileContainer[], file: FileContainer) => {
+          if (file === targetFile) {
+            if (file.data === undefined) {
+              // Persisted file, mark for deletion
+              return acc.concat({
+                ...(file as PersistedFileContainer),
+                markedForDeletion: !file.markedForDeletion,
+              });
+            } else {
+              // New file, remove reference
+              return acc;
+            }
+          } else {
+            return acc.concat(file);
+          }
+        }, [])
+      );
     }
-    return onChange(undefined);
+
+    // single
+    return onChange(
+      (value as FileContainer).data === undefined
+        ? // Persisted file, mark for deletion
+          {
+            ...(value as PersistedFileContainer),
+            markedForDeletion: !(value as PersistedFileContainer).markedForDeletion,
+          }
+        : // New file, remove reference
+          undefined
+    );
   };
 
-  const renderFileList = (value: FileType) => {
-    if (value === undefined) return;
-    const fileList = multiple ? (value as File[]) : [value as File];
+  const renderFileList = () => {
+    if (value === undefined) return undefined;
+
+    const valueList = Array.isArray(value) ? value : [value];
     return (
       <List noBullets>
-        {fileList.map((file) => (
-          <li key={file.name} className={styles.fileListItem}>
-            <Text
-              color="brand"
-              className={classNames(styles.fileName, maxSize && file.size > maxSize && styles.fileOverMaxSize)}
-            >
-              {file.name}
-              {file.size > 0 && ` (${formatBytes(file.size, i18n.language)})`}
-            </Text>
-            <button className={styles.delete} type="button" onClick={() => removeFromList(file)}>
-              <Icon shape="IconTimes" color="critical" />
-            </button>
-          </li>
-        ))}
+        {valueList.map((file) => {
+          return (
+            <li key={file.name} className={styles.fileListItem}>
+              <Text
+                color="brand"
+                className={classNames({
+                  [styles.fileName]: true,
+                  [styles.overMaxSize]: maxSize && file.data && file.data.size > maxSize,
+                  [styles.markedForDeletion]: file.markedForDeletion,
+                })}
+              >
+                {`${file.name}`}
+                {file.data && file.data.size > 0 && ` (${formatBytes(file.data.size, i18n.language)})`}
+              </Text>
+
+              <button className={styles.delete} type="button" onClick={() => handleDelete(file)}>
+                {file.data ? (
+                  <Icon shape="IconTimes" color="critical" />
+                ) : (
+                  <Icon shape="IconTrash" color={file.markedForDeletion ? 'secondary' : 'critical'} />
+                )}
+              </button>
+            </li>
+          );
+        })}
       </List>
     );
   };
@@ -82,11 +143,14 @@ const FileUpload: FunctionComponent<FileUploadProps> = ({
   return (
     <div className={styles.fileUpload}>
       <span className={styles.labelText}>{label}</span>
-      {renderFileList(value)}
+
+      {renderFileList()}
+
       <div className={styles.row}>
         <label className={styles.field}>
           <input
             {...rest}
+            required={false} // handled in external validation
             className={styles.input}
             disabled={disabled}
             type="file"
@@ -94,8 +158,13 @@ const FileUpload: FunctionComponent<FileUploadProps> = ({
             multiple={multiple}
             onChange={handleChange}
           />
-          <FileUploadButton {...buttonProps} disabled={disabled} label={buttonProps.label || `${t('common.add')}...`} />
+          <FileUploadButton
+            {...buttonProps}
+            disabled={disabled}
+            label={buttonProps.label || `${multiple ? t('common.add') : t('common.select')}...`}
+          />
         </label>
+
         {maxSize && (
           <Text className={styles.maxSize} color="secondary">
             {t('common.fileUpload.maxSize', {

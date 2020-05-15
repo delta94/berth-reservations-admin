@@ -1,22 +1,41 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import FileUpload, { FileUploadProps } from '../FileUpload';
+import FileUpload, { FileContainer, FileUploadProps } from '../FileUpload';
+
+const createMockFile = (name: string, more?: Partial<FileContainer>) =>
+  ({
+    name: name,
+    data: new File([], name),
+    ...more,
+  } as FileContainer);
 
 describe('FileUpload', () => {
-  const mockProps: FileUploadProps = {
+  const mockPropsSingle: FileUploadProps = {
     name: 'test',
     onChange: jest.fn(),
-    value: new File([], 'test.jpg'),
+    onSubmit: jest.fn(),
+    value: createMockFile('test.jpg'),
+  };
+
+  const mockPropsMultiple: FileUploadProps = {
+    ...mockPropsSingle,
+    multiple: true,
+    value: [createMockFile('test.jpg')],
   };
 
   const getWrapper = (props?: Partial<FileUploadProps>) => {
-    const wrapperProps = { ...mockProps, ...props };
+    const wrapperProps = { ...mockPropsSingle, ...props };
     return shallow(<FileUpload {...(wrapperProps as FileUploadProps)} />);
   };
 
-  it('renders normally', () => {
-    const wrapper = getWrapper();
+  it('renders normally with single file props', () => {
+    const wrapper = getWrapper(mockPropsSingle);
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  it('renders normally with multiple files props', () => {
+    const wrapper = getWrapper(mockPropsMultiple);
     expect(wrapper.html()).toMatchSnapshot();
   });
 
@@ -61,10 +80,12 @@ describe('FileUpload', () => {
           maxSize: 3 * 1000 * 1000,
           value: {
             name: 'test.jpg',
-            size: 4 * 1000 * 1000,
-          } as File,
+            data: {
+              size: 4 * 1000 * 1000,
+            } as File,
+          },
         });
-        expect(wrapper.find('li.fileListItem').at(0).find('Text').hasClass('fileOverMaxSize')).toBe(true);
+        expect(wrapper.find('li.fileListItem').at(0).find('Text').hasClass('overMaxSize')).toBe(true);
       });
 
       it('files under "maxSize" should not be styled', () => {
@@ -72,10 +93,12 @@ describe('FileUpload', () => {
           maxSize: 3 * 1000 * 1000,
           value: {
             name: 'test.jpg',
-            size: 2 * 1000 * 1000,
-          } as File,
+            data: {
+              size: 2 * 1000 * 1000,
+            } as File,
+          },
         });
-        expect(wrapper.find('li.fileListItem').at(0).find('Text').hasClass('fileOverMaxSize')).toBe(false);
+        expect(wrapper.find('li.fileListItem').at(0).find('Text').hasClass('overMaxSize')).toBe(false);
       });
     });
 
@@ -89,10 +112,12 @@ describe('FileUpload', () => {
         const wrapper = getWrapper({
           value: {
             name: 'test.jpg',
-            size: 5 * 1000 * 1000,
-          } as File,
+            data: {
+              size: 5 * 1000 * 1000,
+            } as File,
+          },
         });
-        expect(wrapper.find('li.fileListItem').at(0).find('Text').hasClass('fileOverMaxSize')).toBe(false);
+        expect(wrapper.find('li.fileListItem').at(0).find('Text').hasClass('overMaxSize')).toBe(false);
       });
     });
   });
@@ -145,77 +170,179 @@ describe('FileUpload', () => {
       expect(mockChange).not.toHaveBeenCalled();
     });
 
-    describe('if "multiple" is false', () => {
-      it('when input changes, should be called with new single File', () => {
-        const mockChange = jest.fn();
-        const mockOldFile = new File([], 'old.jpg');
-        const mockNewFile = new File([], 'new.jpg');
-        const wrapper = getWrapper({
-          onChange: mockChange,
-          value: mockOldFile,
-        });
-        wrapper.find('input').simulate('change', {
-          currentTarget: { files: [mockNewFile] },
-        });
-        expect(mockChange).toHaveBeenCalledWith(mockNewFile);
-      });
-    });
-
     describe('if "multiple" is true', () => {
       it('when input changes, should be called with old and new File(s) as array', () => {
         const mockChange = jest.fn();
-        const mockOldFile = new File([], 'old.jpg');
-        const mockNewFile1 = new File([], 'new1.jpg');
-        const mockNewFile2 = new File([], 'new2.jpg');
+        const mockOldFile = createMockFile('old.jpg');
+        const mockNewFile1 = createMockFile('new1.jpg');
+        const mockNewFile2 = createMockFile('new2.jpg');
         const wrapper = getWrapper({
           onChange: mockChange,
           value: [mockOldFile],
           multiple: true,
         });
         wrapper.find('input').simulate('change', {
-          currentTarget: { files: [mockNewFile1, mockNewFile2] },
+          currentTarget: { files: [mockNewFile1.data, mockNewFile2.data] },
         });
         expect(mockChange).toHaveBeenCalledWith([mockOldFile, mockNewFile1, mockNewFile2]);
       });
 
       it('if value is undefined, when input changes, should be called with new File(s) as array', () => {
         const mockChange = jest.fn();
-        const mockNewFile1 = new File([], 'new1.jpg');
-        const mockNewFile2 = new File([], 'new2.jpg');
+        const mockNewFile1 = createMockFile('new1.jpg');
+        const mockNewFile2 = createMockFile('new2.jpg');
         const wrapper = getWrapper({
           onChange: mockChange,
           value: undefined,
           multiple: true,
         });
         wrapper.find('input').simulate('change', {
-          currentTarget: { files: [mockNewFile1, mockNewFile2] },
+          currentTarget: { files: [mockNewFile1.data, mockNewFile2.data] },
         });
         expect(mockChange).toHaveBeenCalledWith([mockNewFile1, mockNewFile2]);
       });
     });
+
+    describe('if "multiple" is false', () => {
+      it('when input changes, should be called with new single File', () => {
+        const mockChange = jest.fn();
+        const mockOldFile = createMockFile('old.jpg');
+        const mockNewFile = createMockFile('new.jpg');
+        const wrapper = getWrapper({
+          onChange: mockChange,
+          value: mockOldFile,
+        });
+        wrapper.find('input').simulate('change', {
+          currentTarget: { files: [mockNewFile.data] },
+        });
+        expect(mockChange).toHaveBeenCalledWith(mockNewFile);
+      });
+    });
   });
 
-  describe('"remove" function', () => {
-    it('if "multiple" is false, should replace value with undefined', () => {
+  describe('"delete" function', () => {
+    it('if value is undefined, "onChange" should not be called', () => {
       const mockChange = jest.fn();
       const wrapper = getWrapper({
         onChange: mockChange,
+        value: undefined,
       });
-      wrapper.find('button.delete').simulate('click');
-      expect(mockChange).toHaveBeenCalledWith(undefined);
+      wrapper.find('input').simulate('change', {
+        currentTarget: {},
+      });
+      expect(mockChange).not.toHaveBeenCalled();
     });
 
-    it('if "multiple" is true, should delete target from list', () => {
-      const mockChange = jest.fn();
-      const mockFile0 = new File([], '0.jpg');
-      const mockFile1 = new File([], '1.jpg');
-      const wrapper = getWrapper({
-        onChange: mockChange,
-        value: [mockFile0, mockFile1],
-        multiple: true,
+    describe('if "multiple" is true', () => {
+      describe('if file is persisted', () => {
+        it('if markedForDeletion is false, should be toggled true', () => {
+          const mockChange = jest.fn();
+          const mockFile0 = createMockFile('0.jpg');
+          const mockFile1 = createMockFile('1.jpg', {
+            data: undefined,
+            id: 'test',
+            markedForDeletion: false,
+          });
+          const wrapper = getWrapper({
+            onChange: mockChange,
+            value: [mockFile0, mockFile1],
+            multiple: true,
+          });
+          wrapper.find('button.delete').at(1).simulate('click');
+          expect(mockChange).toHaveBeenCalledWith([
+            mockFile0,
+            {
+              ...mockFile1,
+              markedForDeletion: true,
+            },
+          ]);
+        });
+
+        it('if markedForDeletion is true, should be toggled false', () => {
+          const mockChange = jest.fn();
+          const mockFile0 = createMockFile('0.jpg');
+          const mockFile1 = createMockFile('1.jpg', {
+            data: undefined,
+            id: 'test',
+            markedForDeletion: true,
+          });
+          const wrapper = getWrapper({
+            onChange: mockChange,
+            value: [mockFile0, mockFile1],
+            multiple: true,
+          });
+          wrapper.find('button.delete').at(1).simulate('click');
+          expect(mockChange).toHaveBeenCalledWith([
+            mockFile0,
+            {
+              ...mockFile1,
+              markedForDeletion: false,
+            },
+          ]);
+        });
+
+        it('if file is new, should delete it from list', () => {
+          const mockChange = jest.fn();
+          const mockFile0 = createMockFile('0.jpg');
+          const mockFile1 = createMockFile('1.jpg');
+          const wrapper = getWrapper({
+            onChange: mockChange,
+            value: [mockFile0, mockFile1],
+            multiple: true,
+          });
+          wrapper.find('button.delete').at(1).simulate('click');
+          expect(mockChange).toHaveBeenCalledWith([mockFile0]);
+        });
       });
-      wrapper.find('button.delete').at(1).simulate('click');
-      expect(mockChange).toHaveBeenCalledWith([mockFile0]);
+
+      describe('if "multiple" is false', () => {
+        describe('if file is persisted', () => {
+          it('if markedForDeletion is false, should be toggled false', () => {
+            const mockChange = jest.fn();
+            const mockFile = createMockFile('test.jpg', {
+              data: undefined,
+              id: 'test',
+              markedForDeletion: false,
+            });
+            const wrapper = getWrapper({
+              onChange: mockChange,
+              value: mockFile,
+            });
+            wrapper.find('button.delete').simulate('click');
+            expect(mockChange).toHaveBeenCalledWith({
+              ...mockFile,
+              markedForDeletion: true,
+            });
+          });
+
+          it('if markedForDeletion is true, should be toggled false', () => {
+            const mockChange = jest.fn();
+            const mockFile = createMockFile('test.jpg', {
+              data: undefined,
+              id: 'test',
+              markedForDeletion: true,
+            });
+            const wrapper = getWrapper({
+              onChange: mockChange,
+              value: mockFile,
+            });
+            wrapper.find('button.delete').simulate('click');
+            expect(mockChange).toHaveBeenCalledWith({
+              ...mockFile,
+              markedForDeletion: false,
+            });
+          });
+        });
+
+        it('if file is new, should replace value with undefined', () => {
+          const mockChange = jest.fn();
+          const wrapper = getWrapper({
+            onChange: mockChange,
+          });
+          wrapper.find('button.delete').simulate('click');
+          expect(mockChange).toHaveBeenCalledWith(undefined);
+        });
+      });
     });
   });
 });

@@ -206,9 +206,10 @@ const IndividualHarborPageContainer: React.SFC = () => {
       )}
       <Modal isOpen={editingHarbor} toggleModal={() => setEditingHarbor(false)}>
         <HarborEditForm
+          harborId={id}
           onCancel={() => setEditingHarbor(false)}
           onSubmit={() => setEditingHarbor(false)}
-          harborId={harbor.id}
+          refetchQueries={[{ query: INDIVIDUAL_HARBOR_QUERY, variables: { id } }]}
         />
       </Modal>
     </IndividualHarborPage>

@@ -6,10 +6,10 @@ import { MockedProvider } from '@apollo/react-testing';
 
 import LoadingSpinner from '../../../../../common/spinner/LoadingSpinner';
 import HarborEditForm from '../HarborEditForm';
-import { INDIVIDUAL_HARBOR_QUERY } from '../../../queries';
+import { HARBOR_FORM_QUERY } from '../queries';
 
 const queryMock = {
-  request: { query: INDIVIDUAL_HARBOR_QUERY, variables: { id: 'a' } },
+  request: { query: HARBOR_FORM_QUERY, variables: { id: 'a' } },
   result: {
     data: {
       harbor: {
@@ -18,16 +18,18 @@ const queryMock = {
         properties: {
           __typename: 'HarborProperties',
           name: 'Test harbor',
-          numberOfPlaces: 2,
-          numberOfFreePlaces: 1,
           streetAddress: 'Test Address 1',
           zipCode: '00100',
           municipality: 'Helsinki',
           wwwUrl: 'https://hel.fi',
           imageFile: 'https://hel.fi',
-          servicemapId: 'service',
-          maxWidth: 6,
-          piers: null,
+          maps: [
+            {
+              __typename: 'HarborMapType',
+              id: 'aaa',
+              url: 'https://hel.ninja',
+            },
+          ],
         },
       },
     },

@@ -10,15 +10,15 @@ import styles from './harborEditForm.module.scss';
 import Section from '../../../../common/section/Section';
 import FileUpload from '../../../../common/fileUpload/FileUpload';
 import Text from '../../../../common/text/Text';
-import { INDIVIDUAL_HARBOR_QUERY } from '../../queries';
+import { HARBOR_FORM_QUERY } from './queries';
 import LoadingSpinner from '../../../../common/spinner/LoadingSpinner';
-import { INDIVIDUAL_HARBOR } from '../../__generated__/INDIVIDUAL_HARBOR';
-import { Harbor } from './types';
-import { getHarbor } from './utils/utils';
+import { FormProps, Harbor } from '../types';
+import { getHarbor, mapValuesToMutation } from './utils/utils';
+import { UPDATE_HARBOR_MUTATION } from './mutations';
+import { UPDATE_HARBOR, UPDATE_HARBORVariables as UPDATE_HARBOR_VARS } from './__generated__/UPDATE_HARBOR';
+import { HARBOR_FORM } from './__generated__/HARBOR_FORM';
 
-export interface HarborEditFormProps {
-  onCancel: () => void;
-  onSubmit: () => void;
+export interface Props extends FormProps<Harbor> {
   harborId: string;
 }
 
@@ -29,21 +29,26 @@ const getValidationSchema = (t: TFunction) =>
     zipCode: Yup.string().required(t('forms.common.errors.required')),
     municipality: Yup.string().required(t('forms.common.errors.required')),
     wwwUrl: Yup.string().required(t('forms.common.errors.required')),
-    imageFile: Yup.object().required(t('forms.common.errors.required')),
+    imageFile: Yup.object(),
+    maps: Yup.array(),
   });
 
-const HarborEditForm: FunctionComponent<HarborEditFormProps> = ({ onCancel, onSubmit, harborId }) => {
-  const { loading, error, data } = useQuery<INDIVIDUAL_HARBOR>(INDIVIDUAL_HARBOR_QUERY, {
+const HarborEditForm: FunctionComponent<Props> = ({ harborId, onCancel, onSubmit, refetchQueries }) => {
+  const { loading, error, data } = useQuery<HARBOR_FORM>(HARBOR_FORM_QUERY, {
     variables: { id: harborId },
   });
-
-  // TODO: Create update mutation
+  const [updateHarbor, { loading: isSubmitting, error: updateError }] = useMutation<UPDATE_HARBOR, UPDATE_HARBOR_VARS>(
+    UPDATE_HARBOR_MUTATION,
+    {
+      refetchQueries: [...(refetchQueries ?? []), { query: HARBOR_FORM_QUERY, variables: { id: harborId } }],
+    }
+  );
 
   const { t } = useTranslation();
   const validationSchema = getValidationSchema(t);
 
   if (loading) return <LoadingSpinner isLoading={loading} />;
-  if (error) return <div>{t('forms.common.error')}</div>;
+  if (error || updateError) return <div>{t('forms.common.error')}</div>;
 
   const initial: Harbor = getHarbor(data) ?? {
     name: '',
@@ -52,11 +57,19 @@ const HarborEditForm: FunctionComponent<HarborEditFormProps> = ({ onCancel, onSu
     municipality: 'Helsinki',
     wwwUrl: '',
     imageFile: undefined,
+    maps: [],
   };
 
+  const handleSubmit = (values: Harbor) =>
+    updateHarbor({
+      variables: {
+        input: mapValuesToMutation(harborId, values),
+      },
+    }).then(() => onSubmit?.(values));
+
   return (
-    <Formik initialValues={initial} onSubmit={onSubmit} validationSchema={validationSchema}>
-      {({ isSubmitting, errors, setFieldValue }) => (
+    <Formik initialValues={initial} onSubmit={handleSubmit} validationSchema={validationSchema}>
+      {({ errors, setFieldValue }) => (
         <Form>
           <Text as="h4" color="brand">
             {t('forms.harbor.title').toUpperCase()}
@@ -119,26 +132,26 @@ const HarborEditForm: FunctionComponent<HarborEditFormProps> = ({ onCancel, onSu
           <Section>
             <Field
               as={FileUpload}
+              name="imageFile"
               label={t('forms.harbor.imageFile')}
               maxSize={500 * 1000}
-              name="imageFile"
+              accept="image/png, image/jpeg"
+              required
               onChange={(value: File) => {
                 setFieldValue('imageFile', value);
               }}
-              required
             />
           </Section>
 
           <Section>
             <Field
               as={FileUpload}
-              label={t('forms.harbor.harborMaps')}
-              name="harborMaps"
+              name="maps"
+              label={t('forms.harbor.maps')}
               multiple
               onChange={(value: File[]) => {
-                setFieldValue('harborMaps', value);
+                setFieldValue('maps', value);
               }}
-              required
             />
           </Section>
 

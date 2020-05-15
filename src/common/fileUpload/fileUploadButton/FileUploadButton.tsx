@@ -13,7 +13,7 @@ export interface FileUploadButtonProps {
    *
    * Available options: `'primary' | 'secondary' | 'supplementary'`
    */
-  color?: 'primary' | 'secondary' | 'tertiary' | 'supplementary';
+  color: 'primary' | 'secondary' | 'tertiary' | 'supplementary';
   /**
    * If `true`, the button will be disabled
    */
@@ -27,15 +27,15 @@ export interface FileUploadButtonProps {
    *
    * Available options: `'default' | 'small'`
    */
-  size?: 'default' | 'small';
+  size: 'default' | 'small';
 }
 
 /** Fork of HDS Button. 'button' replaced with 'div' */
 const FileUploadButton: FunctionComponent<FileUploadButtonProps> = ({
   className,
-  color = 'primary',
+  color,
   disabled,
-  size = 'default',
+  size,
   label,
 }: FileUploadButtonProps) => {
   return (
