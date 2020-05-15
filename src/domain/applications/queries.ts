@@ -1,16 +1,8 @@
 import { gql } from 'apollo-boost';
 
 export const BERTH_APPLICATIONS_QUERY = gql`
-  query BERTH_APPLICATIONS(
-    $first: Int!
-    $after: String
-    $switchApplications: Boolean
-  ) {
-    berthApplications(
-      first: $first
-      after: $after
-      switchApplications: $switchApplications
-    ) {
+  query BERTH_APPLICATIONS($first: Int!, $after: String, $switchApplications: Boolean) {
+    berthApplications(first: $first, after: $after, switchApplications: $switchApplications) {
       count
       edges {
         node {
