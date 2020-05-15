@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import {
@@ -213,6 +213,10 @@ const Table = <D extends object>({
     useRowSelect,
     usePagination
   );
+
+  useEffect(() => {
+    gotoPage(0);
+  }, [gotoPage, state.sortBy, state.filters, state.globalFilter]);
 
   const renderTableHead = (headerGroup: HeaderGroup<D>, index: number) => (
     <div
