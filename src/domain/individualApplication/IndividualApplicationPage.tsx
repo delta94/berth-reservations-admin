@@ -126,12 +126,10 @@ const IndividualApplicationPage: React.FC<IndividualApplicationPageProps> = ({
 
               return <CustomersTableTools {...customerTableTools} handleLinkCustomer={onLinkCustomer} />;
             }}
+            renderTableToolsBottom={() => <Pagination {...pagination} className={styles.fullWidth} />}
             renderEmptyStateRow={() => <div>{t('individualApplication.customersTable.emptyState')}</div>}
             canSelectOneRow
           />
-          <div className={styles.fullWidth}>
-            <Pagination {...pagination} />
-          </div>
         </>
       )}
       {customerProfile && (
