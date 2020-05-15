@@ -54,6 +54,9 @@
     "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
     "pre-push": "yarn types:generate && yarn lint",
+    "browser-test": "testcafe \"chrome --window-size='1920,1080'\" browser-tests/",
+    "browser-test:local": "TEST_ENV=local testcafe \"chrome --window-size='1920,1080'\" browser-tests/",
+    "browser-test:ci": "testcafe \"chrome:headless --disable-gpu --window-size='1920,1080'\" browser-tests/ -s takeOnFails=true",
     "prettier": "prettier --write \"./src/**/*.{js,ts,jsx,tsx}\""
   },
   "eslintConfig": {
@@ -97,6 +100,7 @@
     "husky": "4.2.5",
     "jest-localstorage-mock": "^2.4.0",
     "prettier": "2.0.5",
-    "wait-for-expect": "^3.0.2"
+    "wait-for-expect": "^3.0.2",
+    "testcafe": "1.8.4"
   }
 }
