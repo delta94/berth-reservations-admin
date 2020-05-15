@@ -1711,10 +1711,10 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@scarf/scarf@^0.1.5":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@scarf/scarf/-/scarf-0.1.5.tgz#fc4cc88294eca336eed9a91549180346de5e6946"
-  integrity sha512-Fx6atDc7JM1r0WkPCDhNetVZNp+DO21q/HGlomAKBG+k8vb1B8fg8Yige4oCf1P9OWTZWm5tM5i3jlXhrSbNOg==
+"@scarf/scarf@^1.0.4":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@scarf/scarf/-/scarf-1.0.5.tgz#accee0bce88a9047672f7c8faf3cada59c996b81"
+  integrity sha512-9WKaGVpQH905Aqkk+BczFEeLQxS07rl04afFRPUG9IcSlOwmo5EVVuuNu0d4M9LMYucObvK0LoAe+5HfMW2QhQ==
 
 "@sentry/browser@^5.7.1":
   version "5.15.4"
@@ -2661,10 +2661,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-table@^7.0.13":
-  version "7.0.16"
-  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-7.0.16.tgz#3db6518fe07d79c58213e2b959983b353ba59457"
-  integrity sha512-SDFRUnWWN16rL/N1bpV4GKp4EAoulmrHbHoWCNUldrqVBYI9m9o+sYqNPP2E5NVUW7HQJf15rHKFN13F6v49Uw==
+"@types/react-table@^7.0.17":
+  version "7.0.17"
+  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-7.0.17.tgz#95628adcebcbd4c66f6da33d9177b82436822052"
+  integrity sha512-4C5w0FQTfE/jwAl1qI58ndOL9SEqfVQN8JP+SggPXpKUzwy/7Gmat7OgjITkw+VQ85tCySRFif3HBqo04h0mDA==
   dependencies:
     "@types/react" "*"
 
@@ -13522,12 +13522,12 @@ react-syntax-highlighter@^11.0.2:
     prismjs "^1.8.4"
     refractor "^2.4.1"
 
-react-table@^7.0.4:
-  version "7.0.4"
-  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.0.4.tgz#456838661982c83c3682f156c59a41b4339a2120"
-  integrity sha512-Uqpj+VnUIvsNWNtNFD1z2i7OCHdlhoJtQt0DWx3XOkZnvDyI/eCghK8YBfA9mY4TW7vEgCDLaRCcREC/fmcx6Q==
+react-table@^7.0.6:
+  version "7.0.6"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.0.6.tgz#ab7c9bb527339c49af39a4380884e55bbf67d8bc"
+  integrity sha512-XP+mXWCDd6VNZ/fCq69yc/vCWRGTfhQHc0fsLrnMVwT9m3MmmErMLywMbYQkkDjg1OBbhoDXpuo/R7VKGpFbQg==
   dependencies:
-    "@scarf/scarf" "^0.1.5"
+    "@scarf/scarf" "^1.0.4"
 
 react-test-renderer@^16.0.0-0:
   version "16.13.1"
@@ -15967,10 +15967,10 @@ use-callback-ref@^1.2.1:
   resolved "https://registry.yarnpkg.com/use-callback-ref/-/use-callback-ref-1.2.3.tgz#9f939dfb5740807bbf9dd79cdd4e99d27e827756"
   integrity sha512-DPBPh1i2adCZoIArRlTuKRy7yue7QogtEnfv0AKrWsY+GA+4EKe37zhRDouNnyWMoNQFYZZRF+2dLHsWE4YvJA==
 
-use-debounce@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/use-debounce/-/use-debounce-3.4.1.tgz#361a20e583c1bd4a44f8b29a26793a52a0b84d2c"
-  integrity sha512-KHZPsL+cZvOt/ZAsHTcoAK65ImXU0iG9FDeofuj9uJTdUULF6Gjws8HpK+JlIjZpZ7LTqPHZtEknc+Im4cB3AA==
+use-debounce@^3.4.2:
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/use-debounce/-/use-debounce-3.4.2.tgz#f4333cca59504244b916159600427bf977ec4c46"
+  integrity sha512-rW44wZaFPh3XiwUzGBA0JRuklpbfKO/szU/5CYD2Q/erLmCem63lJ650p3a+NJE6S+g0rulKtBOfa/3rw/GN+Q==
 
 use-sidecar@^1.0.1:
   version "1.0.2"
