@@ -48,7 +48,7 @@
       "logout": "Kirjaudu ulos"
     },
     "fileUpload": {
-      "maxSize": "Tiedostokoko alle {{maxSize}}"
+      "maxSize": "Tiedostokoko enintään {{maxSize}}"
     },
     "mooringTypes": {
       "NO_STERN_TO_MOORING": "Ilman peräkiinnitystä",
@@ -121,7 +121,8 @@
         "required": "Tämä kenttä on pakollinen.",
         "numberType": "Kentän pitää olla numero.",
         "integer": "Kentän pitää olla kokonaisluku.",
-        "positive": "Kentän pitää olla positiivinen luku."
+        "positive": "Kentän pitää olla positiivinen luku.",
+        "maxFileSize": "Tiedosto on liian suuri."
       },
       "error": "Tapahtui virhe. Yritä uudestaan.",
       "create": "Luo",

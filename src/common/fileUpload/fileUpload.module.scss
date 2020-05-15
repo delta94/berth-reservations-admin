@@ -15,6 +15,10 @@
   line-height: var(--hds-text-sm-line-height);
 }
 
+.invalid {
+  color: $error;
+}
+
 .fileListItem {
   margin: units(1) 0;
   display: flex;
@@ -56,4 +60,11 @@
 
 .maxSize {
   margin-left: units(1.5);
+}
+
+.helperText {
+  color: var(--hds-ui-color-error);
+  display: block;
+  font-size: var(--hds-text-sm);
+  line-height: var(--hds-text-sm-line-height);
 }

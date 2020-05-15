@@ -72,7 +72,7 @@ describe('FileUpload', () => {
         const wrapper = getWrapper({
           maxSize: 3 * 1000 * 1000,
         });
-        expect(wrapper.find('Text.maxSize').render().text()).toEqual('Tiedostokoko alle 3 MB');
+        expect(wrapper.find('Text.maxSize').render().text()).toEqual('Tiedostokoko enintään 3 MB');
       });
 
       it('files over "maxSize" should be styled', () => {
@@ -343,6 +343,57 @@ describe('FileUpload', () => {
           expect(mockChange).toHaveBeenCalledWith(undefined);
         });
       });
+    });
+  });
+
+  describe('"invalid" prop', () => {
+    it('if false, should not render anything with error color', () => {
+      const wrapper = getWrapper();
+      expect(wrapper.find('span.labelText').hasClass('invalid')).toBe(false);
+      expect(wrapper.find('label.field').hasClass('invalid')).toBe(false);
+    });
+
+    it('if true, should render error color', () => {
+      const wrapper = getWrapper({
+        invalid: true,
+      });
+      expect(wrapper.find('span.labelText').hasClass('invalid')).toBe(true);
+      expect(wrapper.find('label.field').hasClass('invalid')).toBe(true);
+    });
+  });
+
+  describe('"helperText" prop', () => {
+    it('if not provided, should not show helper text', () => {
+      const wrapper = getWrapper();
+      expect(wrapper.find('div.helperText')).toHaveLength(0);
+    });
+
+    it('if provided, should show helper text', () => {
+      const wrapper = getWrapper({
+        helperText: 'Test',
+      });
+      expect(wrapper.find('div.helperText')).toHaveLength(1);
+    });
+  });
+
+  describe('"invalid" prop', () => {
+    it('if false, should not render anything with error color', () => {
+      const wrapper = getWrapper({
+        helperText: 'Test',
+      });
+      expect(wrapper.find('span.labelText').hasClass('invalid')).toBe(false);
+      expect(wrapper.find('label.field').hasClass('invalid')).toBe(false);
+      expect(wrapper.find('div.helperText').hasClass('invalid')).toBe(false);
+    });
+
+    it('if true, should render error color', () => {
+      const wrapper = getWrapper({
+        invalid: true,
+        helperText: 'Test',
+      });
+      expect(wrapper.find('span.labelText').hasClass('invalid')).toBe(true);
+      expect(wrapper.find('label.field').hasClass('invalid')).toBe(true);
+      expect(wrapper.find('div.helperText').hasClass('invalid')).toBe(true);
     });
   });
 });

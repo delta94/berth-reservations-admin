@@ -28,6 +28,8 @@ export type FileContainer = PersistedFileContainer | NewFileContainer;
 export interface FileUploadProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> {
   buttonProps?: FileUploadButtonProps;
   disabled?: boolean;
+  helperText?: string;
+  invalid?: boolean;
   label?: string;
   /* max size in bytes */
   maxSize?: number;
@@ -43,6 +45,8 @@ const FileUpload: FunctionComponent<FileUploadProps> = ({
     color: 'supplementary',
   },
   disabled,
+  helperText,
+  invalid = false,
   label,
   maxSize,
   multiple = false,
@@ -142,12 +146,24 @@ const FileUpload: FunctionComponent<FileUploadProps> = ({
 
   return (
     <div className={styles.fileUpload}>
-      <span className={styles.labelText}>{label}</span>
+      <span
+        className={classNames({
+          [styles.labelText]: true,
+          [styles.invalid]: invalid,
+        })}
+      >
+        {label}
+      </span>
 
       {renderFileList()}
 
       <div className={styles.row}>
-        <label className={styles.field}>
+        <label
+          className={classNames({
+            [styles.field]: true,
+            [styles.invalid]: invalid,
+          })}
+        >
           <input
             {...rest}
             required={false} // handled in external validation
@@ -173,6 +189,15 @@ const FileUpload: FunctionComponent<FileUploadProps> = ({
           </Text>
         )}
       </div>
+
+      {helperText && (
+        <div
+          className={classNames({
+            [styles.helperText]: true,
+            [styles.invalid]: invalid,
+          })}
+        >{`${helperText}`}</div>
+      )}
     </div>
   );
 };

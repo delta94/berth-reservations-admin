@@ -8,7 +8,7 @@ import { useMutation, useQuery } from '@apollo/react-hooks';
 
 import styles from './harborEditForm.module.scss';
 import Section from '../../../../common/section/Section';
-import FileUpload from '../../../../common/fileUpload/FileUpload';
+import FileUpload, { FileContainer } from '../../../../common/fileUpload/FileUpload';
 import Text from '../../../../common/text/Text';
 import { HARBOR_FORM_QUERY } from './queries';
 import LoadingSpinner from '../../../../common/spinner/LoadingSpinner';
@@ -22,6 +22,8 @@ export interface Props extends FormProps<Harbor> {
   harborId: string;
 }
 
+const imageFileMaxSize = 500 * 1000;
+
 const getValidationSchema = (t: TFunction) =>
   Yup.object<Harbor>().shape({
     name: Yup.string().required(t('forms.common.errors.required')),
@@ -29,8 +31,15 @@ const getValidationSchema = (t: TFunction) =>
     zipCode: Yup.string().required(t('forms.common.errors.required')),
     municipality: Yup.string().required(t('forms.common.errors.required')),
     wwwUrl: Yup.string().required(t('forms.common.errors.required')),
-    imageFile: Yup.object(),
-    maps: Yup.array(),
+    imageFile: Yup.object<FileContainer>()
+      .test('fileRequired', t('forms.common.errors.required'), (value) => value.markedForDeletion === false)
+      .test(
+        'maxFileSize',
+        t('forms.common.errors.maxFileSize'),
+        (value) => !value.data || value.data.size <= imageFileMaxSize
+      )
+      .required(t('forms.common.errors.required')),
+    maps: Yup.array<FileContainer>(),
   });
 
 const HarborEditForm: FunctionComponent<Props> = ({ harborId, onCancel, onSubmit, refetchQueries }) => {
@@ -134,12 +143,14 @@ const HarborEditForm: FunctionComponent<Props> = ({ harborId, onCancel, onSubmit
               as={FileUpload}
               name="imageFile"
               label={t('forms.harbor.imageFile')}
-              maxSize={500 * 1000}
+              maxSize={imageFileMaxSize}
               accept="image/png, image/jpeg"
               required
               onChange={(value: File) => {
                 setFieldValue('imageFile', value);
               }}
+              invalid={!!errors.imageFile}
+              helperText={errors.imageFile}
             />
           </Section>
 
@@ -152,6 +163,8 @@ const HarborEditForm: FunctionComponent<Props> = ({ harborId, onCancel, onSubmit
               onChange={(value: File[]) => {
                 setFieldValue('maps', value);
               }}
+              invalid={!!errors.maps}
+              helperText={errors.maps}
             />
           </Section>
 
