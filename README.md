@@ -150,3 +150,25 @@ To verify deployment, open [https://city-of-helsinki.github.io/berth-reservation
 ### Staging deployment
 
 Staging deployment is handled by CI/CD pipeline for new commits on `develop` branch.
+
+## Browser tests
+
+Browser tests are written in TypeScript with [TestCafe](https://devexpress.github.io/testcafe/) framework and they are run against [test environment](https://venepaikka-admin.test.kuva.hel.ninja) in CI as Travis Cron Job (daily) with Chrome (headless mode).
+
+### How to run locally
+
+Set test user login credentials
+- Open `.env.development.local` and set `BROWSER_TESTS_UID` and `BROWSER_TESTS_PWD`
+- TBD: Link to values
+
+Running against test environment
+
+- `yarn browser-test`
+
+Running against local environment
+
+- `yarn browser-test:local`
+
+### CI setup
+
+Travis runs the `yarn browser-test:ci` script. Known issue: screen shots are taken on failure, but we cannot access them at the moment. We would need to setup Travis `artifacts` plugin for that, but it seems that there are no suitable AWS S3 we could use.
