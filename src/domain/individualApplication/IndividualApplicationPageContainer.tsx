@@ -191,8 +191,8 @@ const IndividualCustomerPageContainer: React.SFC = () => {
       handleLinkCustomer={handleLinkCustomer}
       loadingCustomers={loadingCustomers}
       customerTableTools={{
-        searchVal: searchVal,
-        searchBy: searchBy,
+        searchVal,
+        searchBy,
         setSearchVal,
         setSearchBy: (searchBy) => {
           setSearchBy(searchBy);
