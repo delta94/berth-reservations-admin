@@ -17,6 +17,7 @@ import { APPLICATION_STATUS } from '../../common/utils/consonants';
 import CustomerProfileCard, { CustomerProfileCardProps } from '../cards/customerProfileCard/CustomerProfileCard';
 import OfferCard, { OfferCardProps } from './offerCard/OfferCard';
 import { OrganizationType } from '../../@types/__generated__/globalTypes';
+import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
 
 export enum SearchBy {
   FIRST_NAME = 'firstName',
@@ -43,15 +44,19 @@ export interface IndividualApplicationPageProps {
   applicationDetails: ApplicationDetailsProps;
   offerDetails: OfferCardProps | null;
   customerTableTools: CustomersTableToolsProps<SearchBy>;
+  loadingCustomers?: boolean;
+  pagination: PaginationProps;
   handleLinkCustomer(customerId: string): void;
 }
 
-const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
+const IndividualApplicationPage: React.FC<IndividualApplicationPageProps> = ({
   similarCustomersData,
   customerProfile,
   applicationDetails,
   offerDetails,
   customerTableTools,
+  loadingCustomers,
+  pagination,
   handleLinkCustomer,
 }) => {
   const { t, i18n } = useTranslation();
@@ -105,12 +110,15 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
 
       {similarCustomersData && (
         <>
-          <Notification labelText={t('individualApplication.noCustomerProfileNotification.label')} type="warning">
-            {t('individualApplication.noCustomerProfileNotification.description')}
-          </Notification>
+          <div className={styles.fullWidth}>
+            <Notification labelText={t('individualApplication.noCustomerProfileNotification.label')} type="warning">
+              {t('individualApplication.noCustomerProfileNotification.description')}
+            </Notification>
+          </div>
           <Table
             className={styles.fullWidth}
             data={similarCustomersData}
+            loading={loadingCustomers}
             columns={columns}
             renderMainHeader={() => t('individualApplication.customersTable.mainHeader')}
             renderTableToolsTop={({ selectedRows }) => {
@@ -121,6 +129,9 @@ const IndividualApplicationPage: React.SFC<IndividualApplicationPageProps> = ({
             renderEmptyStateRow={() => <div>{t('individualApplication.customersTable.emptyState')}</div>}
             canSelectOneRow
           />
+          <div className={styles.fullWidth}>
+            <Pagination {...pagination} />
+          </div>
         </>
       )}
       {customerProfile && (

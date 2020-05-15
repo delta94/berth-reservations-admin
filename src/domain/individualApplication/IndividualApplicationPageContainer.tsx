@@ -27,12 +27,14 @@ import {
   CREATE_NEW_PROFILEVariables as CREATE_NEW_PROFILE_VARS,
 } from './__generated__/CREATE_NEW_PROFILE';
 import { getApplicationDetailsData, getCustomerProfile, getFilteredCustomersData, getOfferDetailsData } from './utils';
+import { usePagination } from '../../common/utils/usePagination';
+import { usePrevious } from '../../common/utils/usePrevious';
 
 const IndividualCustomerPageContainer: React.SFC = () => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const [searchBy, setSearchBy] = useState<SearchBy>(SearchBy.LAST_NAME);
-  const [searchVal, setSearchVal] = useState<string>();
+  const [searchVal, setSearchVal] = useState<string>('');
 
   const { loading, error, data } = useQuery<INDIVIDUAL_APPLICATION, INDIVIDUAL_APPLICATION_VARS>(
     INDIVIDUAL_APPLICATION_QUERY,
@@ -43,17 +45,26 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     }
   );
 
+  const { cursor, pageSize, pageIndex, getPageCount, goToPage } = usePagination();
+
   const [debouncedSearchVal] = useDebounce(searchVal, 500, {
     equalityFn: (prev, next) => prev === next,
+    leading: true,
   });
 
-  const [fetchFilteredCustomers, { data: customersData, refetch, called }] = useLazyQuery<
+  const prevSearchBy = usePrevious(searchBy);
+
+  const filteredCustomersVars = {
+    first: pageSize,
+    after: cursor,
+    [searchBy]: prevSearchBy === searchBy ? debouncedSearchVal : searchVal,
+  };
+
+  const [fetchFilteredCustomers, { data: customersData, called, loading: loadingCustomers }] = useLazyQuery<
     FILTERED_CUSTOMERS,
     FILTERED_CUSTOMERS_VARS
   >(FILTERED_CUSTOMERS_QUERY, {
-    variables: {
-      [searchBy]: debouncedSearchVal ?? searchVal,
-    },
+    variables: filteredCustomersVars,
   });
 
   // TODO: handle errors
@@ -64,11 +75,19 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     setSearchVal(data.berthApplication[searchBy]);
   }, [data, searchBy]);
 
+  const customer = data?.berthApplication?.customer;
+
   useEffect(() => {
-    if (!loading && !data?.berthApplication?.customer) {
-      !called ? fetchFilteredCustomers() : refetch();
+    // Only fetch customers if the application doesn't have an attached customer.
+    if (!customer && !loading && !called) {
+      fetchFilteredCustomers();
     }
-  }, [debouncedSearchVal, refetch, fetchFilteredCustomers, called, data, loading]);
+  }, [customer, loading, called, fetchFilteredCustomers]);
+
+  useEffect(() => {
+    // Go to the first page when search values change.
+    !customer && !loading && goToPage(0);
+  }, [searchVal, searchBy, customer, loading, goToPage]);
 
   // TODO: handle errors
   const [linkCustomer, { error: linkCustomerErr }] = useMutation<
@@ -92,9 +111,7 @@ const IndividualCustomerPageContainer: React.SFC = () => {
       refetchQueries: [
         {
           query: FILTERED_CUSTOMERS_QUERY,
-          variables: {
-            [searchBy]: debouncedSearchVal ?? searchVal,
-          },
+          variables: filteredCustomersVars,
         },
       ],
     }
@@ -125,11 +142,11 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     });
   };
 
-  const customerProfile = data.berthApplication.customer ? getCustomerProfile(data.berthApplication.customer) : null;
+  const customerProfile = customer ? getCustomerProfile(customer) : null;
 
   const applicationDetailsData = getApplicationDetailsData(data.berthApplication, data.boatTypes || []);
 
-  const filteredCustomersData = !data.berthApplication.customer ? getFilteredCustomersData(customersData) : null;
+  const filteredCustomersData = !customer ? getFilteredCustomersData(customersData) : null;
 
   const applicationDetails = { ...applicationDetailsData, handleDeleteLease };
 
@@ -172,11 +189,15 @@ const IndividualCustomerPageContainer: React.SFC = () => {
     <IndividualApplicationPage
       applicationId={id}
       handleLinkCustomer={handleLinkCustomer}
+      loadingCustomers={loadingCustomers}
       customerTableTools={{
-        searchVal,
-        searchBy,
+        searchVal: searchVal,
+        searchBy: searchBy,
         setSearchVal,
-        setSearchBy,
+        setSearchBy: (searchBy) => {
+          setSearchBy(searchBy);
+          setSearchVal(data?.berthApplication?.[searchBy] ?? '');
+        },
         handleCreateCustomer,
         searchByOptions: [
           { value: SearchBy.FIRST_NAME, label: t('common.firstName') },
@@ -184,6 +205,11 @@ const IndividualCustomerPageContainer: React.SFC = () => {
           { value: SearchBy.EMAIL, label: t('common.email') },
           { value: SearchBy.ADDRESS, label: t('common.address') },
         ],
+      }}
+      pagination={{
+        forcePage: pageIndex,
+        pageCount: getPageCount(customersData?.profiles?.count),
+        onPageChange: ({ selected }) => goToPage(selected),
       }}
       similarCustomersData={filteredCustomersData}
       customerProfile={customerProfile}

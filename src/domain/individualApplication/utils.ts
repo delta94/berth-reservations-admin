@@ -95,7 +95,7 @@ export const getApplicationDetailsData = (
 };
 
 export const getFilteredCustomersData = (data?: FILTERED_CUSTOMERS): CustomerData[] | null => {
-  if (!data?.profiles) return null;
+  if (!data?.profiles) return [];
 
   return data.profiles.edges.reduce<CustomerData[]>((acc, edge) => {
     if (!edge?.node) return acc;

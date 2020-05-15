@@ -103,6 +103,7 @@ export interface FILTERED_CUSTOMERS_profiles_edges {
 
 export interface FILTERED_CUSTOMERS_profiles {
   __typename: "ProfileNodeConnection";
+  count: number | null;
   edges: (FILTERED_CUSTOMERS_profiles_edges | null)[];
 }
 
@@ -111,6 +112,8 @@ export interface FILTERED_CUSTOMERS {
 }
 
 export interface FILTERED_CUSTOMERSVariables {
+  first: number;
+  after?: string | null;
   firstName?: string | null;
   lastName?: string | null;
   email?: string | null;

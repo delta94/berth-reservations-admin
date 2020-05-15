@@ -1,8 +1,17 @@
 import { gql } from 'apollo-boost';
 
 export const FILTERED_CUSTOMERS_QUERY = gql`
-  query FILTERED_CUSTOMERS($firstName: String, $lastName: String, $email: String, $address: String) {
+  query FILTERED_CUSTOMERS(
+    $first: Int!
+    $after: String
+    $firstName: String
+    $lastName: String
+    $email: String
+    $address: String
+  ) {
     profiles(
+      first: $first
+      after: $after
       serviceType: BERTH
       firstName: $firstName
       lastName: $lastName
@@ -10,6 +19,7 @@ export const FILTERED_CUSTOMERS_QUERY = gql`
       addresses_Address: $address
       orderBy: "lastName"
     ) {
+      count
       edges {
         node {
           id
