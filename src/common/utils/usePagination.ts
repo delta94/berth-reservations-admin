@@ -15,7 +15,7 @@ export const usePagination = (pageSize = PAGE_SIZE) => {
   const getPageCount = (connectionsCount: number | null | undefined) =>
     connectionsCount ? Math.ceil(connectionsCount / pageSize) : 1;
 
-  const goToPage = useCallback((pageIndex: number) => history.push(`?page=${pageIndex + 1}`), [history]);
+  const goToPage = useCallback((pageIndex: number) => history.push({ search: `?page=${pageIndex + 1}` }), [history]);
 
   return {
     cursor,

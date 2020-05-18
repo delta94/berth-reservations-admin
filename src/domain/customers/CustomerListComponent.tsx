@@ -6,6 +6,7 @@ import Table, { COLUMN_WIDTH } from '../../common/table/Table';
 import InternalLink from '../../common/internalLink/InternalLink';
 import CustomerDetails from './customerDetails/CustomerDetails';
 import { OrganizationType } from '../../@types/__generated__/globalTypes';
+import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
 
 export interface TableData {
   address?: string;
@@ -26,9 +27,10 @@ type ColumnType = Column<TableData> & { accessor: keyof TableData };
 export interface CustomerListComponentProps {
   loading: boolean;
   data: TableData[];
+  pagination: PaginationProps;
 }
 
-const CustomerListComponent = ({ data, loading }: CustomerListComponentProps) => {
+const CustomerListComponent = ({ loading, data, pagination }: CustomerListComponentProps) => {
   const { t } = useTranslation();
   const columns: ColumnType[] = [
     {
@@ -93,6 +95,7 @@ const CustomerListComponent = ({ data, loading }: CustomerListComponentProps) =>
       }}
       renderMainHeader={() => t('customers.tableHeaders.mainHeader')}
       renderEmptyStateRow={() => t('common.notification.noData.description')}
+      renderTableToolsBottom={() => <Pagination {...pagination} />}
       canSelectRows
     />
   );

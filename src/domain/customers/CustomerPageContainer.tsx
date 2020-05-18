@@ -8,7 +8,6 @@ import { getCustomersData } from './utils';
 import { CUSTOMERS, CUSTOMERSVariables as CUSTOMERS_VARS } from './__generated__/CUSTOMERS';
 import CustomerList from './CustomerListComponent';
 import CustomersPage from './CustomersPage';
-import Pagination from '../../common/pagination/Pagination';
 import { usePagination } from '../../common/utils/usePagination';
 
 const CustomersPageContainer: React.FC = () => {
@@ -31,11 +30,14 @@ const CustomersPageContainer: React.FC = () => {
 
   return (
     <CustomersPage>
-      <CustomerList loading={loading} data={tableData} />
-      <Pagination
-        forcePage={pageIndex}
-        pageCount={getPageCount(data?.profiles?.count)}
-        onPageChange={({ selected }) => goToPage(selected)}
+      <CustomerList
+        loading={loading}
+        data={tableData}
+        pagination={{
+          forcePage: pageIndex,
+          pageCount: getPageCount(data?.profiles?.count),
+          onPageChange: ({ selected }) => goToPage(selected),
+        }}
       />
     </CustomersPage>
   );

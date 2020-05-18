@@ -8,23 +8,16 @@ import styles from './harborsPage.module.scss';
 import Icon from '../../common/icons/Icon';
 import { HarborData } from './utils';
 import GlobalSearchTableTools from '../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';
-
-export interface IconProps {
-  disabled?: boolean;
-  outlined?: boolean;
-  width?: string;
-  height?: string;
-  size?: 'small' | 'standard' | 'large';
-  color?: 'standard' | 'brand' | 'critical' | 'secondary' | 'info';
-}
+import Pagination from '../../common/pagination/Pagination';
 
 type ColumnType = Column<HarborData> & { accessor: keyof HarborData };
 
 export interface HarborsPageProps {
-  data?: Array<HarborData>;
+  data: Array<HarborData>;
+  loading?: boolean;
 }
 
-const HarborsList: React.FC<HarborsPageProps> = ({ data = [] }) => {
+const HarborsPage: React.FC<HarborsPageProps> = ({ data, loading }) => {
   const { t } = useTranslation();
 
   const columns: ColumnType[] = [
@@ -80,14 +73,23 @@ const HarborsList: React.FC<HarborsPageProps> = ({ data = [] }) => {
     <div className={styles.harborsPage}>
       <Table
         data={data}
+        loading={loading}
         columns={columns}
         renderTableToolsTop={(_, setters) => <GlobalSearchTableTools handleGlobalFilter={setters.setGlobalFilter} />}
         renderSubComponent={(row) => <HarborDetails {...row.original} />}
         renderMainHeader={() => t('harbors.tableHeaders.mainHeader')}
+        renderEmptyStateRow={() => t('common.notification.noData.description')}
+        renderPaginator={({ pageIndex, pageCount, goToPage }) => (
+          <Pagination
+            forcePage={pageIndex}
+            pageCount={pageCount || 1}
+            onPageChange={({ selected }) => goToPage(selected)}
+          />
+        )}
         canSelectRows
       />
     </div>
   );
 };
 
-export default HarborsList;
+export default HarborsPage;

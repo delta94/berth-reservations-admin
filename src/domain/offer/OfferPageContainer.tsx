@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { useLocation, useParams, useHistory, Redirect } from 'react-router';
+import { useLocation, useParams, useHistory, Redirect } from 'react-router-dom';
 import { Notification } from 'hds-react';
 
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';

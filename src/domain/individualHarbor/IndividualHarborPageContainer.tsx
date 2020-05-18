@@ -22,6 +22,7 @@ import InternalLink from '../../common/internalLink/InternalLink';
 import PierCreateForm from './forms/pierForm/PierCreateForm';
 import PierEditForm from './forms/pierForm/PierEditForm';
 import Chip from '../../common/chip/Chip';
+import Pagination from '../../common/pagination/Pagination';
 
 const IndividualHarborPageContainer: React.SFC = () => {
   const [berthToEdit, setBerthToEdit] = useState<string | null>(null);
@@ -151,6 +152,13 @@ const IndividualHarborPageContainer: React.SFC = () => {
             leases={row.original.leases ?? []}
             comment={row.original.comment}
             onEdit={() => setBerthToEdit(row.original.id)}
+          />
+        )}
+        renderPaginator={({ pageIndex, pageCount, goToPage }) => (
+          <Pagination
+            forcePage={pageIndex}
+            pageCount={pageCount || 1}
+            onPageChange={({ selected }) => goToPage(selected)}
           />
         )}
       />

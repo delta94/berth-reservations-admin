@@ -98,6 +98,7 @@ export interface BERTH_APPLICATIONS_berthApplications_edges {
 
 export interface BERTH_APPLICATIONS_berthApplications {
   __typename: "BerthApplicationNodeConnection";
+  count: number;
   edges: (BERTH_APPLICATIONS_berthApplications_edges | null)[];
 }
 
@@ -110,4 +111,10 @@ export interface BERTH_APPLICATIONS_boatTypes {
 export interface BERTH_APPLICATIONS {
   berthApplications: BERTH_APPLICATIONS_berthApplications | null;
   boatTypes: BERTH_APPLICATIONS_boatTypes[] | null;
+}
+
+export interface BERTH_APPLICATIONSVariables {
+  first: number;
+  after?: string | null;
+  switchApplications?: boolean | null;
 }
