@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Notification } from 'hds-react';
-import { useLazyQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 import { useDebounce } from 'use-debounce';
 
 import { CUSTOMER_QUERY } from './queries';
@@ -34,18 +34,9 @@ const CustomersPageContainer: React.FC = () => {
     [searchBy]: prevSearchBy === searchBy ? debouncedSearchVal : searchVal,
   };
 
-  const [fetchFilteredCustomers, { data, error, called, loading }] = useLazyQuery<CUSTOMERS, CUSTOMERS_VARS>(
-    CUSTOMER_QUERY,
-    {
-      variables: filteredCustomersVars,
-    }
-  );
-
-  useEffect(() => {
-    if (!loading && !called) {
-      fetchFilteredCustomers();
-    }
-  }, [loading, called, fetchFilteredCustomers]);
+  const { data, error, loading } = useQuery<CUSTOMERS, CUSTOMERS_VARS>(CUSTOMER_QUERY, {
+    variables: filteredCustomersVars,
+  });
 
   useEffect(() => {
     // Go to the first page when search values change.
