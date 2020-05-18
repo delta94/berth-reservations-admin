@@ -150,6 +150,7 @@
     }
   },
   "harbors": {
+    "title": "Venepaikat",
     "tableHeaders": {
       "mainHeader": "Satamat",
       "harbor": "Satama",
@@ -175,6 +176,7 @@
     }
   },
   "individualHarbor": {
+    "title": "Satama",
     "harborProperties": {
       "title": "SATAMA",
       "numberOfPlaces": "Paikkoja",
@@ -215,6 +217,7 @@
     }
   },
   "applications": {
+    "title": "Hakemukset",
     "tableHeaders": {
       "switchFilter": "Vaihtohakemukset",
       "newApplicationFilter": "Uudet hakemukset",
@@ -266,6 +269,7 @@
     }
   },
   "individualApplication": {
+    "title": "Hakemus",
     "noCustomerProfileNotification": {
       "label": "Hakemusta ei ole liitetty mihinkään asiakkaaseen",
       "description": "Liitä hakemus olemassa olevaan asiakasprofiiliin tai luo uusi asiakasprofiili hakemuksen tiedoilla."
@@ -337,6 +341,7 @@
     }
   },
   "customers": {
+    "title": "Asiakkaat",
     "tableHeaders": {
       "name": "Nimi",
       "group": "Asiakasryhmä",
@@ -360,6 +365,7 @@
     }
   },
   "individualCustomer": {
+    "title": "Asiakas",
     "application": {
       "title": "HAKEMUKSET",
       "application": "HAKEMUS",
@@ -424,7 +430,7 @@
     }
   },
   "pricing": {
-    "heading": "Hinnasto",
+    "title": "Hinnasto",
     "editModalHeading": "Hinnaston muokkaus",
     "berths": {
       "title": "Venepaikka",

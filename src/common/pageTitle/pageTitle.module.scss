@@ -1,0 +1,10 @@
+@import 'colours';
+@import 'spacings';
+
+.pageTitle {
+  color: $gray-500;
+  font-size: 1.25em;
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: units(2);
+}

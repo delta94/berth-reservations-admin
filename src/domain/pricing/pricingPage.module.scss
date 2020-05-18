@@ -1,11 +1,13 @@
 @import 'spacings';
 
 .pricingPage {
+  padding: units(2);
+}
+
+.grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: units(1);
-
-  padding: units(2);
 }
 
 .fullWidth {

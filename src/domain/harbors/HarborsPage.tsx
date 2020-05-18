@@ -9,6 +9,7 @@ import Icon from '../../common/icons/Icon';
 import { HarborData } from './utils';
 import GlobalSearchTableTools from '../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';
 import Pagination from '../../common/pagination/Pagination';
+import PageTitle from '../../common/pageTitle/PageTitle';
 
 type ColumnType = Column<HarborData> & { accessor: keyof HarborData };
 
@@ -71,6 +72,7 @@ const HarborsPage: React.FC<HarborsPageProps> = ({ data, loading }) => {
 
   return (
     <div className={styles.harborsPage}>
+      <PageTitle title={t('harbors.title')} />
       <Table
         data={data}
         loading={loading}
