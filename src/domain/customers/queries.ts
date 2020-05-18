@@ -1,8 +1,24 @@
 import { gql } from 'apollo-boost';
 
 export const CUSTOMER_QUERY = gql`
-  query CUSTOMERS($after: String, $first: Int!) {
-    profiles(serviceType: BERTH, first: $first, after: $after) {
+  query CUSTOMERS(
+    $first: Int!
+    $after: String
+    $firstName: String
+    $lastName: String
+    $email: String
+    $address: String
+  ) {
+    profiles(
+      first: $first
+      after: $after
+      serviceType: BERTH
+      firstName: $firstName
+      lastName: $lastName
+      emails_Email: $email
+      addresses_Address: $address
+      orderBy: "lastName"
+    ) {
       count
       edges {
         node {
