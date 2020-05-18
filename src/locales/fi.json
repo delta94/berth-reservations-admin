@@ -133,8 +133,7 @@
       "depth": "Syvyys (m)",
       "mooringType": "Kiinnitystapa",
       "comment": "Huomiot",
-      "isActive": "Paikka on käytössä",
-      "delete": "Poista venepaikka"
+      "isActive": "Paikka on käytössä"
     },
     "pier": {
       "title": "Laituri",
