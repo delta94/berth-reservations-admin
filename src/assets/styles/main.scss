@@ -1,3 +1,4 @@
+@import '~hds-core/lib/base.css';
 @import 'normalize';
 @import 'boxSizing';
 @import 'colours';
@@ -83,7 +84,7 @@
 }
 
 html * {
-  font-family: var(--hds-theme-primary-font), Arial;
+  font-family: var(--font-default), Arial;
 }
 
 code {
