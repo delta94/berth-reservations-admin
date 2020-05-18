@@ -75,9 +75,7 @@ const CustomersPageContainer: React.FC = () => {
           searchVal,
           searchBy,
           setSearchVal,
-          setSearchBy: (searchBy) => {
-            setSearchBy(searchBy);
-          },
+          setSearchBy,
           searchByOptions: [
             { value: SearchBy.FIRST_NAME, label: t('common.firstName') },
             { value: SearchBy.LAST_NAME, label: t('common.lastName') },
