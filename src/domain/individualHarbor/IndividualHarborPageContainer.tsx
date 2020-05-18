@@ -98,6 +98,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
   ];
   const piers = getPiers(data);
   const berths = getBerths(data);
+  const canAddBerth = piers.length > 0;
 
   return (
     <IndividualHarborPage>
@@ -127,6 +128,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
             onAddBerth={() => setCreatingBerth(true)}
             onAddPier={() => setCreatingPier(true)}
             handleGlobalFilter={setters.setGlobalFilter}
+            canAddBerth={canAddBerth}
           />
         )}
         styleMainHeader={false}
