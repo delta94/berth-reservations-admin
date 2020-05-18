@@ -68,7 +68,7 @@ const PierForm: React.FC<PierFormProps> = ({
           <div className={styles.heading}>
             <Text as="h4">{t('forms.berth.title')}</Text>
             {onDelete && (
-              <button disabled={isSubmitting} onClick={() => onDelete(values)}>
+              <button type="button" disabled={isSubmitting} onClick={() => onDelete(values)}>
                 <Text color="critical">{t('forms.common.delete')}</Text>
               </button>
             )}
