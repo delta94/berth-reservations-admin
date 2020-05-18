@@ -159,13 +159,15 @@ const ApplicationsPageContainer: React.SFC = () => {
             />
           );
         }}
+        renderTableToolsBottom={() => (
+          <Pagination
+            forcePage={pageIndex}
+            pageCount={getPageCount(data?.berthApplications?.count)}
+            onPageChange={({ selected }) => goToPage(selected)}
+          />
+        )}
         renderEmptyStateRow={() => t('common.notification.noData.description')}
         canSelectRows
-      />
-      <Pagination
-        forcePage={pageIndex}
-        pageCount={getPageCount(data?.berthApplications?.count)}
-        onPageChange={({ selected }) => goToPage(selected)}
       />
     </ApplicationsPage>
   );

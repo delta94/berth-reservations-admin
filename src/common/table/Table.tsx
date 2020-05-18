@@ -55,6 +55,7 @@ type Props<D extends object> = {
   renderSubComponent?: (row: Row<D>) => React.ReactNode;
   renderMainHeader?: (props: HeaderProps<D>) => React.ReactNode;
   renderEmptyStateRow?: () => React.ReactNode;
+  // Client-Side pagination
   renderPaginator?: (pagination: {
     pageIndex: number;
     pageCount: number;
