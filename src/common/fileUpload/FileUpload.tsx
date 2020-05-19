@@ -191,14 +191,9 @@ const FileUpload: React.FC<FileUploadProps> = ({
       </div>
 
       {helperText && (
-        <div
-          className={classNames({
-            [styles.helperText]: true,
-            [styles.invalid]: invalid,
-          })}
-        >
+        <Text color={invalid ? 'critical' : undefined} size="s" className={styles.helperText}>
           {helperText}
-        </div>
+        </Text>
       )}
     </div>
   );

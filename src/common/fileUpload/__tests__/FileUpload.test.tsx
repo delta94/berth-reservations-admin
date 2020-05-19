@@ -365,14 +365,14 @@ describe('FileUpload', () => {
   describe('"helperText" prop', () => {
     it('if not provided, should not show helper text', () => {
       const wrapper = getWrapper();
-      expect(wrapper.find('div.helperText')).toHaveLength(0);
+      expect(wrapper.find('Text.helperText')).toHaveLength(0);
     });
 
     it('if provided, should show helper text', () => {
       const wrapper = getWrapper({
         helperText: 'Test',
       });
-      expect(wrapper.find('div.helperText')).toHaveLength(1);
+      expect(wrapper.find('Text.helperText')).toHaveLength(1);
     });
   });
 
@@ -383,7 +383,7 @@ describe('FileUpload', () => {
       });
       expect(wrapper.find('span.labelText').hasClass('invalid')).toBe(false);
       expect(wrapper.find('label.field').hasClass('invalid')).toBe(false);
-      expect(wrapper.find('div.helperText').hasClass('invalid')).toBe(false);
+      expect(wrapper.find('Text.helperText').prop('color')).toBe(undefined);
     });
 
     it('if true, should render error color', () => {
@@ -393,7 +393,7 @@ describe('FileUpload', () => {
       });
       expect(wrapper.find('span.labelText').hasClass('invalid')).toBe(true);
       expect(wrapper.find('label.field').hasClass('invalid')).toBe(true);
-      expect(wrapper.find('div.helperText').hasClass('invalid')).toBe(true);
+      expect(wrapper.find('Text.helperText').prop('color')).toBe('critical');
     });
   });
 });
