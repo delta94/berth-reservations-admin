@@ -18,6 +18,7 @@ import CustomerProfileCard, { CustomerProfileCardProps } from '../cards/customer
 import OfferCard, { OfferCardProps } from './offerCard/OfferCard';
 import { OrganizationType } from '../../@types/__generated__/globalTypes';
 import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
+import PageTitle from '../../common/pageTitle/PageTitle';
 
 export enum SearchBy {
   FIRST_NAME = 'firstName',
@@ -94,6 +95,7 @@ const IndividualApplicationPage: React.FC<IndividualApplicationPageProps> = ({
 
   return (
     <div className={styles.individualApplicationPage}>
+      <PageTitle title={t('individualApplication.title')} />
       <div className={classNames(styles.fullWidth, styles.pageHeader)}>
         <Text as="h2" size="xl" weight="normalWeight">
           {applicationDetails.berthSwitch !== null
