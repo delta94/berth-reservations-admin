@@ -61,6 +61,7 @@ type Props<D extends object> = {
     pageCount: number;
     goToPage(pageIndex: number): void;
   }) => React.ReactNode;
+  onSortingChange?: (sortBy: TableState<D>['sortBy']) => void;
 } & TableOptions<D>;
 
 const EXPANDER = 'EXPANDER';
@@ -91,12 +92,14 @@ const Table = <D extends object>({
   theme = 'primary',
   globalFilter,
   initialState,
+  autoResetSortBy = true,
   renderTableToolsTop,
   renderTableToolsBottom,
   renderSubComponent,
   renderMainHeader,
   renderEmptyStateRow,
   renderPaginator,
+  onSortingChange,
 }: Props<D>) => {
   const { t } = useTranslation();
 
@@ -186,6 +189,15 @@ const Table = <D extends object>({
 
   const data = React.useMemo(() => tableData, [tableData]);
 
+  const [dataState, setDataState] = React.useState<D[]>([]);
+
+  const skipPageResetRef = React.useRef<boolean>();
+
+  useEffect(() => {
+    // After the table has updated, always remove the flag
+    skipPageResetRef.current = false;
+  });
+
   const {
     headerGroups,
     state,
@@ -202,9 +214,10 @@ const Table = <D extends object>({
   } = useTable(
     {
       columns: tableColumns,
-      data,
+      data: dataState,
       globalFilter,
       initialState,
+      autoResetSortBy: autoResetSortBy || !skipPageResetRef.current,
     },
     useFilters,
     useGlobalFilter,
@@ -218,6 +231,21 @@ const Table = <D extends object>({
   useEffect(() => {
     gotoPage(0);
   }, [gotoPage, state.sortBy, state.filters, state.globalFilter]);
+
+  useEffect(() => {
+    onSortingChange?.(state.sortBy);
+  }, [state.sortBy, onSortingChange]);
+
+  useEffect(() => {
+    const updateData = (newData: D[]) => {
+      // When data gets updated with this function, set a flag to disable all of the auto resetting
+      skipPageResetRef.current = true;
+
+      setDataState(newData);
+    };
+
+    updateData(data);
+  }, [data]);
 
   const renderTableHead = (headerGroup: HeaderGroup<D>, index: number) => (
     <div
