@@ -32,7 +32,11 @@ const getValidationSchema = (t: TFunction) =>
     municipality: Yup.string().required(t('forms.common.errors.required')),
     wwwUrl: Yup.string().required(t('forms.common.errors.required')),
     imageFile: Yup.object<FileContainer>()
-      .test('fileRequired', t('forms.common.errors.required'), (value) => value.markedForDeletion === false)
+      .test(
+        'fileRequired',
+        t('forms.common.errors.required'),
+        (value) => value.markedForDeletion === undefined || value.markedForDeletion === false
+      )
       .test(
         'maxFileSize',
         t('forms.common.errors.maxFileSize'),

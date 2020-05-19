@@ -1,6 +1,7 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
+import { v4 as uuid } from 'uuid';
 
 import styles from './fileUpload.module.scss';
 import Text from '../text/Text';
@@ -10,6 +11,7 @@ import Icon from '../icons/Icon';
 import { formatBytes } from '../utils/format';
 
 type PersistedFileContainer = {
+  uuid: string;
   name: string;
   id?: string;
   data?: never;
@@ -17,6 +19,7 @@ type PersistedFileContainer = {
 };
 
 type NewFileContainer = {
+  uuid: string;
   name: string;
   id?: never;
   data?: File;
@@ -39,7 +42,7 @@ export interface FileUploadProps extends Omit<React.InputHTMLAttributes<HTMLInpu
   value: undefined | FileContainer | FileContainer[];
 }
 
-const FileUpload: FunctionComponent<FileUploadProps> = ({
+const FileUpload: React.FC<FileUploadProps> = ({
   buttonProps = {
     size: 'small',
     color: 'supplementary',
@@ -60,6 +63,7 @@ const FileUpload: FunctionComponent<FileUploadProps> = ({
   const handleChange: React.InputHTMLAttributes<HTMLInputElement>['onChange'] = (event) => {
     if (event.currentTarget.files) {
       const eventFiles: FileContainer[] = Array.from(event.currentTarget.files).map((file) => ({
+        uuid: uuid(),
         name: file.name,
         data: file,
       }));
@@ -73,39 +77,35 @@ const FileUpload: FunctionComponent<FileUploadProps> = ({
     }
   };
 
-  const handleDelete = (targetFile: FileContainer) => {
+  const handleDelete = (uuid: string) => {
     // multiple
     if (Array.isArray(value)) {
       return onChange(
-        value.reduce((acc: FileContainer[], file: FileContainer) => {
-          if (file === targetFile) {
-            if (file.data === undefined) {
-              // Persisted file, mark for deletion
-              return acc.concat({
-                ...(file as PersistedFileContainer),
-                markedForDeletion: !file.markedForDeletion,
-              });
-            } else {
-              // New file, remove reference
-              return acc;
-            }
-          } else {
-            return acc.concat(file);
-          }
+        value.reduce<FileContainer[]>((acc, file) => {
+          if (file.uuid !== uuid) return acc.concat(file);
+
+          // New file, remove reference
+          if (file.data !== undefined) return acc;
+
+          // Persisted file, mark for deletion
+          return acc.concat({
+            ...(file as PersistedFileContainer),
+            markedForDeletion: !file.markedForDeletion,
+          });
         }, [])
       );
     }
 
     // single
     return onChange(
-      (value as FileContainer).data === undefined
-        ? // Persisted file, mark for deletion
+      (value as FileContainer).data !== undefined
+        ? // New file, remove reference
+          undefined
+        : // Persisted file, mark for deletion
           {
             ...(value as PersistedFileContainer),
             markedForDeletion: !(value as PersistedFileContainer).markedForDeletion,
           }
-        : // New file, remove reference
-          undefined
     );
   };
 
@@ -115,9 +115,9 @@ const FileUpload: FunctionComponent<FileUploadProps> = ({
     const valueList = Array.isArray(value) ? value : [value];
     return (
       <List noBullets>
-        {valueList.map((file) => {
+        {valueList.map((file, index) => {
           return (
-            <li key={file.name} className={styles.fileListItem}>
+            <li key={`${file.name}@${index}`} className={styles.fileListItem}>
               <Text
                 color="brand"
                 className={classNames({
@@ -130,7 +130,7 @@ const FileUpload: FunctionComponent<FileUploadProps> = ({
                 {file.data && file.data.size > 0 && ` (${formatBytes(file.data.size, i18n.language)})`}
               </Text>
 
-              <button className={styles.delete} type="button" onClick={() => handleDelete(file)}>
+              <button className={styles.delete} type="button" onClick={() => handleDelete(file.uuid)}>
                 {file.data ? (
                   <Icon shape="IconTimes" color="critical" />
                 ) : (
@@ -196,7 +196,9 @@ const FileUpload: FunctionComponent<FileUploadProps> = ({
             [styles.helperText]: true,
             [styles.invalid]: invalid,
           })}
-        >{`${helperText}`}</div>
+        >
+          {helperText}
+        </div>
       )}
     </div>
   );

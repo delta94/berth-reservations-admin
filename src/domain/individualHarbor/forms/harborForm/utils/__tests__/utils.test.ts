@@ -1,5 +1,10 @@
 import { getHarbor, mapValuesToMutation } from '../utils';
 
+jest.mock('uuid', () => ({
+  __esModule: true,
+  v4: jest.fn(() => 'test-uuid'),
+}));
+
 describe('HarborForm utils', () => {
   describe('getHarbor', () => {
     it('should return "undefined" if no data', () => {
@@ -73,12 +78,14 @@ describe('HarborForm utils', () => {
         imageFile: {
           markedForDeletion: false,
           name: 'https://hel.fi',
+          uuid: 'test-uuid',
         },
         maps: [
           {
             id: 'testMap',
             markedForDeletion: false,
             name: 'testMap.pdf',
+            uuid: 'test-uuid',
           },
         ],
         municipality: 'Helsinki',
@@ -118,20 +125,24 @@ describe('HarborForm utils', () => {
       expect(
         mapValuesToMutation('test', {
           imageFile: {
+            uuid: 'aaa',
             name: 'testImage.jpg',
             data: testImage,
           },
           maps: [
             {
+              uuid: 'bbb',
               name: 'untouchedMap.pdf',
               id: 'untouchedMap',
               markedForDeletion: false,
             },
             {
+              uuid: 'ccc',
               name: 'addedMap.pdf',
               data: testMap,
             },
             {
+              uuid: 'ddd',
               name: 'deletedMap.pdf',
               id: 'deletedMap',
               markedForDeletion: true,

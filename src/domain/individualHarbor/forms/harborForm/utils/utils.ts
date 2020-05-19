@@ -1,3 +1,5 @@
+import { v4 as uuid } from 'uuid';
+
 import { Harbor } from '../../types';
 import { FileContainer } from '../../../../../common/fileUpload/FileUpload';
 import { HARBOR_FORM, HARBOR_FORM_harbor_properties as HARBOR_PROPERTIES } from '../__generated__/HARBOR_FORM';
@@ -15,16 +17,18 @@ export const getHarbor = (harborData: HARBOR_FORM | undefined): Harbor | undefin
     }
 
     return {
+      uuid: uuid(),
       name: imageFile,
       markedForDeletion: false,
     };
   };
 
   const getMaps = (maps: HARBOR_PROPERTIES['maps']) =>
-    maps.reduce((acc: FileContainer[], map) => {
+    maps.reduce<FileContainer[]>((acc, map) => {
       if (map === null) return acc;
 
       return acc.concat({
+        uuid: uuid(),
         id: map.id,
         name: map.url,
         markedForDeletion: false,
@@ -42,11 +46,16 @@ export const getHarbor = (harborData: HARBOR_FORM | undefined): Harbor | undefin
   };
 };
 
-export const mapValuesToMutation = (harborId: string, values: Harbor) => {
-  const { name, streetAddress, zipCode, municipality, wwwUrl, imageFile, maps } = values;
+type MapFiles = {
+  addMapFiles: File[];
+  removeMapFiles: string[];
+};
 
-  const { addMapFiles, removeMapFiles } = (maps || []).reduce(
-    (acc: { addMapFiles: File[]; removeMapFiles: string[] }, map) => {
+export const mapValuesToMutation = (harborId: string, values: Harbor) => {
+  const { name, streetAddress, zipCode, municipality, wwwUrl, imageFile, maps = [] } = values;
+
+  const { addMapFiles, removeMapFiles } = maps.reduce<MapFiles>(
+    (acc, map) => {
       if (map.markedForDeletion) {
         return {
           ...acc,

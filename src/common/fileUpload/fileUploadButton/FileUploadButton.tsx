@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 import styles from './fileUploadButton.module.scss';
@@ -31,7 +31,7 @@ export interface FileUploadButtonProps {
 }
 
 /** Fork of HDS Button. 'button' replaced with 'div' */
-const FileUploadButton: FunctionComponent<FileUploadButtonProps> = ({
+const FileUploadButton: React.FC<FileUploadButtonProps> = ({
   className,
   color,
   disabled,

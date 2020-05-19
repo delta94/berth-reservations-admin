@@ -63,7 +63,7 @@
 }
 
 .helperText {
-  color: var(--hds-ui-color-error);
+  color: $error;
   display: block;
   font-size: var(--hds-text-sm);
   line-height: var(--hds-text-sm-line-height);
