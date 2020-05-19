@@ -47,9 +47,7 @@ const HarborProperties: React.SFC<HarborPropertiesProps> = ({
     <Card>
       <CardHeader title={t('individualHarbor.harborProperties.title')}>
         <button onClick={editHarbor}>
-          <Text size="m" weight="normalWeight">
-            {t('common.edit')}
-          </Text>
+          <Text weight="normalWeight">{t('common.edit')}</Text>
         </button>
       </CardHeader>
       <CardBody>
