@@ -4,7 +4,7 @@ import { withA11y } from '@storybook/addon-a11y';
 import { I18nextProvider } from 'react-i18next';
 
 import '../src/assets/styles/main.scss';
-import 'hds-core/lib/helsinki.css';
+import 'hds-core/lib/base.css';
 import i18n from '../src/locales/i18n';
 
 addDecorator(withA11y);
