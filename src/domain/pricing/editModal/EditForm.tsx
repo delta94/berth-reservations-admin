@@ -59,10 +59,10 @@ const EditForm: FunctionComponent<EditPricingFormProps> = ({ onSubmit, closeModa
         <Form>
           {form.component}
           <div className={styles.buttonRow}>
-            <Button color="supplementary" onClick={closeModal}>
+            <Button variant="secondary" theme="black" onClick={closeModal}>
               {t('common.cancel')}
             </Button>
-            <Button type="submit" disabled={isSubmitting}>
+            <Button theme="coat" type="submit" disabled={isSubmitting}>
               {t('common.save')}
             </Button>
           </div>

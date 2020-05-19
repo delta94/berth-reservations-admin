@@ -17,10 +17,16 @@ const IndividualHarborTableTools: React.FC<Props> = ({ onAddPier, onAddBerth, ha
   return (
     <div className={styles.container}>
       <div className={styles.buttons}>
-        <Button onClick={onAddPier} color="supplementary" className={styles.button}>
+        <Button onClick={onAddPier} variant="secondary" theme="black" className={styles.button}>
           {t('individualHarbor.tableTools.addPier')}
         </Button>
-        <Button onClick={onAddBerth} color="supplementary" className={styles.button} disabled={!canAddBerth}>
+        <Button
+          onClick={onAddBerth}
+          variant="secondary"
+          theme="black"
+          className={styles.button}
+          disabled={!canAddBerth}
+        >
           {t('individualHarbor.tableTools.addBerth')}
         </Button>
       </div>

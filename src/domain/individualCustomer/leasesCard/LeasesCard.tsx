@@ -42,7 +42,7 @@ const LeasesCard: React.SFC<LeasesCardProps> = ({ leases, handleShowContract }) 
 
         return (
           <CardBody key={id}>
-            <Button color="supplementary" onClick={() => handleShowContract(id)} className={styles.button}>
+            <Button variant="secondary" theme="black" onClick={() => handleShowContract(id)} className={styles.button}>
               {t('individualCustomer.leases.showContract')}
             </Button>
             <Section title={t('individualCustomer.leases.berth')}>
