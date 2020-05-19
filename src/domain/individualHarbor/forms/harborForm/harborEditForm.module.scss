@@ -1,5 +1,9 @@
 @import 'spacings';
 
+.harborEditForm {
+  max-width: units(32);
+}
+
 .formActionButtons {
   display: flex;
   justify-content: space-between;

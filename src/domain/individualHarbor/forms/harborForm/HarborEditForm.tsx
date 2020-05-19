@@ -79,7 +79,7 @@ const HarborEditForm: FunctionComponent<Props> = ({ harborId, onCancel, onSubmit
   return (
     <Formik initialValues={initial} onSubmit={handleSubmit} validationSchema={validationSchema}>
       {({ errors, setFieldValue }) => (
-        <Form>
+        <Form className={styles.harborEditForm}>
           <Text as="h4" color="brand">
             {t('forms.harbor.title').toUpperCase()}
           </Text>
