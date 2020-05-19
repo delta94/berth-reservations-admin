@@ -81,7 +81,7 @@ const PierForm: React.FC<PierFormProps> = ({
             onChange={handleChange}
             labelText={t('forms.pier.identifier')}
             invalid={!!errors.identifier}
-            invalidText={errors.identifier}
+            helperText={errors.identifier}
           />
 
           <Grid colsCount={2}>
@@ -143,10 +143,10 @@ const PierForm: React.FC<PierFormProps> = ({
           />
 
           <div className={styles.formActionButtons}>
-            <Button disabled={isSubmitting} color={'supplementary'} onClick={onCancel}>
+            <Button variant="secondary" theme="black" disabled={isSubmitting} onClick={onCancel}>
               {t('forms.common.cancel')}
             </Button>
-            <Button type="submit" disabled={isSubmitting}>
+            <Button theme="coat" type="submit" disabled={isSubmitting}>
               {onSubmitText}
             </Button>
           </div>

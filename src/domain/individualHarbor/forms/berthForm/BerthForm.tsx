@@ -102,7 +102,7 @@ const BerthForm: React.FC<BerthFormProps> = ({
               onChange={handleChange}
               labelText={t('forms.berth.number')}
               invalid={!!errors.number}
-              invalidText={errors.number}
+              helperText={errors.number}
             />
             <div />
             <TextInput
@@ -112,7 +112,7 @@ const BerthForm: React.FC<BerthFormProps> = ({
               value={String(values.width)}
               labelText={t('forms.berth.width')}
               invalid={!!errors.width}
-              invalidText={errors.width}
+              helperText={errors.width}
             />
             <TextInput
               id="length"
@@ -121,7 +121,7 @@ const BerthForm: React.FC<BerthFormProps> = ({
               value={String(values.length)}
               labelText={t('forms.berth.length')}
               invalid={!!errors.length}
-              invalidText={errors.length}
+              helperText={errors.length}
             />
             <TextInput
               id="depth"
@@ -130,7 +130,7 @@ const BerthForm: React.FC<BerthFormProps> = ({
               value={String(values.depth)}
               labelText={t('forms.berth.depth')}
               invalid={!!errors.depth}
-              invalidText={errors.depth}
+              helperText={errors.depth}
               readOnly
             />
           </Grid>
@@ -164,10 +164,16 @@ const BerthForm: React.FC<BerthFormProps> = ({
             label={t('forms.berth.isActive')}
           />
           <div className={styles.formActionButtons}>
-            <Button disabled={isSubmitting} color={'supplementary'} onClick={onCancel}>
+            <Button
+              variant="secondary"
+              theme="black"
+              disabled={isSubmitting}
+              color={'supplementary'}
+              onClick={onCancel}
+            >
               {t('forms.common.cancel')}
             </Button>
-            <Button type="submit" disabled={isSubmitting}>
+            <Button theme="coat" type="submit" disabled={isSubmitting}>
               {onSubmitText}
             </Button>
           </div>
