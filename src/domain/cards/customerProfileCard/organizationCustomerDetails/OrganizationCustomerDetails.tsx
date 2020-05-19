@@ -83,16 +83,18 @@ const OrganizationCustomerDetails: FunctionComponent<OrganizationCustomerDetails
             )
           }
         />
-        <LabelValuePair
-          label={t('customerProfile.ssn')}
-          value={
-            showCustomerNameAsLink && customerId ? (
-              <InternalLink to={`/customers/${customerId}`}>{ssn}</InternalLink>
-            ) : (
-              ssn
-            )
-          }
-        />
+        {ssn && (
+          <LabelValuePair
+            label={t('customerProfile.ssn')}
+            value={
+              showCustomerNameAsLink && customerId ? (
+                <InternalLink to={`/customers/${customerId}`}>{ssn}</InternalLink>
+              ) : (
+                ssn
+              )
+            }
+          />
+        )}
       </Section>
       <Section>
         <LabelValuePair label={t('customerProfile.phone')} value={primaryPhone} />
