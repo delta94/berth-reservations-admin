@@ -41,7 +41,7 @@ interface Setters<D extends object> {
 
 type TableToolsFn<D extends object> = (tableState: TState<D>, setters: Setters<D>) => React.ReactNode;
 
-type Props<D extends object> = {
+type TableProps<D extends object> = {
   className?: string;
   data: D[];
   loading?: boolean;
@@ -100,7 +100,7 @@ const Table = <D extends object>({
   renderEmptyStateRow,
   renderPaginator,
   onSortingChange,
-}: Props<D>) => {
+}: TableProps<D>) => {
   const { t } = useTranslation();
 
   const selectorCol: Column<D> = React.useMemo(

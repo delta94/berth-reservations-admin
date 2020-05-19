@@ -54,7 +54,7 @@ const IndividualCustomerPageContainer: React.SFC = () => {
 
   const prevSearchBy = usePrevious(searchBy);
 
-  const filteredCustomersVars = {
+  const filteredCustomersVars: FILTERED_CUSTOMERS_VARS = {
     first: pageSize,
     after: cursor,
     [searchBy]: prevSearchBy === searchBy ? debouncedSearchVal : searchVal,
