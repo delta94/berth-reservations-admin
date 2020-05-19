@@ -87,4 +87,5 @@ export interface CUSTOMERS {
 export interface CUSTOMERSVariables {
   after?: string | null;
   first: number;
+  orderBy?: string | null;
 }
