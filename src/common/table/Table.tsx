@@ -189,7 +189,7 @@ const Table = <D extends object>({
 
   const data = React.useMemo(() => tableData, [tableData]);
 
-  const [dataState, setDataState] = React.useState<D[]>([]);
+  const [dataState, setDataState] = React.useState<D[]>(data);
 
   const skipPageResetRef = React.useRef<boolean>();
 
