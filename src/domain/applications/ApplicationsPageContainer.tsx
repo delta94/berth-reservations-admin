@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { Notification } from 'hds-react';
@@ -39,21 +39,49 @@ export interface TableData {
 
 type ColumnType = Column<ApplicationData> & { accessor: keyof ApplicationData };
 
+enum ORDER_BY {
+  CREATED_AT_ASC = 'createdAt',
+  CREATED_AT_DESC = '-createdAt',
+}
+
 const ApplicationsPageContainer: React.SFC = () => {
   const { t, i18n } = useTranslation();
   const [onlySwitchApps, setOnlySwitchApps] = useState<boolean>();
+  const [orderBy, setOrderBy] = useState<ORDER_BY>();
 
   const { cursor, pageSize, pageIndex, getPageCount, goToPage } = usePagination();
+  const berthApplicationsVars: BERTH_APPLICATIONS_VARS = {
+    first: pageSize,
+    after: cursor,
+    switchApplications: onlySwitchApps,
+    orderBy,
+  };
 
   const { loading, error, data } = useQuery<BERTH_APPLICATIONS, BERTH_APPLICATIONS_VARS>(BERTH_APPLICATIONS_QUERY, {
-    variables: {
-      first: pageSize,
-      after: cursor,
-      switchApplications: onlySwitchApps,
-    },
+    variables: berthApplicationsVars,
   });
 
   const [deleteDraftedApplication, { loading: isDeleting }] = useDeleteBerthApplication();
+
+  const handleSortingChange = useCallback(
+    (sortBy: Array<{ id: string; desc?: boolean }>) => {
+      let orderBy: ORDER_BY | undefined;
+      goToPage(0);
+
+      switch (sortBy[0]?.id) {
+        case 'createdAt':
+          orderBy = sortBy[0].desc ? ORDER_BY.CREATED_AT_DESC : ORDER_BY.CREATED_AT_ASC;
+          break;
+
+        default:
+          orderBy = undefined;
+          break;
+      }
+
+      setOrderBy(orderBy);
+    },
+    [goToPage]
+  );
 
   if (error)
     return (
@@ -75,6 +103,7 @@ const ApplicationsPageContainer: React.SFC = () => {
       accessor: 'isSwitch',
       sortType: 'basic',
       filter: 'exact',
+      disableSortBy: true,
       width: COLUMN_WIDTH.M,
     },
     {
@@ -86,11 +115,13 @@ const ApplicationsPageContainer: React.SFC = () => {
     {
       Header: t('applications.tableHeaders.queue') || '',
       accessor: 'queue',
+      disableSortBy: true,
       width: COLUMN_WIDTH.XS,
     },
     {
       Header: t('applications.tableHeaders.municipality') || '',
       accessor: 'municipality',
+      disableSortBy: true,
       width: COLUMN_WIDTH.S,
     },
     {
@@ -102,6 +133,7 @@ const ApplicationsPageContainer: React.SFC = () => {
       ),
       Header: t('applications.tableHeaders.status') || '',
       accessor: 'status',
+      disableSortBy: true,
       width: COLUMN_WIDTH.M,
     },
     {
@@ -113,6 +145,7 @@ const ApplicationsPageContainer: React.SFC = () => {
         ),
       Header: t('applications.tableHeaders.lease') || '',
       accessor: 'lease',
+      disableSortBy: true,
       width: COLUMN_WIDTH.XL,
     },
   ];
@@ -167,6 +200,8 @@ const ApplicationsPageContainer: React.SFC = () => {
           />
         )}
         renderEmptyStateRow={() => t('common.notification.noData.description')}
+        onSortingChange={handleSortingChange}
+        autoResetSortBy={false}
         canSelectRows
       />
     </ApplicationsPage>
