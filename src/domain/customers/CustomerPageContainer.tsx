@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Notification } from 'hds-react';
 import { useQuery } from '@apollo/react-hooks';
@@ -21,6 +21,26 @@ const CustomersPageContainer: React.FC = () => {
     variables: customersVars,
   });
 
+  const handleSortingChange = useCallback(
+    (sortBy: Array<{ id: string; desc?: boolean }>) => {
+      let orderBy: ORDER_BY | undefined;
+      goToPage(0);
+
+      switch (sortBy[0]?.id) {
+        case 'name':
+          orderBy = sortBy[0].desc ? ORDER_BY.LAST_NAME_DESC : ORDER_BY.LAST_NAME_ASC;
+          break;
+
+        default:
+          orderBy = undefined;
+          break;
+      }
+
+      setOrderBy(orderBy);
+    },
+    [goToPage]
+  );
+
   if (error)
     return (
       <Notification labelText={t('common.notification.error.label')} type="error">
@@ -35,12 +55,12 @@ const CustomersPageContainer: React.FC = () => {
       <CustomerList
         loading={loading}
         data={tableData}
+        onSortingChange={handleSortingChange}
         pagination={{
           forcePage: pageIndex,
           pageCount: getPageCount(data?.profiles?.count),
           onPageChange: ({ selected }) => goToPage(selected),
         }}
-        setOrderBy={setOrderBy}
       />
     </CustomersPage>
   );

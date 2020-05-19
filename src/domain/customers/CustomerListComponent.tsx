@@ -32,10 +32,10 @@ export interface CustomerListComponentProps {
   loading: boolean;
   data: TableData[];
   pagination: PaginationProps;
-  setOrderBy(orderBy: ORDER_BY | undefined): void;
+  onSortingChange(sortBy: Array<{ id: string; desc?: boolean }>): void;
 }
 
-const CustomerListComponent = ({ loading, data, pagination, setOrderBy }: CustomerListComponentProps) => {
+const CustomerListComponent = ({ loading, data, pagination, onSortingChange }: CustomerListComponentProps) => {
   const { t } = useTranslation();
   const columns: ColumnType[] = [
     {
@@ -107,22 +107,8 @@ const CustomerListComponent = ({ loading, data, pagination, setOrderBy }: Custom
       renderMainHeader={() => t('customers.tableHeaders.mainHeader')}
       renderEmptyStateRow={() => t('common.notification.noData.description')}
       renderTableToolsBottom={() => <Pagination {...pagination} />}
+      onSortingChange={onSortingChange}
       autoResetSortBy={false}
-      onSortingChange={(sortBy) => {
-        let orderBy: ORDER_BY | undefined;
-
-        switch (sortBy[0]?.id) {
-          case 'name':
-            orderBy = sortBy[0].desc ? ORDER_BY.LAST_NAME_DESC : ORDER_BY.LAST_NAME_ASC;
-            break;
-
-          default:
-            orderBy = undefined;
-            break;
-        }
-
-        setOrderBy(orderBy);
-      }}
       canSelectRows
     />
   );
