@@ -50,7 +50,7 @@ describe('HarborForm utils', () => {
       });
     });
 
-    it('should map existing "imageFile" and "maps" to correctly', () => {
+    it('should map filled "imageFile" and "maps" fields correctly', () => {
       expect(
         getHarbor({
           harbor: {
@@ -98,7 +98,7 @@ describe('HarborForm utils', () => {
   });
 
   describe('mapValuesToMutation', () => {
-    it('should map empty "imageFile" and "maps" correctly', () => {
+    it('should map empty "imageFile" and "maps" fields correctly', () => {
       expect(
         mapValuesToMutation('test', {
           imageFile: undefined,
@@ -119,7 +119,7 @@ describe('HarborForm utils', () => {
       });
     });
 
-    it('should map empty "imageFile" and "maps" correctly', () => {
+    it('should map filled "imageFile" and "maps" fields correctly', () => {
       const testImage = new File([], 'testImage.jpg');
       const testMap = new File([], 'testMap.pdf');
       expect(
