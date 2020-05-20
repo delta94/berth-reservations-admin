@@ -1,9 +1,6 @@
 import { gql } from 'apollo-boost';
 
 export const BERTH_APPLICATIONS_QUERY = gql`
-  # Note:
-  # The operation name "BERTH_APPLICATIONS" is used as a string in other modules,
-  # for instance, as a value of refetchQueries; If you modify this name, consider changing it in other places too.
   query BERTH_APPLICATIONS($first: Int!, $after: String, $switchApplications: Boolean) {
     berthApplications(first: $first, after: $after, switchApplications: $switchApplications) {
       count
