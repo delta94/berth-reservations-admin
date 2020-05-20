@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'hds-react/lib';
+import { Button } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 
 import GlobalSearchTableTools from '../../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';

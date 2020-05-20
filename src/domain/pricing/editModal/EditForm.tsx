@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { Form, Formik } from 'formik';
-import { Button } from 'hds-react/lib';
+import { Button } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 
 import styles from './editForm.module.scss';
