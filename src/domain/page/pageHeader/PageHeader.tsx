@@ -14,7 +14,7 @@ import authService from '../../auth/authService';
 import Text from '../../../common/text/Text';
 import styles from './pageHeader.module.scss';
 
-const PageHeaderContainer: React.SFC = () => {
+const PageHeader: React.SFC = () => {
   const { t } = useTranslation();
   const currentUser = useCurrentUser();
   const fullName = currentUser?.name ?? '-';
@@ -45,4 +45,4 @@ const PageHeaderContainer: React.SFC = () => {
   );
 };
 
-export default PageHeaderContainer;
+export default PageHeader;
