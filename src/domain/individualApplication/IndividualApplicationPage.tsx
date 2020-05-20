@@ -66,6 +66,7 @@ const IndividualApplicationPage: React.FC<IndividualApplicationPageProps> = ({
   const columns: ColumnType[] = [
     {
       Header: t('individualApplication.customersTable.name') || '',
+      sortType: 'toString',
       accessor: 'name',
     },
     {
