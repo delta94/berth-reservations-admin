@@ -11,16 +11,21 @@ import List from '../../../common/list/List';
 import ListItem from '../../../common/list/ListItem';
 import { useCurrentUser } from '../../auth/hooks';
 import authService from '../../auth/authService';
+import Text from '../../../common/text/Text';
+import styles from './pageHeader.module.scss';
 
-const PageHeaderContainer: React.SFC = () => {
+const PageHeader: React.SFC = () => {
   const { t } = useTranslation();
   const currentUser = useCurrentUser();
   const fullName = currentUser?.name ?? '-';
 
   return (
     <Header>
-      <Link to="/">
+      <Link to="/" className={styles.mainLink}>
         <HelsinkiLogo size="large" color="white" />
+        <Text as="h1" size="m" className={styles.serviceName}>
+          {t('common.header.serviceName')}
+        </Text>
       </Link>
       <Dropdown label={<Button iconLeft={<IconPerson />}>{fullName}</Button>}>
         <List noBullets>
@@ -40,4 +45,4 @@ const PageHeaderContainer: React.SFC = () => {
   );
 };
 
-export default PageHeaderContainer;
+export default PageHeader;
