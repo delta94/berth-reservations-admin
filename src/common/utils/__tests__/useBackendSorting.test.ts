@@ -15,7 +15,7 @@ describe('useBackendSorting', () => {
       expect(result.current.orderBy).toBe('firstName');
     });
 
-    it('should set "orderBy" to the corresponding value in "sortByOrderByMap" prefixed by "-" for ascending order', () => {
+    it('should set "orderBy" to the corresponding value in "sortByOrderByMap" prefixed with "-" for descending order', () => {
       const { result } = renderHook(() => useBackendSorting());
 
       const sortByOrderByMap = { name: 'firstName' };
