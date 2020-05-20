@@ -1,7 +1,7 @@
-@import '~hds-core/lib/base.css';
 @import 'normalize';
 @import 'boxSizing';
 @import 'colours';
+// Note: the HDS related variables and styles are included via "hds-react" dependecy (it injects the CSS with JS)
 
 /*
   This will hide the focus indicator if the element receives focus via the mouse,
