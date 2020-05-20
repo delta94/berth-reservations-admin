@@ -56,7 +56,7 @@ const EditForm: FunctionComponent<EditPricingFormProps> = ({ onSubmit, closeModa
   return (
     <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={form.getValidationSchema(t)}>
       {({ isSubmitting }) => (
-        <Form>
+        <Form className={styles.form}>
           {form.component}
           <div className={styles.buttonRow}>
             <Button variant="secondary" theme="black" onClick={closeModal}>
