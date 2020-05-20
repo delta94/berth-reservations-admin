@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { Notification } from 'hds-react';
@@ -21,6 +21,7 @@ import { useDeleteBerthApplication } from '../mutations/deleteBerthApplication';
 import { ApplicationStatus } from '../../@types/__generated__/globalTypes';
 import Pagination from '../../common/pagination/Pagination';
 import { usePagination } from '../../common/utils/usePagination';
+import { useBackendSorting } from '../../common/utils/useBackendSorting';
 
 export interface TableData {
   id: string;
@@ -39,17 +40,12 @@ export interface TableData {
 
 type ColumnType = Column<ApplicationData> & { accessor: keyof ApplicationData };
 
-enum ORDER_BY {
-  CREATED_AT_ASC = 'createdAt',
-  CREATED_AT_DESC = '-createdAt',
-}
-
 const ApplicationsPageContainer: React.SFC = () => {
   const { t, i18n } = useTranslation();
   const [onlySwitchApps, setOnlySwitchApps] = useState<boolean>();
-  const [orderBy, setOrderBy] = useState<ORDER_BY>();
 
   const { cursor, pageSize, pageIndex, getPageCount, goToPage } = usePagination();
+  const { orderBy, handleSortByChange } = useBackendSorting(() => goToPage(0));
   const berthApplicationsVars: BERTH_APPLICATIONS_VARS = {
     first: pageSize,
     after: cursor,
@@ -62,27 +58,6 @@ const ApplicationsPageContainer: React.SFC = () => {
   });
 
   const [deleteDraftedApplication, { loading: isDeleting }] = useDeleteBerthApplication();
-
-  const handleSortingChange = useCallback(
-    (sortBy: Array<{ id: string; desc?: boolean }>) => {
-      let orderBy: ORDER_BY | undefined;
-      goToPage(0);
-
-      switch (sortBy[0]?.id) {
-        case 'createdAt':
-          orderBy = sortBy[0].desc ? ORDER_BY.CREATED_AT_DESC : ORDER_BY.CREATED_AT_ASC;
-          break;
-
-        default:
-          orderBy = undefined;
-          break;
-      }
-
-      setOrderBy(orderBy);
-    },
-    [goToPage]
-  );
-
   if (error)
     return (
       <Notification labelText={t('common.notification.error.label')} type="error">
@@ -200,7 +175,7 @@ const ApplicationsPageContainer: React.SFC = () => {
           />
         )}
         renderEmptyStateRow={() => t('common.notification.noData.description')}
-        onSortingChange={handleSortingChange}
+        onSortByChange={handleSortByChange({ createdAt: 'createdAt' })}
         autoResetSortBy={false}
         canSelectRows
       />

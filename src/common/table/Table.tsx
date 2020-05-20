@@ -61,7 +61,7 @@ type TableProps<D extends object> = {
     pageCount: number;
     goToPage(pageIndex: number): void;
   }) => React.ReactNode;
-  onSortingChange?: (sortBy: TableState<D>['sortBy']) => void;
+  onSortByChange?: (sortBy: TableState<D>['sortBy'][0] | undefined) => void;
 } & TableOptions<D>;
 
 const EXPANDER = 'EXPANDER';
@@ -99,7 +99,7 @@ const Table = <D extends object>({
   renderMainHeader,
   renderEmptyStateRow,
   renderPaginator,
-  onSortingChange,
+  onSortByChange,
 }: TableProps<D>) => {
   const { t } = useTranslation();
 
@@ -233,8 +233,8 @@ const Table = <D extends object>({
   }, [gotoPage, state.sortBy, state.filters, state.globalFilter]);
 
   useEffect(() => {
-    onSortingChange?.(state.sortBy);
-  }, [state.sortBy, onSortingChange]);
+    onSortByChange?.(state.sortBy[0]);
+  }, [state.sortBy, onSortByChange]);
 
   useEffect(() => {
     const updateData = (newData: D[]) => {

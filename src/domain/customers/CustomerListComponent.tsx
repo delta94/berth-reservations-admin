@@ -24,18 +24,14 @@ export interface TableData {
 
 type ColumnType = Column<TableData>;
 
-export enum ORDER_BY {
-  LAST_NAME_ASC = 'lastName',
-  LAST_NAME_DESC = '-lastName',
-}
 export interface CustomerListComponentProps {
   loading: boolean;
   data: TableData[];
   pagination: PaginationProps;
-  onSortingChange(sortBy: Array<{ id: string; desc?: boolean }>): void;
+  onSortByChange(sortBy: { id: string; desc?: boolean } | undefined): void;
 }
 
-const CustomerListComponent = ({ loading, data, pagination, onSortingChange }: CustomerListComponentProps) => {
+const CustomerListComponent = ({ loading, data, pagination, onSortByChange }: CustomerListComponentProps) => {
   const { t } = useTranslation();
   const columns: ColumnType[] = [
     {
@@ -107,7 +103,7 @@ const CustomerListComponent = ({ loading, data, pagination, onSortingChange }: C
       renderMainHeader={() => t('customers.tableHeaders.mainHeader')}
       renderEmptyStateRow={() => t('common.notification.noData.description')}
       renderTableToolsBottom={() => <Pagination {...pagination} />}
-      onSortingChange={onSortingChange}
+      onSortByChange={onSortByChange}
       autoResetSortBy={false}
       canSelectRows
     />
