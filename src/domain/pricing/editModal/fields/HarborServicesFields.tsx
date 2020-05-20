@@ -59,7 +59,7 @@ const HarborServicesFields: FunctionComponent = () => {
           name="price"
           labelText={t('pricing.harborServices.price')}
           invalid={!!errors.price}
-          invalidText={errors.price}
+          helperText={errors.price}
         />
         <Field
           required={true}
