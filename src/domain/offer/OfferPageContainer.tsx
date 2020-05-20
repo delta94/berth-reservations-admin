@@ -132,7 +132,6 @@ const OfferPageContainer: React.FC = () => {
 
           const handleSubmit = () => {
             createBerthLease({
-              refetchQueries: ['BERTH_APPLICATIONS'],
               variables: {
                 input: {
                   applicationId: applicationId || '',
