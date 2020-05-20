@@ -6,6 +6,14 @@ import InternalLink from '../../common/internalLink/InternalLink';
 import CustomerDetails from './customerDetails/CustomerDetails';
 import { OrganizationType } from '../../@types/__generated__/globalTypes';
 import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
+import TableTools, { TableToolsProps } from './tableTools/TableTools';
+
+export enum SearchBy {
+  FIRST_NAME = 'firstName',
+  LAST_NAME = 'lastName',
+  EMAIL = 'email',
+  ADDRESS = 'address',
+}
 
 export interface TableData {
   address?: string;
@@ -28,10 +36,17 @@ export interface CustomerListComponentProps {
   loading: boolean;
   data: TableData[];
   pagination: PaginationProps;
+  tableTools: TableToolsProps<SearchBy>;
   onSortByChange(sortBy: { id: string; desc?: boolean } | undefined): void;
 }
 
-const CustomerListComponent = ({ loading, data, pagination, onSortByChange }: CustomerListComponentProps) => {
+const CustomerListComponent = ({
+  loading,
+  data,
+  pagination,
+  tableTools,
+  onSortByChange,
+}: CustomerListComponentProps) => {
   const { t } = useTranslation();
   const columns: ColumnType[] = [
     {
@@ -101,6 +116,7 @@ const CustomerListComponent = ({ loading, data, pagination, onSortByChange }: Cu
         );
       }}
       renderMainHeader={() => t('customers.tableHeaders.mainHeader')}
+      renderTableToolsTop={() => <TableTools {...tableTools} />}
       renderEmptyStateRow={() => t('common.notification.noData.description')}
       renderTableToolsBottom={() => <Pagination {...pagination} />}
       onSortByChange={onSortByChange}

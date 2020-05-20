@@ -42,6 +42,7 @@
       "pricing": "Hinnasto"
     },
     "header": {
+      "serviceName": "Venepaikat",
       "logout": "Kirjaudu ulos"
     },
     "mooringTypes": {

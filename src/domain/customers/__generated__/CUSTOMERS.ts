@@ -85,7 +85,11 @@ export interface CUSTOMERS {
 }
 
 export interface CUSTOMERSVariables {
-  after?: string | null;
   first: number;
+  after?: string | null;
+  firstName?: string | null;
+  lastName?: string | null;
+  email?: string | null;
+  address?: string | null;
   orderBy?: string | null;
 }
