@@ -29,6 +29,7 @@ import {
 import { getApplicationDetailsData, getCustomerProfile, getFilteredCustomersData, getOfferDetailsData } from './utils';
 import { usePagination } from '../../common/utils/usePagination';
 import { usePrevious } from '../../common/utils/usePrevious';
+import { useBackendSorting } from '../../common/utils/useBackendSorting';
 
 const IndividualCustomerPageContainer: React.SFC = () => {
   const { t } = useTranslation();
@@ -46,6 +47,7 @@ const IndividualCustomerPageContainer: React.SFC = () => {
   );
 
   const { cursor, pageSize, pageIndex, getPageCount, goToPage } = usePagination();
+  const { orderBy, handleSortByChange } = useBackendSorting(() => goToPage(0));
 
   const [debouncedSearchVal] = useDebounce(searchVal, 500, {
     equalityFn: (prev, next) => prev === next,
@@ -57,6 +59,7 @@ const IndividualCustomerPageContainer: React.SFC = () => {
   const filteredCustomersVars: FILTERED_CUSTOMERS_VARS = {
     first: pageSize,
     after: cursor,
+    orderBy,
     [searchBy]: prevSearchBy === searchBy ? debouncedSearchVal : searchVal,
   };
 
@@ -211,6 +214,7 @@ const IndividualCustomerPageContainer: React.SFC = () => {
         pageCount: getPageCount(customersData?.profiles?.count),
         onPageChange: ({ selected }) => goToPage(selected),
       }}
+      onSortByChange={handleSortByChange({ name: 'lastName' })}
       similarCustomersData={filteredCustomersData}
       customerProfile={customerProfile}
       applicationDetails={applicationDetails}

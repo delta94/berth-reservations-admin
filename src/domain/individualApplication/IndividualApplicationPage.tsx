@@ -48,6 +48,7 @@ export interface IndividualApplicationPageProps {
   loadingCustomers?: boolean;
   pagination: PaginationProps;
   handleLinkCustomer(customerId: string): void;
+  onSortByChange(sortBy: { id: string; desc?: boolean } | undefined): void;
 }
 
 const IndividualApplicationPage: React.FC<IndividualApplicationPageProps> = ({
@@ -59,6 +60,7 @@ const IndividualApplicationPage: React.FC<IndividualApplicationPageProps> = ({
   loadingCustomers,
   pagination,
   handleLinkCustomer,
+  onSortByChange,
 }) => {
   const { t, i18n } = useTranslation();
   const columns: ColumnType[] = [
@@ -72,14 +74,17 @@ const IndividualApplicationPage: React.FC<IndividualApplicationPageProps> = ({
         return value ? t([`common.organizationTypes.${value as OrganizationType}`]) : t([`common.privateCustomer`]);
       },
       Header: t('customers.tableHeaders.group') || '',
+      disableSortBy: true,
       accessor: 'organizationType',
     },
     {
       Header: t('individualApplication.customersTable.municipality') || '',
+      disableSortBy: true,
       accessor: 'city',
     },
     {
       Header: t('individualApplication.customersTable.address') || '',
+      disableSortBy: true,
       accessor: 'address',
     },
     {
@@ -89,6 +94,7 @@ const IndividualApplicationPage: React.FC<IndividualApplicationPageProps> = ({
         </div>
       ),
       Header: t('individualApplication.customersTable.berths') || '',
+      disableSortBy: true,
       accessor: 'berths',
     },
   ];
@@ -130,6 +136,8 @@ const IndividualApplicationPage: React.FC<IndividualApplicationPageProps> = ({
             }}
             renderTableToolsBottom={() => <Pagination {...pagination} className={styles.fullWidth} />}
             renderEmptyStateRow={() => <div>{t('individualApplication.customersTable.emptyState')}</div>}
+            onSortByChange={onSortByChange}
+            autoResetSortBy={false}
             canSelectOneRow
           />
         </>
