@@ -28,16 +28,28 @@ export interface HarborPropertiesProps {
     wasteCollection: boolean;
     lighting: boolean;
   };
+  editHarbor: () => void;
 }
 
-const HarborProperties: React.SFC<HarborPropertiesProps> = ({ name, address, imageUrl, servicemapId, properties }) => {
+const HarborProperties: React.SFC<HarborPropertiesProps> = ({
+  name,
+  address,
+  imageUrl,
+  servicemapId,
+  properties,
+  editHarbor,
+}) => {
   const { t } = useTranslation();
 
   const serviceMapUrl = `${process.env.REACT_APP_SERVICE_MAP_URI}${servicemapId}`;
 
   return (
     <Card>
-      <CardHeader title={t('individualHarbor.harborProperties.title')} />
+      <CardHeader title={t('individualHarbor.harborProperties.title')}>
+        <button onClick={editHarbor}>
+          <Text weight="normalWeight">{t('common.edit')}</Text>
+        </button>
+      </CardHeader>
       <CardBody>
         <div className={styles.harborProperties}>
           <div className={styles.details}>

@@ -24,6 +24,8 @@
     "previous": "Edellinen",
     "search": "Haku",
     "edit": "Muokkaa",
+    "add": "Lisää",
+    "select": "Valitse",
     "save": "Tallenna",
     "cancel": "Peruuta",
     "firstName": "Etunimi",
@@ -44,6 +46,9 @@
     "header": {
       "serviceName": "Venepaikat",
       "logout": "Kirjaudu ulos"
+    },
+    "fileUpload": {
+      "maxSize": "Tiedostokoko enintään {{maxSize}}"
     },
     "mooringTypes": {
       "NO_STERN_TO_MOORING": "Ilman peräkiinnitystä",
@@ -116,7 +121,8 @@
         "required": "Tämä kenttä on pakollinen.",
         "numberType": "Kentän pitää olla numero.",
         "integer": "Kentän pitää olla kokonaisluku.",
-        "positive": "Kentän pitää olla positiivinen luku."
+        "positive": "Kentän pitää olla positiivinen luku.",
+        "maxFileSize": "Tiedosto on liian suuri."
       },
       "error": "Tapahtui virhe. Yritä uudestaan.",
       "create": "Luo",
@@ -135,6 +141,16 @@
       "mooringType": "Kiinnitystapa",
       "comment": "Huomiot",
       "isActive": "Paikka on käytössä"
+    },
+    "harbor": {
+      "title": "Satama",
+      "name": "Nimi",
+      "streetAddress": "Osoite",
+      "zipCode": "Postinumero",
+      "municipality": "Postitoimipaikka",
+      "wwwUrl": "WWW-osoite",
+      "imageFile": "Sataman kuva",
+      "maps": "Satamakartat"
     },
     "pier": {
       "title": "Laituri",
