@@ -61,7 +61,7 @@ type TableProps<D extends object> = {
     pageCount: number;
     goToPage(pageIndex: number): void;
   }) => React.ReactNode;
-  onSortedColChange?: (colId: TableState<D>['sortBy'][0] | undefined) => void;
+  onSortedColChange?: (sortedCol: TableState<D>['sortBy'][0] | undefined) => void;
 } & TableOptions<D>;
 
 const EXPANDER = 'EXPANDER';

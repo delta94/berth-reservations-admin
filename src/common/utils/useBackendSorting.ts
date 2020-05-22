@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { usePrevious } from './usePrevious';
 
-interface SortBy {
+interface SortedCol {
   id: string;
   desc?: boolean;
 }
@@ -13,9 +13,9 @@ export const useBackendSorting = (onOrderByChange?: Function) => {
   // colId: the id of the column to be sorted in the table
   // orderBy: the value sent to the backend for sorted results
   // colIdOrderByMap: a record for mapping column's Id to orderBy, e.g: { name: 'firstName', data: 'createdAt' }
-  const handleSortedColChange = (colIdOrderByMap: Record<string, string>) => (colId: SortBy | undefined) => {
-    const sortById = colId?.id && colIdOrderByMap[colId.id];
-    const orderBy = sortById ? (colId?.desc ? `-${sortById}` : sortById) : undefined;
+  const handleSortedColChange = (colIdOrderByMap: Record<string, string>) => (sortedCol: SortedCol | undefined) => {
+    const colId = sortedCol?.id && colIdOrderByMap[sortedCol.id];
+    const orderBy = colId ? (sortedCol?.desc ? `-${colId}` : colId) : undefined;
 
     setOrderBy(orderBy);
   };
