@@ -1,11 +1,11 @@
-import { gql } from 'apollo-boost';
+import { gql, getOperationName } from 'apollo-boost';
 import { useMutation } from '@apollo/react-hooks';
 
+import { BERTH_APPLICATIONS_QUERY } from '../applications/queries';
 import {
   DELETE_DRAFTED_APPLICATION,
   DELETE_DRAFTED_APPLICATIONVariables as DELETE_DRAFTED_APPLICATION_VARS,
 } from './__generated__/DELETE_DRAFTED_APPLICATION';
-import { BERTH_APPLICATIONS_QUERY } from '../applications/queries';
 
 export const DELETE_DRAFTED_APPLICATION_MUTATION = gql`
   mutation DELETE_DRAFTED_APPLICATION($input: DeleteBerthLeaseMutationInput!) {
@@ -18,5 +18,5 @@ export const DELETE_DRAFTED_APPLICATION_MUTATION = gql`
 
 export const useDeleteBerthApplication = () =>
   useMutation<DELETE_DRAFTED_APPLICATION, DELETE_DRAFTED_APPLICATION_VARS>(DELETE_DRAFTED_APPLICATION_MUTATION, {
-    refetchQueries: [{ query: BERTH_APPLICATIONS_QUERY }],
+    refetchQueries: [getOperationName(BERTH_APPLICATIONS_QUERY) || 'BERTH_APPLICATIONS'],
   });

@@ -1,8 +1,9 @@
 import React from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { useLocation, useParams, useHistory, Redirect } from 'react-router-dom';
+import { useLocation, useParams, useHistory } from 'react-router-dom';
 import { Notification } from 'hds-react';
+import { getOperationName } from 'apollo-boost';
 
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { OFFER_PAGE_QUERY } from './queries';
@@ -15,9 +16,9 @@ import { formatDimension, formatDate } from '../../common/utils/format';
 import { CREATE_LEASE_MUTATION } from './mutations';
 import { CREATE_LEASE, CREATE_LEASEVariables as CREATE_LEASE_VARS } from './__generated__/CREATE_LEASE';
 import TableTools from './tableTools/TableTools';
-import { BERTH_APPLICATIONS_QUERY } from '../applications/queries';
 import BerthDetails from '../cards/berthDetails/BerthDetails';
 import TableFilters from '../../common/tableFilters/TableFilters';
+import { BERTH_APPLICATIONS_QUERY } from '../applications/queries';
 
 type ColumnType = Column<BerthData> & { accessor: keyof BerthData };
 
@@ -33,12 +34,12 @@ const OfferPageContainer: React.FC = () => {
   const { loading, error, data } = useQuery<OFFER_PAGE>(OFFER_PAGE_QUERY, {
     variables: { applicationId, servicemapId: routerQuery.get('harbor') },
   });
-  const [createBerthLease, { data: mutationData, loading: isSubmitting }] = useMutation<
-    CREATE_LEASE,
-    CREATE_LEASE_VARS
-  >(CREATE_LEASE_MUTATION, {
-    refetchQueries: [{ query: BERTH_APPLICATIONS_QUERY }],
-  });
+  const [createBerthLease, { loading: isSubmitting }] = useMutation<CREATE_LEASE, CREATE_LEASE_VARS>(
+    CREATE_LEASE_MUTATION,
+    {
+      refetchQueries: [getOperationName(BERTH_APPLICATIONS_QUERY) || 'BERTH_APPLICATIONS'],
+    }
+  );
   const { t, i18n } = useTranslation();
 
   const columns: ColumnType[] = [
@@ -99,10 +100,6 @@ const OfferPageContainer: React.FC = () => {
       </Notification>
     );
 
-  if (mutationData) {
-    return <Redirect to="/applications" />;
-  }
-
   const tableData = getOfferData(data);
 
   const getApplicationType = (isSwitch: boolean) =>
@@ -143,7 +140,9 @@ const OfferPageContainer: React.FC = () => {
                   berthId,
                 },
               },
-            });
+            }).catch((error) => console.error(error)); // TODO: handle errors
+
+            history.push('/applications');
           };
 
           return (
