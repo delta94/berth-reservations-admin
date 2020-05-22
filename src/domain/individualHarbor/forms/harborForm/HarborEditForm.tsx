@@ -96,7 +96,7 @@ const HarborEditForm: FunctionComponent<Props> = ({ harborId, onCancel, onSubmit
               name="name"
               labelText={t('forms.harbor.name')}
               invalid={!!errors.name}
-              invalidText={errors.name}
+              helperText={errors.name}
             />
           </Section>
 
@@ -108,7 +108,7 @@ const HarborEditForm: FunctionComponent<Props> = ({ harborId, onCancel, onSubmit
               name="streetAddress"
               labelText={t('forms.harbor.streetAddress')}
               invalid={!!errors.streetAddress}
-              invalidText={errors.streetAddress}
+              helperText={errors.streetAddress}
             />
             <Field
               required={true}
@@ -117,7 +117,7 @@ const HarborEditForm: FunctionComponent<Props> = ({ harborId, onCancel, onSubmit
               name="zipCode"
               labelText={t('forms.harbor.zipCode')}
               invalid={!!errors.zipCode}
-              invalidText={errors.zipCode}
+              helperText={errors.zipCode}
             />
             <Field
               required={true}
@@ -126,7 +126,7 @@ const HarborEditForm: FunctionComponent<Props> = ({ harborId, onCancel, onSubmit
               name="municipality"
               labelText={t('forms.harbor.municipality')}
               invalid={!!errors.municipality}
-              invalidText={errors.municipality}
+              helperText={errors.municipality}
             />
           </Section>
 
@@ -138,7 +138,7 @@ const HarborEditForm: FunctionComponent<Props> = ({ harborId, onCancel, onSubmit
               name="wwwUrl"
               labelText={t('forms.harbor.wwwUrl')}
               invalid={!!errors.wwwUrl}
-              invalidText={errors.wwwUrl}
+              helperText={errors.wwwUrl}
             />
           </Section>
 
@@ -173,10 +173,10 @@ const HarborEditForm: FunctionComponent<Props> = ({ harborId, onCancel, onSubmit
           </Section>
 
           <div className={styles.formActionButtons}>
-            <Button color="supplementary" onClick={onCancel}>
+            <Button variant="secondary" theme="black" onClick={onCancel}>
               {t('common.cancel')}
             </Button>
-            <Button type="submit" disabled={isSubmitting}>
+            <Button theme="coat" type="submit" disabled={isSubmitting}>
               {t('common.save')}
             </Button>
           </div>

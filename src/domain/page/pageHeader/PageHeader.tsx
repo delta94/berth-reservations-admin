@@ -27,12 +27,19 @@ const PageHeader: React.SFC = () => {
           {t('common.header.serviceName')}
         </Text>
       </Link>
-      <Dropdown label={<Button iconLeft={<IconPerson />}>{fullName}</Button>}>
+      <Dropdown
+        label={
+          <Button variant="primary" theme="coat" iconLeft={<IconPerson />}>
+            {fullName}
+          </Button>
+        }
+      >
         <List noBullets>
           <ListItem>
             <Button
               onClick={authService.logout}
-              color="supplementary"
+              variant="secondary"
+              theme="black"
               iconLeft={<IconShare />}
               iconRight={<IconAngleRight />}
             >

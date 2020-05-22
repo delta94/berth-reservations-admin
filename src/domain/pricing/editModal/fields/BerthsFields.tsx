@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { TextInput } from 'hds-react/lib';
+import { TextInput } from 'hds-react';
 import { Field, useFormikContext } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
@@ -59,7 +59,7 @@ const BerthsFields: FunctionComponent = () => {
           name="privateCustomer"
           labelText={`${t('pricing.berths.privateCustomer')} (€)`}
           invalid={!!errors.privateCustomer}
-          invalidText={errors.privateCustomer}
+          helperText={errors.privateCustomer}
         />
         <Field
           required={true}
@@ -68,7 +68,7 @@ const BerthsFields: FunctionComponent = () => {
           name="company"
           labelText={`${t('pricing.berths.company')} (€)`}
           invalid={!!errors.company}
-          invalidText={errors.company}
+          helperText={errors.company}
         />
       </Grid>
       <Grid colsCount={2} className={styles.row}>

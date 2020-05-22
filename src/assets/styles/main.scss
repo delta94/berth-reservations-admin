@@ -1,6 +1,7 @@
 @import 'normalize';
 @import 'boxSizing';
 @import 'colours';
+// Note: the HDS related variables and styles are included via "hds-react" dependecy (it injects the CSS with JS)
 
 /*
   This will hide the focus indicator if the element receives focus via the mouse,
@@ -83,7 +84,7 @@
 }
 
 html * {
-  font-family: var(--hds-theme-primary-font), Arial;
+  font-family: var(--font-default), Arial;
 }
 
 code {

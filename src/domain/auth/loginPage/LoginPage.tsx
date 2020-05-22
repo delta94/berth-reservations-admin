@@ -33,7 +33,9 @@ const LoginPage: React.SFC<RouteComponentProps> = () => {
         <div className={styles.contentWrapper}>
           <Text as="h3">{t('login.heading')}</Text>
         </div>
-        <Button onClick={() => authService.login(pathname)}>{t('login.loginButton')}</Button>
+        <Button theme="coat" onClick={() => authService.login(pathname)}>
+          {t('login.loginButton')}
+        </Button>
       </div>
     </Layout>
   );
