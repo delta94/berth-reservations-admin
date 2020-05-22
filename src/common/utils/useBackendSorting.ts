@@ -10,11 +10,11 @@ interface SortBy {
 export const useBackendSorting = (onOrderByChange?: Function) => {
   const [orderBy, setOrderBy] = useState<string>();
 
-  // sortBy: the id of the column to be sorted in the table
+  // colId: the id of the column to be sorted in the table
   // orderBy: the value sent to the backend for sorted results
-  // sortByOrderByMap: a record for mapping sortBy to orderBy, e.g: { name: 'firstName', data: 'createdAt' }
-  const handleSortByChange = (sortByOrderByMap: Record<string, string>) => (sortBy: SortBy | undefined) => {
-    const sortById = sortBy?.id && sortByOrderByMap[sortBy.id];
+  // colIdOrderByMap: a record for mapping column's Id to orderBy, e.g: { name: 'firstName', data: 'createdAt' }
+  const handleSortedColChange = (colIdOrderByMap: Record<string, string>) => (sortBy: SortBy | undefined) => {
+    const sortById = sortBy?.id && colIdOrderByMap[sortBy.id];
     const orderBy = sortById ? (sortBy?.desc ? `-${sortById}` : sortById) : undefined;
 
     setOrderBy(orderBy);
@@ -30,6 +30,6 @@ export const useBackendSorting = (onOrderByChange?: Function) => {
 
   return {
     orderBy,
-    handleSortByChange,
+    handleSortedColChange,
   };
 };

@@ -48,7 +48,7 @@ export interface IndividualApplicationPageProps {
   loadingCustomers?: boolean;
   pagination: PaginationProps;
   handleLinkCustomer(customerId: string): void;
-  onSortByChange(sortBy: { id: string; desc?: boolean } | undefined): void;
+  onSortedColChange(sortBy: { id: string; desc?: boolean } | undefined): void;
 }
 
 const IndividualApplicationPage: React.FC<IndividualApplicationPageProps> = ({
@@ -60,7 +60,7 @@ const IndividualApplicationPage: React.FC<IndividualApplicationPageProps> = ({
   loadingCustomers,
   pagination,
   handleLinkCustomer,
-  onSortByChange,
+  onSortedColChange,
 }) => {
   const { t, i18n } = useTranslation();
   const columns: ColumnType[] = [
@@ -137,7 +137,7 @@ const IndividualApplicationPage: React.FC<IndividualApplicationPageProps> = ({
             }}
             renderTableToolsBottom={() => <Pagination {...pagination} className={styles.fullWidth} />}
             renderEmptyStateRow={() => <div>{t('individualApplication.customersTable.emptyState')}</div>}
-            onSortByChange={onSortByChange}
+            onSortedColChange={onSortedColChange}
             autoResetSortBy={false}
             canSelectOneRow
           />

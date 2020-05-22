@@ -3,14 +3,14 @@ import { renderHook, act } from '@testing-library/react-hooks';
 import { useBackendSorting } from '../useBackendSorting';
 
 describe('useBackendSorting', () => {
-  describe('handleSortByChange', () => {
+  describe('handleSortedColChange', () => {
     it('should set "orderBy" to the corresponding value in "sortByOrderByMap" for ascending order', () => {
       const { result } = renderHook(() => useBackendSorting());
 
       const sortByOrderByMap = { name: 'firstName' };
-      const onSortByChange = result.current.handleSortByChange(sortByOrderByMap);
+      const onSortedColChange = result.current.handleSortedColChange(sortByOrderByMap);
 
-      act(() => onSortByChange({ id: 'name', desc: false }));
+      act(() => onSortedColChange({ id: 'name', desc: false }));
 
       expect(result.current.orderBy).toBe('firstName');
     });
@@ -19,9 +19,9 @@ describe('useBackendSorting', () => {
       const { result } = renderHook(() => useBackendSorting());
 
       const sortByOrderByMap = { name: 'firstName' };
-      const onSortByChange = result.current.handleSortByChange(sortByOrderByMap);
+      const onSortedColChange = result.current.handleSortedColChange(sortByOrderByMap);
 
-      act(() => onSortByChange({ id: 'name', desc: true }));
+      act(() => onSortedColChange({ id: 'name', desc: true }));
 
       expect(result.current.orderBy).toBe('-firstName');
     });
@@ -30,9 +30,9 @@ describe('useBackendSorting', () => {
       const { result } = renderHook(() => useBackendSorting());
 
       const sortByOrderByMap = { name: 'firstName' };
-      const onSortByChange = result.current.handleSortByChange(sortByOrderByMap);
+      const onSortedColChange = result.current.handleSortedColChange(sortByOrderByMap);
 
-      act(() => onSortByChange({ id: 'random', desc: true }));
+      act(() => onSortedColChange({ id: 'random', desc: true }));
 
       expect(result.current.orderBy).toBeUndefined();
     });
@@ -41,9 +41,9 @@ describe('useBackendSorting', () => {
       const { result } = renderHook(() => useBackendSorting());
 
       const sortByOrderByMap = { name: 'firstName' };
-      const onSortByChange = result.current.handleSortByChange(sortByOrderByMap);
+      const onSortedColChange = result.current.handleSortedColChange(sortByOrderByMap);
 
-      act(() => onSortByChange(undefined));
+      act(() => onSortedColChange(undefined));
 
       expect(result.current.orderBy).toBeUndefined();
     });
@@ -60,12 +60,12 @@ describe('useBackendSorting', () => {
       const { result } = renderHook(() => useBackendSorting(onOrderByChange));
 
       const sortByOrderByMap = { name: 'firstName' };
-      const onSortByChange = result.current.handleSortByChange(sortByOrderByMap);
+      const onSortedColChange = result.current.handleSortedColChange(sortByOrderByMap);
 
-      act(() => onSortByChange({ id: 'name', desc: false }));
+      act(() => onSortedColChange({ id: 'name', desc: false }));
       expect(onOrderByChange).toHaveBeenCalledTimes(1);
 
-      act(() => onSortByChange({ id: 'name', desc: true }));
+      act(() => onSortedColChange({ id: 'name', desc: true }));
       expect(onOrderByChange).toHaveBeenCalledTimes(2);
     });
 
@@ -73,9 +73,9 @@ describe('useBackendSorting', () => {
       const { result } = renderHook(() => useBackendSorting(onOrderByChange));
 
       const sortByOrderByMap = { name: 'firstName' };
-      const onSortByChange = result.current.handleSortByChange(sortByOrderByMap);
+      const onSortedColChange = result.current.handleSortedColChange(sortByOrderByMap);
 
-      act(() => onSortByChange(undefined));
+      act(() => onSortedColChange(undefined));
       expect(onOrderByChange).not.toHaveBeenCalled();
     });
   });

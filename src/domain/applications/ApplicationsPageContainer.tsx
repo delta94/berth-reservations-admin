@@ -45,7 +45,7 @@ const ApplicationsPageContainer: React.SFC = () => {
   const [onlySwitchApps, setOnlySwitchApps] = useState<boolean>();
 
   const { cursor, pageSize, pageIndex, getPageCount, goToPage } = usePagination();
-  const { orderBy, handleSortByChange } = useBackendSorting(() => goToPage(0));
+  const { orderBy, handleSortedColChange } = useBackendSorting(() => goToPage(0));
   const berthApplicationsVars: BERTH_APPLICATIONS_VARS = {
     first: pageSize,
     after: cursor,
@@ -175,7 +175,7 @@ const ApplicationsPageContainer: React.SFC = () => {
           />
         )}
         renderEmptyStateRow={() => t('common.notification.noData.description')}
-        onSortByChange={handleSortByChange({ createdAt: 'createdAt' })}
+        onSortedColChange={handleSortedColChange({ createdAt: 'createdAt' })}
         autoResetSortBy={false}
         canSelectRows
       />

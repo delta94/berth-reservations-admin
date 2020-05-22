@@ -37,7 +37,7 @@ export interface CustomerListComponentProps {
   data: TableData[];
   pagination: PaginationProps;
   tableTools: TableToolsProps<SearchBy>;
-  onSortByChange(sortBy: { id: string; desc?: boolean } | undefined): void;
+  onSortedColChange(sortBy: { id: string; desc?: boolean } | undefined): void;
 }
 
 const CustomerListComponent = ({
@@ -45,7 +45,7 @@ const CustomerListComponent = ({
   data,
   pagination,
   tableTools,
-  onSortByChange,
+  onSortedColChange,
 }: CustomerListComponentProps) => {
   const { t } = useTranslation();
   const columns: ColumnType[] = [
@@ -119,7 +119,7 @@ const CustomerListComponent = ({
       renderTableToolsTop={() => <TableTools {...tableTools} />}
       renderEmptyStateRow={() => t('common.notification.noData.description')}
       renderTableToolsBottom={() => <Pagination {...pagination} />}
-      onSortByChange={onSortByChange}
+      onSortedColChange={onSortedColChange}
       autoResetSortBy={false}
       canSelectRows
     />

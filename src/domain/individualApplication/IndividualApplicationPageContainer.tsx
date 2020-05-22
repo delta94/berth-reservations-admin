@@ -47,7 +47,7 @@ const IndividualCustomerPageContainer: React.SFC = () => {
   );
 
   const { cursor, pageSize, pageIndex, getPageCount, goToPage } = usePagination();
-  const { orderBy, handleSortByChange } = useBackendSorting(() => goToPage(0));
+  const { orderBy, handleSortedColChange } = useBackendSorting(() => goToPage(0));
 
   const [debouncedSearchVal] = useDebounce(searchVal, 500, {
     equalityFn: (prev, next) => prev === next,
@@ -214,7 +214,7 @@ const IndividualCustomerPageContainer: React.SFC = () => {
         pageCount: getPageCount(customersData?.profiles?.count),
         onPageChange: ({ selected }) => goToPage(selected),
       }}
-      onSortByChange={handleSortByChange({ name: 'lastName' })}
+      onSortedColChange={handleSortedColChange({ name: 'lastName' })}
       similarCustomersData={filteredCustomersData}
       customerProfile={customerProfile}
       applicationDetails={applicationDetails}

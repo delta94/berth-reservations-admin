@@ -21,7 +21,7 @@ const CustomersPageContainer: React.FC = () => {
   const [searchVal, setSearchVal] = useState<string>('');
 
   const { cursor, pageSize, pageIndex, getPageCount, goToPage } = usePagination();
-  const { orderBy, handleSortByChange } = useBackendSorting(() => goToPage(0));
+  const { orderBy, handleSortedColChange } = useBackendSorting(() => goToPage(0));
 
   const [debouncedSearchVal] = useDebounce(searchVal, 500, {
     equalityFn: (prev, next) => prev === next,
@@ -60,7 +60,7 @@ const CustomersPageContainer: React.FC = () => {
       <CustomerList
         loading={loading}
         data={tableData}
-        onSortByChange={handleSortByChange({ name: 'lastName' })}
+        onSortedColChange={handleSortedColChange({ name: 'lastName' })}
         pagination={{
           forcePage: pageIndex,
           pageCount: getPageCount(data?.profiles?.count),
