@@ -8,6 +8,7 @@ export const FILTERED_CUSTOMERS_QUERY = gql`
     $lastName: String
     $email: String
     $address: String
+    $orderBy: String
   ) {
     profiles(
       first: $first
@@ -17,7 +18,7 @@ export const FILTERED_CUSTOMERS_QUERY = gql`
       lastName: $lastName
       emails_Email: $email
       addresses_Address: $address
-      orderBy: "lastName"
+      orderBy: $orderBy
     ) {
       count
       edges {

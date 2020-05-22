@@ -35,6 +35,7 @@ export const OFFER_PAGE_QUERY = gql`
                       number
                       width
                       length
+                      depth
                       mooringType
                       comment
                       isAccessible

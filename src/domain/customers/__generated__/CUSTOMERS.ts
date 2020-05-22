@@ -91,4 +91,5 @@ export interface CUSTOMERSVariables {
   lastName?: string | null;
   email?: string | null;
   address?: string | null;
+  orderBy?: string | null;
 }

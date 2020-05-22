@@ -10,6 +10,7 @@ import { CUSTOMERS, CUSTOMERSVariables as CUSTOMERS_VARS } from './__generated__
 import CustomerList from './CustomerListComponent';
 import CustomersPage from './CustomersPage';
 import { usePagination } from '../../common/utils/usePagination';
+import { useBackendSorting } from '../../common/utils/useBackendSorting';
 import { SearchBy } from '../individualApplication/IndividualApplicationPage';
 import { usePrevious } from '../../common/utils/usePrevious';
 
@@ -20,6 +21,7 @@ const CustomersPageContainer: React.FC = () => {
   const [searchVal, setSearchVal] = useState<string>('');
 
   const { cursor, pageSize, pageIndex, getPageCount, goToPage } = usePagination();
+  const { orderBy, handleSortedColChange } = useBackendSorting(() => goToPage(0));
 
   const [debouncedSearchVal] = useDebounce(searchVal, 500, {
     equalityFn: (prev, next) => prev === next,
@@ -28,14 +30,15 @@ const CustomersPageContainer: React.FC = () => {
 
   const prevSearchBy = usePrevious(searchBy);
 
-  const filteredCustomersVars = {
+  const customersVars: CUSTOMERS_VARS = {
     first: pageSize,
     after: cursor,
+    orderBy,
     [searchBy]: prevSearchBy === searchBy ? debouncedSearchVal : searchVal,
   };
 
   const { data, error, loading } = useQuery<CUSTOMERS, CUSTOMERS_VARS>(CUSTOMER_QUERY, {
-    variables: filteredCustomersVars,
+    variables: customersVars,
   });
 
   useEffect(() => {
@@ -57,6 +60,7 @@ const CustomersPageContainer: React.FC = () => {
       <CustomerList
         loading={loading}
         data={tableData}
+        onSortedColChange={handleSortedColChange({ name: 'lastName' })}
         pagination={{
           forcePage: pageIndex,
           pageCount: getPageCount(data?.profiles?.count),

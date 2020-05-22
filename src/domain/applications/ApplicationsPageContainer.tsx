@@ -21,6 +21,7 @@ import { useDeleteBerthApplication } from '../mutations/deleteBerthApplication';
 import { ApplicationStatus } from '../../@types/__generated__/globalTypes';
 import Pagination from '../../common/pagination/Pagination';
 import { usePagination } from '../../common/utils/usePagination';
+import { useBackendSorting } from '../../common/utils/useBackendSorting';
 
 export interface TableData {
   id: string;
@@ -37,24 +38,26 @@ export interface TableData {
   startDate?: string;
 }
 
-type ColumnType = Column<ApplicationData> & { accessor: keyof ApplicationData };
+type ColumnType = Column<ApplicationData>;
 
 const ApplicationsPageContainer: React.SFC = () => {
   const { t, i18n } = useTranslation();
   const [onlySwitchApps, setOnlySwitchApps] = useState<boolean>();
 
   const { cursor, pageSize, pageIndex, getPageCount, goToPage } = usePagination();
+  const { orderBy, handleSortedColChange } = useBackendSorting(() => goToPage(0));
+  const berthApplicationsVars: BERTH_APPLICATIONS_VARS = {
+    first: pageSize,
+    after: cursor,
+    switchApplications: onlySwitchApps,
+    orderBy,
+  };
 
   const { loading, error, data } = useQuery<BERTH_APPLICATIONS, BERTH_APPLICATIONS_VARS>(BERTH_APPLICATIONS_QUERY, {
-    variables: {
-      first: pageSize,
-      after: cursor,
-      switchApplications: onlySwitchApps,
-    },
+    variables: berthApplicationsVars,
   });
 
   const [deleteDraftedApplication, { loading: isDeleting }] = useDeleteBerthApplication();
-
   if (error)
     return (
       <Notification labelText={t('common.notification.error.label')} type="error">
@@ -73,8 +76,8 @@ const ApplicationsPageContainer: React.SFC = () => {
       ),
       Header: t('applications.tableHeaders.applicationType') || '',
       accessor: 'isSwitch',
-      sortType: 'basic',
       filter: 'exact',
+      disableSortBy: true,
       width: COLUMN_WIDTH.M,
     },
     {
@@ -86,11 +89,13 @@ const ApplicationsPageContainer: React.SFC = () => {
     {
       Header: t('applications.tableHeaders.queue') || '',
       accessor: 'queue',
+      disableSortBy: true,
       width: COLUMN_WIDTH.XS,
     },
     {
       Header: t('applications.tableHeaders.municipality') || '',
       accessor: 'municipality',
+      disableSortBy: true,
       width: COLUMN_WIDTH.S,
     },
     {
@@ -102,6 +107,7 @@ const ApplicationsPageContainer: React.SFC = () => {
       ),
       Header: t('applications.tableHeaders.status') || '',
       accessor: 'status',
+      disableSortBy: true,
       width: COLUMN_WIDTH.M,
     },
     {
@@ -113,6 +119,7 @@ const ApplicationsPageContainer: React.SFC = () => {
         ),
       Header: t('applications.tableHeaders.lease') || '',
       accessor: 'lease',
+      disableSortBy: true,
       width: COLUMN_WIDTH.XL,
     },
   ];
@@ -167,6 +174,7 @@ const ApplicationsPageContainer: React.SFC = () => {
           />
         )}
         renderEmptyStateRow={() => t('common.notification.noData.description')}
+        onSortedColChange={handleSortedColChange({ createdAt: 'createdAt' })}
         canSelectRows
       />
     </ApplicationsPage>

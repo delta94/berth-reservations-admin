@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import {
@@ -41,7 +41,7 @@ interface Setters<D extends object> {
 
 type TableToolsFn<D extends object> = (tableState: TState<D>, setters: Setters<D>) => React.ReactNode;
 
-type Props<D extends object> = {
+type TableProps<D extends object> = {
   className?: string;
   data: D[];
   loading?: boolean;
@@ -61,6 +61,7 @@ type Props<D extends object> = {
     pageCount: number;
     goToPage(pageIndex: number): void;
   }) => React.ReactNode;
+  onSortedColChange?: (sortedCol: TableState<D>['sortBy'][0] | undefined) => void;
 } & TableOptions<D>;
 
 const EXPANDER = 'EXPANDER';
@@ -80,7 +81,7 @@ export enum COLUMN_WIDTH {
   'XXL' = 3 * BASE_COL_WIDTH,
 }
 
-const Table = <D extends object>({
+const Table = <D extends { id: string }>({
   className,
   columns,
   data: tableData,
@@ -97,7 +98,8 @@ const Table = <D extends object>({
   renderMainHeader,
   renderEmptyStateRow,
   renderPaginator,
-}: Props<D>) => {
+  onSortedColChange,
+}: TableProps<D>) => {
   const { t } = useTranslation();
 
   const selectorCol: Column<D> = React.useMemo(
@@ -186,6 +188,15 @@ const Table = <D extends object>({
 
   const data = React.useMemo(() => tableData, [tableData]);
 
+  const [dataState, setDataState] = React.useState<D[]>(data);
+
+  const skipPageResetRef = React.useRef<boolean>();
+
+  useEffect(() => {
+    // After the table has updated, always remove the flag
+    skipPageResetRef.current = false;
+  });
+
   const {
     headerGroups,
     state,
@@ -202,9 +213,14 @@ const Table = <D extends object>({
   } = useTable(
     {
       columns: tableColumns,
-      data,
+      data: dataState,
       globalFilter,
       initialState,
+      autoResetSortBy: !skipPageResetRef.current,
+      autoResetSelectedRows: !skipPageResetRef.current,
+      getRowId: useCallback((row: D, relativeIndex: number) => {
+        return row.id ? row.id : `${relativeIndex}`;
+      }, []),
     },
     useFilters,
     useGlobalFilter,
@@ -218,6 +234,21 @@ const Table = <D extends object>({
   useEffect(() => {
     gotoPage(0);
   }, [gotoPage, state.sortBy, state.filters, state.globalFilter]);
+
+  useEffect(() => {
+    onSortedColChange?.(state.sortBy[0]);
+  }, [state.sortBy, onSortedColChange]);
+
+  useEffect(() => {
+    const updateData = (newData: D[]) => {
+      // When data gets updated with this function, set a flag to disable all of the auto resetting
+      skipPageResetRef.current = true;
+
+      setDataState(newData);
+    };
+
+    updateData(data);
+  }, [data]);
 
   const renderTableHead = (headerGroup: HeaderGroup<D>, index: number) => (
     <div
@@ -264,7 +295,7 @@ const Table = <D extends object>({
       <div
         key={row.index}
         className={classNames(styles.rowWrapper, {
-          [styles.isSelected]: row.isSelected,
+          [styles.isSelected]: row.isSelected && !loading,
         })}
       >
         <div {...row.getRowProps()}>

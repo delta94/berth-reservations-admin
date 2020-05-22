@@ -117,4 +117,5 @@ export interface BERTH_APPLICATIONSVariables {
   first: number;
   after?: string | null;
   switchApplications?: boolean | null;
+  orderBy?: string | null;
 }
