@@ -11,9 +11,15 @@ import Property from '../property/Property';
 import styles from './harborProperties.module.scss';
 import Section from '../../../common/section/Section';
 import placeholder from './harborPlaceholder.svg';
+import List from '../../../common/list/List';
+import ListItem from '../../../common/list/ListItem';
 
 export interface HarborPropertiesProps {
   imageUrl: string | null;
+  maps: {
+    id: string;
+    url: string;
+  }[];
   name: string;
   address: string;
   servicemapId: string;
@@ -35,6 +41,7 @@ const HarborProperties: React.SFC<HarborPropertiesProps> = ({
   name,
   address,
   imageUrl,
+  maps,
   servicemapId,
   properties,
   editHarbor,
@@ -65,9 +72,28 @@ const HarborProperties: React.SFC<HarborPropertiesProps> = ({
               </Section>
               <Section>
                 <ExternalLink href={serviceMapUrl} variant="withArrow">
-                  {t('harbors.details.serviceMap')}
+                  {t('common.terminology.serviceMap')}
                 </ExternalLink>
               </Section>
+              {maps.length > 0 && (
+                <Section>
+                  {maps.length > 1 ? (
+                    <List noBullets>
+                      {maps.map((map, index) => (
+                        <ListItem key={map.id}>
+                          <ExternalLink href={map.url} variant="withArrow">
+                            {`${t('common.terminology.harborMap')} ${index + 1} (PDF)`}
+                          </ExternalLink>
+                        </ListItem>
+                      ))}
+                    </List>
+                  ) : (
+                    <ExternalLink href={maps[0].url} variant="withArrow">
+                      {`${t('common.terminology.harborMap')} (PDF)`}
+                    </ExternalLink>
+                  )}
+                </Section>
+              )}
             </div>
           </div>
           <Grid colsCount={5} className={styles.propsGrid}>

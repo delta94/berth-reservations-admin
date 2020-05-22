@@ -7,7 +7,7 @@ import { Cell } from 'react-table';
 import Table, { Column } from '../../common/table/Table';
 import { INDIVIDUAL_HARBOR_QUERY } from './queries';
 import { INDIVIDUAL_HARBOR } from './__generated__/INDIVIDUAL_HARBOR';
-import { getIndividualHarborData, getBerths, Berth, getPiers } from './utils/utils';
+import { getIndividualHarborData, getBerths, Berth, getPiers, getMaps } from './utils/utils';
 import IndividualHarborPage from './individualHarborPage/IndividualHarborPage';
 import HarborProperties from './harborProperties/HarborProperties';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
@@ -101,6 +101,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
   ];
   const piers = getPiers(data);
   const berths = getBerths(data);
+  const maps = getMaps(data);
   const canAddBerth = piers.length > 0;
 
   return (
@@ -108,6 +109,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
       <HarborProperties
         name={harbor.name || ''}
         imageUrl={harbor.imageFile}
+        maps={maps}
         servicemapId={harbor.servicemapId || ''}
         address={`${harbor.streetAddress} ${harbor.zipCode} ${harbor.municipality}`}
         properties={{

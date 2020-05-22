@@ -9,6 +9,12 @@ import { BerthMooringType, LeaseStatus } from "./../../../@types/__generated__/g
 // GraphQL query operation: INDIVIDUAL_HARBOR
 // ====================================================
 
+export interface INDIVIDUAL_HARBOR_harbor_properties_maps {
+  __typename: "HarborMapType";
+  id: any;
+  url: string;
+}
+
 export interface INDIVIDUAL_HARBOR_harbor_properties_piers_edges_node_properties_suitableBoatTypes {
   __typename: "BoatTypeType";
   name: string | null;
@@ -101,6 +107,7 @@ export interface INDIVIDUAL_HARBOR_harbor_properties {
   municipality: string | null;
   wwwUrl: string;
   imageFile: string | null;
+  maps: (INDIVIDUAL_HARBOR_harbor_properties_maps | null)[];
   servicemapId: string | null;
   maxWidth: number | null;
   piers: INDIVIDUAL_HARBOR_harbor_properties_piers | null;
