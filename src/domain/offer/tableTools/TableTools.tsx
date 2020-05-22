@@ -41,10 +41,10 @@ const TableTools: React.SFC<TableToolsProps> = ({
         />
       </div>
       <div>
-        <Button className={classNames(styles.button)} onClick={handleReturn} color="supplementary">
+        <Button variant="secondary" theme="black" className={classNames(styles.button)} onClick={handleReturn}>
           {t('offer.tableTools.return')}
         </Button>
-        <Button className={classNames(styles.button)} disabled={disableSubmit} onClick={handleSubmit}>
+        <Button theme="coat" className={classNames(styles.button)} disabled={disableSubmit} onClick={handleSubmit}>
           {t('offer.tableTools.submit')}
         </Button>
       </div>

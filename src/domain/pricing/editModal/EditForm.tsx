@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { Form, Formik } from 'formik';
-import { Button } from 'hds-react/lib';
+import { Button } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 
 import styles from './editForm.module.scss';
@@ -56,13 +56,13 @@ const EditForm: FunctionComponent<EditPricingFormProps> = ({ onSubmit, closeModa
   return (
     <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={form.getValidationSchema(t)}>
       {({ isSubmitting }) => (
-        <Form>
+        <Form className={styles.form}>
           {form.component}
           <div className={styles.buttonRow}>
-            <Button color="supplementary" onClick={closeModal}>
+            <Button variant="secondary" theme="black" onClick={closeModal}>
               {t('common.cancel')}
             </Button>
-            <Button type="submit" disabled={isSubmitting}>
+            <Button theme="coat" type="submit" disabled={isSubmitting}>
               {t('common.save')}
             </Button>
           </div>

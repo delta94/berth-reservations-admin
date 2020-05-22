@@ -12,13 +12,7 @@ export default {
 
 export const sidebar = () => (
   <div style={{ backgroundColor: 'grey', height: '100vh' }}>
-    <Sidebar
-      actions={[
-        <Button onClick={action('logout')} color="supplementary">
-          Logout
-        </Button>,
-      ]}
-    >
+    <Sidebar actions={[<Button onClick={action('logout')}>Logout</Button>]}>
       <Expandable label="Home page">
         <div>one</div>
         <div>two</div>

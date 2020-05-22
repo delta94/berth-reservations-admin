@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import * as Yup from 'yup';
-import { TextInput } from 'hds-react/lib';
+import { TextInput } from 'hds-react';
 import { Field, useFormikContext } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
@@ -60,7 +60,7 @@ const AdditionalServicesFields: FunctionComponent = () => {
           name="price"
           labelText={`${t('pricing.additionalServices.price')} (€)`}
           invalid={!!errors.price}
-          invalidText={errors.price}
+          helperText={errors.price}
         />
         <Field
           required={true}

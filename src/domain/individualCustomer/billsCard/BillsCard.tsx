@@ -54,7 +54,7 @@ const BillsCard: React.SFC<BillsCardProps> = ({
     <Card>
       <CardHeader title={t('individualCustomer.customerBill.title')} />
       <CardBody>
-        <Button color="supplementary" onClick={handleShowBill} className={styles.button}>
+        <Button variant="secondary" theme="black" onClick={handleShowBill} className={styles.button}>
           {t('individualCustomer.customerBill.showInvoice')}
         </Button>
         <Section title={t('individualCustomer.customerBill.berthRental')}>

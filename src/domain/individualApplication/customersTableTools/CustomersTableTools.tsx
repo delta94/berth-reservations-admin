@@ -44,10 +44,10 @@ const CustomersTableTools = <T extends string>({
         value={searchVal}
         onChange={(e) => setSearchVal((e.target as HTMLInputElement).value)}
       />
-      <Button disabled={!handleLinkCustomer} onClick={handleLinkCustomer}>
+      <Button theme="coat" disabled={!handleLinkCustomer} onClick={handleLinkCustomer}>
         {t('individualApplication.customerTableTools.linkCustomer')}
       </Button>
-      <Button color="supplementary" onClick={handleCreateCustomer}>
+      <Button variant="secondary" theme="black" onClick={handleCreateCustomer}>
         {t('individualApplication.customerTableTools.createNewCustomer')}
       </Button>
     </div>

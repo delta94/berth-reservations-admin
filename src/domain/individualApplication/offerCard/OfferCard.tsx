@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'hds-react/lib';
+import { Button } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 
 import Card from '../../../common/card/Card';
@@ -162,18 +162,18 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
         <hr />
         <div className={styles.buttonRow}>
           <div>
-            <Button className={styles.alignLeft} disabled>
+            <Button className={styles.alignLeft} theme="coat" disabled>
               {t('offer.billing.acceptAndSend')}
             </Button>
           </div>
           <div>
-            <Button color="supplementary" className={styles.button} disabled>
+            <Button variant="supplementary" className={styles.button} disabled>
               {t('offer.billing.showBill')}
             </Button>
-            <Button color="supplementary" className={styles.button} disabled>
+            <Button variant="supplementary" className={styles.button} disabled>
               {t('offer.billing.showContract')}
             </Button>
-            <Button color="supplementary" className={styles.button} onClick={() => handleDeleteLease(id)}>
+            <Button variant="secondary" theme="black" className={styles.button} onClick={() => handleDeleteLease(id)}>
               {t('offer.billing.removeOffer')}
             </Button>
           </div>

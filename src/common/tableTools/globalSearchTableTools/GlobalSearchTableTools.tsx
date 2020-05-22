@@ -17,7 +17,7 @@ const GlobalSearchTableTools: React.SFC<GlobalSearchTableToolsProps> = ({ handle
         className={styles.filterField}
         placeholder={t('common.search')}
         id="textSearchGlobalFilter"
-        onChange={(e) => handleGlobalFilter((e.target as HTMLTextAreaElement).value || undefined)}
+        onChange={(e) => handleGlobalFilter((e.target as HTMLInputElement).value || undefined)}
       />
     </div>
   );
