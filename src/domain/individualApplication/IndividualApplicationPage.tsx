@@ -138,7 +138,6 @@ const IndividualApplicationPage: React.FC<IndividualApplicationPageProps> = ({
             renderTableToolsBottom={() => <Pagination {...pagination} className={styles.fullWidth} />}
             renderEmptyStateRow={() => <div>{t('individualApplication.customersTable.emptyState')}</div>}
             onSortedColChange={onSortedColChange}
-            autoResetSortBy={false}
             canSelectOneRow
           />
         </>

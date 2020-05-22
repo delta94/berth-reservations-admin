@@ -38,7 +38,7 @@ export interface TableData {
   startDate?: string;
 }
 
-type ColumnType = Column<ApplicationData> & { accessor: keyof ApplicationData };
+type ColumnType = Column<ApplicationData>;
 
 const ApplicationsPageContainer: React.SFC = () => {
   const { t, i18n } = useTranslation();
@@ -76,7 +76,6 @@ const ApplicationsPageContainer: React.SFC = () => {
       ),
       Header: t('applications.tableHeaders.applicationType') || '',
       accessor: 'isSwitch',
-      sortType: 'basic',
       filter: 'exact',
       disableSortBy: true,
       width: COLUMN_WIDTH.M,
@@ -176,7 +175,6 @@ const ApplicationsPageContainer: React.SFC = () => {
         )}
         renderEmptyStateRow={() => t('common.notification.noData.description')}
         onSortedColChange={handleSortedColChange({ createdAt: 'createdAt' })}
-        autoResetSortBy={false}
         canSelectRows
       />
     </ApplicationsPage>

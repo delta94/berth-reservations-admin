@@ -120,7 +120,6 @@ const CustomerListComponent = ({
       renderEmptyStateRow={() => t('common.notification.noData.description')}
       renderTableToolsBottom={() => <Pagination {...pagination} />}
       onSortedColChange={onSortedColChange}
-      autoResetSortBy={false}
       canSelectRows
     />
   );

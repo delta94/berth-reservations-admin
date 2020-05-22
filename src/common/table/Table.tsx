@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import {
@@ -81,7 +81,7 @@ export enum COLUMN_WIDTH {
   'XXL' = 3 * BASE_COL_WIDTH,
 }
 
-const Table = <D extends object>({
+const Table = <D extends { id: string }>({
   className,
   columns,
   data: tableData,
@@ -92,7 +92,6 @@ const Table = <D extends object>({
   theme = 'primary',
   globalFilter,
   initialState,
-  autoResetSortBy = true,
   renderTableToolsTop,
   renderTableToolsBottom,
   renderSubComponent,
@@ -217,7 +216,11 @@ const Table = <D extends object>({
       data: dataState,
       globalFilter,
       initialState,
-      autoResetSortBy: autoResetSortBy || !skipPageResetRef.current,
+      autoResetSortBy: !skipPageResetRef.current,
+      autoResetSelectedRows: !skipPageResetRef.current,
+      getRowId: useCallback((row: D, relativeIndex: number) => {
+        return row.id ? row.id : `${relativeIndex}`;
+      }, []),
     },
     useFilters,
     useGlobalFilter,
@@ -292,7 +295,7 @@ const Table = <D extends object>({
       <div
         key={row.index}
         className={classNames(styles.rowWrapper, {
-          [styles.isSelected]: row.isSelected,
+          [styles.isSelected]: row.isSelected && !loading,
         })}
       >
         <div {...row.getRowProps()}>

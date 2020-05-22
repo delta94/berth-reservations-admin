@@ -70,6 +70,7 @@ export const getOfferData = (data: OFFER_PAGE | undefined): BerthData[] => {
       return [
         ...acc,
         {
+          id: berth.node.id,
           harborId,
           harbor,
           pier: properties.identifier,
