@@ -20,7 +20,8 @@ export const getCustomerProfile = (profile: CUSTOMER_PROFILE): CustomerProfileCa
     primaryAddress: profile.primaryAddress,
     primaryPhone: profile.primaryPhone?.phone,
     primaryEmail: profile.primaryEmail?.email,
-    ssn: '', // TODO
+    ssn: '-', // TODO
+    showCustomerNameAsLink: true,
   };
 };
 
@@ -54,7 +55,6 @@ const getApplicantDetails = (berthApplication: BERTH_APPLICATION): PrivateCustom
     },
     primaryPhone: phoneNumber,
     primaryEmail: email,
-    showCustomerNameAsLink: customer?.id !== null,
   };
 };
 
