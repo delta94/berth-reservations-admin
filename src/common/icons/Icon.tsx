@@ -10,7 +10,7 @@ export interface IconProps {
   className?: string;
   outlined?: boolean;
   shape: IconShapes;
-  color?: 'standard' | 'disabled' | 'brand' | 'secondary';
+  color?: 'standard' | 'disabled' | 'brand' | 'secondary' | 'critical';
   size?: 'small' | 'medium' | 'large';
 }
 

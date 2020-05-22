@@ -1,16 +1,17 @@
 import { PureQueryOptions } from 'apollo-client';
 
 import { BerthMooringType } from '../../../@types/__generated__/globalTypes';
+import { FileContainer } from '../../../common/fileUpload/FileUpload';
 
 export interface FormProps<T> {
-  onCancel?(): void;
-  onDelete?(deleted: T): void;
-  onSubmit?(updated: T): void;
-
   initialValues?: T;
   // Queries to refetch when mutations are run
   refetchQueries?: PureQueryOptions[];
   isSubmitting?: boolean;
+
+  onCancel?(): void;
+  onDelete?(deleted: T): void;
+  onSubmit?(updated: T): void;
 }
 
 export type Berth = {
@@ -41,3 +42,13 @@ export type Pier = {
   gate?: boolean;
   personalElectricity?: boolean;
 };
+
+export interface Harbor {
+  name?: string;
+  streetAddress?: string;
+  zipCode?: string;
+  municipality?: string;
+  wwwUrl?: string;
+  imageFile?: FileContainer;
+  maps?: FileContainer[];
+}
