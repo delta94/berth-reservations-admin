@@ -1,26 +1,15 @@
 @import 'colours';
 @import 'spacings';
 
-.section {
+.column {
   margin: units(1) 0;
   padding: 0 units(1);
-
-  &:not(:last-child) {
-    border-right: solid 1px $gray-200;
-  }
-}
-
-.harborAddress {
-  display: flex;
-  width: units(40);
-}
-
-.address {
-  display: flex;
-  flex-direction: column;
 }
 
 .image {
-  max-width: 50%;
-  margin-right: units(1);
+  max-width: 100%;
+}
+
+.address {
+  margin-bottom: units(1.5);
 }

@@ -1,5 +1,10 @@
 import { HARBORS } from './__generated__/HARBORS';
 
+type Map = {
+  id: string;
+  url: string;
+};
+
 export interface HarborData {
   id: string;
   electricity: number;
@@ -14,6 +19,7 @@ export interface HarborData {
   zipCode: string | null;
   municipality: string | null;
   wwwUrl: string | null;
+  maps: Map[];
   imageFile: string | null;
   servicemapId: string | null;
   maxWidth: number | null;
@@ -50,11 +56,21 @@ export const getHarborsData = (data: HARBORS | undefined) => {
             water: 0,
           }
         );
+        const maps: Map[] = harbor.node.properties.maps.reduce<Map[]>((acc, map) => {
+          if (map !== null) {
+            return acc.concat({
+              id: map.id,
+              url: map.url,
+            });
+          }
+          return acc;
+        }, []);
         return [
           ...acc,
           {
             id: harbor.node.id,
             imageFile: harbor.node.properties.imageFile,
+            maps,
             maxWidth: harbor.node.properties.maxWidth,
             municipality: harbor.node.properties.municipality,
             name: harbor.node.properties.name || '-',

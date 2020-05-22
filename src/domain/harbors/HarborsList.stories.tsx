@@ -3,14 +3,14 @@ import { HashRouter } from 'react-router-dom';
 
 import HarborsPage from './HarborsPage';
 import { getHarborsData } from './utils';
-import dummyHarbors from './__mocks__/mockdata.json';
+import { mockData } from './__mocks__/mockData';
 
 export default {
   component: HarborsPage,
-  decorators: [(storyFn) => <HashRouter>{storyFn()}</HashRouter>],
+  decorators: [(storyFn: Function) => <HashRouter>{storyFn()}</HashRouter>],
   title: 'HarborsList',
 };
 
-const data = getHarborsData(dummyHarbors.data);
+const data = getHarborsData(mockData);
 
 export const harborsList = () => <HarborsPage data={data}>foo</HarborsPage>;

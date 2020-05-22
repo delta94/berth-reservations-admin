@@ -79,6 +79,7 @@
       "year": "Vuosi"
     },
     "terminology": {
+      "address": "Osoite",
       "berth": "Venepaikka",
       "dataEntry": "Tietue",
       "depth": "Syvyys",
@@ -86,10 +87,12 @@
       "draught": "Syväys",
       "electricity": "Sähkö",
       "gate": "Portti",
+      "harborMap": "Satamakartta",
       "length": "Pituus",
       "lighting": "Valaistus",
       "mooring": "Kiinnitys",
       "parkingPermit": "Pysäköintilupa",
+      "serviceMap": "Palvelukartta",
       "trawlerSummerStorage": "Trailerin kesäsäilytys",
       "waste": "Jäte",
       "wasteCollection": "Jätehuolto",
@@ -181,14 +184,10 @@
       "applications": "HAKEMUKSET",
       "bills": "LASKUT",
       "comments": "HUOMIOT",
-      "serviceMap": "Palvelukartta",
-      "portMap": "Satamakartta (PDF)",
-      "maxWidth": "Max leveys",
+      "maxWidth": "Suurin leveys",
       "mooring": "Kiinnitys",
-      "chief": "Päällikkö",
-      "maintenanceTeam": "Huoltotiimi",
-      "recentActivities": "Viimeaikainen toiminta",
-      "address": "Osoite"
+      "harborChief": "Satamapäällikkö",
+      "maintenance": "Kunnossapito"
     }
   },
   "individualHarbor": {
@@ -368,16 +367,6 @@
       "minimizeAll": "Pienennä kaikki",
       "mainHeader": "Asiakkaat",
       "queue": "Jono"
-    },
-    "details": {
-      "address": "OSOITE",
-      "serviceMap": "Palvelukartta",
-      "portMap": "Satamakartta (PDF)",
-      "maxWidth": "Max leveys",
-      "mooring": "Kiinnitys",
-      "chief": "Päällikkö",
-      "maintenanceTeam": "Huoltotiimi",
-      "recentActivities": "Viimeaikainen toiminta"
     }
   },
   "individualCustomer": {
