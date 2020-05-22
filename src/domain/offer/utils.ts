@@ -14,6 +14,7 @@ interface Lease {
 }
 
 export interface BerthData {
+  id: string;
   harborId: string;
   harbor: string;
   pier: string;
@@ -78,7 +79,7 @@ export const getOfferData = (data: OFFER_PAGE | undefined): BerthData[] => {
           berthId: berth.node.id,
           width: berth.node.width,
           length: berth.node.length,
-          draught: null, // TODO: replace it when draught is implemented in the backend
+          draught: berth.node.depth,
           mooringType: berth.node.mooringType,
           leases,
           comment: berth.node.comment,

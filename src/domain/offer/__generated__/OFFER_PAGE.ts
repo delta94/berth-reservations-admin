@@ -60,6 +60,7 @@ export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_pro
   number: number;
   width: number;
   length: number;
+  depth: number | null;
   mooringType: BerthMooringType;
   comment: string;
   isAccessible: boolean | null;
