@@ -22,9 +22,11 @@ import InternalLink from '../../common/internalLink/InternalLink';
 import PierCreateForm from './forms/pierForm/PierCreateForm';
 import PierEditForm from './forms/pierForm/PierEditForm';
 import Chip from '../../common/chip/Chip';
+import HarborEditForm from './forms/harborForm/HarborEditForm';
 import Pagination from '../../common/pagination/Pagination';
 
 const IndividualHarborPageContainer: React.SFC = () => {
+  const [editingHarbor, setEditingHarbor] = useState<boolean>(false);
   const [berthToEdit, setBerthToEdit] = useState<string | null>(null);
   const [creatingBerth, setCreatingBerth] = useState<boolean>(false);
   const [pierToEdit, setPierToEdit] = useState<string | null>(null);
@@ -119,6 +121,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
           wasteCollection: harbor.wasteCollection,
           water: harbor.water,
         }}
+        editHarbor={() => setEditingHarbor(true)}
       />
       <Table
         data={berths}
@@ -201,6 +204,14 @@ const IndividualHarborPageContainer: React.SFC = () => {
           />
         </Modal>
       )}
+      <Modal isOpen={editingHarbor} toggleModal={() => setEditingHarbor(false)}>
+        <HarborEditForm
+          harborId={id}
+          onCancel={() => setEditingHarbor(false)}
+          onSubmit={() => setEditingHarbor(false)}
+          refetchQueries={[{ query: INDIVIDUAL_HARBOR_QUERY, variables: { id } }]}
+        />
+      </Modal>
     </IndividualHarborPage>
   );
 };
