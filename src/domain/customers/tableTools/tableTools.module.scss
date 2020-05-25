@@ -4,11 +4,12 @@
 .tableTools {
   margin-bottom: units(0.75);
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
 
-  & > * {
-    margin-left: units(0.75);
-  }
+.tableToolsRight {
+  justify-content: flex-end;
+  display: flex;
 }
 
 .select {
