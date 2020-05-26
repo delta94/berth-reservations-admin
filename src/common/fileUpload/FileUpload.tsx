@@ -1,112 +1,84 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
-import { v4 as uuid } from 'uuid';
+import { Button } from 'hds-react/lib';
 
 import styles from './fileUpload.module.scss';
 import Text from '../text/Text';
-import FileUploadButton, { FileUploadButtonProps } from './fileUploadButton/FileUploadButton';
 import List from '../list/List';
 import Icon from '../icons/Icon';
 import { formatBytes } from '../utils/format';
 
-type PersistedFileContainer = {
-  uuid: string;
-  name: string;
-  id?: string;
-  data?: never;
-  markedForDeletion?: boolean;
-};
-
-type NewFileContainer = {
-  uuid: string;
-  name: string;
-  id?: never;
-  data?: File;
-  markedForDeletion?: never;
-};
-
-export type FileContainer = PersistedFileContainer | NewFileContainer;
-
-export interface FileUploadProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> {
-  buttonProps?: FileUploadButtonProps;
+interface SharedProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> {
+  buttonLabel?: string;
   disabled?: boolean;
   helperText?: string;
   invalid?: boolean;
   label?: string;
   /* max size in bytes */
   maxSize?: number;
-  multiple?: boolean;
   name: string;
-  onChange: (value: undefined | FileContainer | FileContainer[]) => void;
-  value: undefined | FileContainer | FileContainer[];
 }
 
-const FileUpload: React.FC<FileUploadProps> = ({
-  buttonProps = {
-    size: 'small',
-    color: 'supplementary',
-  },
-  disabled,
-  helperText,
-  invalid = false,
-  label,
-  maxSize,
-  multiple = false,
-  name,
-  onChange,
-  value,
-  ...rest
-}) => {
+interface SingleModeProps extends SharedProps {
+  multiple?: false;
+  value: undefined | File;
+  onChange: (value: undefined | File) => void;
+}
+
+interface MultipleModeProps extends SharedProps {
+  multiple: true;
+  value: File[];
+  onChange: (value: File[]) => void;
+}
+
+export type FileUploadProps = SingleModeProps | MultipleModeProps;
+
+const FileUpload: React.FC<FileUploadProps> = (props) => {
+  const {
+    buttonLabel,
+    disabled,
+    helperText,
+    invalid = false,
+    label,
+    maxSize,
+    multiple,
+    name,
+    onChange,
+    value,
+    ...rest
+  } = props;
   const { t, i18n } = useTranslation();
+  const inputRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
   const handleChange: React.InputHTMLAttributes<HTMLInputElement>['onChange'] = (event) => {
     if (event.currentTarget.files) {
-      const eventFiles: FileContainer[] = Array.from(event.currentTarget.files).map((file) => ({
-        uuid: uuid(),
-        name: file.name,
-        data: file,
-      }));
+      const eventFiles: File[] = Array.from(event.currentTarget.files);
+      if (eventFiles.length === 0) return;
 
-      if (multiple) {
-        return onChange(value === undefined ? eventFiles : (value as FileContainer[]).concat(eventFiles));
+      if (props.multiple) {
+        props.onChange(props.value === undefined ? eventFiles : props.value.concat(eventFiles));
+      } else {
+        props.onChange(eventFiles[0]);
       }
 
-      // single
-      return onChange(eventFiles[0]);
+      inputRef.current.value = '';
     }
   };
 
-  const handleDelete = (uuid: string) => {
-    // multiple
-    if (Array.isArray(value)) {
-      return onChange(
-        value.reduce<FileContainer[]>((acc, file) => {
-          if (file.uuid !== uuid) return acc.concat(file);
-
-          // New file, remove reference
-          if (file.data !== undefined) return acc;
-
-          // Persisted file, mark for deletion
-          return acc.concat({
-            ...(file as PersistedFileContainer),
-            markedForDeletion: !file.markedForDeletion,
-          });
+  const handleDelete = (targetFile: File) => {
+    if (props.multiple) {
+      props.onChange(
+        props.value.reduce<File[]>((acc, file) => {
+          if (file !== targetFile) return acc.concat(file);
+          return acc;
         }, [])
       );
+    } else {
+      props.onChange(undefined);
     }
 
-    // single
-    return onChange(
-      (value as FileContainer).data !== undefined
-        ? // New file, remove reference
-          undefined
-        : // Persisted file, mark for deletion
-          {
-            ...(value as PersistedFileContainer),
-            markedForDeletion: !(value as PersistedFileContainer).markedForDeletion,
-          }
-    );
+    inputRef.current.value = '';
   };
 
   const renderFileList = () => {
@@ -117,25 +89,21 @@ const FileUpload: React.FC<FileUploadProps> = ({
       <List noBullets>
         {valueList.map((file, index) => {
           return (
-            <li key={`${file.name}@${index}`} className={styles.fileListItem}>
+            <li key={index} className={styles.fileListItem}>
               <Text
                 color="brand"
                 className={classNames({
                   [styles.fileName]: true,
-                  [styles.overMaxSize]: maxSize && file.data && file.data.size > maxSize,
-                  [styles.markedForDeletion]: file.markedForDeletion,
+                  [styles.disabled]: disabled,
+                  [styles.invalid]: maxSize && file.size > maxSize,
                 })}
               >
                 {`${file.name}`}
-                {file.data && file.data.size > 0 && ` (${formatBytes(file.data.size, i18n.language)})`}
+                {file.size > 0 && ` (${formatBytes(file.size, i18n.language)})`}
               </Text>
 
-              <button className={styles.delete} type="button" onClick={() => handleDelete(file.uuid)}>
-                {file.data ? (
-                  <Icon shape="IconTimes" color="critical" />
-                ) : (
-                  <Icon shape="IconTrash" color={file.markedForDeletion ? 'secondary' : 'critical'} />
-                )}
+              <button className={styles.delete} type="button" onClick={() => handleDelete(file)}>
+                <Icon shape="IconTimes" color="critical" />
               </button>
             </li>
           );
@@ -150,6 +118,7 @@ const FileUpload: React.FC<FileUploadProps> = ({
         className={classNames({
           [styles.labelText]: true,
           [styles.invalid]: invalid,
+          [styles.disabled]: disabled,
         })}
       >
         {label}
@@ -158,14 +127,10 @@ const FileUpload: React.FC<FileUploadProps> = ({
       {renderFileList()}
 
       <div className={styles.row}>
-        <label
-          className={classNames({
-            [styles.field]: true,
-            [styles.invalid]: invalid,
-          })}
-        >
+        <div className={styles.field}>
           <input
             {...rest}
+            ref={inputRef}
             required={false} // handled in external validation
             className={styles.input}
             disabled={disabled}
@@ -174,12 +139,16 @@ const FileUpload: React.FC<FileUploadProps> = ({
             multiple={multiple}
             onChange={handleChange}
           />
-          <FileUploadButton
-            {...buttonProps}
+          <Button
+            theme="coat"
+            variant="secondary"
+            size="small"
             disabled={disabled}
-            label={buttonProps.label || `${multiple ? t('common.add') : t('common.select')}...`}
-          />
-        </label>
+            onClick={() => inputRef.current.click()}
+          >
+            {buttonLabel || `${multiple ? t('common.add') : t('common.select')}...`}
+          </Button>
+        </div>
 
         {maxSize && (
           <Text className={styles.maxSize} color="secondary">
@@ -191,7 +160,7 @@ const FileUpload: React.FC<FileUploadProps> = ({
       </div>
 
       {helperText && (
-        <Text color={invalid ? 'critical' : undefined} size="s" className={styles.helperText}>
+        <Text className={styles.helperText} color={invalid ? 'critical' : undefined} size="s">
           {helperText}
         </Text>
       )}
