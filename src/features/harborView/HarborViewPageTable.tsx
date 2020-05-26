@@ -32,7 +32,7 @@ const HarborViewPageTable: React.FC<Props> = ({ berths, piers, onAddBerth, onAdd
     {
       Header: t('harborView.tableHeaders.identifier') || '',
       accessor: 'identifier',
-      filter: 'text',
+      filter: 'exact',
     },
     {
       Cell: ({ cell }: { cell: Cell<Berth> }) => {
@@ -94,20 +94,21 @@ const HarborViewPageTable: React.FC<Props> = ({ berths, piers, onAddBerth, onAdd
         />
       )}
       styleMainHeader={false}
-      renderMainHeader={(props) => (
-        <PierSelectHeader
-          piers={piers}
-          onEdit={onEditPier}
-          selectedPier={piers.find((pier) =>
-            props.state.filters
-              .filter((filter) => filter.id === 'identifier')
-              .find((filter) => filter.value === pier.identifier)
-          )}
-          onPierSelect={(pier) => {
-            props.setFilter('identifier', pier?.identifier);
-          }}
-        />
-      )}
+      renderMainHeader={(props) => {
+        const piersFilters = props.state.filters.filter((filter) => filter.id === 'identifier');
+        const selectedPier = piers.find(({ identifier }) => piersFilters.find(({ value }) => value === identifier));
+
+        if (piersFilters.length && selectedPier === undefined) props.setFilter('identifier', undefined);
+
+        return (
+          <PierSelectHeader
+            piers={piers}
+            onEdit={onEditPier}
+            selectedPier={selectedPier}
+            onPierSelect={(pier) => props.setFilter('identifier', pier?.identifier)}
+          />
+        );
+      }}
       renderSubComponent={(row) => (
         <BerthDetails
           leases={row.original.leases ?? []}
