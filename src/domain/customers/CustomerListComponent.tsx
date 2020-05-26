@@ -6,7 +6,7 @@ import InternalLink from '../../common/internalLink/InternalLink';
 import CustomerDetails from './customerDetails/CustomerDetails';
 import { OrganizationType } from '../../@types/__generated__/globalTypes';
 import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
-import TableTools, { TableToolsProps } from './tableTools/TableTools';
+import CustomerListTableTools, { CustomerListTableToolsProps } from './tableTools/CustomerListTableTools';
 import { MessageFormValues } from './types';
 import { getSelectedRowIds } from '../../common/utils/getSelectedRowIds';
 
@@ -38,7 +38,7 @@ export interface CustomerListComponentProps {
   loading: boolean;
   data: TableData[];
   pagination: PaginationProps;
-  tableTools: TableToolsProps<SearchBy>;
+  tableTools: CustomerListTableToolsProps<SearchBy>;
   onSortedColChange(sortBy: { id: string; desc?: boolean } | undefined): void;
   handleSendMessage(customerIds: string[], message: MessageFormValues): void;
 }
@@ -125,7 +125,7 @@ const CustomerListComponent = ({
           const selectedCustomerIds = getSelectedRowIds(selectedRowIds);
           handleSendMessage(selectedCustomerIds, message);
         };
-        return <TableTools {...tableTools} handleSendMessage={onSendMessage} />;
+        return <CustomerListTableTools {...tableTools} handleSendMessage={onSendMessage} />;
       }}
       renderEmptyStateRow={() => t('common.notification.noData.description')}
       renderTableToolsBottom={() => <Pagination {...pagination} />}

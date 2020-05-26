@@ -1,12 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import TableTools from '../TableTools';
+
+import CustomerListTableTools from '../CustomerListTableTools';
 import { SearchBy } from '../../CustomerListComponent';
 
-describe('TableTools', () => {
+describe('CustomerListTableTools', () => {
   const getWrapper = () =>
     shallow(
-      <TableTools
+      <CustomerListTableTools
         searchVal={'test'}
         searchBy={SearchBy.FIRST_NAME}
         searchByOptions={[]}

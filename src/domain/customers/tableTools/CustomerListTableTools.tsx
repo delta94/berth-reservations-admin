@@ -4,12 +4,12 @@ import { Button, TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 
 import Select from '../../../common/select/Select';
-import styles from './tableTools.module.scss';
+import styles from './customerListTableTools.module.scss';
 import Modal from '../../../common/modal/Modal';
 import { CustomerMessageForm } from './CustomerMessageForm';
 import { MessageFormValues } from '../types';
 
-export interface TableToolsProps<T> {
+export interface CustomerListTableToolsProps<T> {
   className?: string;
   searchVal: string | undefined;
   searchBy: T;
@@ -19,7 +19,7 @@ export interface TableToolsProps<T> {
   handleSendMessage?: (message: MessageFormValues) => void;
 }
 
-const TableTools = <T extends string>({
+const CustomerListTableTools = <T extends string>({
   className,
   searchVal,
   searchBy,
@@ -27,7 +27,7 @@ const TableTools = <T extends string>({
   setSearchVal,
   setSearchBy,
   handleSendMessage,
-}: TableToolsProps<T>) => {
+}: CustomerListTableToolsProps<T>) => {
   const { t } = useTranslation();
   const [messageModalOpen, setMessageModalOpen] = useState<boolean>(false);
 
@@ -62,4 +62,4 @@ const TableTools = <T extends string>({
   );
 };
 
-export default TableTools;
+export default CustomerListTableTools;
