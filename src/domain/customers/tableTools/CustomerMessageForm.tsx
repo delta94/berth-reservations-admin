@@ -89,7 +89,7 @@ export const CustomerMessageForm: React.FC<Props> = ({ closeModal, handleSendMes
               onChange={handleChange}
               labelText={t('customers.message.message')}
               invalid={!!errors.message}
-              helperText={!!errors.message ? errors.message : t('customers.message.messageHelperText')}
+              helperText={errors.message || t('customers.message.messageHelperText')}
             />
             <div className={styles.formActionButtons}>
               <Button variant="secondary" theme="black" onClick={closeModal}>
