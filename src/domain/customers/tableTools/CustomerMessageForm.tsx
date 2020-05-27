@@ -11,7 +11,7 @@ import Text from '../../../common/text/Text';
 import styles from './customerMessageForm.module.scss';
 import Select from '../../../common/select/Select';
 
-type Props = {
+type CustomerMessageFormProps = {
   closeModal: () => void;
   handleSendMessage?: (message: MessageFormValues) => void;
 };
@@ -40,7 +40,7 @@ const initialValues: MessageFormValues = {
   message: '',
 };
 
-export const CustomerMessageForm: React.FC<Props> = ({ closeModal, handleSendMessage }) => {
+export const CustomerMessageForm: React.FC<CustomerMessageFormProps> = ({ closeModal, handleSendMessage }) => {
   const { t } = useTranslation();
 
   const templateOptions = mockTemplates.map(({ id, name }) => {
