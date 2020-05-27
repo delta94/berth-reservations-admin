@@ -63,7 +63,7 @@ const FileList: FunctionComponent<FileListProps> = (props) => {
   const valueList = Array.isArray(value) ? value : [value];
 
   return (
-    <div className={styles.fileDelete}>
+    <div className={styles.fileList}>
       {label && (
         <span
           className={classNames({
