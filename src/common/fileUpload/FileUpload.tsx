@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import { Button } from 'hds-react/lib';
@@ -49,12 +49,11 @@ const FileUpload: React.FC<FileUploadProps> = (props) => {
     ...rest
   } = props;
   const { t, i18n } = useTranslation();
-  const inputRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const inputRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
 
   const handleChange: React.InputHTMLAttributes<HTMLInputElement>['onChange'] = (event) => {
     if (event.currentTarget.files) {
       const eventFiles: File[] = Array.from(event.currentTarget.files);
-      if (eventFiles.length === 0) return;
 
       if (props.multiple) {
         props.onChange(props.value === undefined ? eventFiles : props.value.concat(eventFiles));
@@ -114,15 +113,17 @@ const FileUpload: React.FC<FileUploadProps> = (props) => {
 
   return (
     <div className={styles.fileUpload}>
-      <span
-        className={classNames({
-          [styles.labelText]: true,
-          [styles.invalid]: invalid,
-          [styles.disabled]: disabled,
-        })}
-      >
-        {label}
-      </span>
+      {label && (
+        <span
+          className={classNames({
+            [styles.labelText]: true,
+            [styles.invalid]: invalid,
+            [styles.disabled]: disabled,
+          })}
+        >
+          {label}
+        </span>
+      )}
 
       {renderFileList()}
 

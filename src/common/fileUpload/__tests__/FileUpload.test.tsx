@@ -4,37 +4,42 @@ import { Button } from 'hds-react/lib';
 
 import FileUpload, { FileUploadProps } from '../FileUpload';
 
+const createMockFile = (name: string, size?: number) => {
+  return {
+    name,
+    size: size || 10 * 1000,
+  } as File;
+};
+
+const mockPropsSingle: FileUploadProps = {
+  name: 'single',
+  onChange: jest.fn(),
+  onSubmit: jest.fn(),
+  value: createMockFile('test.jpg'),
+};
+
+const mockPropsMultiple: FileUploadProps = {
+  name: 'multiple',
+  onChange: jest.fn(),
+  onSubmit: jest.fn(),
+  multiple: true,
+  value: [createMockFile('test.jpg')],
+};
+
+const getWrapper = (props?: Partial<FileUploadProps>, useMount = false) => {
+  const wrapperProps = { ...mockPropsSingle, ...props };
+  if (useMount) {
+    return mount(<FileUpload {...(wrapperProps as FileUploadProps)} />);
+  }
+  return shallow(<FileUpload {...(wrapperProps as FileUploadProps)} />);
+};
+
+afterEach(() => {
+  jest.resetAllMocks();
+  jest.restoreAllMocks();
+});
+
 describe('FileUpload', () => {
-  const createMockFile = (name: string, size?: number) => {
-    return {
-      name,
-      size: size || 10 * 1000,
-    } as File;
-  };
-
-  const mockPropsSingle: FileUploadProps = {
-    name: 'single',
-    onChange: jest.fn(),
-    onSubmit: jest.fn(),
-    value: createMockFile('test.jpg'),
-  };
-
-  const mockPropsMultiple: FileUploadProps = {
-    name: 'multiple',
-    onChange: jest.fn(),
-    onSubmit: jest.fn(),
-    multiple: true,
-    value: [createMockFile('test.jpg')],
-  };
-
-  const getWrapper = (props?: Partial<FileUploadProps>, useMount = false) => {
-    const wrapperProps = { ...mockPropsSingle, ...props };
-    if (useMount) {
-      return mount(<FileUpload {...(wrapperProps as FileUploadProps)} />);
-    }
-    return shallow(<FileUpload {...(wrapperProps as FileUploadProps)} />);
-  };
-
   it('renders normally with single file props', () => {
     const wrapper = getWrapper(mockPropsSingle);
 
@@ -45,6 +50,22 @@ describe('FileUpload', () => {
     const wrapper = getWrapper(mockPropsMultiple);
 
     expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  describe('"buttonLabel" prop', () => {
+    it('if not provided, should not change button label', () => {
+      const wrapper = getWrapper();
+
+      expect(wrapper.find(Button).text()).toEqual('Valitse...');
+    });
+
+    it('if provided, should show custom button label', () => {
+      const wrapper = getWrapper({
+        buttonLabel: 'Insert File',
+      });
+
+      expect(wrapper.find(Button).text()).toEqual('Insert File');
+    });
   });
 
   describe('"disabled" prop', () => {
@@ -67,6 +88,45 @@ describe('FileUpload', () => {
     });
   });
 
+  describe('"invalid" prop', () => {
+    it('if false, should not render things with error color', () => {
+      const wrapper = getWrapper({
+        label: 'Test',
+        helperText: 'Test',
+      });
+
+      expect(wrapper.find('span.labelText').hasClass('invalid')).toBe(false);
+      expect(wrapper.find('Text.helperText').prop('color')).toBe(undefined);
+    });
+
+    it('if true, should render things with error color', () => {
+      const wrapper = getWrapper({
+        invalid: true,
+        label: 'Test',
+        helperText: 'Test',
+      });
+
+      expect(wrapper.find('span.labelText').hasClass('invalid')).toBe(true);
+      expect(wrapper.find('Text.helperText').prop('color')).toBe('critical');
+    });
+  });
+
+  describe('"helperText" prop', () => {
+    it('if not provided, should not show helper text', () => {
+      const wrapper = getWrapper();
+
+      expect(wrapper.find('Text.helperText')).toHaveLength(0);
+    });
+
+    it('if provided, should show helper text', () => {
+      const wrapper = getWrapper({
+        helperText: 'Test',
+      });
+
+      expect(wrapper.find('Text.helperText')).toHaveLength(1);
+    });
+  });
+
   describe('"label" prop', () => {
     it('when provided, should be shown', () => {
       const wrapper = getWrapper({
@@ -74,6 +134,12 @@ describe('FileUpload', () => {
       });
 
       expect(wrapper.find('span.labelText').text()).toEqual('Upload Service');
+    });
+
+    it('when provided, should not be shown', () => {
+      const wrapper = getWrapper();
+
+      expect(wrapper.find('span.labelText')).toHaveLength(0);
     });
   });
 
@@ -165,8 +231,8 @@ describe('FileUpload', () => {
     });
   });
 
-  describe('"onChange" prop', () => {
-    it('if event is invalid, should not be called', () => {
+  describe('when input changes', () => {
+    it('if event is invalid, "onChange" should not be called', () => {
       const mockChange = jest.fn();
       const wrapper = getWrapper(
         {
@@ -185,7 +251,7 @@ describe('FileUpload', () => {
     });
 
     describe('if "multiple" is true', () => {
-      it('when input changes, should be called with old and new File(s) as array', () => {
+      it('when input changes, "onChange" should be called with old and new File(s) as array', () => {
         const mockChange = jest.fn();
         const mockOldFile = createMockFile('old.jpg');
         const mockNewFile1 = createMockFile('new1.jpg');
@@ -208,7 +274,7 @@ describe('FileUpload', () => {
         expect(mockChange).toHaveBeenCalledWith([mockOldFile, mockNewFile1, mockNewFile2]);
       });
 
-      it('if value is undefined, when input changes, should be called with new File(s) as array', () => {
+      it('if value is undefined, when input changes, "onChange" should be called with new File(s) as array', () => {
         const mockChange = jest.fn();
         const mockNewFile1 = createMockFile('new1.jpg');
         const mockNewFile2 = createMockFile('new2.jpg');
@@ -232,7 +298,7 @@ describe('FileUpload', () => {
     });
 
     describe('if "multiple" is false', () => {
-      it('when input changes, should be called with new single File', () => {
+      it('when input changes, "onChange" should be called with a new single File', () => {
         const mockChange = jest.fn();
         const mockOldFile = createMockFile('old.jpg');
         const mockNewFile = createMockFile('new.jpg');
@@ -255,9 +321,28 @@ describe('FileUpload', () => {
     });
   });
 
-  describe('"delete" function', () => {
+  describe('when "add" button is clicked', () => {
+    it('the event should be repeated to the file input', () => {
+      const clickMock = jest.fn();
+      const refMock = {
+        current: {
+          click: clickMock,
+        },
+      };
+      const useRefSpy = jest.spyOn(React, 'useRef').mockReturnValue(refMock);
+
+      const wrapper = getWrapper();
+
+      wrapper.find(Button).simulate('click');
+
+      expect(useRefSpy).toBeCalledTimes(1);
+      expect(clickMock).toBeCalledTimes(1);
+    });
+  });
+
+  describe('when "delete" button is clicked', () => {
     describe('if "multiple" is true', () => {
-      it('should delete it from list', () => {
+      it('should remove target file from value', () => {
         const mockChange = jest.fn();
         const mockFile0 = createMockFile('0.jpg');
         const mockFile1 = createMockFile('1.jpg');
@@ -290,43 +375,6 @@ describe('FileUpload', () => {
 
         expect(mockChange).toHaveBeenCalledWith(undefined);
       });
-    });
-  });
-
-  describe('"helperText" prop', () => {
-    it('if not provided, should not show helper text', () => {
-      const wrapper = getWrapper();
-
-      expect(wrapper.find('Text.helperText')).toHaveLength(0);
-    });
-
-    it('if provided, should show helper text', () => {
-      const wrapper = getWrapper({
-        helperText: 'Test',
-      });
-
-      expect(wrapper.find('Text.helperText')).toHaveLength(1);
-    });
-  });
-
-  describe('"invalid" prop', () => {
-    it('if false, should not render with error color', () => {
-      const wrapper = getWrapper({
-        helperText: 'Test',
-      });
-
-      expect(wrapper.find('span.labelText').hasClass('invalid')).toBe(false);
-      expect(wrapper.find('Text.helperText').prop('color')).toBe(undefined);
-    });
-
-    it('if true, should render with error color', () => {
-      const wrapper = getWrapper({
-        invalid: true,
-        helperText: 'Test',
-      });
-
-      expect(wrapper.find('span.labelText').hasClass('invalid')).toBe(true);
-      expect(wrapper.find('Text.helperText').prop('color')).toBe('critical');
     });
   });
 });
