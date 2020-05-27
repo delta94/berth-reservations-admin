@@ -10,13 +10,13 @@ const createMockFile = (id: string, markedForDeletion?: boolean) => ({
 });
 
 const mockPropsSingle: FileListProps = {
-  name: 'single',
+  id: 'single',
   onChange: jest.fn(),
   value: createMockFile('1'),
 };
 
 const mockPropsMultiple: FileListProps = {
-  name: 'multiple',
+  id: 'multiple',
   multiple: true,
   onChange: jest.fn(),
   value: [createMockFile('1'), createMockFile('2')],
@@ -38,7 +38,7 @@ describe('FileList', () => {
 
   it('renders normally with single file props', () => {
     const wrapper = getWrapper({
-      label: 'Test',
+      labelText: 'Test',
       allowDelete: true,
     });
 
@@ -48,7 +48,7 @@ describe('FileList', () => {
   it('renders normally with multiple files props', () => {
     const wrapper = getWrapper({
       ...mockPropsMultiple,
-      label: 'Test',
+      labelText: 'Test',
       allowDelete: true,
     });
 
@@ -66,61 +66,6 @@ describe('FileList', () => {
       const wrapper = getWrapper({ allowDelete: true });
 
       expect(wrapper.find('button.delete')).toHaveLength(1);
-    });
-  });
-
-  describe('"helperText" prop', () => {
-    it('if not provided, should not show helper text', () => {
-      const wrapper = getWrapper();
-
-      expect(wrapper.find('Text.helperText')).toHaveLength(0);
-    });
-
-    it('if provided, should show helper text', () => {
-      const wrapper = getWrapper({
-        helperText: 'Test',
-      });
-
-      expect(wrapper.find('Text.helperText')).toHaveLength(1);
-    });
-  });
-
-  describe('"invalid" prop', () => {
-    it('if false, should not render things with error color', () => {
-      const wrapper = getWrapper({
-        label: 'Test',
-        helperText: 'Test',
-      });
-
-      expect(wrapper.find('span.labelText').hasClass('invalid')).toBe(false);
-      expect(wrapper.find('Text.helperText').prop('color')).toBe(undefined);
-    });
-
-    it('if true, should render things with error color', () => {
-      const wrapper = getWrapper({
-        invalid: true,
-        label: 'Test',
-        helperText: 'Test',
-      });
-
-      expect(wrapper.find('span.labelText').hasClass('invalid')).toBe(true);
-      expect(wrapper.find('Text.helperText').prop('color')).toBe('critical');
-    });
-  });
-
-  describe('"label" prop', () => {
-    it('when provided, should be shown', () => {
-      const wrapper = getWrapper({
-        label: 'Upload Service',
-      });
-
-      expect(wrapper.find('span.labelText').text()).toEqual('Upload Service');
-    });
-
-    it('when provided, should not be shown', () => {
-      const wrapper = getWrapper();
-
-      expect(wrapper.find('span.labelText')).toHaveLength(0);
     });
   });
 
@@ -165,7 +110,7 @@ describe('FileList', () => {
         const wrapper = getWrapper({
           allowDelete: true,
           multiple: true,
-          name: 'multiple',
+          id: 'multiple',
           onChange: mockChange,
           value: [createMockFile('0', false), createMockFile('1', false)],
         });
@@ -180,7 +125,7 @@ describe('FileList', () => {
         const wrapper = getWrapper({
           allowDelete: true,
           multiple: true,
-          name: 'multiple',
+          id: 'multiple',
           onChange: mockChange,
           value: [createMockFile('0', false), createMockFile('1', true)],
         });

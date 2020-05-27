@@ -5,6 +5,7 @@ import List from '../list/List';
 import styles from './fileList.module.scss';
 import Text from '../text/Text';
 import Icon from '../icons/Icon';
+import InputWrapper, { InputWrapperProps } from '../inputWrapper/InputWrapper';
 
 export type PersistedFile = {
   id: string;
@@ -12,14 +13,11 @@ export type PersistedFile = {
   markedForDeletion?: boolean;
 };
 
-interface SharedProps {
+type SharedProps = InputWrapperProps & {
   allowDelete?: boolean;
-  helperText?: string;
   invalid?: boolean;
-  label?: string;
-  name: string;
   willBeOverwritten?: boolean;
-}
+};
 
 interface SingleModeProps extends SharedProps {
   multiple?: false;
@@ -36,7 +34,7 @@ interface MultipleModeProps extends SharedProps {
 export type FileListProps = SingleModeProps | MultipleModeProps;
 
 const FileList: FunctionComponent<FileListProps> = (props) => {
-  const { allowDelete = true, helperText, label, invalid = false, value, willBeOverwritten = false } = props;
+  const { allowDelete = true, helperText, id, invalid = false, labelText, value, willBeOverwritten = false } = props;
 
   const handleDelete = (targetFile: PersistedFile) => {
     if (props.multiple) {
@@ -63,18 +61,7 @@ const FileList: FunctionComponent<FileListProps> = (props) => {
   const valueList = Array.isArray(value) ? value : [value];
 
   return (
-    <div className={styles.fileList}>
-      {label && (
-        <span
-          className={classNames({
-            [styles.labelText]: true,
-            [styles.invalid]: invalid,
-          })}
-        >
-          {label}
-        </span>
-      )}
-
+    <InputWrapper id={id} invalid={invalid} helperText={helperText} labelText={labelText}>
       <List noBullets>
         {valueList.map((file) => {
           return (
@@ -98,13 +85,7 @@ const FileList: FunctionComponent<FileListProps> = (props) => {
           );
         })}
       </List>
-
-      {helperText && (
-        <Text color={invalid ? 'critical' : undefined} size="s" className={styles.helperText}>
-          {helperText}
-        </Text>
-      )}
-    </div>
+    </InputWrapper>
   );
 };
 

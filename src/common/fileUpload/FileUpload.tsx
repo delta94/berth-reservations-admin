@@ -8,17 +8,17 @@ import Text from '../text/Text';
 import List from '../list/List';
 import Icon from '../icons/Icon';
 import { formatBytes } from '../utils/format';
+import InputWrapper, { InputWrapperProps } from '../inputWrapper/InputWrapper';
 
-interface SharedProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> {
-  buttonLabel?: string;
-  disabled?: boolean;
-  helperText?: string;
-  invalid?: boolean;
-  label?: string;
-  /* max size in bytes */
-  maxSize?: number;
-  name: string;
-}
+type SharedProps = InputWrapperProps &
+  Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> & {
+    buttonLabel?: string;
+    disabled?: boolean;
+    invalid?: boolean;
+    /* max size in bytes */
+    maxSize?: number;
+    id: string;
+  };
 
 interface SingleModeProps extends SharedProps {
   multiple?: false;
@@ -40,10 +40,10 @@ const FileUpload: React.FC<FileUploadProps> = (props) => {
     disabled,
     helperText,
     invalid = false,
-    label,
+    labelText,
     maxSize,
     multiple,
-    name,
+    id,
     onChange,
     value,
     ...rest
@@ -112,19 +112,7 @@ const FileUpload: React.FC<FileUploadProps> = (props) => {
   };
 
   return (
-    <div className={styles.fileUpload}>
-      {label && (
-        <span
-          className={classNames({
-            [styles.labelText]: true,
-            [styles.invalid]: invalid,
-            [styles.disabled]: disabled,
-          })}
-        >
-          {label}
-        </span>
-      )}
-
+    <InputWrapper id={id} invalid={invalid} helperText={helperText} labelText={labelText}>
       {renderFileList()}
 
       <div className={styles.row}>
@@ -136,7 +124,7 @@ const FileUpload: React.FC<FileUploadProps> = (props) => {
             className={styles.input}
             disabled={disabled}
             type="file"
-            name={name}
+            id={id}
             multiple={multiple}
             onChange={handleChange}
           />
@@ -159,13 +147,7 @@ const FileUpload: React.FC<FileUploadProps> = (props) => {
           </Text>
         )}
       </div>
-
-      {helperText && (
-        <Text className={styles.helperText} color={invalid ? 'critical' : undefined} size="s">
-          {helperText}
-        </Text>
-      )}
-    </div>
+    </InputWrapper>
   );
 };
 

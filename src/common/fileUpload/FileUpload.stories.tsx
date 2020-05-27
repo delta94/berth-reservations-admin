@@ -18,7 +18,7 @@ const getKnobs = (defaultLabel: string) => ({
   disabled: boolean('disabled', false),
   helperText: text('helperText', ''),
   invalid: boolean('invalid', false),
-  label: text('label', defaultLabel),
+  labelText: text('labelText', defaultLabel),
   maxSize: select(
     'maxSize',
     {
@@ -32,7 +32,7 @@ const getKnobs = (defaultLabel: string) => ({
 });
 
 export const singleFileUploadStory = (storyProps: StoryProps<undefined | File>) => (
-  <FileUpload name="default" {...getKnobs('Single file upload')} {...storyProps} />
+  <FileUpload id="default" {...getKnobs('Single file upload')} {...storyProps} />
 );
 
 singleFileUploadStory.story = {
@@ -59,7 +59,7 @@ singleFileUploadStory.story = {
 };
 
 export const multipleFileUploadStory = (storyProps: StoryProps<File[]>) => (
-  <FileUpload name="default" multiple {...getKnobs('Multiple file upload')} {...storyProps} />
+  <FileUpload id="default" multiple {...getKnobs('Multiple file upload')} {...storyProps} />
 );
 
 multipleFileUploadStory.story = {

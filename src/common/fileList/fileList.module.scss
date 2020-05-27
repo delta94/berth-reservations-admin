@@ -2,23 +2,6 @@
 @import 'fonts';
 @import 'spacings';
 
-.fileList {
-  display: inline-block;
-  width: 100%;
-  margin: 0;
-}
-
-.labelText {
-  display: block;
-  margin-top: units(0.25);
-  font-size: font-size(16);
-  font-weight: bold;
-}
-
-.invalid {
-  color: $error;
-}
-
 .markedForDeletion {
   color: $gray-500;
 }
@@ -36,10 +19,4 @@
 
 .delete {
   cursor: pointer;
-}
-
-.helperText {
-  margin-top: units(0.25);
-  font-size: font-size(16);
-  display: block;
 }

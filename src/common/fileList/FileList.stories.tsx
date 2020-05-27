@@ -41,12 +41,12 @@ const getKnobs = (defaultLabel: string) => ({
   allowDelete: boolean('allowDelete', true),
   helperText: text('helperText', ''),
   invalid: boolean('invalid', false),
-  label: text('label', defaultLabel),
+  labelText: text('labelText', defaultLabel),
   willBeOverwritten: boolean('willBeOverwritten', false),
 });
 
 export const singleFileListStory = (storyProps: StoryProps<undefined | PersistedFile>) => (
-  <FileList name="default" {...getKnobs('Single file list')} {...storyProps} />
+  <FileList id="default" {...getKnobs('Single file list')} {...storyProps} />
 );
 
 singleFileListStory.story = {
@@ -68,7 +68,7 @@ singleFileListStory.story = {
 };
 
 export const multipleFileListStory = (storyProps: StoryProps<PersistedFile[]>) => (
-  <FileList name="default" multiple {...getKnobs('Multiple file list')} {...storyProps} />
+  <FileList id="default" multiple {...getKnobs('Multiple file list')} {...storyProps} />
 );
 
 multipleFileListStory.story = {

@@ -145,7 +145,7 @@ const HarborEditForm: FunctionComponent<Props> = ({ harborId, onCancel, onSubmit
               as={FileList}
               allowDelete={false}
               name="existingImageFile"
-              label={t('forms.harbor.imageFile')}
+              labelText={t('forms.harbor.imageFile')}
               onChange={(value: undefined | PersistedFile) => {
                 setFieldValue('existingImageFile', value);
               }}
@@ -172,7 +172,7 @@ const HarborEditForm: FunctionComponent<Props> = ({ harborId, onCancel, onSubmit
               as={FileList}
               name="existingMaps"
               multiple
-              label={t('forms.harbor.maps')}
+              labelText={t('forms.harbor.maps')}
               onChange={(value: PersistedFile[]) => {
                 setFieldValue('existingMaps', value);
               }}
