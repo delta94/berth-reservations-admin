@@ -61,9 +61,7 @@ export const CustomerMessageForm: React.FC<CustomerMessageFormProps> = ({ closeM
       {({ values, errors, handleChange, handleSubmit }) => {
         return (
           <form onSubmit={handleSubmit} className={styles.form}>
-            <div className={styles.heading}>
-              <Text as="h4">{t('customers.message.header')}</Text>
-            </div>
+            <Text as="h4">{t('customers.message.header')}</Text>
             <div className={styles.template}>
               <Select
                 id="templateId"
