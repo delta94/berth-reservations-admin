@@ -8,8 +8,7 @@ import Section from '../../../common/section/Section';
 import Text from '../../../common/text/Text';
 import { formatDimension } from '../../../common/utils/format';
 import { HarborData } from '../types';
-import List from '../../../common/list/List';
-import ListItem from '../../../common/list/ListItem';
+import HarborMapLinks from '../../cards/harborMapLinks/HarborMapLinks';
 
 export type HarborDetailsProps = {
   imageFile: HarborData['imageFile'];
@@ -45,33 +44,11 @@ const HarborDetails: React.SFC<HarborDetailsProps> = ({
           {address}
         </Section>
         <Section>
-          <Text weight="bold">
-            <ExternalLink href={serviceMapUrl} variant="withArrow">
-              {t('common.terminology.serviceMap')}
-            </ExternalLink>
-          </Text>
+          <ExternalLink href={serviceMapUrl} variant="withArrow">
+            {t('common.terminology.serviceMap')}
+          </ExternalLink>
         </Section>
-        {maps.length > 0 && (
-          <Section>
-            <Text weight="bold">
-              {maps.length > 1 ? (
-                <List noBullets>
-                  {maps.map((map, index) => (
-                    <ListItem key={map.id}>
-                      <ExternalLink href={map.url} variant="withArrow">
-                        {`${t('common.terminology.harborMap')} ${index + 1} (PDF)`}
-                      </ExternalLink>
-                    </ListItem>
-                  ))}
-                </List>
-              ) : (
-                <ExternalLink href={maps[0].url} variant="withArrow">
-                  {`${t('common.terminology.harborMap')} (PDF)`}
-                </ExternalLink>
-              )}
-            </Text>
-          </Section>
-        )}
+        <HarborMapLinks maps={maps} />
       </div>
       <div className={styles.column}>
         <Section title={t('harbors.details.maxWidth').toUpperCase()}>
