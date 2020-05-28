@@ -4,7 +4,7 @@ import { Notification } from 'hds-react';
 import { useQuery } from '@apollo/react-hooks';
 import { useDebounce } from 'use-debounce';
 
-import { CUSTOMER_QUERY } from './queries';
+import { CUSTOMERS_QUERY } from './queries';
 import { getCustomersData } from './utils';
 import { CUSTOMERS, CUSTOMERSVariables as CUSTOMERS_VARS } from './__generated__/CUSTOMERS';
 import CustomerList from './CustomerListComponent';
@@ -38,7 +38,7 @@ const CustomerListPageContainer: React.FC = () => {
     [searchBy]: prevSearchBy === searchBy ? debouncedSearchVal : searchVal,
   };
 
-  const { data, error, loading } = useQuery<CUSTOMERS, CUSTOMERS_VARS>(CUSTOMER_QUERY, {
+  const { data, error, loading } = useQuery<CUSTOMERS, CUSTOMERS_VARS>(CUSTOMERS_QUERY, {
     variables: customersVars,
   });
 
