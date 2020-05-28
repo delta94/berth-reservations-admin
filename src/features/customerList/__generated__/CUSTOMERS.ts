@@ -54,12 +54,85 @@ export interface CUSTOMERS_profiles_edges_node_serviceConnections {
   edges: (CUSTOMERS_profiles_edges_node_serviceConnections_edges | null)[];
 }
 
+export interface CUSTOMERS_profiles_edges_node_boats_edges_node {
+  __typename: "BoatNode";
+  name: string;
+}
+
+export interface CUSTOMERS_profiles_edges_node_boats_edges {
+  __typename: "BoatNodeEdge";
+  node: CUSTOMERS_profiles_edges_node_boats_edges_node | null;
+}
+
+export interface CUSTOMERS_profiles_edges_node_boats {
+  __typename: "BoatNodeConnection";
+  edges: (CUSTOMERS_profiles_edges_node_boats_edges | null)[];
+}
+
+export interface CUSTOMERS_profiles_edges_node_berthApplications_edges_node {
+  __typename: "BerthApplicationNode";
+  createdAt: any;
+}
+
+export interface CUSTOMERS_profiles_edges_node_berthApplications_edges {
+  __typename: "BerthApplicationNodeEdge";
+  node: CUSTOMERS_profiles_edges_node_berthApplications_edges_node | null;
+}
+
+export interface CUSTOMERS_profiles_edges_node_berthApplications {
+  __typename: "BerthApplicationNodeConnection";
+  edges: (CUSTOMERS_profiles_edges_node_berthApplications_edges | null)[];
+}
+
+export interface CUSTOMERS_profiles_edges_node_berthLeases_edges_node_berth_pier_properties_harbor_properties {
+  __typename: "HarborProperties";
+  name: string | null;
+}
+
+export interface CUSTOMERS_profiles_edges_node_berthLeases_edges_node_berth_pier_properties_harbor {
+  __typename: "HarborNode";
+  properties: CUSTOMERS_profiles_edges_node_berthLeases_edges_node_berth_pier_properties_harbor_properties | null;
+}
+
+export interface CUSTOMERS_profiles_edges_node_berthLeases_edges_node_berth_pier_properties {
+  __typename: "PierProperties";
+  identifier: string;
+  harbor: CUSTOMERS_profiles_edges_node_berthLeases_edges_node_berth_pier_properties_harbor;
+}
+
+export interface CUSTOMERS_profiles_edges_node_berthLeases_edges_node_berth_pier {
+  __typename: "PierNode";
+  properties: CUSTOMERS_profiles_edges_node_berthLeases_edges_node_berth_pier_properties | null;
+}
+
+export interface CUSTOMERS_profiles_edges_node_berthLeases_edges_node_berth {
+  __typename: "BerthNode";
+  number: number;
+  pier: CUSTOMERS_profiles_edges_node_berthLeases_edges_node_berth_pier;
+}
+
+export interface CUSTOMERS_profiles_edges_node_berthLeases_edges_node {
+  __typename: "BerthLeaseNode";
+  berth: CUSTOMERS_profiles_edges_node_berthLeases_edges_node_berth;
+}
+
+export interface CUSTOMERS_profiles_edges_node_berthLeases_edges {
+  __typename: "BerthLeaseNodeEdge";
+  node: CUSTOMERS_profiles_edges_node_berthLeases_edges_node | null;
+}
+
+export interface CUSTOMERS_profiles_edges_node_berthLeases {
+  __typename: "BerthLeaseNodeConnection";
+  edges: (CUSTOMERS_profiles_edges_node_berthLeases_edges | null)[];
+}
+
 export interface CUSTOMERS_profiles_edges_node {
   __typename: "ProfileNode";
   id: string;
   firstName: string;
   lastName: string;
   nickname: string;
+  comment: string | null;
   organization: CUSTOMERS_profiles_edges_node_organization | null;
   primaryAddress: CUSTOMERS_profiles_edges_node_primaryAddress | null;
   primaryPhone: CUSTOMERS_profiles_edges_node_primaryPhone | null;
@@ -67,6 +140,9 @@ export interface CUSTOMERS_profiles_edges_node {
   serviceConnections: CUSTOMERS_profiles_edges_node_serviceConnections | null;
   contactMethod: ContactMethod | null;
   image: string | null;
+  boats: CUSTOMERS_profiles_edges_node_boats | null;
+  berthApplications: CUSTOMERS_profiles_edges_node_berthApplications | null;
+  berthLeases: CUSTOMERS_profiles_edges_node_berthLeases | null;
 }
 
 export interface CUSTOMERS_profiles_edges {
