@@ -367,6 +367,16 @@
       "minimizeAll": "Pienennä kaikki",
       "mainHeader": "Asiakkaat",
       "queue": "Jono"
+    },
+    "message": {
+      "new": "Lähetä viesti",
+      "header": "Viesti",
+      "template": "Viestipohja",
+      "subject": "Viestin aihe",
+      "message": "Viesti",
+      "messageHelperText": "Voit tarkastella viestiä esikatselussa ennen lähetystä.",
+      "preview": "Esikatsele",
+      "send": "Lähetä"
     }
   },
   "individualCustomer": {

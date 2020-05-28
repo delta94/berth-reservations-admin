@@ -13,6 +13,7 @@ import { usePagination } from '../../common/utils/usePagination';
 import { useBackendSorting } from '../../common/utils/useBackendSorting';
 import { SearchBy } from '../individualApplication/IndividualApplicationPage';
 import { usePrevious } from '../../common/utils/usePrevious';
+import { MessageFormValues } from './types';
 
 const CustomersPageContainer: React.FC = () => {
   const { t } = useTranslation();
@@ -40,6 +41,10 @@ const CustomersPageContainer: React.FC = () => {
   const { data, error, loading } = useQuery<CUSTOMERS, CUSTOMERS_VARS>(CUSTOMER_QUERY, {
     variables: customersVars,
   });
+
+  const handleSendMessage = (customerIds: string[], message: MessageFormValues) => {
+    alert(`CustomerIds: ${JSON.stringify(customerIds)} content: ${JSON.stringify(message)}`);
+  };
 
   useEffect(() => {
     // Go to the first page when search values change.
@@ -78,6 +83,7 @@ const CustomersPageContainer: React.FC = () => {
             { value: SearchBy.ADDRESS, label: t('common.address') },
           ],
         }}
+        handleSendMessage={handleSendMessage}
       />
     </CustomersPage>
   );

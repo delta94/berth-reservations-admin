@@ -6,7 +6,9 @@ import InternalLink from '../../common/internalLink/InternalLink';
 import CustomerDetails from './customerDetails/CustomerDetails';
 import { OrganizationType } from '../../@types/__generated__/globalTypes';
 import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
-import TableTools, { TableToolsProps } from './tableTools/TableTools';
+import CustomerListTableTools, { CustomerListTableToolsProps } from './tableTools/CustomerListTableTools';
+import { MessageFormValues } from './types';
+import { getSelectedRowIds } from '../../common/utils/getSelectedRowIds';
 
 export enum SearchBy {
   FIRST_NAME = 'firstName',
@@ -36,8 +38,9 @@ export interface CustomerListComponentProps {
   loading: boolean;
   data: TableData[];
   pagination: PaginationProps;
-  tableTools: TableToolsProps<SearchBy>;
+  tableTools: CustomerListTableToolsProps<SearchBy>;
   onSortedColChange(sortBy: { id: string; desc?: boolean } | undefined): void;
+  handleSendMessage(customerIds: string[], message: MessageFormValues): void;
 }
 
 const CustomerListComponent = ({
@@ -46,6 +49,7 @@ const CustomerListComponent = ({
   pagination,
   tableTools,
   onSortedColChange,
+  handleSendMessage,
 }: CustomerListComponentProps) => {
   const { t } = useTranslation();
   const columns: ColumnType[] = [
@@ -116,7 +120,13 @@ const CustomerListComponent = ({
         );
       }}
       renderMainHeader={() => t('customers.tableHeaders.mainHeader')}
-      renderTableToolsTop={() => <TableTools {...tableTools} />}
+      renderTableToolsTop={({ selectedRowIds }) => {
+        const onSendMessage = (message: MessageFormValues) => {
+          const selectedCustomerIds = getSelectedRowIds(selectedRowIds);
+          handleSendMessage(selectedCustomerIds, message);
+        };
+        return <CustomerListTableTools {...tableTools} handleSendMessage={onSendMessage} />;
+      }}
       renderEmptyStateRow={() => t('common.notification.noData.description')}
       renderTableToolsBottom={() => <Pagination {...pagination} />}
       onSortedColChange={onSortedColChange}

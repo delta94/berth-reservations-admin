@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Button, TextInput } from 'hds-react/lib';
+import { Button, TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
