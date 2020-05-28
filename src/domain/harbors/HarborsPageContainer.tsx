@@ -4,9 +4,10 @@ import { useQuery } from '@apollo/react-hooks';
 import { Notification } from 'hds-react';
 
 import { HARBORS_QUERY } from './harborsQuery';
-import { getHarborsData, HarborData } from './utils';
+import { getHarborsData } from './utils';
 import { HARBORS } from './__generated__/HARBORS';
 import HarborsPage from './HarborsPage';
+import { HarborData } from './types';
 
 const HarborsContainer: React.FC = () => {
   const { t } = useTranslation();

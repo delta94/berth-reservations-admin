@@ -11,9 +11,14 @@ import Property from '../property/Property';
 import styles from './harborProperties.module.scss';
 import Section from '../../../common/section/Section';
 import placeholder from './harborPlaceholder.svg';
+import HarborMapLinks from '../../cards/harborMapLinks/HarborMapLinks';
 
 export interface HarborPropertiesProps {
   imageUrl: string | null;
+  maps: {
+    id: string;
+    url: string;
+  }[];
   name: string;
   address: string;
   servicemapId: string;
@@ -35,6 +40,7 @@ const HarborProperties: React.SFC<HarborPropertiesProps> = ({
   name,
   address,
   imageUrl,
+  maps,
   servicemapId,
   properties,
   editHarbor,
@@ -65,9 +71,10 @@ const HarborProperties: React.SFC<HarborPropertiesProps> = ({
               </Section>
               <Section>
                 <ExternalLink href={serviceMapUrl} variant="withArrow">
-                  {t('harbors.details.serviceMap')}
+                  {t('common.terminology.serviceMap')}
                 </ExternalLink>
               </Section>
+              <HarborMapLinks maps={maps} />
             </div>
           </div>
           <Grid colsCount={5} className={styles.propsGrid}>

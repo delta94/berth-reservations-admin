@@ -150,3 +150,22 @@ export const getPiers = (data: INDIVIDUAL_HARBOR | undefined): Pier[] => {
     ];
   }, []);
 };
+
+type Map = {
+  id: string;
+  url: string;
+};
+
+export const getMaps = (data: INDIVIDUAL_HARBOR | undefined): Map[] => {
+  if (!data?.harbor?.properties?.maps) return [];
+
+  return data.harbor.properties.maps.reduce<Map[]>((acc, map) => {
+    if (map !== null) {
+      return acc.concat({
+        id: map.id,
+        url: map.url,
+      });
+    }
+    return acc;
+  }, []);
+};

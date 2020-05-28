@@ -1,67 +1,64 @@
 import React from 'react';
-import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 
 import Grid from '../../../common/grid/Grid';
 import ExternalLink from '../../../common/externalLink/ExternalLink';
-import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
-import { HarborData } from '../utils';
 import styles from './harborDetails.module.scss';
 import Section from '../../../common/section/Section';
+import Text from '../../../common/text/Text';
+import { formatDimension } from '../../../common/utils/format';
+import { HarborData } from '../types';
+import HarborMapLinks from '../../cards/harborMapLinks/HarborMapLinks';
 
-type Props = {
+export type HarborDetailsProps = {
   imageFile: HarborData['imageFile'];
+  maps: HarborData['maps'];
+  maxWidth: HarborData['maxWidth'];
+  municipality: HarborData['municipality'];
+  servicemapId: HarborData['servicemapId'];
   streetAddress: HarborData['streetAddress'];
   zipCode: HarborData['zipCode'];
-  municipality: HarborData['municipality'];
-  wwwUrl: HarborData['wwwUrl'];
-  servicemapId: HarborData['servicemapId'];
-  maxWidth: HarborData['maxWidth'];
 };
 
-const HarborDetails: React.SFC<Props> = ({
+const HarborDetails: React.SFC<HarborDetailsProps> = ({
+  maps,
   imageFile,
   streetAddress,
   zipCode,
   municipality,
-  wwwUrl,
   servicemapId,
   maxWidth,
 }) => {
-  const { t } = useTranslation();
-  const address = `${streetAddress} ${zipCode} ${municipality}`;
+  const { t, i18n } = useTranslation();
+  const address = `${streetAddress}, ${zipCode} ${municipality}`;
   const imageSrc = imageFile ? imageFile : '';
-  const url = wwwUrl ? wwwUrl : '';
   const serviceMapUrl = `${process.env.REACT_APP_SERVICE_MAP_URI}${servicemapId}`;
 
   return (
-    <Grid colsCount={3}>
-      <div className={classNames(styles.section, styles.harborAddress)}>
+    <Grid colsCount={4}>
+      <div className={styles.column}>
         <img className={styles.image} src={imageSrc} alt="map" />
-        <div className={classNames(styles.address)}>
-          <Section title={t('harbors.details.address')}>
-            <ExternalLink href={url} variant="withArrow">
-              {address}
-            </ExternalLink>
-            <ExternalLink href="">{t('harbors.details.portMap')}</ExternalLink>
-            <ExternalLink href={serviceMapUrl}>{t('harbors.details.serviceMap')}</ExternalLink>
-          </Section>
-        </div>
       </div>
-      <div className={classNames(styles.section)}>
-        <Section>
-          <LabelValuePair
-            label={t('harbors.details.maxWidth')}
-            labelColor="brand"
-            value={maxWidth ? `${maxWidth}m` : '-'}
-          />
-          <LabelValuePair label={t('harbors.details.mooring')} labelColor="brand" value="-" />
-          <LabelValuePair label={t('harbors.details.chief')} labelColor="brand" value="-" />
-          <LabelValuePair label={t('harbors.details.maintenanceTeam')} labelColor="brand" value="-" />
+      <div className={styles.column}>
+        <Section className={styles.address} title={t('common.terminology.address').toUpperCase()}>
+          {address}
         </Section>
+        <Section>
+          <ExternalLink href={serviceMapUrl} variant="withArrow">
+            {t('common.terminology.serviceMap')}
+          </ExternalLink>
+        </Section>
+        <HarborMapLinks maps={maps} />
       </div>
-      <div className={classNames(styles.section)}>
-        <Section title={t('harbors.details.recentActivities')}>-</Section>
+      <div className={styles.column}>
+        <Section title={t('harbors.details.maxWidth').toUpperCase()}>
+          <Text>{formatDimension(maxWidth, i18n.language)}</Text>
+        </Section>
+        <Section title={t('common.terminology.mooring').toUpperCase()}>-</Section>
+      </div>
+      <div className={styles.column}>
+        <Section title={t('harbors.details.maintenance').toUpperCase()}>-</Section>
+        <Section title={t('harbors.details.harborChief').toUpperCase()}>-</Section>
       </div>
     </Grid>
   );

@@ -7,6 +7,12 @@
 // GraphQL query operation: HARBORS
 // ====================================================
 
+export interface HARBORS_harbors_edges_node_properties_maps {
+  __typename: "HarborMapType";
+  id: any;
+  url: string;
+}
+
 export interface HARBORS_harbors_edges_node_properties_piers_edges_node_properties {
   __typename: "PierProperties";
   electricity: boolean;
@@ -41,6 +47,7 @@ export interface HARBORS_harbors_edges_node_properties {
   municipality: string | null;
   wwwUrl: string;
   imageFile: string | null;
+  maps: (HARBORS_harbors_edges_node_properties_maps | null)[];
   servicemapId: string | null;
   maxWidth: number | null;
   piers: HARBORS_harbors_edges_node_properties_piers | null;

@@ -6,10 +6,10 @@ import HarborDetails from './harborDetails/HarborDetails';
 import InternalLink from '../../common/internalLink/InternalLink';
 import styles from './harborsPage.module.scss';
 import Icon from '../../common/icons/Icon';
-import { HarborData } from './utils';
 import GlobalSearchTableTools from '../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';
 import Pagination from '../../common/pagination/Pagination';
 import PageTitle from '../../common/pageTitle/PageTitle';
+import { HarborData } from './types';
 
 type ColumnType = Column<HarborData> & { accessor: keyof HarborData };
 
