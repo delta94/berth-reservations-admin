@@ -27,6 +27,7 @@ export const CUSTOMER_QUERY = gql`
           firstName
           lastName
           nickname
+          comment
           organization {
             businessId
             organizationType
@@ -55,6 +56,39 @@ export const CUSTOMER_QUERY = gql`
           }
           contactMethod
           image
+          boats {
+            edges {
+              node {
+                name
+              }
+            }
+          }
+          berthApplications {
+            edges {
+              node {
+                createdAt
+              }
+            }
+          }
+          berthLeases {
+            edges {
+              node {
+                berth {
+                  number
+                  pier {
+                    properties {
+                      identifier
+                      harbor {
+                        properties {
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
