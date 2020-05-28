@@ -1,12 +1,12 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import CustomerListTableTools from '../CustomerListTableTools';
 import { SearchBy } from '../../CustomerListComponent';
 
 describe('CustomerListTableTools', () => {
   const getWrapper = () =>
-    shallow(
+    mount(
       <CustomerListTableTools
         searchVal={'test'}
         searchBy={SearchBy.FIRST_NAME}
