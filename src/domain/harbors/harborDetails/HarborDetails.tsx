@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 
 import Grid from '../../../common/grid/Grid';
 import ExternalLink from '../../../common/externalLink/ExternalLink';
-import { HarborData } from '../utils';
 import styles from './harborDetails.module.scss';
 import Section from '../../../common/section/Section';
 import Text from '../../../common/text/Text';
 import { formatDimension } from '../../../common/utils/format';
+import { HarborData } from '../types';
 import List from '../../../common/list/List';
 import ListItem from '../../../common/list/ListItem';
 
