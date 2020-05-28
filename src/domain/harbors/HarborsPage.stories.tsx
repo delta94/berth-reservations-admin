@@ -8,9 +8,9 @@ import { mockData } from './__mocks__/mockData';
 export default {
   component: HarborsPage,
   decorators: [(storyFn: Function) => <HashRouter>{storyFn()}</HashRouter>],
-  title: 'HarborsList',
+  title: 'HarborsPage',
 };
 
 const data = getHarborsData(mockData);
 
-export const harborsList = () => <HarborsPage data={data}>foo</HarborsPage>;
+export const harborsPage = () => <HarborsPage data={data}>foo</HarborsPage>;

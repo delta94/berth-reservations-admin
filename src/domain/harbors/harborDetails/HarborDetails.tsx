@@ -11,17 +11,17 @@ import { formatDimension } from '../../../common/utils/format';
 import List from '../../../common/list/List';
 import ListItem from '../../../common/list/ListItem';
 
-type Props = {
-  maps: HarborData['maps'];
+export type HarborDetailsProps = {
   imageFile: HarborData['imageFile'];
-  streetAddress: HarborData['streetAddress'];
-  zipCode: HarborData['zipCode'];
+  maps: HarborData['maps'];
+  maxWidth: HarborData['maxWidth'];
   municipality: HarborData['municipality'];
   servicemapId: HarborData['servicemapId'];
-  maxWidth: HarborData['maxWidth'];
+  streetAddress: HarborData['streetAddress'];
+  zipCode: HarborData['zipCode'];
 };
 
-const HarborDetails: React.SFC<Props> = ({
+const HarborDetails: React.SFC<HarborDetailsProps> = ({
   maps,
   imageFile,
   streetAddress,
