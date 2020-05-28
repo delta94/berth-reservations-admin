@@ -53,11 +53,9 @@ const CustomerListTableTools = <T extends string>({
           onChange={(e) => setSearchVal((e.target as HTMLInputElement).value)}
         />
       </div>
-      {messageModalOpen && (
-        <Modal isOpen={messageModalOpen} toggleModal={() => setMessageModalOpen(false)}>
-          <CustomerMessageForm handleSendMessage={handleSendMessage} closeModal={() => setMessageModalOpen(false)} />
-        </Modal>
-      )}
+      <Modal isOpen={messageModalOpen} toggleModal={() => setMessageModalOpen(false)}>
+        <CustomerMessageForm handleSendMessage={handleSendMessage} closeModal={() => setMessageModalOpen(false)} />
+      </Modal>
     </div>
   );
 };
