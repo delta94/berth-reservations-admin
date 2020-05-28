@@ -19,7 +19,7 @@ const FormHeader: React.FC<Props> = ({ title, isSubmitting, onDelete, onDeleteTe
         {title}
       </Text>
       {onDelete && (
-        <button disabled={isSubmitting} onClick={() => onDelete()}>
+        <button disabled={isSubmitting} onClick={() => onDelete()} type="button">
           <Text color="critical">{onDeleteText ?? t('forms.common.delete')}</Text>
         </button>
       )}

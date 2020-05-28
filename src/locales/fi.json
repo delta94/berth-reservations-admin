@@ -145,7 +145,11 @@
       "depth": "Syvyys (m)",
       "mooringType": "Kiinnitystapa",
       "comment": "Huomiot",
-      "isActive": "Paikka on käytössä"
+      "isActive": "Paikka on käytössä",
+      "deleteConfirmation": {
+        "infoText": "Oletko varma että haluat poistaa venepaikan {{berthNumber}} laiturista {{pier}}?",
+        "warningText": "Tätä toimenpidettä ei voi perua."
+      }
     },
     "harbor": {
       "title": "Satama",
@@ -168,7 +172,11 @@
       "electricity": "Sähkö",
       "lighting": "Valaistus",
       "water": "Vesi",
-      "personalElectricity": "Erillinen sähkösopimus mahdollinen"
+      "personalElectricity": "Erillinen sähkösopimus mahdollinen",
+      "deleteConfirmation": {
+        "infoText": "Oletko varma että haluat poistaa laiturin {{pierIdentifier}}?",
+        "warningText": "Tämä poistaa koko laiturin ja kaikki siinä olevat venepaikat. Tätä toimenpidettä ei voi perua."
+      }
     }
   },
   "harborList": {

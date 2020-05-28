@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import BerthForm from '../BerthForm';
 import { BerthMooringType } from '../../../../../@types/__generated__/globalTypes';
@@ -20,7 +20,7 @@ const validValues = {
 
 describe('features/harborView/BerthForm', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(<BerthForm initialValues={validValues} pierOptions={pierOptions} />);
+    const wrapper = mount(<BerthForm initialValues={validValues} pierOptions={pierOptions} />);
     expect(wrapper.html()).toMatchSnapshot();
   });
 });

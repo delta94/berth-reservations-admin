@@ -1,0 +1,21 @@
+@import 'spacings';
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.infoTexts {
+  margin: units(2) 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.warningText {
+  @extend .uppercase;
+  margin-top: units(1);
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: space-between;
+}

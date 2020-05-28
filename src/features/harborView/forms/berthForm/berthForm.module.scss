@@ -2,8 +2,15 @@
 
 .form {
   padding: units(1) 0;
-  max-width: 400px;
-  max-height: 80vh;
+  max-width: units(32);
+
+  > * {
+    margin: units(1) 0;
+  }
+}
+
+.confirmationModal {
+  max-width: units(32);
 }
 
 .grid {

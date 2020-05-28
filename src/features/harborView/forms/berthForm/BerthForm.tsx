@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
-import { Button, TextInput } from 'hds-react';
+import { Button, TextInput, Checkbox } from 'hds-react';
 import { ObjectSchema } from 'yup';
 
 import { Berth, FormProps } from '../types';
 import { BerthMooringType } from '../../../../@types/__generated__/globalTypes';
 import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
-import Checkbox from '../../../../common/checkbox/Checkbox';
 import styles from './berthForm.module.scss';
 import { Pier } from '../../utils/utils';
 import FormHeader from '../../../../common/formHeader/FormHeader';
+import ConfirmationModal from '../../../../common/confirmationModal/ConfirmationModal';
 
 interface BerthFormProps extends FormProps<Berth> {
   isEditing?: boolean;
@@ -65,6 +65,7 @@ const BerthForm: React.FC<BerthFormProps> = ({
 }) => {
   const { t } = useTranslation();
   const validationSchema = getBerthValidationSchema(t, pierOptions);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const initial: Berth = initialValues ?? {
     pierId: pierOptions[0].id,
@@ -86,7 +87,7 @@ const BerthForm: React.FC<BerthFormProps> = ({
           <FormHeader
             title={t('forms.berth.title')}
             isSubmitting={isSubmitting}
-            onDelete={onDelete ? () => onDelete(values) : undefined}
+            onDelete={onDelete ? () => setIsDeleteModalOpen(true) : undefined}
             onDeleteText={t('forms.berth.delete')}
           />
           <Grid colsCount={3} className={styles.grid}>
@@ -158,16 +159,10 @@ const BerthForm: React.FC<BerthFormProps> = ({
           />
           <TextInput id="comment" onChange={handleChange} value={values.comment} labelText={t('forms.berth.comment')} />
           <Checkbox
-            onChange={(event) =>
-              handleChange({
-                target: {
-                  id: 'isActive',
-                  value: event.target.checked,
-                },
-              })
-            }
+            id="isActive"
+            onChange={handleChange}
             checked={values.isActive}
-            label={t('forms.berth.isActive')}
+            labelText={t('forms.berth.isActive')}
           />
           <div className={styles.formActionButtons}>
             <Button
@@ -183,6 +178,21 @@ const BerthForm: React.FC<BerthFormProps> = ({
               {onSubmitText}
             </Button>
           </div>
+
+          <ConfirmationModal
+            isOpen={isDeleteModalOpen}
+            title={t('forms.berth.title')}
+            infoText={t('forms.berth.deleteConfirmation.infoText', {
+              pier: values.pier,
+              berthNumber: values.number,
+            })}
+            onCancelText={t('forms.common.cancel')}
+            onConfirmText={t('forms.berth.delete')}
+            warningText={t('forms.berth.deleteConfirmation.warningText')}
+            onCancel={() => setIsDeleteModalOpen(false)}
+            onConfirm={() => onDelete?.(values)}
+            className={styles.confirmationModal}
+          />
         </form>
       )}
     </Formik>

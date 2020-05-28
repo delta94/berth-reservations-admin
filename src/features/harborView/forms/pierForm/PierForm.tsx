@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { TFunction } from 'i18next';
 import { ObjectSchema } from 'yup';
 import { useTranslation } from 'react-i18next';
-import { TextInput, Button } from 'hds-react';
+import { TextInput, Button, Checkbox } from 'hds-react';
 
 import Text from '../../../../common/text/Text';
 import styles from './pierForm.module.scss';
 import { BoatType, FormProps, Pier } from '../types';
 import Grid from '../../../../common/grid/Grid';
-import Checkbox from '../../../../common/checkbox/Checkbox';
 import FormHeader from '../../../../common/formHeader/FormHeader';
+import ConfirmationModal from '../../../../common/confirmationModal/ConfirmationModal';
 
 interface PierFormProps extends FormProps<Pier> {
   suitableBoatTypeOptions: BoatType[];
@@ -43,6 +43,8 @@ const PierForm: React.FC<PierFormProps> = ({
 }) => {
   const { t } = useTranslation();
   const validationSchema = getPierValidationSchema(t, suitableBoatTypeOptions);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+
   const initial: Pier = {
     identifier: '',
     suitableBoatTypes: [],
@@ -69,7 +71,7 @@ const PierForm: React.FC<PierFormProps> = ({
           <FormHeader
             title={t('forms.pier.title')}
             isSubmitting={isSubmitting}
-            onDelete={onDelete ? () => onDelete(values) : undefined}
+            onDelete={onDelete ? () => setIsDeleteModalOpen(true) : undefined}
             onDeleteText={t('forms.pier.delete')}
           />
 
@@ -91,16 +93,10 @@ const PierForm: React.FC<PierFormProps> = ({
               {['wasteCollection', 'gate', 'electricity', 'lighting', 'water'].map((keyForCheckbox, id) => (
                 <Checkbox
                   key={id}
-                  onChange={(event) =>
-                    handleChange({
-                      target: {
-                        id: keyForCheckbox,
-                        value: event.target.checked,
-                      },
-                    })
-                  }
+                  id={keyForCheckbox}
+                  onChange={handleChange}
                   checked={values[keyForCheckbox as keyof Pier] as boolean}
-                  label={t(`forms.pier.${keyForCheckbox}`)}
+                  labelText={t(`forms.pier.${keyForCheckbox}`)}
                 />
               ))}
             </div>
@@ -111,6 +107,7 @@ const PierForm: React.FC<PierFormProps> = ({
               {suitableBoatTypeOptions.map((boatType, id) => (
                 <Checkbox
                   key={id}
+                  id={`suitableBoatTypes.${id}`}
                   onChange={() => {
                     const set = new Set(values.suitableBoatTypes);
                     set.has(boatType.id) ? set.delete(boatType.id) : set.add(boatType.id);
@@ -122,23 +119,17 @@ const PierForm: React.FC<PierFormProps> = ({
                     });
                   }}
                   checked={values.suitableBoatTypes && values.suitableBoatTypes.includes(boatType.id)}
-                  label={boatType.name ?? ''}
+                  labelText={boatType.name ?? ''}
                 />
               ))}
             </div>
           </Grid>
 
           <Checkbox
-            onChange={(event) =>
-              handleChange({
-                target: {
-                  id: 'personalElectricity',
-                  value: event.target.checked,
-                },
-              })
-            }
+            id="personalElectricity"
+            onChange={handleChange}
             checked={values.personalElectricity}
-            label={t('forms.pier.personalElectricity')}
+            labelText={t('forms.pier.personalElectricity')}
           />
 
           <div className={styles.formActionButtons}>
@@ -149,6 +140,18 @@ const PierForm: React.FC<PierFormProps> = ({
               {onSubmitText}
             </Button>
           </div>
+
+          <ConfirmationModal
+            isOpen={isDeleteModalOpen}
+            title={t('forms.pier.title')}
+            infoText={t('forms.pier.deleteConfirmation.infoText', { pierIdentifier: values.identifier })}
+            onCancelText={t('forms.common.cancel')}
+            onConfirmText={t('forms.pier.')}
+            warningText={t('forms.pier.deleteConfirmation.warningText')}
+            onCancel={() => setIsDeleteModalOpen(false)}
+            onConfirm={() => onDelete?.(values)}
+            className={styles.confirmationModal}
+          />
         </form>
       )}
     </Formik>
