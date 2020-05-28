@@ -104,6 +104,14 @@
     "wait-for-expect": "^3.0.2"
   },
   "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,ts,tsx}",
+      "!**/__generated__/*",
+      "!**/__fixtures__/*",
+      "!**/types.ts",
+      "!**/*.d.ts",
+      "!**/*.stories.*"
+    ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ]
