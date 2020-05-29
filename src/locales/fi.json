@@ -492,5 +492,10 @@
     "numberOfFreePlaces": "Vapaata",
     "numberOfPlaces": "Paikkoja",
     "maxWidth": "Max. leveys"
+  },
+  "errorPage": {
+    "heading": "Virhetilanne",
+    "text": "Pahoittelumme, järjestelmässä ilmeni virhe. Voit yrittää uudelleen, mutta jos sama toistuu, kerro siitä meille niin korjaamme asian.",
+    "linkText": "Etusivulle"
   }
 }

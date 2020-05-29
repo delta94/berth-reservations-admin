@@ -15,6 +15,7 @@ import ApplicationListPage from '../features/applicationList/ApplicationListPage
 import ApplicationViewPage from '../features/applicationView/ApplicationViewPageContainer';
 import PricingPage from '../features/pricing/PricingPageContainer';
 import CallbackPage from '../features/auth/callbackPage/CallbackPage';
+import ErrorPage from '../features/errorPage/ErrorPage';
 
 const App: React.FC = () => {
   return (
@@ -34,6 +35,7 @@ const App: React.FC = () => {
               <PrivateRoute exact path="/applications" component={ApplicationListPage} />
               <PrivateRoute exact path="/offer/:applicationId" component={OfferPage} />
               <PrivateRoute exact path="/pricing" component={PricingPage} />
+              <PrivateRoute exact path="/error" component={ErrorPage} />
             </Switch>
           </Page>
         </Switch>
