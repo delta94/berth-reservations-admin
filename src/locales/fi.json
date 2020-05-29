@@ -343,6 +343,17 @@
       "showBill": "Näytä lasku",
       "showContract": "Näytä sopimus",
       "removeOffer": "Poista tarjous"
+    },
+    "boatCard": {
+      "heading": "ASIAKKAAN VENE",
+      "type": "Veneen tyyppi",
+      "boatRegistrationNumber": "Rekisterinumero",
+      "boatName": "Nimi",
+      "boatModel": "Merkki",
+      "boatWidth": "Veneen leveys",
+      "boatLength": "Veneen pituus",
+      "boatDraught": "Veneen syväys",
+      "boatWeight": "Veneen paino"
     }
   },
   "customerList": {
