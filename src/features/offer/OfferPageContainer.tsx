@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useParams, useHistory } from 'react-router-dom';
-import { Notification } from 'hds-react';
+import { Notification, Button } from 'hds-react';
 import { getOperationName } from 'apollo-boost';
 
 import styles from './offerPage.module.scss';
@@ -45,6 +45,32 @@ const OfferPageContainer: React.FC = () => {
   const { t, i18n } = useTranslation();
 
   const columns: ColumnType[] = [
+    {
+      Cell: ({ row }) => (
+        <Button
+          onClick={() => {
+            createBerthLease({
+              variables: {
+                input: {
+                  applicationId: applicationId || '',
+                  berthId: row.original.berthId,
+                },
+              },
+            }).catch((error) => console.error(error)); // TODO: handle errors
+
+            history.push('/applications');
+          }}
+          disabled={isSubmitting}
+        >
+          {t('offer.tableCells.select')}
+        </Button>
+      ),
+      Header: t('offer.tableHeaders.selection') || '',
+      accessor: 'berthId',
+      width: COLUMN_WIDTH.S,
+      disableFilters: true,
+      disableSortBy: true,
+    },
     {
       Cell: ({ cell }) => <InternalLink to={`/harbors/${cell.row.original.harborId}}`}>{cell.value}</InternalLink>,
       Header: t('offer.tableHeaders.harbor') || '',
@@ -134,35 +160,14 @@ const OfferPageContainer: React.FC = () => {
             filterPrefix={t('offer.tableHeaders.pierFilterBtn')}
           />
         )}
-        renderTableToolsTop={(state) => {
-          const berthId = state.selectedRows[0]?.berthId;
-          const isDisabled = isSubmitting || !applicationId || !berthId || !data.berthApplication?.customer;
-
-          const handleSubmit = () => {
-            createBerthLease({
-              variables: {
-                input: {
-                  applicationId: applicationId || '',
-                  berthId,
-                },
-              },
-            }).catch((error) => console.error(error)); // TODO: handle errors
-
-            history.push('/applications');
-          };
-
-          return (
-            <TableTools
-              applicationDate={applicationDate}
-              applicationType={applicationType}
-              applicationStatus={applicationStatus}
-              disableSubmit={isDisabled}
-              handleSubmit={handleSubmit}
-              handleReturn={handleReturn}
-            />
-          );
-        }}
-        canSelectOneRow
+        renderTableToolsTop={() => (
+          <TableTools
+            applicationDate={applicationDate}
+            applicationType={applicationType}
+            applicationStatus={applicationStatus}
+            handleReturn={handleReturn}
+          />
+        )}
       />
     </OfferPage>
   );
