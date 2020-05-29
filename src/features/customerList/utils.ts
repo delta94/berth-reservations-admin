@@ -1,9 +1,9 @@
 import { CUSTOMERS } from './__generated__/CUSTOMERS';
-import { TableData } from './CustomerListComponent';
+import { CustomerData } from './types';
 
-export const getCustomersData = (data: CUSTOMERS | undefined): TableData[] => {
+export const getCustomersData = (data: CUSTOMERS | undefined): CustomerData[] => {
   return (
-    data?.profiles?.edges.reduce<TableData[]>((acc, profile) => {
+    data?.profiles?.edges.reduce<CustomerData[]>((acc, profile) => {
       if (profile?.node) {
         const profileData = {
           address: profile.node.primaryAddress?.address,
