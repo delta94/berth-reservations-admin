@@ -12,6 +12,7 @@ import {
   CustomerListBoat,
   CustomerListWinterStoragePlaces,
 } from '../types';
+import { formatDate } from '../../../common/utils/format';
 
 export interface CustomerDetailsProps {
   name: string;
@@ -44,7 +45,7 @@ const CustomerDetails: React.SFC<CustomerDetailsProps> = ({
   comment,
   organizationType,
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <div className={styles.customerDetails}>
@@ -84,7 +85,7 @@ const CustomerDetails: React.SFC<CustomerDetailsProps> = ({
         <div className={styles.section}>
           <Section title={t('harborList.details.applications')}>
             {applications.map((application) => (
-              <div key={application.id}>{application.createdAt}</div>
+              <div key={application.id}>{formatDate(application.createdAt, i18n.language)}</div>
             ))}
           </Section>
           <Section title={t('harborList.details.bills')}>
