@@ -57,12 +57,7 @@ export const mapValuesToMutation = (harborId: string, values: Harbor) => {
     addedMaps = [],
   } = values;
 
-  const removeMapFiles = existingMaps.reduce<string[]>((acc, map) => {
-    if (map.markedForDeletion) {
-      return acc.concat(map.id as string);
-    }
-    return acc;
-  }, []);
+  const removeMapFiles = existingMaps.filter((map) => map.markedForDeletion).map((map) => map.id);
 
   return {
     id: harborId,
