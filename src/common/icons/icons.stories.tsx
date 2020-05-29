@@ -7,7 +7,7 @@ import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 import Icon, { IconShapes } from './Icon';
 import * as Icons from './index';
 
-const Wrapper = ({ children, size }) => (
+const Wrapper = ({ children, size }: { children: React.ReactChild; size: string }) => (
   <div
     style={{
       margin: '10px',

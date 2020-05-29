@@ -1,10 +1,5 @@
 import { getHarbor, mapValuesToMutation } from '../utils';
 
-jest.mock('uuid', () => ({
-  __esModule: true,
-  v4: jest.fn(() => 'test-uuid'),
-}));
-
 describe('HarborForm utils', () => {
   describe('getHarbor', () => {
     it('should return "undefined" if no data', () => {
@@ -40,8 +35,10 @@ describe('HarborForm utils', () => {
           },
         })
       ).toEqual({
-        imageFile: undefined,
-        maps: [],
+        existingImageFile: undefined,
+        addedImageFile: undefined,
+        addedMaps: [],
+        existingMaps: [],
         municipality: '',
         name: '',
         streetAddress: '',
@@ -75,19 +72,20 @@ describe('HarborForm utils', () => {
           },
         })
       ).toEqual({
-        imageFile: {
+        existingImageFile: {
+          id: '0',
           markedForDeletion: false,
           name: 'https://hel.fi',
-          uuid: 'test-uuid',
         },
-        maps: [
+        addedImageFile: undefined,
+        existingMaps: [
           {
             id: 'testMap',
             markedForDeletion: false,
             name: 'testMap.pdf',
-            uuid: 'test-uuid',
           },
         ],
+        addedMaps: [],
         municipality: 'Helsinki',
         name: 'Pajalahden venesatama (Meripuistotie) / Venesatama',
         streetAddress: 'Meripuistotie 1a',
@@ -101,8 +99,10 @@ describe('HarborForm utils', () => {
     it('should map empty "imageFile" and "maps" fields correctly', () => {
       expect(
         mapValuesToMutation('test', {
-          imageFile: undefined,
-          maps: [],
+          existingImageFile: { id: 'test', name: 'test' },
+          addedImageFile: undefined,
+          existingMaps: [],
+          addedMaps: [],
           municipality: 'Helsinki',
           name: 'Pajalahden venesatama (Meripuistotie) / Venesatama',
           streetAddress: 'Meripuistotie 1a',
@@ -122,32 +122,24 @@ describe('HarborForm utils', () => {
     it('should map filled "imageFile" and "maps" fields correctly', () => {
       const testImage = new File([], 'testImage.jpg');
       const testMap = new File([], 'testMap.pdf');
+
       expect(
         mapValuesToMutation('test', {
-          imageFile: {
-            uuid: 'aaa',
-            name: 'testImage.jpg',
-            data: testImage,
-          },
-          maps: [
+          existingImageFile: undefined,
+          addedImageFile: testImage,
+          existingMaps: [
             {
-              uuid: 'bbb',
               name: 'untouchedMap.pdf',
               id: 'untouchedMap',
               markedForDeletion: false,
             },
             {
-              uuid: 'ccc',
-              name: 'addedMap.pdf',
-              data: testMap,
-            },
-            {
-              uuid: 'ddd',
               name: 'deletedMap.pdf',
               id: 'deletedMap',
               markedForDeletion: true,
             },
           ],
+          addedMaps: [testMap],
           municipality: 'Helsinki',
           name: 'Pajalahden venesatama (Meripuistotie) / Venesatama',
           streetAddress: 'Meripuistotie 1a',

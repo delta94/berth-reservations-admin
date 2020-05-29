@@ -1,8 +1,6 @@
-import { v4 as uuid } from 'uuid';
-
 import { Harbor } from '../../types';
-import { FileContainer } from '../../../../../common/fileUpload/FileUpload';
 import { HARBOR_FORM, HARBOR_FORM_harbor_properties as HARBOR_PROPERTIES } from '../__generated__/HARBOR_FORM';
+import { PersistedFile } from '../../../../../common/fileList/FileList';
 
 export const getHarbor = (harborData: HARBOR_FORM | undefined): Harbor | undefined => {
   if (!harborData || !harborData.harbor || !harborData.harbor.properties) {
@@ -11,24 +9,23 @@ export const getHarbor = (harborData: HARBOR_FORM | undefined): Harbor | undefin
 
   const { name, streetAddress, zipCode, municipality, wwwUrl, imageFile, maps } = harborData.harbor.properties;
 
-  const getImageFile = (imageFile: string | null): undefined | FileContainer => {
+  const getImageFile = (imageFile: string | null): undefined | PersistedFile => {
     if (imageFile === null) {
       return undefined;
     }
 
     return {
-      uuid: uuid(),
+      id: '0',
       name: imageFile,
       markedForDeletion: false,
     };
   };
 
   const getMaps = (maps: HARBOR_PROPERTIES['maps']) =>
-    maps.reduce<FileContainer[]>((acc, map) => {
+    maps.reduce<PersistedFile[]>((acc, map) => {
       if (map === null) return acc;
 
       return acc.concat({
-        uuid: uuid(),
         id: map.id,
         name: map.url,
         markedForDeletion: false,
@@ -41,39 +38,26 @@ export const getHarbor = (harborData: HARBOR_FORM | undefined): Harbor | undefin
     zipCode,
     municipality: municipality || '',
     wwwUrl,
-    imageFile: getImageFile(imageFile),
-    maps: getMaps(maps),
+    existingImageFile: getImageFile(imageFile),
+    addedImageFile: undefined,
+    existingMaps: getMaps(maps),
+    addedMaps: [],
   };
 };
 
-type MapFiles = {
-  addMapFiles: File[];
-  removeMapFiles: string[];
-};
-
 export const mapValuesToMutation = (harborId: string, values: Harbor) => {
-  const { name, streetAddress, zipCode, municipality, wwwUrl, imageFile, maps = [] } = values;
+  const {
+    name,
+    streetAddress,
+    zipCode,
+    municipality,
+    wwwUrl,
+    addedImageFile,
+    existingMaps = [],
+    addedMaps = [],
+  } = values;
 
-  const { addMapFiles, removeMapFiles } = maps.reduce<MapFiles>(
-    (acc, map) => {
-      if (map.markedForDeletion) {
-        return {
-          ...acc,
-          removeMapFiles: acc.removeMapFiles.concat(map.id as string),
-        };
-      }
-
-      if (map.data !== undefined) {
-        return {
-          ...acc,
-          addMapFiles: acc.addMapFiles.concat(map.data),
-        };
-      }
-
-      return acc;
-    },
-    { addMapFiles: [], removeMapFiles: [] }
-  );
+  const removeMapFiles = existingMaps.filter((map) => map.markedForDeletion).map((map) => map.id);
 
   return {
     id: harborId,
@@ -82,10 +66,8 @@ export const mapValuesToMutation = (harborId: string, values: Harbor) => {
     zipCode,
     municipalityId: (municipality as string).toLowerCase(),
     wwwUrl,
-    ...(imageFile?.data && {
-      imageFile: imageFile.data,
-    }),
-    ...(addMapFiles.length > 0 && { addMapFiles }),
+    ...(addedImageFile && { imageFile: addedImageFile }),
+    ...(addedMaps.length > 0 && { addMapFiles: addedMaps }),
     ...(removeMapFiles.length > 0 && { removeMapFiles }),
   };
 };

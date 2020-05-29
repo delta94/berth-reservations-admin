@@ -1,7 +1,7 @@
 import { PureQueryOptions } from 'apollo-client';
 
 import { BerthMooringType } from '../../../@types/__generated__/globalTypes';
-import { FileContainer } from '../../../common/fileUpload/FileUpload';
+import { PersistedFile } from '../../../common/fileList/FileList';
 
 export interface FormProps<T> {
   initialValues?: T;
@@ -49,6 +49,8 @@ export interface Harbor {
   zipCode?: string;
   municipality?: string;
   wwwUrl?: string;
-  imageFile?: FileContainer;
-  maps?: FileContainer[];
+  existingImageFile?: PersistedFile;
+  addedImageFile?: File;
+  existingMaps?: PersistedFile[];
+  addedMaps?: File[];
 }

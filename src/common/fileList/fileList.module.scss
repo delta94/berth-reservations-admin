@@ -1,0 +1,21 @@
+@import 'colours';
+@import 'spacings';
+
+.markedForDeletion {
+  color: $gray-500;
+}
+
+.fileListItem {
+  margin: units(0.25) 0;
+  display: flex;
+  align-items: center;
+}
+
+.fileName {
+  flex-grow: 1;
+  line-height: units(1.5);
+}
+
+.delete {
+  cursor: pointer;
+}
