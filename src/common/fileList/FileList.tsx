@@ -36,6 +36,8 @@ export type FileListProps = SingleModeProps | MultipleModeProps;
 const FileList: FunctionComponent<FileListProps> = (props) => {
   const { allowDelete = true, helperText, id, invalid = false, labelText, value, willBeOverwritten = false } = props;
 
+  if (value === undefined) return null;
+
   const handleDelete = (targetFile: PersistedFile) => {
     if (props.multiple) {
       return props.onChange(
@@ -55,8 +57,6 @@ const FileList: FunctionComponent<FileListProps> = (props) => {
       markedForDeletion: !targetFile.markedForDeletion,
     });
   };
-
-  if (value === undefined) return null;
 
   const valueList = Array.isArray(value) ? value : [value];
 

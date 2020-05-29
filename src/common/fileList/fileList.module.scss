@@ -1,5 +1,4 @@
 @import 'colours';
-@import 'fonts';
 @import 'spacings';
 
 .markedForDeletion {
@@ -14,7 +13,7 @@
 
 .fileName {
   flex-grow: 1;
-  line-height: font-size(24);
+  line-height: units(1.5);
 }
 
 .delete {
