@@ -56,6 +56,7 @@ export interface CUSTOMERS_profiles_edges_node_serviceConnections {
 
 export interface CUSTOMERS_profiles_edges_node_boats_edges_node {
   __typename: "BoatNode";
+  id: string;
   name: string;
 }
 
@@ -71,6 +72,7 @@ export interface CUSTOMERS_profiles_edges_node_boats {
 
 export interface CUSTOMERS_profiles_edges_node_berthApplications_edges_node {
   __typename: "BerthApplicationNode";
+  id: string;
   createdAt: any;
 }
 
@@ -113,6 +115,7 @@ export interface CUSTOMERS_profiles_edges_node_berthLeases_edges_node_berth {
 
 export interface CUSTOMERS_profiles_edges_node_berthLeases_edges_node {
   __typename: "BerthLeaseNode";
+  id: string;
   berth: CUSTOMERS_profiles_edges_node_berthLeases_edges_node_berth;
 }
 

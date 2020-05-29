@@ -63,19 +63,19 @@ const CustomerListComponent = ({
     },
     {
       Header: t('customerList.tableHeaders.berths') || '',
-      accessor: 'berths',
+      accessor: 'berthsColumnData',
       disableSortBy: true,
       width: COLUMN_WIDTH.L,
     },
     {
       Header: t('customerList.tableHeaders.invoice') || '',
-      accessor: 'invoice',
+      accessor: 'billsColumnData',
       disableSortBy: true,
       width: COLUMN_WIDTH.S,
     },
     {
       Header: t('customerList.tableHeaders.boats') || '',
-      accessor: 'boats',
+      accessor: 'boatsColumnData',
       disableSortBy: true,
       width: COLUMN_WIDTH.XS,
     },
@@ -95,12 +95,12 @@ const CustomerListComponent = ({
             city={row.original.city}
             phone={row.original.phone}
             email={row.original.email}
-            berths={[]}
+            berths={row.original.berthLeases}
             winterStoragePlaces={[]}
-            boats={[]}
-            applications={[]}
+            boats={row.original.boats}
+            applications={row.original.applications}
             bills={[]}
-            comment=""
+            comment={row.original.comment}
           />
         );
       }}

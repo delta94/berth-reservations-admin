@@ -59,6 +59,7 @@ export const CUSTOMERS_QUERY = gql`
           boats {
             edges {
               node {
+                id
                 name
               }
             }
@@ -66,6 +67,7 @@ export const CUSTOMERS_QUERY = gql`
           berthApplications {
             edges {
               node {
+                id
                 createdAt
               }
             }
@@ -73,6 +75,7 @@ export const CUSTOMERS_QUERY = gql`
           berthLeases {
             edges {
               node {
+                id
                 berth {
                   number
                   pier {

@@ -13,15 +13,43 @@ export interface MessageFormValues {
 
 export interface CustomerData {
   address?: string;
-  berths?: string;
-  boats?: string;
   city?: string;
   email?: string;
   id: string;
-  invoice?: string;
   name: string;
   organizationType?: OrganizationType;
   phone?: string;
   postalCode?: string;
-  startDate?: string;
+  comment: string | null;
+  berthsColumnData: string;
+  billsColumnData: string;
+  boatsColumnData: string;
+  boats: CustomerListBoat[];
+  applications: CustomerListApplication[];
+  berthLeases: CustomerListBerthLeases[];
+}
+
+export interface CustomerListBerthLeases {
+  id: string;
+  title: string;
+}
+
+export interface CustomerListWinterStoragePlaces {
+  id: string;
+  title: string;
+}
+
+export interface CustomerListBoat {
+  id: string;
+  name: string;
+}
+
+export interface CustomerListApplication {
+  id: string;
+  createdAt: string;
+}
+
+export interface CustomerListBill {
+  id: string;
+  date: string;
 }
