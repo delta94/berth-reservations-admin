@@ -18,7 +18,7 @@ import { CREATE_LEASE, CREATE_LEASEVariables as CREATE_LEASE_VARS } from './__ge
 import TableTools from './tableTools/TableTools';
 import BerthDetails from '../../common/berthDetails/BerthDetails';
 import TableFilters from '../../common/tableFilters/TableFilters';
-import { BERTH_APPLICATIONS_QUERY } from '../applications/queries';
+import { BERTH_APPLICATIONS_QUERY } from '../applicationList/queries';
 
 type ColumnType = Column<BerthData> & { accessor: keyof BerthData };
 

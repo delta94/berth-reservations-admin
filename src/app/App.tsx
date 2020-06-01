@@ -11,7 +11,7 @@ import OfferPage from '../features/offer/OfferPageContainer';
 import LoginPage from '../features/auth/loginPage/LoginPage';
 import Page from './page/Page';
 import PrivateRoute from '../features/auth/privateRoute/PrivateRoute';
-import ApplicationsPage from '../features/applications/ApplicationsPageContainer';
+import ApplicationsPage from '../features/applicationList/ApplicationsPageContainer';
 import IndividualApplicationPage from '../features/individualApplication/IndividualApplicationPageContainer';
 import PricingPage from '../features/pricing/PricingPageContainer';
 import CallbackPage from '../features/auth/callbackPage/CallbackPage';
