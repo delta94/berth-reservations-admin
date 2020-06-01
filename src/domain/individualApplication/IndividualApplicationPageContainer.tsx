@@ -12,7 +12,7 @@ import {
   INDIVIDUAL_APPLICATION,
   INDIVIDUAL_APPLICATIONVariables as INDIVIDUAL_APPLICATION_VARS,
 } from './__generated__/INDIVIDUAL_APPLICATION';
-import { useDeleteBerthApplication } from '../mutations/deleteBerthApplication';
+import { useDeleteBerthApplication } from '../../common/mutations/deleteBerthApplication';
 import {
   FILTERED_CUSTOMERS,
   FILTERED_CUSTOMERSVariables as FILTERED_CUSTOMERS_VARS,

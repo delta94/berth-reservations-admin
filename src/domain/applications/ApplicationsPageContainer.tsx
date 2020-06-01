@@ -17,7 +17,7 @@ import Chip from '../../common/chip/Chip';
 import TableFilters from '../../common/tableFilters/TableFilters';
 import { APPLICATION_STATUS } from '../../common/utils/consonants';
 import { BERTH_APPLICATIONS_QUERY } from './queries';
-import { useDeleteBerthApplication } from '../mutations/deleteBerthApplication';
+import { useDeleteBerthApplication } from '../../common/mutations/deleteBerthApplication';
 import { ApplicationStatus } from '../../@types/__generated__/globalTypes';
 import Pagination from '../../common/pagination/Pagination';
 import { usePagination } from '../../common/utils/usePagination';
