@@ -11,7 +11,7 @@ import CustomerList from './CustomerListComponent';
 import CustomersPage from './CustomersPage';
 import { usePagination } from '../../common/utils/usePagination';
 import { useBackendSorting } from '../../common/utils/useBackendSorting';
-import { SearchBy } from '../individualApplication/IndividualApplicationPage';
+import { SearchBy } from '../applicationView/IndividualApplicationPage';
 import { usePrevious } from '../../common/utils/usePrevious';
 import { MessageFormValues } from './types';
 
