@@ -44,12 +44,12 @@ const HarborViewPageContainer: React.SFC = () => {
 
   const columns: Column<Berth>[] = [
     {
-      Header: t('individualHarbor.tableHeaders.number') || '',
+      Header: t('harborView.tableHeaders.number') || '',
       accessor: 'number',
       filter: 'text',
     },
     {
-      Header: t('individualHarbor.tableHeaders.identifier') || '',
+      Header: t('harborView.tableHeaders.identifier') || '',
       accessor: 'identifier',
       filter: 'text',
     },
@@ -57,7 +57,7 @@ const HarborViewPageContainer: React.SFC = () => {
       Cell: ({ cell }: { cell: Cell<Berth> }) => {
         const isBerthActive = cell.row.original.isActive;
         if (!isBerthActive) {
-          return <Chip color="red" label={t('individualHarbor.berthProperties.inactive')} />;
+          return <Chip color="red" label={t('harborView.berthProperties.inactive')} />;
         }
         const activeLease = cell.row.original.leases?.find((lease) => lease.isActive);
         if (!activeLease) {
@@ -65,7 +65,7 @@ const HarborViewPageContainer: React.SFC = () => {
         }
         return <InternalLink to={`/customers/${activeLease.customer.id}}`}>{cell.value}</InternalLink>;
       },
-      Header: t('individualHarbor.tableHeaders.customer') || '',
+      Header: t('harborView.tableHeaders.customer') || '',
       accessor: ({ leases }) => {
         const activeLease = leases?.find((lease) => lease.isActive);
         if (!activeLease) return '';
@@ -75,25 +75,25 @@ const HarborViewPageContainer: React.SFC = () => {
       filter: 'text',
     },
     {
-      Header: t('individualHarbor.tableHeaders.length') || '',
+      Header: t('harborView.tableHeaders.length') || '',
       accessor: ({ length }) => formatDimension(length, i18n.language),
       id: 'length',
       filter: 'text',
     },
     {
-      Header: t('individualHarbor.tableHeaders.width') || '',
+      Header: t('harborView.tableHeaders.width') || '',
       accessor: ({ width }) => formatDimension(width, i18n.language),
       id: 'width',
       filter: 'text',
     },
     {
-      Header: t('individualHarbor.tableHeaders.depth') || '',
+      Header: t('harborView.tableHeaders.depth') || '',
       accessor: ({ depth }) => formatDimension(depth, i18n.language),
       id: 'depth',
       filter: 'text',
     },
     {
-      Header: t('individualHarbor.tableHeaders.mooring') || '',
+      Header: t('harborView.tableHeaders.mooring') || '',
       accessor: ({ mooringType }) => t([`common.mooringTypes.${mooringType}`, mooringType]),
       id: 'mooringType',
       filter: 'text',

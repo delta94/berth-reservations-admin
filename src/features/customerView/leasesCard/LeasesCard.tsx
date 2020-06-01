@@ -35,7 +35,7 @@ const LeasesCard: React.SFC<LeasesCardProps> = ({ leases, handleShowContract }) 
 
   return (
     <Card>
-      <CardHeader title={t('individualCustomer.leases.title')} />
+      <CardHeader title={t('customerView.leases.title')} />
       {leases?.map(({ id, pierIdentifier, harbor, berthNum, startDate, endDate }) => {
         const berthAddress = `${harbor?.name || ''} ${pierIdentifier || ''} ${berthNum}`;
         const leaseDate = `${formatDate(startDate, i18n.language)} - ${formatDate(endDate, i18n.language)}`;
@@ -43,14 +43,14 @@ const LeasesCard: React.SFC<LeasesCardProps> = ({ leases, handleShowContract }) 
         return (
           <CardBody key={id}>
             <Button variant="secondary" theme="black" onClick={() => handleShowContract(id)} className={styles.button}>
-              {t('individualCustomer.leases.showContract')}
+              {t('customerView.leases.showContract')}
             </Button>
-            <Section title={t('individualCustomer.leases.berth')}>
+            <Section title={t('customerView.leases.berth')}>
               <LabelValuePair
-                label={t('individualCustomer.leases.portAndPlace')}
+                label={t('customerView.leases.portAndPlace')}
                 value={harbor ? <InternalLink to={`/harbors/${harbor.id}`}>{berthAddress}</InternalLink> : berthAddress}
               />
-              <LabelValuePair label={t('individualCustomer.leases.valid')} value={leaseDate} />
+              <LabelValuePair label={t('customerView.leases.valid')} value={leaseDate} />
             </Section>
           </CardBody>
         );

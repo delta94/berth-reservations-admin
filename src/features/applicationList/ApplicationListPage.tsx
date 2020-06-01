@@ -8,7 +8,7 @@ const ApplicationListPage: React.SFC = ({ children }) => {
   const { t } = useTranslation();
   return (
     <div className={styles.applicationListPage}>
-      <PageTitle title={t('applications.title')} />
+      <PageTitle title={t('applicationList.title')} />
       {children}
     </div>
   );

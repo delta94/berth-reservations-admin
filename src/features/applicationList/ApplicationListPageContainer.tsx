@@ -70,11 +70,11 @@ const ApplicationListPageContainer: React.SFC = () => {
       Cell: ({ cell }) => (
         <InternalLink to={`/applications/${cell.row.original.id}`}>
           {cell.value
-            ? t('applications.applicationType.switchApplication')
-            : t('applications.applicationType.newApplication')}
+            ? t('applicationList.applicationType.switchApplication')
+            : t('applicationList.applicationType.newApplication')}
         </InternalLink>
       ),
-      Header: t('applications.tableHeaders.applicationType') || '',
+      Header: t('applicationList.tableHeaders.applicationType') || '',
       accessor: 'isSwitch',
       filter: 'exact',
       disableSortBy: true,
@@ -82,18 +82,18 @@ const ApplicationListPageContainer: React.SFC = () => {
     },
     {
       Cell: ({ cell }) => formatDate(cell.value, i18n.language),
-      Header: t('applications.tableHeaders.pvm') || '',
+      Header: t('applicationList.tableHeaders.pvm') || '',
       accessor: 'createdAt',
       width: COLUMN_WIDTH.S,
     },
     {
-      Header: t('applications.tableHeaders.queue') || '',
+      Header: t('applicationList.tableHeaders.queue') || '',
       accessor: 'queue',
       disableSortBy: true,
       width: COLUMN_WIDTH.XS,
     },
     {
-      Header: t('applications.tableHeaders.municipality') || '',
+      Header: t('applicationList.tableHeaders.municipality') || '',
       accessor: 'municipality',
       disableSortBy: true,
       width: COLUMN_WIDTH.S,
@@ -105,7 +105,7 @@ const ApplicationListPageContainer: React.SFC = () => {
           label={t(APPLICATION_STATUS[value as ApplicationStatus].label)}
         />
       ),
-      Header: t('applications.tableHeaders.status') || '',
+      Header: t('applicationList.tableHeaders.status') || '',
       accessor: 'status',
       disableSortBy: true,
       width: COLUMN_WIDTH.M,
@@ -117,7 +117,7 @@ const ApplicationListPageContainer: React.SFC = () => {
             {[cell.value.harborName, cell.value.pierIdentifier, cell.value.berthNum].filter(Boolean).join(' ')}
           </InternalLink>
         ),
-      Header: t('applications.tableHeaders.lease') || '',
+      Header: t('applicationList.tableHeaders.lease') || '',
       accessor: 'lease',
       disableSortBy: true,
       width: COLUMN_WIDTH.XL,
@@ -147,11 +147,11 @@ const ApplicationListPageContainer: React.SFC = () => {
           const filters = [
             {
               value: true,
-              label: t('applications.tableHeaders.switchFilter'),
+              label: t('applicationList.tableHeaders.switchFilter'),
             },
             {
               value: false,
-              label: t('applications.tableHeaders.newApplicationFilter'),
+              label: t('applicationList.tableHeaders.newApplicationFilter'),
             },
           ];
 

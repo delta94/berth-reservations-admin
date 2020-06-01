@@ -8,7 +8,7 @@ const CustomerViewPage: React.SFC = ({ children }) => {
   const { t } = useTranslation();
   return (
     <div className={styles.customerViewPage}>
-      <PageTitle title={t('individualCustomer.title')} />
+      <PageTitle title={t('customerView.title')} />
       <div className={styles.grid}>{children}</div>
     </div>
   );

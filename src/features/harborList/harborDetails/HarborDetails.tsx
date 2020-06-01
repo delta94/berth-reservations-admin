@@ -51,14 +51,14 @@ const HarborDetails: React.SFC<HarborDetailsProps> = ({
         <HarborMapLinks maps={maps} />
       </div>
       <div className={styles.column}>
-        <Section title={t('harbors.details.maxWidth').toUpperCase()}>
+        <Section title={t('harborList.details.maxWidth').toUpperCase()}>
           <Text>{formatDimension(maxWidth, i18n.language)}</Text>
         </Section>
         <Section title={t('common.terminology.mooring').toUpperCase()}>-</Section>
       </div>
       <div className={styles.column}>
-        <Section title={t('harbors.details.maintenance').toUpperCase()}>-</Section>
-        <Section title={t('harbors.details.harborChief').toUpperCase()}>-</Section>
+        <Section title={t('harborList.details.maintenance').toUpperCase()}>-</Section>
+        <Section title={t('harborList.details.harborChief').toUpperCase()}>-</Section>
       </div>
     </Grid>
   );

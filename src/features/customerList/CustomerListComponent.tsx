@@ -55,7 +55,7 @@ const CustomerListComponent = ({
   const columns: ColumnType[] = [
     {
       Cell: ({ cell }) => <InternalLink to={`/customers/${cell.row.original.id}`}>{cell.value}</InternalLink>,
-      Header: t('customers.tableHeaders.name') || '',
+      Header: t('customerList.tableHeaders.name') || '',
       accessor: 'name',
       sortType: 'toString',
       width: COLUMN_WIDTH.M,
@@ -65,31 +65,31 @@ const CustomerListComponent = ({
         const { value } = cell;
         return value ? t([`common.organizationTypes.${value as OrganizationType}`]) : t([`common.privateCustomer`]);
       },
-      Header: t('customers.tableHeaders.group') || '',
+      Header: t('customerList.tableHeaders.group') || '',
       accessor: 'organizationType',
       disableSortBy: true,
       width: COLUMN_WIDTH.S,
     },
     {
-      Header: t('customers.tableHeaders.municipality') || '',
+      Header: t('customerList.tableHeaders.municipality') || '',
       accessor: 'city',
       disableSortBy: true,
       width: COLUMN_WIDTH.S,
     },
     {
-      Header: t('customers.tableHeaders.berths') || '',
+      Header: t('customerList.tableHeaders.berths') || '',
       accessor: 'berths',
       disableSortBy: true,
       width: COLUMN_WIDTH.L,
     },
     {
-      Header: t('customers.tableHeaders.invoice') || '',
+      Header: t('customerList.tableHeaders.invoice') || '',
       accessor: 'invoice',
       disableSortBy: true,
       width: COLUMN_WIDTH.S,
     },
     {
-      Header: t('customers.tableHeaders.boats') || '',
+      Header: t('customerList.tableHeaders.boats') || '',
       accessor: 'boats',
       disableSortBy: true,
       width: COLUMN_WIDTH.XS,
@@ -119,7 +119,7 @@ const CustomerListComponent = ({
           />
         );
       }}
-      renderMainHeader={() => t('customers.tableHeaders.mainHeader')}
+      renderMainHeader={() => t('customerList.tableHeaders.mainHeader')}
       renderTableToolsTop={({ selectedRowIds }) => {
         const onSendMessage = (message: MessageFormValues) => {
           const selectedCustomerIds = getSelectedRowIds(selectedRowIds);

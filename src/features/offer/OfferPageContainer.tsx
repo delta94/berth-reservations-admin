@@ -103,7 +103,9 @@ const OfferPageContainer: React.FC = () => {
   const tableData = getOfferData(data);
 
   const getApplicationType = (isSwitch: boolean) =>
-    isSwitch ? t('applications.applicationType.switchApplication') : t('applications.applicationType.newApplication');
+    isSwitch
+      ? t('applicationList.applicationType.switchApplication')
+      : t('applicationList.applicationType.newApplication');
 
   const applicationDate = formatDate(data.berthApplication?.createdAt, i18n.language);
   const applicationStatus = data.berthApplication.status;

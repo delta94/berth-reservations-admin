@@ -8,7 +8,7 @@ const HarborViewPage: React.SFC = ({ children }) => {
   const { t } = useTranslation();
   return (
     <div className={styles.harborViewPage}>
-      <PageTitle title={t('individualHarbor.title')} />
+      <PageTitle title={t('harborView.title')} />
       {children}
     </div>
   );

@@ -65,7 +65,7 @@ const ApplicationViewPage: React.FC<ApplicationViewPageProps> = ({
   const { t, i18n } = useTranslation();
   const columns: ColumnType[] = [
     {
-      Header: t('individualApplication.customersTable.name') || '',
+      Header: t('applicationView.customersTable.name') || '',
       sortType: 'toString',
       accessor: 'name',
     },
@@ -74,17 +74,17 @@ const ApplicationViewPage: React.FC<ApplicationViewPageProps> = ({
         const { value } = cell;
         return value ? t([`common.organizationTypes.${value as OrganizationType}`]) : t([`common.privateCustomer`]);
       },
-      Header: t('customers.tableHeaders.group') || '',
+      Header: t('customerList.tableHeaders.group') || '',
       disableSortBy: true,
       accessor: 'organizationType',
     },
     {
-      Header: t('individualApplication.customersTable.municipality') || '',
+      Header: t('applicationView.customersTable.municipality') || '',
       disableSortBy: true,
       accessor: 'city',
     },
     {
-      Header: t('individualApplication.customersTable.address') || '',
+      Header: t('applicationView.customersTable.address') || '',
       disableSortBy: true,
       accessor: 'address',
     },
@@ -94,7 +94,7 @@ const ApplicationViewPage: React.FC<ApplicationViewPageProps> = ({
           {cell.value}
         </div>
       ),
-      Header: t('individualApplication.customersTable.berths') || '',
+      Header: t('applicationView.customersTable.berths') || '',
       disableSortBy: true,
       accessor: 'berths',
     },
@@ -102,12 +102,12 @@ const ApplicationViewPage: React.FC<ApplicationViewPageProps> = ({
 
   return (
     <div className={styles.applicationViewPage}>
-      <PageTitle title={t('individualApplication.title')} />
+      <PageTitle title={t('applicationView.title')} />
       <div className={classNames(styles.fullWidth, styles.pageHeader)}>
         <Text as="h2" size="xl" weight="normalWeight">
           {applicationDetails.berthSwitch !== null
-            ? t('applications.applicationType.switchApplication')
-            : t('applications.applicationType.newApplication')}{' '}
+            ? t('applicationList.applicationType.switchApplication')
+            : t('applicationList.applicationType.newApplication')}{' '}
           {formatDate(applicationDetails.createdAt, i18n.language)}
         </Text>
         <Chip
@@ -120,8 +120,8 @@ const ApplicationViewPage: React.FC<ApplicationViewPageProps> = ({
       {similarCustomersData && (
         <>
           <div className={styles.fullWidth}>
-            <Notification labelText={t('individualApplication.noCustomerProfileNotification.label')} type="warning">
-              {t('individualApplication.noCustomerProfileNotification.description')}
+            <Notification labelText={t('applicationView.noCustomerProfileNotification.label')} type="warning">
+              {t('applicationView.noCustomerProfileNotification.description')}
             </Notification>
           </div>
           <Table
@@ -129,14 +129,14 @@ const ApplicationViewPage: React.FC<ApplicationViewPageProps> = ({
             data={similarCustomersData}
             loading={loadingCustomers}
             columns={columns}
-            renderMainHeader={() => t('individualApplication.customersTable.mainHeader')}
+            renderMainHeader={() => t('applicationView.customersTable.mainHeader')}
             renderTableToolsTop={({ selectedRows }) => {
               const onLinkCustomer = selectedRows.length ? () => handleLinkCustomer(selectedRows[0].id) : undefined;
 
               return <CustomersTableTools {...customerTableTools} handleLinkCustomer={onLinkCustomer} />;
             }}
             renderTableToolsBottom={() => <Pagination {...pagination} className={styles.fullWidth} />}
-            renderEmptyStateRow={() => <div>{t('individualApplication.customersTable.emptyState')}</div>}
+            renderEmptyStateRow={() => <div>{t('applicationView.customersTable.emptyState')}</div>}
             onSortedColChange={onSortedColChange}
             canSelectOneRow
           />
@@ -153,7 +153,7 @@ const ApplicationViewPage: React.FC<ApplicationViewPageProps> = ({
       )}
       {applicationDetails && (
         <Card className={styles.fullWidth}>
-          <CardHeader title={t('individualApplication.applicationDetails.title')} />
+          <CardHeader title={t('applicationView.applicationDetails.title')} />
           <CardBody>
             <ApplicationDetails {...applicationDetails} queue={null} />
           </CardBody>

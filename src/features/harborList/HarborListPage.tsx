@@ -24,17 +24,17 @@ const HarborListPage: React.FC<HarborListPageProps> = ({ data, loading }) => {
   const columns: ColumnType[] = [
     {
       Cell: ({ cell }) => <InternalLink to={`/harbors/${cell.row.original.id}`}>{cell.value}</InternalLink>,
-      Header: t('harbors.tableHeaders.harbor') || '',
+      Header: t('harborList.tableHeaders.harbor') || '',
       accessor: 'name',
       width: COLUMN_WIDTH.XL,
     },
     {
-      Header: t('harbors.tableHeaders.places') || '',
+      Header: t('harborList.tableHeaders.places') || '',
       accessor: 'numberOfPlaces',
       width: COLUMN_WIDTH.S,
     },
     {
-      Header: t('harbors.tableHeaders.freePlaces') || '',
+      Header: t('harborList.tableHeaders.freePlaces') || '',
       accessor: 'numberOfFreePlaces',
       width: COLUMN_WIDTH.S,
     },
@@ -72,14 +72,14 @@ const HarborListPage: React.FC<HarborListPageProps> = ({ data, loading }) => {
 
   return (
     <div className={styles.harborListPage}>
-      <PageTitle title={t('harbors.title')} />
+      <PageTitle title={t('harborList.title')} />
       <Table
         data={data}
         loading={loading}
         columns={columns}
         renderTableToolsTop={(_, setters) => <GlobalSearchTableTools handleGlobalFilter={setters.setGlobalFilter} />}
         renderSubComponent={(row) => <HarborDetails {...row.original} />}
-        renderMainHeader={() => t('harbors.tableHeaders.mainHeader')}
+        renderMainHeader={() => t('harborList.tableHeaders.mainHeader')}
         renderEmptyStateRow={() => t('common.notification.noData.description')}
         renderPaginator={({ pageIndex, pageCount, goToPage }) => (
           <Pagination

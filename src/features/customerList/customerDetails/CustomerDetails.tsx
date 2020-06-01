@@ -68,7 +68,7 @@ const CustomerDetails: React.SFC<CustomerDetailsProps> = ({
     <div className={styles.customerDetails}>
       <Grid colsCount={4}>
         <div className={styles.section}>
-          <Section title={t('harbors.details.customer')}>{name}</Section>
+          <Section title={t('harborList.details.customer')}>{name}</Section>
           <Section>
             {address}
             <br />
@@ -83,36 +83,36 @@ const CustomerDetails: React.SFC<CustomerDetailsProps> = ({
           </Section>
         </div>
         <div className={styles.section}>
-          <Section title={t('harbors.details.berths')}>
+          <Section title={t('harborList.details.berths')}>
             {berths.map((berth) => (
               <div key={berth.id}>{berth.title}</div>
             ))}
           </Section>
-          <Section title={t('harbors.details.winterStoragePlaces')}>
+          <Section title={t('harborList.details.winterStoragePlaces')}>
             {winterStoragePlaces.map((place) => (
               <div key={place.id}>{place.title}</div>
             ))}
           </Section>
-          <Section title={t('harbors.details.boats')}>
+          <Section title={t('harborList.details.boats')}>
             {boats.map((boat) => (
               <div key={boat.id}>{boat.name}</div>
             ))}
           </Section>
         </div>
         <div className={styles.section}>
-          <Section title={t('harbors.details.applications')}>
+          <Section title={t('harborList.details.applications')}>
             {applications.map((application) => (
               <div key={application.id}>{application.date}</div>
             ))}
           </Section>
-          <Section title={t('harbors.details.bills')}>
+          <Section title={t('harborList.details.bills')}>
             {bills.map((bill) => (
               <div key={bill.id}>{bill.date}</div>
             ))}
           </Section>
         </div>
         <div className={styles.section}>
-          <Section title={t('harbors.details.comments')}>{comment}</Section>
+          <Section title={t('harborList.details.comments')}>{comment}</Section>
         </div>
       </Grid>
     </div>

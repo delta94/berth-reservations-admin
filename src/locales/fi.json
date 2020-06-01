@@ -38,9 +38,9 @@
       "noMatches": "Ei hakua vastaavia osumia"
     },
     "sidebar": {
-      "harbors": "Venepaikat",
+      "harborList": "Venepaikat",
       "applications": "Hakemukset",
-      "customers": "Asiakkaat",
+      "customerList": "Asiakkaat",
       "pricing": "Hinnasto"
     },
     "header": {
@@ -168,7 +168,7 @@
       "personalElectricity": "Erillinen sähkösopimus mahdollinen"
     }
   },
-  "harbors": {
+  "harborList": {
     "title": "Venepaikat",
     "tableHeaders": {
       "mainHeader": "Satamat",
@@ -190,7 +190,7 @@
       "maintenance": "Kunnossapito"
     }
   },
-  "individualHarbor": {
+  "harborView": {
     "title": "Satama",
     "harborProperties": {
       "title": "SATAMA",
@@ -231,7 +231,7 @@
       "addBerth": "Lisää venepaikka"
     }
   },
-  "applications": {
+  "applicationList": {
     "title": "Hakemukset",
     "tableHeaders": {
       "switchFilter": "Vaihtohakemukset",
@@ -283,7 +283,7 @@
       "reason": "Erityistoive"
     }
   },
-  "individualApplication": {
+  "applicationView": {
     "title": "Hakemus",
     "noCustomerProfileNotification": {
       "label": "Hakemusta ei ole liitetty mihinkään asiakkaaseen",
@@ -355,7 +355,7 @@
       "removeOffer": "Poista tarjous"
     }
   },
-  "customers": {
+  "customerList": {
     "title": "Asiakkaat",
     "tableHeaders": {
       "name": "Nimi",
@@ -379,7 +379,7 @@
       "send": "Lähetä"
     }
   },
-  "individualCustomer": {
+  "customerView": {
     "title": "Asiakas",
     "application": {
       "title": "HAKEMUKSET",

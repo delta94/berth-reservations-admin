@@ -51,7 +51,7 @@ const HarborProperties: React.SFC<HarborPropertiesProps> = ({
 
   return (
     <Card>
-      <CardHeader title={t('individualHarbor.harborProperties.title')}>
+      <CardHeader title={t('harborView.harborProperties.title')}>
         <button onClick={editHarbor}>
           <Text weight="normalWeight">{t('common.edit')}</Text>
         </button>
@@ -79,41 +79,34 @@ const HarborProperties: React.SFC<HarborPropertiesProps> = ({
           </div>
           <Grid colsCount={5} className={styles.propsGrid}>
             <div />
-            <Property
-              counter={properties.numberOfPlaces}
-              label={t('individualHarbor.harborProperties.numberOfPlaces')}
-            />
+            <Property counter={properties.numberOfPlaces} label={t('harborView.harborProperties.numberOfPlaces')} />
             <Property
               counter={properties.numberOfFreePlaces}
-              label={t('individualHarbor.harborProperties.numberOfFreePlaces')}
+              label={t('harborView.harborProperties.numberOfFreePlaces')}
             />
-            <Property counter={properties.queue} label={t('individualHarbor.harborProperties.queue')} />
-            <Property counter={properties.maxWidth} label={t('individualHarbor.harborProperties.maxWidth')} />
+            <Property counter={properties.queue} label={t('harborView.harborProperties.queue')} />
+            <Property counter={properties.maxWidth} label={t('harborView.harborProperties.maxWidth')} />
 
             <Property
               iconShape="IconTrash"
-              label={t('individualHarbor.harborProperties.wasteCollection')}
+              label={t('harborView.harborProperties.wasteCollection')}
               active={properties.wasteCollection}
             />
-            <Property
-              iconShape="IconFence"
-              label={t('individualHarbor.harborProperties.gate')}
-              active={properties.gate}
-            />
+            <Property iconShape="IconFence" label={t('harborView.harborProperties.gate')} active={properties.gate} />
 
             <Property
               iconShape="IconPlug"
-              label={t('individualHarbor.harborProperties.electricity')}
+              label={t('harborView.harborProperties.electricity')}
               active={properties.electricity}
             />
             <Property
               iconShape="IconStreetLight"
-              label={t('individualHarbor.harborProperties.lighting')}
+              label={t('harborView.harborProperties.lighting')}
               active={properties.lighting}
             />
             <Property
               iconShape="IconWaterTap"
-              label={t('individualHarbor.harborProperties.water')}
+              label={t('harborView.harborProperties.water')}
               active={properties.water}
             />
           </Grid>

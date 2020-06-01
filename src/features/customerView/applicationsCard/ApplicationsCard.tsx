@@ -17,7 +17,7 @@ const ApplicationsCard: React.SFC<ApplicationsCardProps> = ({ applications }) =>
 
   return (
     <Card className={styles.applicationsCard}>
-      <CardHeader title={t('individualCustomer.application.title')} />
+      <CardHeader title={t('customerView.application.title')} />
       {applications.map((application) => (
         <CardBody key={application.id}>
           <ApplicationDetails {...application} />

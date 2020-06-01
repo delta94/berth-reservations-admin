@@ -61,14 +61,14 @@ export const CustomerMessageForm: React.FC<CustomerMessageFormProps> = ({ closeM
       {({ values, errors, handleChange, handleSubmit }) => {
         return (
           <form onSubmit={handleSubmit} className={styles.form}>
-            <Text as="h4">{t('customers.message.header')}</Text>
+            <Text as="h4">{t('customerList.message.header')}</Text>
             <div className={styles.template}>
               <Select
                 id="templateId"
                 value={values.templateId}
                 options={templateOptions}
                 onChange={handleChange}
-                labelText={t('customers.message.template')}
+                labelText={t('customerList.message.template')}
                 required
               />
             </div>
@@ -76,7 +76,7 @@ export const CustomerMessageForm: React.FC<CustomerMessageFormProps> = ({ closeM
               id="subject"
               value={values.subject}
               onChange={handleChange}
-              labelText={t('customers.message.subject')}
+              labelText={t('customerList.message.subject')}
               invalid={!!errors.subject}
               helperText={errors.subject}
             />
@@ -85,9 +85,9 @@ export const CustomerMessageForm: React.FC<CustomerMessageFormProps> = ({ closeM
               className={styles.message}
               value={values.message}
               onChange={handleChange}
-              labelText={t('customers.message.message')}
+              labelText={t('customerList.message.message')}
               invalid={!!errors.message}
-              helperText={errors.message || t('customers.message.messageHelperText')}
+              helperText={errors.message || t('customerList.message.messageHelperText')}
             />
             <div className={styles.formActionButtons}>
               <Button variant="secondary" theme="black" onClick={closeModal}>
@@ -95,10 +95,10 @@ export const CustomerMessageForm: React.FC<CustomerMessageFormProps> = ({ closeM
               </Button>
               <div className={styles.formActionButtonsRight}>
                 <Button variant="secondary" theme="black" onClick={closeModal}>
-                  {t('customers.message.preview')}
+                  {t('customerList.message.preview')}
                 </Button>
                 <Button theme="coat" type="submit">
-                  {t('customers.message.send')}
+                  {t('customerList.message.send')}
                 </Button>
               </div>
             </div>

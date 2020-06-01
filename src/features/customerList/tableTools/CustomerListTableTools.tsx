@@ -35,7 +35,7 @@ const CustomerListTableTools = <T extends string>({
     <div className={classNames(styles.tableTools, className)}>
       <div>
         <Button onClick={() => setMessageModalOpen(true)} variant="secondary" theme="black">
-          {t('customers.message.new')}
+          {t('customerList.message.new')}
         </Button>
       </div>
       <div className={styles.tableToolsRight}>

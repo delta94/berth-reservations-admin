@@ -18,7 +18,7 @@ const IndividualHarborTableTools: React.FC<Props> = ({ onAddPier, onAddBerth, ha
     <div className={styles.container}>
       <div className={styles.buttons}>
         <Button onClick={onAddPier} variant="secondary" theme="black" className={styles.button}>
-          {t('individualHarbor.tableTools.addPier')}
+          {t('harborView.tableTools.addPier')}
         </Button>
         <Button
           onClick={onAddBerth}
@@ -27,7 +27,7 @@ const IndividualHarborTableTools: React.FC<Props> = ({ onAddPier, onAddBerth, ha
           className={styles.button}
           disabled={!canAddBerth}
         >
-          {t('individualHarbor.tableTools.addBerth')}
+          {t('harborView.tableTools.addBerth')}
         </Button>
       </div>
       <GlobalSearchTableTools handleGlobalFilter={handleGlobalFilter} />

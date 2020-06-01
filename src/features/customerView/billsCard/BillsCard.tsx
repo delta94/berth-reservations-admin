@@ -52,55 +52,47 @@ const BillsCard: React.SFC<BillsCardProps> = ({
 
   return (
     <Card>
-      <CardHeader title={t('individualCustomer.customerBill.title')} />
+      <CardHeader title={t('customerView.customerBill.title')} />
       <CardBody>
         <Button variant="secondary" theme="black" onClick={handleShowBill} className={styles.button}>
-          {t('individualCustomer.customerBill.showInvoice')}
+          {t('customerView.customerBill.showInvoice')}
         </Button>
-        <Section title={t('individualCustomer.customerBill.berthRental')}>
-          <LabelValuePair label={t('individualCustomer.customerBill.berthPlace')} value={berthPlace} />
-          <LabelValuePair label={t('individualCustomer.customerBill.contractPeriod')} value={contractPeriod} />
-          <LabelValuePair label={t('individualCustomer.customerBill.dueDate')} value={dueDate} />
+        <Section title={t('customerView.customerBill.berthRental')}>
+          <LabelValuePair label={t('customerView.customerBill.berthPlace')} value={berthPlace} />
+          <LabelValuePair label={t('customerView.customerBill.contractPeriod')} value={contractPeriod} />
+          <LabelValuePair label={t('customerView.customerBill.dueDate')} value={dueDate} />
         </Section>
         <Section className={styles.feesSection}>
+          <LabelValuePair align="right" label={t('customerView.customerBill.basicFee')} value={formatPrice(basicFee)} />
           <LabelValuePair
             align="right"
-            label={t('individualCustomer.customerBill.basicFee')}
-            value={formatPrice(basicFee)}
-          />
-          <LabelValuePair
-            align="right"
-            label={t('individualCustomer.customerBill.mooring')}
+            label={t('customerView.customerBill.mooring')}
             value={formatPrice(mooringFee[0], mooringFee[1])}
           />
           <LabelValuePair
             align="right"
-            label={t('individualCustomer.customerBill.electricity')}
+            label={t('customerView.customerBill.electricity')}
             value={formatPrice(electricityFee[0], electricityFee[1])}
           />
           <LabelValuePair
             align="right"
-            label={t('individualCustomer.customerBill.water')}
+            label={t('customerView.customerBill.water')}
             value={formatPrice(waterFee[0], waterFee[1])}
           />
           <LabelValuePair
             align="right"
-            label={t('individualCustomer.customerBill.waste')}
+            label={t('customerView.customerBill.waste')}
             value={formatPrice(wasteFee[0], wasteFee[1])}
           />
+          <LabelValuePair align="right" label={t('customerView.customerBill.gate')} value={formatPrice(gateFee)} />
           <LabelValuePair
             align="right"
-            label={t('individualCustomer.customerBill.gate')}
-            value={formatPrice(gateFee)}
-          />
-          <LabelValuePair
-            align="right"
-            label={t('individualCustomer.customerBill.lighting')}
+            label={t('customerView.customerBill.lighting')}
             value={formatPrice(lightingFee)}
           />
         </Section>
         <Section className={styles.feesSection}>
-          <LabelValuePair align="right" label={t('individualCustomer.customerBill.total')} value={formatPrice(total)} />
+          <LabelValuePair align="right" label={t('customerView.customerBill.total')} value={formatPrice(total)} />
         </Section>
       </CardBody>
     </Card>

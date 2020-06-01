@@ -32,7 +32,7 @@ const PierSelectHeader: React.FC<PierSelectHeaderProps> = ({
               [styles.pierButtonSelected]: !selectedPier,
             })}
           >
-            {t('individualHarbor.tableHeaders.all')}
+            {t('harborView.tableHeaders.all')}
           </button>
           {piers.map((pier) => (
             <button
@@ -42,13 +42,13 @@ const PierSelectHeader: React.FC<PierSelectHeaderProps> = ({
                 [styles.pierButtonSelected]: selectedPier && selectedPier.identifier === pier.identifier,
               })}
             >
-              {`${t('individualHarbor.tableHeaders.identifier')} ${pier.identifier}`}
+              {`${t('harborView.tableHeaders.identifier')} ${pier.identifier}`}
             </button>
           ))}
         </div>
         {selectedPier && (
           <button onClick={() => onEdit?.(selectedPier)} className={styles.editButton}>
-            {t('individualHarbor.tableHeaders.editPier')}
+            {t('harborView.tableHeaders.editPier')}
           </button>
         )}
       </div>

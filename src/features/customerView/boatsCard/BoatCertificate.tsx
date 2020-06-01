@@ -16,7 +16,7 @@ export interface BoatCertificateProps {
 const BoatCertificate: React.FC<BoatCertificateProps> = ({ certificate }) => {
   const { t, i18n } = useTranslation();
   const { file, certificateType, validUntil, checkedAt, checkedBy } = certificate;
-  const headerTextKey = `individualCustomer.customerBoats.${certificateType.toLocaleLowerCase()}`;
+  const headerTextKey = `customerView.customerBoats.${certificateType.toLocaleLowerCase()}`;
   const filename = getFilename(file);
 
   return (
@@ -30,13 +30,13 @@ const BoatCertificate: React.FC<BoatCertificateProps> = ({ certificate }) => {
                 {filename}
               </ExternalLink>
             ) : (
-              <Text color={'critical'}>{t('individualCustomer.customerBoats.fileMissing')}</Text>
+              <Text color={'critical'}>{t('customerView.customerBoats.fileMissing')}</Text>
             )}
           </div>
           {validUntil && (
             <div>
               <Text color={getValidUntilColor(validUntil)}>
-                {t('individualCustomer.customerBoats.validUntil', {
+                {t('customerView.customerBoats.validUntil', {
                   validUntil: formatDate(validUntil, i18n.language),
                 })}
               </Text>

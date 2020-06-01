@@ -90,86 +90,86 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
   return (
     <Grid colsCount={3}>
       <div>
-        <Section title={t('applications.applicationDetails.application')}>
+        <Section title={t('applicationList.applicationDetails.application')}>
           <LabelValuePair
-            label={t('applications.applicationDetails.applicationType')}
+            label={t('applicationList.applicationDetails.applicationType')}
             value={
               berthSwitch !== null
-                ? t('applications.applicationType.switchApplication')
-                : t('applications.applicationType.newApplication')
+                ? t('applicationList.applicationType.switchApplication')
+                : t('applicationList.applicationType.newApplication')
             }
           />
           <LabelValuePair
-            label={t('applications.applicationDetails.receivedDate')}
+            label={t('applicationList.applicationDetails.receivedDate')}
             value={formatDate(createdAt, i18n.language, true)}
           />
-          <LabelValuePair label={t('applications.applicationDetails.queueNumber')} value={`${queue || ''}`} />
+          <LabelValuePair label={t('applicationList.applicationDetails.queueNumber')} value={`${queue || ''}`} />
           <LabelValuePair
-            label={t('applications.applicationDetails.status')}
+            label={t('applicationList.applicationDetails.status')}
             value={t(APPLICATION_STATUS[status]?.label)}
           />
         </Section>
         {berthSwitch !== null && (
-          <Section title={t('applications.applicationDetails.currentBerth')}>
+          <Section title={t('applicationList.applicationDetails.currentBerth')}>
             <LabelValuePair
-              label={t('applications.applicationDetails.portAndBerth')}
+              label={t('applicationList.applicationDetails.portAndBerth')}
               value={`${berthSwitch.harborName} ${berthSwitch.pierIdentifier} ${berthSwitch.berthNum}`}
             />
             {berthSwitch.reason !== null && (
-              <LabelValuePair label={t('applications.applicationDetails.reason')} value={`${berthSwitch.reason}`} />
+              <LabelValuePair label={t('applicationList.applicationDetails.reason')} value={`${berthSwitch.reason}`} />
             )}
           </Section>
         )}
         {applicant && (
           <PrivateCustomerDetails
             {...applicant}
-            title={t('applications.applicationDetails.applicantInformation').toUpperCase()}
+            title={t('applicationList.applicationDetails.applicantInformation').toUpperCase()}
           />
         )}
       </div>
       <div>
-        <Section title={t('applications.applicationDetails.boatInfo')}>
-          <LabelValuePair label={t('applications.applicationDetails.boatType')} value={boatType} />
+        <Section title={t('applicationList.applicationDetails.boatInfo')}>
+          <LabelValuePair label={t('applicationList.applicationDetails.boatType')} value={boatType} />
           <LabelValuePair
-            label={t('applications.applicationDetails.registrationNumber')}
+            label={t('applicationList.applicationDetails.registrationNumber')}
             value={boatRegistrationNumber}
           />
         </Section>
         <Section>
           <LabelValuePair
-            label={t('applications.applicationDetails.boatWidth')}
+            label={t('applicationList.applicationDetails.boatWidth')}
             value={formatDimension(boatWidth, i18n.language)}
           />
           <LabelValuePair
-            label={t('applications.applicationDetails.boatLength')}
+            label={t('applicationList.applicationDetails.boatLength')}
             value={formatDimension(boatLength, i18n.language)}
           />
           <LabelValuePair
-            label={t('applications.applicationDetails.boatDepth')}
+            label={t('applicationList.applicationDetails.boatDepth')}
             value={formatDimension(boatDraught, i18n.language)}
           />
           <LabelValuePair
-            label={t('applications.applicationDetails.boatWeight')}
+            label={t('applicationList.applicationDetails.boatWeight')}
             value={formatWeight(boatWeight, i18n.language)}
           />
         </Section>
         <Section>
-          <LabelValuePair label={t('applications.applicationDetails.boatName')} value={boatName} />
-          <LabelValuePair label={t('applications.applicationDetails.boatBrand')} value={boatModel} />
+          <LabelValuePair label={t('applicationList.applicationDetails.boatName')} value={boatName} />
+          <LabelValuePair label={t('applicationList.applicationDetails.boatBrand')} value={boatModel} />
         </Section>
       </div>
       <div>
         {lease ? (
-          <Section title={t('applications.applicationDetails.connectedLease').toUpperCase()}>
+          <Section title={t('applicationList.applicationDetails.connectedLease').toUpperCase()}>
             {[lease.harborName, lease.pierIdentifier, lease.berthNum].filter(Boolean).join(' ')}
             {handleDeleteLease && (
               <button className={styles.deleteButton} onClick={() => handleDeleteLease(lease.id)}>
-                <Text color="brand">{t('applications.applicationDetails.deleteLease')}</Text>
+                <Text color="brand">{t('applicationList.applicationDetails.deleteLease')}</Text>
               </button>
             )}
           </Section>
         ) : (
-          <Section title={t('applications.applicationDetails.selectedPorts')}>
+          <Section title={t('applicationList.applicationDetails.selectedPorts')}>
             <List noBullets>
               {[...harborChoices]
                 .filter(notNull)
@@ -180,7 +180,7 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
                   return (
                     <ListItem key={i}>
                       <Text>
-                        {`${t('applications.applicationDetails.choice')} 
+                        {`${t('applicationList.applicationDetails.choice')} 
                       ${i + 1}: `}
                       </Text>
                       {!!customerId ? (
@@ -196,7 +196,7 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
         )}
         <Section>
           <Checkbox
-            label={t('applications.applicationDetails.accessible')}
+            label={t('applicationList.applicationDetails.accessible')}
             checked={accessibilityRequired}
             size="large"
             readOnly
