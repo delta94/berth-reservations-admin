@@ -14,9 +14,14 @@ describe('ErrorBoundary', () => {
   });
 
   it('renders errorComponent when child throws', () => {
+    jest.spyOn(console, 'error').mockImplementation(() => {
+      /* no-op: silence the thrown error message to not pollute the test output */
+    });
+
     const ThrowingComponent: React.FC = () => {
       throw Error('error');
     };
+
     const wrapper = mount(
       <ErrorBoundary errorComponent={<div>error</div>}>
         <ThrowingComponent />
