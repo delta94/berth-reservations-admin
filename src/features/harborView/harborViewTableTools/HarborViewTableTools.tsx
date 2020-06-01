@@ -3,7 +3,7 @@ import { Button } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 
 import GlobalSearchTableTools from '../../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';
-import styles from './individualHarborTableTools.module.scss';
+import styles from './harborViewTableTools.module.scss';
 
 interface Props {
   onAddPier(): void;
@@ -12,7 +12,7 @@ interface Props {
   canAddBerth: boolean;
 }
 
-const IndividualHarborTableTools: React.FC<Props> = ({ onAddPier, onAddBerth, handleGlobalFilter, canAddBerth }) => {
+const HarborViewTableTools: React.FC<Props> = ({ onAddPier, onAddBerth, handleGlobalFilter, canAddBerth }) => {
   const { t } = useTranslation();
   return (
     <div className={styles.container}>
@@ -35,4 +35,4 @@ const IndividualHarborTableTools: React.FC<Props> = ({ onAddPier, onAddBerth, ha
   );
 };
 
-export default IndividualHarborTableTools;
+export default HarborViewTableTools;

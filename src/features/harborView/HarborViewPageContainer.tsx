@@ -16,7 +16,7 @@ import PierSelectHeader from './pierSelectHeader/PierSelectHeader';
 import Modal from '../../common/modal/Modal';
 import BerthEditForm from './forms/berthForm/BerthEditForm';
 import BerthCreateForm from './forms/berthForm/BerthCreateForm';
-import IndividualHarborTableTools from './individualHarborTableTools/IndividualHarborTableTools';
+import HarborViewTableTools from './harborViewTableTools/HarborViewTableTools';
 import BerthDetails from '../../common/berthDetails/BerthDetails';
 import InternalLink from '../../common/internalLink/InternalLink';
 import PierCreateForm from './forms/pierForm/PierCreateForm';
@@ -130,7 +130,7 @@ const HarborViewPageContainer: React.SFC = () => {
         columns={columns}
         canSelectRows
         renderTableToolsTop={(_, setters) => (
-          <IndividualHarborTableTools
+          <HarborViewTableTools
             onAddBerth={() => setCreatingBerth(true)}
             onAddPier={() => setCreatingPier(true)}
             handleGlobalFilter={setters.setGlobalFilter}

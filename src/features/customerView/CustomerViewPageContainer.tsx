@@ -18,7 +18,7 @@ import BoatsCard from './boatsCard/BoatsCard';
 import LeasesCard from './leasesCard/LeasesCard';
 import { getLeases, getBoats, getApplications, getCustomerProfile } from './utils';
 
-const IndividualHarborPageContainer: FunctionComponent = () => {
+const CustomerViewPageContainer: FunctionComponent = () => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const { loading, error, data } = useQuery<INDIVIDUAL_CUSTOMER>(INDIVIDUAL_CUSTOMER_QUERY, { variables: { id } });
@@ -78,4 +78,4 @@ const IndividualHarborPageContainer: FunctionComponent = () => {
   );
 };
 
-export default IndividualHarborPageContainer;
+export default CustomerViewPageContainer;

@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import IndividualHarborTableTools from '../IndividualHarborTableTools';
+import HarborViewTableTools from '../HarborViewTableTools';
 
-describe('IndividualHarborTableTools', () => {
+describe('HarborViewTableTools', () => {
   const getWrapper = () =>
     shallow(
-      <IndividualHarborTableTools
+      <HarborViewTableTools
         onAddPier={jest.fn()}
         onAddBerth={jest.fn()}
         handleGlobalFilter={jest.fn()}
