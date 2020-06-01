@@ -6,7 +6,7 @@ import apolloClient from './apolloClient';
 import CustomersPage from '../features/customerList/CustomerPageContainer';
 import HarborsPage from '../features/harbors/HarborsPageContainer';
 import IndividualHarborPage from '../features/individualHarbor/IndividualHarborPageContainer';
-import IndividualCustomerPage from '../features/individualCustomer/IndividualCustomerPageContainer';
+import IndividualCustomerPage from '../features/customerView/IndividualCustomerPageContainer';
 import OfferPage from '../features/offer/OfferPageContainer';
 import LoginPage from '../features/auth/loginPage/LoginPage';
 import Page from './page/Page';
