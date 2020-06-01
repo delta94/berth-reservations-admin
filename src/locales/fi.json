@@ -38,9 +38,9 @@
       "noMatches": "Ei hakua vastaavia osumia"
     },
     "sidebar": {
-      "harborList": "Venepaikat",
+      "harbors": "Venepaikat",
       "applications": "Hakemukset",
-      "customerList": "Asiakkaat",
+      "customers": "Asiakkaat",
       "pricing": "Hinnasto"
     },
     "header": {
