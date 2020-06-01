@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { Notification } from 'hds-react';
 
-import ApplicationsPage from './ApplicationsPage';
+import ApplicationListPage from './ApplicationListPage';
 import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
 import InternalLink from '../../common/internalLink/InternalLink';
 import ApplicationDetails from '../../common/applicationDetails/ApplicationDetails';
@@ -40,7 +40,7 @@ export interface TableData {
 
 type ColumnType = Column<ApplicationData>;
 
-const ApplicationsPageContainer: React.SFC = () => {
+const ApplicationListPageContainer: React.SFC = () => {
   const { t, i18n } = useTranslation();
   const [onlySwitchApps, setOnlySwitchApps] = useState<boolean>();
 
@@ -137,7 +137,7 @@ const ApplicationsPageContainer: React.SFC = () => {
   const tableData = getBerthApplicationData(data);
 
   return (
-    <ApplicationsPage>
+    <ApplicationListPage>
       <Table
         data={tableData}
         loading={loading || isDeleting}
@@ -177,8 +177,8 @@ const ApplicationsPageContainer: React.SFC = () => {
         onSortedColChange={handleSortedColChange({ createdAt: 'createdAt' })}
         canSelectRows
       />
-    </ApplicationsPage>
+    </ApplicationListPage>
   );
 };
 
-export default ApplicationsPageContainer;
+export default ApplicationListPageContainer;
