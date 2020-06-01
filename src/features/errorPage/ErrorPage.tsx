@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import styles from './errorPage.module.scss';
 import Text from '../../common/text/Text';
 import Icon from '../../common/icons/Icon';
-import InternalLink from '../../common/internalLink/InternalLink';
+import ExternalLink from '../../common/externalLink/ExternalLink';
 
 const ErrorPage: React.FC = () => {
   const { t } = useTranslation();
@@ -16,10 +16,10 @@ const ErrorPage: React.FC = () => {
         <Text as="h1" className={styles.heading}>
           {t('errorPage.heading')}
         </Text>
-        <Text>{t('errorPage.text')}</Text>
-        <InternalLink to={'/'} className={styles.link}>
+        <Text className={styles.text}>{t('errorPage.text')}</Text>
+        <ExternalLink href="/" target="_self">
           {t('errorPage.linkText')}
-        </InternalLink>
+        </ExternalLink>
       </div>
     </div>
   );

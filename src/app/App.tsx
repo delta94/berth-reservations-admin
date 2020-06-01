@@ -16,28 +16,34 @@ import ApplicationViewPage from '../features/applicationView/ApplicationViewPage
 import PricingPage from '../features/pricing/PricingPageContainer';
 import CallbackPage from '../features/auth/callbackPage/CallbackPage';
 import ErrorPage from '../features/errorPage/ErrorPage';
+import ErrorBoundary from '../common/errorBoundary/ErrorBoundary';
 
 const App: React.FC = () => {
   return (
     <ApolloProvider client={apolloClient}>
       <Router>
         <Switch>
-          <Route path="/login" component={LoginPage} />
-          <Route exact path="/callback" component={CallbackPage} />
-          <Redirect exact from="/" to="/harbors" />
-          <Page>
+          <Route exact path="/error" component={ErrorPage} />
+          <ErrorBoundary errorComponent={<Redirect to="/error" />}>
             <Switch>
-              <PrivateRoute exact path="/harbors/:id" component={HarborViewPage} />
-              <PrivateRoute exact path="/harbors" component={HarborListPage} />
-              <PrivateRoute exact path="/customers/:id" component={CustomerViewPage} />
-              <PrivateRoute exact path="/customers" component={CustomerListPage} />
-              <PrivateRoute exact path="/applications/:id" component={ApplicationViewPage} />
-              <PrivateRoute exact path="/applications" component={ApplicationListPage} />
-              <PrivateRoute exact path="/offer/:applicationId" component={OfferPage} />
-              <PrivateRoute exact path="/pricing" component={PricingPage} />
-              <PrivateRoute exact path="/error" component={ErrorPage} />
+              <Route path="/login" component={LoginPage} />
+              <Route exact path="/callback" component={CallbackPage} />
+              <Redirect exact from="/" to="/harbors" />
+              <Page>
+                <Switch>
+                  <PrivateRoute exact path="/harbors/:id" component={HarborViewPage} />
+                  <PrivateRoute exact path="/harbors" component={HarborListPage} />
+                  <PrivateRoute exact path="/customers/:id" component={CustomerViewPage} />
+                  <PrivateRoute exact path="/customers" component={CustomerListPage} />
+                  <PrivateRoute exact path="/applications/:id" component={ApplicationViewPage} />
+                  <PrivateRoute exact path="/applications" component={ApplicationListPage} />
+                  <PrivateRoute exact path="/offer/:applicationId" component={OfferPage} />
+                  <PrivateRoute exact path="/pricing" component={PricingPage} />
+                  <PrivateRoute exact path="/error" component={ErrorPage} />
+                </Switch>
+              </Page>
             </Switch>
-          </Page>
+          </ErrorBoundary>
         </Switch>
       </Router>
     </ApolloProvider>
