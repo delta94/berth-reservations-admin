@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { Notification } from 'hds-react';
 import { useDebounce } from 'use-debounce';
 
-import IndividualApplicationPage, { SearchBy } from './IndividualApplicationPage';
+import ApplicationViewPage, { SearchBy } from './ApplicationViewPage';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { INDIVIDUAL_APPLICATION_QUERY, FILTERED_CUSTOMERS_QUERY } from './queries';
 import {
@@ -31,7 +31,7 @@ import { usePagination } from '../../common/utils/usePagination';
 import { usePrevious } from '../../common/utils/usePrevious';
 import { useBackendSorting } from '../../common/utils/useBackendSorting';
 
-const IndividualCustomerPageContainer: React.SFC = () => {
+const ApplicationViewPageContainer: React.SFC = () => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const [searchBy, setSearchBy] = useState<SearchBy>(SearchBy.LAST_NAME);
@@ -189,7 +189,7 @@ const IndividualCustomerPageContainer: React.SFC = () => {
   };
 
   return (
-    <IndividualApplicationPage
+    <ApplicationViewPage
       applicationId={id}
       handleLinkCustomer={handleLinkCustomer}
       loadingCustomers={loadingCustomers}
@@ -223,4 +223,4 @@ const IndividualCustomerPageContainer: React.SFC = () => {
   );
 };
 
-export default IndividualCustomerPageContainer;
+export default ApplicationViewPageContainer;

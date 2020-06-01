@@ -16,7 +16,7 @@ test('Navigate and view basic data', async (t) => {
   await t
     .click(navigation.applications)
     .click(applications.applicationList.firstApplicationLink)
-    .expect(applications.applicationDetails.firstName.filter(hasLength).exists)
+    .expect(applications.applicationView.firstName.filter(hasLength).exists)
     .ok();
 
   // Harbors

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { Notification } from 'hds-react';
 
-import styles from './individualApplicationPage.module.scss';
+import styles from './applicationViewPage.module.scss';
 import Card from '../../common/card/Card';
 import CardBody from '../../common/cardBody/CardBody';
 import ApplicationDetails, { ApplicationDetailsProps } from '../../common/applicationDetails/ApplicationDetails';
@@ -38,7 +38,7 @@ export interface CustomerData {
 
 type ColumnType = Column<CustomerData> & { accessor: keyof CustomerData };
 
-export interface IndividualApplicationPageProps {
+export interface ApplicationViewPageProps {
   applicationId: string;
   similarCustomersData: CustomerData[] | null;
   customerProfile: CustomerProfileCardProps | null;
@@ -51,7 +51,7 @@ export interface IndividualApplicationPageProps {
   onSortedColChange(sortBy: { id: string; desc?: boolean } | undefined): void;
 }
 
-const IndividualApplicationPage: React.FC<IndividualApplicationPageProps> = ({
+const ApplicationViewPage: React.FC<ApplicationViewPageProps> = ({
   similarCustomersData,
   customerProfile,
   applicationDetails,
@@ -101,7 +101,7 @@ const IndividualApplicationPage: React.FC<IndividualApplicationPageProps> = ({
   ];
 
   return (
-    <div className={styles.individualApplicationPage}>
+    <div className={styles.applicationViewPage}>
       <PageTitle title={t('individualApplication.title')} />
       <div className={classNames(styles.fullWidth, styles.pageHeader)}>
         <Text as="h2" size="xl" weight="normalWeight">
@@ -164,4 +164,4 @@ const IndividualApplicationPage: React.FC<IndividualApplicationPageProps> = ({
   );
 };
 
-export default IndividualApplicationPage;
+export default ApplicationViewPage;

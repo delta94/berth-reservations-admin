@@ -12,7 +12,7 @@ import LoginPage from '../features/auth/loginPage/LoginPage';
 import Page from './page/Page';
 import PrivateRoute from '../features/auth/privateRoute/PrivateRoute';
 import ApplicationListPage from '../features/applicationList/ApplicationListPageContainer';
-import IndividualApplicationPage from '../features/applicationView/IndividualApplicationPageContainer';
+import ApplicationViewPage from '../features/applicationView/ApplicationViewPageContainer';
 import PricingPage from '../features/pricing/PricingPageContainer';
 import CallbackPage from '../features/auth/callbackPage/CallbackPage';
 
@@ -30,7 +30,7 @@ const App: React.FC = () => {
               <PrivateRoute exact path="/harbors" component={HarborsPage} />
               <PrivateRoute exact path="/customers/:id" component={IndividualCustomerPage} />
               <PrivateRoute exact path="/customers" component={CustomersPage} />
-              <PrivateRoute exact path="/applications/:id" component={IndividualApplicationPage} />
+              <PrivateRoute exact path="/applications/:id" component={ApplicationViewPage} />
               <PrivateRoute exact path="/applications" component={ApplicationListPage} />
               <PrivateRoute exact path="/offer/:applicationId" component={OfferPage} />
               <PrivateRoute exact path="/pricing" component={PricingPage} />
