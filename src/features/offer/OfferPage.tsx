@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import styles from './offerPage.module.scss';
 import PageTitle from '../../common/pageTitle/PageTitle';
 
-const HarborsPage: React.SFC = ({ children }) => {
+const OfferPage: React.SFC = ({ children }) => {
   const { t } = useTranslation();
   return (
     <div className={styles.offerPage}>
@@ -14,4 +14,4 @@ const HarborsPage: React.SFC = ({ children }) => {
   );
 };
 
-export default HarborsPage;
+export default OfferPage;
