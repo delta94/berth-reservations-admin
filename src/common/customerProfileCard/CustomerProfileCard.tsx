@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Card from '../../../common/card/Card';
-import CardHeader from '../../../common/cardHeader/CardHeader';
-import CardBody from '../../../common/cardBody/CardBody';
+import Card from '../card/Card';
+import CardHeader from '../cardHeader/CardHeader';
+import CardBody from '../cardBody/CardBody';
 import PrivateCustomerDetails, { PrivateCustomerDetailsProps } from './privateCustomerDetails/PrivateCustomerDetails';
 import OrganizationCustomerDetails, {
   OrganizationCustomerDetailsProps,

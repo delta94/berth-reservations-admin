@@ -3,7 +3,7 @@ import {
   INDIVIDUAL_CUSTOMER_boatTypes as BOAT_TYPES,
 } from './__generated__/INDIVIDUAL_CUSTOMER';
 import { Application, ApplicationLease, Boat, LargeBoat } from './types';
-import { CustomerProfileCardProps } from '../cards/customerProfileCard/CustomerProfileCard';
+import { CustomerProfileCardProps } from '../../common/customerProfileCard/CustomerProfileCard';
 
 export const getCustomerProfile = (profile: CUSTOMER_PROFILE): CustomerProfileCardProps => {
   return {

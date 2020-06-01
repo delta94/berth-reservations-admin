@@ -3,7 +3,7 @@ import React from 'react';
 import { boolean, withKnobs } from '@storybook/addon-knobs';
 
 import CustomerProfileCard from './CustomerProfileCard';
-import { InvoicingType, OrganizationType } from '../../../@types/__generated__/globalTypes';
+import { InvoicingType, OrganizationType } from '../../@types/__generated__/globalTypes';
 
 export default {
   component: CustomerProfileCard,

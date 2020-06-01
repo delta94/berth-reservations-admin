@@ -6,7 +6,7 @@ import { Notification } from 'hds-react';
 import ApplicationsPage from './ApplicationsPage';
 import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
 import InternalLink from '../../common/internalLink/InternalLink';
-import ApplicationDetails from '../cards/applicationDetails/ApplicationDetails';
+import ApplicationDetails from '../../common/applicationDetails/ApplicationDetails';
 import {
   BERTH_APPLICATIONS,
   BERTH_APPLICATIONSVariables as BERTH_APPLICATIONS_VARS,

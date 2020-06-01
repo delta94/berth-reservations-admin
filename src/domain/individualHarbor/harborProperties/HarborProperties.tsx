@@ -11,7 +11,7 @@ import Property from '../property/Property';
 import styles from './harborProperties.module.scss';
 import Section from '../../../common/section/Section';
 import placeholder from './harborPlaceholder.svg';
-import HarborMapLinks from '../../cards/harborMapLinks/HarborMapLinks';
+import HarborMapLinks from '../../../common/harborMapLinks/HarborMapLinks';
 
 export interface HarborPropertiesProps {
   imageUrl: string | null;

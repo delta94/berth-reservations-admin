@@ -5,7 +5,7 @@ import Card from '../../../common/card/Card';
 import styles from './applicationsCard.module.scss';
 import CardHeader from '../../../common/cardHeader/CardHeader';
 import CardBody from '../../../common/cardBody/CardBody';
-import ApplicationDetails from '../../cards/applicationDetails/ApplicationDetails';
+import ApplicationDetails from '../../../common/applicationDetails/ApplicationDetails';
 import { Application } from '../types';
 
 export interface ApplicationsCardProps {

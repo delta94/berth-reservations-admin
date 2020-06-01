@@ -17,7 +17,7 @@ import Modal from '../../common/modal/Modal';
 import BerthEditForm from './forms/berthForm/BerthEditForm';
 import BerthCreateForm from './forms/berthForm/BerthCreateForm';
 import IndividualHarborTableTools from './individualHarborTableTools/IndividualHarborTableTools';
-import BerthDetails from '../cards/berthDetails/BerthDetails';
+import BerthDetails from '../../common/berthDetails/BerthDetails';
 import InternalLink from '../../common/internalLink/InternalLink';
 import PierCreateForm from './forms/pierForm/PierCreateForm';
 import PierEditForm from './forms/pierForm/PierEditForm';

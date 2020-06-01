@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { HashRouter } from 'react-router-dom';
 
 import CustomerProfileCard from './CustomerProfileCard';
-import { InvoicingType, OrganizationType } from '../../../@types/__generated__/globalTypes';
+import { InvoicingType, OrganizationType } from '../../@types/__generated__/globalTypes';
 
 const privateCustomerProfile = {
   comment: 'Testikäyttäjä',

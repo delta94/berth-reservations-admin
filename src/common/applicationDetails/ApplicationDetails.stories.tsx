@@ -3,7 +3,7 @@ import { HashRouter } from 'react-router-dom';
 import { action } from '@storybook/addon-actions';
 
 import ApplicationDetails from './ApplicationDetails';
-import { ApplicationStatus } from '../../../@types/__generated__/globalTypes';
+import { ApplicationStatus } from '../../@types/__generated__/globalTypes';
 
 export default {
   component: ApplicationDetails,

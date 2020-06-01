@@ -16,7 +16,7 @@ import { formatDimension, formatDate } from '../../common/utils/format';
 import { CREATE_LEASE_MUTATION } from './mutations';
 import { CREATE_LEASE, CREATE_LEASEVariables as CREATE_LEASE_VARS } from './__generated__/CREATE_LEASE';
 import TableTools from './tableTools/TableTools';
-import BerthDetails from '../cards/berthDetails/BerthDetails';
+import BerthDetails from '../../common/berthDetails/BerthDetails';
 import TableFilters from '../../common/tableFilters/TableFilters';
 import { BERTH_APPLICATIONS_QUERY } from '../applications/queries';
 

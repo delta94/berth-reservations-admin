@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Section from '../../../../common/section/Section';
-import LabelValuePair from '../../../../common/labelValuePair/LabelValuePair';
-import InternalLink from '../../../../common/internalLink/InternalLink';
-import { InvoicingType, OrganizationType } from '../../../../@types/__generated__/globalTypes';
+import Section from '../../section/Section';
+import LabelValuePair from '../../labelValuePair/LabelValuePair';
+import InternalLink from '../../internalLink/InternalLink';
+import { InvoicingType, OrganizationType } from '../../../@types/__generated__/globalTypes';
 
 export interface OrganizationCustomerDetailsProps {
   comment?: string | null;

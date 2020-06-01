@@ -1,16 +1,16 @@
-import { ApplicationDetailsProps } from '../cards/applicationDetails/ApplicationDetails';
+import { ApplicationDetailsProps } from '../../common/applicationDetails/ApplicationDetails';
 import {
   INDIVIDUAL_APPLICATION_berthApplication as BERTH_APPLICATION,
   INDIVIDUAL_APPLICATION_berthApplication_customer as CUSTOMER_PROFILE,
   INDIVIDUAL_APPLICATION_berthApplication_lease as BERTH_LEASE,
   INDIVIDUAL_APPLICATION_boatTypes as BOAT_TYPES,
 } from './__generated__/INDIVIDUAL_APPLICATION';
-import { CustomerProfileCardProps } from '../cards/customerProfileCard/CustomerProfileCard';
+import { CustomerProfileCardProps } from '../../common/customerProfileCard/CustomerProfileCard';
 import { CustomerData } from './IndividualApplicationPage';
 import { BerthMooringType } from '../../@types/__generated__/globalTypes';
 import { FILTERED_CUSTOMERS } from './__generated__/FILTERED_CUSTOMERS';
 import { OfferCardProps } from './offerCard/OfferCard';
-import { PrivateCustomerDetailsProps } from '../cards/customerProfileCard/privateCustomerDetails/PrivateCustomerDetails';
+import { PrivateCustomerDetailsProps } from '../../common/customerProfileCard/privateCustomerDetails/PrivateCustomerDetails';
 
 export const getCustomerProfile = (profile: CUSTOMER_PROFILE): CustomerProfileCardProps => {
   return {

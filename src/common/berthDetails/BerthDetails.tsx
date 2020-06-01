@@ -1,12 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Icon from '../../../common/icons/Icon';
-import Text from '../../../common/text/Text';
-import Grid from '../../../common/grid/Grid';
-import InternalLink from '../../../common/internalLink/InternalLink';
-import Section from '../../../common/section/Section';
-import { formatDate } from '../../../common/utils/format';
+import Icon from '../icons/Icon';
+import Text from '../text/Text';
+import Grid from '../grid/Grid';
+import InternalLink from '../internalLink/InternalLink';
+import Section from '../section/Section';
+import { formatDate } from '../utils/format';
 import styles from './berthDetails.module.scss';
 
 interface Lease {

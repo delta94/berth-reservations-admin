@@ -11,7 +11,7 @@ import Card from '../../common/card/Card';
 import CardHeader from '../../common/cardHeader/CardHeader';
 import CardBody from '../../common/cardBody/CardBody';
 import BillsCard from './billsCard/BillsCard';
-import CustomerProfileCard from '../cards/customerProfileCard/CustomerProfileCard';
+import CustomerProfileCard from '../../common/customerProfileCard/CustomerProfileCard';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import ApplicationsCard from './applicationsCard/ApplicationsCard';
 import BoatsCard from './boatsCard/BoatsCard';

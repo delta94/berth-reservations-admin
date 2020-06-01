@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Section from '../../../common/section/Section';
-import ExternalLink from '../../../common/externalLink/ExternalLink';
+import Section from '../section/Section';
+import ExternalLink from '../externalLink/ExternalLink';
 
 type Map = {
   id: string;

@@ -2,18 +2,18 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 
-import Section from '../../../common/section/Section';
-import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
-import Grid from '../../../common/grid/Grid';
-import Checkbox from '../../../common/checkbox/Checkbox';
+import Section from '../section/Section';
+import LabelValuePair from '../labelValuePair/LabelValuePair';
+import Grid from '../grid/Grid';
+import Checkbox from '../checkbox/Checkbox';
 import styles from './applicationDetails.module.scss';
-import InternalLink from '../../../common/internalLink/InternalLink';
-import Text from '../../../common/text/Text';
-import List from '../../../common/list/List';
-import ListItem from '../../../common/list/ListItem';
-import { formatDimension, formatWeight, formatDate } from '../../../common/utils/format';
-import { APPLICATION_STATUS } from '../../../common/utils/consonants';
-import { ApplicationStatus } from '../../../@types/__generated__/globalTypes';
+import InternalLink from '../internalLink/InternalLink';
+import Text from '../text/Text';
+import List from '../list/List';
+import ListItem from '../list/ListItem';
+import { formatDimension, formatWeight, formatDate } from '../utils/format';
+import { APPLICATION_STATUS } from '../utils/consonants';
+import { ApplicationStatus } from '../../@types/__generated__/globalTypes';
 import PrivateCustomerDetails, {
   PrivateCustomerDetailsProps,
 } from '../customerProfileCard/privateCustomerDetails/PrivateCustomerDetails';

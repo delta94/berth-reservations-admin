@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import HarborMapLinks, { HarborMapLinksProps } from '../HarborMapLinks';
-import ExternalLink from '../../../../common/externalLink/ExternalLink';
+import ExternalLink from '../../externalLink/ExternalLink';
 
 describe('HarborMapLinks', () => {
   const getWrapper = (props: HarborMapLinksProps) => shallow(<HarborMapLinks {...props} />);
