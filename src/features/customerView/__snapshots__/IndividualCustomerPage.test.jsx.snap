@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`IndividualCustomerPage renders normally 1`] = `"<div class=\\"individualCustomerPage\\"><h2 class=\\"text standard h2 xl normalWeight pageTitle\\">ASIAKAS</h2><div class=\\"grid\\">Individual Customer Page</div></div>"`;

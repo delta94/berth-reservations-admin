@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { Notification } from 'hds-react';
 
-import IndividualCustomerPage from './IndividualCustomerPage';
+import CustomerViewPage from './CustomerViewPage';
 import { INDIVIDUAL_CUSTOMER_QUERY } from './queries';
 import { INDIVIDUAL_CUSTOMER } from './__generated__/INDIVIDUAL_CUSTOMER';
 import Card from '../../common/card/Card';
@@ -43,7 +43,7 @@ const IndividualHarborPageContainer: FunctionComponent = () => {
   const applications = getApplications(data.profile, data.boatTypes || []);
 
   return (
-    <IndividualCustomerPage>
+    <CustomerViewPage>
       <CustomerProfileCard {...customerProfile} />
       <Card>
         <CardHeader title="VIIMEAIKAINEN TOIMINTA" />
@@ -74,7 +74,7 @@ const IndividualHarborPageContainer: FunctionComponent = () => {
         <CardBody>Placeholder</CardBody>
       </Card>
       <BoatsCard boats={boats} />
-    </IndividualCustomerPage>
+    </CustomerViewPage>
   );
 };
 

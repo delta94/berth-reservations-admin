@@ -6,7 +6,7 @@ import apolloClient from './apolloClient';
 import CustomerListPage from '../features/customerList/CustomerListPageContainer';
 import HarborsPage from '../features/harborList/HarborsPageContainer';
 import IndividualHarborPage from '../features/harborView/IndividualHarborPageContainer';
-import IndividualCustomerPage from '../features/customerView/IndividualCustomerPageContainer';
+import CustomerViewPage from '../features/customerView/CustomerViewPageContainer';
 import OfferPage from '../features/offer/OfferPageContainer';
 import LoginPage from '../features/auth/loginPage/LoginPage';
 import Page from './page/Page';
@@ -28,7 +28,7 @@ const App: React.FC = () => {
             <Switch>
               <PrivateRoute exact path="/harbors/:id" component={IndividualHarborPage} />
               <PrivateRoute exact path="/harbors" component={HarborsPage} />
-              <PrivateRoute exact path="/customers/:id" component={IndividualCustomerPage} />
+              <PrivateRoute exact path="/customers/:id" component={CustomerViewPage} />
               <PrivateRoute exact path="/customers" component={CustomerListPage} />
               <PrivateRoute exact path="/applications/:id" component={ApplicationViewPage} />
               <PrivateRoute exact path="/applications" component={ApplicationListPage} />
