@@ -1,12 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { MockedProvider } from '@apollo/react-testing';
+import waitForExpect from 'wait-for-expect';
+import { act } from 'react-dom/test-utils';
+
 import BerthEditForm from '../BerthEditForm';
 import { INDIVIDUAL_BERTH_QUERY } from '../queries';
 import { UPDATE_BERTH_MUTATION } from '../mutations';
 import LoadingSpinner from '../../../../../common/spinner/LoadingSpinner';
-import waitForExpect from 'wait-for-expect';
-import { act } from 'react-dom/test-utils';
 
 const pierOptions = [{ id: 'a', identifier: 'A' }];
 const queryMock = {
