@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
 import HarborDetails from './harborDetails/HarborDetails';
 import InternalLink from '../../common/internalLink/InternalLink';
-import styles from './harborsPage.module.scss';
+import styles from './harborListPage.module.scss';
 import Icon from '../../common/icons/Icon';
 import GlobalSearchTableTools from '../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';
 import Pagination from '../../common/pagination/Pagination';
@@ -13,12 +13,12 @@ import { HarborData } from './types';
 
 type ColumnType = Column<HarborData> & { accessor: keyof HarborData };
 
-export interface HarborsPageProps {
+export interface HarborListPageProps {
   data: Array<HarborData>;
   loading?: boolean;
 }
 
-const HarborsPage: React.FC<HarborsPageProps> = ({ data, loading }) => {
+const HarborListPage: React.FC<HarborListPageProps> = ({ data, loading }) => {
   const { t } = useTranslation();
 
   const columns: ColumnType[] = [
@@ -71,7 +71,7 @@ const HarborsPage: React.FC<HarborsPageProps> = ({ data, loading }) => {
   ];
 
   return (
-    <div className={styles.harborsPage}>
+    <div className={styles.harborListPage}>
       <PageTitle title={t('harbors.title')} />
       <Table
         data={data}
@@ -94,4 +94,4 @@ const HarborsPage: React.FC<HarborsPageProps> = ({ data, loading }) => {
   );
 };
 
-export default HarborsPage;
+export default HarborListPage;

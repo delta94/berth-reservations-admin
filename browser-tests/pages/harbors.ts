@@ -1,8 +1,8 @@
 import { Selector } from 'testcafe';
 
 export const harbors = {
-  harborsList: {
-    firstHarborLink: Selector('div[class^="harborsPage"] div[class^="table_rowWrapper"]:first-of-type a'),
+  harborList: {
+    firstHarborLink: Selector('div[class^="harborListPage"] div[class^="table_rowWrapper"]:first-of-type a'),
   },
   harborDetails: {
     address: Selector(

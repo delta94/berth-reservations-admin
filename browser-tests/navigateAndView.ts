@@ -22,7 +22,7 @@ test('Navigate and view basic data', async (t) => {
   // Harbors
   await t
     .click(navigation.harbors)
-    .click(harbors.harborsList.firstHarborLink)
+    .click(harbors.harborList.firstHarborLink)
     .expect(harbors.harborDetails.address.innerText)
     .contains('Helsinki');
 

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 
 import apolloClient from './apolloClient';
 import CustomerListPage from '../features/customerList/CustomerListPageContainer';
-import HarborsPage from '../features/harborList/HarborsPageContainer';
+import HarborListPage from '../features/harborList/HarborListPageContainer';
 import IndividualHarborPage from '../features/harborView/IndividualHarborPageContainer';
 import CustomerViewPage from '../features/customerView/CustomerViewPageContainer';
 import OfferPage from '../features/offer/OfferPageContainer';
@@ -27,7 +27,7 @@ const App: React.FC = () => {
           <Page>
             <Switch>
               <PrivateRoute exact path="/harbors/:id" component={IndividualHarborPage} />
-              <PrivateRoute exact path="/harbors" component={HarborsPage} />
+              <PrivateRoute exact path="/harbors" component={HarborListPage} />
               <PrivateRoute exact path="/customers/:id" component={CustomerViewPage} />
               <PrivateRoute exact path="/customers" component={CustomerListPage} />
               <PrivateRoute exact path="/applications/:id" component={ApplicationViewPage} />

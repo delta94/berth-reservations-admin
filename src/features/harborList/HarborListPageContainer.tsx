@@ -6,7 +6,7 @@ import { Notification } from 'hds-react';
 import { HARBORS_QUERY } from './harborsQuery';
 import { getHarborsData } from './utils';
 import { HARBORS } from './__generated__/HARBORS';
-import HarborsPage from './HarborsPage';
+import HarborListPage from './HarborListPage';
 import { HarborData } from './types';
 
 const HarborsContainer: React.FC = () => {
@@ -22,7 +22,7 @@ const HarborsContainer: React.FC = () => {
 
   const tableData: HarborData[] = getHarborsData(data);
 
-  return <HarborsPage data={tableData} loading={loading} />;
+  return <HarborListPage data={tableData} loading={loading} />;
 };
 
 export default HarborsContainer;
