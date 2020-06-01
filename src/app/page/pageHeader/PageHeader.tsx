@@ -9,8 +9,8 @@ import HelsinkiLogo from '../../../common/helsinkiLogo/HelsinkiLogo';
 import Dropdown from '../../../common/dropdown/Dropdown';
 import List from '../../../common/list/List';
 import ListItem from '../../../common/list/ListItem';
-import { useCurrentUser } from '../../auth/hooks';
-import authService from '../../auth/authService';
+import { useCurrentUser } from '../../../domain/auth/hooks';
+import authService from '../../../domain/auth/authService';
 import Text from '../../../common/text/Text';
 import styles from './pageHeader.module.scss';
 

@@ -9,7 +9,7 @@ import IndividualHarborPage from '../domain/individualHarbor/IndividualHarborPag
 import IndividualCustomerPage from '../domain/individualCustomer/IndividualCustomerPageContainer';
 import OfferPage from '../domain/offer/OfferPageContainer';
 import LoginPage from '../domain/auth/loginPage/LoginPage';
-import Page from '../domain/page/Page';
+import Page from './page/Page';
 import PrivateRoute from '../domain/auth/privateRoute/PrivateRoute';
 import ApplicationsPage from '../domain/applications/ApplicationsPageContainer';
 import IndividualApplicationPage from '../domain/individualApplication/IndividualApplicationPageContainer';
