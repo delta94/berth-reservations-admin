@@ -3,18 +3,18 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 import apolloClient from './apolloClient';
-import CustomersPage from '../domain/customers/CustomerPageContainer';
-import HarborsPage from '../domain/harbors/HarborsPageContainer';
-import IndividualHarborPage from '../domain/individualHarbor/IndividualHarborPageContainer';
-import IndividualCustomerPage from '../domain/individualCustomer/IndividualCustomerPageContainer';
-import OfferPage from '../domain/offer/OfferPageContainer';
-import LoginPage from '../domain/auth/loginPage/LoginPage';
+import CustomersPage from '../features/customers/CustomerPageContainer';
+import HarborsPage from '../features/harbors/HarborsPageContainer';
+import IndividualHarborPage from '../features/individualHarbor/IndividualHarborPageContainer';
+import IndividualCustomerPage from '../features/individualCustomer/IndividualCustomerPageContainer';
+import OfferPage from '../features/offer/OfferPageContainer';
+import LoginPage from '../features/auth/loginPage/LoginPage';
 import Page from './page/Page';
-import PrivateRoute from '../domain/auth/privateRoute/PrivateRoute';
-import ApplicationsPage from '../domain/applications/ApplicationsPageContainer';
-import IndividualApplicationPage from '../domain/individualApplication/IndividualApplicationPageContainer';
-import PricingPage from '../domain/pricing/PricingPageContainer';
-import CallbackPage from '../domain/auth/callbackPage/CallbackPage';
+import PrivateRoute from '../features/auth/privateRoute/PrivateRoute';
+import ApplicationsPage from '../features/applications/ApplicationsPageContainer';
+import IndividualApplicationPage from '../features/individualApplication/IndividualApplicationPageContainer';
+import PricingPage from '../features/pricing/PricingPageContainer';
+import CallbackPage from '../features/auth/callbackPage/CallbackPage';
 
 const App: React.FC = () => {
   return (

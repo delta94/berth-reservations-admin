@@ -1,7 +1,7 @@
 import { gql, getOperationName } from 'apollo-boost';
 import { useMutation } from '@apollo/react-hooks';
 
-import { BERTH_APPLICATIONS_QUERY } from '../../domain/applications/queries';
+import { BERTH_APPLICATIONS_QUERY } from '../../features/applications/queries';
 import {
   DELETE_DRAFTED_APPLICATION,
   DELETE_DRAFTED_APPLICATIONVariables as DELETE_DRAFTED_APPLICATION_VARS,

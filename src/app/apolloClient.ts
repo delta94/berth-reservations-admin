@@ -1,7 +1,7 @@
 import ApolloClient, { gql, InMemoryCache } from 'apollo-boost';
 
 import i18n from '../locales/i18n';
-import authService from '../domain/auth/authService';
+import authService from '../features/auth/authService';
 
 const typeDefs = gql`
   type CurrentUser {
