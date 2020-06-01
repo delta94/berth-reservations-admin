@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation, useLazyQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { Notification } from 'hds-react';
 import { useDebounce } from 'use-debounce';
 
@@ -31,7 +31,8 @@ import { usePagination } from '../../common/utils/usePagination';
 import { usePrevious } from '../../common/utils/usePrevious';
 import { useBackendSorting } from '../../common/utils/useBackendSorting';
 
-const ApplicationViewPageContainer: React.SFC = () => {
+const ApplicationViewPageContainer: React.FC = () => {
+  const history = useHistory();
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const [searchBy, setSearchBy] = useState<SearchBy>(SearchBy.LAST_NAME);
@@ -70,8 +71,7 @@ const ApplicationViewPageContainer: React.SFC = () => {
     variables: filteredCustomersVars,
   });
 
-  // TODO: handle errors
-  const [deleteDraftedApplication] = useDeleteBerthApplication();
+  const [deleteDraftedApplication, { error: deleteDraftedApplicationError }] = useDeleteBerthApplication();
   useEffect(() => {
     if (!data?.berthApplication) return;
 
@@ -92,7 +92,6 @@ const ApplicationViewPageContainer: React.SFC = () => {
     !customer && !loading && goToPage(0);
   }, [searchVal, searchBy, customer, loading, goToPage]);
 
-  // TODO: handle errors
   const [linkCustomer, { error: linkCustomerErr }] = useMutation<
     UPDATE_BERTH_APPLICATION,
     UPDATE_BERTH_APPLICATION_VARS
@@ -107,7 +106,6 @@ const ApplicationViewPageContainer: React.SFC = () => {
     ],
   });
 
-  // TODO: handle errors
   const [createNewCustomer, { error: newCustomerErr }] = useMutation<CREATE_NEW_PROFILE, CREATE_NEW_PROFILE_VARS>(
     CREATE_NEW_PROFILE_MUTATION,
     {
@@ -127,13 +125,18 @@ const ApplicationViewPageContainer: React.SFC = () => {
         {t('common.notification.noData.description')}
       </Notification>
     );
+
   if (error)
     return (
       <Notification labelText={t('common.notification.error.label')} type="error">
         {t('common.notification.error.description')}
       </Notification>
     );
-  if (linkCustomerErr || newCustomerErr) return <>something went wrong</>;
+
+  if (deleteDraftedApplicationError || linkCustomerErr || newCustomerErr) {
+    history.push('/error');
+    return null;
+  }
 
   const handleDeleteLease = (id: string) => {
     deleteDraftedApplication({
