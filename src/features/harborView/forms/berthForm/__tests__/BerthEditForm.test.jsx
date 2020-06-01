@@ -36,7 +36,7 @@ const queryMock = {
   },
 };
 
-describe('features/individualHarbor/BerthEditForm', () => {
+describe('features/harborView/BerthEditForm', () => {
   const waitForContent = async (wrapper) => {
     await act(async () => {
       await waitForExpect(() => {

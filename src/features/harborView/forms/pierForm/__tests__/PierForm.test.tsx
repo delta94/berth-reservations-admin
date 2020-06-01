@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import PierForm from '../PierForm';
 
-describe('features/individualHarbor/PierForm', () => {
+describe('features/harborView/PierForm', () => {
   it('renders correctly', () => {
     const wrapper = shallow(
       <PierForm
