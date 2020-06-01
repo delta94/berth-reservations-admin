@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import apolloClient from './apolloClient';
 import CustomerListPage from '../features/customerList/CustomerListPageContainer';
 import HarborListPage from '../features/harborList/HarborListPageContainer';
-import IndividualHarborPage from '../features/harborView/IndividualHarborPageContainer';
+import IndividualHarborPage from '../features/harborView/HarborViewPageContainer';
 import CustomerViewPage from '../features/customerView/CustomerViewPageContainer';
 import OfferPage from '../features/offer/OfferPageContainer';
 import LoginPage from '../features/auth/loginPage/LoginPage';

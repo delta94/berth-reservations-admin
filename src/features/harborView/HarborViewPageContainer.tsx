@@ -8,7 +8,7 @@ import Table, { Column } from '../../common/table/Table';
 import { INDIVIDUAL_HARBOR_QUERY } from './queries';
 import { INDIVIDUAL_HARBOR } from './__generated__/INDIVIDUAL_HARBOR';
 import { getIndividualHarborData, getBerths, Berth, getPiers, getMaps } from './utils/utils';
-import IndividualHarborPage from './individualHarborPage/IndividualHarborPage';
+import HarborViewPage from './harborViewPage/HarborViewPage';
 import HarborProperties from './harborProperties/HarborProperties';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { formatDimension } from '../../common/utils/format';
@@ -25,7 +25,7 @@ import Chip from '../../common/chip/Chip';
 import HarborEditForm from './forms/harborForm/HarborEditForm';
 import Pagination from '../../common/pagination/Pagination';
 
-const IndividualHarborPageContainer: React.SFC = () => {
+const HarborViewPageContainer: React.SFC = () => {
   const [editingHarbor, setEditingHarbor] = useState<boolean>(false);
   const [berthToEdit, setBerthToEdit] = useState<string | null>(null);
   const [creatingBerth, setCreatingBerth] = useState<boolean>(false);
@@ -105,7 +105,7 @@ const IndividualHarborPageContainer: React.SFC = () => {
   const canAddBerth = piers.length > 0;
 
   return (
-    <IndividualHarborPage>
+    <HarborViewPage>
       <HarborProperties
         name={harbor.name || ''}
         imageUrl={harbor.imageFile}
@@ -214,8 +214,8 @@ const IndividualHarborPageContainer: React.SFC = () => {
           refetchQueries={[{ query: INDIVIDUAL_HARBOR_QUERY, variables: { id } }]}
         />
       </Modal>
-    </IndividualHarborPage>
+    </HarborViewPage>
   );
 };
 
-export default IndividualHarborPageContainer;
+export default HarborViewPageContainer;
