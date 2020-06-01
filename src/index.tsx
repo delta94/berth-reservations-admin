@@ -6,7 +6,7 @@ import * as Sentry from '@sentry/browser';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './domain/app/App';
+import App from './app/App';
 import * as serviceWorker from './serviceWorker';
 
 const { REACT_APP_SENTRY_DSN, REACT_APP_SENTRY_ENVIRONMENT } = process.env;
