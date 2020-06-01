@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 import apolloClient from './apolloClient';
-import CustomersPage from '../features/customers/CustomerPageContainer';
+import CustomersPage from '../features/customerList/CustomerPageContainer';
 import HarborsPage from '../features/harbors/HarborsPageContainer';
 import IndividualHarborPage from '../features/individualHarbor/IndividualHarborPageContainer';
 import IndividualCustomerPage from '../features/individualCustomer/IndividualCustomerPageContainer';
