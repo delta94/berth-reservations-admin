@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 import apolloClient from './apolloClient';
-import CustomersPage from '../features/customerList/CustomerPageContainer';
+import CustomerListPage from '../features/customerList/CustomerListPageContainer';
 import HarborsPage from '../features/harborList/HarborsPageContainer';
 import IndividualHarborPage from '../features/harborView/IndividualHarborPageContainer';
 import IndividualCustomerPage from '../features/customerView/IndividualCustomerPageContainer';
@@ -29,7 +29,7 @@ const App: React.FC = () => {
               <PrivateRoute exact path="/harbors/:id" component={IndividualHarborPage} />
               <PrivateRoute exact path="/harbors" component={HarborsPage} />
               <PrivateRoute exact path="/customers/:id" component={IndividualCustomerPage} />
-              <PrivateRoute exact path="/customers" component={CustomersPage} />
+              <PrivateRoute exact path="/customers" component={CustomerListPage} />
               <PrivateRoute exact path="/applications/:id" component={ApplicationViewPage} />
               <PrivateRoute exact path="/applications" component={ApplicationListPage} />
               <PrivateRoute exact path="/offer/:applicationId" component={OfferPage} />

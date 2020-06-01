@@ -30,7 +30,7 @@ test('Navigate and view basic data', async (t) => {
   await t
     .click(navigation.customers)
     .click(customers.customerList.firstCustomerLink)
-    .expect(customers.customerDetails.firstDataLabel.filter(hasLength).exists)
+    .expect(customers.customerView.firstDataLabel.filter(hasLength).exists)
     .ok();
 
   // Pricing

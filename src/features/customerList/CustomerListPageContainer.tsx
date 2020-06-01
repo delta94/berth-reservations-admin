@@ -8,14 +8,14 @@ import { CUSTOMER_QUERY } from './queries';
 import { getCustomersData } from './utils';
 import { CUSTOMERS, CUSTOMERSVariables as CUSTOMERS_VARS } from './__generated__/CUSTOMERS';
 import CustomerList from './CustomerListComponent';
-import CustomersPage from './CustomersPage';
+import CustomerListPage from './CustomerListPage';
 import { usePagination } from '../../common/utils/usePagination';
 import { useBackendSorting } from '../../common/utils/useBackendSorting';
 import { SearchBy } from '../applicationView/ApplicationViewPage';
 import { usePrevious } from '../../common/utils/usePrevious';
 import { MessageFormValues } from './types';
 
-const CustomersPageContainer: React.FC = () => {
+const CustomerListPageContainer: React.FC = () => {
   const { t } = useTranslation();
 
   const [searchBy, setSearchBy] = useState<SearchBy>(SearchBy.LAST_NAME);
@@ -61,7 +61,7 @@ const CustomersPageContainer: React.FC = () => {
   const tableData = getCustomersData(data);
 
   return (
-    <CustomersPage>
+    <CustomerListPage>
       <CustomerList
         loading={loading}
         data={tableData}
@@ -85,8 +85,8 @@ const CustomersPageContainer: React.FC = () => {
         }}
         handleSendMessage={handleSendMessage}
       />
-    </CustomersPage>
+    </CustomerListPage>
   );
 };
 
-export default CustomersPageContainer;
+export default CustomerListPageContainer;

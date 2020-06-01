@@ -2,7 +2,7 @@ import React from 'react';
 import { HashRouter } from 'react-router-dom';
 
 import CustomerListComponent from './CustomerListComponent';
-import CustomersPage from './CustomersPage';
+import CustomerListPage from './CustomerListPage';
 import { getCustomersData } from './utils';
 import dummyCustomers from './__mocks__/data.json';
 
@@ -15,8 +15,8 @@ export default {
 export const customerList = () => {
   const data = getCustomersData(dummyCustomers);
   return (
-    <CustomersPage>
+    <CustomerListPage>
       <CustomerListComponent data={data} />
-    </CustomersPage>
+    </CustomerListPage>
   );
 };
