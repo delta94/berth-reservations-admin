@@ -2,11 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import BerthPricing, { BerthPricingProps } from '../BerthPricing';
-import { BerthPricing as BerthPricingData } from '../__generated__/BerthPricing';
 import { PriceUnits } from '../../../../@types/__generated__/globalTypes';
 
 describe('BerthPricing', () => {
-  const data: BerthPricingData = {
+  const data: BerthPricingProps['data'] = {
     __typename: 'BerthPriceGroupNodeConnection',
     edges: [
       {
@@ -27,13 +26,19 @@ describe('BerthPricing', () => {
 
   const initialProps: BerthPricingProps = { data, loading: false, openModal: jest.fn() };
 
-  const getWrapper = (props = {}) => shallow(<BerthPricing {...initialProps} {...props} />);
+  const getWrapper = (props: Partial<BerthPricingProps> = {}) => shallow(<BerthPricing {...initialProps} {...props} />);
 
   beforeEach(() => {
     jest.resetAllMocks();
   });
   it('renders normally', () => {
     const wrapper = getWrapper();
+
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  it('renders noData message when there is no data', () => {
+    const wrapper = getWrapper({ data: undefined });
 
     expect(wrapper.html()).toMatchSnapshot();
   });
