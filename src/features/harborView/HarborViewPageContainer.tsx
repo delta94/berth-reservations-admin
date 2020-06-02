@@ -8,7 +8,7 @@ import Table, { Column } from '../../common/table/Table';
 import { INDIVIDUAL_HARBOR_QUERY } from './queries';
 import { INDIVIDUAL_HARBOR } from './__generated__/INDIVIDUAL_HARBOR';
 import { getIndividualHarborData, getBerths, Berth, getPiers, getMaps } from './utils/utils';
-import HarborViewPage from './harborViewPage/HarborViewPage';
+import HarborViewPage from './HarborViewPage';
 import HarborProperties from './harborProperties/HarborProperties';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { formatDimension } from '../../common/utils/format';
