@@ -16,21 +16,21 @@ test('Navigate and view basic data', async (t) => {
   await t
     .click(navigation.applications)
     .click(applications.applicationList.firstApplicationLink)
-    .expect(applications.applicationDetails.firstName.filter(hasLength).exists)
+    .expect(applications.applicationView.firstName.filter(hasLength).exists)
     .ok();
 
   // Harbors
   await t
     .click(navigation.harbors)
-    .click(harbors.harborsList.firstHarborLink)
-    .expect(harbors.harborDetails.address.innerText)
+    .click(harbors.harborList.firstHarborLink)
+    .expect(harbors.harborView.address.innerText)
     .contains('Helsinki');
 
   // Customers
   await t
     .click(navigation.customers)
     .click(customers.customerList.firstCustomerLink)
-    .expect(customers.customerDetails.firstDataLabel.filter(hasLength).exists)
+    .expect(customers.customerView.firstDataLabel.filter(hasLength).exists)
     .ok();
 
   // Pricing

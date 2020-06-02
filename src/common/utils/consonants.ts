@@ -9,17 +9,17 @@ type ApplicationStatusType = {
 };
 
 export const APPLICATION_STATUS: ApplicationStatusType = {
-  PENDING: { label: 'applications.status.pending', color: 'yellow' },
+  PENDING: { label: 'applicationList.status.pending', color: 'yellow' },
   OFFER_GENERATED: {
-    label: 'applications.status.offerGenerated',
+    label: 'applicationList.status.offerGenerated',
     color: 'blue',
   },
-  OFFER_SENT: { label: 'applications.status.offerSent', color: 'green' },
-  HANDLED: { label: 'applications.status.handled', color: 'blue' },
-  EXPIRED: { label: 'applications.status.expired', color: 'grey' },
-  NO_SUITABLE_BERTHS: { label: 'applications.status.noSuitable', color: 'red' },
+  OFFER_SENT: { label: 'applicationList.status.offerSent', color: 'green' },
+  HANDLED: { label: 'applicationList.status.handled', color: 'blue' },
+  EXPIRED: { label: 'applicationList.status.expired', color: 'grey' },
+  NO_SUITABLE_BERTHS: { label: 'applicationList.status.noSuitable', color: 'red' },
   NO_SUITABLE_BERTHS_NOTIFIED: {
-    label: 'applications.status.noSuitableNotified',
+    label: 'applicationList.status.noSuitableNotified',
     color: 'orange',
   },
 };
