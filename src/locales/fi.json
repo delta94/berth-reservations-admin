@@ -88,6 +88,7 @@
       "electricity": "Sähkö",
       "gate": "Portti",
       "harborMap": "Satamakartta",
+      "inQueue": "Jonossa",
       "length": "Pituus",
       "lighting": "Valaistus",
       "mooring": "Kiinnitys",
@@ -192,18 +193,6 @@
   },
   "harborView": {
     "title": "Satama",
-    "harborProperties": {
-      "title": "SATAMA",
-      "numberOfPlaces": "Paikkoja",
-      "numberOfFreePlaces": "Vapaata",
-      "electricity": "Sähkö + erillinen",
-      "water": "Vesi",
-      "wasteCollection": "Jätehuolto",
-      "gate": "Portti",
-      "lighting": "Valaistus",
-      "maxWidth": "Max. leveys",
-      "queue": "Jonossa"
-    },
     "berthProperties": {
       "inactive": "Ei käytössä"
     },
@@ -496,5 +485,11 @@
     "email": "Sähköpostiosoite",
     "customerGroup": "Asiakasryhmä",
     "remarks": "Huomiot"
+  },
+  "harborCard": {
+    "title": "SATAMA",
+    "numberOfFreePlaces": "Vapaata",
+    "numberOfPlaces": "Paikkoja",
+    "maxWidth": "Max. leveys"
   }
 }

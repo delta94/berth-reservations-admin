@@ -1,11 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import Text from '../../../common/text/Text';
+import Text from '../text/Text';
 import styles from './property.module.scss';
-import Icon, { IconShapes } from '../../../common/icons/Icon';
+import Icon, { IconShapes } from '../icons/Icon';
 
-interface PropertyProps {
+export interface PropertyProps {
   active?: boolean;
   iconShape?: IconShapes;
   counter?: number;
