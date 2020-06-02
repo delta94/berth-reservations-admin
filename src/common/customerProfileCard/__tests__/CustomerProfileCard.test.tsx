@@ -2,51 +2,12 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { HashRouter } from 'react-router-dom';
 
-import CustomerProfileCard from './CustomerProfileCard';
-import { InvoicingType, OrganizationType } from '../../@types/__generated__/globalTypes';
-
-const privateCustomerProfile = {
-  comment: 'Testikäyttäjä',
-  customerId: '0',
-  firstName: 'Testi',
-  invoicingType: InvoicingType.PAPER_INVOICE,
-  lastName: 'Käyttäjä',
-  primaryAddress: {
-    address: 'Testikatu 1',
-    postalCode: '00100',
-    city: 'Helsinki',
-  },
-  primaryEmail: 'test@example.com',
-  primaryPhone: '0504391742',
-  ssn: '010101A1234',
-};
-
-const organizationCustomerProfile = {
-  comment: 'Testikäyttäjä',
-  customerId: '0',
-  firstName: 'Testi',
-  invoicingType: InvoicingType.PAPER_INVOICE,
-  lastName: 'Käyttäjä',
-  organization: {
-    address: 'Liiketoimintaraitti 12',
-    businessId: '1234567-8',
-    city: 'Helsinki',
-    name: 'Liikeyritys Oy',
-    organizationType: OrganizationType.COMPANY,
-    postalCode: '00100',
-  },
-  primaryAddress: {
-    address: 'Testikatu 1',
-    postalCode: '00100',
-    city: 'Helsinki',
-  },
-  primaryEmail: 'test@example.com',
-  primaryPhone: '0504391742',
-  ssn: '010101A1234',
-};
+import CustomerProfileCard, { CustomerProfileCardProps } from '../CustomerProfileCard';
+import { privateCustomerProfile } from '../../privateCustomerDetails/__fixtures__/mockData';
+import { organizationCustomerProfile } from '../../organizationCustomerDetails/__fixtures__/mockData';
 
 describe('CustomerProfileCard', () => {
-  const getWrapper = (props) =>
+  const getWrapper = (props: CustomerProfileCardProps) =>
     shallow(
       <HashRouter>
         <CustomerProfileCard {...props} />
@@ -82,7 +43,8 @@ describe('CustomerProfileCard', () => {
         ...privateCustomerProfile,
         showCustomerNameAsLink: true,
       });
-      expect(wrapper.render().find('a.internalLink[href="#/customers/0"]').length).toEqual(3); // 3: firstName, lastName, ssn
+      // 3: firstName, lastName, ssn
+      expect(wrapper.render().find('a.internalLink[href="#/customers/0"]').length).toEqual(3);
     });
   });
 
@@ -116,7 +78,8 @@ describe('CustomerProfileCard', () => {
         ...organizationCustomerProfile,
         showCustomerNameAsLink: true,
       });
-      expect(wrapper.render().find('a.internalLink[href="#/customers/0"]').length).toEqual(3); // 3: firstName, lastName, ssn
+      // 3: firstName, lastName, ssn
+      expect(wrapper.render().find('a.internalLink[href="#/customers/0"]').length).toEqual(3);
     });
   });
 });

@@ -1,12 +1,13 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Section from '../../section/Section';
-import LabelValuePair from '../../labelValuePair/LabelValuePair';
-import InternalLink from '../../internalLink/InternalLink';
-import { InvoicingType, OrganizationType } from '../../../@types/__generated__/globalTypes';
+import Section from '../section/Section';
+import LabelValuePair from '../labelValuePair/LabelValuePair';
+import InternalLink from '../internalLink/InternalLink';
+import { InvoicingType, OrganizationType } from '../../@types/__generated__/globalTypes';
 
 export interface OrganizationCustomerDetailsProps {
+  title?: string;
   comment?: string | null;
   customerId?: string;
   firstName: string;
@@ -17,7 +18,7 @@ export interface OrganizationCustomerDetailsProps {
     businessId: string;
     city: string;
     name: string;
-    organizationType: OrganizationType;
+    organizationType?: OrganizationType;
     postalCode: string;
   };
   primaryAddress?: {
@@ -28,10 +29,11 @@ export interface OrganizationCustomerDetailsProps {
   primaryEmail?: string | null;
   primaryPhone?: string | null;
   showCustomerNameAsLink?: boolean;
-  ssn: string;
+  ssn?: string;
 }
 
 const OrganizationCustomerDetails: FunctionComponent<OrganizationCustomerDetailsProps> = ({
+  title,
   comment,
   customerId,
   firstName,
@@ -47,7 +49,7 @@ const OrganizationCustomerDetails: FunctionComponent<OrganizationCustomerDetails
 
   return (
     <>
-      <Section title={t('customerProfile.organization').toUpperCase()}>
+      <Section title={title || t('customerProfile.organization').toUpperCase()}>
         <LabelValuePair label={t('customerProfile.name')} value={organization.name} />{' '}
         <LabelValuePair label={t('customerProfile.businessId')} value={organization.businessId} />
       </Section>
@@ -59,7 +61,7 @@ const OrganizationCustomerDetails: FunctionComponent<OrganizationCustomerDetails
       <Section>
         <LabelValuePair
           label={t('customerProfile.customerGroup')}
-          value={t([`common.organizationTypes.${organization.organizationType}`])}
+          value={t([`common.organizationTypes.${organization.organizationType || OrganizationType.COMPANY}`])}
         />
       </Section>
       <Section title={t('customerProfile.contactPerson').toUpperCase()}>

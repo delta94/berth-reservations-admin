@@ -81,6 +81,8 @@ export const INDIVIDUAL_APPLICATION_QUERY = gql`
       zipCode
       phoneNumber
       email
+      businessId
+      companyName
       customer {
         comment
         firstName

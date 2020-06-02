@@ -253,6 +253,7 @@
       "queueNumber": "Jononumero",
       "status": "Status",
       "applicantInformation": "Hakijan henkilötiedot",
+      "applicantCompanyInformation": "Hakevan yrityksen tiedot",
       "boatInfo": "VENEEN TIEDOT",
       "boatType": "Veneen tyyppi",
       "registrationNumber": "Rekisterinumero",

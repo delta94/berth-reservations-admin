@@ -127,6 +127,8 @@ export interface INDIVIDUAL_APPLICATION_berthApplication {
   zipCode: string;
   phoneNumber: string;
   email: string;
+  businessId: string;
+  companyName: string;
   customer: INDIVIDUAL_APPLICATION_berthApplication_customer | null;
   berthSwitch: INDIVIDUAL_APPLICATION_berthApplication_berthSwitch | null;
   createdAt: any;

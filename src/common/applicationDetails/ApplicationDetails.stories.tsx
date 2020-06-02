@@ -7,7 +7,7 @@ import { ApplicationStatus } from '../../@types/__generated__/globalTypes';
 
 export default {
   component: ApplicationDetails,
-  decorators: [(storyFn) => <HashRouter>{storyFn()}</HashRouter>],
+  decorators: [(storyFn: Function) => <HashRouter>{storyFn()}</HashRouter>],
   title: 'ApplicationDetails',
 };
 
@@ -15,6 +15,7 @@ export const applicationDetails = () => (
   <ApplicationDetails
     id="123456"
     berthSwitch={{
+      reason: 'reason',
       harborId: '123',
       harborName: 'harbor',
       pierIdentifier: 'pier',
@@ -47,6 +48,7 @@ export const withAssignedLease = () => (
   <ApplicationDetails
     id="123456"
     berthSwitch={{
+      reason: 'reason',
       harborId: '123',
       harborName: 'harbor',
       pierIdentifier: 'pier',
@@ -67,7 +69,7 @@ export const withAssignedLease = () => (
       { harbor: '123', harborName: 'first choice', priority: 1 },
       { harbor: '321', harborName: 'second choice', priority: 3 },
     ]}
-    lease={{ id: '9999', harborId: '123', harborName: 'first choice' }}
+    lease={{ id: '9999', harborId: '123', harborName: 'first choice', berthNum: 'berth', pierIdentifier: 'pier' }}
     handleDeleteLease={action('lease deleted')}
     accessibilityRequired={true}
   />
