@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chip renders normally 1`] = `
+<span
+  class="chip red"
+>
+  Foo
+</span>
+`;
