@@ -1,6 +1,6 @@
-import { getHarborsData } from './utils';
-import { HARBORS } from './__generated__/HARBORS';
-import { mockData } from './__mocks__/mockData';
+import { getHarborsData } from '../utils';
+import { HARBORS } from '../__generated__/HARBORS';
+import { mockData } from '../__fixtures__/mockData';
 
 describe('utils', () => {
   describe('getHarborsData', () => {

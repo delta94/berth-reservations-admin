@@ -3,7 +3,7 @@ import { HashRouter } from 'react-router-dom';
 
 import HarborListPage from './HarborListPage';
 import { getHarborsData } from './utils';
-import { mockData } from './__mocks__/mockData';
+import { mockData } from './__fixtures__/mockData';
 
 export default {
   component: HarborListPage,
