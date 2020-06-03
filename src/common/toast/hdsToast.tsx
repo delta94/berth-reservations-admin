@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { GraphQLError } from 'graphql';
 
 import i18n from '../../locales/i18n';
+import { HDSToastContainerId } from './HDSToastContainer';
 
 interface HDSToastArgs {
   type: DismissableNotificationProps['type'];
@@ -52,6 +53,7 @@ const hdsToast = ({ type, labelText, text, toastId, translated = false }: HDSToa
     />,
     {
       toastId: id,
+      containerId: HDSToastContainerId,
     }
   );
 };
