@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils getAllPiersIdentifiers should return pier tabs 1`] = `
+Array [
+  Object {
+    "disabled": false,
+    "label": "pier",
+    "value": "pier",
+  },
+]
+`;
+
+exports[`utils getHarbor should return harbor 1`] = `
+Object {
+  "address": "Meripuistotie 1a Helsinki 00210",
+  "imageUrl": "https://venepaikka-api.test.hel.ninja/media/harbors/9a8d8313-eaa2-47d2-8f2d-2bb9893f9bc7/41359.jpg",
+  "maps": Array [
+    Object {
+      "id": "testmap",
+      "url": "testmap",
+    },
+  ],
+  "name": "Pajalahden venesatama (Meripuistotie) / Venesatama",
+  "properties": Object {
+    "electricity": true,
+    "gate": true,
+    "lighting": true,
+    "maxWidth": 4,
+    "numberOfFreePlaces": 2,
+    "numberOfPlaces": 4,
+    "queue": 4,
+    "wasteCollection": true,
+    "water": true,
+  },
+  "servicemapId": "41359",
+}
+`;
+
+exports[`utils getOfferData should return offer data 1`] = `
+Array [
+  Object {
+    "berth": "1",
+    "berthId": "1",
+    "comment": "No comments",
+    "draught": 5,
+    "harbor": "Pajalahden venesatama (Meripuistotie) / Venesatama",
+    "harborId": "SGFyYm9yTm9kZTpmN2M2YTQwZjAtOWViMi0zZjgyMTI0YjY0OGI=",
+    "id": "1",
+    "leases": Array [
+      Object {
+        "customer": Object {
+          "firstName": "Sample",
+          "id": "1",
+          "lastName": "McSampleface",
+        },
+        "endDate": null,
+        "isActive": true,
+        "startDate": null,
+        "status": "PAID",
+      },
+    ],
+    "length": 10,
+    "mooringType": "DINGHY_PLACE",
+    "pier": "pier",
+    "properties": Object {
+      "electricity": true,
+      "gate": true,
+      "isAccessible": true,
+      "lighting": true,
+      "wasteCollection": true,
+      "water": true,
+    },
+    "width": 5,
+  },
+]
+`;
