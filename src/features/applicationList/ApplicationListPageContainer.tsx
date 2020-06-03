@@ -23,21 +23,6 @@ import Pagination from '../../common/pagination/Pagination';
 import { usePagination } from '../../common/utils/usePagination';
 import { useBackendSorting } from '../../common/utils/useBackendSorting';
 
-export interface TableData {
-  id: string;
-  email?: string;
-  phone?: string;
-  address?: string;
-  city?: string;
-  postalCode?: string;
-  berths?: string;
-  boats?: string;
-  group?: string;
-  invoice?: string;
-  name: string;
-  startDate?: string;
-}
-
 type ColumnType = Column<ApplicationData>;
 
 const ApplicationListPageContainer: React.SFC = () => {
