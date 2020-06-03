@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown renders normally 1`] = `
+<div
+  class="dropdown"
+>
+  <div
+    class="label"
+  >
+    Click here
+  </div>
+</div>
+`;

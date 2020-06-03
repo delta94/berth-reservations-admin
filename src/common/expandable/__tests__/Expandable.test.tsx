@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Expandable from './Expandable';
+import Expandable, { ExpandableProps } from '../Expandable';
 
 describe('Expandable', () => {
   const onClick = jest.fn();
@@ -10,7 +10,7 @@ describe('Expandable', () => {
     jest.restoreAllMocks();
   });
 
-  const getWrapper = (props) =>
+  const getWrapper = (props?: ExpandableProps) =>
     shallow(
       <Expandable label="Click me" onClick={onClick} {...props}>
         <div>one</div>
@@ -19,7 +19,7 @@ describe('Expandable', () => {
     );
 
   it('renders normally', () => {
-    expect(getWrapper().html()).toMatchSnapshot();
+    expect(getWrapper().render()).toMatchSnapshot();
   });
 
   it('calls the supplied onClick when the label button is clicked', () => {

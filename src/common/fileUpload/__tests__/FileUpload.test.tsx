@@ -43,13 +43,13 @@ describe('FileUpload', () => {
   it('renders normally with single file props', () => {
     const wrapper = getWrapper(mockPropsSingle);
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('renders normally with multiple files props', () => {
     const wrapper = getWrapper(mockPropsMultiple);
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   describe('"buttonLabel" prop', () => {
