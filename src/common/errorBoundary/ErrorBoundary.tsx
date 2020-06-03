@@ -1,4 +1,5 @@
 import React from 'react';
+import * as Sentry from '@sentry/browser';
 
 interface ErrorBoundaryProps {
   errorComponent: React.ReactNode;
@@ -17,6 +18,14 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
 
   static getDerivedStateFromError() {
     return { hasError: true };
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  componentDidCatch(error: any, errorInfo: { [key: string]: any }) {
+    Sentry.withScope((scope) => {
+      scope.setExtras(errorInfo);
+      Sentry.captureException(error);
+    });
   }
 
   render() {
