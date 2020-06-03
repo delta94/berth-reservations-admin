@@ -32,15 +32,12 @@ const HarborViewPageContainer: React.SFC = () => {
   const [pierToEdit, setPierToEdit] = useState<string | null>(null);
   const [creatingPier, setCreatingPier] = useState<boolean>(false);
   const { id } = useParams<{ id: string }>();
-  const { loading, error, data } = useQuery<INDIVIDUAL_HARBOR>(INDIVIDUAL_HARBOR_QUERY, { variables: { id } });
+  const { loading, data } = useQuery<INDIVIDUAL_HARBOR>(INDIVIDUAL_HARBOR_QUERY, { variables: { id } });
   const { t, i18n } = useTranslation();
-
-  if (loading) return <LoadingSpinner isLoading={loading} />;
-  if (error) return <div>Error</div>;
 
   const harbor = getIndividualHarborData(data);
 
-  if (!harbor) return <div>No data...</div>;
+  if (loading || !harbor) return <LoadingSpinner isLoading={true} />;
 
   const columns: Column<Berth>[] = [
     {

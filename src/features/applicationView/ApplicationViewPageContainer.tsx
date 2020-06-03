@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation, useLazyQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { useParams, useHistory } from 'react-router-dom';
-import { Notification } from 'hds-react';
+import { useParams } from 'react-router-dom';
 import { useDebounce } from 'use-debounce';
 
 import ApplicationViewPage, { SearchBy } from './ApplicationViewPage';
@@ -32,7 +31,6 @@ import { usePrevious } from '../../common/utils/usePrevious';
 import { useBackendSorting } from '../../common/utils/useBackendSorting';
 
 const ApplicationViewPageContainer: React.FC = () => {
-  const history = useHistory();
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const [searchBy, setSearchBy] = useState<SearchBy>(SearchBy.LAST_NAME);
@@ -118,25 +116,7 @@ const ApplicationViewPageContainer: React.FC = () => {
     }
   );
 
-  if (loading) return <LoadingSpinner isLoading={loading} />;
-  if (!data?.berthApplication)
-    return (
-      <Notification labelText={t('common.notification.noData.label')}>
-        {t('common.notification.noData.description')}
-      </Notification>
-    );
-
-  if (error)
-    return (
-      <Notification labelText={t('common.notification.error.label')} type="error">
-        {t('common.notification.error.description')}
-      </Notification>
-    );
-
-  if (deleteDraftedApplicationError || linkCustomerErr || newCustomerErr) {
-    history.push('/error');
-    return null;
-  }
+  if (loading || !data?.berthApplication) return <LoadingSpinner isLoading={true} />;
 
   const handleDeleteLease = (id: string) => {
     deleteDraftedApplication({
@@ -168,7 +148,7 @@ const ApplicationViewPageContainer: React.FC = () => {
       variables: {
         input: { id, customerId },
       },
-    }).catch(() => console.error('Something went wrong'));
+    });
 
   const handleCreateCustomer = () => {
     const { firstName, lastName, primaryAddress, primaryEmail, primaryPhone } = applicationDetails.applicant;
@@ -188,7 +168,7 @@ const ApplicationViewPageContainer: React.FC = () => {
         phone,
         email,
       },
-    }).catch(() => console.error('Something went wrong'));
+    });
   };
 
   return (

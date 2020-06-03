@@ -38,17 +38,11 @@ const ApplicationListPageContainer: React.SFC = () => {
     orderBy,
   };
 
-  const { loading, error, data } = useQuery<BERTH_APPLICATIONS, BERTH_APPLICATIONS_VARS>(BERTH_APPLICATIONS_QUERY, {
+  const { loading, data } = useQuery<BERTH_APPLICATIONS, BERTH_APPLICATIONS_VARS>(BERTH_APPLICATIONS_QUERY, {
     variables: berthApplicationsVars,
   });
 
   const [deleteDraftedApplication, { loading: isDeleting }] = useDeleteBerthApplication();
-  if (error)
-    return (
-      <Notification labelText={t('common.notification.error.label')} type="error">
-        {t('common.notification.error.description')}
-      </Notification>
-    );
 
   const columns: ColumnType[] = [
     {
