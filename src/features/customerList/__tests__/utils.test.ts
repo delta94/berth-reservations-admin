@@ -1,11 +1,9 @@
 import { getCustomersData } from '../utils';
-import { CUSTOMERS } from '../__generated__/CUSTOMERS';
-import { ContactMethod, ServiceType } from '../../../@types/__generated__/globalTypes';
 import { customersResponse } from '../__mocks__/customersMockResponse';
 
 describe('utils', () => {
   describe('getCustomersData', () => {
-    it('should convert data', () => {
+    it('should get profile', () => {
       const customersData = getCustomersData(customersResponse);
 
       expect(customersData.length).toEqual(1);
@@ -18,17 +16,32 @@ describe('utils', () => {
       expect(profile.email).toEqual('tellervo@foobar.com');
       expect(profile.phone).toEqual('+358 494817677');
       expect(profile.comment).toEqual('Asiakas ku asiakas.');
+    });
+
+    it('should get boats', () => {
+      const profile = getCustomersData(customersResponse)[0];
 
       expect(profile.boats.length).toEqual(1);
       const boat = profile.boats[0];
+      expect(boat.id).toBeDefined();
       expect(boat.name).toEqual('BigBoiShip');
+    });
+
+    it('should get applications', () => {
+      const profile = getCustomersData(customersResponse)[0];
 
       expect(profile.applications.length).toEqual(1);
       const application = profile.applications[0];
+      expect(application.id).toBeDefined();
       expect(application.createdAt).toEqual('2020-05-27T08:56:05.630976+00:00');
+    });
+
+    it('should get berthLeases', () => {
+      const profile = getCustomersData(customersResponse)[0];
 
       expect(profile.berthLeases.length).toEqual(2);
       const berthLease = profile.berthLeases[0];
+      expect(berthLease.id).toBeDefined();
       expect(berthLease.title).toEqual('Puotilan venesatama A 37');
     });
   });
