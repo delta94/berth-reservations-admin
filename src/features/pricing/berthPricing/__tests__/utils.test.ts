@@ -1,24 +1,11 @@
 import { getBerthsData } from '../utils';
 import { BerthPricing } from '../__generated__/BerthPricing';
+import { data } from '../__fixtures__/data';
 
 describe('utils', () => {
-  const data = {
-    __typename: '',
-    edges: [
-      {
-        node: {
-          id: '68ac7db5-b397-48f6-af19-99c35d645cb6',
-          name: 'sed sed debitis',
-          defaultProduct: {
-            priceValue: '10.2',
-          },
-        },
-      },
-    ],
-  };
   describe('getBerthsData', () => {
     it('should return an array of BerthPrice objects', () => {
-      expect(getBerthsData(data as BerthPricing)).toMatchSnapshot();
+      expect(getBerthsData(data)).toMatchSnapshot();
     });
 
     it("company's fee should be twice as much as the private customer's", () => {

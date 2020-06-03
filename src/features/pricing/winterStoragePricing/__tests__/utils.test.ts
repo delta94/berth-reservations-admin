@@ -1,32 +1,11 @@
 import { getWinterStorageData } from '../utils';
 import { WinterStoragePricing } from '../__generated__/WinterStoragePricing';
+import { data } from '../__fixtures__/data';
 
 describe('utils', () => {
-  const data = {
-    __typename: '',
-    edges: [
-      {
-        __typename: '',
-        node: {
-          __typename: '',
-          id: 'b3cb95f7-e9ce-438a-8447-203145f047fe',
-          properties: {
-            __typename: '',
-            name: 'Corporate Developer Mobility',
-            product: {
-              __typename: '',
-              priceValue: '10.2',
-              priceUnit: 'AMOUNT',
-            },
-          },
-        },
-      },
-    ],
-  };
-
   describe('getWinterStorageData', () => {
     it('should return an array of WinterStoragePrice objects', () => {
-      expect(getWinterStorageData(data as WinterStoragePricing)).toMatchSnapshot();
+      expect(getWinterStorageData(data)).toMatchSnapshot();
     });
 
     it("company's fee should be twice as much as the private customer's", () => {

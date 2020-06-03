@@ -1,29 +1,11 @@
 import { getAdditionalServiceData } from '../utils';
 import { AdditionalServicePricingProps } from '../AdditionalServicePricing';
+import { data } from '../__fixtures__/data';
 
 describe('utils', () => {
-  const data = {
-    __typename: 'AdditionalProductNodeConnection',
-    edges: [
-      {
-        __typename: 'AdditionalProductNodeEdge',
-        node: {
-          __typename: 'AdditionalProductNode',
-          id: 'a8400b59-534c-4934-b643-083a4273ca1a',
-          service: 'DINGHY_PLACE',
-          priceValue: 10,
-          priceUnit: 'AMOUNT',
-          period: 'SEASON',
-          productType: 'OPTIONAL_SERVICE',
-          taxPercentage: 'TAX_24_00',
-        },
-      },
-    ],
-  };
-
   describe('getAdditionalServiceData', () => {
     it('should return an array of AdditionalService objects', () => {
-      expect(getAdditionalServiceData(data as AdditionalServicePricingProps['data'])).toMatchSnapshot();
+      expect(getAdditionalServiceData(data)).toMatchSnapshot();
     });
 
     it('should return an empty array when the provided data is undefined or null', () => {

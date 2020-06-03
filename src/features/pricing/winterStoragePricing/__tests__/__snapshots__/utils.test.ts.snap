@@ -1,17 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`utils getWinterStorageData should return an array of BerthPrice objects 1`] = `
-Array [
-  Object {
-    "area": "Corporate Developer Mobility",
-    "company": 20.4,
-    "id": "b3cb95f7-e9ce-438a-8447-203145f047fe",
-    "period": "SEASON",
-    "privateCustomer": "10.2",
-  },
-]
-`;
-
 exports[`utils getWinterStorageData should return an array of WinterStoragePrice objects 1`] = `
 Array [
   Object {
