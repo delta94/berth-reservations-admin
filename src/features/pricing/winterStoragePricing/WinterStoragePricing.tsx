@@ -10,7 +10,6 @@ import Table, { Column, COLUMN_WIDTH } from '../../../common/table/Table';
 import { formatPrice } from '../../../common/utils/format';
 import { EDIT_FORM_TYPE } from '../editModal/EditForm';
 import Text from '../../../common/text/Text';
-import { WINTER_STORAGE_PRICING } from './fragments';
 import { WinterStoragePricing as WinterStoragePricingData } from './__generated__/WinterStoragePricing';
 import { getWinterStorageData } from './utils';
 import { PeriodType } from '../../../@types/__generated__/globalTypes';
@@ -31,7 +30,7 @@ export interface WinterStoragePricingProps {
   openModal: (formType: EDIT_FORM_TYPE, initialValues: WinterStoragePrice) => void;
 }
 
-const WinterStoragePricing = ({ data, loading, className, openModal }: WinterStoragePricingProps) => {
+const WinterStoragePricing: React.FC<WinterStoragePricingProps> = ({ data, loading, className, openModal }) => {
   const { t, i18n } = useTranslation();
 
   const winterStorageCols: Column<WinterStoragePrice>[] = [
@@ -82,10 +81,6 @@ const WinterStoragePricing = ({ data, loading, className, openModal }: WinterSto
       </CardBody>
     </Card>
   );
-};
-
-WinterStoragePricing.fragments = {
-  winterStoragePricing: WINTER_STORAGE_PRICING,
 };
 
 export default WinterStoragePricing;

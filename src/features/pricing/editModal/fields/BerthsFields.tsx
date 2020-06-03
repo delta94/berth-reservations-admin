@@ -10,7 +10,7 @@ import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
 import { formatDimension } from '../../../../common/utils/format';
 import FormTypeTitle from '../FormTypeTitle';
-import { BerthPrice } from '../../PricingPage';
+import { BerthPrice } from '../../berthPricing/BerthPricing';
 
 const widthOptions = [2, 2.5, 2.75, 3, 4, 5, 5.5, 6, 7];
 const periodOptions = ['season', 'month', 'year'];
