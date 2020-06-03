@@ -1,25 +1,25 @@
 import { HarborCardProps } from '../HarborCard';
 
 export const mockProps: HarborCardProps = {
-  imageUrl: null,
+  address: 'Meripuistotie 1a Helsinki 00210',
+  imageUrl: 'https://venepaikka-api.test.hel.ninja/media/harbors/9a8d8313-eaa2-47d2-8f2d-2bb9893f9bc7/41359.jpg',
   maps: [
     {
       id: 'testmap',
       url: 'testmap',
     },
   ],
-  name: 'Testisatama',
-  address: 'Testiosoite 1, 00100 Helsinki',
-  servicemapId: 'id',
+  name: 'Pajalahden venesatama (Meripuistotie) / Venesatama',
   properties: {
-    electricity: false,
-    gate: false,
-    maxWidth: 5,
-    queue: 0,
-    numberOfFreePlaces: 5,
-    numberOfPlaces: 6,
-    water: true,
-    wasteCollection: true,
+    electricity: true,
+    gate: true,
     lighting: true,
+    maxWidth: 4,
+    numberOfFreePlaces: 2,
+    numberOfPlaces: 4,
+    queue: 4,
+    wasteCollection: true,
+    water: true,
   },
+  servicemapId: '41359',
 };
