@@ -8,8 +8,8 @@ import Table, { Column } from '../../common/table/Table';
 import { INDIVIDUAL_HARBOR_QUERY } from './queries';
 import { INDIVIDUAL_HARBOR } from './__generated__/INDIVIDUAL_HARBOR';
 import { getIndividualHarborData, getBerths, Berth, getPiers, getMaps } from './utils/utils';
-import HarborViewPage from './harborViewPage/HarborViewPage';
-import HarborProperties from './harborProperties/HarborProperties';
+import HarborViewPage from './HarborViewPage';
+import HarborCard from '../../common/harborCard/HarborCard';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { formatDimension } from '../../common/utils/format';
 import PierSelectHeader from './pierSelectHeader/PierSelectHeader';
@@ -106,7 +106,7 @@ const HarborViewPageContainer: React.SFC = () => {
 
   return (
     <HarborViewPage>
-      <HarborProperties
+      <HarborCard
         name={harbor.name || ''}
         imageUrl={harbor.imageFile}
         maps={maps}

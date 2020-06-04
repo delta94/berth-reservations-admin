@@ -28,6 +28,12 @@ export interface OFFER_PAGE_berthApplication {
   customer: OFFER_PAGE_berthApplication_customer | null;
 }
 
+export interface OFFER_PAGE_harborByServicemapId_properties_maps {
+  __typename: "HarborMapType";
+  id: any;
+  url: string;
+}
+
 export interface OFFER_PAGE_harborByServicemapId_properties_piers_edges_node_properties_berths_edges_node_leases_edges_node_customer {
   __typename: "ProfileNode";
   id: string;
@@ -107,6 +113,15 @@ export interface OFFER_PAGE_harborByServicemapId_properties_piers {
 export interface OFFER_PAGE_harborByServicemapId_properties {
   __typename: "HarborProperties";
   name: string | null;
+  servicemapId: string | null;
+  imageFile: string | null;
+  maps: (OFFER_PAGE_harborByServicemapId_properties_maps | null)[];
+  streetAddress: string | null;
+  municipality: string | null;
+  zipCode: string;
+  maxWidth: number | null;
+  numberOfPlaces: number;
+  numberOfFreePlaces: number;
   piers: OFFER_PAGE_harborByServicemapId_properties_piers | null;
 }
 

@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Property renders normally 1`] = `"<div class=\\"property\\"><strong class=\\"text standard strong xxxl\\">0</strong><span class=\\"text standard span s bold label\\">Test</span></div>"`;

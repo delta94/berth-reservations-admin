@@ -1,19 +1,21 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import classNames from 'classnames';
 
-import Card from '../../../common/card/Card';
-import CardHeader from '../../../common/cardHeader/CardHeader';
-import CardBody from '../../../common/cardBody/CardBody';
-import ExternalLink from '../../../common/externalLink/ExternalLink';
-import Text from '../../../common/text/Text';
-import Grid from '../../../common/grid/Grid';
+import Card from '../card/Card';
+import CardHeader from '../cardHeader/CardHeader';
+import CardBody from '../cardBody/CardBody';
+import ExternalLink from '../externalLink/ExternalLink';
+import Text from '../text/Text';
+import Grid from '../grid/Grid';
 import Property from '../property/Property';
-import styles from './harborProperties.module.scss';
-import Section from '../../../common/section/Section';
+import styles from './harborCard.module.scss';
+import Section from '../section/Section';
 import placeholder from './harborPlaceholder.svg';
-import HarborMapLinks from '../../../common/harborMapLinks/HarborMapLinks';
+import HarborMapLinks from '../harborMapLinks/HarborMapLinks';
 
-export interface HarborPropertiesProps {
+export interface HarborCardProps {
+  className?: string;
   imageUrl: string | null;
   maps: {
     id: string;
@@ -33,10 +35,11 @@ export interface HarborPropertiesProps {
     wasteCollection: boolean;
     lighting: boolean;
   };
-  editHarbor: () => void;
+  editHarbor?: () => void;
 }
 
-const HarborProperties: React.SFC<HarborPropertiesProps> = ({
+const HarborCard: React.SFC<HarborCardProps> = ({
+  className,
   name,
   address,
   imageUrl,
@@ -50,14 +53,16 @@ const HarborProperties: React.SFC<HarborPropertiesProps> = ({
   const serviceMapUrl = `${process.env.REACT_APP_SERVICE_MAP_URI}${servicemapId}`;
 
   return (
-    <Card>
-      <CardHeader title={t('harborView.harborProperties.title')}>
-        <button onClick={editHarbor}>
-          <Text weight="normalWeight">{t('common.edit')}</Text>
-        </button>
+    <Card className={classNames(className, styles.card)}>
+      <CardHeader title={t('harborCard.title')}>
+        {editHarbor && (
+          <button onClick={editHarbor}>
+            <Text weight="normalWeight">{t('common.edit')}</Text>
+          </button>
+        )}
       </CardHeader>
       <CardBody>
-        <div className={styles.harborProperties}>
+        <div className={styles.cardBody}>
           <div className={styles.details}>
             <div className={styles.imageWrapper}>
               <img alt="Harbor's location" src={imageUrl ? imageUrl : placeholder} className={styles.image} />
@@ -79,36 +84,29 @@ const HarborProperties: React.SFC<HarborPropertiesProps> = ({
           </div>
           <Grid colsCount={5} className={styles.propsGrid}>
             <div />
-            <Property counter={properties.numberOfPlaces} label={t('harborView.harborProperties.numberOfPlaces')} />
-            <Property
-              counter={properties.numberOfFreePlaces}
-              label={t('harborView.harborProperties.numberOfFreePlaces')}
-            />
-            <Property counter={properties.queue} label={t('harborView.harborProperties.queue')} />
-            <Property counter={properties.maxWidth} label={t('harborView.harborProperties.maxWidth')} />
+            <Property counter={properties.numberOfPlaces} label={t('harborCard.numberOfPlaces')} />
+            <Property counter={properties.numberOfFreePlaces} label={t('harborCard.numberOfFreePlaces')} />
+            <Property counter={properties.queue} label={t('common.terminology.inQueue')} />
+            <Property counter={properties.maxWidth} label={t('harborCard.maxWidth')} />
 
             <Property
               iconShape="IconTrash"
-              label={t('harborView.harborProperties.wasteCollection')}
+              label={t('common.terminology.wasteCollection')}
               active={properties.wasteCollection}
             />
-            <Property iconShape="IconFence" label={t('harborView.harborProperties.gate')} active={properties.gate} />
+            <Property iconShape="IconFence" label={t('common.terminology.gate')} active={properties.gate} />
 
             <Property
               iconShape="IconPlug"
-              label={t('harborView.harborProperties.electricity')}
+              label={t('common.terminology.electricity')}
               active={properties.electricity}
             />
             <Property
               iconShape="IconStreetLight"
-              label={t('harborView.harborProperties.lighting')}
+              label={t('common.terminology.lighting')}
               active={properties.lighting}
             />
-            <Property
-              iconShape="IconWaterTap"
-              label={t('harborView.harborProperties.water')}
-              active={properties.water}
-            />
+            <Property iconShape="IconWaterTap" label={t('common.terminology.water')} active={properties.water} />
           </Grid>
         </div>
       </CardBody>
@@ -116,4 +114,4 @@ const HarborProperties: React.SFC<HarborPropertiesProps> = ({
   );
 };
 
-export default HarborProperties;
+export default HarborCard;
