@@ -1,54 +1,7 @@
-export const IndividualHarborQueryData = {
-  __type: {
-    enumValues: [
-      {
-        name: 'NO_STERN_TO_MOORING',
-        description: 'No stern-to mooring',
-        __typename: '__EnumValue',
-      },
-      {
-        name: 'SINGLE_SLIP_PLACE',
-        description: 'Single slip place',
-        __typename: '__EnumValue',
-      },
-      {
-        name: 'SIDE_SLIP_PLACE',
-        description: 'Side slip place',
-        __typename: '__EnumValue',
-      },
-      {
-        name: 'STERN_BUOY_PLACE',
-        description: 'Stern buoy place',
-        __typename: '__EnumValue',
-      },
-      {
-        name: 'STERN_POLE_MOORING',
-        description: 'Stern pole mooring',
-        __typename: '__EnumValue',
-      },
-      {
-        name: 'QUAYSIDE_MOORING',
-        description: 'Quayside mooring',
-        __typename: '__EnumValue',
-      },
-      {
-        name: 'DINGHY_PLACE',
-        description: 'Dinghy place',
-        __typename: '__EnumValue',
-      },
-      {
-        name: 'SEA_BUOY_MOORING',
-        description: 'Sea buoy mooring',
-        __typename: '__EnumValue',
-      },
-      {
-        name: 'TRAWLER_PLACE',
-        description: 'Trawler place',
-        __typename: '__EnumValue',
-      },
-    ],
-    __typename: '__Type',
-  },
+import { INDIVIDUAL_HARBOR } from '../../__generated__/INDIVIDUAL_HARBOR';
+import { BerthMooringType } from '../../../../@types/__generated__/globalTypes';
+
+export const IndividualHarborQueryData: INDIVIDUAL_HARBOR = {
   harbor: {
     id: 'SGFyYm9yTm9kZTo5YThkODMxMy1lYWEyLTQ3ZDItOGYyZC0yYmI5ODkzZjliYzc=',
     properties: {
@@ -59,11 +12,13 @@ export const IndividualHarborQueryData = {
       zipCode: '00210',
       municipality: 'Helsinki',
       wwwUrl:
-        'https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/kaupungin-venepaikat/kaupungin-venesatamat/pajalahden-venesatama',
+        'https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/' +
+        'veneily/kaupungin-venepaikat/kaupungin-venesatamat/pajalahden-venesatama',
       imageFile:
         'https://venepaikka-api.test.hel.ninja/media/harbors/9a8d8313-eaa2-47d2-8f2d-2bb9893f9bc7/41359_4khsO4e.jpg',
       servicemapId: '41359',
       maxWidth: 4,
+      maps: [],
       piers: {
         edges: [
           {
@@ -108,7 +63,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 6,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -126,7 +81,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -144,7 +99,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 6,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -162,7 +117,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -180,7 +135,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 6,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -198,7 +153,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -216,7 +171,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -234,7 +189,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -252,7 +207,7 @@ export const IndividualHarborQueryData = {
                         width: 2.75,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -270,7 +225,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -288,7 +243,7 @@ export const IndividualHarborQueryData = {
                         width: 2.75,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -306,7 +261,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -324,7 +279,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -342,7 +297,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -360,7 +315,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -378,7 +333,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -396,7 +351,7 @@ export const IndividualHarborQueryData = {
                         width: 2.75,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -414,7 +369,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -432,7 +387,7 @@ export const IndividualHarborQueryData = {
                         width: 2.75,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -450,7 +405,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -468,7 +423,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -486,7 +441,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -504,7 +459,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -522,7 +477,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -540,7 +495,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -558,7 +513,7 @@ export const IndividualHarborQueryData = {
                         width: 4,
                         length: 17,
                         depth: null,
-                        mooringType: 'STERN_BUOY_PLACE',
+                        mooringType: BerthMooringType.STERN_BUOY_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -576,7 +531,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -594,7 +549,7 @@ export const IndividualHarborQueryData = {
                         width: 4,
                         length: 17,
                         depth: null,
-                        mooringType: 'STERN_BUOY_PLACE',
+                        mooringType: BerthMooringType.STERN_BUOY_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -655,7 +610,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -673,7 +628,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -691,7 +646,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -709,7 +664,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -727,7 +682,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -745,7 +700,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -763,7 +718,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -781,7 +736,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -799,7 +754,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -817,7 +772,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -835,7 +790,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -853,7 +808,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -871,7 +826,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -889,7 +844,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -907,7 +862,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -925,7 +880,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -943,7 +898,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -961,7 +916,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -979,7 +934,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -997,7 +952,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1015,7 +970,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1033,7 +988,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1051,7 +1006,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1069,7 +1024,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1087,7 +1042,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1105,7 +1060,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1123,7 +1078,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1141,7 +1096,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1159,7 +1114,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1177,7 +1132,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1195,7 +1150,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1213,7 +1168,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1231,7 +1186,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1249,7 +1204,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1267,7 +1222,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1285,7 +1240,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1303,7 +1258,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1321,7 +1276,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1339,7 +1294,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1357,7 +1312,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1375,7 +1330,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1393,7 +1348,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1411,7 +1366,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1429,7 +1384,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1447,7 +1402,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1465,7 +1420,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1483,7 +1438,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1501,7 +1456,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1519,7 +1474,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1537,7 +1492,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1555,7 +1510,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1573,7 +1528,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1591,7 +1546,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1609,7 +1564,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1627,7 +1582,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1645,7 +1600,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1663,7 +1618,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1681,7 +1636,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1699,7 +1654,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1717,7 +1672,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1735,7 +1690,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1753,7 +1708,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1771,7 +1726,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1789,7 +1744,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1807,7 +1762,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1825,7 +1780,7 @@ export const IndividualHarborQueryData = {
                         width: 4,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1843,7 +1798,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1861,7 +1816,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1879,7 +1834,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 9,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1897,7 +1852,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1915,7 +1870,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1933,7 +1888,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1951,7 +1906,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1969,7 +1924,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -1987,7 +1942,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2005,7 +1960,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2023,7 +1978,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2041,7 +1996,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2059,7 +2014,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2077,7 +2032,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2138,7 +2093,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2156,7 +2111,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2174,7 +2129,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2192,7 +2147,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2210,7 +2165,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2228,7 +2183,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2246,7 +2201,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2264,7 +2219,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2282,7 +2237,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2300,7 +2255,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2318,7 +2273,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2336,7 +2291,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2354,7 +2309,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2372,7 +2327,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2390,7 +2345,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2408,7 +2363,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2426,7 +2381,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2444,7 +2399,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2462,7 +2417,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2480,7 +2435,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2498,7 +2453,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2516,7 +2471,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2534,7 +2489,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2552,7 +2507,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2570,7 +2525,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2588,7 +2543,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2606,7 +2561,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2624,7 +2579,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2642,7 +2597,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2660,7 +2615,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2678,7 +2633,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2696,7 +2651,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2714,7 +2669,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2732,7 +2687,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2750,7 +2705,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2768,7 +2723,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 5,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2829,7 +2784,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 6,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2847,7 +2802,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 6,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2865,7 +2820,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 6,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2883,7 +2838,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 6,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2901,7 +2856,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 6,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2919,7 +2874,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 6,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2937,7 +2892,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 6,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2955,7 +2910,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 6,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2973,7 +2928,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 6,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -2991,7 +2946,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 6,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3009,7 +2964,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 6,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3027,7 +2982,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 6,
                         depth: null,
-                        mooringType: 'SINGLE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SINGLE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3045,7 +3000,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3063,7 +3018,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3081,7 +3036,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3099,7 +3054,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3117,7 +3072,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3135,7 +3090,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3153,7 +3108,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3171,7 +3126,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3189,7 +3144,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3207,7 +3162,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3225,7 +3180,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3243,7 +3198,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3261,7 +3216,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3279,7 +3234,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3297,7 +3252,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3315,7 +3270,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 8,
                         depth: null,
-                        mooringType: 'SIDE_SLIP_PLACE',
+                        mooringType: BerthMooringType.SIDE_SLIP_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3333,7 +3288,7 @@ export const IndividualHarborQueryData = {
                         width: 3.5,
                         length: 12,
                         depth: null,
-                        mooringType: 'STERN_BUOY_PLACE',
+                        mooringType: BerthMooringType.STERN_BUOY_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3394,7 +3349,7 @@ export const IndividualHarborQueryData = {
                         width: 2.5,
                         length: 9,
                         depth: null,
-                        mooringType: 'STERN_BUOY_PLACE',
+                        mooringType: BerthMooringType.STERN_BUOY_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3412,7 +3367,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'STERN_BUOY_PLACE',
+                        mooringType: BerthMooringType.STERN_BUOY_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3430,7 +3385,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'STERN_BUOY_PLACE',
+                        mooringType: BerthMooringType.STERN_BUOY_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3448,7 +3403,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'STERN_BUOY_PLACE',
+                        mooringType: BerthMooringType.STERN_BUOY_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3466,7 +3421,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'STERN_BUOY_PLACE',
+                        mooringType: BerthMooringType.STERN_BUOY_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3484,7 +3439,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'STERN_BUOY_PLACE',
+                        mooringType: BerthMooringType.STERN_BUOY_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3502,7 +3457,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'STERN_BUOY_PLACE',
+                        mooringType: BerthMooringType.STERN_BUOY_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3520,7 +3475,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'STERN_BUOY_PLACE',
+                        mooringType: BerthMooringType.STERN_BUOY_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3538,7 +3493,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'STERN_BUOY_PLACE',
+                        mooringType: BerthMooringType.STERN_BUOY_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3556,7 +3511,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'STERN_BUOY_PLACE',
+                        mooringType: BerthMooringType.STERN_BUOY_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3574,7 +3529,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'STERN_BUOY_PLACE',
+                        mooringType: BerthMooringType.STERN_BUOY_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3592,7 +3547,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'STERN_BUOY_PLACE',
+                        mooringType: BerthMooringType.STERN_BUOY_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3610,7 +3565,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'STERN_BUOY_PLACE',
+                        mooringType: BerthMooringType.STERN_BUOY_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3628,7 +3583,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'STERN_BUOY_PLACE',
+                        mooringType: BerthMooringType.STERN_BUOY_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3646,7 +3601,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'STERN_BUOY_PLACE',
+                        mooringType: BerthMooringType.STERN_BUOY_PLACE,
                         comment: '',
                         leases: {
                           edges: [],
@@ -3664,7 +3619,7 @@ export const IndividualHarborQueryData = {
                         width: 3,
                         length: 9,
                         depth: null,
-                        mooringType: 'STERN_BUOY_PLACE',
+                        mooringType: BerthMooringType.STERN_BUOY_PLACE,
                         comment: '',
                         leases: {
                           edges: [],

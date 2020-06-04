@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next';
 import Card from '../card/Card';
 import CardHeader from '../cardHeader/CardHeader';
 import CardBody from '../cardBody/CardBody';
-import PrivateCustomerDetails, { PrivateCustomerDetailsProps } from './privateCustomerDetails/PrivateCustomerDetails';
+import PrivateCustomerDetails, { PrivateCustomerDetailsProps } from '../privateCustomerDetails/PrivateCustomerDetails';
 import OrganizationCustomerDetails, {
   OrganizationCustomerDetailsProps,
-} from './organizationCustomerDetails/OrganizationCustomerDetails';
+} from '../organizationCustomerDetails/OrganizationCustomerDetails';
 
 export type CustomerProfileCardProps = {
   className?: string;

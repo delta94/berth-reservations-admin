@@ -1,10 +1,10 @@
-import { getBerths } from './utils';
-import { IndividualHarborQueryData } from './mockData';
+import { getBerths } from '../utils';
+import { IndividualHarborQueryData } from '../__fixtures__/mockData';
 
 describe('utils', () => {
   describe('getBerths', () => {
     it('should return an empty array when the provided data is undefined', () => {
-      expect(getBerths()).toStrictEqual([]);
+      expect(getBerths(undefined)).toStrictEqual([]);
     });
 
     it('should return an array of Berth objects', () => {

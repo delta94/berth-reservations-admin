@@ -2,10 +2,11 @@ import React from 'react';
 import { HashRouter } from 'react-router-dom';
 
 import BerthDetails from './BerthDetails';
+import { LeaseStatus } from '../../@types/__generated__/globalTypes';
 
 export default {
   component: BerthDetails,
-  decorators: [(storyFn) => <HashRouter>{storyFn()}</HashRouter>],
+  decorators: [(storyFn: Function) => <HashRouter>{storyFn()}</HashRouter>],
   title: 'BerthDetails',
 };
 
@@ -13,6 +14,8 @@ export const berthDetails = () => (
   <BerthDetails
     leases={[
       {
+        status: LeaseStatus.PAID,
+        isActive: true,
         customer: {
           id: '123',
           firstName: 'Jack',
@@ -22,6 +25,8 @@ export const berthDetails = () => (
         endDate: 'Thu Mar 12 2020 15:43:12 GMT+0200 (Eastern European Standard Time)',
       },
       {
+        status: LeaseStatus.EXPIRED,
+        isActive: false,
         customer: {
           id: '456',
           firstName: 'Marc',
@@ -31,7 +36,10 @@ export const berthDetails = () => (
         endDate: 'Tue Dec 17 2019 12:01:44 GMT+0200 (Eastern European Standard Time)',
       },
     ]}
-    comment="Neque ipsum neque natus illo. Iste sed architecto consectetur repellat tempore tempora et et. Voluptatum maiores ea nisi modi numquam dolores. Animi earum ipsa ipsa dolor sit non."
+    comment={
+      'Neque ipsum neque natus illo. Iste sed architecto consectetur repellat tempore tempora et et. ' +
+      'Voluptatum maiores ea nisi modi numquam dolores. Animi earum ipsa ipsa dolor sit non.'
+    }
     gate
     electricity
     water={false}
