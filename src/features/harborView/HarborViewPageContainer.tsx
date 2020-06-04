@@ -35,7 +35,6 @@ const HarborViewPageContainer: React.SFC = () => {
   const piers = getPiers(data);
   const berths = getBerths(data);
   const maps = getMaps(data);
-  const canAddBerth = piers.length > 0;
 
   return (
     <HarborViewPage>

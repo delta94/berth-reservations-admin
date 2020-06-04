@@ -24,7 +24,7 @@ const BerthCreateForm: React.FC<BerthCreateFormProps> = ({ onCancel, onSubmit, r
       onCancel={onCancel}
       onSubmitText={t('forms.common.create')}
       onSubmit={(values) => {
-        const { pierId, number, width, length, mooringType, comment, isActive } = values;
+        const { pierId, number, width, length, mooringType, comment, isActive, depth } = values;
         createBerth({
           variables: {
             input: {
@@ -35,6 +35,7 @@ const BerthCreateForm: React.FC<BerthCreateFormProps> = ({ onCancel, onSubmit, r
               mooringType,
               comment,
               isActive,
+              depth,
             } as CreateBerthMutationInput,
           },
         }).then(() => onSubmit?.(values));

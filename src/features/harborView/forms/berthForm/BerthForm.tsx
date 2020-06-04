@@ -39,17 +39,19 @@ const getBerthValidationSchema = (t: TFunction, pierOptions: Pier[]): ObjectSche
       .typeError(t('forms.common.errors.numberType'))
       .positive(t('forms.common.errors.positive'))
       .required(t('forms.common.errors.required')),
+    depth: Yup.number().typeError(t('forms.common.errors.numberType')).positive(t('forms.common.errors.positive')),
     mooringType: Yup.string().oneOf(Object.keys(BerthMooringType)).required(t('forms.common.errors.required')),
   });
 };
 
 const transformValues = (values: any): Berth => {
-  const { number, width, length } = values;
+  const { number, width, length, depth } = values;
   return {
     ...values,
     number: parseInt(number),
     width: parseFloat(width),
     length: parseFloat(length),
+    depth: parseFloat(depth),
   };
 };
 
@@ -138,7 +140,6 @@ const BerthForm: React.FC<BerthFormProps> = ({
               labelText={t('forms.berth.depth')}
               invalid={!!errors.depth}
               helperText={errors.depth}
-              readOnly
             />
           </Grid>
 
