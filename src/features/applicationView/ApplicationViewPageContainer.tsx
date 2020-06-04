@@ -104,17 +104,14 @@ const ApplicationViewPageContainer: React.FC = () => {
     }
   );
 
-  const [createNewCustomer] = useMutation<CREATE_NEW_PROFILE, CREATE_NEW_PROFILE_VARS>(
-    CREATE_NEW_PROFILE_MUTATION,
-    {
-      refetchQueries: [
-        {
-          query: FILTERED_CUSTOMERS_QUERY,
-          variables: filteredCustomersVars,
-        },
-      ],
-    }
-  );
+  const [createNewCustomer] = useMutation<CREATE_NEW_PROFILE, CREATE_NEW_PROFILE_VARS>(CREATE_NEW_PROFILE_MUTATION, {
+    refetchQueries: [
+      {
+        query: FILTERED_CUSTOMERS_QUERY,
+        variables: filteredCustomersVars,
+      },
+    ],
+  });
 
   if (loading || !data?.berthApplication) return <LoadingSpinner isLoading={true} />;
 
