@@ -29,6 +29,19 @@ export const dummyCustomers: CUSTOMERS = {
           serviceConnections: null,
           contactMethod: ContactMethod.EMAIL,
           image: '',
+          comment: '',
+          boats: {
+            __typename: 'BoatNodeConnection',
+            edges: [],
+          },
+          berthApplications: {
+            __typename: 'BerthApplicationNodeConnection',
+            edges: [],
+          },
+          berthLeases: {
+            __typename: 'BerthLeaseNodeConnection',
+            edges: [],
+          },
         },
       },
       {
@@ -58,6 +71,19 @@ export const dummyCustomers: CUSTOMERS = {
           serviceConnections: null,
           contactMethod: ContactMethod.EMAIL,
           image: '',
+          comment: '',
+          boats: {
+            __typename: 'BoatNodeConnection',
+            edges: [],
+          },
+          berthApplications: {
+            __typename: 'BerthApplicationNodeConnection',
+            edges: [],
+          },
+          berthLeases: {
+            __typename: 'BerthLeaseNodeConnection',
+            edges: [],
+          },
         },
       },
     ],
