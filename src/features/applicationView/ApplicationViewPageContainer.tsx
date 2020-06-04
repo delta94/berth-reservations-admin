@@ -36,7 +36,7 @@ const ApplicationViewPageContainer: React.FC = () => {
   const [searchBy, setSearchBy] = useState<SearchBy>(SearchBy.LAST_NAME);
   const [searchVal, setSearchVal] = useState<string>('');
 
-  const { loading, error, data } = useQuery<INDIVIDUAL_APPLICATION, INDIVIDUAL_APPLICATION_VARS>(
+  const { loading, data } = useQuery<INDIVIDUAL_APPLICATION, INDIVIDUAL_APPLICATION_VARS>(
     INDIVIDUAL_APPLICATION_QUERY,
     {
       variables: {
@@ -69,7 +69,7 @@ const ApplicationViewPageContainer: React.FC = () => {
     variables: filteredCustomersVars,
   });
 
-  const [deleteDraftedApplication, { error: deleteDraftedApplicationError }] = useDeleteBerthApplication();
+  const [deleteDraftedApplication] = useDeleteBerthApplication();
   useEffect(() => {
     if (!data?.berthApplication) return;
 
@@ -90,21 +90,21 @@ const ApplicationViewPageContainer: React.FC = () => {
     !customer && !loading && goToPage(0);
   }, [searchVal, searchBy, customer, loading, goToPage]);
 
-  const [linkCustomer, { error: linkCustomerErr }] = useMutation<
-    UPDATE_BERTH_APPLICATION,
-    UPDATE_BERTH_APPLICATION_VARS
-  >(UPDATE_BERTH_APPLICATION_MUTATION, {
-    refetchQueries: [
-      {
-        query: INDIVIDUAL_APPLICATION_QUERY,
-        variables: {
-          id,
+  const [linkCustomer] = useMutation<UPDATE_BERTH_APPLICATION, UPDATE_BERTH_APPLICATION_VARS>(
+    UPDATE_BERTH_APPLICATION_MUTATION,
+    {
+      refetchQueries: [
+        {
+          query: INDIVIDUAL_APPLICATION_QUERY,
+          variables: {
+            id,
+          },
         },
-      },
-    ],
-  });
+      ],
+    }
+  );
 
-  const [createNewCustomer, { error: newCustomerErr }] = useMutation<CREATE_NEW_PROFILE, CREATE_NEW_PROFILE_VARS>(
+  const [createNewCustomer] = useMutation<CREATE_NEW_PROFILE, CREATE_NEW_PROFILE_VARS>(
     CREATE_NEW_PROFILE_MUTATION,
     {
       refetchQueries: [

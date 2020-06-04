@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
-import { Notification } from 'hds-react';
 
 import ApplicationListPage from './ApplicationListPage';
 import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
