@@ -56,7 +56,7 @@ describe('ApplicationDetails', () => {
   const getWrapper = (props?: Partial<ApplicationDetailsProps>) =>
     shallow(
       <HashRouter>
-        <ApplicationDetails {...props} {...mockProps} />
+        <ApplicationDetails {...mockProps} {...props} />
       </HashRouter>
     );
 
