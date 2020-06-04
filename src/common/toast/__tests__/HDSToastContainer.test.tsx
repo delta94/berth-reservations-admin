@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import { wait } from '@apollo/react-testing';
 import { act } from 'react-dom/test-utils';
@@ -7,13 +7,24 @@ import hdsToast from '../hdsToast';
 import HDSToastContainer from '../HDSToastContainer';
 
 describe('HDSToastContainer', () => {
-  const getWrapper = () => {
-    return mount(
+  const TestComponent: React.FC = () => {
+    const [count, setCount] = useState(0);
+    return (
       <div>
         <HDSToastContainer />
-        <button id="toastBtn" onClick={() => hdsToast({ type: 'error', labelText: 'labelText', text: 'text' })} />
+        <button
+          id="toastBtn"
+          onClick={() => {
+            hdsToast({ type: 'error', labelText: 'labelText', text: 'text', toastId: count.toString() });
+            setCount(count + 1);
+          }}
+        />
       </div>
     );
+  };
+
+  const getWrapper = () => {
+    return mount(<TestComponent />);
   };
 
   const simulateToast = async (wrapper: ReactWrapper) => {
