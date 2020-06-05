@@ -3,15 +3,20 @@ import { mount } from 'enzyme';
 import { Form, Formik } from 'formik';
 
 import AdditionalServicesFields from '../AdditionalServicesFields';
-import { AdditionalService } from '../../../PricingPage';
+import { AdditionalService } from '../../../additionalServicePricing/AdditionalServicePricing';
+import {
+  ProductServiceType,
+  PeriodType,
+  AdditionalProductTaxEnum,
+} from '../../../../../@types/__generated__/globalTypes';
 
 describe('AdditionalServicesFields', () => {
   const mockValues: AdditionalService = {
     id: '1',
-    service: 'trawlerSummerStorage',
-    price: 25,
-    tax: 24,
-    period: 'season',
+    service: ProductServiceType.LIGHTING,
+    price: '25',
+    tax: AdditionalProductTaxEnum.TAX_24_00,
+    period: PeriodType.SEASON,
   };
 
   const getWrapper = () =>
@@ -33,28 +38,28 @@ describe('AdditionalServicesFields', () => {
   describe('Service field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('select[name="service"]');
-      expect(input.prop('value')).toEqual('trawlerSummerStorage');
+      expect(input.prop('value')).toEqual('LIGHTING');
     });
   });
 
   describe('Price field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('input#price');
-      expect(input.prop('value')).toEqual(25);
+      expect(input.prop('value')).toEqual('25');
     });
   });
 
   describe('Tax field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('select[name="tax"]');
-      expect(input.prop('value')).toEqual(24);
+      expect(input.prop('value')).toEqual('TAX_24_00');
     });
   });
 
   describe('Period field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('select[name="period"]');
-      expect(input.prop('value')).toEqual('season');
+      expect(input.prop('value')).toEqual('SEASON');
     });
   });
 });

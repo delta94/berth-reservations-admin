@@ -10,7 +10,7 @@ import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
 import { formatPercentage } from '../../../../common/utils/format';
 import FormTypeTitle from '../FormTypeTitle';
-import { AdditionalService } from '../../PricingPage';
+import { AdditionalService } from '../../additionalServicePricing/AdditionalServicePricing';
 
 const serviceOptions = ['trawlerSummerStorage', 'parkingPermit', 'dinghyPlace'];
 const taxOptions = [24];
