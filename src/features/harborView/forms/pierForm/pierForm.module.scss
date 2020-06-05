@@ -1,18 +1,16 @@
 @import 'spacings';
 
 .form {
+  padding: units(1) 0;
+  max-width: units(32);
+
   > * {
     margin: units(1) 0;
   }
-  max-width: 400px;
-  max-height: 80vh;
 }
 
-.heading {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 0;
+.confirmationModal {
+  max-width: units(32);
 }
 
 .grid {
@@ -27,7 +25,7 @@
 }
 
 .checkboxes {
-  display: flex;
-  flex-direction: column;
-
+  > * {
+    margin: units(0.5) 0;
+  }
 }
