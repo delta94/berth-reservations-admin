@@ -21,7 +21,9 @@ type ModalState =
 const PricingPageContainer: FunctionComponent = () => {
   const { t } = useTranslation();
 
-  const { loading, error, data } = useQuery<PRICING_PAGE>(PRICING_PAGE_QUERY);
+  const { loading, error, data } = useQuery<PRICING_PAGE>(PRICING_PAGE_QUERY, {
+    fetchPolicy: 'cache-and-network',
+  });
 
   const [editModalValues, setEditModalValues] = useState<ModalState>({
     isOpen: false,
