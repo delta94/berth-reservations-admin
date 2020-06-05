@@ -5,13 +5,14 @@ import { useLocation, useParams, useHistory } from 'react-router-dom';
 import { Notification } from 'hds-react';
 import { getOperationName } from 'apollo-boost';
 
+import styles from './offerPage.module.scss';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { OFFER_PAGE_QUERY } from './queries';
 import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
 import OfferPage from './OfferPage';
 import InternalLink from '../../common/internalLink/InternalLink';
 import { OFFER_PAGE } from './__generated__/OFFER_PAGE';
-import { BerthData, getOfferData, getAllPiersIdentifiers } from './utils';
+import { BerthData, getOfferData, getAllPiersIdentifiers, getHarbor } from './utils';
 import { formatDimension, formatDate } from '../../common/utils/format';
 import { CREATE_LEASE_MUTATION } from './mutations';
 import { CREATE_LEASE, CREATE_LEASEVariables as CREATE_LEASE_VARS } from './__generated__/CREATE_LEASE';
@@ -19,6 +20,7 @@ import TableTools from './tableTools/TableTools';
 import BerthDetails from '../../common/berthDetails/BerthDetails';
 import TableFilters from '../../common/tableFilters/TableFilters';
 import { BERTH_APPLICATIONS_QUERY } from '../applicationList/queries';
+import HarborCard from '../../common/harborCard/HarborCard';
 
 type ColumnType = Column<BerthData> & { accessor: keyof BerthData };
 
@@ -112,9 +114,11 @@ const OfferPageContainer: React.FC = () => {
   const handleReturn = () => history.push('/applications');
   const applicationType = getApplicationType(!!data.berthApplication.berthSwitch);
   const piersIdentifiers = getAllPiersIdentifiers(data);
+  const harbor = getHarbor(data);
 
   return (
     <OfferPage>
+      {harbor && <HarborCard {...harbor} className={styles.card} />}
       <Table
         data={tableData}
         columns={columns}

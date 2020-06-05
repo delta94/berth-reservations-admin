@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`common/Card renders a Card component 1`] = `"<div class=\\"card\\">placeholder </div>"`;
-
-exports[`common/Card renders a Card component without title 1`] = `"<div class=\\"card\\">placeholder </div>"`;

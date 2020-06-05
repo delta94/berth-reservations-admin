@@ -17,6 +17,18 @@ export const OFFER_PAGE_QUERY = gql`
       id
       properties {
         name
+        servicemapId
+        imageFile
+        maps {
+          id
+          url
+        }
+        streetAddress
+        municipality
+        zipCode
+        maxWidth
+        numberOfPlaces
+        numberOfFreePlaces
         piers(forApplication: $applicationId) {
           edges {
             node {

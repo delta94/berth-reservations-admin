@@ -10,7 +10,6 @@ import { CustomerData } from './ApplicationViewPage';
 import { BerthMooringType } from '../../@types/__generated__/globalTypes';
 import { FILTERED_CUSTOMERS } from './__generated__/FILTERED_CUSTOMERS';
 import { OfferCardProps } from './offerCard/OfferCard';
-import { PrivateCustomerDetailsProps } from '../../common/customerProfileCard/privateCustomerDetails/PrivateCustomerDetails';
 
 export const getCustomerProfile = (profile: CUSTOMER_PROFILE): CustomerProfileCardProps => {
   return {
@@ -41,11 +40,20 @@ interface BerthSwitch {
   reason: string | null;
 }
 
-const getApplicantDetails = (berthApplication: BERTH_APPLICATION): PrivateCustomerDetailsProps => {
-  const { firstName, lastName, address, zipCode, municipality, phoneNumber, email, customer } = berthApplication;
+const getApplicantDetails = (berthApplication: BERTH_APPLICATION): CustomerProfileCardProps => {
+  const {
+    firstName,
+    lastName,
+    address,
+    zipCode,
+    municipality,
+    phoneNumber,
+    email,
+    businessId,
+    companyName,
+  } = berthApplication;
 
   return {
-    customerId: customer?.id,
     firstName: firstName,
     lastName: lastName,
     primaryAddress: {
@@ -55,6 +63,15 @@ const getApplicantDetails = (berthApplication: BERTH_APPLICATION): PrivateCustom
     },
     primaryPhone: phoneNumber,
     primaryEmail: email,
+    ...(businessId && {
+      organization: {
+        businessId,
+        name: companyName,
+        address,
+        city: municipality,
+        postalCode: zipCode,
+      },
+    }),
   };
 };
 

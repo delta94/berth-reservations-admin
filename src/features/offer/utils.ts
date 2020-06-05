@@ -1,5 +1,6 @@
 import { OFFER_PAGE } from './__generated__/OFFER_PAGE';
 import { LeaseStatus } from '../../@types/__generated__/globalTypes';
+import { HarborCardProps } from '../../common/harborCard/HarborCard';
 
 interface Lease {
   customer: {
@@ -121,4 +122,67 @@ export const getAllPiersIdentifiers = (data: OFFER_PAGE | undefined): PierTab[] 
 
     return [...acc, pierTab];
   }, []);
+};
+
+type Map = {
+  id: string;
+  url: string;
+};
+
+export const getHarbor = (data: OFFER_PAGE | undefined): HarborCardProps | null => {
+  if (
+    !data ||
+    !data.harborByServicemapId ||
+    !data.harborByServicemapId.properties ||
+    !data.harborByServicemapId.properties.piers
+  ) {
+    return null;
+  }
+
+  const pierProps = data.harborByServicemapId.properties.piers.edges.reduce(
+    (prev, pier) => {
+      if (pier?.node?.properties) {
+        return {
+          electricity: prev.electricity || pier.node.properties.electricity,
+          gate: prev.gate || pier.node.properties.gate,
+          lighting: prev.lighting || pier.node.properties.lighting,
+          wasteCollection: prev.wasteCollection || pier.node.properties.wasteCollection,
+          water: prev.water || pier.node.properties.water,
+        };
+      }
+      return prev;
+    },
+    {
+      electricity: false,
+      gate: false,
+      lighting: false,
+      wasteCollection: false,
+      water: false,
+    }
+  );
+
+  const maps = data.harborByServicemapId.properties.maps.reduce<Map[]>((acc, map) => {
+    if (map !== null) {
+      return acc.concat({
+        id: map.id,
+        url: map.url,
+      });
+    }
+    return acc;
+  }, []);
+
+  return {
+    imageUrl: data.harborByServicemapId.properties.imageFile,
+    maps,
+    name: data.harborByServicemapId.properties.name || '',
+    address: `${data.harborByServicemapId.properties.streetAddress} ${data.harborByServicemapId.properties.municipality} ${data.harborByServicemapId.properties.zipCode}`,
+    servicemapId: data.harborByServicemapId.properties.servicemapId || '',
+    properties: {
+      ...pierProps,
+      queue: data.harborByServicemapId.properties.numberOfPlaces, // TODO
+      numberOfPlaces: data.harborByServicemapId.properties.numberOfPlaces,
+      numberOfFreePlaces: data.harborByServicemapId.properties.numberOfFreePlaces,
+      maxWidth: data.harborByServicemapId.properties.maxWidth || 0,
+    },
+  };
 };

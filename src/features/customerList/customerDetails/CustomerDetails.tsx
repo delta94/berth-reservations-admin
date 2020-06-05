@@ -5,31 +5,14 @@ import Grid from '../../../common/grid/Grid';
 import Section from '../../../common/section/Section';
 import styles from './customerDetails.module.scss';
 import { OrganizationType } from '../../../@types/__generated__/globalTypes';
-
-interface Berth {
-  id: string;
-  title: string;
-}
-
-interface WinterStoragePlaces {
-  id: string;
-  title: string;
-}
-
-interface CustomerListBoat {
-  id: string;
-  name: string;
-}
-
-interface Application {
-  id: string;
-  date: string;
-}
-
-interface Bill {
-  id: string;
-  date: string;
-}
+import {
+  CustomerListApplication,
+  CustomerListBerthLeases,
+  CustomerListBill,
+  CustomerListBoat,
+  CustomerListWinterStoragePlaces,
+} from '../types';
+import { formatDate } from '../../../common/utils/format';
 
 export interface CustomerDetailsProps {
   name: string;
@@ -38,12 +21,12 @@ export interface CustomerDetailsProps {
   city?: string;
   phone?: string;
   email?: string;
-  berths: Berth[];
-  winterStoragePlaces: WinterStoragePlaces[];
+  berths: CustomerListBerthLeases[];
+  winterStoragePlaces: CustomerListWinterStoragePlaces[];
   boats: CustomerListBoat[];
-  applications: Application[];
-  bills: Bill[];
-  comment: string;
+  applications: CustomerListApplication[];
+  bills: CustomerListBill[];
+  comment: string | null;
   organizationType?: OrganizationType;
 }
 
@@ -62,7 +45,7 @@ const CustomerDetails: React.SFC<CustomerDetailsProps> = ({
   comment,
   organizationType,
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <div className={styles.customerDetails}>
@@ -102,7 +85,7 @@ const CustomerDetails: React.SFC<CustomerDetailsProps> = ({
         <div className={styles.section}>
           <Section title={t('harborList.details.applications')}>
             {applications.map((application) => (
-              <div key={application.id}>{application.date}</div>
+              <div key={application.id}>{formatDate(application.createdAt, i18n.language)}</div>
             ))}
           </Section>
           <Section title={t('harborList.details.bills')}>

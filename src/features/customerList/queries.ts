@@ -1,6 +1,6 @@
 import { gql } from 'apollo-boost';
 
-export const CUSTOMER_QUERY = gql`
+export const CUSTOMERS_QUERY = gql`
   query CUSTOMERS(
     $first: Int!
     $after: String
@@ -27,6 +27,7 @@ export const CUSTOMER_QUERY = gql`
           firstName
           lastName
           nickname
+          comment
           organization {
             businessId
             organizationType
@@ -55,6 +56,42 @@ export const CUSTOMER_QUERY = gql`
           }
           contactMethod
           image
+          boats {
+            edges {
+              node {
+                id
+                name
+              }
+            }
+          }
+          berthApplications {
+            edges {
+              node {
+                id
+                createdAt
+              }
+            }
+          }
+          berthLeases {
+            edges {
+              node {
+                id
+                berth {
+                  number
+                  pier {
+                    properties {
+                      identifier
+                      harbor {
+                        properties {
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

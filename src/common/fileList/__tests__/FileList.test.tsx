@@ -33,7 +33,7 @@ describe('FileList', () => {
       value: undefined,
     });
 
-    expect(wrapper.html()).toBeNull();
+    expect(wrapper.isEmptyRender()).toEqual(true);
   });
 
   it('renders normally with single file props', () => {
@@ -42,7 +42,8 @@ describe('FileList', () => {
       allowDelete: true,
     });
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.isEmptyRender()).toEqual(false);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('renders normally with multiple files props', () => {
@@ -52,7 +53,8 @@ describe('FileList', () => {
       allowDelete: true,
     });
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.isEmptyRender()).toEqual(false);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   describe('"allowDelete" prop', () => {

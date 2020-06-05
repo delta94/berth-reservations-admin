@@ -14,9 +14,10 @@ import ListItem from '../list/ListItem';
 import { formatDimension, formatWeight, formatDate } from '../utils/format';
 import { APPLICATION_STATUS } from '../utils/consonants';
 import { ApplicationStatus } from '../../@types/__generated__/globalTypes';
-import PrivateCustomerDetails, {
-  PrivateCustomerDetailsProps,
-} from '../customerProfileCard/privateCustomerDetails/PrivateCustomerDetails';
+import PrivateCustomerDetails, { PrivateCustomerDetailsProps } from '../privateCustomerDetails/PrivateCustomerDetails';
+import OrganizationCustomerDetails, {
+  OrganizationCustomerDetailsProps,
+} from '../organizationCustomerDetails/OrganizationCustomerDetails';
 
 interface HarborChoice {
   harborName: string;
@@ -43,7 +44,7 @@ interface BerthSwitch {
 export interface ApplicationDetailsProps {
   id: string;
   customerId?: string;
-  applicant?: PrivateCustomerDetailsProps;
+  applicant?: PrivateCustomerDetailsProps | OrganizationCustomerDetailsProps;
   berthSwitch: BerthSwitch | null;
   createdAt: string;
   queue: number | null;
@@ -120,12 +121,18 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
             )}
           </Section>
         )}
-        {applicant && (
-          <PrivateCustomerDetails
-            {...applicant}
-            title={t('applicationList.applicationDetails.applicantInformation').toUpperCase()}
-          />
-        )}
+        {applicant &&
+          ('organization' in applicant ? (
+            <OrganizationCustomerDetails
+              {...applicant}
+              title={t('applicationList.applicationDetails.applicantCompanyInformation').toUpperCase()}
+            />
+          ) : (
+            <PrivateCustomerDetails
+              {...applicant}
+              title={t('applicationList.applicationDetails.applicantInformation').toUpperCase()}
+            />
+          ))}
       </div>
       <div>
         <Section title={t('applicationList.applicationDetails.boatInfo')}>

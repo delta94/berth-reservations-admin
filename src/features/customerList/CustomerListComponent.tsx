@@ -1,13 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Table, { COLUMN_WIDTH, Column } from '../../common/table/Table';
+import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
 import InternalLink from '../../common/internalLink/InternalLink';
 import CustomerDetails from './customerDetails/CustomerDetails';
 import { OrganizationType } from '../../@types/__generated__/globalTypes';
 import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
 import CustomerListTableTools, { CustomerListTableToolsProps } from './tableTools/CustomerListTableTools';
-import { MessageFormValues } from './types';
+import { MessageFormValues, CustomerData } from './types';
 import { getSelectedRowIds } from '../../common/utils/getSelectedRowIds';
 
 export enum SearchBy {
@@ -17,26 +17,11 @@ export enum SearchBy {
   ADDRESS = 'address',
 }
 
-export interface TableData {
-  address?: string;
-  berths?: string;
-  boats?: string;
-  city?: string;
-  email?: string;
-  id: string;
-  invoice?: string;
-  name: string;
-  organizationType?: OrganizationType;
-  phone?: string;
-  postalCode?: string;
-  startDate?: string;
-}
-
-type ColumnType = Column<TableData>;
+type ColumnType = Column<CustomerData>;
 
 export interface CustomerListComponentProps {
   loading: boolean;
-  data: TableData[];
+  data: CustomerData[];
   pagination: PaginationProps;
   tableTools: CustomerListTableToolsProps<SearchBy>;
   onSortedColChange(sortBy: { id: string; desc?: boolean } | undefined): void;
@@ -78,19 +63,19 @@ const CustomerListComponent = ({
     },
     {
       Header: t('customerList.tableHeaders.berths') || '',
-      accessor: 'berths',
+      accessor: 'berthsColumnData',
       disableSortBy: true,
       width: COLUMN_WIDTH.L,
     },
     {
       Header: t('customerList.tableHeaders.invoice') || '',
-      accessor: 'invoice',
+      accessor: 'billsColumnData',
       disableSortBy: true,
       width: COLUMN_WIDTH.S,
     },
     {
       Header: t('customerList.tableHeaders.boats') || '',
-      accessor: 'boats',
+      accessor: 'boatsColumnData',
       disableSortBy: true,
       width: COLUMN_WIDTH.XS,
     },
@@ -110,12 +95,12 @@ const CustomerListComponent = ({
             city={row.original.city}
             phone={row.original.phone}
             email={row.original.email}
-            berths={[]}
+            berths={row.original.berthLeases}
             winterStoragePlaces={[]}
-            boats={[]}
-            applications={[]}
+            boats={row.original.boats}
+            applications={row.original.applications}
             bills={[]}
-            comment=""
+            comment={row.original.comment}
           />
         );
       }}
