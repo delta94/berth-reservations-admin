@@ -41,7 +41,7 @@ stories.add('Icon', () => (
   <Wrapper size="200px">
     <Icon
       outlined={boolean('Outlined', false, 'Icon')}
-      shape={select('Shape', shapes(), 'IconAccessibility', 'Icon')}
+      shape={select('Shape', shapes(), 'IconFence', 'Icon')}
       size={select('Size', ['small', 'medium', 'large'], 'small', 'Icon')}
       color={select('Color', ['standard', 'disabled', 'brand', 'secondary'], 'standard', 'Icon')}
     />

@@ -20,7 +20,7 @@ const Icon = ({ className, shape, outlined, color = 'standard', size = 'medium' 
   return (
     <div
       className={classNames(
-        styles.icon,
+        styles['icon--old'],
         styles[color],
         styles[size],
         {

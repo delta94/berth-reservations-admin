@@ -1,9 +1,18 @@
 import React from 'react';
+import classNames from 'classnames';
 
-type Props = { className?: string };
+import { IconProps } from '../Icon.interface';
+import styles from '../icon.module.scss';
 
-export default ({ className = '' }: Props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" className={className}>
+export default ({ size = 's', className = '', style = {}, ...rest }: IconProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="100%"
+    height="100%"
+    viewBox="0 0 24 24"
+    className={classNames(styles.icon, styles[size], className)}
+    {...rest}
+  >
     <g id="prefix__prefix__Symbols">
       <g id="prefix__prefix__app_x2F_navigation-sidebar" transform="translate(-21 -24)">
         <g id="prefix__prefix__Venepaikat" transform="translate(0 16)">
