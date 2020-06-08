@@ -26,6 +26,20 @@ export interface OFFER_PAGE_berthApplication {
   status: ApplicationStatus;
   berthSwitch: OFFER_PAGE_berthApplication_berthSwitch | null;
   customer: OFFER_PAGE_berthApplication_customer | null;
+  boatType: string | null;
+  boatRegistrationNumber: string;
+  boatName: string;
+  boatModel: string;
+  boatWidth: number;
+  boatLength: number;
+  boatDraught: number | null;
+  boatWeight: number | null;
+}
+
+export interface OFFER_PAGE_boatTypes {
+  __typename: "BoatTypeType";
+  id: string;
+  name: string | null;
 }
 
 export interface OFFER_PAGE_harborByServicemapId_properties_maps {
@@ -133,6 +147,7 @@ export interface OFFER_PAGE_harborByServicemapId {
 
 export interface OFFER_PAGE {
   berthApplication: OFFER_PAGE_berthApplication | null;
+  boatTypes: OFFER_PAGE_boatTypes[] | null;
   harborByServicemapId: OFFER_PAGE_harborByServicemapId | null;
 }
 
