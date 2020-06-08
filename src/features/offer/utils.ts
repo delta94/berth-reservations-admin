@@ -1,6 +1,7 @@
 import { OFFER_PAGE } from './__generated__/OFFER_PAGE';
 import { LeaseStatus } from '../../@types/__generated__/globalTypes';
 import { HarborCardProps } from '../../common/harborCard/HarborCard';
+import { Boat } from '../../common/boatCard/types';
 
 interface Lease {
   customer: {
@@ -184,5 +185,31 @@ export const getHarbor = (data: OFFER_PAGE | undefined): HarborCardProps | null 
       numberOfFreePlaces: data.harborByServicemapId.properties.numberOfFreePlaces,
       maxWidth: data.harborByServicemapId.properties.maxWidth || 0,
     },
+  };
+};
+
+export const getBoat = (data: OFFER_PAGE | undefined): Boat | null => {
+  if (!data || !data.berthApplication) return null;
+
+  const boatTypes = data.boatTypes;
+  const {
+    boatType,
+    boatRegistrationNumber,
+    boatName,
+    boatModel,
+    boatWidth,
+    boatLength,
+    boatDraught,
+    boatWeight,
+  } = data.berthApplication;
+  return {
+    boatType: boatTypes?.find(({ id }) => id === boatType)?.name ?? null,
+    boatRegistrationNumber,
+    boatName,
+    boatModel,
+    boatWidth,
+    boatLength,
+    boatDraught,
+    boatWeight,
   };
 };

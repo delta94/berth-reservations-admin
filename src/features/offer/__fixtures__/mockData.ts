@@ -12,7 +12,22 @@ export const OfferPageQueryData: OFFER_PAGE = {
       __typename: 'ProfileNode',
       id: '1',
     },
+    boatType: 'rowboat',
+    boatRegistrationNumber: '1234',
+    boatName: 'test',
+    boatModel: 'test',
+    boatWidth: 1,
+    boatLength: 1,
+    boatDraught: 1,
+    boatWeight: 1,
   },
+  boatTypes: [
+    {
+      __typename: 'BoatTypeType',
+      id: 'rowboat',
+      name: 'rowboat',
+    },
+  ],
   harborByServicemapId: {
     __typename: 'HarborNode',
     id: 'SGFyYm9yTm9kZTpmN2M2YTQwZjAtOWViMi0zZjgyMTI0YjY0OGI=',

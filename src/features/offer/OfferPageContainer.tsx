@@ -12,7 +12,7 @@ import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
 import OfferPage from './OfferPage';
 import InternalLink from '../../common/internalLink/InternalLink';
 import { OFFER_PAGE } from './__generated__/OFFER_PAGE';
-import { BerthData, getOfferData, getAllPiersIdentifiers, getHarbor } from './utils';
+import { BerthData, getOfferData, getAllPiersIdentifiers, getBoat, getHarbor } from './utils';
 import { formatDimension, formatDate } from '../../common/utils/format';
 import { CREATE_LEASE_MUTATION } from './mutations';
 import { CREATE_LEASE, CREATE_LEASEVariables as CREATE_LEASE_VARS } from './__generated__/CREATE_LEASE';
@@ -21,6 +21,7 @@ import BerthDetails from '../../common/berthDetails/BerthDetails';
 import TableFilters from '../../common/tableFilters/TableFilters';
 import { BERTH_APPLICATIONS_QUERY } from '../applicationList/queries';
 import HarborCard from '../../common/harborCard/HarborCard';
+import BoatCard from '../../common/boatCard/BoatCard';
 
 type ColumnType = Column<BerthData> & { accessor: keyof BerthData };
 
@@ -141,10 +142,12 @@ const OfferPageContainer: React.FC = () => {
   const applicationType = getApplicationType(!!data.berthApplication.berthSwitch);
   const piersIdentifiers = getAllPiersIdentifiers(data);
   const harbor = getHarbor(data);
+  const boat = getBoat(data);
 
   return (
     <OfferPage>
       {harbor && <HarborCard {...harbor} className={styles.card} />}
+      {boat && <BoatCard boat={boat} />}
       <Table
         data={tableData}
         columns={columns}

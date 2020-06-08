@@ -12,6 +12,18 @@ export const OFFER_PAGE_QUERY = gql`
       customer {
         id
       }
+      boatType
+      boatRegistrationNumber
+      boatName
+      boatModel
+      boatWidth
+      boatLength
+      boatDraught
+      boatWeight
+    }
+    boatTypes {
+      id
+      name
     }
     harborByServicemapId(servicemapId: $servicemapId) {
       id
