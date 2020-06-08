@@ -1,0 +1,24 @@
+@import 'spacings';
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.innerContainer {
+  @extend .container;
+  position: relative;
+  top: 20%;
+  max-width: units(32);
+  text-align: center;
+}
+
+.heading {
+  margin: units(2) 0;
+}
+
+.text {
+  margin: units(2) 0;
+}

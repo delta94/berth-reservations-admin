@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation, useLazyQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { Notification } from 'hds-react';
 import { useDebounce } from 'use-debounce';
 
 import ApplicationViewPage, { SearchBy } from './ApplicationViewPage';
@@ -31,13 +30,13 @@ import { usePagination } from '../../common/utils/usePagination';
 import { usePrevious } from '../../common/utils/usePrevious';
 import { useBackendSorting } from '../../common/utils/useBackendSorting';
 
-const ApplicationViewPageContainer: React.SFC = () => {
+const ApplicationViewPageContainer: React.FC = () => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const [searchBy, setSearchBy] = useState<SearchBy>(SearchBy.LAST_NAME);
   const [searchVal, setSearchVal] = useState<string>('');
 
-  const { loading, error, data } = useQuery<INDIVIDUAL_APPLICATION, INDIVIDUAL_APPLICATION_VARS>(
+  const { loading, data } = useQuery<INDIVIDUAL_APPLICATION, INDIVIDUAL_APPLICATION_VARS>(
     INDIVIDUAL_APPLICATION_QUERY,
     {
       variables: {
@@ -70,7 +69,6 @@ const ApplicationViewPageContainer: React.SFC = () => {
     variables: filteredCustomersVars,
   });
 
-  // TODO: handle errors
   const [deleteDraftedApplication] = useDeleteBerthApplication();
   useEffect(() => {
     if (!data?.berthApplication) return;
@@ -92,48 +90,30 @@ const ApplicationViewPageContainer: React.SFC = () => {
     !customer && !loading && goToPage(0);
   }, [searchVal, searchBy, customer, loading, goToPage]);
 
-  // TODO: handle errors
-  const [linkCustomer, { error: linkCustomerErr }] = useMutation<
-    UPDATE_BERTH_APPLICATION,
-    UPDATE_BERTH_APPLICATION_VARS
-  >(UPDATE_BERTH_APPLICATION_MUTATION, {
-    refetchQueries: [
-      {
-        query: INDIVIDUAL_APPLICATION_QUERY,
-        variables: {
-          id,
-        },
-      },
-    ],
-  });
-
-  // TODO: handle errors
-  const [createNewCustomer, { error: newCustomerErr }] = useMutation<CREATE_NEW_PROFILE, CREATE_NEW_PROFILE_VARS>(
-    CREATE_NEW_PROFILE_MUTATION,
+  const [linkCustomer] = useMutation<UPDATE_BERTH_APPLICATION, UPDATE_BERTH_APPLICATION_VARS>(
+    UPDATE_BERTH_APPLICATION_MUTATION,
     {
       refetchQueries: [
         {
-          query: FILTERED_CUSTOMERS_QUERY,
-          variables: filteredCustomersVars,
+          query: INDIVIDUAL_APPLICATION_QUERY,
+          variables: {
+            id,
+          },
         },
       ],
     }
   );
 
-  if (loading) return <LoadingSpinner isLoading={loading} />;
-  if (!data?.berthApplication)
-    return (
-      <Notification labelText={t('common.notification.noData.label')}>
-        {t('common.notification.noData.description')}
-      </Notification>
-    );
-  if (error)
-    return (
-      <Notification labelText={t('common.notification.error.label')} type="error">
-        {t('common.notification.error.description')}
-      </Notification>
-    );
-  if (linkCustomerErr || newCustomerErr) return <>something went wrong</>;
+  const [createNewCustomer] = useMutation<CREATE_NEW_PROFILE, CREATE_NEW_PROFILE_VARS>(CREATE_NEW_PROFILE_MUTATION, {
+    refetchQueries: [
+      {
+        query: FILTERED_CUSTOMERS_QUERY,
+        variables: filteredCustomersVars,
+      },
+    ],
+  });
+
+  if (loading || !data?.berthApplication) return <LoadingSpinner isLoading={true} />;
 
   const handleDeleteLease = (id: string) => {
     deleteDraftedApplication({
@@ -165,7 +145,7 @@ const ApplicationViewPageContainer: React.SFC = () => {
       variables: {
         input: { id, customerId },
       },
-    }).catch(() => console.error('Something went wrong'));
+    });
 
   const handleCreateCustomer = () => {
     const { firstName, lastName, primaryAddress, primaryEmail, primaryPhone } = applicationDetails.applicant;
@@ -185,7 +165,7 @@ const ApplicationViewPageContainer: React.SFC = () => {
         phone,
         email,
       },
-    }).catch(() => console.error('Something went wrong'));
+    });
   };
 
   return (

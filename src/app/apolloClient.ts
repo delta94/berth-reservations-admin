@@ -2,6 +2,7 @@ import ApolloClient, { gql, InMemoryCache } from 'apollo-boost';
 
 import i18n from '../locales/i18n';
 import authService from '../features/auth/authService';
+import hdsToast from '../common/toast/hdsToast';
 
 const typeDefs = gql`
   type CurrentUser {
@@ -41,6 +42,22 @@ const apolloClient = new ApolloClient({
         'Api-Tokens': apiTokens,
       },
     });
+  },
+  onError: ({ graphQLErrors, networkError }) => {
+    if (graphQLErrors) {
+      hdsToast.graphQLErrors(graphQLErrors);
+    }
+    if (networkError && networkError.name !== 'ServerError') {
+      // An explicit id is passed here to the toast,
+      // so it can be automatically dismissed on e.g. reconnection.
+      hdsToast({
+        type: 'warning',
+        labelText: 'toast.networkError.label',
+        text: 'toast.networkError.description',
+        toastId: 'networkErrorToast',
+        translated: true,
+      });
+    }
   },
   uri: process.env.REACT_APP_API_URI,
 });

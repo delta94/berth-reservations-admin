@@ -1,0 +1,10 @@
+@import 'spacings';
+@import 'z-index';
+
+.container {
+  position: absolute;
+  bottom: 0;
+  right: units(1);
+  width: units(32);
+  z-index: z-index(toasts);
+}

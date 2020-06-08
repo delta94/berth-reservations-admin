@@ -503,5 +503,26 @@
     "numberOfFreePlaces": "Vapaata",
     "numberOfPlaces": "Paikkoja",
     "maxWidth": "Max. leveys"
+  },
+  "errorPage": {
+    "heading": "Virhetilanne",
+    "text": "Pahoittelumme, järjestelmässä ilmeni virhe. Voit yrittää uudelleen, mutta jos sama toistuu, kerro siitä meille niin korjaamme asian.",
+    "linkText": "Etusivulle"
+  },
+  "toast": {
+    "closeToast": "Sulje ilmoitus",
+    "graphQLError": {
+      "label": "Virhe"
+    },
+    "networkError": {
+      "label": "Verkkoyhteys on katkennut",
+      "description": "Palauta verkkoyhteys ja lataa sivu uudelleen."
+    },
+    "graphQLErrors": {
+      "default": {
+        "label": "Virhe",
+        "description": "Tapahtui odottamaton virhe."
+      }
+    }
   }
 }
