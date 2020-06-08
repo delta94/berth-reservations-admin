@@ -1,14 +1,14 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
-import { Button } from 'hds-react/lib';
+import { Button, IconCross } from 'hds-react';
 
 import styles from './fileUpload.module.scss';
 import Text from '../text/Text';
 import List from '../list/List';
-import Icon from '../icons/Icon';
 import { formatBytes } from '../utils/format';
 import InputWrapper, { InputWrapperProps } from '../inputWrapper/InputWrapper';
+import IconWrapper from '../iconWrapper/IconWrapper';
 
 type SharedProps = InputWrapperProps &
   Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> & {
@@ -102,7 +102,7 @@ const FileUpload = (props: FileUploadProps) => {
               </Text>
 
               <button className={styles.delete} type="button" onClick={() => handleDelete(file)}>
-                <Icon shape="IconTimes" color="critical" />
+                <IconWrapper icon={IconCross} color="critical" />
               </button>
             </li>
           );

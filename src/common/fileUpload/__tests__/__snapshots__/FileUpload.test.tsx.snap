@@ -23,18 +23,25 @@ exports[`FileUpload renders normally with multiple files props 1`] = `
           type="button"
         >
           <div
-            class="icon--old critical medium"
+            class="iconWrapper critical s"
           >
             <svg
-              class="icon s"
-              height="100%"
-              viewBox="0 0 480 480"
-              width="100%"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M374.8 167.6l-30.4-30.4-88.4 88.4-88.4-88.4-30.4 30.4 88.4 88.4-88.4 88.4 30.4 30.4 88.4-88.4 88.4 88.4 30.4-30.4-88.4-88.4z"
-              />
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M17.657 7.757L13.414 12l4.243 4.243-1.414 1.414L12 13.414l-4.243 4.243-1.414-1.414L10.586 12 6.343 7.757l1.414-1.414L12 10.586l4.243-4.243z"
+                  fill="currentColor"
+                />
+              </g>
             </svg>
           </div>
         </button>
@@ -91,18 +98,25 @@ exports[`FileUpload renders normally with single file props 1`] = `
           type="button"
         >
           <div
-            class="icon--old critical medium"
+            class="iconWrapper critical s"
           >
             <svg
-              class="icon s"
-              height="100%"
-              viewBox="0 0 480 480"
-              width="100%"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M374.8 167.6l-30.4-30.4-88.4 88.4-88.4-88.4-30.4 30.4 88.4 88.4-88.4 88.4 30.4 30.4 88.4-88.4 88.4 88.4 30.4-30.4-88.4-88.4z"
-              />
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M17.657 7.757L13.414 12l4.243 4.243-1.414 1.414L12 13.414l-4.243 4.243-1.414-1.414L10.586 12 6.343 7.757l1.414-1.414L12 10.586l4.243-4.243z"
+                  fill="currentColor"
+                />
+              </g>
             </svg>
           </div>
         </button>
