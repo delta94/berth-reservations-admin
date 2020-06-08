@@ -56,7 +56,7 @@ const OfferPageContainer: React.FC = () => {
                   berthId: row.original.berthId,
                 },
               },
-            }).catch((error) => console.error(error)); // TODO: handle errors
+            });
 
             history.push('/applications');
           }}
@@ -168,6 +168,7 @@ const OfferPageContainer: React.FC = () => {
             handleReturn={handleReturn}
           />
         )}
+        canSelectOneRow
       />
     </OfferPage>
   );

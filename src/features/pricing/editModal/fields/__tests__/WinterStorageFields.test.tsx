@@ -3,7 +3,8 @@ import { mount } from 'enzyme';
 import { Form, Formik } from 'formik';
 
 import WinterStorageFields from '../WinterStorageFields';
-import { WinterStoragePrice } from '../../../PricingPage';
+import { WinterStoragePrice } from '../../../winterStoragePricing/WinterStoragePricing';
+import { PeriodType } from '../../../../../@types/__generated__/globalTypes';
 
 describe('WinterStorageFields', () => {
   const mockValues: WinterStoragePrice = {
@@ -11,7 +12,7 @@ describe('WinterStorageFields', () => {
     area: 'Kaisaniemi',
     privateCustomer: 8.5,
     company: 17,
-    period: 'season',
+    period: PeriodType.SEASON,
   };
 
   const getWrapper = () =>
@@ -54,7 +55,7 @@ describe('WinterStorageFields', () => {
   describe('Period field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('select[name="period"]');
-      expect(input.prop('value')).toEqual('season');
+      expect(input.prop('value')).toEqual('SEASON');
     });
   });
 });
