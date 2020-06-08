@@ -9,7 +9,7 @@ export default {
   title: 'Expandable',
 };
 
-export const expandible = () => (
+export const expandable = () => (
   <div style={{ width: '150px' }}>
     <Expandable label="Expandable" onClick={action('click')}>
       <Button>child</Button>
@@ -17,6 +17,6 @@ export const expandible = () => (
   </div>
 );
 
-expandible.story = {
+expandable.story = {
   name: 'Default',
 };
