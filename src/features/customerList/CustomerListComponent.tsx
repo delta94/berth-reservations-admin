@@ -23,7 +23,7 @@ export interface CustomerListComponentProps {
   loading: boolean;
   data: CustomerData[];
   pagination: PaginationProps;
-  tableTools: CustomerListTableToolsProps<SearchBy>;
+  tableTools: Omit<CustomerListTableToolsProps<SearchBy>, 'selectedRowsCount' | 'clearSelectedRows'>;
   onSortedColChange(sortBy: { id: string; desc?: boolean } | undefined): void;
   handleSendMessage(customerIds: string[], message: MessageFormValues): void;
 }
@@ -105,12 +105,19 @@ const CustomerListComponent = ({
         );
       }}
       renderMainHeader={() => t('customerList.tableHeaders.mainHeader')}
-      renderTableToolsTop={({ selectedRowIds }) => {
+      renderTableToolsTop={({ selectedRowIds }, { resetSelectedRows }) => {
         const onSendMessage = (message: MessageFormValues) => {
           const selectedCustomerIds = getSelectedRowIds(selectedRowIds);
           handleSendMessage(selectedCustomerIds, message);
         };
-        return <CustomerListTableTools {...tableTools} handleSendMessage={onSendMessage} />;
+        return (
+          <CustomerListTableTools
+            {...tableTools}
+            handleSendMessage={onSendMessage}
+            selectedRowsCount={getSelectedRowIds(selectedRowIds).length}
+            clearSelectedRows={resetSelectedRows}
+          />
+        );
       }}
       renderEmptyStateRow={() => t('common.notification.noData.description')}
       renderTableToolsBottom={() => <Pagination {...pagination} />}

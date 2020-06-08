@@ -21,6 +21,7 @@ import {
   UseSortByColumnOptions,
   UseFiltersInstanceProps,
   UseGlobalFiltersOptions,
+  actions,
 } from 'react-table';
 
 import Checkbox from '../checkbox/Checkbox';
@@ -37,6 +38,7 @@ interface TState<D extends object> extends TableState<D> {
 interface Setters<D extends object> {
   setGlobalFilter: UseGlobalFiltersInstanceProps<D>['setGlobalFilter'];
   setFilter: UseFiltersInstanceProps<D>['setFilter'];
+  resetSelectedRows: () => void;
 }
 
 type TableToolsFn<D extends object> = (tableState: TState<D>, setters: Setters<D>) => React.ReactNode;
@@ -210,6 +212,7 @@ const Table = <D extends { id: string }>({
     prepareRow,
     setGlobalFilter,
     setFilter,
+    dispatch,
   } = useTable(
     {
       columns: tableColumns,
@@ -231,6 +234,10 @@ const Table = <D extends { id: string }>({
     useRowSelect,
     usePagination
   );
+
+  const resetSelectedRows = useCallback(() => {
+    dispatch({ type: actions.resetSelectedRows });
+  }, [dispatch]);
 
   useEffect(() => {
     gotoPage(0);
@@ -337,7 +344,7 @@ const Table = <D extends { id: string }>({
         ...state,
         selectedRows: selectedFlatRows.map((row) => row.original),
       },
-      { setGlobalFilter, setFilter }
+      { setGlobalFilter, setFilter, resetSelectedRows }
     );
   };
 

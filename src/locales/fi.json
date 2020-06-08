@@ -376,7 +376,11 @@
       "message": "Viesti",
       "messageHelperText": "Voit tarkastella viestiä esikatselussa ennen lähetystä.",
       "preview": "Esikatsele",
-      "send": "Lähetä"
+      "send": "Lähetä",
+      "selectedRowsSingular": "{{selectedRowsCount}} rivi valittu",
+      "selectedRowsPlural": "{{selectedRowsCount}} riviä valittu",
+      "clearSelectedRows": "Tyhjennä valinnat",
+      "selectRows": "Valitse listasta asiakkaita lähettääksesi viesti"
     }
   },
   "customerView": {
