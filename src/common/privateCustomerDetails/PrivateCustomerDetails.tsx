@@ -88,11 +88,9 @@ const PrivateCustomerDetails: FunctionComponent<PrivateCustomerDetailsProps> = (
         <LabelValuePair label={t('customerProfile.customerGroup')} value={t([`common.privateCustomer`])} />
         {invoicingType && <LabelValuePair value={t([`common.invoicingTypes.${invoicingType}`])} />}
       </Section>
-      {comment && (
-        <Section>
-          <LabelValuePair label={t('customerProfile.remarks')} value={comment} />
-        </Section>
-      )}
+      <Section>
+        <LabelValuePair label={t('customerProfile.remarks')} value={comment ?? '-'} />
+      </Section>
     </>
   );
 };
