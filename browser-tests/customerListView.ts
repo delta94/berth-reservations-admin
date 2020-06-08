@@ -20,13 +20,19 @@ test('Selection of customers', async (t) => {
     .click(customers.customerList.paginationNextButton)
     .expect(customers.customerList.selectedCount.textContent)
     .contains('10');
+<<<<<<< HEAD
   // assert 10
+=======
+>>>>>>> cca6bfa... Add browser tests for customer selection
 
   await t
     .click(customers.customerList.selectAllToggle)
     .expect(customers.customerList.selectedCount.textContent)
     .contains('20');
+<<<<<<< HEAD
   // assert 20
+=======
+>>>>>>> cca6bfa... Add browser tests for customer selection
 
   await t.click(customers.customerList.deselectAll).expect(customers.customerList.selectedCount.exists).notOk();
 });
