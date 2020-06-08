@@ -6,7 +6,7 @@ export const harbors = {
   },
   harborView: {
     address: Selector(
-      'div[class^="harborViewPage"] div[class^="harborProperties_details"]:first-of-type span[class^="text_standard"]'
+      'div[class^="harborViewPage"] div[class^="harborCard_details"]:first-of-type span[class^="text_standard"]'
     ),
   },
 };
