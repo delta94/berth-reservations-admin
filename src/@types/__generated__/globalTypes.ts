@@ -7,6 +7,16 @@
 // START Enums and Input Objects
 //==============================================================
 
+export enum AdditionalProductTaxEnum {
+  TAX_10_00 = "TAX_10_00",
+  TAX_24_00 = "TAX_24_00",
+}
+
+export enum AdditionalProductType {
+  FIXED_SERVICE = "FIXED_SERVICE",
+  OPTIONAL_SERVICE = "OPTIONAL_SERVICE",
+}
+
 export enum ApplicationStatus {
   EXPIRED = "EXPIRED",
   HANDLED = "HANDLED",
@@ -58,6 +68,30 @@ export enum OrganizationType {
   INTERNAL = "INTERNAL",
   NON_BILLABLE = "NON_BILLABLE",
   OTHER = "OTHER",
+}
+
+export enum PeriodType {
+  MONTH = "MONTH",
+  SEASON = "SEASON",
+  YEAR = "YEAR",
+}
+
+export enum PriceUnits {
+  AMOUNT = "AMOUNT",
+  PERCENTAGE = "PERCENTAGE",
+}
+
+export enum ProductServiceType {
+  DINGHY_PLACE = "DINGHY_PLACE",
+  ELECTRICITY = "ELECTRICITY",
+  GATE = "GATE",
+  LIGHTING = "LIGHTING",
+  MOORING = "MOORING",
+  PARKING_PERMIT = "PARKING_PERMIT",
+  SUMMER_STORAGE_FOR_DOCKING_EQUIPMENT = "SUMMER_STORAGE_FOR_DOCKING_EQUIPMENT",
+  SUMMER_STORAGE_FOR_TRAILERS = "SUMMER_STORAGE_FOR_TRAILERS",
+  WASTE_COLLECTION = "WASTE_COLLECTION",
+  WATER = "WATER",
 }
 
 export enum ServiceType {

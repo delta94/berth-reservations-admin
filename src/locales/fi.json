@@ -85,6 +85,7 @@
       "depth": "Syvyys",
       "dinghyPlace": "Jollapaikka",
       "draught": "Syväys",
+      "dockingEquipmentSummerStorage": "Telakointitarvikkeiden kesäsäilytys",
       "electricity": "Sähkö",
       "gate": "Portti",
       "harborMap": "Satamakartta",
@@ -126,7 +127,8 @@
         "numberType": "Kentän pitää olla numero.",
         "integer": "Kentän pitää olla kokonaisluku.",
         "positive": "Kentän pitää olla positiivinen luku.",
-        "maxFileSize": "Tiedosto on liian suuri."
+        "maxFileSize": "Tiedosto on liian suuri.",
+        "nonNegative": "Kenttä ei saa sisältää negatiivista lukua."
       },
       "error": "Tapahtui virhe. Yritä uudestaan.",
       "create": "Luo",
@@ -144,7 +146,11 @@
       "depth": "Syvyys (m)",
       "mooringType": "Kiinnitystapa",
       "comment": "Huomiot",
-      "isActive": "Paikka on käytössä"
+      "isActive": "Paikka on käytössä",
+      "deleteConfirmation": {
+        "infoText": "Oletko varma että haluat poistaa venepaikan {{berthNumber}} laiturista {{pier}}?",
+        "warningText": "Tätä toimenpidettä ei voi perua."
+      }
     },
     "harbor": {
       "title": "Satama",
@@ -157,6 +163,7 @@
       "maps": "Satamakartat"
     },
     "pier": {
+      "delete": "Poista laituri",
       "title": "Laituri",
       "identifier": "Laituri",
       "services": "Palvelut",
@@ -166,7 +173,11 @@
       "electricity": "Sähkö",
       "lighting": "Valaistus",
       "water": "Vesi",
-      "personalElectricity": "Erillinen sähkösopimus mahdollinen"
+      "personalElectricity": "Erillinen sähkösopimus mahdollinen",
+      "deleteConfirmation": {
+        "infoText": "Oletko varma että haluat poistaa laiturin {{pierIdentifier}}?",
+        "warningText": "Tämä poistaa koko laiturin ja kaikki siinä olevat venepaikat. Tätä toimenpidettä ei voi perua."
+      }
     }
   },
   "harborList": {

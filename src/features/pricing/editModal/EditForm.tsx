@@ -4,11 +4,14 @@ import { Button } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 
 import styles from './editForm.module.scss';
-import { AdditionalService, BerthPrice, HarborService, WinterStoragePrice } from '../PricingPage';
 import AdditionalServicesFields, { getAdditionalServicesValidationSchema } from './fields/AdditionalServicesFields';
 import BerthsFields, { getBerthsValidationSchema } from './fields/BerthsFields';
 import WinterStorageFields, { getWinterStorageValidationSchema } from './fields/WinterStorageFields';
 import HarborServicesFields, { getHarborServicesValidationSchema } from './fields/HarborServicesFields';
+import { AdditionalService } from '../additionalServicePricing/AdditionalServicePricing';
+import { HarborService } from '../harborServicePricing/HarborServicePricing';
+import { WinterStoragePrice } from '../winterStoragePricing/WinterStoragePricing';
+import { BerthPrice } from '../berthPricing/BerthPricing';
 
 export enum EDIT_FORM_TYPE {
   BERTHS = 'BERTHS',

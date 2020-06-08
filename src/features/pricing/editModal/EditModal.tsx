@@ -2,8 +2,11 @@ import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Modal from '../../../common/modal/Modal';
-import { AdditionalService, BerthPrice, HarborService, WinterStoragePrice } from '../PricingPage';
 import EditForm, { EDIT_FORM_TYPE } from './EditForm';
+import { AdditionalService } from '../additionalServicePricing/AdditionalServicePricing';
+import { HarborService } from '../harborServicePricing/HarborServicePricing';
+import { WinterStoragePrice } from '../winterStoragePricing/WinterStoragePricing';
+import { BerthPrice } from '../berthPricing/BerthPricing';
 
 export interface EditPricingModalProps {
   closeModal: () => void;

@@ -3,14 +3,15 @@ import { mount } from 'enzyme';
 import { Form, Formik } from 'formik';
 
 import HarborServicesFields from '../HarborServicesFields';
-import { HarborService } from '../../../PricingPage';
+import { HarborService } from '../../../harborServicePricing/HarborServicePricing';
+import { ProductServiceType, PeriodType } from '../../../../../@types/__generated__/globalTypes';
 
 const mockValues: HarborService = {
   id: '1',
-  service: 'mooring',
+  service: ProductServiceType.MOORING,
   price: 28,
   unit: '%',
-  period: 'season',
+  period: PeriodType.SEASON,
 };
 
 describe('HarborServicesFields', () => {
@@ -33,7 +34,7 @@ describe('HarborServicesFields', () => {
   describe('Service field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('select[name="service"]');
-      expect(input.prop('value')).toEqual('mooring');
+      expect(input.prop('value')).toEqual('MOORING');
     });
   });
 
@@ -54,7 +55,7 @@ describe('HarborServicesFields', () => {
   describe('Period field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('select[name="period"]');
-      expect(input.prop('value')).toEqual('season');
+      expect(input.prop('value')).toEqual('SEASON');
     });
   });
 });
