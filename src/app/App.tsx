@@ -39,7 +39,6 @@ const App: React.FC = () => {
                   <PrivateRoute exact path="/applications" component={ApplicationListPage} />
                   <PrivateRoute exact path="/offer/:applicationId" component={OfferPage} />
                   <PrivateRoute exact path="/pricing" component={PricingPage} />
-                  <PrivateRoute exact path="/error" component={ErrorPage} />
                 </Switch>
               </Page>
             </Switch>
