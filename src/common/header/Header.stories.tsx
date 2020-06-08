@@ -1,14 +1,12 @@
 import React from 'react';
 
 import Header from './Header';
-import { IconHelsinkiLogo } from '../icons';
+import HelsinkiLogo from '../helsinkiLogo/HelsinkiLogo';
 
 export default {
   component: Header,
   title: 'Header',
 };
-
-const HelsinkiLogo = () => <IconHelsinkiLogo />;
 
 export const header = () => (
   <Header>
