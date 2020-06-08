@@ -3,12 +3,13 @@ import { shallow } from 'enzyme';
 
 import Property, { PropertyProps } from '../Property';
 import Text from '../../text/Text';
+import { IconFence } from '../../icons';
 
 describe('Property', () => {
   const getWrapper = (props: PropertyProps) => shallow(<Property {...props} />);
 
   it('renders normally', () => {
-    const wrapper = getWrapper({ iconShape: 'IconFence', label: 'Test' });
+    const wrapper = getWrapper({ icon: IconFence, label: 'Test' });
 
     expect(wrapper.html()).toMatchSnapshot();
   });
