@@ -108,7 +108,7 @@ const OrganizationCustomerDetails: FunctionComponent<OrganizationCustomerDetails
         </Section>
       )}
       <Section>
-        <LabelValuePair label={t('customerProfile.remarks')} value={comment ?? '-'} />
+        <LabelValuePair label={t('customerProfile.remarks')} value={comment} />
       </Section>
     </>
   );

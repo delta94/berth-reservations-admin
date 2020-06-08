@@ -89,7 +89,7 @@ const PrivateCustomerDetails: FunctionComponent<PrivateCustomerDetailsProps> = (
         {invoicingType && <LabelValuePair value={t([`common.invoicingTypes.${invoicingType}`])} />}
       </Section>
       <Section>
-        <LabelValuePair label={t('customerProfile.remarks')} value={comment ?? '-'} />
+        <LabelValuePair label={t('customerProfile.remarks')} value={comment} />
       </Section>
     </>
   );

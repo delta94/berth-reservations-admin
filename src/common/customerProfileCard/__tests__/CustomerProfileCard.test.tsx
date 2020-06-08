@@ -20,14 +20,14 @@ describe('CustomerProfileCard', () => {
         firstName: 'Testi',
         lastName: 'Käyttäjä',
       });
-      expect(wrapper.html()).toMatchSnapshot();
+      expect(wrapper.render()).toMatchSnapshot();
     });
   });
 
   describe('with a private customer profile', () => {
     it('renders normally', () => {
       const wrapper = getWrapper(privateCustomerProfile);
-      expect(wrapper.html()).toMatchSnapshot();
+      expect(wrapper.render()).toMatchSnapshot();
     });
 
     it('does not show the customer names and ssn as links if not specified', () => {
@@ -55,14 +55,14 @@ describe('CustomerProfileCard', () => {
         lastName: 'Käyttäjä',
         organization: organizationCustomerProfile.organization,
       });
-      expect(wrapper.html()).toMatchSnapshot();
+      expect(wrapper.render()).toMatchSnapshot();
     });
   });
 
   describe('with an organization customer profile', () => {
     it('renders normally', () => {
       const wrapper = getWrapper(organizationCustomerProfile);
-      expect(wrapper.html()).toMatchSnapshot();
+      expect(wrapper.render()).toMatchSnapshot();
     });
 
     it('does not show the customer names and ssn as links if not specified', () => {

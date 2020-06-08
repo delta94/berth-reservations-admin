@@ -65,7 +65,7 @@ describe('ApplicationDetails', () => {
       applicant: privateCustomerProfile,
     });
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('renders normally with organization customer applicant', () => {
@@ -73,6 +73,6 @@ describe('ApplicationDetails', () => {
       applicant: organizationCustomerProfile,
     });
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });
