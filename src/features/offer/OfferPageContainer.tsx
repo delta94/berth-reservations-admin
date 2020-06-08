@@ -49,6 +49,7 @@ const OfferPageContainer: React.FC = () => {
     {
       Cell: ({ row }) => (
         <Button
+          theme="coat"
           onClick={() => {
             createBerthLease({
               variables: {
@@ -171,7 +172,6 @@ const OfferPageContainer: React.FC = () => {
             handleReturn={handleReturn}
           />
         )}
-        canSelectOneRow
       />
     </OfferPage>
   );
