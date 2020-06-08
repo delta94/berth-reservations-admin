@@ -9,7 +9,7 @@ import styles from '../editForm.module.scss';
 import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
 import FormTypeTitle from '../FormTypeTitle';
-import { HarborService } from '../../PricingPage';
+import { HarborService } from '../../harborServicePricing/HarborServicePricing';
 
 const serviceOptions = ['mooring', 'electricity', 'water', 'wasteCollection', 'gate', 'lighting'];
 const unitOptions = ['%', '€'];

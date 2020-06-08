@@ -149,7 +149,7 @@ const OfferPageContainer: React.FC = () => {
                   berthId,
                 },
               },
-            }).catch((error) => console.error(error)); // TODO: handle errors
+            });
 
             history.push('/applications');
           };

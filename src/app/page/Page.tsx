@@ -6,6 +6,7 @@ import Sidebar from '../../common/sidebar/Sidebar';
 import InternalNavLink from '../../common/internalNavLink/InternalNavLink';
 import PageHeader from './pageHeader/PageHeader';
 import Icon from '../../common/icons/Icon';
+import HDSToastContainer from '../../common/toast/HDSToastContainer';
 
 const Page: React.SFC = ({ children }) => {
   const { t } = useTranslation();
@@ -32,6 +33,7 @@ const Page: React.SFC = ({ children }) => {
         </Sidebar>
       }
     >
+      <HDSToastContainer />
       {children}
     </Layout>
   );
