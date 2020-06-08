@@ -23,11 +23,11 @@ import {
   UseGlobalFiltersOptions,
   actions,
 } from 'react-table';
+import { IconAngleDown, IconArrowLeft } from 'hds-react';
 
 import Checkbox from '../checkbox/Checkbox';
 import Radio from '../radio/Radio';
 import styles from './table.module.scss';
-import Icon from '../icons/Icon';
 
 export type Column<D extends object> = ColumnType<D> & UseFiltersColumnOptions<D> & UseSortByColumnOptions<D>;
 
@@ -142,9 +142,8 @@ const Table = <D extends { id: string }>({
     () => ({
       Cell: ({ row }: { row: any }) => (
         <div {...row.getToggleRowExpandedProps()}>
-          <Icon
-            shape="IconAngleDown"
-            size="small"
+          <IconAngleDown
+            size="s"
             className={classNames(styles.expandArrow, {
               [styles.isExpanded]: row.isExpanded,
             })}
@@ -283,12 +282,11 @@ const Table = <D extends { id: string }>({
                 [styles.isSorted]: column.isSorted,
               })}
             >
-              <Icon
+              <IconArrowLeft
                 className={classNames(styles.sortArrow, {
                   [styles.sortArrowDown]: !column.isSortedDesc,
                 })}
-                shape="IconArrowLeft"
-                size="small"
+                size="s"
               />
             </div>
           )}
