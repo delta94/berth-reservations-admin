@@ -29,7 +29,7 @@ exports[`FileList renders normally with multiple files props 1`] = `
           type="button"
         >
           <div
-            class="iconWrapper critical s"
+            class="iconWrapper critical"
           >
             <svg
               class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
@@ -65,7 +65,7 @@ exports[`FileList renders normally with multiple files props 1`] = `
           type="button"
         >
           <div
-            class="iconWrapper critical s"
+            class="iconWrapper critical"
           >
             <svg
               class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
@@ -122,7 +122,7 @@ exports[`FileList renders normally with single file props 1`] = `
           type="button"
         >
           <div
-            class="iconWrapper critical s"
+            class="iconWrapper critical"
           >
             <svg
               class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"

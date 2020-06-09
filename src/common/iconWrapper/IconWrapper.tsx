@@ -7,7 +7,7 @@ import { IconProps } from '../icons';
 export interface IconWrapperProps {
   className?: string;
   outlined?: boolean;
-  icon: React.FC<IconProps>;
+  icon: (props: IconProps) => React.ReactElement | null;
   color?: 'standard' | 'disabled' | 'brand' | 'secondary' | 'critical';
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
 }
@@ -18,7 +18,6 @@ const IconWrapper: React.FC<IconWrapperProps> = ({ className, icon, outlined, co
       className={classNames(
         styles.iconWrapper,
         styles[color],
-        styles[size],
         {
           [styles.outlined]: outlined,
         },
