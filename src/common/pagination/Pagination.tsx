@@ -6,7 +6,6 @@ import { IconArrowLeft, IconArrowRight } from 'hds-react';
 
 import Text from '../text/Text';
 import styles from './pagination.module.scss';
-import IconWrapper from '../iconWrapper/IconWrapper';
 
 export type PaginationProps = Pick<ReactPaginateProps, 'pageCount' | 'onPageChange' | 'initialPage' | 'forcePage'> & {
   className?: string;
