@@ -4,13 +4,13 @@ export { default as IconAccessibility } from './berthReservations/IconAccessibil
 export { default as IconApplications } from './berthReservations/IconApplications';
 export { default as IconBoat } from './berthReservations/IconBoat';
 export { default as IconBusiness } from './berthReservations/IconBusiness';
-export { default as IconContracts } from './berthReservations/IconContracts';
 export { default as IconCustomers } from './berthReservations/IconCustomers';
 export { default as IconDirections } from './berthReservations/IconDirections';
 export { default as IconDivided } from './berthReservations/IconDivided';
 export { default as IconDollyEmpty } from './berthReservations/IconDollyEmpty';
 export { default as IconFence } from './berthReservations/IconFence';
 export { default as IconInvoice } from './berthReservations/IconInvoice';
+export { default as IconMaintenance } from './berthReservations/IconMaintenance';
 export { default as IconNoBoat } from './berthReservations/IconNoBoat';
 export { default as IconPlug } from './berthReservations/IconPlug';
 export { default as IconPole } from './berthReservations/IconPole';
