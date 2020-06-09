@@ -20,14 +20,14 @@ const Pagination = ({ className, ...rest }: PaginationProps) => {
       {...rest}
       previousLabel={
         <div className={styles.icnBtn}>
-          <IconWrapper icon={IconArrowLeft} color="brand" />
+          <IconArrowLeft size="m" />
           <Text>{t('common.previous')}</Text>
         </div>
       }
       nextLabel={
         <div className={styles.icnBtn}>
           <Text>{t('common.next')}</Text>
-          <IconWrapper icon={IconArrowRight} color="brand" />
+          <IconArrowRight size="m" />
         </div>
       }
       previousClassName={styles.prevBtn}
