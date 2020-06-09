@@ -13,17 +13,13 @@ export interface TableToolsProps {
   applicationDate: string;
   applicationType: string;
   applicationStatus: ApplicationStatus;
-  disableSubmit: boolean;
   handleReturn(): void;
-  handleSubmit(): void;
 }
 
 const TableTools: React.SFC<TableToolsProps> = ({
   applicationDate,
   applicationType,
   applicationStatus,
-  disableSubmit,
-  handleSubmit,
   handleReturn,
 }) => {
   const { t } = useTranslation();
@@ -43,9 +39,6 @@ const TableTools: React.SFC<TableToolsProps> = ({
       <div>
         <Button variant="secondary" theme="black" className={classNames(styles.button)} onClick={handleReturn}>
           {t('offer.tableTools.return')}
-        </Button>
-        <Button theme="coat" className={classNames(styles.button)} disabled={disableSubmit} onClick={handleSubmit}>
-          {t('offer.tableTools.submit')}
         </Button>
       </div>
     </div>

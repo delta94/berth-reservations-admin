@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useParams, useHistory } from 'react-router-dom';
-import { Notification } from 'hds-react';
+import { Notification, Button } from 'hds-react';
 import { getOperationName } from 'apollo-boost';
 
 import styles from './offerPage.module.scss';
@@ -12,7 +12,7 @@ import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
 import OfferPage from './OfferPage';
 import InternalLink from '../../common/internalLink/InternalLink';
 import { OFFER_PAGE } from './__generated__/OFFER_PAGE';
-import { BerthData, getOfferData, getAllPiersIdentifiers, getHarbor } from './utils';
+import { BerthData, getOfferData, getAllPiersIdentifiers, getBoat, getHarbor } from './utils';
 import { formatDimension, formatDate } from '../../common/utils/format';
 import { CREATE_LEASE_MUTATION } from './mutations';
 import { CREATE_LEASE, CREATE_LEASEVariables as CREATE_LEASE_VARS } from './__generated__/CREATE_LEASE';
@@ -21,6 +21,7 @@ import BerthDetails from '../../common/berthDetails/BerthDetails';
 import TableFilters from '../../common/tableFilters/TableFilters';
 import { BERTH_APPLICATIONS_QUERY } from '../applicationList/queries';
 import HarborCard from '../../common/harborCard/HarborCard';
+import BoatCard from '../../common/boatCard/BoatCard';
 
 type ColumnType = Column<BerthData> & { accessor: keyof BerthData };
 
@@ -45,6 +46,33 @@ const OfferPageContainer: React.FC = () => {
   const { t, i18n } = useTranslation();
 
   const columns: ColumnType[] = [
+    {
+      Cell: ({ row }) => (
+        <Button
+          theme="coat"
+          onClick={() => {
+            createBerthLease({
+              variables: {
+                input: {
+                  applicationId: applicationId || '',
+                  berthId: row.original.berthId,
+                },
+              },
+            });
+
+            history.push('/applications');
+          }}
+          disabled={isSubmitting}
+        >
+          {t('offer.tableCells.select')}
+        </Button>
+      ),
+      Header: t('offer.tableHeaders.selection') || '',
+      accessor: 'berthId',
+      width: COLUMN_WIDTH.S,
+      disableFilters: true,
+      disableSortBy: true,
+    },
     {
       Cell: ({ cell }) => <InternalLink to={`/harbors/${cell.row.original.harborId}}`}>{cell.value}</InternalLink>,
       Header: t('offer.tableHeaders.harbor') || '',
@@ -115,10 +143,12 @@ const OfferPageContainer: React.FC = () => {
   const applicationType = getApplicationType(!!data.berthApplication.berthSwitch);
   const piersIdentifiers = getAllPiersIdentifiers(data);
   const harbor = getHarbor(data);
+  const boat = getBoat(data);
 
   return (
     <OfferPage>
       {harbor && <HarborCard {...harbor} className={styles.card} />}
+      {boat && <BoatCard boat={boat} />}
       <Table
         data={tableData}
         columns={columns}
@@ -134,35 +164,14 @@ const OfferPageContainer: React.FC = () => {
             filterPrefix={t('offer.tableHeaders.pierFilterBtn')}
           />
         )}
-        renderTableToolsTop={(state) => {
-          const berthId = state.selectedRows[0]?.berthId;
-          const isDisabled = isSubmitting || !applicationId || !berthId || !data.berthApplication?.customer;
-
-          const handleSubmit = () => {
-            createBerthLease({
-              variables: {
-                input: {
-                  applicationId: applicationId || '',
-                  berthId,
-                },
-              },
-            });
-
-            history.push('/applications');
-          };
-
-          return (
-            <TableTools
-              applicationDate={applicationDate}
-              applicationType={applicationType}
-              applicationStatus={applicationStatus}
-              disableSubmit={isDisabled}
-              handleSubmit={handleSubmit}
-              handleReturn={handleReturn}
-            />
-          );
-        }}
-        canSelectOneRow
+        renderTableToolsTop={() => (
+          <TableTools
+            applicationDate={applicationDate}
+            applicationType={applicationType}
+            applicationStatus={applicationStatus}
+            handleReturn={handleReturn}
+          />
+        )}
       />
     </OfferPage>
   );
