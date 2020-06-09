@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import Select from '../../../common/select/Select';
 import styles from './customerListTableTools.module.scss';
 import Modal from '../../../common/modal/Modal';
+import Text from '../../../common/text/Text';
 import { CustomerMessageForm } from './CustomerMessageForm';
 import { MessageFormValues } from '../types';
 
@@ -14,9 +15,11 @@ export interface CustomerListTableToolsProps<T> {
   searchVal: string | undefined;
   searchBy: T;
   searchByOptions: Array<{ value: T; label: string }>;
+  selectedRowsCount: number;
+  handleSendMessage?: (message: MessageFormValues) => void;
   setSearchVal(val: string): void;
   setSearchBy(val: T): void;
-  handleSendMessage?: (message: MessageFormValues) => void;
+  clearSelectedRows(): void;
 }
 
 const CustomerListTableTools = <T extends string>({
@@ -27,16 +30,35 @@ const CustomerListTableTools = <T extends string>({
   setSearchVal,
   setSearchBy,
   handleSendMessage,
+  selectedRowsCount,
+  clearSelectedRows,
 }: CustomerListTableToolsProps<T>) => {
   const { t } = useTranslation();
   const [messageModalOpen, setMessageModalOpen] = useState<boolean>(false);
 
   return (
     <div className={classNames(styles.tableTools, className)}>
-      <div>
-        <Button onClick={() => setMessageModalOpen(true)} variant="secondary" theme="black">
-          {t('customerList.message.new')}
+      <div className={styles.tableToolsLeft}>
+        <Button
+          onClick={() => setMessageModalOpen(true)}
+          variant="secondary"
+          theme="coat"
+          disabled={selectedRowsCount <= 0}
+        >
+          {selectedRowsCount <= 0 ? t('customerList.message.selectRows') : t('customerList.message.new')}
         </Button>
+        {selectedRowsCount > 0 && (
+          <>
+            <Text color="gray">
+              {selectedRowsCount === 1
+                ? t('customerList.message.selectedRowsSingular', { selectedRowsCount })
+                : t('customerList.message.selectedRowsPlural', { selectedRowsCount })}
+            </Text>
+            <button onClick={clearSelectedRows}>
+              <Text color="brand">{t('customerList.message.clearSelectedRows')}</Text>
+            </button>
+          </>
+        )}
       </div>
       <div className={styles.tableToolsRight}>
         <Select
