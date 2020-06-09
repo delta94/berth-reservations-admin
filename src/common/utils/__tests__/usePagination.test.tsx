@@ -144,5 +144,19 @@ describe('usePagination', () => {
 
       expect(history.location.search).toMatch(`?page=${pageIndex + 1}`);
     });
+
+    it('should not push duplicate page history entries in a row', () => {
+      const pageIndex = 2;
+      const { result } = renderHook(() => usePagination(), {
+        wrapper: getWrapper(''),
+      });
+      expect(history.length).toEqual(1);
+
+      result.current.goToPage(pageIndex);
+      expect(history.length).toEqual(2);
+
+      result.current.goToPage(pageIndex);
+      expect(history.length).toEqual(2);
+    });
   });
 });
