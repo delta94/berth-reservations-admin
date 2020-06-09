@@ -317,12 +317,15 @@
       "width": "Leveys",
       "length": "Pituus",
       "draught": "Syvyys",
-      "mooringType": "Kiinnitys"
+      "mooringType": "Kiinnitys",
+      "selection": "Valinta"
+    },
+    "tableCells": {
+      "select": "Valitse"
     },
     "tableTools": {
       "berths": "Venepaikat",
-      "return": "Palaa valitsematta",
-      "submit": "Siirrä hakemukselle"
+      "return": "Palaa valitsematta"
     },
     "berthDetails": {
       "title": "Paikan tiedot",
