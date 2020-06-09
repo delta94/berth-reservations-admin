@@ -14,12 +14,14 @@ describe('CustomerListTableTools', () => {
         setSearchVal={jest.fn}
         setSearchBy={jest.fn}
         handleSendMessage={jest.fn}
+        selectedRowsCount={0}
+        clearSelectedRows={jest.fn}
       />
     );
 
   it('renders normally', () => {
     const wrapper = getWrapper();
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });
