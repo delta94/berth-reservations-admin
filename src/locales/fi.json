@@ -391,7 +391,11 @@
       "message": "Viesti",
       "messageHelperText": "Voit tarkastella viestiä esikatselussa ennen lähetystä.",
       "preview": "Esikatsele",
-      "send": "Lähetä"
+      "send": "Lähetä",
+      "selectedRowsSingular": "{{selectedRowsCount}} rivi valittu",
+      "selectedRowsPlural": "{{selectedRowsCount}} riviä valittu",
+      "clearSelectedRows": "Tyhjennä valinnat",
+      "selectRows": "Valitse listasta asiakkaita lähettääksesi viesti"
     }
   },
   "customerView": {
@@ -472,7 +476,7 @@
     },
     "winterStorage": {
       "title": "Talvisäilytyspaikka",
-      "description": "Perushinta €/m2. Hinnat sisältävät alv 24 %.",
+      "description": "Hinta €/m2 sisältäen palvelut. Hinnat sisältävät alv 24 %.",
       "area": "Alue",
       "privateCustomer": "Yksityinen",
       "company": "Yritys",
@@ -480,7 +484,7 @@
     },
     "harborServices": {
       "title": "Satamapalvelut",
-      "description": "Hinnat sisältävät alv 24 %.",
+      "description": "Lisähinnat venepaikoille. Hinnat sisältävät alv 24 %.",
       "service": "Palvelu",
       "price": "Hinta",
       "unit": "Yksikkö",
