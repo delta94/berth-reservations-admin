@@ -11,5 +11,6 @@
 }
 
 .arrow {
-  margin-left: units(0.5);
+  margin-top: calc(-0.25 * var(--icon-size));
+  margin-bottom: calc(-0.25 * var(--icon-size));
 }
