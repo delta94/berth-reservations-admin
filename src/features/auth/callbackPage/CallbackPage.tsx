@@ -23,8 +23,7 @@ const CallbackPage: React.SFC<CallbackPageProps> = ({ history }) => {
         history.replace(user.state.path);
       })
       .catch(() => {
-        // TODO: handle errors
-        history.replace('/login');
+        history.replace('/error');
       });
   });
 

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Notification } from 'hds-react';
 import { useQuery } from '@apollo/react-hooks';
 import { useDebounce } from 'use-debounce';
 
@@ -38,7 +37,7 @@ const CustomerListPageContainer: React.FC = () => {
     [searchBy]: prevSearchBy === searchBy ? debouncedSearchVal : searchVal,
   };
 
-  const { data, error, loading } = useQuery<CUSTOMERS, CUSTOMERS_VARS>(CUSTOMERS_QUERY, {
+  const { data, loading } = useQuery<CUSTOMERS, CUSTOMERS_VARS>(CUSTOMERS_QUERY, {
     variables: customersVars,
   });
 
@@ -50,13 +49,6 @@ const CustomerListPageContainer: React.FC = () => {
     // Go to the first page when search values change.
     goToPage(0);
   }, [searchVal, searchBy, goToPage]);
-
-  if (error)
-    return (
-      <Notification labelText={t('common.notification.error.label')} type="error">
-        {t('common.notification.error.description')}
-      </Notification>
-    );
 
   const tableData = getCustomersData(data);
 

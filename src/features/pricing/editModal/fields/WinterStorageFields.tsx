@@ -9,7 +9,7 @@ import styles from '../editForm.module.scss';
 import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
 import FormTypeTitle from '../FormTypeTitle';
-import { WinterStoragePrice } from '../../PricingPage';
+import { WinterStoragePrice } from '../../winterStoragePricing/WinterStoragePricing';
 
 const areaOptions = ['Kaisaniemi'];
 const periodOptions = ['season', 'month', 'year'];

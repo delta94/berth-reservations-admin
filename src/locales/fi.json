@@ -85,6 +85,7 @@
       "depth": "Syvyys",
       "dinghyPlace": "Jollapaikka",
       "draught": "Syväys",
+      "dockingEquipmentSummerStorage": "Telakointitarvikkeiden kesäsäilytys",
       "electricity": "Sähkö",
       "gate": "Portti",
       "harborMap": "Satamakartta",
@@ -316,12 +317,15 @@
       "width": "Leveys",
       "length": "Pituus",
       "draught": "Syvyys",
-      "mooringType": "Kiinnitys"
+      "mooringType": "Kiinnitys",
+      "selection": "Valinta"
+    },
+    "tableCells": {
+      "select": "Valitse"
     },
     "tableTools": {
       "berths": "Venepaikat",
-      "return": "Palaa valitsematta",
-      "submit": "Siirrä hakemukselle"
+      "return": "Palaa valitsematta"
     },
     "berthDetails": {
       "title": "Paikan tiedot",
@@ -353,6 +357,17 @@
       "showBill": "Näytä lasku",
       "showContract": "Näytä sopimus",
       "removeOffer": "Poista tarjous"
+    },
+    "boatCard": {
+      "heading": "ASIAKKAAN VENE",
+      "type": "Veneen tyyppi",
+      "boatRegistrationNumber": "Rekisterinumero",
+      "boatName": "Nimi",
+      "boatModel": "Merkki",
+      "boatWidth": "Veneen leveys",
+      "boatLength": "Veneen pituus",
+      "boatDraught": "Veneen syväys",
+      "boatWeight": "Veneen paino"
     }
   },
   "customerList": {
@@ -506,5 +521,26 @@
     "numberOfFreePlaces": "Vapaata",
     "numberOfPlaces": "Paikkoja",
     "maxWidth": "Max. leveys"
+  },
+  "errorPage": {
+    "heading": "Virhetilanne",
+    "text": "Pahoittelumme, järjestelmässä ilmeni virhe. Voit yrittää uudelleen, mutta jos sama toistuu, kerro siitä meille niin korjaamme asian.",
+    "linkText": "Etusivulle"
+  },
+  "toast": {
+    "closeToast": "Sulje ilmoitus",
+    "graphQLError": {
+      "label": "Virhe"
+    },
+    "networkError": {
+      "label": "Verkkoyhteys on katkennut",
+      "description": "Palauta verkkoyhteys ja lataa sivu uudelleen."
+    },
+    "graphQLErrors": {
+      "default": {
+        "label": "Virhe",
+        "description": "Tapahtui odottamaton virhe."
+      }
+    }
   }
 }
