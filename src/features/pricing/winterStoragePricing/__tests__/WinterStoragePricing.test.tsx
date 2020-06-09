@@ -19,13 +19,13 @@ describe('WinterStoragePricing', () => {
   it('renders normally', () => {
     const wrapper = getWrapper();
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('renders noData message when there is no data', () => {
     const wrapper = getWrapper({ data: undefined });
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
   it('calls the provided openModal function when edit button is clicked', () => {
     const wrapper = getMountWrapper();

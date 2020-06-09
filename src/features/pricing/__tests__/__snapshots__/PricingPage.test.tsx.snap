@@ -1,3 +1,910 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PricingPage renders normally 1`] = `"<div class=\\"pricingPage\\"><h2 class=\\"text standard h2 xl normalWeight pageTitle\\">HINNASTO</h2><div class=\\"grid\\"><div class=\\"card fullWidth\\"><div class=\\"cardHeader\\"><span class=\\"title\\">Venepaikka</span></div><div class=\\"cardBody\\"><article class=\\"section\\"><section class=\\"body\\">Perushinta. Hinnat sisältävät alv 24 %.</section></article><div><div class=\\"tableWrapper\\"><div role=\\"table\\" style=\\"min-width:712.5px\\" class=\\"table basic noMainHeader\\"><div class=\\"stickyHeaders\\"><div role=\\"row\\" style=\\"display:flex;flex:1 0 auto;min-width:0px\\" class=\\"header\\"><div colSpan=\\"1\\" role=\\"columnheader\\" style=\\"box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer\\" title=\\"Toggle SortBy\\" class=\\"headerCell\\">Leveys<div class=\\"sortArrowWrapper\\"><div class=\\"icon standard small sortArrow sortArrowDown\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"100%\\" height=\\"100%\\" viewBox=\\"0 0 24 24\\" class=\\"\\"><g><polygon points=\\"13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169\\" transform=\\"translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) \\"></polygon></g></svg></div></div></div><div colSpan=\\"1\\" role=\\"columnheader\\" style=\\"box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer\\" title=\\"Toggle SortBy\\" class=\\"headerCell\\">Yksityinen<div class=\\"sortArrowWrapper\\"><div class=\\"icon standard small sortArrow sortArrowDown\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"100%\\" height=\\"100%\\" viewBox=\\"0 0 24 24\\" class=\\"\\"><g><polygon points=\\"13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169\\" transform=\\"translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) \\"></polygon></g></svg></div></div></div><div colSpan=\\"1\\" role=\\"columnheader\\" style=\\"box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer\\" title=\\"Toggle SortBy\\" class=\\"headerCell\\">Yritys<div class=\\"sortArrowWrapper\\"><div class=\\"icon standard small sortArrow sortArrowDown\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"100%\\" height=\\"100%\\" viewBox=\\"0 0 24 24\\" class=\\"\\"><g><polygon points=\\"13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169\\" transform=\\"translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) \\"></polygon></g></svg></div></div></div><div colSpan=\\"1\\" role=\\"columnheader\\" style=\\"box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer\\" title=\\"Toggle SortBy\\" class=\\"headerCell\\">Aika<div class=\\"sortArrowWrapper\\"><div class=\\"icon standard small sortArrow sortArrowDown\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"100%\\" height=\\"100%\\" viewBox=\\"0 0 24 24\\" class=\\"\\"><g><polygon points=\\"13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169\\" transform=\\"translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) \\"></polygon></g></svg></div></div></div><div colSpan=\\"1\\" role=\\"columnheader\\" style=\\"box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px\\" class=\\"headerCell\\">Muokkaa</div></div></div><div role=\\"rowgroup\\"><div class=\\"rowWrapper\\"><div role=\\"row\\" style=\\"display:flex;flex:1 0 auto;min-width:0px\\"><div role=\\"cell\\" style=\\"box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px\\" class=\\"tableCell\\">sed sed debitis</div><div role=\\"cell\\" style=\\"box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px\\" class=\\"tableCell\\">10,20 €</div><div role=\\"cell\\" style=\\"box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px\\" class=\\"tableCell\\">20,40 €</div><div role=\\"cell\\" style=\\"box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px\\" class=\\"tableCell\\">Kausi</div><div role=\\"cell\\" style=\\"box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px\\" class=\\"tableCell\\"><button><span class=\\"text brand span\\">Muokkaa</span></button></div></div></div></div></div></div></div></div> </div><div class=\\"card fullWidth\\"><div class=\\"cardHeader\\"><span class=\\"title\\">Talvisäilytyspaikka</span></div><div class=\\"cardBody\\"><article class=\\"section\\"><section class=\\"body\\">Perushinta €/m2. Hinnat sisältävät alv 24 %.</section></article><div><div class=\\"tableWrapper\\"><div role=\\"table\\" style=\\"min-width:712.5px\\" class=\\"table basic noMainHeader\\"><div class=\\"stickyHeaders\\"><div role=\\"row\\" style=\\"display:flex;flex:1 0 auto;min-width:0px\\" class=\\"header\\"><div colSpan=\\"1\\" role=\\"columnheader\\" style=\\"box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer\\" title=\\"Toggle SortBy\\" class=\\"headerCell\\">Alue<div class=\\"sortArrowWrapper\\"><div class=\\"icon standard small sortArrow sortArrowDown\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"100%\\" height=\\"100%\\" viewBox=\\"0 0 24 24\\" class=\\"\\"><g><polygon points=\\"13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169\\" transform=\\"translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) \\"></polygon></g></svg></div></div></div><div colSpan=\\"1\\" role=\\"columnheader\\" style=\\"box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer\\" title=\\"Toggle SortBy\\" class=\\"headerCell\\">Yksityinen<div class=\\"sortArrowWrapper\\"><div class=\\"icon standard small sortArrow sortArrowDown\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"100%\\" height=\\"100%\\" viewBox=\\"0 0 24 24\\" class=\\"\\"><g><polygon points=\\"13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169\\" transform=\\"translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) \\"></polygon></g></svg></div></div></div><div colSpan=\\"1\\" role=\\"columnheader\\" style=\\"box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer\\" title=\\"Toggle SortBy\\" class=\\"headerCell\\">Yritys<div class=\\"sortArrowWrapper\\"><div class=\\"icon standard small sortArrow sortArrowDown\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"100%\\" height=\\"100%\\" viewBox=\\"0 0 24 24\\" class=\\"\\"><g><polygon points=\\"13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169\\" transform=\\"translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) \\"></polygon></g></svg></div></div></div><div colSpan=\\"1\\" role=\\"columnheader\\" style=\\"box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer\\" title=\\"Toggle SortBy\\" class=\\"headerCell\\">Aika<div class=\\"sortArrowWrapper\\"><div class=\\"icon standard small sortArrow sortArrowDown\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"100%\\" height=\\"100%\\" viewBox=\\"0 0 24 24\\" class=\\"\\"><g><polygon points=\\"13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169\\" transform=\\"translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) \\"></polygon></g></svg></div></div></div><div colSpan=\\"1\\" role=\\"columnheader\\" style=\\"box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px\\" class=\\"headerCell\\">Muokkaa</div></div></div><div role=\\"rowgroup\\"><div class=\\"rowWrapper\\"><div role=\\"row\\" style=\\"display:flex;flex:1 0 auto;min-width:0px\\"><div role=\\"cell\\" style=\\"box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px\\" class=\\"tableCell\\">Corporate Developer Mobility</div><div role=\\"cell\\" style=\\"box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px\\" class=\\"tableCell\\">10,20 €</div><div role=\\"cell\\" style=\\"box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px\\" class=\\"tableCell\\">20,40 €</div><div role=\\"cell\\" style=\\"box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px\\" class=\\"tableCell\\">Kausi</div><div role=\\"cell\\" style=\\"box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px\\" class=\\"tableCell\\"><button><span class=\\"text brand span\\">Muokkaa</span></button></div></div></div></div></div></div></div></div> </div><div class=\\"card\\"><div class=\\"cardHeader\\"><span class=\\"title\\">Satamapalvelut</span></div><div class=\\"cardBody\\"><article class=\\"section\\"><section class=\\"body\\">Hinnat sisältävät alv 24 %.</section></article><div><div class=\\"tableWrapper\\"><div role=\\"table\\" style=\\"min-width:525px\\" class=\\"table basic noMainHeader\\"><div class=\\"stickyHeaders\\"><div role=\\"row\\" style=\\"display:flex;flex:1 0 auto;min-width:0px\\" class=\\"header\\"><div colSpan=\\"1\\" role=\\"columnheader\\" style=\\"box-sizing:border-box;flex:225 0 auto;min-width:0px;width:225px;cursor:pointer\\" title=\\"Toggle SortBy\\" class=\\"headerCell\\">Palvelu<div class=\\"sortArrowWrapper\\"><div class=\\"icon standard small sortArrow sortArrowDown\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"100%\\" height=\\"100%\\" viewBox=\\"0 0 24 24\\" class=\\"\\"><g><polygon points=\\"13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169\\" transform=\\"translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) \\"></polygon></g></svg></div></div></div><div colSpan=\\"1\\" role=\\"columnheader\\" style=\\"box-sizing:border-box;flex:75 0 auto;min-width:0px;width:75px;cursor:pointer\\" title=\\"Toggle SortBy\\" class=\\"headerCell\\">Hinta<div class=\\"sortArrowWrapper\\"><div class=\\"icon standard small sortArrow sortArrowDown\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"100%\\" height=\\"100%\\" viewBox=\\"0 0 24 24\\" class=\\"\\"><g><polygon points=\\"13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169\\" transform=\\"translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) \\"></polygon></g></svg></div></div></div><div colSpan=\\"1\\" role=\\"columnheader\\" style=\\"box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px;cursor:pointer\\" title=\\"Toggle SortBy\\" class=\\"headerCell\\">Aika<div class=\\"sortArrowWrapper\\"><div class=\\"icon standard small sortArrow sortArrowDown\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"100%\\" height=\\"100%\\" viewBox=\\"0 0 24 24\\" class=\\"\\"><g><polygon points=\\"13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169\\" transform=\\"translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) \\"></polygon></g></svg></div></div></div><div colSpan=\\"1\\" role=\\"columnheader\\" style=\\"box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px\\" class=\\"headerCell\\">Muokkaa</div></div></div><div role=\\"rowgroup\\"><div class=\\"rowWrapper\\"><div role=\\"row\\" style=\\"display:flex;flex:1 0 auto;min-width:0px\\"><div role=\\"cell\\" style=\\"box-sizing:border-box;flex:225 0 auto;min-width:0px;width:225px\\" class=\\"tableCell\\">Jollapaikka</div><div role=\\"cell\\" style=\\"box-sizing:border-box;flex:75 0 auto;min-width:0px;width:75px\\" class=\\"tableCell\\">10,00 €</div><div role=\\"cell\\" style=\\"box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px\\" class=\\"tableCell\\">Kausi</div><div role=\\"cell\\" style=\\"box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px\\" class=\\"tableCell\\"><button><span class=\\"text brand span\\">Muokkaa</span></button></div></div></div></div></div></div></div></div> </div><div class=\\"card\\"><div class=\\"cardHeader\\"><span class=\\"title\\">Lisäpalvelut</span></div><div class=\\"cardBody\\"><div><div class=\\"tableWrapper\\"><div role=\\"table\\" style=\\"min-width:600px\\" class=\\"table basic noMainHeader\\"><div class=\\"stickyHeaders\\"><div role=\\"row\\" style=\\"display:flex;flex:1 0 auto;min-width:0px\\" class=\\"header\\"><div colSpan=\\"1\\" role=\\"columnheader\\" style=\\"box-sizing:border-box;flex:225 0 auto;min-width:0px;width:225px;cursor:pointer\\" title=\\"Toggle SortBy\\" class=\\"headerCell\\">Palvelu<div class=\\"sortArrowWrapper\\"><div class=\\"icon standard small sortArrow sortArrowDown\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"100%\\" height=\\"100%\\" viewBox=\\"0 0 24 24\\" class=\\"\\"><g><polygon points=\\"13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169\\" transform=\\"translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) \\"></polygon></g></svg></div></div></div><div colSpan=\\"1\\" role=\\"columnheader\\" style=\\"box-sizing:border-box;flex:75 0 auto;min-width:0px;width:75px;cursor:pointer\\" title=\\"Toggle SortBy\\" class=\\"headerCell\\">Hinta<div class=\\"sortArrowWrapper\\"><div class=\\"icon standard small sortArrow sortArrowDown\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"100%\\" height=\\"100%\\" viewBox=\\"0 0 24 24\\" class=\\"\\"><g><polygon points=\\"13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169\\" transform=\\"translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) \\"></polygon></g></svg></div></div></div><div colSpan=\\"1\\" role=\\"columnheader\\" style=\\"box-sizing:border-box;flex:75 0 auto;min-width:0px;width:75px;cursor:pointer\\" title=\\"Toggle SortBy\\" class=\\"headerCell\\">ALV<div class=\\"sortArrowWrapper\\"><div class=\\"icon standard small sortArrow sortArrowDown\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"100%\\" height=\\"100%\\" viewBox=\\"0 0 24 24\\" class=\\"\\"><g><polygon points=\\"13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169\\" transform=\\"translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) \\"></polygon></g></svg></div></div></div><div colSpan=\\"1\\" role=\\"columnheader\\" style=\\"box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px;cursor:pointer\\" title=\\"Toggle SortBy\\" class=\\"headerCell\\">Aika<div class=\\"sortArrowWrapper\\"><div class=\\"icon standard small sortArrow sortArrowDown\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"100%\\" height=\\"100%\\" viewBox=\\"0 0 24 24\\" class=\\"\\"><g><polygon points=\\"13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169\\" transform=\\"translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) \\"></polygon></g></svg></div></div></div><div colSpan=\\"1\\" role=\\"columnheader\\" style=\\"box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px\\" class=\\"headerCell\\">Muokkaa</div></div></div><div role=\\"rowgroup\\"><div class=\\"rowWrapper\\"><div role=\\"row\\" style=\\"display:flex;flex:1 0 auto;min-width:0px\\"><div role=\\"cell\\" style=\\"box-sizing:border-box;flex:225 0 auto;min-width:0px;width:225px\\" class=\\"tableCell\\">Jollapaikka</div><div role=\\"cell\\" style=\\"box-sizing:border-box;flex:75 0 auto;min-width:0px;width:75px\\" class=\\"tableCell\\">10,00 €</div><div role=\\"cell\\" style=\\"box-sizing:border-box;flex:75 0 auto;min-width:0px;width:75px\\" class=\\"tableCell\\">24 %</div><div role=\\"cell\\" style=\\"box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px\\" class=\\"tableCell\\">Kausi</div><div role=\\"cell\\" style=\\"box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px\\" class=\\"tableCell\\"><button><span class=\\"text brand span\\">Muokkaa</span></button></div></div></div></div></div></div></div></div> </div></div></div>"`;
+exports[`PricingPage renders normally 1`] = `
+<div
+  class="pricingPage"
+>
+  <h2
+    class="text standard h2 xl normalWeight pageTitle"
+  >
+    HINNASTO
+  </h2>
+  <div
+    class="grid"
+  >
+    <div
+      class="card fullWidth"
+    >
+      <div
+        class="cardHeader"
+      >
+        <span
+          class="title"
+        >
+          Venepaikka
+        </span>
+      </div>
+      <div
+        class="cardBody"
+      >
+        <article
+          class="section"
+        >
+          <section
+            class="body"
+          >
+            Perushinta. Hinnat sisältävät alv 24 %.
+          </section>
+        </article>
+        <div>
+          <div
+            class="tableWrapper"
+          >
+            <div
+              class="table basic noMainHeader"
+              role="table"
+              style="min-width:712.5px"
+            >
+              <div
+                class="stickyHeaders"
+              >
+                <div
+                  class="header"
+                  role="row"
+                  style="display:flex;flex:1 0 auto;min-width:0px"
+                >
+                  <div
+                    class="headerCell"
+                    colspan="1"
+                    role="columnheader"
+                    style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+                    title="Toggle SortBy"
+                  >
+                    Leveys
+                    <div
+                      class="sortArrowWrapper"
+                    >
+                      <div
+                        class="icon standard small sortArrow sortArrowDown"
+                      >
+                        <svg
+                          class=""
+                          height="100%"
+                          viewBox="0 0 24 24"
+                          width="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g>
+                            <polygon
+                              points="13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169"
+                              transform="translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) "
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="headerCell"
+                    colspan="1"
+                    role="columnheader"
+                    style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+                    title="Toggle SortBy"
+                  >
+                    Yksityinen
+                    <div
+                      class="sortArrowWrapper"
+                    >
+                      <div
+                        class="icon standard small sortArrow sortArrowDown"
+                      >
+                        <svg
+                          class=""
+                          height="100%"
+                          viewBox="0 0 24 24"
+                          width="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g>
+                            <polygon
+                              points="13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169"
+                              transform="translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) "
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="headerCell"
+                    colspan="1"
+                    role="columnheader"
+                    style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+                    title="Toggle SortBy"
+                  >
+                    Yritys
+                    <div
+                      class="sortArrowWrapper"
+                    >
+                      <div
+                        class="icon standard small sortArrow sortArrowDown"
+                      >
+                        <svg
+                          class=""
+                          height="100%"
+                          viewBox="0 0 24 24"
+                          width="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g>
+                            <polygon
+                              points="13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169"
+                              transform="translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) "
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="headerCell"
+                    colspan="1"
+                    role="columnheader"
+                    style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+                    title="Toggle SortBy"
+                  >
+                    Aika
+                    <div
+                      class="sortArrowWrapper"
+                    >
+                      <div
+                        class="icon standard small sortArrow sortArrowDown"
+                      >
+                        <svg
+                          class=""
+                          height="100%"
+                          viewBox="0 0 24 24"
+                          width="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g>
+                            <polygon
+                              points="13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169"
+                              transform="translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) "
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="headerCell"
+                    colspan="1"
+                    role="columnheader"
+                    style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
+                  >
+                    Muokkaa
+                  </div>
+                </div>
+              </div>
+              <div
+                role="rowgroup"
+              >
+                <div
+                  class="rowWrapper"
+                >
+                  <div
+                    role="row"
+                    style="display:flex;flex:1 0 auto;min-width:0px"
+                  >
+                    <div
+                      class="tableCell"
+                      role="cell"
+                      style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                    >
+                      sed sed debitis
+                    </div>
+                    <div
+                      class="tableCell"
+                      role="cell"
+                      style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                    >
+                      10,20 €
+                    </div>
+                    <div
+                      class="tableCell"
+                      role="cell"
+                      style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                    >
+                      20,40 €
+                    </div>
+                    <div
+                      class="tableCell"
+                      role="cell"
+                      style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                    >
+                      Kausi
+                    </div>
+                    <div
+                      class="tableCell"
+                      role="cell"
+                      style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
+                    >
+                      <button>
+                        <span
+                          class="text brand span"
+                        >
+                          Muokkaa
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+    </div>
+    <div
+      class="card fullWidth"
+    >
+      <div
+        class="cardHeader"
+      >
+        <span
+          class="title"
+        >
+          Talvisäilytyspaikka
+        </span>
+      </div>
+      <div
+        class="cardBody"
+      >
+        <article
+          class="section"
+        >
+          <section
+            class="body"
+          >
+            Hinta €/m2 sisältäen palvelut. Hinnat sisältävät alv 24 %.
+          </section>
+        </article>
+        <div>
+          <div
+            class="tableWrapper"
+          >
+            <div
+              class="table basic noMainHeader"
+              role="table"
+              style="min-width:712.5px"
+            >
+              <div
+                class="stickyHeaders"
+              >
+                <div
+                  class="header"
+                  role="row"
+                  style="display:flex;flex:1 0 auto;min-width:0px"
+                >
+                  <div
+                    class="headerCell"
+                    colspan="1"
+                    role="columnheader"
+                    style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+                    title="Toggle SortBy"
+                  >
+                    Alue
+                    <div
+                      class="sortArrowWrapper"
+                    >
+                      <div
+                        class="icon standard small sortArrow sortArrowDown"
+                      >
+                        <svg
+                          class=""
+                          height="100%"
+                          viewBox="0 0 24 24"
+                          width="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g>
+                            <polygon
+                              points="13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169"
+                              transform="translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) "
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="headerCell"
+                    colspan="1"
+                    role="columnheader"
+                    style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+                    title="Toggle SortBy"
+                  >
+                    Yksityinen
+                    <div
+                      class="sortArrowWrapper"
+                    >
+                      <div
+                        class="icon standard small sortArrow sortArrowDown"
+                      >
+                        <svg
+                          class=""
+                          height="100%"
+                          viewBox="0 0 24 24"
+                          width="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g>
+                            <polygon
+                              points="13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169"
+                              transform="translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) "
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="headerCell"
+                    colspan="1"
+                    role="columnheader"
+                    style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+                    title="Toggle SortBy"
+                  >
+                    Yritys
+                    <div
+                      class="sortArrowWrapper"
+                    >
+                      <div
+                        class="icon standard small sortArrow sortArrowDown"
+                      >
+                        <svg
+                          class=""
+                          height="100%"
+                          viewBox="0 0 24 24"
+                          width="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g>
+                            <polygon
+                              points="13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169"
+                              transform="translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) "
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="headerCell"
+                    colspan="1"
+                    role="columnheader"
+                    style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+                    title="Toggle SortBy"
+                  >
+                    Aika
+                    <div
+                      class="sortArrowWrapper"
+                    >
+                      <div
+                        class="icon standard small sortArrow sortArrowDown"
+                      >
+                        <svg
+                          class=""
+                          height="100%"
+                          viewBox="0 0 24 24"
+                          width="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g>
+                            <polygon
+                              points="13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169"
+                              transform="translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) "
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="headerCell"
+                    colspan="1"
+                    role="columnheader"
+                    style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
+                  >
+                    Muokkaa
+                  </div>
+                </div>
+              </div>
+              <div
+                role="rowgroup"
+              >
+                <div
+                  class="rowWrapper"
+                >
+                  <div
+                    role="row"
+                    style="display:flex;flex:1 0 auto;min-width:0px"
+                  >
+                    <div
+                      class="tableCell"
+                      role="cell"
+                      style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                    >
+                      Corporate Developer Mobility
+                    </div>
+                    <div
+                      class="tableCell"
+                      role="cell"
+                      style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                    >
+                      10,20 €
+                    </div>
+                    <div
+                      class="tableCell"
+                      role="cell"
+                      style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                    >
+                      20,40 €
+                    </div>
+                    <div
+                      class="tableCell"
+                      role="cell"
+                      style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                    >
+                      Kausi
+                    </div>
+                    <div
+                      class="tableCell"
+                      role="cell"
+                      style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
+                    >
+                      <button>
+                        <span
+                          class="text brand span"
+                        >
+                          Muokkaa
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+    </div>
+    <div
+      class="card"
+    >
+      <div
+        class="cardHeader"
+      >
+        <span
+          class="title"
+        >
+          Satamapalvelut
+        </span>
+      </div>
+      <div
+        class="cardBody"
+      >
+        <article
+          class="section"
+        >
+          <section
+            class="body"
+          >
+            Lisähinnat venepaikoille. Hinnat sisältävät alv 24 %.
+          </section>
+        </article>
+        <div>
+          <div
+            class="tableWrapper"
+          >
+            <div
+              class="table basic noMainHeader"
+              role="table"
+              style="min-width:525px"
+            >
+              <div
+                class="stickyHeaders"
+              >
+                <div
+                  class="header"
+                  role="row"
+                  style="display:flex;flex:1 0 auto;min-width:0px"
+                >
+                  <div
+                    class="headerCell"
+                    colspan="1"
+                    role="columnheader"
+                    style="box-sizing:border-box;flex:225 0 auto;min-width:0px;width:225px;cursor:pointer"
+                    title="Toggle SortBy"
+                  >
+                    Palvelu
+                    <div
+                      class="sortArrowWrapper"
+                    >
+                      <div
+                        class="icon standard small sortArrow sortArrowDown"
+                      >
+                        <svg
+                          class=""
+                          height="100%"
+                          viewBox="0 0 24 24"
+                          width="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g>
+                            <polygon
+                              points="13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169"
+                              transform="translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) "
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="headerCell"
+                    colspan="1"
+                    role="columnheader"
+                    style="box-sizing:border-box;flex:75 0 auto;min-width:0px;width:75px;cursor:pointer"
+                    title="Toggle SortBy"
+                  >
+                    Hinta
+                    <div
+                      class="sortArrowWrapper"
+                    >
+                      <div
+                        class="icon standard small sortArrow sortArrowDown"
+                      >
+                        <svg
+                          class=""
+                          height="100%"
+                          viewBox="0 0 24 24"
+                          width="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g>
+                            <polygon
+                              points="13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169"
+                              transform="translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) "
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="headerCell"
+                    colspan="1"
+                    role="columnheader"
+                    style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px;cursor:pointer"
+                    title="Toggle SortBy"
+                  >
+                    Aika
+                    <div
+                      class="sortArrowWrapper"
+                    >
+                      <div
+                        class="icon standard small sortArrow sortArrowDown"
+                      >
+                        <svg
+                          class=""
+                          height="100%"
+                          viewBox="0 0 24 24"
+                          width="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g>
+                            <polygon
+                              points="13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169"
+                              transform="translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) "
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="headerCell"
+                    colspan="1"
+                    role="columnheader"
+                    style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
+                  >
+                    Muokkaa
+                  </div>
+                </div>
+              </div>
+              <div
+                role="rowgroup"
+              >
+                <div
+                  class="rowWrapper"
+                >
+                  <div
+                    role="row"
+                    style="display:flex;flex:1 0 auto;min-width:0px"
+                  >
+                    <div
+                      class="tableCell"
+                      role="cell"
+                      style="box-sizing:border-box;flex:225 0 auto;min-width:0px;width:225px"
+                    >
+                      Jollapaikka
+                    </div>
+                    <div
+                      class="tableCell"
+                      role="cell"
+                      style="box-sizing:border-box;flex:75 0 auto;min-width:0px;width:75px"
+                    >
+                      10,00 €
+                    </div>
+                    <div
+                      class="tableCell"
+                      role="cell"
+                      style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
+                    >
+                      Kausi
+                    </div>
+                    <div
+                      class="tableCell"
+                      role="cell"
+                      style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
+                    >
+                      <button>
+                        <span
+                          class="text brand span"
+                        >
+                          Muokkaa
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+    </div>
+    <div
+      class="card"
+    >
+      <div
+        class="cardHeader"
+      >
+        <span
+          class="title"
+        >
+          Lisäpalvelut
+        </span>
+      </div>
+      <div
+        class="cardBody"
+      >
+        <div>
+          <div
+            class="tableWrapper"
+          >
+            <div
+              class="table basic noMainHeader"
+              role="table"
+              style="min-width:600px"
+            >
+              <div
+                class="stickyHeaders"
+              >
+                <div
+                  class="header"
+                  role="row"
+                  style="display:flex;flex:1 0 auto;min-width:0px"
+                >
+                  <div
+                    class="headerCell"
+                    colspan="1"
+                    role="columnheader"
+                    style="box-sizing:border-box;flex:225 0 auto;min-width:0px;width:225px;cursor:pointer"
+                    title="Toggle SortBy"
+                  >
+                    Palvelu
+                    <div
+                      class="sortArrowWrapper"
+                    >
+                      <div
+                        class="icon standard small sortArrow sortArrowDown"
+                      >
+                        <svg
+                          class=""
+                          height="100%"
+                          viewBox="0 0 24 24"
+                          width="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g>
+                            <polygon
+                              points="13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169"
+                              transform="translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) "
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="headerCell"
+                    colspan="1"
+                    role="columnheader"
+                    style="box-sizing:border-box;flex:75 0 auto;min-width:0px;width:75px;cursor:pointer"
+                    title="Toggle SortBy"
+                  >
+                    Hinta
+                    <div
+                      class="sortArrowWrapper"
+                    >
+                      <div
+                        class="icon standard small sortArrow sortArrowDown"
+                      >
+                        <svg
+                          class=""
+                          height="100%"
+                          viewBox="0 0 24 24"
+                          width="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g>
+                            <polygon
+                              points="13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169"
+                              transform="translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) "
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="headerCell"
+                    colspan="1"
+                    role="columnheader"
+                    style="box-sizing:border-box;flex:75 0 auto;min-width:0px;width:75px;cursor:pointer"
+                    title="Toggle SortBy"
+                  >
+                    ALV
+                    <div
+                      class="sortArrowWrapper"
+                    >
+                      <div
+                        class="icon standard small sortArrow sortArrowDown"
+                      >
+                        <svg
+                          class=""
+                          height="100%"
+                          viewBox="0 0 24 24"
+                          width="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g>
+                            <polygon
+                              points="13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169"
+                              transform="translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) "
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="headerCell"
+                    colspan="1"
+                    role="columnheader"
+                    style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px;cursor:pointer"
+                    title="Toggle SortBy"
+                  >
+                    Aika
+                    <div
+                      class="sortArrowWrapper"
+                    >
+                      <div
+                        class="icon standard small sortArrow sortArrowDown"
+                      >
+                        <svg
+                          class=""
+                          height="100%"
+                          viewBox="0 0 24 24"
+                          width="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g>
+                            <polygon
+                              points="13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169"
+                              transform="translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) "
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="headerCell"
+                    colspan="1"
+                    role="columnheader"
+                    style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
+                  >
+                    Muokkaa
+                  </div>
+                </div>
+              </div>
+              <div
+                role="rowgroup"
+              >
+                <div
+                  class="rowWrapper"
+                >
+                  <div
+                    role="row"
+                    style="display:flex;flex:1 0 auto;min-width:0px"
+                  >
+                    <div
+                      class="tableCell"
+                      role="cell"
+                      style="box-sizing:border-box;flex:225 0 auto;min-width:0px;width:225px"
+                    >
+                      Jollapaikka
+                    </div>
+                    <div
+                      class="tableCell"
+                      role="cell"
+                      style="box-sizing:border-box;flex:75 0 auto;min-width:0px;width:75px"
+                    >
+                      10,00 €
+                    </div>
+                    <div
+                      class="tableCell"
+                      role="cell"
+                      style="box-sizing:border-box;flex:75 0 auto;min-width:0px;width:75px"
+                    >
+                      24 %
+                    </div>
+                    <div
+                      class="tableCell"
+                      role="cell"
+                      style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
+                    >
+                      Kausi
+                    </div>
+                    <div
+                      class="tableCell"
+                      role="cell"
+                      style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
+                    >
+                      <button>
+                        <span
+                          class="text brand span"
+                        >
+                          Muokkaa
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+    </div>
+  </div>
+</div>
+`;
