@@ -143,7 +143,7 @@ const Table = <D extends { id: string }>({
       Cell: ({ row }: { row: any }) => (
         <div {...row.getToggleRowExpandedProps()}>
           <IconAngleDown
-            size="s"
+            size="m"
             className={classNames(styles.expandArrow, {
               [styles.isExpanded]: row.isExpanded,
             })}
@@ -286,7 +286,7 @@ const Table = <D extends { id: string }>({
                 className={classNames(styles.sortArrow, {
                   [styles.sortArrowDown]: !column.isSortedDesc,
                 })}
-                size="s"
+                size="m"
               />
             </div>
           )}
