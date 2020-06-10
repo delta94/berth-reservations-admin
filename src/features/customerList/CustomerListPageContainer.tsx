@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { useDebounce } from 'use-debounce';
@@ -45,9 +45,16 @@ const CustomerListPageContainer: React.FC = () => {
     alert(`CustomerIds: ${JSON.stringify(customerIds)} content: ${JSON.stringify(message)}`);
   };
 
+  const isInitialMount = useRef(true);
   useEffect(() => {
-    // Go to the first page when search values change.
-    goToPage(0);
+    // Prevent hook running on initial mount because it would force to first page on landing with direct url
+    // regardless of the page param
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      // Go to the first page when search values change.
+      goToPage(0);
+    }
   }, [searchVal, searchBy, goToPage]);
 
   const tableData = getCustomersData(data);

@@ -87,7 +87,9 @@ const ApplicationViewPageContainer: React.FC = () => {
 
   useEffect(() => {
     // Go to the first page when search values change.
-    !customer && !loading && goToPage(0);
+    if (!customer && !loading) {
+      goToPage(0);
+    }
   }, [searchVal, searchBy, customer, loading, goToPage]);
 
   const [linkCustomer] = useMutation<UPDATE_BERTH_APPLICATION, UPDATE_BERTH_APPLICATION_VARS>(
