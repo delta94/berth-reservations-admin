@@ -52,7 +52,7 @@ const CustomerListPageContainer: React.FC = () => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
     } else {
-      // Go to the first page when search values
+      // Go to the first page when search values change.
       goToPage(0);
     }
   }, [searchVal, searchBy, goToPage]);
