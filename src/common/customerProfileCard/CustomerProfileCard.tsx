@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Card from '../card/Card';
@@ -21,7 +21,7 @@ const renderDetails = (props: CustomerProfileCardProps) => {
   }
 };
 
-const CustomerProfileCard: FunctionComponent<CustomerProfileCardProps> = (props) => {
+const CustomerProfileCard = (props: CustomerProfileCardProps) => {
   const { className } = props;
   const { t } = useTranslation();
 

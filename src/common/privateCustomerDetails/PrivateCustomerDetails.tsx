@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Section from '../section/Section';
@@ -24,7 +24,7 @@ export interface PrivateCustomerDetailsProps {
   ssn?: string;
 }
 
-const PrivateCustomerDetails: FunctionComponent<PrivateCustomerDetailsProps> = ({
+const PrivateCustomerDetails = ({
   title,
   comment,
   customerId,
@@ -36,7 +36,7 @@ const PrivateCustomerDetails: FunctionComponent<PrivateCustomerDetailsProps> = (
   primaryPhone,
   showCustomerNameAsLink = false,
   ssn,
-}) => {
+}: PrivateCustomerDetailsProps) => {
   const { t } = useTranslation();
 
   return (

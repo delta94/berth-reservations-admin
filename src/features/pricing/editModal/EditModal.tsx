@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Modal from '../../../common/modal/Modal';
@@ -16,13 +16,7 @@ export interface EditPricingModalProps {
   onSubmit: (values: BerthPrice | WinterStoragePrice | HarborService | AdditionalService) => void;
 }
 
-const EditModal: FunctionComponent<EditPricingModalProps> = ({
-  closeModal,
-  formType,
-  initialValues,
-  isOpen,
-  onSubmit,
-}) => {
+const EditModal = ({ closeModal, formType, initialValues, isOpen, onSubmit }: EditPricingModalProps) => {
   const { t } = useTranslation();
 
   return (

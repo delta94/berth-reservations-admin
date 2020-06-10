@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 
 import styles from './formTypeTitle.module.scss';
 
@@ -7,7 +7,7 @@ export interface FormTypeFieldProps {
   value: string;
 }
 
-const FormTypeTitle: FunctionComponent<FormTypeFieldProps> = ({ label, value }) => (
+const FormTypeTitle = ({ label, value }: FormTypeFieldProps) => (
   <div>
     <div className={styles.formTypeTitleLabel}>{label}</div>
     <div className={styles.formTypeTitleValue}>{value}</div>

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { TextInput } from 'hds-react';
 import { Field, useFormikContext } from 'formik';
 import { useTranslation } from 'react-i18next';
@@ -29,7 +29,7 @@ export const getBerthsValidationSchema = (t: TFunction) =>
     period: Yup.string().oneOf(periodOptions).required(t('forms.common.errors.required')),
   });
 
-const BerthsFields: FunctionComponent = () => {
+const BerthsFields = () => {
   const { t } = useTranslation();
   const { errors } = useFormikContext<BerthPrice>();
 

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 
 import Text from '../text/Text';
@@ -13,7 +13,7 @@ export type InputWrapperProps = {
 };
 
 /* Simplified duplicate of HDS internal InputWrapper */
-const InputWrapper: FunctionComponent<InputWrapperProps> = ({ children, helperText, id, invalid, labelText }) => (
+const InputWrapper = ({ children, helperText, id, invalid, labelText }: InputWrapperProps) => (
   <div className={classNames(styles.root, invalid && styles.invalid)}>
     {labelText && (
       <label

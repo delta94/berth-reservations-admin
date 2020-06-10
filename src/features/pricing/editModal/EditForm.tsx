@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { Form, Formik } from 'formik';
 import { Button } from 'hds-react';
 import { useTranslation } from 'react-i18next';
@@ -52,7 +52,7 @@ const getForm = (formType: EDIT_FORM_TYPE) => {
   }
 };
 
-const EditForm: FunctionComponent<EditPricingFormProps> = ({ onSubmit, closeModal, formType, initialValues }) => {
+const EditForm = ({ onSubmit, closeModal, formType, initialValues }: EditPricingFormProps) => {
   const { t } = useTranslation();
   const form = getForm(formType);
 

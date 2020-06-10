@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { mount } from 'enzyme';
 import { Form } from 'formik';
 import { act } from 'react-dom/test-utils';
@@ -58,7 +58,7 @@ describe('EditForm', () => {
   // [name, component, data, formType]
   const cases: [
     string,
-    FunctionComponent,
+    () => JSX.Element,
     BerthPrice | WinterStoragePrice | HarborService | AdditionalService,
     EDIT_FORM_TYPE
   ][] = [

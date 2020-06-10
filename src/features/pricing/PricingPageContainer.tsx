@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { Notification } from 'hds-react';
 import { useTranslation } from 'react-i18next';
@@ -18,7 +18,7 @@ type ModalState =
       formType: EditPricingModalProps['formType'];
     };
 
-const PricingPageContainer: FunctionComponent = () => {
+const PricingPageContainer = () => {
   const { t } = useTranslation();
 
   const { loading, error, data } = useQuery<PRICING_PAGE>(PRICING_PAGE_QUERY, {
