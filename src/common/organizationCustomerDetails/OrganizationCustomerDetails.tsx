@@ -107,11 +107,9 @@ const OrganizationCustomerDetails: FunctionComponent<OrganizationCustomerDetails
           <LabelValuePair value={t([`common.invoicingTypes.${invoicingType}`])} />
         </Section>
       )}
-      {comment && (
-        <Section>
-          <LabelValuePair label={t('customerProfile.remarks')} value={comment} />
-        </Section>
-      )}
+      <Section>
+        <LabelValuePair label={t('customerProfile.remarks')} value={comment} />
+      </Section>
     </>
   );
 };

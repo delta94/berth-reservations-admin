@@ -48,6 +48,6 @@ describe('ApplicationsCard', () => {
   it('renders normally', () => {
     const wrapper = getWrapper();
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });
