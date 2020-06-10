@@ -16,7 +16,7 @@ interface Props extends Omit<FormProps<Pier>, 'initialValues' | 'isSubmitting'> 
   pierId: string;
 }
 
-const PierEditForm: React.FC<Props> = ({ pierId, onCancel, onSubmit, onDelete, refetchQueries }) => {
+const PierEditForm = ({ pierId, onCancel, onSubmit, onDelete, refetchQueries }: Props) => {
   const { loading, error, data } = useQuery<PIER_AND_BOAT_TYPES>(PIER_AND_BOAT_TYPES_QUERY, {
     variables: { id: pierId },
   });

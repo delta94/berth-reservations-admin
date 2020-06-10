@@ -51,7 +51,7 @@ export interface ApplicationViewPageProps {
   onSortedColChange(sortBy: { id: string; desc?: boolean } | undefined): void;
 }
 
-const ApplicationViewPage: React.FC<ApplicationViewPageProps> = ({
+const ApplicationViewPage = ({
   similarCustomersData,
   customerProfile,
   applicationDetails,
@@ -61,7 +61,7 @@ const ApplicationViewPage: React.FC<ApplicationViewPageProps> = ({
   pagination,
   handleLinkCustomer,
   onSortedColChange,
-}) => {
+}: ApplicationViewPageProps) => {
   const { t, i18n } = useTranslation();
   const columns: ColumnType[] = [
     {

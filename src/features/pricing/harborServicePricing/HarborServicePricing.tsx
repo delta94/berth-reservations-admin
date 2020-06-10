@@ -30,12 +30,7 @@ export interface HarborServicePricingProps {
   openModal: (formType: EDIT_FORM_TYPE, initialValues: HarborService) => void;
 }
 
-const HarborServicePricing: React.FC<HarborServicePricingProps> = ({
-  data,
-  loading,
-  className,
-  openModal,
-}: HarborServicePricingProps) => {
+const HarborServicePricing = ({ data, loading, className, openModal }: HarborServicePricingProps) => {
   const { t, i18n } = useTranslation();
 
   const harborServicesCols: Column<HarborService>[] = [

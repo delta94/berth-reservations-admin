@@ -12,7 +12,7 @@ interface Props {
   canAddBerth: boolean;
 }
 
-const HarborViewTableTools: React.FC<Props> = ({ onAddPier, onAddBerth, handleGlobalFilter, canAddBerth }) => {
+const HarborViewTableTools = ({ onAddPier, onAddBerth, handleGlobalFilter, canAddBerth }: Props) => {
   const { t } = useTranslation();
   return (
     <div className={styles.container}>

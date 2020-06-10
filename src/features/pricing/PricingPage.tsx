@@ -33,7 +33,7 @@ export interface PricingPageProps {
   ) => void;
 }
 
-const PricingPage: React.FC<PricingPageProps> = ({
+const PricingPage = ({
   berthsData,
   berthsLoading,
   winterStorageData,
@@ -43,7 +43,7 @@ const PricingPage: React.FC<PricingPageProps> = ({
   additionalServicesData,
   additionalServicesLoading,
   openModal,
-}) => {
+}: PricingPageProps) => {
   const { t } = useTranslation();
 
   return (

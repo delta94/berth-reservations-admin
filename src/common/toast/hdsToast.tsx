@@ -21,13 +21,13 @@ interface DismissableNotificationWrapperProps extends HDSToastArgs {
   translated: boolean;
 }
 
-const DismissableNotificationWrapper: React.FC<DismissableNotificationWrapperProps> = ({
+const DismissableNotificationWrapper = ({
   type,
   labelText,
   text,
   toastId,
   translated,
-}) => {
+}: DismissableNotificationWrapperProps) => {
   const { t } = useTranslation();
   return (
     <DismissableNotification

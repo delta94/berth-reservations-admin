@@ -40,7 +40,7 @@ const initialValues: MessageFormValues = {
   message: '',
 };
 
-export const CustomerMessageForm: React.FC<CustomerMessageFormProps> = ({ closeModal, handleSendMessage }) => {
+export const CustomerMessageForm = ({ closeModal, handleSendMessage }: CustomerMessageFormProps) => {
   const { t } = useTranslation();
 
   const templateOptions = mockTemplates.map(({ id, name }) => {

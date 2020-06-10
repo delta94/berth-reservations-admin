@@ -18,7 +18,7 @@ export interface HarborListPageProps {
   loading?: boolean;
 }
 
-const HarborListPage: React.FC<HarborListPageProps> = ({ data, loading }) => {
+const HarborListPage = ({ data, loading }: HarborListPageProps) => {
   const { t } = useTranslation();
 
   const columns: ColumnType[] = [

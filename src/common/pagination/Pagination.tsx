@@ -11,7 +11,7 @@ export type PaginationProps = Pick<ReactPaginateProps, 'pageCount' | 'onPageChan
   className?: string;
 };
 
-const Pagination: React.FC<PaginationProps> = ({ className, ...rest }) => {
+const Pagination = ({ className, ...rest }: PaginationProps) => {
   const { t } = useTranslation();
 
   return (

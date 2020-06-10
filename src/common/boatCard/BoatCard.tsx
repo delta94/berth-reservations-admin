@@ -15,7 +15,7 @@ interface BoatCardProps {
   boat: Boat;
 }
 
-const BoatCard: React.FC<BoatCardProps> = ({ boat }) => {
+const BoatCard = ({ boat }: BoatCardProps) => {
   const { t, i18n } = useTranslation();
   return (
     <Card className={styles.card}>

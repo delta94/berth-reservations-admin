@@ -9,7 +9,7 @@ import Layout from '../../common/layout/Layout';
 import Header from '../../common/header/Header';
 import HelsinkiLogo from '../../common/helsinkiLogo/HelsinkiLogo';
 
-const ErrorPage: React.FC = () => {
+const ErrorPage = () => {
   const { t } = useTranslation();
 
   return (

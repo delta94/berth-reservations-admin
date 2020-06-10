@@ -5,7 +5,7 @@ import styles from './hdsToastContainer.module.scss';
 
 export const HDSToastContainerId = 'HDSToastContainer';
 
-const HDSToastContainer: React.FC = () => {
+const HDSToastContainer = () => {
   return (
     <ToastContainer
       closeButton={false}

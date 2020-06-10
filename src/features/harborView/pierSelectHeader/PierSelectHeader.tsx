@@ -14,13 +14,7 @@ interface PierSelectHeaderProps {
   onEdit?(pier: Pier): void;
 }
 
-const PierSelectHeader: React.FC<PierSelectHeaderProps> = ({
-  className,
-  piers,
-  selectedPier,
-  onPierSelect,
-  onEdit,
-}) => {
+const PierSelectHeader = ({ className, piers, selectedPier, onPierSelect, onEdit }: PierSelectHeaderProps) => {
   const { t } = useTranslation();
   return (
     <div className={classNames(styles.container, className)}>
