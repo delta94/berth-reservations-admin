@@ -30,7 +30,7 @@ export interface LeasesCardProps {
   handleShowContract(leaseId: string): void;
 }
 
-const LeasesCard: React.SFC<LeasesCardProps> = ({ leases, handleShowContract }) => {
+const LeasesCard = ({ leases, handleShowContract }: LeasesCardProps) => {
   const { t, i18n } = useTranslation();
 
   return (

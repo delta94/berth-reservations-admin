@@ -16,12 +16,7 @@ export interface TableToolsProps {
   handleReturn(): void;
 }
 
-const TableTools: React.SFC<TableToolsProps> = ({
-  applicationDate,
-  applicationType,
-  applicationStatus,
-  handleReturn,
-}) => {
+const TableTools = ({ applicationDate, applicationType, applicationStatus, handleReturn }: TableToolsProps) => {
   const { t } = useTranslation();
 
   return (

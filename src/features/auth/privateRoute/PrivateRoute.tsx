@@ -3,7 +3,7 @@ import { Route, Redirect, RouteProps, useLocation } from 'react-router-dom';
 
 import authService from '../authService';
 
-const PrivateRoute: React.SFC<RouteProps> = (props) => {
+const PrivateRoute = (props: RouteProps) => {
   const location = useLocation();
   const isAuthenticated = authService.isAuthenticated();
 

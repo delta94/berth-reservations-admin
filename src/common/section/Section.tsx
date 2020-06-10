@@ -5,11 +5,12 @@ import Text from '../text/Text';
 import styles from './section.module.scss';
 
 export interface SectionProps {
+  children: React.ReactNode;
   title?: string;
   className?: string;
 }
 
-const Section: React.SFC<SectionProps> = ({ title, children, className }) => (
+const Section = ({ title, children, className }: SectionProps) => (
   <article className={classNames(styles.section, className)}>
     {title && (
       <Text as="h4" size="m" className={styles.title}>

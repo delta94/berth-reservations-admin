@@ -33,7 +33,7 @@ export interface BerthDetailsProps {
   onEdit?(): void;
 }
 
-const BerthDetails: React.SFC<BerthDetailsProps> = ({
+const BerthDetails = ({
   leases,
   gate,
   electricity,
@@ -43,7 +43,7 @@ const BerthDetails: React.SFC<BerthDetailsProps> = ({
   isAccessible,
   comment,
   onEdit,
-}) => {
+}: BerthDetailsProps) => {
   const { t, i18n } = useTranslation();
 
   const expiredLeasesElements = leases

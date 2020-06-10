@@ -38,7 +38,7 @@ export interface HarborCardProps {
   editHarbor?: () => void;
 }
 
-const HarborCard: React.SFC<HarborCardProps> = ({
+const HarborCard = ({
   className,
   name,
   address,
@@ -47,7 +47,7 @@ const HarborCard: React.SFC<HarborCardProps> = ({
   servicemapId,
   properties,
   editHarbor,
-}) => {
+}: HarborCardProps) => {
   const { t } = useTranslation();
 
   const serviceMapUrl = `${process.env.REACT_APP_SERVICE_MAP_URI}${servicemapId}`;

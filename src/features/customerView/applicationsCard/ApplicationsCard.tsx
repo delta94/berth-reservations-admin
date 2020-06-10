@@ -12,7 +12,7 @@ export interface ApplicationsCardProps {
   applications: Application[];
 }
 
-const ApplicationsCard: React.SFC<ApplicationsCardProps> = ({ applications }) => {
+const ApplicationsCard = ({ applications }: ApplicationsCardProps) => {
   const { t } = useTranslation();
 
   return (

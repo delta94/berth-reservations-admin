@@ -20,7 +20,7 @@ export type HarborDetailsProps = {
   zipCode: HarborData['zipCode'];
 };
 
-const HarborDetails: React.SFC<HarborDetailsProps> = ({
+const HarborDetails = ({
   maps,
   imageFile,
   streetAddress,
@@ -28,7 +28,7 @@ const HarborDetails: React.SFC<HarborDetailsProps> = ({
   municipality,
   servicemapId,
   maxWidth,
-}) => {
+}: HarborDetailsProps) => {
   const { t, i18n } = useTranslation();
   const address = `${streetAddress}, ${zipCode} ${municipality}`;
   const imageSrc = imageFile ? imageFile : '';

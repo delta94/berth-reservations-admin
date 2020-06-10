@@ -6,11 +6,12 @@ import { IconAngleDown } from '../icons';
 import styles from './expandable.module.scss';
 
 export interface ExpandableProps {
+  children: React.ReactNode;
   label: React.ReactNode;
   onClick?: Function;
 }
 
-const Expandable: React.SFC<ExpandableProps> = ({ label, onClick, children }) => {
+const Expandable = ({ label, onClick, children }: ExpandableProps) => {
   const [expanded, setExpanded] = useState(false);
   const handleClick = () => {
     setExpanded(!expanded);

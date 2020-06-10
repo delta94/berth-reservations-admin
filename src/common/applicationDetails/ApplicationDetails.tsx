@@ -63,7 +63,7 @@ export interface ApplicationDetailsProps {
   handleDeleteLease?: (id: string) => void;
 }
 
-const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
+const ApplicationDetails = ({
   id,
   customerId,
   applicant,
@@ -83,7 +83,7 @@ const ApplicationDetails: React.SFC<ApplicationDetailsProps> = ({
   lease,
   handleDeleteLease,
   accessibilityRequired,
-}) => {
+}: ApplicationDetailsProps) => {
   const { t, i18n } = useTranslation();
   const notNull = (choice: HarborChoice | null): choice is HarborChoice => !!choice;
   const routerQuery = new URLSearchParams(useLocation().search);

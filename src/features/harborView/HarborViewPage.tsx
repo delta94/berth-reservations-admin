@@ -4,7 +4,11 @@ import { useTranslation } from 'react-i18next';
 import styles from './harborViewPage.module.scss';
 import PageTitle from '../../common/pageTitle/PageTitle';
 
-const HarborViewPage: React.SFC = ({ children }) => {
+interface HarborViewPageProps {
+  children: React.ReactNode;
+}
+
+const HarborViewPage = ({ children }: HarborViewPageProps) => {
   const { t } = useTranslation();
   return (
     <div className={styles.harborViewPage}>

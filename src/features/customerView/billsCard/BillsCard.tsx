@@ -24,7 +24,7 @@ export interface BillsCardProps {
   handleShowBill(event: React.MouseEvent<HTMLButtonElement>): void;
 }
 
-const BillsCard: React.SFC<BillsCardProps> = ({
+const BillsCard = ({
   basicFee,
   berthPlace,
   contractPeriod,
@@ -37,7 +37,7 @@ const BillsCard: React.SFC<BillsCardProps> = ({
   waterFee,
   wasteFee,
   total,
-}) => {
+}: BillsCardProps) => {
   const { t, i18n } = useTranslation();
 
   const formatPrice = (fee: number, percentage = '') => {

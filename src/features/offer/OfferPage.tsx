@@ -4,7 +4,11 @@ import { useTranslation } from 'react-i18next';
 import styles from './offerPage.module.scss';
 import PageTitle from '../../common/pageTitle/PageTitle';
 
-const OfferPage: React.SFC = ({ children }) => {
+interface OfferPageProps {
+  children: React.ReactNode;
+}
+
+const OfferPage = ({ children }: OfferPageProps) => {
   const { t } = useTranslation();
   return (
     <div className={styles.offerPage}>
