@@ -1,4 +1,4 @@
-export type { IconProps } from './Icon.interface';
+export type { IconProps } from 'hds-react';
 
 export { default as IconAccessibility } from './berthReservations/IconAccessibility';
 export { default as IconApplications } from './berthReservations/IconApplications';

@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { IconProps } from '../Icon.interface';
 import styles from '../icon.module.scss';
+import { IconProps } from '../index';
 
 export default ({ size = 's', className = '', style = {}, ...rest }: IconProps) => (
   <svg

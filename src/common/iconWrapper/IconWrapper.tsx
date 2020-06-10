@@ -1,15 +1,15 @@
 import React from 'react';
 import classNames from 'classnames';
+import { IconProps } from 'hds-react';
 
 import styles from './iconWrapper.module.scss';
-import { IconProps } from '../icons';
 
 export interface IconWrapperProps {
   className?: string;
   outlined?: boolean;
   icon: (props: IconProps) => React.ReactElement | null;
   color?: 'standard' | 'disabled' | 'brand' | 'secondary' | 'critical';
-  size?: 'xs' | 's' | 'm' | 'l' | 'xl';
+  size?: IconProps['size'];
 }
 
 const IconWrapper: React.FC<IconWrapperProps> = ({ className, icon, outlined, color = 'standard', size = 's' }) => {
