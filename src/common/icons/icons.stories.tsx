@@ -4,20 +4,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 
-const Wrapper = ({ children, size }: { children: React.ReactChild; size: string }) => (
-  <div
-    style={{
-      margin: '10px',
-      width: size,
-      height: size,
-      display: 'inline-block',
-      verticalAlign: 'middle',
-    }}
-  >
-    {children}
-  </div>
-);
-
 const makeSvgStyleRules = (color: string) => ({
   fill: color,
   padding: '10px',
