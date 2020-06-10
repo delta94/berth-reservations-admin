@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
 export const UPDATE_BERTH_APPLICATION_MUTATION = gql`
   mutation UPDATE_BERTH_APPLICATION($input: UpdateBerthApplicationInput!) {

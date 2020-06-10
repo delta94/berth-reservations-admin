@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
 export const OFFER_PAGE_QUERY = gql`
   query OFFER_PAGE($applicationId: ID!, $servicemapId: String!) {

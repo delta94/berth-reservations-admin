@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
 export const INDIVIDUAL_BERTH_QUERY = gql`
   query INDIVIDUAL_BERTH($id: ID!) {

@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
 export const FILTERED_CUSTOMERS_QUERY = gql`
   query FILTERED_CUSTOMERS(

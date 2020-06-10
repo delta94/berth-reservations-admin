@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
 export const INDIVIDUAL_HARBOR_QUERY = gql`
   query INDIVIDUAL_HARBOR($id: ID!) {
