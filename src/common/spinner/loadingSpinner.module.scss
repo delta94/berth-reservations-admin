@@ -1,4 +1,4 @@
-@import "colours";
+@import 'colours';
 
 /*
  * Pure CSS spinner, taken from:
@@ -11,7 +11,7 @@
 }
 
 @mixin add_spinner($size: 5rem, $main-color: $gray-200, $alt-color: $black, $thickness: 2px) {
-  content: "";
+  content: '';
   box-sizing: border-box;
   width: $size;
   height: $size;

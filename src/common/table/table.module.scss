@@ -106,8 +106,7 @@ $placeholder-bg-size: 1000px;
     align-items: center;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s linear $transition-duration,
-      opacity $transition-duration;
+    transition: visibility 0s linear $transition-duration, opacity $transition-duration;
 
     &.isSorted {
       visibility: visible;
