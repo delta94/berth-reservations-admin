@@ -38,6 +38,7 @@ const ApplicationListPageContainer = () => {
   };
 
   const { loading, data } = useQuery<BERTH_APPLICATIONS, BERTH_APPLICATIONS_VARS>(BERTH_APPLICATIONS_QUERY, {
+    fetchPolicy: 'cache-first',
     variables: berthApplicationsVars,
   });
 

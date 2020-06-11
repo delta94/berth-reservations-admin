@@ -38,6 +38,7 @@ const CustomerListPageContainer = () => {
   };
 
   const { data, loading } = useQuery<CUSTOMERS, CUSTOMERS_VARS>(CUSTOMERS_QUERY, {
+    fetchPolicy: 'cache-first',
     variables: customersVars,
   });
 
