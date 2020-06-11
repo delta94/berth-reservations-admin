@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 
 const GET_USER = gql`

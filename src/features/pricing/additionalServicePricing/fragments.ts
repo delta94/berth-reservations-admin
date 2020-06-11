@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
 export const ADDITIONAL_SERVICE_PRICING_FRAGMENT = gql`
   fragment AdditionalServicePricing on AdditionalProductNodeConnection {

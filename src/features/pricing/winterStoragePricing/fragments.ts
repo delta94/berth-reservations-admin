@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
 export const WINTER_STORAGE_PRICING_FRAGMENT = gql`
   fragment WinterStoragePricing on WinterStorageAreaNodeConnection {

@@ -3,7 +3,7 @@ import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useParams, useHistory } from 'react-router-dom';
 import { Notification, Button } from 'hds-react';
-import { getOperationName } from 'apollo-boost';
+import { getOperationName } from 'apollo-link';
 
 import styles from './offerPage.module.scss';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';

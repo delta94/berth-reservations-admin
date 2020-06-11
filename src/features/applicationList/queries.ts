@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
 export const BERTH_APPLICATIONS_QUERY = gql`
   query BERTH_APPLICATIONS($first: Int!, $after: String, $switchApplications: Boolean, $orderBy: String) {

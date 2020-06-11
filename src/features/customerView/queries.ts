@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
 export const INDIVIDUAL_CUSTOMER_QUERY = gql`
   query INDIVIDUAL_CUSTOMER($id: ID!) {

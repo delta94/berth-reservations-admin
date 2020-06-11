@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
 import { BERTH_PRICING_FRAGMENT } from './berthPricing/fragments';
 import { WINTER_STORAGE_PRICING_FRAGMENT } from './winterStoragePricing/fragments';
