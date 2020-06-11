@@ -61,7 +61,7 @@ const OfferCard = ({
   const properties: {
     prop: boolean | null;
     key: string;
-    icon: React.FC<IconProps>;
+    icon: (props: IconProps) => React.ReactElement | null;
   }[] = [
     { prop: wasteCollection, key: 'waste', icon: IconTrash },
     { prop: electricity, key: 'electricity', icon: IconPlug },

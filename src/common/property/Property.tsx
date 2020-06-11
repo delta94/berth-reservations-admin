@@ -8,7 +8,7 @@ import { IconProps } from '../icons';
 
 export interface PropertyProps {
   active?: boolean;
-  icon?: (props: IconProps) => JSX.Element;
+  icon?: (props: IconProps) => React.ReactElement | null;
   counter?: number;
   label: string;
   className?: string;

@@ -12,7 +12,7 @@ export interface IconWrapperProps {
   size?: IconProps['size'];
 }
 
-const IconWrapper: React.FC<IconWrapperProps> = ({ className, icon, outlined, color = 'standard', size = 's' }) => {
+const IconWrapper = ({ className, icon, outlined, color = 'standard', size = 's' }: IconWrapperProps) => {
   return (
     <div
       className={classNames(
