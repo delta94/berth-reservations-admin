@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
+import { IconTrash } from 'hds-react';
 
 import Card from '../card/Card';
 import CardHeader from '../cardHeader/CardHeader';
@@ -13,6 +14,7 @@ import styles from './harborCard.module.scss';
 import Section from '../section/Section';
 import placeholder from './harborPlaceholder.svg';
 import HarborMapLinks from '../harborMapLinks/HarborMapLinks';
+import { IconFence, IconPlug, IconStreetLight, IconWaterTap } from '../icons';
 
 export interface HarborCardProps {
   className?: string;
@@ -90,23 +92,15 @@ const HarborCard = ({
             <Property counter={properties.maxWidth} label={t('harborCard.maxWidth')} />
 
             <Property
-              iconShape="IconTrash"
+              icon={IconTrash}
               label={t('common.terminology.wasteCollection')}
               active={properties.wasteCollection}
             />
-            <Property iconShape="IconFence" label={t('common.terminology.gate')} active={properties.gate} />
+            <Property icon={IconFence} label={t('common.terminology.gate')} active={properties.gate} />
 
-            <Property
-              iconShape="IconPlug"
-              label={t('common.terminology.electricity')}
-              active={properties.electricity}
-            />
-            <Property
-              iconShape="IconStreetLight"
-              label={t('common.terminology.lighting')}
-              active={properties.lighting}
-            />
-            <Property iconShape="IconWaterTap" label={t('common.terminology.water')} active={properties.water} />
+            <Property icon={IconPlug} label={t('common.terminology.electricity')} active={properties.electricity} />
+            <Property icon={IconStreetLight} label={t('common.terminology.lighting')} active={properties.lighting} />
+            <Property icon={IconWaterTap} label={t('common.terminology.water')} active={properties.water} />
           </Grid>
         </div>
       </CardBody>

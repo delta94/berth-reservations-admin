@@ -1,15 +1,17 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { IconTrash } from 'hds-react';
 
 import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
 import HarborDetails from './harborDetails/HarborDetails';
 import InternalLink from '../../common/internalLink/InternalLink';
 import styles from './harborListPage.module.scss';
-import Icon from '../../common/icons/Icon';
+import IconWrapper from '../../common/iconWrapper/IconWrapper';
 import GlobalSearchTableTools from '../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';
 import Pagination from '../../common/pagination/Pagination';
 import PageTitle from '../../common/pageTitle/PageTitle';
 import { HarborData } from './types';
+import { IconFence, IconPlug, IconStreetLight, IconWaterTap } from '../../common/icons';
 
 type ColumnType = Column<HarborData> & { accessor: keyof HarborData };
 
@@ -39,32 +41,32 @@ const HarborListPage = ({ data, loading }: HarborListPageProps) => {
       width: COLUMN_WIDTH.S,
     },
     {
-      Cell: ({ cell }) => <Icon outlined shape="IconPlug" color={!cell.value ? 'disabled' : 'standard'} />,
-      Header: () => <Icon outlined shape="IconPlug" />,
+      Cell: ({ cell }) => <IconWrapper outlined icon={IconPlug} color={!cell.value ? 'disabled' : 'standard'} />,
+      Header: () => <IconWrapper outlined icon={IconPlug} />,
       accessor: 'electricity',
       width: COLUMN_WIDTH.XS,
     },
     {
-      Cell: ({ cell }) => <Icon outlined shape="IconFence" color={!cell.value ? 'disabled' : 'standard'} />,
-      Header: () => <Icon outlined shape="IconFence" />,
+      Cell: ({ cell }) => <IconWrapper outlined icon={IconFence} color={!cell.value ? 'disabled' : 'standard'} />,
+      Header: () => <IconWrapper outlined icon={IconFence} />,
       accessor: 'gate',
       width: COLUMN_WIDTH.XS,
     },
     {
-      Cell: ({ cell }) => <Icon outlined shape="IconStreetLight" color={!cell.value ? 'disabled' : 'standard'} />,
-      Header: () => <Icon outlined shape="IconStreetLight" />,
+      Cell: ({ cell }) => <IconWrapper outlined icon={IconStreetLight} color={!cell.value ? 'disabled' : 'standard'} />,
+      Header: () => <IconWrapper outlined icon={IconStreetLight} />,
       accessor: 'lighting',
       width: COLUMN_WIDTH.XS,
     },
     {
-      Cell: ({ cell }) => <Icon outlined shape="IconWaterTap" color={!cell.value ? 'disabled' : 'standard'} />,
-      Header: () => <Icon outlined shape="IconWaterTap" />,
+      Cell: ({ cell }) => <IconWrapper outlined icon={IconWaterTap} color={!cell.value ? 'disabled' : 'standard'} />,
+      Header: () => <IconWrapper outlined icon={IconWaterTap} />,
       accessor: 'water',
       width: COLUMN_WIDTH.XS,
     },
     {
-      Cell: ({ cell }) => <Icon outlined shape="IconTrash" color={!cell.value ? 'disabled' : 'standard'} />,
-      Header: () => <Icon outlined shape="IconTrash" />,
+      Cell: ({ cell }) => <IconWrapper outlined icon={IconTrash} color={!cell.value ? 'disabled' : 'standard'} />,
+      Header: () => <IconWrapper outlined icon={IconTrash} />,
       accessor: 'wasteCollection',
       width: COLUMN_WIDTH.XS,
     },

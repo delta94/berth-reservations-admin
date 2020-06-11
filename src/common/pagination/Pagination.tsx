@@ -2,8 +2,8 @@ import classNames from 'classnames';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import ReactPaginate, { ReactPaginateProps } from 'react-paginate';
+import { IconArrowLeft, IconArrowRight } from 'hds-react';
 
-import Icon from '../icons/Icon';
 import Text from '../text/Text';
 import styles from './pagination.module.scss';
 
@@ -19,14 +19,14 @@ const Pagination = ({ className, ...rest }: PaginationProps) => {
       {...rest}
       previousLabel={
         <div className={styles.icnBtn}>
-          <Icon shape="IconArrowLeft" color="brand" />
+          <IconArrowLeft size="m" />
           <Text>{t('common.previous')}</Text>
         </div>
       }
       nextLabel={
         <div className={styles.icnBtn}>
           <Text>{t('common.next')}</Text>
-          <Icon shape="IconArrowRight" color="brand" />
+          <IconArrowRight size="m" />
         </div>
       }
       previousClassName={styles.prevBtn}
