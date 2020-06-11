@@ -55,10 +55,12 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
-    "pre-push": "yarn types:generate && yarn lint",
+    "pre-push": "yarn types:generate && yarn lint && yarn stylelint",
     "browser-test": "testcafe \"chrome --window-size='1920,1080'\" browser-tests/",
     "browser-test:local": "TEST_ENV=local testcafe \"chrome --window-size='1920,1080'\" browser-tests/",
     "browser-test:ci": "testcafe \"chrome:headless --disable-gpu --window-size='1920,1080'\" browser-tests/ -s takeOnFails=true",
+    "stylelint": "stylelint \"**/*.scss\"",
+    "stylelint:fix": "stylelint \"**/*.scss\" --fix",
     "prettier": "prettier --write \"./src/**/*.{js,ts,jsx,tsx}\""
   },
   "eslintConfig": {
@@ -103,6 +105,11 @@
     "husky": "4.2.5",
     "jest-localstorage-mock": "^2.4.0",
     "prettier": "2.0.5",
+    "stylelint": "^13.6.0",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-prettier": "^1.1.2",
+    "stylelint-scss": "^3.17.2",
     "testcafe": "1.8.4",
     "wait-for-expect": "^3.0.2"
   },
