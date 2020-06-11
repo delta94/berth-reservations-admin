@@ -8,7 +8,7 @@ import HarborListPage from './HarborListPage';
 import { HarborData } from './types';
 
 const HarborsContainer = () => {
-  const { loading, data } = useQuery<HARBORS>(HARBORS_QUERY, { fetchPolicy: 'cache-first' });
+  const { loading, data } = useQuery<HARBORS>(HARBORS_QUERY);
   const tableData: HarborData[] = getHarborsData(data);
 
   return <HarborListPage data={tableData} loading={loading} />;
