@@ -2,24 +2,7 @@ import path from 'path';
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { boolean, select, withKnobs } from '@storybook/addon-knobs';
-
-import Icon, { IconShapes } from './Icon';
-import * as Icons from './index';
-
-const Wrapper = ({ children, size }: { children: React.ReactChild; size: string }) => (
-  <div
-    style={{
-      margin: '10px',
-      width: size,
-      height: size,
-      display: 'inline-block',
-      verticalAlign: 'middle',
-    }}
-  >
-    {children}
-  </div>
-);
+import { withKnobs } from '@storybook/addon-knobs';
 
 const makeSvgStyleRules = (color: string) => ({
   fill: color,
@@ -35,20 +18,7 @@ stories.addDecorator((storyFn) => (
   </>
 ));
 
-const shapes: () => IconShapes[] = () => Object.keys(Icons) as IconShapes[];
-
-stories.add('Icon', () => (
-  <Wrapper size="200px">
-    <Icon
-      outlined={boolean('Outlined', false, 'Icon')}
-      shape={select('Shape', shapes(), 'IconAccessibility', 'Icon')}
-      size={select('Size', ['small', 'medium', 'large'], 'small', 'Icon')}
-      color={select('Color', ['standard', 'disabled', 'brand', 'secondary'], 'standard', 'Icon')}
-    />
-  </Wrapper>
-));
-
-const req = require.context('.', false, /^.\/Icon.+.tsx$/);
+const req = require.context('./berthReservations', false, /^.\/Icon.+.tsx$/);
 req.keys().forEach((fileName) => {
   const Component = req(fileName).default;
   const componentName = path.basename(fileName, '.tsx');
@@ -56,10 +26,11 @@ req.keys().forEach((fileName) => {
 
   stories.add(componentName, () => (
     <>
-      <Wrapper size="200px">{<Component />}</Wrapper>
-      <Wrapper size="100px">{<Component />}</Wrapper>
-      <Wrapper size="50px">{<Component />}</Wrapper>
-      <Wrapper size="25px">{<Component />}</Wrapper>
+      <Component size="xs" />
+      <Component size="s" />
+      <Component size="m" />
+      <Component size="l" />
+      <Component size="xl" />
     </>
   ));
 });

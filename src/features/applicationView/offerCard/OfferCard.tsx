@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'hds-react';
+import { Button, IconTrash } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 
 import Card from '../../../common/card/Card';
@@ -10,10 +10,10 @@ import Section from '../../../common/section/Section';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 import styles from './offerCard.module.scss';
 import InternalLink from '../../../common/internalLink/InternalLink';
-import Icon, { IconShapes } from '../../../common/icons/Icon';
-import Text from '../../../common/text/Text';
 import { formatDimension } from '../../../common/utils/format';
 import { BerthMooringType } from '../../../@types/__generated__/globalTypes';
+import Property from '../../../common/property/Property';
+import { IconFence, IconPlug, IconProps, IconStreetLight, IconWaterTap } from '../../../common/icons';
 
 export interface OfferCardProps {
   leaseDetails: {
@@ -58,17 +58,16 @@ const OfferCard = ({
 }: OfferCardProps) => {
   const { t, i18n } = useTranslation();
   const isNotNull = (property: boolean | null): property is boolean => property !== null;
-  const getColor = (property: boolean) => (property ? 'standard' : 'secondary');
   const properties: {
     prop: boolean | null;
     key: string;
-    icon: IconShapes;
+    icon: (props: IconProps) => React.ReactElement | null;
   }[] = [
-    { prop: wasteCollection, key: 'waste', icon: 'IconTrash' },
-    { prop: electricity, key: 'electricity', icon: 'IconPlug' },
-    { prop: lighting, key: 'lighting', icon: 'IconStreetLight' },
-    { prop: gate, key: 'gate', icon: 'IconFence' },
-    { prop: water, key: 'water', icon: 'IconWaterTap' },
+    { prop: wasteCollection, key: 'waste', icon: IconTrash },
+    { prop: electricity, key: 'electricity', icon: IconPlug },
+    { prop: lighting, key: 'lighting', icon: IconStreetLight },
+    { prop: gate, key: 'gate', icon: IconFence },
+    { prop: water, key: 'water', icon: IconWaterTap },
   ];
 
   return (
@@ -87,12 +86,13 @@ const OfferCard = ({
                 {properties.map(
                   ({ prop, key, icon }) =>
                     isNotNull(prop) && (
-                      <div className={styles.property} key={key}>
-                        <Icon shape={icon} color={getColor(prop)} outlined />
-                        <Text weight="bold" color={getColor(prop)}>
-                          {t(`offer.berthDetails.${key}`)}
-                        </Text>
-                      </div>
+                      <Property
+                        className={styles.property}
+                        key={key}
+                        active={prop}
+                        icon={icon}
+                        label={t(`offer.berthDetails.${key}`)}
+                      />
                     )
                 )}
               </div>

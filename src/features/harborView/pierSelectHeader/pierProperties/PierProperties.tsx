@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { IconTrash } from 'hds-react';
 
 import Card from '../../../../common/card/Card';
 import CardBody from '../../../../common/cardBody/CardBody';
@@ -9,6 +10,7 @@ import styles from './pierProperties.module.scss';
 import { Pier } from '../../utils/utils';
 import Section from '../../../../common/section/Section';
 import Text from '../../../../common/text/Text';
+import { IconFence, IconPlug, IconStreetLight, IconWaterTap } from '../../../../common/icons';
 
 export interface PierProperties {
   pier: Pier;
@@ -30,14 +32,14 @@ const PierProperties = ({ pier }: PierProperties) => {
           <div className={styles.pierProperties}>
             <Grid colsCount={5} className={styles.propertiesGrid}>
               <Property
-                iconShape="IconTrash"
+                icon={IconTrash}
                 label={t('common.terminology.wasteCollection')}
                 active={pier.wasteCollection}
               />
-              <Property iconShape="IconFence" label={t('common.terminology.gate')} active={pier.gate} />
-              <Property iconShape="IconPlug" label={t('common.terminology.electricity')} active={pier.electricity} />
-              <Property iconShape="IconStreetLight" label={t('common.terminology.lighting')} active={pier.lighting} />
-              <Property iconShape="IconWaterTap" label={t('common.terminology.water')} active={pier.water} />
+              <Property icon={IconFence} label={t('common.terminology.gate')} active={pier.gate} />
+              <Property icon={IconPlug} label={t('common.terminology.electricity')} active={pier.electricity} />
+              <Property icon={IconStreetLight} label={t('common.terminology.lighting')} active={pier.lighting} />
+              <Property icon={IconWaterTap} label={t('common.terminology.water')} active={pier.water} />
             </Grid>
             <Grid colsCount={2} className={styles.boatTypesGrid}>
               {pier.suitableBoatTypes.map((suitableBoatType, id) => (

@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
+import { IconAngleRight } from 'hds-react';
 
 import styles from './externalLink.module.scss';
-import Icon from '../icons/Icon';
 
 export type WithAnchorProps = {
   variant?: 'default' | 'withArrow';
@@ -16,7 +16,7 @@ const withAnchor = <P extends object>(Component: React.ComponentType<P>) => {
     return (
       <a className={classNames(styles.link, styles[variant])} href={href} target={target} rel="noopener noreferrer">
         {children}
-        {variant === 'withArrow' && <Icon shape="IconAngleRight" color="brand" size="small" className={styles.arrow} />}
+        {variant === 'withArrow' && <IconAngleRight color="brand" size="m" className={styles.arrow} />}
       </a>
     );
   };

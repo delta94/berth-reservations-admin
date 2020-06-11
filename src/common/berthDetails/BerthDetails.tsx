@@ -1,13 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { IconTrash } from 'hds-react';
 
-import Icon from '../icons/Icon';
 import Text from '../text/Text';
 import Grid from '../grid/Grid';
 import InternalLink from '../internalLink/InternalLink';
 import Section from '../section/Section';
 import { formatDate } from '../utils/format';
 import styles from './berthDetails.module.scss';
+import { IconAccessibility, IconFence, IconPlug, IconStreetLight, IconWaterTap } from '../icons';
+import Property from '../property/Property';
 
 interface Lease {
   customer: {
@@ -63,7 +65,6 @@ const BerthDetails = ({
 
   const isDefined = (property: boolean | null | undefined): property is boolean =>
     property !== null && property !== undefined;
-  const getColor = (property: boolean) => (property ? 'standard' : 'secondary');
 
   const displayProperties = [gate, electricity, water, lighting, wasteCollection, isAccessible].find((property) =>
     isDefined(property)
@@ -74,52 +75,47 @@ const BerthDetails = ({
       {displayProperties && (
         <div className={styles.berthProperties}>
           {isDefined(gate) && (
-            <div className={styles.property}>
-              <Icon shape="IconFence" color={getColor(gate)} outlined />
-              <Text className={styles.propertyLabel} color={getColor(gate)}>
-                {t('offer.berthDetails.gate')}
-              </Text>
-            </div>
+            <Property className={styles.property} icon={IconFence} label={t('offer.berthDetails.gate')} active={gate} />
           )}
           {isDefined(electricity) && (
-            <div className={styles.property}>
-              <Icon shape="IconPlug" color={getColor(electricity)} outlined />
-              <Text className={styles.propertyLabel} color={getColor(electricity)}>
-                {t('offer.berthDetails.electricity')}
-              </Text>
-            </div>
+            <Property
+              className={styles.property}
+              icon={IconPlug}
+              label={t('offer.berthDetails.electricity')}
+              active={electricity}
+            />
           )}
           {isDefined(water) && (
-            <div className={styles.property}>
-              <Icon shape="IconWaterTap" color={getColor(water)} outlined />
-              <Text className={styles.propertyLabel} color={getColor(water)}>
-                {t('offer.berthDetails.water')}
-              </Text>
-            </div>
+            <Property
+              className={styles.property}
+              icon={IconWaterTap}
+              label={t('offer.berthDetails.water')}
+              active={water}
+            />
           )}
           {isDefined(lighting) && (
-            <div className={styles.property}>
-              <Icon shape="IconStreetLight" color={getColor(lighting)} outlined />
-              <Text className={styles.propertyLabel} color={getColor(lighting)}>
-                {t('offer.berthDetails.lighting')}
-              </Text>
-            </div>
+            <Property
+              className={styles.property}
+              icon={IconStreetLight}
+              label={t('offer.berthDetails.lighting')}
+              active={lighting}
+            />
           )}
           {isDefined(wasteCollection) && (
-            <div className={styles.property}>
-              <Icon shape="IconTrash" color={getColor(wasteCollection)} outlined />
-              <Text className={styles.propertyLabel} color={getColor(wasteCollection)}>
-                {t('offer.berthDetails.waste')}
-              </Text>
-            </div>
+            <Property
+              className={styles.property}
+              icon={IconTrash}
+              label={t('offer.berthDetails.waste')}
+              active={wasteCollection}
+            />
           )}
           {isDefined(isAccessible) && (
-            <div className={styles.property}>
-              <Icon shape="IconAccessibility" color={getColor(isAccessible)} outlined />
-              <Text className={styles.propertyLabel} color={getColor(isAccessible)}>
-                {t('offer.berthDetails.accessible')}
-              </Text>
-            </div>
+            <Property
+              className={styles.property}
+              icon={IconAccessibility}
+              label={t('offer.berthDetails.accessible')}
+              active={isAccessible}
+            />
           )}
         </div>
       )}

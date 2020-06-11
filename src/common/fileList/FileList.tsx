@@ -1,11 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
+import { IconCross } from 'hds-react';
 
 import List from '../list/List';
 import styles from './fileList.module.scss';
 import Text from '../text/Text';
-import Icon from '../icons/Icon';
 import InputWrapper, { InputWrapperProps } from '../inputWrapper/InputWrapper';
+import IconWrapper from '../iconWrapper/IconWrapper';
 
 export type PersistedFile = {
   id: string;
@@ -78,7 +79,7 @@ const FileList = (props: FileListProps) => {
 
               {allowDelete && (
                 <button className={styles.delete} type="button" onClick={() => handleDelete(file)}>
-                  <Icon shape="IconTimes" color={file.markedForDeletion ? 'disabled' : 'critical'} />
+                  <IconWrapper icon={IconCross} color={file.markedForDeletion ? 'disabled' : 'critical'} />
                 </button>
               )}
             </li>
