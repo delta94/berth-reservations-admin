@@ -24,6 +24,7 @@ export const HARBORS_QUERY = gql`
             piers {
               edges {
                 node {
+                  id
                   properties {
                     electricity
                     wasteCollection
