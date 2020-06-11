@@ -30,6 +30,7 @@ export const mockData: HARBORS = {
                   __typename: 'PierNodeEdge',
                   node: {
                     __typename: 'PierNode',
+                    id: '2c61dcd0-cbaa-4eb8-8e98-5ae1ca4ba623',
                     properties: {
                       __typename: 'PierProperties',
                       electricity: true,
@@ -71,6 +72,7 @@ export const mockData: HARBORS = {
                   __typename: 'PierNodeEdge',
                   node: {
                     __typename: 'PierNode',
+                    id: 'd1b8897d-b008-4c2f-b411-a385c86e6f04',
                     properties: {
                       __typename: 'PierProperties',
                       electricity: false,
@@ -85,6 +87,7 @@ export const mockData: HARBORS = {
                   __typename: 'PierNodeEdge',
                   node: {
                     __typename: 'PierNode',
+                    id: '30e83026-e87e-48ff-9a6a-0f21f62abeb8',
                     properties: {
                       __typename: 'PierProperties',
                       electricity: true,
