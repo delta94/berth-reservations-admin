@@ -5,7 +5,6 @@ import { createUploadLink } from 'apollo-upload-client';
 import { onError } from 'apollo-link-error';
 import gql from 'graphql-tag';
 import { ApolloLink } from 'apollo-link';
-import { HttpLink } from 'apollo-link-http';
 
 import i18n from '../locales/i18n';
 import authService from '../features/auth/authService';
@@ -61,7 +60,7 @@ const uploadLink = createUploadLink({
 });
 
 const apolloClient = new ApolloClient({
-  link: ApolloLink.from([authLink, errorLink, uploadLink, new HttpLink({ uri: process.env.REACT_APP_API_URI })]),
+  link: ApolloLink.from([authLink, errorLink, uploadLink]),
   defaultOptions: {
     watchQuery: {
       fetchPolicy: 'network-only',
