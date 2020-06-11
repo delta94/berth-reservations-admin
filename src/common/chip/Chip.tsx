@@ -9,7 +9,7 @@ export interface ChipProps {
   className?: string;
 }
 
-const Chip: React.SFC<ChipProps> = ({ color, label, className }) => {
+const Chip = ({ color, label, className }: ChipProps) => {
   return <span className={classNames(styles.chip, styles[color], className)}>{label}</span>;
 };
 

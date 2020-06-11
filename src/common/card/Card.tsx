@@ -8,7 +8,7 @@ export interface CardProps {
   className?: string;
 }
 
-const Card: React.SFC<CardProps> = ({ children, className }) => (
+const Card = ({ children, className }: CardProps) => (
   <div className={classNames(styles.card, className)}>{children} </div>
 );
 

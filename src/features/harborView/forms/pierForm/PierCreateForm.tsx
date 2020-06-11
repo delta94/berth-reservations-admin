@@ -15,7 +15,7 @@ interface Props extends Omit<FormProps<Pier>, 'initialValues' | 'isSubmitting' |
   harborId: string;
 }
 
-const PierCreateForm: React.FC<Props> = ({ harborId, onCancel, onSubmit, refetchQueries }) => {
+const PierCreateForm = ({ harborId, onCancel, onSubmit, refetchQueries }: Props) => {
   const { loading, error, data } = useQuery<BOAT_TYPES>(BOAT_TYPES_QUERY);
   const [createPier, { loading: isSubmitting, error: createError }] = useMutation<CREATE_PIER, CREATE_PIER_VARS>(
     CREATE_PIER_MUTATION,

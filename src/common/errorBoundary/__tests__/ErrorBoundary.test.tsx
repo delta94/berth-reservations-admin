@@ -18,7 +18,7 @@ describe('ErrorBoundary', () => {
       /* no-op: silence the thrown error message to not pollute the test output */
     });
 
-    const ThrowingComponent: React.FC = () => {
+    const ThrowingComponent = () => {
       throw Error('error');
     };
 

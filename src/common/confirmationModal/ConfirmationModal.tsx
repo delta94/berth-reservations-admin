@@ -17,7 +17,7 @@ interface ConfirmationModalProps {
   onConfirm(): void;
 }
 
-const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
+const ConfirmationModal = ({
   isOpen,
   title,
   infoText,
@@ -27,7 +27,7 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
   onCancel,
   onConfirm,
   className,
-}) => {
+}: ConfirmationModalProps) => {
   return (
     <Modal isOpen={isOpen} toggleModal={onCancel} className={className}>
       <Text as="h4" color="brand" className={styles.uppercase}>

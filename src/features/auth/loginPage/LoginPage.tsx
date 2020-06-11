@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouteComponentProps, useLocation, Redirect } from 'react-router-dom';
+import { useLocation, Redirect } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'hds-react';
 
@@ -12,7 +12,7 @@ import authService from '../authService';
 
 type LocationState = { from: Location } | null | undefined;
 
-const LoginPage: React.SFC<RouteComponentProps> = () => {
+const LoginPage = () => {
   const { t } = useTranslation();
   const location = useLocation<LocationState>();
   const isAuthenticated = authService.isAuthenticated();

@@ -6,6 +6,7 @@ import styles from './modal.module.scss';
 import Text from '../../common/text/Text';
 
 interface ModalProps {
+  children: React.ReactNode;
   isOpen: boolean;
   label?: string;
   toggleModal: (value: boolean) => void;
@@ -13,14 +14,7 @@ interface ModalProps {
   shouldCloseOnOverlayClick?: boolean;
 }
 
-const Modal: React.FunctionComponent<ModalProps> = ({
-  isOpen,
-  label,
-  children,
-  toggleModal,
-  className,
-  shouldCloseOnOverlayClick = true,
-}) => {
+const Modal = ({ isOpen, label, children, toggleModal, className, shouldCloseOnOverlayClick = true }: ModalProps) => {
   const onClose = () => {
     toggleModal(false);
   };

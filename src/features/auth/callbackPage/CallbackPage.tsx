@@ -10,7 +10,7 @@ import HelsinkiLogo from '../../../common/helsinkiLogo/HelsinkiLogo';
 
 export type CallbackPageProps = RouteComponentProps;
 
-const CallbackPage: React.SFC<CallbackPageProps> = ({ history }) => {
+const CallbackPage = ({ history }: CallbackPageProps) => {
   const client = useApolloClient();
 
   useEffect(() => {

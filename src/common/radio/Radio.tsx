@@ -8,7 +8,7 @@ export type RadioProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size
   size?: 'small' | 'medium' | 'large';
 };
 
-const Radio: React.SFC<RadioProps> = ({ checked, disabled, onChange, label, size = 'medium', readOnly }) => {
+const Radio = ({ checked, disabled, onChange, label, size = 'medium', readOnly }: RadioProps) => {
   return (
     <label>
       <span

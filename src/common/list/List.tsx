@@ -4,12 +4,13 @@ import classNames from 'classnames';
 import styles from './list.module.scss';
 
 export interface ListProps {
+  children: React.ReactNode;
   size?: 'small' | 'standard' | 'large';
   noBullets?: boolean;
   ordered?: boolean;
 }
 
-const List: React.SFC<ListProps> = ({ size = 'standard', ordered, noBullets, children }) => {
+const List = ({ size = 'standard', ordered, noBullets, children }: ListProps) => {
   const Element = ordered ? 'ol' : 'ul';
 
   return (

@@ -14,7 +14,7 @@ import authService from '../../../features/auth/authService';
 import Text from '../../../common/text/Text';
 import styles from './pageHeader.module.scss';
 
-const PageHeader: React.SFC = () => {
+const PageHeader = () => {
   const { t } = useTranslation();
   const currentUser = useCurrentUser();
   const fullName = currentUser?.name ?? '-';

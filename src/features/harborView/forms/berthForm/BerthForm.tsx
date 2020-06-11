@@ -55,7 +55,7 @@ const transformValues = (values: any): Berth => {
   };
 };
 
-const BerthForm: React.FC<BerthFormProps> = ({
+const BerthForm = ({
   isEditing = false,
   initialValues,
   isSubmitting,
@@ -64,7 +64,7 @@ const BerthForm: React.FC<BerthFormProps> = ({
   onDelete,
   onSubmitText,
   pierOptions,
-}) => {
+}: BerthFormProps) => {
   const { t } = useTranslation();
   const validationSchema = getBerthValidationSchema(t, pierOptions);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);

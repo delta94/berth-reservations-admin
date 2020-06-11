@@ -30,7 +30,7 @@ export interface BerthPricingProps {
   openModal: (formType: EDIT_FORM_TYPE, initialValues: BerthPrice) => void;
 }
 
-const BerthPricing: React.FC<BerthPricingProps> = ({ className, data, loading, openModal }) => {
+const BerthPricing = ({ className, data, loading, openModal }: BerthPricingProps) => {
   const { t, i18n } = useTranslation();
 
   const harborCols: Column<BerthPrice>[] = [

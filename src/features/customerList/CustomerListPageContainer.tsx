@@ -14,7 +14,7 @@ import { SearchBy } from '../applicationView/ApplicationViewPage';
 import { usePrevious } from '../../common/utils/usePrevious';
 import { MessageFormValues } from './types';
 
-const CustomerListPageContainer: React.FC = () => {
+const CustomerListPageContainer = () => {
   const { t } = useTranslation();
 
   const [searchBy, setSearchBy] = useState<SearchBy>(SearchBy.LAST_NAME);

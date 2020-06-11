@@ -29,7 +29,7 @@ function useRouterQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
-const OfferPageContainer: React.FC = () => {
+const OfferPageContainer = () => {
   const routerQuery = useRouterQuery();
   const { applicationId } = useParams();
   const history = useHistory();

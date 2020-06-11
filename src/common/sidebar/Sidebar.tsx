@@ -8,7 +8,7 @@ export interface SidebarProps {
   children: React.ReactNodeArray;
 }
 
-const Sidebar: React.SFC<SidebarProps> = ({ actions = [], children }) => {
+const Sidebar = ({ actions = [], children }: SidebarProps) => {
   const mainElements = children.map((child, i) => (
     <div key={i} className={styles.elementWrapper}>
       {child}

@@ -18,7 +18,7 @@ import CallbackPage from '../features/auth/callbackPage/CallbackPage';
 import ErrorPage from '../features/errorPage/ErrorPage';
 import ErrorBoundary from '../common/errorBoundary/ErrorBoundary';
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <ApolloProvider client={apolloClient}>
       <Router>

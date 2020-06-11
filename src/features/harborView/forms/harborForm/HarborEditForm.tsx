@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { Button, TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { Field, Form, Formik } from 'formik';
@@ -42,7 +42,7 @@ const getValidationSchema = (t: TFunction) =>
     addedMaps: Yup.array<File[]>(),
   });
 
-const HarborEditForm: FunctionComponent<Props> = ({ harborId, onCancel, onSubmit, refetchQueries }) => {
+const HarborEditForm = ({ harborId, onCancel, onSubmit, refetchQueries }: Props) => {
   const { loading, error, data } = useQuery<HARBOR_FORM>(HARBOR_FORM_QUERY, {
     variables: { id: harborId },
   });

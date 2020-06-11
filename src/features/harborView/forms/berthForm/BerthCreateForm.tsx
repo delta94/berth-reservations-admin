@@ -13,7 +13,7 @@ interface BerthCreateFormProps extends Omit<FormProps<Berth>, 'initialValues' | 
   pierOptions: Pier[];
 }
 
-const BerthCreateForm: React.FC<BerthCreateFormProps> = ({ onCancel, onSubmit, refetchQueries, pierOptions }) => {
+const BerthCreateForm = ({ onCancel, onSubmit, refetchQueries, pierOptions }: BerthCreateFormProps) => {
   const [createBerth, { loading: isSubmitting }] = useMutation<CREATE_BERTH, CREATE_BERTH_VARS>(CREATE_BERTH_MUTATION, {
     refetchQueries: refetchQueries ?? [],
   });

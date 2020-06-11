@@ -16,7 +16,7 @@ import PierEditForm from './forms/pierForm/PierEditForm';
 import HarborEditForm from './forms/harborForm/HarborEditForm';
 import HarborViewPageTable from './HarborViewPageTable';
 
-const HarborViewPageContainer: React.SFC = () => {
+const HarborViewPageContainer = () => {
   const [editingHarbor, setEditingHarbor] = useState<boolean>(false);
   const [berthToEdit, setBerthToEdit] = useState<string | null>(null);
   const [creatingBerth, setCreatingBerth] = useState<boolean>(false);

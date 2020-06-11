@@ -11,7 +11,7 @@ interface Props {
   onDeleteText?: string;
 }
 
-const FormHeader: React.FC<Props> = ({ title, isSubmitting, onDelete, onDeleteText }) => {
+const FormHeader = ({ title, isSubmitting, onDelete, onDeleteText }: Props) => {
   const { t } = useTranslation();
   return (
     <div className={styles.heading}>

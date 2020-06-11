@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Section from '../section/Section';
@@ -13,7 +13,7 @@ export interface HarborMapLinksProps {
   maps: Map[];
 }
 
-const HarborMapLinks: FunctionComponent<HarborMapLinksProps> = ({ maps }) => {
+const HarborMapLinks = ({ maps }: HarborMapLinksProps) => {
   const { t } = useTranslation();
 
   if (maps.length === 0) return null;

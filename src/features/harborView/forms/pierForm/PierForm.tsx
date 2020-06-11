@@ -32,7 +32,7 @@ const getPierValidationSchema = (t: TFunction, suitableBoatTypeOptions: BoatType
   });
 };
 
-const PierForm: React.FC<PierFormProps> = ({
+const PierForm = ({
   onSubmit,
   onDelete,
   onCancel,
@@ -40,7 +40,7 @@ const PierForm: React.FC<PierFormProps> = ({
   onSubmitText,
   isSubmitting,
   initialValues,
-}) => {
+}: PierFormProps) => {
   const { t } = useTranslation();
   const validationSchema = getPierValidationSchema(t, suitableBoatTypeOptions);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);

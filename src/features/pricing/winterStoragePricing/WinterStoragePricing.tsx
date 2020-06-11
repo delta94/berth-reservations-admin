@@ -30,7 +30,7 @@ export interface WinterStoragePricingProps {
   openModal: (formType: EDIT_FORM_TYPE, initialValues: WinterStoragePrice) => void;
 }
 
-const WinterStoragePricing: React.FC<WinterStoragePricingProps> = ({ data, loading, className, openModal }) => {
+const WinterStoragePricing = ({ data, loading, className, openModal }: WinterStoragePricingProps) => {
   const { t, i18n } = useTranslation();
 
   const winterStorageCols: Column<WinterStoragePrice>[] = [

@@ -13,7 +13,7 @@ export interface BoatCertificateProps {
   certificate: BoatCert;
 }
 
-const BoatCertificate: React.FC<BoatCertificateProps> = ({ certificate }) => {
+const BoatCertificate = ({ certificate }: BoatCertificateProps) => {
   const { t, i18n } = useTranslation();
   const { file, certificateType, validUntil, checkedAt, checkedBy } = certificate;
   const headerTextKey = `customerView.customerBoats.${certificateType.toLocaleLowerCase()}`;

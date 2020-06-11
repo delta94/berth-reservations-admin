@@ -28,7 +28,7 @@ export interface AdditionalServicePricingProps {
   openModal: (formType: EDIT_FORM_TYPE, initialValues: AdditionalService) => void;
 }
 
-const AdditionalServicePricing: React.FC<AdditionalServicePricingProps> = ({ data, loading, className, openModal }) => {
+const AdditionalServicePricing = ({ data, loading, className, openModal }: AdditionalServicePricingProps) => {
   const { t, i18n } = useTranslation();
 
   const additionalServicesCols: Column<AdditionalService>[] = [

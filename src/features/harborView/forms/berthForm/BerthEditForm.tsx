@@ -18,14 +18,7 @@ interface BerthEditFormProps extends Omit<FormProps<Berth>, 'initialValues' | 'o
   pierOptions: Pier[];
 }
 
-const BerthEditForm: React.FC<BerthEditFormProps> = ({
-  berthId,
-  onCancel,
-  onSubmit,
-  onDelete,
-  refetchQueries,
-  pierOptions,
-}) => {
+const BerthEditForm = ({ berthId, onCancel, onSubmit, onDelete, refetchQueries, pierOptions }: BerthEditFormProps) => {
   const { loading, error, data } = useQuery<INDIVIDUAL_BERTH>(INDIVIDUAL_BERTH_QUERY, { variables: { id: berthId } });
 
   const [updateBerth, { loading: isSubmitting }] = useMutation<UPDATE_BERTH, UPDATE_BERTH_VARS>(UPDATE_BERTH_MUTATION, {

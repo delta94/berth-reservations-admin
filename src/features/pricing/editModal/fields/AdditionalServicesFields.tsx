@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import * as Yup from 'yup';
 import { TextInput } from 'hds-react';
 import { Field, useFormikContext } from 'formik';
@@ -30,7 +30,7 @@ export const getAdditionalServicesValidationSchema = (t: TFunction) =>
     period: Yup.string().oneOf(periodOptions).required(t('forms.common.errors.required')),
   });
 
-const AdditionalServicesFields: FunctionComponent = () => {
+const AdditionalServicesFields = () => {
   const { t, i18n } = useTranslation();
   const { errors } = useFormikContext<AdditionalService>();
 

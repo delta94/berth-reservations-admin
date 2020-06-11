@@ -34,7 +34,7 @@ interface MultipleModeProps extends SharedProps {
 
 export type FileUploadProps = SingleModeProps | MultipleModeProps;
 
-const FileUpload: React.FC<FileUploadProps> = (props) => {
+const FileUpload = (props: FileUploadProps) => {
   const {
     buttonLabel,
     disabled,

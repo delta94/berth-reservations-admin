@@ -30,7 +30,7 @@ import { usePagination } from '../../common/utils/usePagination';
 import { usePrevious } from '../../common/utils/usePrevious';
 import { useBackendSorting } from '../../common/utils/useBackendSorting';
 
-const ApplicationViewPageContainer: React.FC = () => {
+const ApplicationViewPageContainer = () => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const [searchBy, setSearchBy] = useState<SearchBy>(SearchBy.LAST_NAME);

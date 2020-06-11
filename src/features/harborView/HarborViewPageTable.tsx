@@ -21,7 +21,7 @@ interface Props {
   onEditPier(pier: Pier): void;
 }
 
-const HarborViewPageTable: React.FC<Props> = ({ berths, piers, onAddBerth, onAddPier, onEditBerth, onEditPier }) => {
+const HarborViewPageTable = ({ berths, piers, onAddBerth, onAddPier, onEditBerth, onEditPier }: Props) => {
   const { t, i18n } = useTranslation();
   const columns: Column<Berth>[] = [
     {

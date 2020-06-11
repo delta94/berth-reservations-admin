@@ -30,7 +30,7 @@ export interface CustomerDetailsProps {
   organizationType?: OrganizationType;
 }
 
-const CustomerDetails: React.SFC<CustomerDetailsProps> = ({
+const CustomerDetails = ({
   name,
   address,
   postalCode,
@@ -44,7 +44,7 @@ const CustomerDetails: React.SFC<CustomerDetailsProps> = ({
   bills,
   comment,
   organizationType,
-}) => {
+}: CustomerDetailsProps) => {
   const { t, i18n } = useTranslation();
 
   return (

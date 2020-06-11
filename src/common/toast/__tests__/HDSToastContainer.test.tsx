@@ -7,7 +7,7 @@ import hdsToast from '../hdsToast';
 import HDSToastContainer from '../HDSToastContainer';
 
 describe('HDSToastContainer', () => {
-  const TestComponent: React.FC = () => {
+  const TestComponent = () => {
     const [count, setCount] = useState(0);
     return (
       <div>

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 import List from '../list/List';
@@ -33,7 +33,7 @@ interface MultipleModeProps extends SharedProps {
 
 export type FileListProps = SingleModeProps | MultipleModeProps;
 
-const FileList: FunctionComponent<FileListProps> = (props) => {
+const FileList = (props: FileListProps) => {
   const { allowDelete = true, helperText, id, invalid = false, labelText, value, willBeOverwritten = false } = props;
 
   if (value === undefined) return null;

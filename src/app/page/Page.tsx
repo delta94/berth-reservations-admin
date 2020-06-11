@@ -8,7 +8,11 @@ import PageHeader from './pageHeader/PageHeader';
 import Icon from '../../common/icons/Icon';
 import HDSToastContainer from '../../common/toast/HDSToastContainer';
 
-const Page: React.SFC = ({ children }) => {
+interface PageProps {
+  children: React.ReactNode;
+}
+
+const Page = ({ children }: PageProps) => {
   const { t } = useTranslation();
 
   return (

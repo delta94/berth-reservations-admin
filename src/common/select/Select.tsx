@@ -20,17 +20,7 @@ export type SelectProps = {
   id?: string;
 };
 
-const Select: React.FC<SelectProps> = ({
-  name,
-  id,
-  labelText,
-  className,
-  value,
-  options,
-  onChange,
-  required,
-  disabled,
-}) => {
+const Select = ({ name, id, labelText, className, value, options, onChange, required, disabled }: SelectProps) => {
   const optionsItems = options.map(({ value, label }) => (
     <option key={value} value={value}>
       {label}

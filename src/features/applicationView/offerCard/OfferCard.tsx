@@ -36,7 +36,7 @@ export interface OfferCardProps {
   handleDeleteLease: (id: string) => void;
 }
 
-const OfferCard: React.FunctionComponent<OfferCardProps> = ({
+const OfferCard = ({
   leaseDetails: {
     id,
     berthComment,
@@ -55,7 +55,7 @@ const OfferCard: React.FunctionComponent<OfferCardProps> = ({
     water,
   },
   handleDeleteLease,
-}) => {
+}: OfferCardProps) => {
   const { t, i18n } = useTranslation();
   const isNotNull = (property: boolean | null): property is boolean => property !== null;
   const getColor = (property: boolean) => (property ? 'standard' : 'secondary');

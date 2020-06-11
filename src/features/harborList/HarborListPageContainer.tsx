@@ -7,7 +7,7 @@ import { HARBORS } from './__generated__/HARBORS';
 import HarborListPage from './HarborListPage';
 import { HarborData } from './types';
 
-const HarborsContainer: React.FC = () => {
+const HarborsContainer = () => {
   const { loading, data } = useQuery<HARBORS>(HARBORS_QUERY);
   const tableData: HarborData[] = getHarborsData(data);
 
