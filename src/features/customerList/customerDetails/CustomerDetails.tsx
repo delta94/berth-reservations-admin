@@ -50,7 +50,7 @@ const CustomerDetails = ({
   return (
     <div className={styles.customerDetails}>
       <Grid colsCount={4}>
-        <div className={styles.section}>
+        <div>
           <Section title={t('harborList.details.customer')}>{name}</Section>
           <Section>
             {address}
@@ -65,7 +65,7 @@ const CustomerDetails = ({
             {organizationType ? t([`common.organizationTypes.${organizationType}`]) : t([`common.privateCustomer`])}
           </Section>
         </div>
-        <div className={styles.section}>
+        <div>
           <Section title={t('harborList.details.berths')}>
             {berths.map((berth) => (
               <div key={berth.id}>{berth.title}</div>
@@ -82,7 +82,7 @@ const CustomerDetails = ({
             ))}
           </Section>
         </div>
-        <div className={styles.section}>
+        <div>
           <Section title={t('harborList.details.applications')}>
             {applications.map((application) => (
               <div key={application.id}>{formatDate(application.createdAt, i18n.language)}</div>
@@ -94,7 +94,7 @@ const CustomerDetails = ({
             ))}
           </Section>
         </div>
-        <div className={styles.section}>
+        <div>
           <Section title={t('harborList.details.comments')}>{comment}</Section>
         </div>
       </Grid>
