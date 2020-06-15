@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CustomerDetails renders normally 1`] = `
-<div
-  class="customerDetails"
->
+<div>
   <div
     class="grid cols4"
   >

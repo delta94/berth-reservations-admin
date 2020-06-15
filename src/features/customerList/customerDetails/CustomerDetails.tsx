@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 
 import Grid from '../../../common/grid/Grid';
 import Section from '../../../common/section/Section';
-import styles from './customerDetails.module.scss';
 import { OrganizationType } from '../../../@types/__generated__/globalTypes';
 import {
   CustomerListApplication,
@@ -48,7 +47,7 @@ const CustomerDetails = ({
   const { t, i18n } = useTranslation();
 
   return (
-    <div className={styles.customerDetails}>
+    <div>
       <Grid colsCount={4}>
         <div>
           <Section title={t('harborList.details.customer')}>{name}</Section>
