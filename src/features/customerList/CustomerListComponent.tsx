@@ -7,7 +7,7 @@ import CustomerDetails from './customerDetails/CustomerDetails';
 import { OrganizationType } from '../../@types/__generated__/globalTypes';
 import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
 import CustomerListTableTools, { CustomerListTableToolsProps } from './tableTools/CustomerListTableTools';
-import { MessageFormValues, CustomerData } from './types';
+import { CustomerData, MessageFormValues } from './types';
 import { getSelectedRowIds } from '../../common/utils/getSelectedRowIds';
 import { formatDate } from '../../common/utils/format';
 
@@ -49,10 +49,12 @@ const CustomerListComponent = ({
     {
       Cell: ({ cell }) => {
         const { value } = cell;
-        return value ? t([`common.organizationTypes.${value as OrganizationType}`]) : t([`common.privateCustomer`]);
+        return value?.organizationType
+          ? t([`common.organizationTypes.${value.organizationType as OrganizationType}`])
+          : t([`common.privateCustomer`]);
       },
       Header: t('customerList.tableHeaders.group') || '',
-      accessor: 'organizationType',
+      accessor: 'organization',
       disableSortBy: true,
       width: COLUMN_WIDTH.S,
     },
@@ -100,13 +102,13 @@ const CustomerListComponent = ({
       renderSubComponent={(row) => {
         return (
           <CustomerDetails
-            name={row.original.name}
-            address={row.original.address}
-            postalCode={row.original.postalCode}
-            city={row.original.city}
+            name={row.original.organization ? row.original.organization.name : row.original.name}
+            address={row.original.organization ? row.original.organization.address : row.original.address}
+            postalCode={row.original.organization ? row.original.organization.postalCode : row.original.postalCode}
+            city={row.original.organization ? row.original.organization.city : row.original.city}
             phone={row.original.phone}
             email={row.original.email}
-            organizationType={row.original.organizationType}
+            organizationType={row.original.organization?.organizationType}
             berths={row.original.berthLeases}
             winterStoragePlaces={[]}
             boats={row.original.boats}
