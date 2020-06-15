@@ -20,10 +20,10 @@ export enum EDIT_FORM_TYPE {
   ADDITIONAL_SERVICES = 'ADDITIONAL_SERVICES',
 }
 
-export interface EditPricingFormProps {
-  onSubmit: (values: BerthPrice | WinterStoragePrice | HarborService | AdditionalService) => void;
+export interface EditPricingFormProps<T extends BerthPrice | WinterStoragePrice | HarborService | AdditionalService> {
+  onSubmit: (values: T) => void;
   closeModal: () => void;
-  initialValues: BerthPrice | WinterStoragePrice | HarborService | AdditionalService;
+  initialValues: T;
   formType: EDIT_FORM_TYPE;
 }
 
@@ -52,7 +52,12 @@ const getForm = (formType: EDIT_FORM_TYPE) => {
   }
 };
 
-const EditForm = ({ onSubmit, closeModal, formType, initialValues }: EditPricingFormProps) => {
+const EditForm = <T extends BerthPrice | WinterStoragePrice | HarborService | AdditionalService>({
+  onSubmit,
+  closeModal,
+  formType,
+  initialValues,
+}: EditPricingFormProps<T>) => {
   const { t } = useTranslation();
   const form = getForm(formType);
 

@@ -12,6 +12,7 @@ export const data: BerthPricingProps['data'] = {
         name: 'sed sed debitis',
         defaultProduct: {
           __typename: 'BerthProductNode',
+          id: '7667c0af-a6dd-4d33-89c5-9142918b14d4',
           priceValue: '10.2',
           priceUnit: PriceUnits.AMOUNT,
         },
