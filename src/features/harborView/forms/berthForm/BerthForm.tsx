@@ -29,7 +29,8 @@ interface BerthWithStringifiedDimensions extends Omit<Berth, 'width' | 'length' 
 
 const isNumber = (val: string | undefined): boolean => {
   if (val === undefined) return true; // required is a separate test
-  return !Number.isNaN(parseFloat(val.replace(',', '.')));
+  const numberRegex = RegExp('^[-]?\\d+([.,]\\d+)?$');
+  return numberRegex.test(val);
 };
 
 const isPositive = (val: string | undefined): boolean => {
