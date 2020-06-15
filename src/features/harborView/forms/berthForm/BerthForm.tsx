@@ -21,6 +21,20 @@ interface BerthFormProps extends FormProps<Berth> {
   pierOptions: Pier[];
 }
 
+interface BerthWithStringifiedDimensions extends Omit<Berth, 'width' | 'length' | 'depth'> {
+  width?: string;
+  length?: string;
+  depth?: string;
+}
+
+const isNumber = (val: string): boolean => {
+  return !Number.isNaN(parseFloat(val.replace(',', '.')));
+};
+
+const isPositive = (val: string): boolean => {
+  return parseFloat(val.replace(',', '.')) >= 0;
+};
+
 const getBerthValidationSchema = (t: TFunction, pierOptions: Pier[]): ObjectSchema => {
   return Yup.object().shape({
     pierId: Yup.string()
@@ -31,15 +45,17 @@ const getBerthValidationSchema = (t: TFunction, pierOptions: Pier[]): ObjectSche
       .min(0, t('forms.common.errors.nonNegative'))
       .integer(t('forms.common.errors.integer'))
       .required(t('forms.common.errors.required')),
-    width: Yup.number()
-      .typeError(t('forms.common.errors.numberType'))
-      .positive(t('forms.common.errors.positive'))
+    width: Yup.string()
+      .test('isNumber', t('forms.common.errors.numberType'), (val) => isNumber(val))
+      .test('isPositive', t('forms.common.errors.positive'), (val) => isPositive(val))
       .required(t('forms.common.errors.required')),
-    length: Yup.number()
-      .typeError(t('forms.common.errors.numberType'))
-      .positive(t('forms.common.errors.positive'))
+    length: Yup.string()
+      .test('isNumber', t('forms.common.errors.numberType'), (val) => isNumber(val))
+      .test('isPositive', t('forms.common.errors.positive'), (val) => isPositive(val))
       .required(t('forms.common.errors.required')),
-    depth: Yup.number().typeError(t('forms.common.errors.numberType')).positive(t('forms.common.errors.positive')),
+    depth: Yup.string()
+      .test('isNumber', t('forms.common.errors.numberType'), (val) => isNumber(val))
+      .test('isPositive', t('forms.common.errors.positive'), (val) => isPositive(val)),
     mooringType: Yup.string().oneOf(Object.keys(BerthMooringType)).required(t('forms.common.errors.required')),
   });
 };
@@ -49,9 +65,9 @@ const transformValues = (values: any): Berth => {
   return {
     ...values,
     number: parseInt(number),
-    width: parseFloat(width),
-    length: parseFloat(length),
-    depth: parseFloat(depth),
+    width: parseFloat(String(width).replace(',', '.')),
+    length: parseFloat(String(length).replace(',', '.')),
+    depth: parseFloat(String(depth).replace(',', '.')),
   };
 };
 
@@ -69,12 +85,19 @@ const BerthForm = ({
   const validationSchema = getBerthValidationSchema(t, pierOptions);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
-  const initial: Berth = initialValues ?? {
-    pierId: pierOptions[0].id,
-    mooringType: BerthMooringType.DINGHY_PLACE,
-    comment: '',
-    isActive: true,
-  };
+  const initial: BerthWithStringifiedDimensions = initialValues
+    ? {
+        ...initialValues,
+        width: initialValues.width ? String(initialValues.width).replace('.', ',') : '',
+        length: initialValues.length ? String(initialValues.length).replace('.', ',') : '',
+        depth: initialValues.depth ? String(initialValues.depth).replace('.', ',') : '',
+      }
+    : {
+        pierId: pierOptions[0].id,
+        mooringType: BerthMooringType.DINGHY_PLACE,
+        comment: '',
+        isActive: true,
+      };
 
   return (
     <Formik
@@ -119,7 +142,7 @@ const BerthForm = ({
             <div />
             <TextInput
               id="width"
-              value={values.width ? String(values.width) : ''}
+              value={values.width}
               onChange={handleChange}
               labelText={t('forms.berth.width')}
               invalid={!!errors.width}
@@ -127,7 +150,7 @@ const BerthForm = ({
             />
             <TextInput
               id="length"
-              value={values.length ? String(values.length) : ''}
+              value={values.length}
               onChange={handleChange}
               labelText={t('forms.berth.length')}
               invalid={!!errors.length}
@@ -136,7 +159,7 @@ const BerthForm = ({
             <TextInput
               id="depth"
               onChange={handleChange}
-              value={values.depth ? String(values.depth) : ''}
+              value={values.depth}
               labelText={t('forms.berth.depth')}
               invalid={!!errors.depth}
               helperText={errors.depth}
@@ -191,7 +214,7 @@ const BerthForm = ({
             onConfirmText={t('forms.berth.delete')}
             warningText={t('forms.berth.deleteConfirmation.warningText')}
             onCancel={() => setIsDeleteModalOpen(false)}
-            onConfirm={() => onDelete?.(values)}
+            onConfirm={() => onDelete?.(transformValues(values))}
             className={styles.confirmationModal}
           />
         </form>
