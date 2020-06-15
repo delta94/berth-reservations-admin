@@ -11,6 +11,7 @@ import { PriceUnits, ProductServiceType, PeriodType, AdditionalProductType, Addi
 
 export interface PRICING_PAGE_berthPriceGroups_edges_node_defaultProduct {
   __typename: "BerthProductNode";
+  id: string;
   priceUnit: PriceUnits;
   priceValue: any;
 }

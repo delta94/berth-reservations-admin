@@ -14,6 +14,7 @@ export const getBerthsData = (data: BerthPricingData | null | undefined): BerthP
 
     const berthPrice = {
       id: edge.node.id,
+      productId: edge.node.defaultProduct?.id,
       name: edge.node.name,
       privateCustomer,
       company,

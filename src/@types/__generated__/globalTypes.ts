@@ -124,6 +124,13 @@ export interface CreateBerthMutationInput {
   clientMutationId?: string | null;
 }
 
+export interface CreateBerthProductMutationInput {
+  priceValue: any;
+  priceGroupId: string;
+  harborId?: string | null;
+  clientMutationId?: string | null;
+}
+
 export interface CreatePierMutationInput {
   identifier?: string | null;
   location?: any | null;
@@ -171,6 +178,14 @@ export interface UpdateBerthMutationInput {
   depth?: number | null;
   mooringType?: BerthMooringType | null;
   id: string;
+  clientMutationId?: string | null;
+}
+
+export interface UpdateBerthProductMutationInput {
+  id: string;
+  priceValue?: any | null;
+  priceGroupId?: string | null;
+  harborId?: string | null;
   clientMutationId?: string | null;
 }
 
