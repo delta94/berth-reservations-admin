@@ -76,6 +76,10 @@ export enum PeriodType {
   YEAR = "YEAR",
 }
 
+export enum PlaceProductTaxEnum {
+  TAX_24_00 = "TAX_24_00",
+}
+
 export enum PriceUnits {
   AMOUNT = "AMOUNT",
   PERCENTAGE = "PERCENTAGE",
@@ -146,6 +150,12 @@ export interface CreatePierMutationInput {
   clientMutationId?: string | null;
 }
 
+export interface CreateWinterStorageProductMutationInput {
+  priceValue: any;
+  winterStorageAreaId?: string | null;
+  clientMutationId?: string | null;
+}
+
 export interface DeleteBerthLeaseMutationInput {
   id: string;
   clientMutationId?: string | null;
@@ -157,6 +167,16 @@ export interface DeleteBerthMutationInput {
 }
 
 export interface DeletePierMutationInput {
+  id: string;
+  clientMutationId?: string | null;
+}
+
+export interface UpdateAdditionalProductMutationInput {
+  service?: ProductServiceType | null;
+  period?: PeriodType | null;
+  priceValue?: any | null;
+  priceUnit?: PriceUnits | null;
+  taxPercentage?: AdditionalProductTaxEnum | null;
   id: string;
   clientMutationId?: string | null;
 }
@@ -221,6 +241,13 @@ export interface UpdatePierMutationInput {
   lighting?: boolean | null;
   personalElectricity?: boolean | null;
   id: string;
+  clientMutationId?: string | null;
+}
+
+export interface UpdateWinterStorageProductMutationInput {
+  id: string;
+  priceValue?: any | null;
+  winterStorageAreaId?: string | null;
   clientMutationId?: string | null;
 }
 

@@ -35,6 +35,7 @@ export interface PRICING_PAGE_berthPriceGroups {
 
 export interface PRICING_PAGE_winterStorageAreas_edges_node_properties_product {
   __typename: "WinterStorageProductNode";
+  id: string;
   priceValue: any;
   priceUnit: PriceUnits;
 }
