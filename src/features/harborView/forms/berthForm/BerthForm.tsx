@@ -27,11 +27,13 @@ interface BerthWithStringifiedDimensions extends Omit<Berth, 'width' | 'length' 
   depth?: string;
 }
 
-const isNumber = (val: string): boolean => {
+const isNumber = (val: string | undefined): boolean => {
+  if (val === undefined) return true; // required is a separate test
   return !Number.isNaN(parseFloat(val.replace(',', '.')));
 };
 
-const isPositive = (val: string): boolean => {
+const isPositive = (val: string | undefined): boolean => {
+  if (val === undefined) return true; // required is a separate test
   return parseFloat(val.replace(',', '.')) >= 0;
 };
 
