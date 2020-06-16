@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 
 import IconWrapper from './IconWrapper';
