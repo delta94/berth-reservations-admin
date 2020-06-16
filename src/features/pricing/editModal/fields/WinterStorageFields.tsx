@@ -10,9 +10,11 @@ import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
 import FormTypeTitle from '../FormTypeTitle';
 import { WinterStoragePrice } from '../../winterStoragePricing/WinterStoragePricing';
+import { PeriodType } from '../../../../@types/__generated__/globalTypes';
+import { getPeriodTKey } from '../../../../common/utils/translations';
 
 const areaOptions = ['Kaisaniemi'];
-const periodOptions = ['season', 'month', 'year'];
+const periodOptions = [PeriodType.SEASON, PeriodType.MONTH, PeriodType.YEAR];
 
 export const getWinterStorageValidationSchema = (t: TFunction) =>
   Yup.object().shape({
@@ -80,7 +82,7 @@ const WinterStorageFields = () => {
           labelText={t('pricing.winterStorage.period')}
           options={periodOptions.map((option) => ({
             value: option,
-            label: t([`common.periodTypes.${option}`]),
+            label: t(getPeriodTKey(option)),
           }))}
         />
       </Grid>

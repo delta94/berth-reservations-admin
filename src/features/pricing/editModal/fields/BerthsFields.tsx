@@ -11,9 +11,11 @@ import Select from '../../../../common/select/Select';
 import { formatDimension } from '../../../../common/utils/format';
 import FormTypeTitle from '../FormTypeTitle';
 import { BerthPrice } from '../../berthPricing/BerthPricing';
+import { PeriodType } from '../../../../@types/__generated__/globalTypes';
+import { getPeriodTKey } from '../../../../common/utils/translations';
 
 const widthOptions = [2, 2.5, 2.75, 3, 4, 5, 5.5, 6, 7];
-const periodOptions = ['season', 'month', 'year'];
+const periodOptions = [PeriodType.SEASON, PeriodType.MONTH, PeriodType.YEAR];
 
 export const getBerthsValidationSchema = (t: TFunction) =>
   Yup.object().shape({
@@ -81,7 +83,7 @@ const BerthsFields = () => {
           labelText={t('pricing.berths.period')}
           options={periodOptions.map((option) => ({
             value: option,
-            label: t([`common.periodTypes.${option}`]),
+            label: t(getPeriodTKey(option)),
           }))}
         />
       </Grid>

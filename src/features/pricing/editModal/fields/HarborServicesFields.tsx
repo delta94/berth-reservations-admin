@@ -10,10 +10,12 @@ import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
 import FormTypeTitle from '../FormTypeTitle';
 import { HarborService } from '../../harborServicePricing/HarborServicePricing';
+import { PeriodType } from '../../../../@types/__generated__/globalTypes';
+import { getPeriodTKey } from '../../../../common/utils/translations';
 
 const serviceOptions = ['mooring', 'electricity', 'water', 'wasteCollection', 'gate', 'lighting'];
 const unitOptions = ['%', '€'];
-const periodOptions = ['season', 'month', 'year'];
+const periodOptions = [PeriodType.SEASON, PeriodType.MONTH, PeriodType.YEAR];
 
 export const getHarborServicesValidationSchema = (t: TFunction) =>
   Yup.object().shape({
@@ -83,7 +85,7 @@ const HarborServicesFields = () => {
           labelText={t('pricing.harborServices.period')}
           options={periodOptions.map((option) => ({
             value: option,
-            label: t([`common.periodTypes.${option}`]),
+            label: t(getPeriodTKey(option)),
           }))}
         />
       </Grid>

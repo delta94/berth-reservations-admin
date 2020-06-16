@@ -11,10 +11,12 @@ import Select from '../../../../common/select/Select';
 import { formatPercentage } from '../../../../common/utils/format';
 import FormTypeTitle from '../FormTypeTitle';
 import { AdditionalService } from '../../additionalServicePricing/AdditionalServicePricing';
+import { PeriodType } from '../../../../@types/__generated__/globalTypes';
+import { getPeriodTKey } from '../../../../common/utils/translations';
 
 const serviceOptions = ['trawlerSummerStorage', 'parkingPermit', 'dinghyPlace'];
 const taxOptions = [24];
-const periodOptions = ['season', 'month', 'year'];
+const periodOptions = [PeriodType.SEASON, PeriodType.MONTH, PeriodType.YEAR];
 
 export const getAdditionalServicesValidationSchema = (t: TFunction) =>
   Yup.object().shape({
@@ -84,7 +86,7 @@ const AdditionalServicesFields = () => {
           labelText={t('pricing.additionalServices.period')}
           options={periodOptions.map((option) => ({
             value: option,
-            label: t([`common.periodTypes.${option}`]),
+            label: t(getPeriodTKey(option)),
           }))}
         />
       </Grid>
