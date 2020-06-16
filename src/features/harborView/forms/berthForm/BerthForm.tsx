@@ -14,6 +14,7 @@ import styles from './berthForm.module.scss';
 import { Pier } from '../../utils/utils';
 import FormHeader from '../../../../common/formHeader/FormHeader';
 import ConfirmationModal from '../../../../common/confirmationModal/ConfirmationModal';
+import { isNumber, isPositive, replaceCommaWithDot, replaceDotWithComma } from './utils/utils';
 
 interface BerthFormProps extends FormProps<Berth> {
   isEditing?: boolean;
@@ -21,22 +22,11 @@ interface BerthFormProps extends FormProps<Berth> {
   pierOptions: Pier[];
 }
 
-interface BerthWithStringifiedDimensions extends Omit<Berth, 'width' | 'length' | 'depth'> {
+interface BerthFormValues extends Omit<Berth, 'width' | 'length' | 'depth'> {
   width?: string;
   length?: string;
   depth?: string;
 }
-
-const isNumber = (val: string | undefined): boolean => {
-  if (val === undefined) return true; // required is a separate test
-  const numberRegex = RegExp('^[-]?\\d+([.,]\\d+)?$');
-  return numberRegex.test(val);
-};
-
-const isPositive = (val: string | undefined): boolean => {
-  if (val === undefined) return true; // required is a separate test
-  return parseFloat(val.replace(',', '.')) >= 0;
-};
 
 const getBerthValidationSchema = (t: TFunction, pierOptions: Pier[]): ObjectSchema => {
   return Yup.object().shape({
@@ -68,9 +58,9 @@ const transformValues = (values: any): Berth => {
   return {
     ...values,
     number: parseInt(number),
-    width: parseFloat(String(width).replace(',', '.')),
-    length: parseFloat(String(length).replace(',', '.')),
-    depth: parseFloat(String(depth).replace(',', '.')),
+    width: parseFloat(replaceCommaWithDot(width)),
+    length: parseFloat(replaceCommaWithDot(length)),
+    depth: parseFloat(replaceCommaWithDot(depth)),
   };
 };
 
@@ -88,12 +78,12 @@ const BerthForm = ({
   const validationSchema = getBerthValidationSchema(t, pierOptions);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
-  const initial: BerthWithStringifiedDimensions = initialValues
+  const initial: BerthFormValues = initialValues
     ? {
         ...initialValues,
-        width: initialValues.width ? String(initialValues.width).replace('.', ',') : '',
-        length: initialValues.length ? String(initialValues.length).replace('.', ',') : '',
-        depth: initialValues.depth ? String(initialValues.depth).replace('.', ',') : '',
+        width: initialValues.width ? replaceDotWithComma(String(initialValues.width)) : '',
+        length: initialValues.length ? replaceDotWithComma(String(initialValues.length)) : '',
+        depth: initialValues.depth ? replaceDotWithComma(String(initialValues.depth)) : '',
       }
     : {
         pierId: pierOptions[0].id,
