@@ -43,6 +43,7 @@ const BerthsFields = () => {
         <Field
           required={true}
           as={Select}
+          id="width"
           name="width"
           labelText={t('pricing.berths.width')}
           options={widthOptions.map((option) => ({
@@ -75,6 +76,7 @@ const BerthsFields = () => {
         <Field
           required={true}
           as={Select}
+          id="period"
           name="period"
           labelText={t('pricing.berths.period')}
           options={periodOptions.map((option) => ({

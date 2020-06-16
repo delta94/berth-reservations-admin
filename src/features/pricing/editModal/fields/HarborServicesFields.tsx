@@ -43,6 +43,7 @@ const HarborServicesFields = () => {
         <Field
           required={true}
           as={Select}
+          id="service"
           name="service"
           labelText={t('pricing.harborServices.service')}
           options={serviceOptions.map((option) => ({
@@ -64,6 +65,7 @@ const HarborServicesFields = () => {
         <Field
           required={true}
           as={Select}
+          id="unit"
           name="unit"
           labelText={t('pricing.harborServices.unit')}
           options={unitOptions.map((option) => ({
@@ -76,6 +78,7 @@ const HarborServicesFields = () => {
         <Field
           required={true}
           as={Select}
+          id="period"
           name="period"
           labelText={t('pricing.harborServices.period')}
           options={periodOptions.map((option) => ({

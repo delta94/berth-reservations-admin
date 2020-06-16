@@ -1,7 +1,5 @@
-import React from 'react';
-import classNames from 'classnames';
-
-import styles from './select.module.scss';
+import React, { ChangeEvent } from 'react';
+import { Dropdown } from 'hds-react';
 
 interface Option {
   label: string;
@@ -9,39 +7,39 @@ interface Option {
 }
 
 export type SelectProps = {
-  name?: string;
-  labelText?: string;
   className?: string;
-  value: Option['value'] | undefined;
+  disabled?: boolean;
+  id?: string;
+  labelText?: string;
+  onChange: React.ChangeEventHandler<HTMLSelectElement>;
   options: Option[];
   required?: boolean;
-  disabled?: boolean;
-  onChange: React.ChangeEventHandler<HTMLSelectElement>;
-  id?: string;
+  value: Option['value'] | undefined;
 };
 
-const Select = ({ name, id, labelText, className, value, options, onChange, required, disabled }: SelectProps) => {
-  const optionsItems = options.map(({ value, label }) => (
-    <option key={value} value={value}>
-      {label}
-    </option>
-  ));
-
+const Select = ({ id, labelText, className, value, options, onChange, required, disabled }: SelectProps) => {
+  const selectedOption = options.find((option) => option.value === value);
   return (
-    <label className={className}>
-      {labelText && <span className={styles.labelText}>{labelText}</span>}
-      <select
-        name={name}
-        id={id}
-        value={value}
-        onChange={onChange}
-        disabled={disabled}
-        className={classNames(styles.select, { [styles.disabled]: disabled })}
-      >
-        {!required && <option>-</option>}
-        {optionsItems}
-      </select>
-    </label>
+    <Dropdown
+      className={className}
+      disabled={disabled}
+      id={id}
+      label={labelText}
+      onChange={(option) => {
+        if (!selectedOption || (option as Option).value !== selectedOption.value) {
+          const event = {
+            target: {
+              id,
+              value: (option as Option).value,
+            },
+          };
+          onChange(event as ChangeEvent<HTMLSelectElement>);
+        }
+      }}
+      options={options}
+      required={required}
+      selectedOption={selectedOption}
+    />
   );
 };
 

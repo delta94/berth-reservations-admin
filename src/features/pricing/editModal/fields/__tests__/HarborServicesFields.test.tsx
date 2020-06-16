@@ -33,7 +33,8 @@ describe('HarborServicesFields', () => {
 
   describe('Service field', () => {
     it('Should show provided initialValue', () => {
-      const input = getWrapper().find('select[name="service"]');
+      const input = getWrapper().find('Select').at(0);
+      expect(input.prop('id')).toEqual('service');
       expect(input.prop('value')).toEqual('MOORING');
     });
   });
@@ -47,14 +48,16 @@ describe('HarborServicesFields', () => {
 
   describe('Unit field', () => {
     it('Should show provided initialValue', () => {
-      const input = getWrapper().find('select[name="unit"]');
+      const input = getWrapper().find('Select').at(1);
+      expect(input.prop('id')).toEqual('unit');
       expect(input.prop('value')).toEqual('%');
     });
   });
 
   describe('Period field', () => {
     it('Should show provided initialValue', () => {
-      const input = getWrapper().find('select[name="period"]');
+      const input = getWrapper().find('Select').at(2);
+      expect(input.prop('id')).toEqual('period');
       expect(input.prop('value')).toEqual('SEASON');
     });
   });

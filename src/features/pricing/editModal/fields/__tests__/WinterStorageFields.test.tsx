@@ -31,9 +31,10 @@ describe('WinterStorageFields', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('Service field', () => {
+  describe('Area field', () => {
     it('Should show provided initialValue', () => {
-      const input = getWrapper().find('select[name="area"]');
+      const input = getWrapper().find('Select').at(0);
+      expect(input.prop('id')).toEqual('area');
       expect(input.prop('value')).toEqual('Kaisaniemi');
     });
   });
@@ -54,7 +55,8 @@ describe('WinterStorageFields', () => {
 
   describe('Period field', () => {
     it('Should show provided initialValue', () => {
-      const input = getWrapper().find('select[name="period"]');
+      const input = getWrapper().find('Select').at(1);
+      expect(input.prop('id')).toEqual('period');
       expect(input.prop('value')).toEqual('SEASON');
     });
   });

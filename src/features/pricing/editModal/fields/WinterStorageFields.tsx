@@ -42,6 +42,7 @@ const WinterStorageFields = () => {
         <Field
           required={true}
           as={Select}
+          id="area"
           name="area"
           labelText={t('pricing.winterStorage.area')}
           options={areaOptions.map((option) => ({
@@ -74,6 +75,7 @@ const WinterStorageFields = () => {
         <Field
           required={true}
           as={Select}
+          id="period"
           name="period"
           labelText={t('pricing.winterStorage.period')}
           options={periodOptions.map((option) => ({

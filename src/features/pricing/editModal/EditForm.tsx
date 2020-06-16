@@ -62,7 +62,7 @@ const EditForm = ({ onSubmit, closeModal, formType, initialValues }: EditPricing
         <Form className={styles.form}>
           {form.component}
           <div className={styles.buttonRow}>
-            <Button variant="secondary" theme="coat" onClick={closeModal}>
+            <Button variant="secondary" theme="coat" id="cancel" onClick={closeModal}>
               {t('common.cancel')}
             </Button>
             <Button theme="coat" type="submit" disabled={isSubmitting}>

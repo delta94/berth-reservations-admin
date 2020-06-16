@@ -44,6 +44,7 @@ const AdditionalServicesFields = () => {
         <Field
           required={true}
           as={Select}
+          id="service"
           name="service"
           labelText={t('pricing.additionalServices.service')}
           options={serviceOptions.map((option) => ({
@@ -65,6 +66,7 @@ const AdditionalServicesFields = () => {
         <Field
           required={true}
           as={Select}
+          id="tax"
           name="tax"
           labelText={t('pricing.additionalServices.tax')}
           options={taxOptions.map((option) => ({
@@ -77,6 +79,7 @@ const AdditionalServicesFields = () => {
         <Field
           required={true}
           as={Select}
+          id="period"
           name="period"
           labelText={t('pricing.additionalServices.period')}
           options={periodOptions.map((option) => ({
