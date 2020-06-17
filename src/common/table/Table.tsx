@@ -23,9 +23,8 @@ import {
   UseGlobalFiltersOptions,
   actions,
 } from 'react-table';
-import { IconAngleDown, IconArrowLeft, RadioButton } from 'hds-react';
+import { IconAngleDown, IconArrowLeft, RadioButton, Checkbox } from 'hds-react';
 
-import Checkbox from '../checkbox/Checkbox';
 import styles from './table.module.scss';
 
 export type Column<D extends object> = ColumnType<D> & UseFiltersColumnOptions<D> & UseSortByColumnOptions<D>;
@@ -105,8 +104,14 @@ const Table = <D extends { id: string }>({
 
   const selectorCol: Column<D> = React.useMemo(
     () => ({
-      Cell: ({ row }: { row: any }) => <Checkbox size="large" {...row.getToggleRowSelectedProps()} />,
-      Header: ({ getToggleAllRowsSelectedProps }) => <Checkbox size="large" {...getToggleAllRowsSelectedProps()} />,
+      Cell: ({ row }: { row: any }) => {
+        const { title, style, checked, onChange } = row.getToggleRowSelectedProps();
+        return <Checkbox id={'checkbox-' + row.id} title={title} style={style} checked={checked} onChange={onChange} />;
+      },
+      Header: ({ getToggleAllRowsSelectedProps }) => {
+        const { title, style, checked, onChange } = getToggleAllRowsSelectedProps();
+        return <Checkbox id={'checkbox'} title={title} style={style} checked={checked} onChange={onChange} />;
+      },
       id: SELECTOR,
     }),
     []

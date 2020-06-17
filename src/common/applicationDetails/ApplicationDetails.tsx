@@ -1,11 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
+import { Checkbox } from 'hds-react';
 
 import Section from '../section/Section';
 import LabelValuePair from '../labelValuePair/LabelValuePair';
 import Grid from '../grid/Grid';
-import Checkbox from '../checkbox/Checkbox';
 import styles from './applicationDetails.module.scss';
 import InternalLink from '../internalLink/InternalLink';
 import Text from '../text/Text';
@@ -203,9 +203,9 @@ const ApplicationDetails = ({
         )}
         <Section>
           <Checkbox
+            id={'accessible'}
             label={t('applicationList.applicationDetails.accessible')}
             checked={accessibilityRequired}
-            size="large"
             readOnly
           />
         </Section>
