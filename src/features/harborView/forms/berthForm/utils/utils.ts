@@ -19,7 +19,7 @@ export const getBerth = (berthData: INDIVIDUAL_BERTH | undefined): Berth | undef
 
 export const isNumber = (value: string | undefined): boolean => {
   if (value === undefined) return true; // required is a separate test
-  const numberRegex = RegExp('^-?\\d+([.,]\\d+)?$');
+  const numberRegex = new RegExp('^-?\\d+([.,]\\d+)?$');
   return numberRegex.test(value);
 };
 
