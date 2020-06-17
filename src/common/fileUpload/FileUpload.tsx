@@ -129,8 +129,8 @@ const FileUpload = (props: FileUploadProps) => {
             onChange={handleChange}
           />
           <Button
-            theme="coat"
             variant="secondary"
+            theme="coat"
             size="small"
             disabled={disabled}
             onClick={() => inputRef.current.click()}

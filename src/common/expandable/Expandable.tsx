@@ -29,7 +29,7 @@ const Expandable = ({ label, onClick, children }: ExpandableProps) => {
               [styles.up]: expanded,
             })}
           >
-            <Button color="secondary" onClick={() => setExpanded(!expanded)}>
+            <Button variant="secondary" theme="coat" onClick={() => setExpanded(!expanded)}>
               <IconAngleDown />
             </Button>
           </div>
