@@ -23,10 +23,9 @@ import {
   UseGlobalFiltersOptions,
   actions,
 } from 'react-table';
-import { IconAngleDown, IconArrowLeft } from 'hds-react';
+import { IconAngleDown, IconArrowLeft, RadioButton } from 'hds-react';
 
 import Checkbox from '../checkbox/Checkbox';
-import Radio from '../radio/Radio';
 import styles from './table.module.scss';
 
 export type Column<D extends object> = ColumnType<D> & UseFiltersColumnOptions<D> & UseSortByColumnOptions<D>;
@@ -123,16 +122,21 @@ const Table = <D extends { id: string }>({
         row: any;
         toggleAllRowsSelected: (selected: boolean) => void;
         toggleRowSelected: (rowId: string) => void;
-      }) => (
-        <Radio
-          size="large"
-          {...row.getToggleRowSelectedProps()}
-          onChange={() => {
-            toggleAllRowsSelected(false);
-            toggleRowSelected(row.id);
-          }}
-        />
-      ),
+      }) => {
+        const { title, style, checked } = row.getToggleRowSelectedProps();
+        return (
+          <RadioButton
+            id={'radio-' + row.id}
+            title={title}
+            style={style}
+            checked={checked}
+            onChange={() => {
+              toggleAllRowsSelected(false);
+              toggleRowSelected(row.id);
+            }}
+          />
+        );
+      },
       id: RADIO_SELECTOR,
     }),
     []
