@@ -207,6 +207,7 @@ const ApplicationDetails = ({
             label={t('applicationList.applicationDetails.accessible')}
             checked={accessibilityRequired}
             readOnly
+            className={styles.accessibleCheckbox}
           />
         </Section>
       </div>
