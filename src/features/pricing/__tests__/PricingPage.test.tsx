@@ -16,7 +16,6 @@ const initialProps: PricingPageProps = {
   harborServicesLoading: false,
   additionalServicesData,
   additionalServicesLoading: false,
-  openModal: jest.fn(),
 };
 
 describe('PricingPage', () => {
