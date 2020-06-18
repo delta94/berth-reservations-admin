@@ -11,22 +11,20 @@ import Select from '../../../../common/select/Select';
 import { formatDimension } from '../../../../common/utils/format';
 import FormTypeTitle from '../FormTypeTitle';
 import { BerthPrice } from '../../berthPricing/BerthPricing';
+import { PeriodType } from '../../../../@types/__generated__/globalTypes';
+import { getPeriodTKey } from '../../../../common/utils/translations';
 
 const widthOptions = [2, 2.5, 2.75, 3, 4, 5, 5.5, 6, 7];
-const periodOptions = ['season', 'month', 'year'];
 
 export const getBerthsValidationSchema = (t: TFunction) =>
   Yup.object().shape({
-    width: Yup.number().oneOf(widthOptions).required(t('forms.common.errors.required')),
+    width: Yup.number().oneOf(widthOptions),
     privateCustomer: Yup.number()
       .positive()
       .typeError(t('forms.common.errors.numberType'))
       .required(t('forms.common.errors.required')),
-    company: Yup.number()
-      .positive()
-      .typeError(t('forms.common.errors.numberType'))
-      .required(t('forms.common.errors.required')),
-    period: Yup.string().oneOf(periodOptions).required(t('forms.common.errors.required')),
+    company: Yup.number().positive().typeError(t('forms.common.errors.numberType')),
+    period: Yup.string().oneOf(Object.values(PeriodType)),
   });
 
 const BerthsFields = () => {
@@ -45,6 +43,7 @@ const BerthsFields = () => {
           as={Select}
           name="width"
           labelText={t('pricing.berths.width')}
+          disabled
           options={widthOptions.map((option) => ({
             value: option,
             label: formatDimension(option, 'fi'),
@@ -64,6 +63,7 @@ const BerthsFields = () => {
         <Field
           required={true}
           as={TextInput}
+          disabled
           id="company"
           name="company"
           labelText={`${t('pricing.berths.company')} (€)`}
@@ -77,10 +77,11 @@ const BerthsFields = () => {
           as={Select}
           name="period"
           labelText={t('pricing.berths.period')}
-          options={periodOptions.map((option) => ({
+          options={Object.values(PeriodType).map((option) => ({
             value: option,
-            label: t([`common.periodTypes.${option}`]),
+            label: t(getPeriodTKey(option)),
           }))}
+          disabled
         />
       </Grid>
     </>
