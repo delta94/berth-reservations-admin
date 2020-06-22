@@ -8,13 +8,13 @@ import CardHeader from '../../../common/cardHeader/CardHeader';
 import CardBody from '../../../common/cardBody/CardBody';
 import Table, { Column, COLUMN_WIDTH } from '../../../common/table/Table';
 import Section from '../../../common/section/Section';
-import { formatPrice } from '../../../common/utils/format';
+import { formatPrice, formatPercentage } from '../../../common/utils/format';
 import Text from '../../../common/text/Text';
 import EditForm, { EDIT_FORM_TYPE } from '../editModal/EditForm';
 import { HarborServicePricing as HarborServicePricingData } from './__generated__/HarborServicePricing';
 import { getHarborServicesData } from './utils';
 import { getPeriodTKey, getProductServiceTKey } from '../../../common/utils/translations';
-import { PeriodType, ProductServiceType } from '../../../@types/__generated__/globalTypes';
+import { PeriodType, ProductServiceType, PriceUnits } from '../../../@types/__generated__/globalTypes';
 import EditModal from '../editModal/EditModal';
 import { UPDATE_HARBOR_SERVICE_PRICE_MUTATION } from './mutations';
 import {
@@ -26,7 +26,7 @@ export interface HarborService {
   id: string;
   service: ProductServiceType;
   price: number;
-  unit: string;
+  unit: PriceUnits;
   period: PeriodType;
 }
 
@@ -54,7 +54,16 @@ const HarborServicePricing = ({ data, loading, className }: HarborServicePricing
       Header: t('pricing.harborServices.price') || '',
       width: COLUMN_WIDTH.XS,
       accessor: 'price',
-      Cell: ({ cell }) => formatPrice(cell.value, i18n.language),
+      Cell: ({ row, cell }) => {
+        switch (row.original.unit) {
+          case PriceUnits.AMOUNT:
+            return formatPrice(cell.value, i18n.language);
+          case PriceUnits.PERCENTAGE:
+            return formatPercentage(cell.value, i18n.language);
+          default:
+            return cell.value;
+        }
+      },
     },
     {
       Header: t('pricing.harborServices.period') || '',
@@ -75,9 +84,9 @@ const HarborServicePricing = ({ data, loading, className }: HarborServicePricing
     },
   ];
 
-  const handleSubmit = async ({ id, price }: HarborService) => {
+  const handleSubmit = async ({ id, price, unit }: HarborService) => {
     await updateHarborServicePrice({
-      variables: { input: { id, priceValue: price } },
+      variables: { input: { id, priceValue: price, priceUnit: unit } },
     });
 
     setEditRowValues(undefined);

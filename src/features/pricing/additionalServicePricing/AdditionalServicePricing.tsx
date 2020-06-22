@@ -17,11 +17,12 @@ import EditModal from '../editModal/EditModal';
 import { UPDATE_ADDITIONAL_SERVICE_PRICE_MUTATION } from './mutations';
 import { UPDATE_ADDITIONAL_SERVICE_PRICE } from './__generated__/UPDATE_ADDITIONAL_SERVICE_PRICE';
 import { UPDATE_HARBOR_SERVICE_PRICEVariables as UPDATE_HARBOR_SERVICE_PRICE_VARS } from '../harborServicePricing/__generated__/UPDATE_HARBOR_SERVICE_PRICE';
+import { formatPrice } from '../../../common/utils/format';
 
 export interface AdditionalService {
   id: string;
   service: ProductServiceType;
-  price: string;
+  price: number;
   tax: AdditionalProductTaxEnum;
   period: PeriodType;
 }
@@ -51,6 +52,7 @@ const AdditionalServicePricing = ({ data, loading, className }: AdditionalServic
       Header: t('pricing.additionalServices.price') || '',
       width: COLUMN_WIDTH.XS,
       accessor: 'price',
+      Cell: ({ cell }) => formatPrice(cell.value, i18n.language),
     },
     {
       Header: t('pricing.additionalServices.tax') || '',

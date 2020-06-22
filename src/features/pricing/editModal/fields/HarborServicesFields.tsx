@@ -47,11 +47,11 @@ const HarborServicesFields = () => {
           as={Select}
           name="service"
           labelText={t('pricing.harborServices.service')}
-          disabled
           options={serviceOptions.map((option) => ({
             value: option,
             label: t(getProductServiceTKey(option)),
           }))}
+          disabled
         />
       </Grid>
       <Grid colsCount={2} className={styles.row}>
