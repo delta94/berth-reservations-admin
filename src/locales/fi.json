@@ -545,9 +545,10 @@
     }
   },
   "winterStorageAreaList": {
-    "title": "Talvisäilytyspaikat",
+    "title": "Talvisäilytysalueet",
     "tableHeaders": {
-      "name": "Nimi"
+      "mainHeader": "Talvisäilytysalueet",
+      "name": "Alue"
     }
   }
 }

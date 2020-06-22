@@ -27,7 +27,12 @@ const WinterStorageAreaListPage = ({ data, loading }: WinterStorageAreaListPageP
   return (
     <div className={styles.winterStorageAreaListPage}>
       <PageTitle title={t('winterStorageAreaList.title')} />
-      <Table data={data} loading={loading} columns={columns} />
+      <Table
+        data={data}
+        loading={loading}
+        columns={columns}
+        renderMainHeader={() => t('winterStorageAreaList.tableHeaders.mainHeader')}
+      />
     </div>
   );
 };
