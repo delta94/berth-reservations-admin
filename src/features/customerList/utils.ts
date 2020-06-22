@@ -16,7 +16,7 @@ export const getCustomersData = (data: CUSTOMERS | undefined): CustomerData[] =>
           email: profile.primaryEmail?.email,
           id: profile.id,
           name: `${profile.lastName} ${profile.firstName}`,
-          organizationType: profile.organization?.organizationType,
+          organization: profile.organization,
           phone: profile.primaryPhone?.phone ?? undefined,
           postalCode: profile.primaryAddress?.postalCode,
           comment: profile.comment,

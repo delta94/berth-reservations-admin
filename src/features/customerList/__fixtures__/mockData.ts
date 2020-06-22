@@ -56,6 +56,10 @@ export const dummyCustomers: CUSTOMERS = {
             __typename: 'OrganizationNode',
             businessId: '1234567-8',
             organizationType: OrganizationType.COMPANY,
+            name: 'Virtanen Oy',
+            address: 'Virtasentie 1',
+            city: 'Helsinki',
+            postalCode: '00100',
           },
           primaryAddress: {
             __typename: 'AddressNode',

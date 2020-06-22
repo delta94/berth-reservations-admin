@@ -11,13 +11,22 @@ export interface MessageFormValues {
   message: string;
 }
 
+export interface Organization {
+  name: string;
+  address: string;
+  postalCode: string;
+  city: string;
+  businessId: string;
+  organizationType: OrganizationType;
+}
+
 export interface CustomerData {
   address?: string;
   city?: string;
   email?: string;
   id: string;
   name: string;
-  organizationType?: OrganizationType;
+  organization: Organization | null;
   phone?: string;
   postalCode?: string;
   comment: string | null;
