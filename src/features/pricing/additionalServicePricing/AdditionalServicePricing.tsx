@@ -77,9 +77,9 @@ const AdditionalServicePricing = ({ data, loading, className }: AdditionalServic
     },
   ];
 
-  const handleSubmit = async ({ id, price }: AdditionalService) => {
+  const handleSubmit = async ({ id, price, period, tax }: AdditionalService) => {
     await updateHarborServicePrice({
-      variables: { input: { id, priceValue: price } },
+      variables: { input: { id, priceValue: price, period, taxPercentage: tax } },
     });
 
     setEditRowValues(undefined);

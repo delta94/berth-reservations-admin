@@ -11,7 +11,7 @@ import Select from '../../../../common/select/Select';
 import FormTypeTitle from '../FormTypeTitle';
 import { HarborService } from '../../harborServicePricing/HarborServicePricing';
 import { PeriodType, PriceUnits, ProductServiceType } from '../../../../@types/__generated__/globalTypes';
-import { getPeriodTKey, getProductServiceTKey } from '../../../../common/utils/translations';
+import { getPeriodTKey, getProductServiceTKey, getPriceUnits } from '../../../../common/utils/translations';
 
 const serviceOptions = Object.values(ProductServiceType);
 const unitOptions = Object.values(PriceUnits);
@@ -71,7 +71,7 @@ const HarborServicesFields = () => {
           labelText={t('pricing.harborServices.unit')}
           options={unitOptions.map((option) => ({
             value: option,
-            label: option,
+            label: getPriceUnits(option),
           }))}
         />
       </Grid>
@@ -85,6 +85,7 @@ const HarborServicesFields = () => {
             value: option,
             label: t(getPeriodTKey(option)),
           }))}
+          disabled
         />
       </Grid>
     </>
