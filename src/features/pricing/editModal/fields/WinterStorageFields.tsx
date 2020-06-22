@@ -10,22 +10,21 @@ import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
 import FormTypeTitle from '../FormTypeTitle';
 import { WinterStoragePrice } from '../../winterStoragePricing/WinterStoragePricing';
+import { PeriodType } from '../../../../@types/__generated__/globalTypes';
+import { getPeriodTKey } from '../../../../common/utils/translations';
 
 const areaOptions = ['Kaisaniemi'];
-const periodOptions = ['season', 'month', 'year'];
+const periodOptions = Object.values(PeriodType);
 
 export const getWinterStorageValidationSchema = (t: TFunction) =>
   Yup.object().shape({
-    area: Yup.string().oneOf(areaOptions).required(t('forms.common.errors.required')),
+    // area: Yup.string().oneOf(areaOptions),
     privateCustomer: Yup.number()
       .positive()
       .typeError(t('forms.common.errors.numberType'))
       .required(t('forms.common.errors.required')),
-    company: Yup.number()
-      .positive()
-      .typeError(t('forms.common.errors.numberType'))
-      .required(t('forms.common.errors.required')),
-    period: Yup.string().oneOf(periodOptions).required(t('forms.common.errors.required')),
+    company: Yup.number().positive().typeError(t('forms.common.errors.numberType')),
+    period: Yup.string().oneOf(periodOptions),
   });
 
 const WinterStorageFields = () => {
@@ -42,6 +41,7 @@ const WinterStorageFields = () => {
         <Field
           required={true}
           as={Select}
+          disabled
           name="area"
           labelText={t('pricing.winterStorage.area')}
           options={areaOptions.map((option) => ({
@@ -68,6 +68,7 @@ const WinterStorageFields = () => {
           labelText={`${t('pricing.winterStorage.company')} (€)`}
           invalid={!!errors.company}
           helperText={errors.company}
+          disabled
         />
       </Grid>
       <Grid colsCount={2} className={styles.row}>
@@ -78,8 +79,9 @@ const WinterStorageFields = () => {
           labelText={t('pricing.winterStorage.period')}
           options={periodOptions.map((option) => ({
             value: option,
-            label: t([`common.periodTypes.${option}`]),
+            label: t(getPeriodTKey(option)),
           }))}
+          disabled
         />
       </Grid>
     </>

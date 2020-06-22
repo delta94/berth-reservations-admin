@@ -14,6 +14,7 @@ export const getWinterStorageData = (data: WinterStoragePricingData | undefined 
 
     const winterStorageArea = {
       id: edge.node.id,
+      productId: edge.node.properties?.product?.id,
       area: edge.node.properties?.name,
       privateCustomer,
       company,
