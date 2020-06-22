@@ -543,5 +543,11 @@
         "description": "Tapahtui odottamaton virhe."
       }
     }
+  },
+  "winterStorageAreaList": {
+    "title": "Talvisäilytyspaikat",
+    "tableHeaders": {
+      "name": "Nimi"
+    }
   }
 }
