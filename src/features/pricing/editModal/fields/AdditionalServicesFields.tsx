@@ -10,16 +10,16 @@ import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
 import FormTypeTitle from '../FormTypeTitle';
 import { AdditionalService } from '../../additionalServicePricing/AdditionalServicePricing';
-import { PeriodType, AdditionalProductTaxEnum } from '../../../../@types/__generated__/globalTypes';
-import { getPeriodTKey, getProductTax } from '../../../../common/utils/translations';
+import { PeriodType, AdditionalProductTaxEnum, ProductServiceType } from '../../../../@types/__generated__/globalTypes';
+import { getPeriodTKey, getProductTax, getProductServiceTKey } from '../../../../common/utils/translations';
 
-const serviceOptions = ['trawlerSummerStorage', 'parkingPermit', 'dinghyPlace'];
+const serviceOptions = Object.values(ProductServiceType);
 const taxOptions = Object.values(AdditionalProductTaxEnum);
 const periodOptions = Object.values(PeriodType);
 
 export const getAdditionalServicesValidationSchema = (t: TFunction) =>
   Yup.object().shape({
-    // service: Yup.string().oneOf(serviceOptions).required(t('forms.common.errors.required')),
+    service: Yup.string().oneOf(serviceOptions).required(t('forms.common.errors.required')),
     price: Yup.number()
       .positive()
       .typeError(t('forms.common.errors.numberType'))
@@ -49,7 +49,7 @@ const AdditionalServicesFields = () => {
           labelText={t('pricing.additionalServices.service')}
           options={serviceOptions.map((option) => ({
             value: option,
-            label: t([`common.terminology.${option}`]),
+            label: t(getProductServiceTKey(option)),
           }))}
           disabled
         />

@@ -10,16 +10,16 @@ import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
 import FormTypeTitle from '../FormTypeTitle';
 import { HarborService } from '../../harborServicePricing/HarborServicePricing';
-import { PeriodType, PriceUnits } from '../../../../@types/__generated__/globalTypes';
-import { getPeriodTKey } from '../../../../common/utils/translations';
+import { PeriodType, PriceUnits, ProductServiceType } from '../../../../@types/__generated__/globalTypes';
+import { getPeriodTKey, getProductServiceTKey } from '../../../../common/utils/translations';
 
-const serviceOptions = ['mooring', 'electricity', 'water', 'wasteCollection', 'gate', 'lighting'];
+const serviceOptions = Object.values(ProductServiceType);
 const unitOptions = Object.values(PriceUnits);
 const periodOptions = Object.values(PeriodType);
 
 export const getHarborServicesValidationSchema = (t: TFunction) =>
   Yup.object().shape({
-    // service: Yup.string().oneOf(serviceOptions).required(t('forms.common.errors.required')),
+    service: Yup.string().oneOf(serviceOptions).required(t('forms.common.errors.required')),
     price: Yup.number()
       .positive()
       .typeError(t('forms.common.errors.numberType'))
@@ -50,7 +50,7 @@ const HarborServicesFields = () => {
           disabled
           options={serviceOptions.map((option) => ({
             value: option,
-            label: t([`common.terminology.${option}`]),
+            label: t(getProductServiceTKey(option)),
           }))}
         />
       </Grid>

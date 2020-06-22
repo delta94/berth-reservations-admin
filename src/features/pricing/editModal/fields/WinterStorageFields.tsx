@@ -13,12 +13,11 @@ import { WinterStoragePrice } from '../../winterStoragePricing/WinterStoragePric
 import { PeriodType } from '../../../../@types/__generated__/globalTypes';
 import { getPeriodTKey } from '../../../../common/utils/translations';
 
-const areaOptions = ['Kaisaniemi'];
 const periodOptions = Object.values(PeriodType);
 
 export const getWinterStorageValidationSchema = (t: TFunction) =>
   Yup.object().shape({
-    // area: Yup.string().oneOf(areaOptions),
+    area: Yup.string().required(t('forms.common.errors.required')),
     privateCustomer: Yup.number()
       .positive()
       .typeError(t('forms.common.errors.numberType'))
@@ -38,17 +37,7 @@ const WinterStorageFields = () => {
       </div>
       <hr />
       <Grid colsCount={2} className={styles.row}>
-        <Field
-          required={true}
-          as={Select}
-          disabled
-          name="area"
-          labelText={t('pricing.winterStorage.area')}
-          options={areaOptions.map((option) => ({
-            value: option,
-            label: option,
-          }))}
-        />
+        <Field required={true} as={TextInput} name="area" labelText={t('pricing.winterStorage.area')} disabled />
       </Grid>
       <Grid colsCount={2} className={styles.row}>
         <Field

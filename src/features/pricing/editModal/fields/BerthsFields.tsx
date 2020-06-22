@@ -8,17 +8,14 @@ import * as Yup from 'yup';
 import styles from '../editForm.module.scss';
 import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
-import { formatDimension } from '../../../../common/utils/format';
 import FormTypeTitle from '../FormTypeTitle';
 import { BerthPrice } from '../../berthPricing/BerthPricing';
 import { PeriodType } from '../../../../@types/__generated__/globalTypes';
 import { getPeriodTKey } from '../../../../common/utils/translations';
 
-const widthOptions = [2, 2.5, 2.75, 3, 4, 5, 5.5, 6, 7];
-
 export const getBerthsValidationSchema = (t: TFunction) =>
   Yup.object().shape({
-    width: Yup.number().oneOf(widthOptions),
+    width: Yup.string().required(t('forms.common.errors.required')),
     privateCustomer: Yup.number()
       .positive()
       .typeError(t('forms.common.errors.numberType'))
@@ -38,17 +35,7 @@ const BerthsFields = () => {
       </div>
       <hr />
       <Grid colsCount={2} className={styles.row}>
-        <Field
-          required={true}
-          as={Select}
-          name="width"
-          labelText={t('pricing.berths.width')}
-          disabled
-          options={widthOptions.map((option) => ({
-            value: option,
-            label: formatDimension(option, 'fi'),
-          }))}
-        />
+        <Field required={true} as={TextInput} name="name" labelText={t('pricing.berths.width')} disabled />
       </Grid>
       <Grid colsCount={2} className={styles.row}>
         <Field
