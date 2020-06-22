@@ -17,6 +17,7 @@ import PricingPage from '../features/pricing/PricingPageContainer';
 import CallbackPage from '../features/auth/callbackPage/CallbackPage';
 import ErrorPage from '../features/errorPage/ErrorPage';
 import ErrorBoundary from '../common/errorBoundary/ErrorBoundary';
+import WinterStorageAreaListPage from '../features/winterStorageAreaList/WinterStorageAreaListPageContainer';
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
                   <PrivateRoute exact path="/applications" component={ApplicationListPage} />
                   <PrivateRoute exact path="/offer/:applicationId" component={OfferPage} />
                   <PrivateRoute exact path="/pricing" component={PricingPage} />
+                  <PrivateRoute exact path="/winterStorageAreas" component={WinterStorageAreaListPage} />
                 </Switch>
               </Page>
             </Switch>

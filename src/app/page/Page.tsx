@@ -6,7 +6,7 @@ import Layout from '../../common/layout/Layout';
 import Sidebar from '../../common/sidebar/Sidebar';
 import InternalNavLink from '../../common/internalNavLink/InternalNavLink';
 import PageHeader from './pageHeader/PageHeader';
-import { IconApplications, IconBoat, IconInvoice } from '../../common/icons';
+import { IconApplications, IconBoat, IconInvoice, IconWinter } from '../../common/icons';
 import HDSToastContainer from '../../common/toast/HDSToastContainer';
 
 interface PageProps {
@@ -24,6 +24,9 @@ const Page = ({ children }: PageProps) => {
           {[
             <InternalNavLink key="harbors" to="/harbors" icon={<IconBoat />}>
               {t('common.sidebar.harbors')}
+            </InternalNavLink>,
+            <InternalNavLink key="winterStorageAreas" to="/winterStorageAreas" icon={<IconWinter />}>
+              {t('common.sidebar.winterStorageAreas')}
             </InternalNavLink>,
             <InternalNavLink key="applications" to="/applications" icon={<IconApplications />}>
               {t('common.sidebar.applications')}

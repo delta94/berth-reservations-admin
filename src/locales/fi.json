@@ -39,6 +39,7 @@
     },
     "sidebar": {
       "harbors": "Venepaikat",
+      "winterStorageAreas": "Talvisäilytys",
       "applications": "Hakemukset",
       "customers": "Asiakkaat",
       "pricing": "Hinnasto"
