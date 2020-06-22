@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Row } from 'react-table';
+import { useMutation } from '@apollo/react-hooks';
 
 import Card from '../../../common/card/Card';
 import CardHeader from '../../../common/cardHeader/CardHeader';
@@ -9,11 +10,17 @@ import Table, { Column, COLUMN_WIDTH } from '../../../common/table/Table';
 import Section from '../../../common/section/Section';
 import { formatPrice } from '../../../common/utils/format';
 import Text from '../../../common/text/Text';
-import { EDIT_FORM_TYPE } from '../editModal/EditForm';
+import EditForm, { EDIT_FORM_TYPE } from '../editModal/EditForm';
 import { HarborServicePricing as HarborServicePricingData } from './__generated__/HarborServicePricing';
 import { getHarborServicesData } from './utils';
 import { getPeriodTKey, getProductServiceTKey } from '../../../common/utils/translations';
 import { PeriodType, ProductServiceType } from '../../../@types/__generated__/globalTypes';
+import EditModal from '../editModal/EditModal';
+import { UPDATE_HARBOR_SERVICE_PRICE_MUTATION } from './mutations';
+import {
+  UPDATE_HARBOR_SERVICE_PRICE,
+  UPDATE_HARBOR_SERVICE_PRICEVariables as UPDATE_HARBOR_SERVICE_PRICE_VARS,
+} from './__generated__/UPDATE_HARBOR_SERVICE_PRICE';
 
 export interface HarborService {
   id: string;
@@ -27,11 +34,14 @@ export interface HarborServicePricingProps {
   data: HarborServicePricingData | undefined | null;
   loading: boolean;
   className?: string;
-  openModal: (formType: EDIT_FORM_TYPE, initialValues: HarborService) => void;
 }
 
-const HarborServicePricing = ({ data, loading, className, openModal }: HarborServicePricingProps) => {
+const HarborServicePricing = ({ data, loading, className }: HarborServicePricingProps) => {
   const { t, i18n } = useTranslation();
+  const [editRowValues, setEditRowValues] = useState<HarborService>();
+  const [updateHarborServicePrice] = useMutation<UPDATE_HARBOR_SERVICE_PRICE, UPDATE_HARBOR_SERVICE_PRICE_VARS>(
+    UPDATE_HARBOR_SERVICE_PRICE_MUTATION
+  );
 
   const harborServicesCols: Column<HarborService>[] = [
     {
@@ -57,28 +67,50 @@ const HarborServicePricing = ({ data, loading, className, openModal }: HarborSer
       Header: t('common.edit') || '',
       sortType: 'none',
       width: COLUMN_WIDTH.S,
-      Cell: ({ row }: { row: Row }) => (
-        <button onClick={() => openModal(EDIT_FORM_TYPE.HARBOR_SERVICES, row.values as HarborService)}>
+      Cell: ({ row }: { row: Row<HarborService> }) => (
+        <button onClick={() => setEditRowValues(row.original)}>
           <Text color="brand">{t('common.edit')}</Text>
         </button>
       ),
     },
   ];
 
+  const handleSubmit = async ({ id, price }: HarborService) => {
+    await updateHarborServicePrice({
+      variables: { input: { id, priceValue: price } },
+    });
+
+    setEditRowValues(undefined);
+  };
+
+  const handleClose = () => setEditRowValues(undefined);
+
   return (
-    <Card className={className}>
-      <CardHeader title={t('pricing.harborServices.title')} />
-      <CardBody>
-        <Section>{t('pricing.harborServices.description')}</Section>
-        <Table
-          columns={harborServicesCols}
-          data={getHarborServicesData(data)}
-          loading={loading}
-          theme="basic"
-          renderEmptyStateRow={() => t('common.notification.noData.description')}
-        />
-      </CardBody>
-    </Card>
+    <>
+      <Card className={className}>
+        <CardHeader title={t('pricing.harborServices.title')} />
+        <CardBody>
+          <Section>{t('pricing.harborServices.description')}</Section>
+          <Table
+            columns={harborServicesCols}
+            data={getHarborServicesData(data)}
+            loading={loading}
+            theme="basic"
+            renderEmptyStateRow={() => t('common.notification.noData.description')}
+          />
+        </CardBody>
+      </Card>
+      <EditModal isOpen={!!editRowValues} closeModal={handleClose}>
+        {editRowValues && (
+          <EditForm
+            closeModal={handleClose}
+            formType={EDIT_FORM_TYPE.HARBOR_SERVICES}
+            initialValues={editRowValues}
+            onSubmit={handleSubmit}
+          />
+        )}
+      </EditModal>
+    </>
   );
 };
 
