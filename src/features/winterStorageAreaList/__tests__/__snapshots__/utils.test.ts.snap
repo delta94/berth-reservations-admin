@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils getWinterStorageAreasData success path winter storage areas follow the expected shape 1`] = `
+Object {
+  "id": "0",
+  "name": "-",
+}
+`;
+
+exports[`utils getWinterStorageAreasData success path winter storage areas follow the expected shape 2`] = `
+Object {
+  "id": "1",
+  "name": "Test WS 1",
+}
+`;
