@@ -47,7 +47,7 @@ const BerthsFields = () => {
           as={Select}
           id="width"
           name="width"
-          labelText={t('pricing.berths.width')}
+          label={t('pricing.berths.width')}
           options={widthOptions.map((option) => ({
             value: option,
             label: formatDimension(option, 'fi'),
@@ -80,7 +80,7 @@ const BerthsFields = () => {
           as={Select}
           id="period"
           name="period"
-          labelText={t('pricing.berths.period')}
+          label={t('pricing.berths.period')}
           options={periodOptions.map((option) => ({
             value: option,
             label: t(getPeriodTKey(option)),

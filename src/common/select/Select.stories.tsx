@@ -15,7 +15,7 @@ export default {
 
 export const select = ({ value, onChange }: { value: string; onChange: (value: string) => void }) => (
   <Select
-    labelText="Foo"
+    label="Foo"
     value={value}
     options={[
       { value: 'foo', label: 'Foo' },

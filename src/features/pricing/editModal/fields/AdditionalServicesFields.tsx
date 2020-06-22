@@ -48,7 +48,7 @@ const AdditionalServicesFields = () => {
           as={Select}
           id="service"
           name="service"
-          labelText={t('pricing.additionalServices.service')}
+          label={t('pricing.additionalServices.service')}
           options={serviceOptions.map((option) => ({
             value: option,
             label: t([`common.terminology.${option}`]),
@@ -70,7 +70,7 @@ const AdditionalServicesFields = () => {
           as={Select}
           id="tax"
           name="tax"
-          labelText={t('pricing.additionalServices.tax')}
+          label={t('pricing.additionalServices.tax')}
           options={taxOptions.map((option) => ({
             value: option,
             label: formatPercentage(option * 0.01, i18n.language),
@@ -83,7 +83,7 @@ const AdditionalServicesFields = () => {
           as={Select}
           id="period"
           name="period"
-          labelText={t('pricing.additionalServices.period')}
+          label={t('pricing.additionalServices.period')}
           options={periodOptions.map((option) => ({
             value: option,
             label: t(getPeriodTKey(option)),

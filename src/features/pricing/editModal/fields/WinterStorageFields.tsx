@@ -46,7 +46,7 @@ const WinterStorageFields = () => {
           as={Select}
           id="area"
           name="area"
-          labelText={t('pricing.winterStorage.area')}
+          label={t('pricing.winterStorage.area')}
           options={areaOptions.map((option) => ({
             value: option,
             label: option,
@@ -79,7 +79,7 @@ const WinterStorageFields = () => {
           as={Select}
           id="period"
           name="period"
-          labelText={t('pricing.winterStorage.period')}
+          label={t('pricing.winterStorage.period')}
           options={periodOptions.map((option) => ({
             value: option,
             label: t(getPeriodTKey(option)),

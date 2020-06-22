@@ -19,7 +19,7 @@ export type SelectProps<T extends OptionValue> = {
   className?: string;
   disabled?: boolean;
   id?: string;
-  labelText?: string;
+  label?: string;
   onChange: (e: ConstructedChangeEvent<T>) => void;
   options: Option<T>[];
   required?: boolean;
@@ -30,7 +30,7 @@ const Select = <T extends OptionValue>({
   className,
   disabled,
   id,
-  labelText,
+  label,
   onChange,
   options,
   required,
@@ -56,7 +56,7 @@ const Select = <T extends OptionValue>({
       className={className}
       disabled={disabled}
       id={id}
-      label={labelText}
+      label={label}
       onChange={(option) => {
         handleChange(option as Option<T>);
       }}

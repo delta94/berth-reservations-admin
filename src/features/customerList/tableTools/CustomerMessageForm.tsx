@@ -68,7 +68,7 @@ export const CustomerMessageForm = ({ closeModal, handleSendMessage }: CustomerM
                 value={values.templateId}
                 options={templateOptions}
                 onChange={handleChange}
-                labelText={t('customerList.message.template')}
+                label={t('customerList.message.template')}
                 required
               />
             </div>

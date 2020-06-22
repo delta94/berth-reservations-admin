@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import Select from './Select';
 
 const mockProps = {
-  labelText: 'Selector',
+  label: 'Selector',
   value: 'first',
   options: [
     { value: 1, label: 'First' },

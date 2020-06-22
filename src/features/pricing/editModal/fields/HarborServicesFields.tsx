@@ -47,7 +47,7 @@ const HarborServicesFields = () => {
           as={Select}
           id="service"
           name="service"
-          labelText={t('pricing.harborServices.service')}
+          label={t('pricing.harborServices.service')}
           options={serviceOptions.map((option) => ({
             value: option,
             label: t([`common.terminology.${option}`]),
@@ -69,7 +69,7 @@ const HarborServicesFields = () => {
           as={Select}
           id="unit"
           name="unit"
-          labelText={t('pricing.harborServices.unit')}
+          label={t('pricing.harborServices.unit')}
           options={unitOptions.map((option) => ({
             value: option,
             label: option,
@@ -82,7 +82,7 @@ const HarborServicesFields = () => {
           as={Select}
           id="period"
           name="period"
-          labelText={t('pricing.harborServices.period')}
+          label={t('pricing.harborServices.period')}
           options={periodOptions.map((option) => ({
             value: option,
             label: t(getPeriodTKey(option)),
