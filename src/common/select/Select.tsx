@@ -1,24 +1,56 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import { Dropdown } from 'hds-react';
 
-interface Option {
-  label: string;
-  value: string | number;
-}
+type OptionValue = string | number;
 
-export type SelectProps = {
+type Option<T extends OptionValue> = {
+  label: string;
+  value: T;
+};
+
+type ConstructedChangeEvent<T extends OptionValue> = {
+  target: {
+    id?: string;
+    value: T;
+  };
+};
+
+export type SelectProps<T extends OptionValue> = {
   className?: string;
   disabled?: boolean;
   id?: string;
   labelText?: string;
-  onChange: React.ChangeEventHandler<HTMLSelectElement>;
-  options: Option[];
+  onChange: (e: ConstructedChangeEvent<T>) => void;
+  options: Option<T>[];
   required?: boolean;
-  value: Option['value'] | undefined;
+  value?: T;
 };
 
-const Select = ({ id, labelText, className, value, options, onChange, required, disabled }: SelectProps) => {
+const Select = <T extends OptionValue>({
+  className,
+  disabled,
+  id,
+  labelText,
+  onChange,
+  options,
+  required,
+  value,
+}: SelectProps<T>) => {
   const selectedOption = options.find((option) => option.value === value);
+
+  const handleChange = (option: Option<T>) => {
+    if (!selectedOption || option.value !== selectedOption.value) {
+      const event: ConstructedChangeEvent<T> = {
+        target: {
+          id,
+          value: option.value,
+        },
+      };
+
+      onChange(event);
+    }
+  };
+
   return (
     <Dropdown
       className={className}
@@ -26,15 +58,7 @@ const Select = ({ id, labelText, className, value, options, onChange, required, 
       id={id}
       label={labelText}
       onChange={(option) => {
-        if (!selectedOption || (option as Option).value !== selectedOption.value) {
-          const event = {
-            target: {
-              id,
-              value: (option as Option).value,
-            },
-          };
-          onChange(event as ChangeEvent<HTMLSelectElement>);
-        }
+        handleChange(option as Option<T>);
       }}
       options={options}
       required={required}
