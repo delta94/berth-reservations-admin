@@ -1,7 +1,12 @@
 import i18n from 'i18next';
 
-import { getPeriodTKey, getProductServiceTKey, getProductTax } from '../translations';
-import { PeriodType, ProductServiceType, AdditionalProductTaxEnum } from '../../../@types/__generated__/globalTypes';
+import { getPeriodTKey, getProductServiceTKey, getProductTax, getPriceUnits } from '../translations';
+import {
+  PeriodType,
+  ProductServiceType,
+  AdditionalProductTaxEnum,
+  PriceUnits,
+} from '../../../@types/__generated__/globalTypes';
 import { formatPercentage } from '../format';
 
 jest.mock('../format');
@@ -65,6 +70,26 @@ describe('translations', () => {
       const tKey = getProductTax(randomValue, 'fi');
 
       expect(tKey).toBe(randomValue);
+    });
+  });
+
+  describe('getPriceUnits', () => {
+    test('each provided value of type PriceUnits should have a corresponding formatted value', () => {
+      const units = Object.values(PriceUnits);
+      expect.assertions(units.length);
+
+      units.forEach((unit) => {
+        const priceUnit = getPriceUnits(unit);
+
+        expect(priceUnit).not.toBe(unit);
+      });
+    });
+
+    it('should fallback to the actual value from the backend if there is no match during the runtime', () => {
+      const randomValue: any = 'random';
+      const unit = getPriceUnits(randomValue);
+
+      expect(unit).toBe(randomValue);
     });
   });
 });
