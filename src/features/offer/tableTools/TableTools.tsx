@@ -32,7 +32,7 @@ const TableTools = ({ applicationDate, applicationType, applicationStatus, handl
         />
       </div>
       <div>
-        <Button variant="secondary" theme="black" className={classNames(styles.button)} onClick={handleReturn}>
+        <Button variant="secondary" theme="coat" className={classNames(styles.button)} onClick={handleReturn}>
           {t('offer.tableTools.return')}
         </Button>
       </div>

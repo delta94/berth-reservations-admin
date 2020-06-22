@@ -6,3 +6,10 @@
   margin-top: units(1);
   width: max-content;
 }
+
+.accessibleCheckbox {
+  input[type='checkbox'],
+  label[for='accessible'] {
+    cursor: default;
+  }
+}

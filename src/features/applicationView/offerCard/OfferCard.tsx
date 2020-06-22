@@ -173,7 +173,7 @@ const OfferCard = ({
             <Button variant="supplementary" className={styles.button} disabled>
               {t('offer.billing.showContract')}
             </Button>
-            <Button variant="secondary" theme="black" className={styles.button} onClick={() => handleDeleteLease(id)}>
+            <Button variant="secondary" theme="coat" className={styles.button} onClick={() => handleDeleteLease(id)}>
               {t('offer.billing.removeOffer')}
             </Button>
           </div>
