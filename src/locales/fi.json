@@ -204,6 +204,18 @@
         "infoText": "Oletko varma että haluat poistaa laiturin {{pierIdentifier}}?",
         "warningText": "Tämä poistaa koko laiturin ja kaikki siinä olevat venepaikat. Tätä toimenpidettä ei voi perua."
       }
+    },
+    "boat": {
+      "title": "Veneen tiedot",
+      "boatType": "Veneen tyyppi",
+      "registrationNumber": "Rekisterinumero",
+      "width": "Leveys (m)",
+      "length": "Pituus (m)",
+      "draught": "Syväys (m)",
+      "weight": "Paino (kg)",
+      "name": "Nimi",
+      "model": "Merkki",
+      "delete": "Poista vene"
     }
   },
   "harborList": {
@@ -469,6 +481,7 @@
     "customerBoats": {
       "title": "ASIAKKAAN VENEET",
       "boatInfo": "VENEEN TIEDOT",
+      "editBoat": "Muokkaa",
       "boatType": "Veneen tyyppi",
       "registrationNumber": "Rekisterinumero",
       "width": "Veneen leveys",

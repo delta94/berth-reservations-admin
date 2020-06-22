@@ -14,3 +14,9 @@
     margin-bottom: units(0.5);
   }
 }
+
+.sectionHeadWithButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
