@@ -90,11 +90,11 @@ export const CustomerMessageForm = ({ closeModal, handleSendMessage }: CustomerM
               helperText={errors.message || t('customerList.message.messageHelperText')}
             />
             <div className={styles.formActionButtons}>
-              <Button variant="secondary" theme="black" onClick={closeModal}>
+              <Button variant="secondary" theme="coat" onClick={closeModal}>
                 {t('common.cancel')}
               </Button>
               <div className={styles.formActionButtonsRight}>
-                <Button variant="secondary" theme="black" onClick={closeModal}>
+                <Button variant="secondary" theme="coat" onClick={closeModal}>
                   {t('customerList.message.preview')}
                 </Button>
                 <Button theme="coat" type="submit">

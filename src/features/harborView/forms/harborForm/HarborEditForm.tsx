@@ -192,7 +192,7 @@ const HarborEditForm = ({ harborId, onCancel, onSubmit, refetchQueries }: Props)
           </Section>
 
           <div className={styles.formActionButtons}>
-            <Button theme="coat" variant="secondary" onClick={onCancel}>
+            <Button variant="secondary" theme="coat" onClick={onCancel}>
               {t('common.cancel')}
             </Button>
             <Button theme="coat" type="submit" disabled={isSubmitting}>

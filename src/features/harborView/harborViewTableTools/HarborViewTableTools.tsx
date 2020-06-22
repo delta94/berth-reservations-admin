@@ -17,7 +17,7 @@ const HarborViewTableTools = ({ onAddPier, onAddBerth, handleGlobalFilter, canAd
   return (
     <div className={styles.container}>
       <div className={styles.buttons}>
-        <Button onClick={onAddPier} variant="secondary" theme="black" className={styles.button}>
+        <Button onClick={onAddPier} variant="secondary" theme="coat" className={styles.button}>
           {t('harborView.tableTools.addPier')}
         </Button>
         <Button

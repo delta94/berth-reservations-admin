@@ -54,7 +54,7 @@ const BillsCard = ({
     <Card>
       <CardHeader title={t('customerView.customerBill.title')} />
       <CardBody>
-        <Button variant="secondary" theme="black" onClick={handleShowBill} className={styles.button}>
+        <Button variant="secondary" theme="coat" onClick={handleShowBill} className={styles.button}>
           {t('customerView.customerBill.showInvoice')}
         </Button>
         <Section title={t('customerView.customerBill.berthRental')}>

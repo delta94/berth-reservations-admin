@@ -47,7 +47,7 @@ const CustomersTableTools = <T extends string>({
       <Button theme="coat" disabled={!handleLinkCustomer} onClick={handleLinkCustomer}>
         {t('applicationView.customerTableTools.linkCustomer')}
       </Button>
-      <Button variant="secondary" theme="black" onClick={handleCreateCustomer}>
+      <Button variant="secondary" theme="coat" onClick={handleCreateCustomer}>
         {t('applicationView.customerTableTools.createNewCustomer')}
       </Button>
     </div>

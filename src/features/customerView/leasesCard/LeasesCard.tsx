@@ -42,7 +42,7 @@ const LeasesCard = ({ leases, handleShowContract }: LeasesCardProps) => {
 
         return (
           <CardBody key={id}>
-            <Button variant="secondary" theme="black" onClick={() => handleShowContract(id)} className={styles.button}>
+            <Button variant="secondary" theme="coat" onClick={() => handleShowContract(id)} className={styles.button}>
               {t('customerView.leases.showContract')}
             </Button>
             <Section title={t('customerView.leases.berth')}>
