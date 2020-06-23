@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import CustomerListTableTools from '../CustomerListTableTools';
-import { SearchBy } from '../../CustomerListPage';
+import { SearchBy } from '../../CustomerList';
 
 describe('CustomerListTableTools', () => {
   const getWrapper = () =>

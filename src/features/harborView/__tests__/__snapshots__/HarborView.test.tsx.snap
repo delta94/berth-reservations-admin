@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HarborView renders normally 1`] = `"<div class=\\"harborView\\"><h2 class=\\"text standard h2 xl normalWeight pageTitle\\">SATAMA</h2>Harbor view</div>"`;

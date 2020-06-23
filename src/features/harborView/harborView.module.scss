@@ -1,0 +1,12 @@
+@import 'spacings';
+
+.harborView {
+  min-height: 100%;
+  padding: units(2);
+  display: flex;
+  flex-direction: column;
+
+  & > * {
+    margin-bottom: units(1);
+  }
+}

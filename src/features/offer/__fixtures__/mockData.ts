@@ -1,7 +1,7 @@
-import { OFFER_PAGE } from '../__generated__/OFFER_PAGE';
+import { OFFER } from '../__generated__/OFFER';
 import { ApplicationStatus, BerthMooringType, LeaseStatus } from '../../../@types/__generated__/globalTypes';
 
-export const OfferPageQueryData: OFFER_PAGE = {
+export const OfferQueryData: OFFER = {
   berthApplication: {
     __typename: 'BerthApplicationNode',
     id: '1',
