@@ -119,7 +119,7 @@ const BerthForm = ({
                 };
               })}
               onChange={handleChange}
-              labelText={t('forms.berth.pier')}
+              label={t('forms.berth.pier')}
               required
               disabled={isEditing}
             />
@@ -164,7 +164,7 @@ const BerthForm = ({
           <Select
             id="mooringType"
             value={values.mooringType}
-            labelText={t('forms.berth.mooringType')}
+            label={t('forms.berth.mooringType')}
             options={Object.keys(BerthMooringType).map((mooringType) => {
               return {
                 label: t([`common.mooringTypes.${mooringType}`, mooringType]),

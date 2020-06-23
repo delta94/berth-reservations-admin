@@ -24,11 +24,8 @@ export const getHarborServicesValidationSchema = (t: TFunction) =>
       .positive()
       .typeError(t('forms.common.errors.numberType'))
       .required(t('forms.common.errors.required')),
-    unit: Yup.string()
-      .oneOf(unitOptions)
-      .typeError(t('forms.common.errors.numberType'))
-      .required(t('forms.common.errors.required')),
-    period: Yup.string().oneOf(periodOptions).required(t('forms.common.errors.required')),
+    unit: Yup.string().oneOf(unitOptions).typeError(t('forms.common.errors.numberType')),
+    period: Yup.string().oneOf(periodOptions),
   });
 
 const HarborServicesFields = () => {
@@ -45,8 +42,9 @@ const HarborServicesFields = () => {
         <Field
           required={true}
           as={Select}
+          id="service"
           name="service"
-          labelText={t('pricing.harborServices.service')}
+          label={t('pricing.harborServices.service')}
           options={serviceOptions.map((option) => ({
             value: option,
             label: t(getProductServiceTKey(option)),
@@ -65,10 +63,10 @@ const HarborServicesFields = () => {
           helperText={errors.price}
         />
         <Field
-          required={true}
           as={Select}
+          id="unit"
           name="unit"
-          labelText={t('pricing.harborServices.unit')}
+          label={t('pricing.harborServices.unit')}
           options={unitOptions.map((option) => ({
             value: option,
             label: getPriceUnits(option),
@@ -77,10 +75,10 @@ const HarborServicesFields = () => {
       </Grid>
       <Grid colsCount={2} className={styles.row}>
         <Field
-          required={true}
           as={Select}
+          id="period"
           name="period"
-          labelText={t('pricing.harborServices.period')}
+          label={t('pricing.harborServices.period')}
           options={periodOptions.map((option) => ({
             value: option,
             label: t(getPeriodTKey(option)),

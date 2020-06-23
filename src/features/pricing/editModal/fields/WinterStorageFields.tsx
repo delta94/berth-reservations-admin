@@ -63,10 +63,10 @@ const WinterStorageFields = () => {
       </Grid>
       <Grid colsCount={2} className={styles.row}>
         <Field
-          required={true}
           as={Select}
+          id="period"
           name="period"
-          labelText={t('pricing.winterStorage.period')}
+          label={t('pricing.winterStorage.period')}
           options={periodOptions.map((option) => ({
             value: option,
             label: t(getPeriodTKey(option)),

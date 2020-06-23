@@ -61,10 +61,10 @@ const BerthsFields = () => {
       </Grid>
       <Grid colsCount={2} className={styles.row}>
         <Field
-          required={true}
           as={Select}
+          id="period"
           name="period"
-          labelText={t('pricing.berths.period')}
+          label={t('pricing.berths.period')}
           options={Object.values(PeriodType).map((option) => ({
             value: option,
             label: t(getPeriodTKey(option)),
