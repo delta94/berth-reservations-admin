@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import styles from './customerList.module.scss';
 import PageTitle from '../../common/pageTitle/PageTitle';
 import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
 import { CustomerData, MessageFormValues } from './types';
@@ -12,6 +11,7 @@ import { OrganizationType } from '../../@types/__generated__/globalTypes';
 import { formatDate } from '../../common/utils/format';
 import CustomerDetails from './customerDetails/CustomerDetails';
 import { getSelectedRowIds } from '../../common/utils/getSelectedRowIds';
+import PageContent from '../../common/pageContent/PageContent';
 
 export enum SearchBy {
   FIRST_NAME = 'firstName',
@@ -96,7 +96,7 @@ const CustomerList = ({
     },
   ];
   return (
-    <div className={styles.customerList}>
+    <PageContent>
       <PageTitle title={t('customerList.title')} />
       <Table
         data={data}
@@ -141,7 +141,7 @@ const CustomerList = ({
         onSortedColChange={onSortedColChange}
         canSelectRows
       />
-    </div>
+    </PageContent>
   );
 };
 

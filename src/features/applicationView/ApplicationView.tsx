@@ -19,6 +19,7 @@ import OfferCard, { OfferCardProps } from './offerCard/OfferCard';
 import { OrganizationType } from '../../@types/__generated__/globalTypes';
 import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
 import PageTitle from '../../common/pageTitle/PageTitle';
+import PageContent from '../../common/pageContent/PageContent';
 
 export enum SearchBy {
   FIRST_NAME = 'firstName',
@@ -101,7 +102,7 @@ const ApplicationView = ({
   ];
 
   return (
-    <div className={styles.applicationView}>
+    <PageContent className={styles.applicationView}>
       <PageTitle title={t('applicationView.title')} />
       <div className={classNames(styles.fullWidth, styles.pageHeader)}>
         <Text as="h2" size="xl" weight="normalWeight">
@@ -160,7 +161,7 @@ const ApplicationView = ({
         </Card>
       )}
       {offerDetails && <OfferCard {...offerDetails} />}
-    </div>
+    </PageContent>
   );
 };
 

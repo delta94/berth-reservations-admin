@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import styles from './customerView.module.scss';
 import PageTitle from '../../common/pageTitle/PageTitle';
+import PageContent from '../../common/pageContent/PageContent';
 
 interface CustomerViewProps {
   children: React.ReactNode;
@@ -11,10 +12,10 @@ interface CustomerViewProps {
 const CustomerView = ({ children }: CustomerViewProps) => {
   const { t } = useTranslation();
   return (
-    <div className={styles.customerView}>
+    <PageContent>
       <PageTitle title={t('customerView.title')} />
       <div className={styles.grid}>{children}</div>
-    </div>
+    </PageContent>
   );
 };
 

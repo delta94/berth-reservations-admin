@@ -2,11 +2,11 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
-import styles from './winterStorageAreaList.module.scss';
 import { WinterStorageAreaData } from './types';
 import PageTitle from '../../common/pageTitle/PageTitle';
 import IconWrapper from '../../common/iconWrapper/IconWrapper';
 import { IconDollyEmpty, IconFence, IconPlug, IconTrestle, IconWaterTap } from '../../common/icons';
+import PageContent from '../../common/pageContent/PageContent';
 
 type ColumnType = Column<WinterStorageAreaData> & { accessor: keyof WinterStorageAreaData };
 
@@ -67,7 +67,7 @@ const WinterStorageAreaList = ({ data, loading }: WinterStorageAreaListProps) =>
   ];
 
   return (
-    <div className={styles.winterStorageAreaList}>
+    <PageContent>
       <PageTitle title={t('winterStorageAreaList.title')} />
       <Table
         canSelectRows
@@ -77,7 +77,7 @@ const WinterStorageAreaList = ({ data, loading }: WinterStorageAreaListProps) =>
         renderMainHeader={() => t('winterStorageAreaList.tableHeaders.mainHeader')}
         renderSubComponent={() => <div>Placeholder</div>}
       />
-    </div>
+    </PageContent>
   );
 };
 

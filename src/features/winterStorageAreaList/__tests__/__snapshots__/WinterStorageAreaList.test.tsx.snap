@@ -2,7 +2,7 @@
 
 exports[`WinterStorageAreaList renders normally 1`] = `
 <div
-  class="winterStorageAreaList"
+  class="pageContent"
 >
   <h2
     class="text standard h2 xl normalWeight pageTitle"

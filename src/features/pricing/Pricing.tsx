@@ -17,6 +17,7 @@ import AdditionalServicePricing, {
   AdditionalServicePricingProps,
   AdditionalService,
 } from './additionalServicePricing/AdditionalServicePricing';
+import PageContent from '../../common/pageContent/PageContent';
 
 export interface PricingProps {
   berthsData: BerthPricingProps['data'];
@@ -47,7 +48,7 @@ const Pricing = ({
   const { t } = useTranslation();
 
   return (
-    <div className={styles.pricing}>
+    <PageContent className={styles.pricing}>
       <PageTitle title={t('pricing.title')} />
       <div className={styles.grid}>
         <BerthPricing className={styles.fullWidth} data={berthsData} openModal={openModal} loading={berthsLoading} />
@@ -64,7 +65,7 @@ const Pricing = ({
           openModal={openModal}
         />
       </div>
-    </div>
+    </PageContent>
   );
 };
 

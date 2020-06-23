@@ -5,13 +5,13 @@ import { IconTrash } from 'hds-react';
 import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
 import HarborDetails from './harborDetails/HarborDetails';
 import InternalLink from '../../common/internalLink/InternalLink';
-import styles from './harborList.module.scss';
 import IconWrapper from '../../common/iconWrapper/IconWrapper';
 import GlobalSearchTableTools from '../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';
 import Pagination from '../../common/pagination/Pagination';
 import PageTitle from '../../common/pageTitle/PageTitle';
 import { HarborData } from './types';
 import { IconFence, IconPlug, IconStreetLight, IconWaterTap } from '../../common/icons';
+import PageContent from '../../common/pageContent/PageContent';
 
 type ColumnType = Column<HarborData> & { accessor: keyof HarborData };
 
@@ -73,7 +73,7 @@ const HarborList = ({ data, loading }: HarborListProps) => {
   ];
 
   return (
-    <div className={styles.harborList}>
+    <PageContent>
       <PageTitle title={t('harborList.title')} />
       <Table
         data={data}
@@ -92,7 +92,7 @@ const HarborList = ({ data, loading }: HarborListProps) => {
         )}
         canSelectRows
       />
-    </div>
+    </PageContent>
   );
 };
 
