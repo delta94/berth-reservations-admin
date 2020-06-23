@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 
 import Grid from '../../../common/grid/Grid';
 import Section from '../../../common/section/Section';
-import styles from './customerDetails.module.scss';
 import { OrganizationType } from '../../../@types/__generated__/globalTypes';
 import {
   CustomerListApplication,
@@ -48,9 +47,9 @@ const CustomerDetails = ({
   const { t, i18n } = useTranslation();
 
   return (
-    <div className={styles.customerDetails}>
+    <div>
       <Grid colsCount={4}>
-        <div className={styles.section}>
+        <div>
           <Section title={t('harborList.details.customer')}>{name}</Section>
           <Section>
             {address}
@@ -65,7 +64,7 @@ const CustomerDetails = ({
             {organizationType ? t([`common.organizationTypes.${organizationType}`]) : t([`common.privateCustomer`])}
           </Section>
         </div>
-        <div className={styles.section}>
+        <div>
           <Section title={t('harborList.details.berths')}>
             {berths.map((berth) => (
               <div key={berth.id}>{berth.title}</div>
@@ -82,7 +81,7 @@ const CustomerDetails = ({
             ))}
           </Section>
         </div>
-        <div className={styles.section}>
+        <div>
           <Section title={t('harborList.details.applications')}>
             {applications.map((application) => (
               <div key={application.id}>{formatDate(application.createdAt, i18n.language)}</div>
@@ -94,7 +93,7 @@ const CustomerDetails = ({
             ))}
           </Section>
         </div>
-        <div className={styles.section}>
+        <div>
           <Section title={t('harborList.details.comments')}>{comment}</Section>
         </div>
       </Grid>

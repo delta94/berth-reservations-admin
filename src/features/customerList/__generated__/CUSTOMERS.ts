@@ -11,6 +11,10 @@ import { OrganizationType, ServiceType, ContactMethod } from "./../../../@types/
 
 export interface CUSTOMERS_profiles_edges_node_organization {
   __typename: "OrganizationNode";
+  name: string;
+  address: string;
+  postalCode: string;
+  city: string;
   businessId: string;
   organizationType: OrganizationType;
 }

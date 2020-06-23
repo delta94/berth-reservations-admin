@@ -7,8 +7,9 @@ import CustomerDetails from './customerDetails/CustomerDetails';
 import { OrganizationType } from '../../@types/__generated__/globalTypes';
 import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
 import CustomerListTableTools, { CustomerListTableToolsProps } from './tableTools/CustomerListTableTools';
-import { MessageFormValues, CustomerData } from './types';
+import { CustomerData, MessageFormValues } from './types';
 import { getSelectedRowIds } from '../../common/utils/getSelectedRowIds';
+import { formatDate } from '../../common/utils/format';
 
 export enum SearchBy {
   FIRST_NAME = 'firstName',
@@ -36,7 +37,7 @@ const CustomerListComponent = ({
   onSortedColChange,
   handleSendMessage,
 }: CustomerListComponentProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const columns: ColumnType[] = [
     {
       Cell: ({ cell }) => <InternalLink to={`/customers/${cell.row.original.id}`}>{cell.value}</InternalLink>,
@@ -48,10 +49,12 @@ const CustomerListComponent = ({
     {
       Cell: ({ cell }) => {
         const { value } = cell;
-        return value ? t([`common.organizationTypes.${value as OrganizationType}`]) : t([`common.privateCustomer`]);
+        return value?.organizationType
+          ? t([`common.organizationTypes.${value.organizationType as OrganizationType}`])
+          : t([`common.privateCustomer`]);
       },
       Header: t('customerList.tableHeaders.group') || '',
-      accessor: 'organizationType',
+      accessor: 'organization',
       disableSortBy: true,
       width: COLUMN_WIDTH.S,
     },
@@ -63,9 +66,18 @@ const CustomerListComponent = ({
     },
     {
       Header: t('customerList.tableHeaders.berths') || '',
-      accessor: 'berthsColumnData',
+      id: 'berths',
+      accessor: ({ berthLeases }) => berthLeases.map((berthLease) => berthLease.title).join(', '),
       disableSortBy: true,
       width: COLUMN_WIDTH.L,
+    },
+    {
+      Header: t('customerList.tableHeaders.applications') || '',
+      id: 'applications',
+      accessor: ({ applications }) =>
+        applications.map((application) => formatDate(application.createdAt, i18n.language)).join(' + '),
+      disableSortBy: true,
+      width: COLUMN_WIDTH.S,
     },
     {
       Header: t('customerList.tableHeaders.invoice') || '',
@@ -75,7 +87,8 @@ const CustomerListComponent = ({
     },
     {
       Header: t('customerList.tableHeaders.boats') || '',
-      accessor: 'boatsColumnData',
+      id: 'boats',
+      accessor: ({ boats }) => boats.length,
       disableSortBy: true,
       width: COLUMN_WIDTH.XS,
     },
@@ -89,12 +102,13 @@ const CustomerListComponent = ({
       renderSubComponent={(row) => {
         return (
           <CustomerDetails
-            name={row.original.name}
-            address={row.original.address}
-            postalCode={row.original.postalCode}
-            city={row.original.city}
+            name={row.original.organization ? row.original.organization.name : row.original.name}
+            address={row.original.organization ? row.original.organization.address : row.original.address}
+            postalCode={row.original.organization ? row.original.organization.postalCode : row.original.postalCode}
+            city={row.original.organization ? row.original.organization.city : row.original.city}
             phone={row.original.phone}
             email={row.original.email}
+            organizationType={row.original.organization?.organizationType}
             berths={row.original.berthLeases}
             winterStoragePlaces={[]}
             boats={row.original.boats}

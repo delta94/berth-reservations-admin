@@ -29,6 +29,10 @@ export const CUSTOMERS_QUERY = gql`
           nickname
           comment
           organization {
+            name
+            address
+            postalCode
+            city
             businessId
             organizationType
           }

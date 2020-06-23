@@ -133,7 +133,7 @@ const PierForm = ({
           />
 
           <div className={styles.formActionButtons}>
-            <Button variant="secondary" theme="black" disabled={isSubmitting} onClick={onCancel}>
+            <Button variant="secondary" theme="coat" disabled={isSubmitting} onClick={onCancel}>
               {t('forms.common.cancel')}
             </Button>
             <Button theme="coat" type="submit" disabled={isSubmitting}>

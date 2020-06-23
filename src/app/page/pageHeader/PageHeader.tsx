@@ -38,7 +38,7 @@ const PageHeader = () => {
             <Button
               onClick={authService.logout}
               variant="secondary"
-              theme="black"
+              theme="coat"
               iconLeft={<IconShare />}
               iconRight={<IconAngleRight />}
             >

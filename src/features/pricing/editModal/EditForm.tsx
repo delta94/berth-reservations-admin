@@ -67,7 +67,7 @@ const EditForm = <T extends BerthPrice | WinterStoragePrice | HarborService | Ad
         <Form className={styles.form}>
           {form.component}
           <div className={styles.buttonRow}>
-            <Button variant="secondary" theme="black" onClick={closeModal}>
+            <Button variant="secondary" theme="coat" onClick={closeModal}>
               {t('common.cancel')}
             </Button>
             <Button theme="coat" type="submit" disabled={isSubmitting}>
