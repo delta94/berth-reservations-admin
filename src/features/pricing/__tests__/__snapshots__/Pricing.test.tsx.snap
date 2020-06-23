@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pricing renders normally 1`] = `
+exports[`PricingPage renders normally 1`] = `
 <div
   class="pageContent pricing"
 >
