@@ -7,7 +7,7 @@ export default {
   title: 'HarborView',
 };
 
-export const harborView = () => <HarborView />;
+export const harborView = () => <HarborView>Harbor view</HarborView>;
 
 harborView.story = {
   name: 'Default',

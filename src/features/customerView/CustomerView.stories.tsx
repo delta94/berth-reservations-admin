@@ -10,8 +10,8 @@ export default {
 
 export const customerView = () => (
   <CustomerView>
-    <Card title="Foo">Foo content</Card>
-    <Card title="Bar">Bar content</Card>
+    <Card>Foo content</Card>
+    <Card>Bar content</Card>
   </CustomerView>
 );
 
