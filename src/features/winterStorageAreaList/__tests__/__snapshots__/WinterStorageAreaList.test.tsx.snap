@@ -771,6 +771,99 @@ exports[`WinterStorageAreaList renders normally 1`] = `
         </div>
       </div>
     </div>
+    <ul
+      class="pagination"
+    >
+      <li
+        class="prevBtn disabled"
+      >
+        <a
+          aria-disabled="true"
+          class="navLink"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="icnBtn"
+          >
+            <svg
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+            <span
+              class="text standard span"
+            >
+              Edellinen
+            </span>
+          </div>
+        </a>
+      </li>
+      <li
+        class="pageBtn selected"
+      >
+        <a
+          aria-current="page"
+          aria-label="Page 1 is your current page"
+          class="navLink pageLink active"
+          role="button"
+          tabindex="0"
+        >
+          1
+        </a>
+      </li>
+      <li
+        class="nextBtn disabled"
+      >
+        <a
+          aria-disabled="true"
+          class="navLink"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="icnBtn"
+          >
+            <span
+              class="text standard span"
+            >
+              Seuraava
+            </span>
+            <svg
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M12.586 7.05L14 5.636 20.364 12 14 18.364l-1.414-1.414 3.95-3.95H4v-2h12.535z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          </div>
+        </a>
+      </li>
+    </ul>
   </div>
 </div>
 `;

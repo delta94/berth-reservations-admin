@@ -7,6 +7,7 @@ import PageTitle from '../../common/pageTitle/PageTitle';
 import IconWrapper from '../../common/iconWrapper/IconWrapper';
 import { IconDollyEmpty, IconFence, IconPlug, IconTrestle, IconWaterTap } from '../../common/icons';
 import PageContent from '../../common/pageContent/PageContent';
+import Pagination from '../../common/pagination/Pagination';
 
 type ColumnType = Column<WinterStorageAreaData> & { accessor: keyof WinterStorageAreaData };
 
@@ -74,7 +75,15 @@ const WinterStorageAreaList = ({ data, loading }: WinterStorageAreaListProps) =>
         columns={columns}
         data={data}
         loading={loading}
+        renderEmptyStateRow={() => t('common.notification.noData.description')}
         renderMainHeader={() => t('winterStorageAreaList.tableHeaders.mainHeader')}
+        renderPaginator={({ pageIndex, pageCount, goToPage }) => (
+          <Pagination
+            forcePage={pageIndex}
+            pageCount={pageCount || 1}
+            onPageChange={({ selected }) => goToPage(selected)}
+          />
+        )}
         renderSubComponent={() => <div>Placeholder</div>}
       />
     </PageContent>
