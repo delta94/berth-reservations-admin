@@ -39,6 +39,7 @@
     },
     "sidebar": {
       "harbors": "Venepaikat",
+      "winterStorageAreas": "Talvisäilytys",
       "applications": "Hakemukset",
       "customers": "Asiakkaat",
       "pricing": "Hinnasto"
@@ -542,6 +543,15 @@
         "label": "Virhe",
         "description": "Tapahtui odottamaton virhe."
       }
+    }
+  },
+  "winterStorageAreaList": {
+    "title": "Talvisäilytysalueet",
+    "tableHeaders": {
+      "mainHeader": "Talvisäilytysalueet",
+      "name": "Alue",
+      "places": "Paikkoja",
+      "freePlaces": "Vapaita"
     }
   }
 }

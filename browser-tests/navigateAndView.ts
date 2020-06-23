@@ -6,6 +6,7 @@ import { navigation } from './pages/navigation';
 import { harbors } from './pages/harbors';
 import { customers } from './pages/customers';
 import { pricing } from './pages/pricing';
+import { winterStorageAreas } from './pages/winterStorageAreas';
 
 fixture('Navigate and view').page(envUrl());
 
@@ -25,6 +26,12 @@ test('Navigate and view basic data', async (t) => {
     .click(harbors.harborList.firstHarborLink)
     .expect(harbors.harborView.address.innerText)
     .contains('Helsinki');
+
+  // Winter storage areas
+  await t
+    .click(navigation.winterStorageAreas)
+    .expect(winterStorageAreas.winterStorageAreaList.firstWinterStorageArea.innerText)
+    .contains('WS Area 1');
 
   // Customers
   await t

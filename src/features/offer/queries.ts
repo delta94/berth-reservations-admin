@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
-export const OFFER_PAGE_QUERY = gql`
-  query OFFER_PAGE($applicationId: ID!, $servicemapId: String!) {
+export const OFFER_QUERY = gql`
+  query OFFER($applicationId: ID!, $servicemapId: String!) {
     berthApplication(id: $applicationId) {
       id
       createdAt
