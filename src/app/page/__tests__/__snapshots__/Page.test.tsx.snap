@@ -1,0 +1,279 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page renders normally 1`] = `
+<main
+  class="layout"
+>
+  <header
+    class="header"
+  >
+    <header
+      class="header"
+    >
+      <a
+        class="mainLink"
+        href="#/"
+      >
+        <svg
+          class="helsinkiLogo large white"
+        >
+          helsinki-logo.svg
+        </svg>
+        <h1
+          class="text standard h1 m serviceName"
+        >
+          Venepaikat
+        </h1>
+      </a>
+      <div
+        class="dropdown"
+      >
+        <div
+          class="label"
+        >
+          <button
+            class="Button-module_button__3wgee button_hds-button__2A0je Button-module_primary__3bo_T button_hds-button--primary__2NVvO Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0"
+            type="button"
+          >
+            <div
+              aria-hidden="true"
+              class="Button-module_icon__3Wlc6 button_hds-icon__17j8Z"
+            >
+              <svg
+                class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                  />
+                  <path
+                    d="M16.267 13a4.733 4.733 0 014.728 4.517l.005.216V22H3v-4.267a4.733 4.733 0 014.517-4.728L7.733 13h8.534zm-8.534 2a2.733 2.733 0 00-2.728 2.567L5 17.733V20h14v-2.267c0-1.416-1.107-2.636-2.46-2.726l-.163-.005L7.733 15zM12 2a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </div>
+            <span
+              class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+            >
+              Test User
+            </span>
+          </button>
+        </div>
+      </div>
+    </header>
+  </header>
+  <nav
+    class="sidebar"
+  >
+    <div
+      class="sidebar"
+    >
+      <div
+        class="mainWrapper"
+      >
+        <div
+          class="elementWrapper"
+        >
+          <a
+            class="internalNavLink standard"
+            href="#/harbors"
+          >
+            <div
+              class="icon"
+            >
+              <svg
+                class="icon s"
+                height="100%"
+                viewBox="0 0 24 24"
+                width="100%"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  id="prefix__prefix__Symbols"
+                >
+                  <g
+                    id="prefix__prefix__app_x2F_navigation-sidebar"
+                    transform="translate(-21 -24)"
+                  >
+                    <g
+                      id="prefix__prefix__Venepaikat"
+                      transform="translate(0 16)"
+                    >
+                      <g
+                        id="prefix__prefix__atoms_x2F_icons_x2F_ship_x2F_24"
+                        transform="translate(20 3.5)"
+                      >
+                        <g
+                          id="prefix__prefix__Icon-color"
+                          transform="translate(1 5)"
+                        >
+                          <g
+                            id="prefix__prefix__Mask"
+                          >
+                            <path
+                              d="M22 15.1l-1.5-4H1l2.9 4.4c-.1.1-.2.1-.3.2-.6.4-1 .7-1.8.7v1.5c1.2 0 2-.5 2.6-.9.6-.4 1-.7 1.8-.7.7 0 1.2.3 1.8.7.6.4 1.4.9 2.6.9 1.2 0 2-.5 2.6-.9.6-.4 1-.7 1.8-.7s1.2.3 1.8.7c.7.4 1.4.9 2.6.9 1.2 0 2-.5 2.6-.9.6-.4 1-.7 1.8-.7v-1.5c-.8-.1-1.4.1-1.8.3m-4.5.5c-.6-.4-1.4-.9-2.5-.9-1.2 0-1.9.5-2.5.9-.6.4-1 .7-1.8.7s-1.2-.3-1.8-.7c-.6-.4-1.4-.9-2.5-.9-.4 0-.7 0-1 .1l-1.5-2.3h15.8l1.2 3.3c-.4.3-.8.4-1.5.4-.9.1-1.4-.2-1.9-.6"
+                            />
+                            <path
+                              d="M19.1 9V4.5h-3.2l-2.1 3.1h-7l-.9 1.5L19.1 9zm-2.5-3h1v1.7h-2.1L16.6 6z"
+                            />
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div
+              class="label"
+            >
+              Venepaikat
+            </div>
+          </a>
+        </div>
+        <div
+          class="elementWrapper"
+        >
+          <a
+            class="internalNavLink standard"
+            href="#/winter-storage-areas"
+          >
+            <div
+              class="icon"
+            >
+              <svg
+                class="icon s"
+                height="100%"
+                viewBox="0 0 24 24"
+                width="100%"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.299.5v2.91L7.036 2.163l-.682 1.221 2.945 1.639v5.231L4.643 7.602l.027-3.279H3.241l-.025 2.466L.707 5.367 0 6.586l2.535 1.446-2.213 1.31.733 1.192 2.893-1.688 4.644 2.629-4.644 2.655-2.893-1.691-.733 1.195 2.211 1.295L0 16.39l.707 1.219 2.509-1.423.025 2.439H4.67l-.027-3.276 4.656-2.628v5.205l-2.945 1.639.682 1.244 2.263-1.268V22.5h1.428v-2.911l2.186 1.22.682-1.244-2.868-1.587v-5.284l4.553 2.604-.026 3.327h1.416l.038-2.528 2.572 1.487.72-1.218v-.001l-2.559-1.46 2.161-1.271-.708-1.195-2.88 1.667-4.58-2.631 4.58-2.604 2.88 1.663.708-1.192-2.161-1.271L20 6.611V6.61l-.72-1.22-2.572 1.475-.039-2.542h-1.415l.026 3.355-4.553 2.605V4.998l2.868-1.614-.682-1.221-2.186 1.221V.5z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div
+              class="label"
+            >
+              Talvisäilytys
+            </div>
+          </a>
+        </div>
+        <div
+          class="elementWrapper"
+        >
+          <a
+            class="internalNavLink standard"
+            href="#/applications"
+          >
+            <div
+              class="icon"
+            >
+              <svg
+                class="icon s"
+                height="100%"
+                viewBox="0 0 24 24"
+                width="100%"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.741 9.5v10.35h14.517V9.5H18v12H0v-12h1.741zm12.859 7v1.7H3v-1.7h11.6zm0-3v1.7H3v-1.7h11.6zM8.385.5l1.492.022v6.104l3.249-3.26.966 1.117-4.96 5-5.132-5 .986-1.116 3.4 3.258V.5z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div
+              class="label"
+            >
+              Hakemukset
+            </div>
+          </a>
+        </div>
+        <div
+          class="elementWrapper"
+        >
+          <a
+            class="internalNavLink standard"
+            href="#/customers"
+          >
+            <div
+              class="icon"
+            >
+              <svg
+                class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                  />
+                  <path
+                    d="M16.267 13a4.733 4.733 0 014.728 4.517l.005.216V22H3v-4.267a4.733 4.733 0 014.517-4.728L7.733 13h8.534zm-8.534 2a2.733 2.733 0 00-2.728 2.567L5 17.733V20h14v-2.267c0-1.416-1.107-2.636-2.46-2.726l-.163-.005L7.733 15zM12 2a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </div>
+            <div
+              class="label"
+            >
+              Asiakkaat
+            </div>
+          </a>
+        </div>
+        <div
+          class="elementWrapper"
+        >
+          <a
+            class="internalNavLink standard"
+            href="#/pricing"
+          >
+            <div
+              class="icon"
+            >
+              <svg
+                class="icon s"
+                height="100%"
+                viewBox="0 0 24 24"
+                width="100%"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 .5c6.075 0 11 4.925 11 11s-4.925 11-11 11-11-4.925-11-11S4.925.5 11 .5zm0 1.792a9.208 9.208 0 100 18.416 9.208 9.208 0 000-18.416zm.682 4.18c1.692 0 2.834 1.113 3.25 2.531l-1.773 1.14c0-1.14-.416-2.057-1.477-2.057-.927 0-1.437.723-1.679 1.724h2.539l-.376 1.32H9.842v.807h2.122l-.39 1.32h-1.57c.228.932.698 1.558 1.678 1.558 1.088 0 1.464-1.001 1.477-2.141l1.773 1.154c-.416 1.404-1.49 2.6-3.25 2.6s-3.089-1.057-3.559-3.17H6.968v-1.321h.994c-.013-.153-.013-.32-.013-.5v-.307h-.98V9.81h1.14c.47-2.197 1.894-3.337 3.573-3.337z"
+                  fill-rule="nonzero"
+                />
+              </svg>
+            </div>
+            <div
+              class="label"
+            >
+              Hinnasto
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div
+    class="content"
+  >
+    <div
+      class="Toastify"
+      id="HDSToastContainer"
+    />
+    Test
+  </div>
+</main>
+`;

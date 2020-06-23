@@ -1,0 +1,10 @@
+@import 'spacings';
+
+.harborView {
+  display: flex;
+  flex-direction: column;
+
+  & > * {
+    margin-bottom: units(1);
+  }
+}

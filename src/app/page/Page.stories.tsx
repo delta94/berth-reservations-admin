@@ -5,7 +5,7 @@ import Page from './Page';
 
 export default {
   component: Page,
-  decorators: [(storyFn) => <HashRouter>{storyFn()}</HashRouter>],
+  decorators: [(storyFn: Function) => <HashRouter>{storyFn()}</HashRouter>],
   title: 'Page',
 };
 

@@ -5,8 +5,8 @@ import { WINTER_STORAGE_PRICING_FRAGMENT } from './winterStoragePricing/fragment
 import { HARBOR_SERVICE_PRICING_FRAGMENT } from './harborServicePricing/fragments';
 import { ADDITIONAL_SERVICE_PRICING_FRAGMENT } from './additionalServicePricing/fragments';
 
-export const PRICING_PAGE_QUERY = gql`
-  query PRICING_PAGE {
+export const PRICING_QUERY = gql`
+  query PRICING {
     berthPriceGroups {
       ...BerthPricing
     }

@@ -6,7 +6,7 @@ import {
   INDIVIDUAL_APPLICATION_boatTypes as BOAT_TYPES,
 } from './__generated__/INDIVIDUAL_APPLICATION';
 import { CustomerProfileCardProps } from '../../common/customerProfileCard/CustomerProfileCard';
-import { CustomerData } from './ApplicationViewPage';
+import { CustomerData } from './ApplicationView';
 import { BerthMooringType } from '../../@types/__generated__/globalTypes';
 import { FILTERED_CUSTOMERS } from './__generated__/FILTERED_CUSTOMERS';
 import { OfferCardProps } from './offerCard/OfferCard';
