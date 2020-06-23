@@ -2,18 +2,11 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import WinterStorageAreaListPage from '../WinterStorageAreaListPage';
+import { getWinterStorageAreasData } from '../utils';
+import { mockData } from '../__fixtures__/mockData';
 
 const mockProps = {
-  data: [
-    {
-      id: '0',
-      name: 'Test WS Area 0',
-    },
-    {
-      id: '1',
-      name: 'Test WS Area 1',
-    },
-  ],
+  data: getWinterStorageAreasData(mockData),
 };
 
 describe('WinterStorageAreaListPage', () => {

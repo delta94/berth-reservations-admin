@@ -7,7 +7,26 @@ export const WINTER_STORAGE_AREA_QUERY = gql`
         node {
           id
           properties {
+            maxWidth
+            municipality
             name
+            streetAddress
+            wwwUrl
+            zipCode
+            sections {
+              edges {
+                node {
+                  id
+                  properties {
+                    electricity
+                    gate
+                    summerStorageForDockingEquipment
+                    summerStorageForTrailers
+                    water
+                  }
+                }
+              }
+            }
           }
         }
       }

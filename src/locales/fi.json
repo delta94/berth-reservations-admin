@@ -549,7 +549,9 @@
     "title": "Talvisäilytysalueet",
     "tableHeaders": {
       "mainHeader": "Talvisäilytysalueet",
-      "name": "Alue"
+      "name": "Alue",
+      "places": "Paikkoja",
+      "freePlaces": "Vapaita"
     }
   }
 }
