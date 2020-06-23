@@ -215,7 +215,11 @@
       "weight": "Paino (kg)",
       "name": "Nimi",
       "model": "Merkki",
-      "delete": "Poista vene"
+      "delete": "Poista vene",
+      "deleteConfirmation": {
+        "infoText": "Oletko varma että haluat poistaa asiakkaan tämän asiakkaan veneen?",
+        "warningText": "Tätä toimenpidettä ei voi perua."
+      }
     }
   },
   "harborList": {

@@ -19,16 +19,12 @@ export interface BoatFormProps extends FormProps<Boat> {
 
 const getBoatValidationSchema = (t: TFunction, boatTypes: BoatType[]): ObjectSchema => {
   return Yup.object().shape({
-    boatTypes: Yup.object().shape({
+    boatType: Yup.object().shape({
       id: Yup.string()
         .oneOf(boatTypes.map((boatType) => boatType.id))
         .required(t('forms.common.errors.required')),
     }),
-    registrationNumber: Yup.number()
-      .typeError(t('forms.common.errors.numberType'))
-      .min(0, t('forms.common.errors.nonNegative'))
-      .integer(t('forms.common.errors.integer'))
-      .required(t('forms.common.errors.required')),
+    registrationNumber: Yup.string().required(t('forms.common.errors.required')),
     width: Yup.number()
       .typeError(t('forms.common.errors.numberType'))
       .positive(t('forms.common.errors.positive'))
