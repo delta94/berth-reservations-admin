@@ -12,6 +12,7 @@ import FormTypeTitle from '../FormTypeTitle';
 import { WinterStoragePrice } from '../../winterStoragePricing/WinterStoragePricing';
 import { PeriodType } from '../../../../@types/__generated__/globalTypes';
 import { getPeriodTKey } from '../../../../common/utils/translations';
+import { calcCompanyPrice } from '../../utils';
 
 const periodOptions = Object.values(PeriodType);
 
@@ -28,7 +29,7 @@ export const getWinterStorageValidationSchema = (t: TFunction) =>
 
 const WinterStorageFields = () => {
   const { t } = useTranslation();
-  const { errors } = useFormikContext<WinterStoragePrice>();
+  const { values, errors } = useFormikContext<WinterStoragePrice>();
 
   return (
     <>
@@ -37,7 +38,7 @@ const WinterStorageFields = () => {
       </div>
       <hr />
       <Grid colsCount={2} className={styles.row}>
-        <Field required={true} as={TextInput} name="area" labelText={t('pricing.winterStorage.area')} readOnly />
+        <Field as={TextInput} id="area" name="area" labelText={t('pricing.winterStorage.area')} readOnly />
       </Grid>
       <Grid colsCount={2} className={styles.row}>
         <Field
@@ -50,13 +51,13 @@ const WinterStorageFields = () => {
           helperText={errors.privateCustomer}
         />
         <Field
-          required={true}
           as={TextInput}
           id="company"
           name="company"
           labelText={`${t('pricing.winterStorage.company')} (€)`}
           invalid={!!errors.company}
           helperText={errors.company}
+          value={values.privateCustomer ? calcCompanyPrice(values.privateCustomer) : ''}
           readOnly
         />
       </Grid>

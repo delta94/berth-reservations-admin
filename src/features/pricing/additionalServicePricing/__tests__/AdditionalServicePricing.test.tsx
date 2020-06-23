@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
+import { MockedProvider } from '@apollo/react-testing';
 
 import AdditionalServicePricing, { AdditionalServicePricingProps } from '../AdditionalServicePricing';
 import { data } from '../__fixtures__/data';
@@ -8,7 +9,11 @@ describe('AdditionalServicePricing', () => {
   const initialProps: AdditionalServicePricingProps = { data, loading: false };
 
   const getWrapper = (props: Partial<AdditionalServicePricingProps> = {}) =>
-    shallow(<AdditionalServicePricing {...initialProps} {...props} />);
+    mount(
+      <MockedProvider>
+        <AdditionalServicePricing {...initialProps} {...props} />
+      </MockedProvider>
+    );
 
   beforeEach(() => {
     jest.resetAllMocks();

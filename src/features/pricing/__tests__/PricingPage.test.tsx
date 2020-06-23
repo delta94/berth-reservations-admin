@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
+import { MockedProvider } from '@apollo/react-testing';
 
 import PricingPage, { PricingPageProps } from '../PricingPage';
 import { data as berthsData } from '../berthPricing/__fixtures__/data';
@@ -19,7 +20,12 @@ const initialProps: PricingPageProps = {
 };
 
 describe('PricingPage', () => {
-  const getWrapper = (props: Partial<PricingPageProps> = {}) => shallow(<PricingPage {...initialProps} {...props} />);
+  const getWrapper = (props: Partial<PricingPageProps> = {}) =>
+    mount(
+      <MockedProvider>
+        <PricingPage {...initialProps} {...props} />
+      </MockedProvider>
+    );
 
   beforeEach(() => {
     jest.restoreAllMocks();

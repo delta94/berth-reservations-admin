@@ -13,11 +13,11 @@ import { AdditionalServicePricing as AdditionalServicePricingData } from './__ge
 import { getAdditionalServiceData } from './utils';
 import { getPeriodTKey, getProductServiceTKey, getProductTax } from '../../../common/utils/translations';
 import { PeriodType, ProductServiceType, AdditionalProductTaxEnum } from '../../../@types/__generated__/globalTypes';
-import EditModal from '../editModal/EditModal';
 import { UPDATE_ADDITIONAL_SERVICE_PRICE_MUTATION } from './mutations';
 import { UPDATE_ADDITIONAL_SERVICE_PRICE } from './__generated__/UPDATE_ADDITIONAL_SERVICE_PRICE';
 import { UPDATE_HARBOR_SERVICE_PRICEVariables as UPDATE_HARBOR_SERVICE_PRICE_VARS } from '../harborServicePricing/__generated__/UPDATE_HARBOR_SERVICE_PRICE';
 import { formatPrice } from '../../../common/utils/format';
+import Modal from '../../../common/modal/Modal';
 
 export interface AdditionalService {
   id: string;
@@ -103,7 +103,7 @@ const AdditionalServicePricing = ({ data, loading, className }: AdditionalServic
           />
         </CardBody>
       </Card>
-      <EditModal isOpen={!!editRowValues} closeModal={handleClose}>
+      <Modal isOpen={!!editRowValues} label={t('pricing.editModalHeading').toUpperCase()}>
         {editRowValues && (
           <EditForm
             closeModal={handleClose}
@@ -112,7 +112,7 @@ const AdditionalServicePricing = ({ data, loading, className }: AdditionalServic
             onSubmit={handleSubmit}
           />
         )}
-      </EditModal>
+      </Modal>
     </>
   );
 };

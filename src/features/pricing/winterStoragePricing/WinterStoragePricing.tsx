@@ -15,7 +15,6 @@ import { WinterStoragePricing as WinterStoragePricingData } from './__generated_
 import { getWinterStorageData } from './utils';
 import { PeriodType } from '../../../@types/__generated__/globalTypes';
 import { getPeriodTKey } from '../../../common/utils/translations';
-import EditModal from '../editModal/EditModal';
 import { UPDATE_WINTER_STORAGE_PRICE_MUTATION, CREATE_WINTER_STORAGE_PRODUCT_MUTATION } from './mutations';
 import {
   UPDATE_WINTER_STORAGE_PRICE,
@@ -25,13 +24,14 @@ import {
   CREATE_WINTER_STORAGE_PRODUCT,
   CREATE_WINTER_STORAGE_PRODUCTVariables as CREATE_WINTER_STORAGE_PRODUCT_VARS,
 } from './__generated__/CREATE_WINTER_STORAGE_PRODUCT';
+import Modal from '../../../common/modal/Modal';
 
 export interface WinterStoragePrice {
   id: string;
   productId: string | undefined | null;
   area: string | undefined | null;
-  privateCustomer: number | undefined;
-  company: number | undefined;
+  privateCustomer: number | null;
+  company: number | null;
   period: PeriodType;
 }
 
@@ -119,7 +119,7 @@ const WinterStoragePricing = ({ data, loading, className }: WinterStoragePricing
           />
         </CardBody>
       </Card>
-      <EditModal isOpen={!!editRowValues} closeModal={handleClose}>
+      <Modal isOpen={!!editRowValues} label={t('pricing.editModalHeading').toUpperCase()}>
         {editRowValues && (
           <EditForm
             closeModal={handleClose}
@@ -128,7 +128,7 @@ const WinterStoragePricing = ({ data, loading, className }: WinterStoragePricing
             onSubmit={handleSubmit}
           />
         )}
-      </EditModal>
+      </Modal>
     </>
   );
 };

@@ -12,10 +12,11 @@ import FormTypeTitle from '../FormTypeTitle';
 import { BerthPrice } from '../../berthPricing/BerthPricing';
 import { PeriodType } from '../../../../@types/__generated__/globalTypes';
 import { getPeriodTKey } from '../../../../common/utils/translations';
+import { calcCompanyPrice } from '../../utils';
 
 export const getBerthsValidationSchema = (t: TFunction) =>
   Yup.object().shape({
-    width: Yup.string().required(t('forms.common.errors.required')),
+    name: Yup.string().required(t('forms.common.errors.required')),
     privateCustomer: Yup.number()
       .positive()
       .typeError(t('forms.common.errors.numberType'))
@@ -26,7 +27,7 @@ export const getBerthsValidationSchema = (t: TFunction) =>
 
 const BerthsFields = () => {
   const { t } = useTranslation();
-  const { errors } = useFormikContext<BerthPrice>();
+  const { values, errors } = useFormikContext<BerthPrice>();
 
   return (
     <>
@@ -35,7 +36,7 @@ const BerthsFields = () => {
       </div>
       <hr />
       <Grid colsCount={2} className={styles.row}>
-        <Field required={true} as={TextInput} name="name" labelText={t('pricing.berths.width')} disabled />
+        <Field as={TextInput} id="name" name="name" labelText={t('pricing.berths.width')} readOnly />
       </Grid>
       <Grid colsCount={2} className={styles.row}>
         <Field
@@ -48,14 +49,14 @@ const BerthsFields = () => {
           helperText={errors.privateCustomer}
         />
         <Field
-          required={true}
           as={TextInput}
-          disabled
           id="company"
           name="company"
           labelText={`${t('pricing.berths.company')} (€)`}
           invalid={!!errors.company}
           helperText={errors.company}
+          value={values.privateCustomer ? calcCompanyPrice(values.privateCustomer) : ''}
+          readOnly
         />
       </Grid>
       <Grid colsCount={2} className={styles.row}>

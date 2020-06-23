@@ -32,7 +32,7 @@ exports[`WinterStoragePricing renders noData message when there is no data 1`] =
         <div
           class="table basic noMainHeader"
           role="table"
-          style="min-width:712.5px"
+          style="min-width: 712.5px;"
         >
           <div
             class="stickyHeaders"
@@ -40,13 +40,13 @@ exports[`WinterStoragePricing renders noData message when there is no data 1`] =
             <div
               class="header"
               role="row"
-              style="display:flex;flex:1 0 auto;min-width:0px"
+              style="display: flex; flex: 1 0 auto; min-width: 0px;"
             >
               <div
                 class="headerCell"
                 colspan="1"
                 role="columnheader"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
                 title="Toggle SortBy"
               >
                 Alue
@@ -77,7 +77,7 @@ exports[`WinterStoragePricing renders noData message when there is no data 1`] =
                 class="headerCell"
                 colspan="1"
                 role="columnheader"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
                 title="Toggle SortBy"
               >
                 Yksityinen
@@ -108,7 +108,7 @@ exports[`WinterStoragePricing renders noData message when there is no data 1`] =
                 class="headerCell"
                 colspan="1"
                 role="columnheader"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
                 title="Toggle SortBy"
               >
                 Yritys
@@ -139,7 +139,7 @@ exports[`WinterStoragePricing renders noData message when there is no data 1`] =
                 class="headerCell"
                 colspan="1"
                 role="columnheader"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
                 title="Toggle SortBy"
               >
                 Aika
@@ -170,7 +170,7 @@ exports[`WinterStoragePricing renders noData message when there is no data 1`] =
                 class="headerCell"
                 colspan="1"
                 role="columnheader"
-                style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
+                style="box-sizing: border-box; flex: 112.5 0 auto; min-width: 0px; width: 112.5px;"
               >
                 Muokkaa
               </div>
@@ -230,7 +230,7 @@ exports[`WinterStoragePricing renders normally 1`] = `
         <div
           class="table basic noMainHeader"
           role="table"
-          style="min-width:712.5px"
+          style="min-width: 712.5px;"
         >
           <div
             class="stickyHeaders"
@@ -238,13 +238,13 @@ exports[`WinterStoragePricing renders normally 1`] = `
             <div
               class="header"
               role="row"
-              style="display:flex;flex:1 0 auto;min-width:0px"
+              style="display: flex; flex: 1 0 auto; min-width: 0px;"
             >
               <div
                 class="headerCell"
                 colspan="1"
                 role="columnheader"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
                 title="Toggle SortBy"
               >
                 Alue
@@ -275,7 +275,7 @@ exports[`WinterStoragePricing renders normally 1`] = `
                 class="headerCell"
                 colspan="1"
                 role="columnheader"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
                 title="Toggle SortBy"
               >
                 Yksityinen
@@ -306,7 +306,7 @@ exports[`WinterStoragePricing renders normally 1`] = `
                 class="headerCell"
                 colspan="1"
                 role="columnheader"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
                 title="Toggle SortBy"
               >
                 Yritys
@@ -337,7 +337,7 @@ exports[`WinterStoragePricing renders normally 1`] = `
                 class="headerCell"
                 colspan="1"
                 role="columnheader"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
                 title="Toggle SortBy"
               >
                 Aika
@@ -368,7 +368,7 @@ exports[`WinterStoragePricing renders normally 1`] = `
                 class="headerCell"
                 colspan="1"
                 role="columnheader"
-                style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
+                style="box-sizing: border-box; flex: 112.5 0 auto; min-width: 0px; width: 112.5px;"
               >
                 Muokkaa
               </div>
@@ -382,40 +382,40 @@ exports[`WinterStoragePricing renders normally 1`] = `
             >
               <div
                 role="row"
-                style="display:flex;flex:1 0 auto;min-width:0px"
+                style="display: flex; flex: 1 0 auto; min-width: 0px;"
               >
                 <div
                   class="tableCell"
                   role="cell"
-                  style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
                 >
                   Corporate Developer Mobility
                 </div>
                 <div
                   class="tableCell"
                   role="cell"
-                  style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
                 >
                   10,20 €
                 </div>
                 <div
                   class="tableCell"
                   role="cell"
-                  style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
                 >
                   20,40 €
                 </div>
                 <div
                   class="tableCell"
                   role="cell"
-                  style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
                 >
                   Kausi
                 </div>
                 <div
                   class="tableCell"
                   role="cell"
-                  style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
+                  style="box-sizing: border-box; flex: 112.5 0 auto; min-width: 0px; width: 112.5px;"
                 >
                   <button>
                     <span

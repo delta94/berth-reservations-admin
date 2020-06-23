@@ -32,7 +32,7 @@ exports[`HarborServicePricing renders noData message when there is no data 1`] =
         <div
           class="table basic noMainHeader"
           role="table"
-          style="min-width:525px"
+          style="min-width: 525px;"
         >
           <div
             class="stickyHeaders"
@@ -40,13 +40,13 @@ exports[`HarborServicePricing renders noData message when there is no data 1`] =
             <div
               class="header"
               role="row"
-              style="display:flex;flex:1 0 auto;min-width:0px"
+              style="display: flex; flex: 1 0 auto; min-width: 0px;"
             >
               <div
                 class="headerCell"
                 colspan="1"
                 role="columnheader"
-                style="box-sizing:border-box;flex:225 0 auto;min-width:0px;width:225px;cursor:pointer"
+                style="box-sizing: border-box; flex: 225 0 auto; min-width: 0px; width: 225px; cursor: pointer;"
                 title="Toggle SortBy"
               >
                 Palvelu
@@ -77,7 +77,7 @@ exports[`HarborServicePricing renders noData message when there is no data 1`] =
                 class="headerCell"
                 colspan="1"
                 role="columnheader"
-                style="box-sizing:border-box;flex:75 0 auto;min-width:0px;width:75px;cursor:pointer"
+                style="box-sizing: border-box; flex: 75 0 auto; min-width: 0px; width: 75px; cursor: pointer;"
                 title="Toggle SortBy"
               >
                 Hinta
@@ -108,7 +108,7 @@ exports[`HarborServicePricing renders noData message when there is no data 1`] =
                 class="headerCell"
                 colspan="1"
                 role="columnheader"
-                style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px;cursor:pointer"
+                style="box-sizing: border-box; flex: 112.5 0 auto; min-width: 0px; width: 112.5px; cursor: pointer;"
                 title="Toggle SortBy"
               >
                 Aika
@@ -139,7 +139,7 @@ exports[`HarborServicePricing renders noData message when there is no data 1`] =
                 class="headerCell"
                 colspan="1"
                 role="columnheader"
-                style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
+                style="box-sizing: border-box; flex: 112.5 0 auto; min-width: 0px; width: 112.5px;"
               >
                 Muokkaa
               </div>
@@ -199,7 +199,7 @@ exports[`HarborServicePricing renders normally 1`] = `
         <div
           class="table basic noMainHeader"
           role="table"
-          style="min-width:525px"
+          style="min-width: 525px;"
         >
           <div
             class="stickyHeaders"
@@ -207,13 +207,13 @@ exports[`HarborServicePricing renders normally 1`] = `
             <div
               class="header"
               role="row"
-              style="display:flex;flex:1 0 auto;min-width:0px"
+              style="display: flex; flex: 1 0 auto; min-width: 0px;"
             >
               <div
                 class="headerCell"
                 colspan="1"
                 role="columnheader"
-                style="box-sizing:border-box;flex:225 0 auto;min-width:0px;width:225px;cursor:pointer"
+                style="box-sizing: border-box; flex: 225 0 auto; min-width: 0px; width: 225px; cursor: pointer;"
                 title="Toggle SortBy"
               >
                 Palvelu
@@ -244,7 +244,7 @@ exports[`HarborServicePricing renders normally 1`] = `
                 class="headerCell"
                 colspan="1"
                 role="columnheader"
-                style="box-sizing:border-box;flex:75 0 auto;min-width:0px;width:75px;cursor:pointer"
+                style="box-sizing: border-box; flex: 75 0 auto; min-width: 0px; width: 75px; cursor: pointer;"
                 title="Toggle SortBy"
               >
                 Hinta
@@ -275,7 +275,7 @@ exports[`HarborServicePricing renders normally 1`] = `
                 class="headerCell"
                 colspan="1"
                 role="columnheader"
-                style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px;cursor:pointer"
+                style="box-sizing: border-box; flex: 112.5 0 auto; min-width: 0px; width: 112.5px; cursor: pointer;"
                 title="Toggle SortBy"
               >
                 Aika
@@ -306,7 +306,7 @@ exports[`HarborServicePricing renders normally 1`] = `
                 class="headerCell"
                 colspan="1"
                 role="columnheader"
-                style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
+                style="box-sizing: border-box; flex: 112.5 0 auto; min-width: 0px; width: 112.5px;"
               >
                 Muokkaa
               </div>
@@ -320,33 +320,33 @@ exports[`HarborServicePricing renders normally 1`] = `
             >
               <div
                 role="row"
-                style="display:flex;flex:1 0 auto;min-width:0px"
+                style="display: flex; flex: 1 0 auto; min-width: 0px;"
               >
                 <div
                   class="tableCell"
                   role="cell"
-                  style="box-sizing:border-box;flex:225 0 auto;min-width:0px;width:225px"
+                  style="box-sizing: border-box; flex: 225 0 auto; min-width: 0px; width: 225px;"
                 >
                   Jollapaikka
                 </div>
                 <div
                   class="tableCell"
                   role="cell"
-                  style="box-sizing:border-box;flex:75 0 auto;min-width:0px;width:75px"
+                  style="box-sizing: border-box; flex: 75 0 auto; min-width: 0px; width: 75px;"
                 >
                   10,00 €
                 </div>
                 <div
                   class="tableCell"
                   role="cell"
-                  style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
+                  style="box-sizing: border-box; flex: 112.5 0 auto; min-width: 0px; width: 112.5px;"
                 >
                   Kausi
                 </div>
                 <div
                   class="tableCell"
                   role="cell"
-                  style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
+                  style="box-sizing: border-box; flex: 112.5 0 auto; min-width: 0px; width: 112.5px;"
                 >
                   <button>
                     <span

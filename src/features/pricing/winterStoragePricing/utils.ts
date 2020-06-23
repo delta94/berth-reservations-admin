@@ -1,6 +1,7 @@
 import { WinterStoragePricing as WinterStoragePricingData } from './__generated__/WinterStoragePricing';
 import { WinterStoragePrice } from './WinterStoragePricing';
 import { PeriodType } from '../../../@types/__generated__/globalTypes';
+import { calcCompanyPrice } from '../utils';
 
 export const getWinterStorageData = (data: WinterStoragePricingData | undefined | null): WinterStoragePrice[] => {
   if (!data) return [];
@@ -8,9 +9,8 @@ export const getWinterStorageData = (data: WinterStoragePricingData | undefined 
   return data.edges.reduce<WinterStoragePrice[]>((acc, edge) => {
     if (!edge?.node) return acc;
 
-    const priceValue = edge.node.properties?.product?.priceValue;
-    const privateCustomer = Number.isNaN(priceValue) ? undefined : priceValue;
-    const company = Number.isNaN(priceValue) ? undefined : priceValue * 2;
+    const privateCustomer: number | null = edge.node.properties?.product?.priceValue;
+    const company = privateCustomer ? calcCompanyPrice(privateCustomer) : null;
 
     const winterStorageArea = {
       id: edge.node.id,

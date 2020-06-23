@@ -15,7 +15,6 @@ import { BerthPricing as BerthPricingData } from './__generated__/BerthPricing';
 import { getBerthsData } from './utils';
 import { PeriodType } from '../../../@types/__generated__/globalTypes';
 import { getPeriodTKey } from '../../../common/utils/translations';
-import EditModal from '../editModal/EditModal';
 import { UPDATE_BERTH_PRICE_MUTATION, CREATE_BERTH_PRODUCT_MUTATION } from './mutations';
 import {
   UPDATE_BERTH_PRICE,
@@ -25,6 +24,7 @@ import {
   CREATE_BERTH_PRODUCT,
   CREATE_BERTH_PRODUCTVariables as CREATE_BERTH_PRODUCT_VARS,
 } from './__generated__/CREATE_BERTH_PRODUCT';
+import Modal from '../../../common/modal/Modal';
 
 export interface BerthPrice {
   id: string;
@@ -117,7 +117,7 @@ const BerthPricing = ({ className, data, loading }: BerthPricingProps) => {
           />
         </CardBody>
       </Card>
-      <EditModal isOpen={!!editRowValues} closeModal={handleClose}>
+      <Modal isOpen={!!editRowValues} label={t('pricing.editModalHeading').toUpperCase()}>
         {editRowValues && (
           <EditForm
             closeModal={handleClose}
@@ -126,7 +126,7 @@ const BerthPricing = ({ className, data, loading }: BerthPricingProps) => {
             onSubmit={handleSubmit}
           />
         )}
-      </EditModal>
+      </Modal>
     </>
   );
 };

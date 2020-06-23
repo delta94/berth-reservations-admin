@@ -15,12 +15,12 @@ import { HarborServicePricing as HarborServicePricingData } from './__generated_
 import { getHarborServicesData } from './utils';
 import { getPeriodTKey, getProductServiceTKey } from '../../../common/utils/translations';
 import { PeriodType, ProductServiceType, PriceUnits } from '../../../@types/__generated__/globalTypes';
-import EditModal from '../editModal/EditModal';
 import { UPDATE_HARBOR_SERVICE_PRICE_MUTATION } from './mutations';
 import {
   UPDATE_HARBOR_SERVICE_PRICE,
   UPDATE_HARBOR_SERVICE_PRICEVariables as UPDATE_HARBOR_SERVICE_PRICE_VARS,
 } from './__generated__/UPDATE_HARBOR_SERVICE_PRICE';
+import Modal from '../../../common/modal/Modal';
 
 export interface HarborService {
   id: string;
@@ -109,7 +109,7 @@ const HarborServicePricing = ({ data, loading, className }: HarborServicePricing
           />
         </CardBody>
       </Card>
-      <EditModal isOpen={!!editRowValues} closeModal={handleClose}>
+      <Modal isOpen={!!editRowValues} label={t('pricing.editModalHeading').toUpperCase()}>
         {editRowValues && (
           <EditForm
             closeModal={handleClose}
@@ -118,7 +118,7 @@ const HarborServicePricing = ({ data, loading, className }: HarborServicePricing
             onSubmit={handleSubmit}
           />
         )}
-      </EditModal>
+      </Modal>
     </>
   );
 };

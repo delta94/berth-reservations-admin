@@ -13,6 +13,7 @@ describe('WinterStorageFields', () => {
     privateCustomer: 8.5,
     company: 17,
     period: PeriodType.SEASON,
+    productId: 'debc3311-675e-41db-8666-877d10842aab',
   };
 
   const getWrapper = () =>
@@ -33,7 +34,7 @@ describe('WinterStorageFields', () => {
 
   describe('Service field', () => {
     it('Should show provided initialValue', () => {
-      const input = getWrapper().find('select[name="area"]');
+      const input = getWrapper().find('input#area');
       expect(input.prop('value')).toEqual('Kaisaniemi');
     });
   });
