@@ -32,6 +32,7 @@ export const getHarborsData = (data: HARBORS | undefined) => {
             water: 0,
           }
         );
+
         const maps: Map[] = harbor.node.properties.maps.reduce<Map[]>((acc, map) => {
           if (map !== null) {
             return acc.concat({
@@ -41,6 +42,7 @@ export const getHarborsData = (data: HARBORS | undefined) => {
           }
           return acc;
         }, []);
+
         return [
           ...acc,
           {

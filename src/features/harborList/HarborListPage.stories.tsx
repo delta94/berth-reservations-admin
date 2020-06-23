@@ -13,4 +13,4 @@ export default {
 
 const data = getHarborsData(mockData);
 
-export const harborListPage = () => <HarborListPage data={data}>foo</HarborListPage>;
+export const harborListPage = () => <HarborListPage data={data} />;
