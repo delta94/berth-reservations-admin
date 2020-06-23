@@ -1,22 +1,27 @@
-import React from 'react';
-import { action } from '@storybook/addon-actions';
+import React, { useState } from 'react';
 
 import Select from './Select';
 
 export default {
   component: Select,
   title: 'Select',
+  decorators: [
+    (storyFn: Function) => {
+      const [state, setState] = useState('foo');
+      return storyFn({ value: state, onChange: setState });
+    },
+  ],
 };
 
-export const select = () => (
+export const select = ({ value, onChange }: { value: string; onChange: (value: string) => void }) => (
   <Select
-    labelText="Foo"
-    value={undefined}
+    label="Foo"
+    value={value}
     options={[
-      { value: 'foo', label: 'foo' },
-      { value: 'bar', label: 'bar' },
+      { value: 'foo', label: 'Foo' },
+      { value: 'bar', label: 'Bar' },
     ]}
-    onChange={action('changed')}
+    onChange={(e) => onChange(e.target.value)}
   />
 );
 

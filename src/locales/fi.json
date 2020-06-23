@@ -74,9 +74,9 @@
       "PAPER_INVOICE": "Laskutus paperisena"
     },
     "periodTypes": {
-      "season": "Kausi",
-      "month": "1 kk",
-      "year": "Vuosi"
+      "SEASON": "Kausi",
+      "MONTH": "1 kk",
+      "YEAR": "Vuosi"
     },
     "terminology": {
       "address": "Osoite",

@@ -87,7 +87,7 @@ describe('EditForm', () => {
         initialValues: data,
         formType: formType,
       }).find(Form);
-      const cancelButton = form.find('button').at(0);
+      const cancelButton = form.find('button#cancel');
       cancelButton.simulate('click');
 
       expect(mockProps.closeModal).toHaveBeenCalledTimes(1);

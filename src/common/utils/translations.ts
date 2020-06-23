@@ -4,11 +4,11 @@ import { formatPercentage } from './format';
 export const getPeriodTKey = (period: PeriodType) => {
   switch (period) {
     case PeriodType.MONTH:
-      return 'common.periodTypes.month';
+      return 'common.periodTypes.MONTH';
     case PeriodType.SEASON:
-      return 'common.periodTypes.season';
+      return 'common.periodTypes.SEASON';
     case PeriodType.YEAR:
-      return 'common.periodTypes.year';
+      return 'common.periodTypes.YEAR';
 
     default:
       return period;

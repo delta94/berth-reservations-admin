@@ -10,10 +10,12 @@ import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
 import FormTypeTitle from '../FormTypeTitle';
 import { HarborService } from '../../harborServicePricing/HarborServicePricing';
+import { PeriodType } from '../../../../@types/__generated__/globalTypes';
+import { getPeriodTKey } from '../../../../common/utils/translations';
 
 const serviceOptions = ['mooring', 'electricity', 'water', 'wasteCollection', 'gate', 'lighting'];
 const unitOptions = ['%', '€'];
-const periodOptions = ['season', 'month', 'year'];
+const periodOptions = [PeriodType.SEASON, PeriodType.MONTH, PeriodType.YEAR];
 
 export const getHarborServicesValidationSchema = (t: TFunction) =>
   Yup.object().shape({
@@ -43,8 +45,9 @@ const HarborServicesFields = () => {
         <Field
           required={true}
           as={Select}
+          id="service"
           name="service"
-          labelText={t('pricing.harborServices.service')}
+          label={t('pricing.harborServices.service')}
           options={serviceOptions.map((option) => ({
             value: option,
             label: t([`common.terminology.${option}`]),
@@ -64,8 +67,9 @@ const HarborServicesFields = () => {
         <Field
           required={true}
           as={Select}
+          id="unit"
           name="unit"
-          labelText={t('pricing.harborServices.unit')}
+          label={t('pricing.harborServices.unit')}
           options={unitOptions.map((option) => ({
             value: option,
             label: option,
@@ -76,11 +80,12 @@ const HarborServicesFields = () => {
         <Field
           required={true}
           as={Select}
+          id="period"
           name="period"
-          labelText={t('pricing.harborServices.period')}
+          label={t('pricing.harborServices.period')}
           options={periodOptions.map((option) => ({
             value: option,
-            label: t([`common.periodTypes.${option}`]),
+            label: t(getPeriodTKey(option)),
           }))}
         />
       </Grid>

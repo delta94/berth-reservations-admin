@@ -1,47 +1,69 @@
 import React from 'react';
-import classNames from 'classnames';
+import { Dropdown } from 'hds-react';
 
-import styles from './select.module.scss';
+type OptionValue = string | number;
 
-interface Option {
+type Option<T extends OptionValue> = {
   label: string;
-  value: string | number;
-}
-
-export type SelectProps = {
-  name?: string;
-  labelText?: string;
-  className?: string;
-  value: Option['value'] | undefined;
-  options: Option[];
-  required?: boolean;
-  disabled?: boolean;
-  onChange: React.ChangeEventHandler<HTMLSelectElement>;
-  id?: string;
+  value: T;
 };
 
-const Select = ({ name, id, labelText, className, value, options, onChange, required, disabled }: SelectProps) => {
-  const optionsItems = options.map(({ value, label }) => (
-    <option key={value} value={value}>
-      {label}
-    </option>
-  ));
+type ConstructedChangeEvent<T extends OptionValue> = {
+  target: {
+    id?: string;
+    value: T;
+  };
+};
+
+export type SelectProps<T extends OptionValue> = {
+  className?: string;
+  disabled?: boolean;
+  id?: string;
+  label?: string;
+  onChange: (e: ConstructedChangeEvent<T>) => void;
+  options: Option<T>[];
+  required?: boolean;
+  value?: T;
+};
+
+const Select = <T extends OptionValue>({
+  className,
+  disabled,
+  id,
+  label,
+  onChange,
+  options,
+  required,
+  value,
+}: SelectProps<T>) => {
+  const selectedOption = options.find((option) => option.value === value);
+
+  const handleChange = (option: Option<T>) => {
+    if (!selectedOption || option.value !== selectedOption.value) {
+      const event: ConstructedChangeEvent<T> = {
+        target: {
+          id,
+          value: option.value,
+        },
+      };
+
+      onChange(event);
+    }
+  };
 
   return (
-    <label className={className}>
-      {labelText && <span className={styles.labelText}>{labelText}</span>}
-      <select
-        name={name}
-        id={id}
-        value={value}
-        onChange={onChange}
-        disabled={disabled}
-        className={classNames(styles.select, { [styles.disabled]: disabled })}
-      >
-        {!required && <option>-</option>}
-        {optionsItems}
-      </select>
-    </label>
+    <Dropdown
+      className={className}
+      disabled={disabled}
+      id={id}
+      label={label}
+      onChange={(option) => {
+        handleChange(option as Option<T>);
+      }}
+      options={options}
+      required={required}
+      selectedOption={selectedOption}
+    />
   );
 };
 

@@ -30,10 +30,10 @@ describe('BerthsFields', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  // TODO: Fix the test when
   describe('Width field', () => {
     it('Should show provided initialValue', () => {
-      const input = getWrapper().find('select[name="width"]');
+      const input = getWrapper().find('Select').at(0);
+      expect(input.prop('id')).toEqual('width');
       expect(input.prop('value')).toEqual(2);
     });
   });
@@ -54,7 +54,8 @@ describe('BerthsFields', () => {
 
   describe('Period field', () => {
     it('Should show provided initialValue', () => {
-      const input = getWrapper().find('select[name="period"]');
+      const input = getWrapper().find('Select').at(1);
+      expect(input.prop('id')).toEqual('period');
       expect(input.prop('value')).toEqual('SEASON');
     });
   });
