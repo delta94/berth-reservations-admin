@@ -25,7 +25,7 @@ const Page = ({ children }: PageProps) => {
             <InternalNavLink key="harbors" to="/harbors" icon={<IconBoat />}>
               {t('common.sidebar.harbors')}
             </InternalNavLink>,
-            <InternalNavLink key="winterStorageAreas" to="/winterStorageAreas" icon={<IconWinter />}>
+            <InternalNavLink key="winterStorageAreas" to="/winter-storage-areas" icon={<IconWinter />}>
               {t('common.sidebar.winterStorageAreas')}
             </InternalNavLink>,
             <InternalNavLink key="applications" to="/applications" icon={<IconApplications />}>

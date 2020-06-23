@@ -40,7 +40,7 @@ const App = () => {
                   <PrivateRoute exact path="/applications" component={ApplicationList} />
                   <PrivateRoute exact path="/offer/:applicationId" component={Offer} />
                   <PrivateRoute exact path="/pricing" component={Pricing} />
-                  <PrivateRoute exact path="/winterStorageAreas" component={WinterStorageAreaList} />
+                  <PrivateRoute exact path="/winter-storage-areas" component={WinterStorageAreaList} />
                 </Switch>
               </Page>
             </Switch>
