@@ -6,7 +6,6 @@ import { useDebounce } from 'use-debounce';
 import { CUSTOMERS_QUERY } from './queries';
 import { getCustomersData } from './utils';
 import { CUSTOMERS, CUSTOMERSVariables as CUSTOMERS_VARS } from './__generated__/CUSTOMERS';
-import CustomerList from './CustomerListComponent';
 import CustomerListPage from './CustomerListPage';
 import { usePagination } from '../../common/utils/usePagination';
 import { useBackendSorting } from '../../common/utils/useBackendSorting';
@@ -60,31 +59,29 @@ const CustomerListPageContainer = () => {
   const tableData = getCustomersData(data);
 
   return (
-    <CustomerListPage>
-      <CustomerList
-        loading={loading}
-        data={tableData}
-        onSortedColChange={handleSortedColChange({ name: 'lastName' })}
-        pagination={{
-          forcePage: pageIndex,
-          pageCount: getPageCount(data?.profiles?.count),
-          onPageChange: ({ selected }) => goToPage(selected),
-        }}
-        tableTools={{
-          searchVal,
-          searchBy,
-          setSearchVal,
-          setSearchBy,
-          searchByOptions: [
-            { value: SearchBy.FIRST_NAME, label: t('common.firstName') },
-            { value: SearchBy.LAST_NAME, label: t('common.lastName') },
-            { value: SearchBy.EMAIL, label: t('common.email') },
-            { value: SearchBy.ADDRESS, label: t('common.address') },
-          ],
-        }}
-        handleSendMessage={handleSendMessage}
-      />
-    </CustomerListPage>
+    <CustomerListPage
+      loading={loading}
+      data={tableData}
+      onSortedColChange={handleSortedColChange({ name: 'lastName' })}
+      pagination={{
+        forcePage: pageIndex,
+        pageCount: getPageCount(data?.profiles?.count),
+        onPageChange: ({ selected }) => goToPage(selected),
+      }}
+      tableTools={{
+        searchVal,
+        searchBy,
+        setSearchVal,
+        setSearchBy,
+        searchByOptions: [
+          { value: SearchBy.FIRST_NAME, label: t('common.firstName') },
+          { value: SearchBy.LAST_NAME, label: t('common.lastName') },
+          { value: SearchBy.EMAIL, label: t('common.email') },
+          { value: SearchBy.ADDRESS, label: t('common.address') },
+        ],
+      }}
+      handleSendMessage={handleSendMessage}
+    />
   );
 };
 
