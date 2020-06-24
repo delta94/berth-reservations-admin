@@ -10,13 +10,10 @@ import { data as additionalServicesData } from '../additionalServicePricing/__fi
 
 const initialProps: PricingProps = {
   berthsData,
-  berthsLoading: false,
   winterStorageData,
-  winterStorageLoading: false,
   harborServicesData,
-  harborServicesLoading: false,
   additionalServicesData,
-  additionalServicesLoading: false,
+  loading: false,
 };
 
 describe('PricingPage', () => {

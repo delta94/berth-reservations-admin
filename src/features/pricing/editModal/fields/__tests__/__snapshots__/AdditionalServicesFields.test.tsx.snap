@@ -1,3 +1,243 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AdditionalServicesFields renders normally 1`] = `"<div class=\\"row\\"><div><div class=\\"formTypeTitleLabel\\">Tietue</div><div class=\\"formTypeTitleValue\\">Lisäpalvelut</div></div></div><hr><div class=\\"grid cols1 row\\"><div class=\\"Dropdown-module_root__2LI4- Dropdown-module_disabled__2ej9O\\"><label for=\\"service-toggle-button\\" class=\\"FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W \\" id=\\"service-label\\">Palvelu<span class=\\"RequiredIndicator-module_indicator__Pt7GX\\">*</span></label><div class=\\"Dropdown-module_wrapper__1oIw5\\"><button type=\\"button\\" id=\\"service-toggle-button\\" aria-haspopup=\\"listbox\\" aria-expanded=\\"false\\" aria-labelledby=\\"service-label service-toggle-button\\" disabled=\\"\\" class=\\"Dropdown-module_buttonDropdown__IwbnQ Dropdown-module_dropdown__22ZdF\\"><span class=\\"Dropdown-module_buttonLabel__2jVRU\\">Valaistus</span><svg class=\\"Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Dropdown-module_angleIcon__1Y1mT\\" viewBox=\\"0 0 24 24\\" xmlns=\\"http://www.w3.org/2000/svg\\"><g fill=\\"none\\" fill-rule=\\"evenodd\\"><path d=\\"M0 0h24v24H0z\\"></path><path fill=\\"currentColor\\" d=\\"M12 13.5l5-5 1.5 1.5-6.5 6.5L5.5 10 7 8.5z\\"></path></g></svg></button></div><ul id=\\"service-menu\\" role=\\"listbox\\" aria-labelledby=\\"service-label\\" tabindex=\\"-1\\" class=\\"Dropdown-module_menu__3rei6 Dropdown-module_overflow__I5ddb\\" style=\\"max-height: calc(var(--dropdown-height) * 5);\\"></ul></div></div><div class=\\"grid cols2 row\\"><div class=\\"TextInput-module_root__1ceal text-input_hds-text-input__24bl6\\"><label for=\\"price\\" class=\\"FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W \\">Hinta (€)<span class=\\"RequiredIndicator-module_indicator__Pt7GX\\">*</span></label><div class=\\"TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy\\"><input class=\\"TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI\\" id=\\"price\\" required=\\"\\" type=\\"text\\" name=\\"price\\" value=\\"25\\"></div></div><div class=\\"Dropdown-module_root__2LI4-\\"><label for=\\"tax-toggle-button\\" class=\\"FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W \\" id=\\"tax-label\\">ALV<span class=\\"RequiredIndicator-module_indicator__Pt7GX\\">*</span></label><div class=\\"Dropdown-module_wrapper__1oIw5\\"><button type=\\"button\\" id=\\"tax-toggle-button\\" aria-haspopup=\\"listbox\\" aria-expanded=\\"false\\" aria-labelledby=\\"tax-label tax-toggle-button\\" class=\\"Dropdown-module_buttonDropdown__IwbnQ Dropdown-module_dropdown__22ZdF\\"><span class=\\"Dropdown-module_buttonLabel__2jVRU\\">24&nbsp;%</span><svg class=\\"Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Dropdown-module_angleIcon__1Y1mT\\" viewBox=\\"0 0 24 24\\" xmlns=\\"http://www.w3.org/2000/svg\\"><g fill=\\"none\\" fill-rule=\\"evenodd\\"><path d=\\"M0 0h24v24H0z\\"></path><path fill=\\"currentColor\\" d=\\"M12 13.5l5-5 1.5 1.5-6.5 6.5L5.5 10 7 8.5z\\"></path></g></svg></button></div><ul id=\\"tax-menu\\" role=\\"listbox\\" aria-labelledby=\\"tax-label\\" tabindex=\\"-1\\" class=\\"Dropdown-module_menu__3rei6\\" style=\\"max-height: calc(var(--dropdown-height) * 5);\\"></ul></div></div><div class=\\"grid cols2 row\\"><div class=\\"Dropdown-module_root__2LI4-\\"><label for=\\"period-toggle-button\\" class=\\"FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W \\" id=\\"period-label\\">Aika<span class=\\"RequiredIndicator-module_indicator__Pt7GX\\">*</span></label><div class=\\"Dropdown-module_wrapper__1oIw5\\"><button type=\\"button\\" id=\\"period-toggle-button\\" aria-haspopup=\\"listbox\\" aria-expanded=\\"false\\" aria-labelledby=\\"period-label period-toggle-button\\" class=\\"Dropdown-module_buttonDropdown__IwbnQ Dropdown-module_dropdown__22ZdF\\"><span class=\\"Dropdown-module_buttonLabel__2jVRU\\">Kausi</span><svg class=\\"Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Dropdown-module_angleIcon__1Y1mT\\" viewBox=\\"0 0 24 24\\" xmlns=\\"http://www.w3.org/2000/svg\\"><g fill=\\"none\\" fill-rule=\\"evenodd\\"><path d=\\"M0 0h24v24H0z\\"></path><path fill=\\"currentColor\\" d=\\"M12 13.5l5-5 1.5 1.5-6.5 6.5L5.5 10 7 8.5z\\"></path></g></svg></button></div><ul id=\\"period-menu\\" role=\\"listbox\\" aria-labelledby=\\"period-label\\" tabindex=\\"-1\\" class=\\"Dropdown-module_menu__3rei6\\" style=\\"max-height: calc(var(--dropdown-height) * 5);\\"></ul></div></div>"`;
+exports[`AdditionalServicesFields renders normally 1`] = `
+Array [
+  <div
+    class="row"
+  >
+    <div>
+      <div
+        class="formTypeTitleLabel"
+      >
+        Tietue
+      </div>
+      <div
+        class="formTypeTitleValue"
+      >
+        Lisäpalvelut
+      </div>
+    </div>
+  </div>,
+  <hr />,
+  <div
+    class="grid cols1 row"
+  >
+    <div
+      class="Dropdown-module_root__2LI4- Dropdown-module_disabled__2ej9O"
+    >
+      <label
+        class="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+        for="service-toggle-button"
+        id="service-label"
+      >
+        Palvelu
+        <span
+          class="RequiredIndicator-module_indicator__Pt7GX"
+        >
+          *
+        </span>
+      </label>
+      <div
+        class="Dropdown-module_wrapper__1oIw5"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-labelledby="service-label service-toggle-button"
+          class="Dropdown-module_buttonDropdown__IwbnQ Dropdown-module_dropdown__22ZdF"
+          disabled=""
+          id="service-toggle-button"
+          type="button"
+        >
+          <span
+            class="Dropdown-module_buttonLabel__2jVRU"
+          >
+            Valaistus
+          </span>
+          <svg
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Dropdown-module_angleIcon__1Y1mT"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <path
+                d="M0 0h24v24H0z"
+              />
+              <path
+                d="M12 13.5l5-5 1.5 1.5-6.5 6.5L5.5 10 7 8.5z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+        </button>
+      </div>
+      <ul
+        aria-labelledby="service-label"
+        class="Dropdown-module_menu__3rei6 Dropdown-module_overflow__I5ddb"
+        id="service-menu"
+        role="listbox"
+        style="max-height: calc(var(--dropdown-height) * 5);"
+        tabindex="-1"
+      />
+    </div>
+  </div>,
+  <div
+    class="grid cols2 row"
+  >
+    <div
+      class="TextInput-module_root__1ceal text-input_hds-text-input__24bl6"
+    >
+      <label
+        class="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+        for="price"
+      >
+        Hinta (€)
+        <span
+          class="RequiredIndicator-module_indicator__Pt7GX"
+        >
+          *
+        </span>
+      </label>
+      <div
+        class="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+      >
+        <input
+          class="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
+          id="price"
+          name="price"
+          required=""
+          type="text"
+          value="25"
+        />
+      </div>
+    </div>
+    <div
+      class="Dropdown-module_root__2LI4-"
+    >
+      <label
+        class="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+        for="tax-toggle-button"
+        id="tax-label"
+      >
+        ALV
+        <span
+          class="RequiredIndicator-module_indicator__Pt7GX"
+        >
+          *
+        </span>
+      </label>
+      <div
+        class="Dropdown-module_wrapper__1oIw5"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-labelledby="tax-label tax-toggle-button"
+          class="Dropdown-module_buttonDropdown__IwbnQ Dropdown-module_dropdown__22ZdF"
+          id="tax-toggle-button"
+          type="button"
+        >
+          <span
+            class="Dropdown-module_buttonLabel__2jVRU"
+          >
+            24 %
+          </span>
+          <svg
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Dropdown-module_angleIcon__1Y1mT"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <path
+                d="M0 0h24v24H0z"
+              />
+              <path
+                d="M12 13.5l5-5 1.5 1.5-6.5 6.5L5.5 10 7 8.5z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+        </button>
+      </div>
+      <ul
+        aria-labelledby="tax-label"
+        class="Dropdown-module_menu__3rei6"
+        id="tax-menu"
+        role="listbox"
+        style="max-height: calc(var(--dropdown-height) * 5);"
+        tabindex="-1"
+      />
+    </div>
+  </div>,
+  <div
+    class="grid cols2 row"
+  >
+    <div
+      class="Dropdown-module_root__2LI4-"
+    >
+      <label
+        class="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+        for="period-toggle-button"
+        id="period-label"
+      >
+        Aika
+        <span
+          class="RequiredIndicator-module_indicator__Pt7GX"
+        >
+          *
+        </span>
+      </label>
+      <div
+        class="Dropdown-module_wrapper__1oIw5"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-labelledby="period-label period-toggle-button"
+          class="Dropdown-module_buttonDropdown__IwbnQ Dropdown-module_dropdown__22ZdF"
+          id="period-toggle-button"
+          type="button"
+        >
+          <span
+            class="Dropdown-module_buttonLabel__2jVRU"
+          >
+            Kausi
+          </span>
+          <svg
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Dropdown-module_angleIcon__1Y1mT"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <path
+                d="M0 0h24v24H0z"
+              />
+              <path
+                d="M12 13.5l5-5 1.5 1.5-6.5 6.5L5.5 10 7 8.5z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+        </button>
+      </div>
+      <ul
+        aria-labelledby="period-label"
+        class="Dropdown-module_menu__3rei6"
+        id="period-menu"
+        role="listbox"
+        style="max-height: calc(var(--dropdown-height) * 5);"
+        tabindex="-1"
+      />
+    </div>
+  </div>,
+]
+`;

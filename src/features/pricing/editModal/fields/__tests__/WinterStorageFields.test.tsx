@@ -29,7 +29,7 @@ describe('WinterStorageFields', () => {
 
   it('renders normally', () => {
     const wrapper = getWrapper();
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   describe('Area field', () => {
