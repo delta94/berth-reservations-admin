@@ -51,6 +51,10 @@ describe('format', () => {
     it('should add the percentage sign to to the supplied value', () => {
       expect(formatPercentage(1, 'fi')).toMatch('%');
     });
+
+    it('should return the right value', () => {
+      expect(formatPercentage(10, 'fi')).toMatch('10');
+    });
   });
 
   describe('formatBytes', () => {

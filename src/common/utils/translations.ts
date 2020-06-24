@@ -51,9 +51,9 @@ export const getProductServiceTKey = (productService: ProductServiceType) => {
 export const getProductTax = (tax: AdditionalProductTaxEnum, locale: string) => {
   switch (tax) {
     case AdditionalProductTaxEnum.TAX_10_00:
-      return formatPercentage(0.1, locale);
+      return formatPercentage(10, locale);
     case AdditionalProductTaxEnum.TAX_24_00:
-      return formatPercentage(0.24, locale);
+      return formatPercentage(24, locale);
 
     default:
       return tax;
