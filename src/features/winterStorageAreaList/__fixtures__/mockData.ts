@@ -11,12 +11,18 @@ export const mockData: WINTER_STORAGE_AREAS = {
           id: '0',
           properties: {
             __typename: 'WinterStorageAreaProperties',
+            imageFile:
+              'https://venepaikka-api.test.hel.ninja/media/harbors/9a8d8313-eaa2-47d2-8f2d-2bb9893f9bc7/41359.jpg',
+            maps: [
+              {
+                __typename: 'WinterStorageAreaMapType',
+                id: 'testmap',
+                url: 'testmap',
+              },
+            ],
             maxWidth: null,
             municipality: null,
             name: null,
-            streetAddress: null,
-            wwwUrl: 'https://www.hel.fi/',
-            zipCode: '00100',
             sections: {
               __typename: 'WinterStorageSectionNodeConnection',
               edges: [
@@ -37,6 +43,10 @@ export const mockData: WINTER_STORAGE_AREAS = {
                 },
               ],
             },
+            servicemapId: '',
+            streetAddress: null,
+            wwwUrl: 'https://www.hel.fi/',
+            zipCode: '00100',
           },
         },
       },
@@ -47,12 +57,18 @@ export const mockData: WINTER_STORAGE_AREAS = {
           id: '1',
           properties: {
             __typename: 'WinterStorageAreaProperties',
-            name: 'Pursilahdenranta',
+            imageFile:
+              'https://venepaikka-api.test.hel.ninja/media/harbors/9a8d8313-eaa2-47d2-8f2d-2bb9893f9bc7/41359.jpg',
+            maps: [
+              {
+                __typename: 'WinterStorageAreaMapType',
+                id: 'testmap',
+                url: 'testmap',
+              },
+            ],
             maxWidth: 5,
             municipality: 'Helsinki',
-            streetAddress: 'Pursilahdenranta 1',
-            wwwUrl: 'https://www.hel.fi/',
-            zipCode: '00990',
+            name: 'Pursilahdenranta',
             sections: {
               __typename: 'WinterStorageSectionNodeConnection',
               edges: [
@@ -73,6 +89,10 @@ export const mockData: WINTER_STORAGE_AREAS = {
                 },
               ],
             },
+            servicemapId: '',
+            streetAddress: 'Pursilahdenranta 1',
+            wwwUrl: 'https://www.hel.fi/',
+            zipCode: '00990',
           },
         },
       },

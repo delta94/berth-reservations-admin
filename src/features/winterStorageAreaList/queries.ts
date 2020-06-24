@@ -7,12 +7,14 @@ export const WINTER_STORAGE_AREA_QUERY = gql`
         node {
           id
           properties {
+            imageFile
+            maps {
+              id
+              url
+            }
             maxWidth
             municipality
             name
-            streetAddress
-            wwwUrl
-            zipCode
             sections {
               edges {
                 node {
@@ -27,6 +29,10 @@ export const WINTER_STORAGE_AREA_QUERY = gql`
                 }
               }
             }
+            servicemapId
+            streetAddress
+            wwwUrl
+            zipCode
           }
         }
       }
