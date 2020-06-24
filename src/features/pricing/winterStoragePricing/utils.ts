@@ -10,7 +10,7 @@ export const getWinterStorageData = (data: WinterStoragePricingData | undefined 
     if (!edge?.node) return acc;
 
     const privateCustomer: number | null = edge.node.properties?.product?.priceValue;
-    const company = privateCustomer ? calcCompanyPrice(privateCustomer) : null;
+    const company = calcCompanyPrice(privateCustomer);
 
     const winterStorageArea = {
       id: edge.node.id,

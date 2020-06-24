@@ -23,7 +23,6 @@ export const getWinterStorageValidationSchema = (t: TFunction) =>
       .positive()
       .typeError(t('forms.common.errors.numberType'))
       .required(t('forms.common.errors.required')),
-    company: Yup.number().positive().typeError(t('forms.common.errors.numberType')),
     period: Yup.string().oneOf(periodOptions),
   });
 
@@ -46,6 +45,7 @@ const WinterStorageFields = () => {
           as={TextInput}
           id="privateCustomer"
           name="privateCustomer"
+          value={values.privateCustomer || ''}
           labelText={`${t('pricing.winterStorage.privateCustomer')} (€)`}
           invalid={!!errors.privateCustomer}
           helperText={errors.privateCustomer}
@@ -57,7 +57,7 @@ const WinterStorageFields = () => {
           labelText={`${t('pricing.winterStorage.company')} (€)`}
           invalid={!!errors.company}
           helperText={errors.company}
-          value={values.privateCustomer ? calcCompanyPrice(values.privateCustomer) : ''}
+          value={calcCompanyPrice(values.privateCustomer) || ''}
           readOnly
         />
       </Grid>

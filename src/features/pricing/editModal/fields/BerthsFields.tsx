@@ -14,6 +14,8 @@ import { PeriodType } from '../../../../@types/__generated__/globalTypes';
 import { getPeriodTKey } from '../../../../common/utils/translations';
 import { calcCompanyPrice } from '../../utils';
 
+const periodOptions = Object.values(PeriodType);
+
 export const getBerthsValidationSchema = (t: TFunction) =>
   Yup.object().shape({
     name: Yup.string().required(t('forms.common.errors.required')),
@@ -21,7 +23,6 @@ export const getBerthsValidationSchema = (t: TFunction) =>
       .positive()
       .typeError(t('forms.common.errors.numberType'))
       .required(t('forms.common.errors.required')),
-    company: Yup.number().positive().typeError(t('forms.common.errors.numberType')),
     period: Yup.string().oneOf(Object.values(PeriodType)),
   });
 
@@ -44,6 +45,7 @@ const BerthsFields = () => {
           as={TextInput}
           id="privateCustomer"
           name="privateCustomer"
+          value={values.privateCustomer || ''}
           labelText={`${t('pricing.berths.privateCustomer')} (€)`}
           invalid={!!errors.privateCustomer}
           helperText={errors.privateCustomer}
@@ -55,7 +57,7 @@ const BerthsFields = () => {
           labelText={`${t('pricing.berths.company')} (€)`}
           invalid={!!errors.company}
           helperText={errors.company}
-          value={values.privateCustomer ? calcCompanyPrice(values.privateCustomer) : ''}
+          value={calcCompanyPrice(values.privateCustomer) || ''}
           readOnly
         />
       </Grid>
@@ -65,7 +67,7 @@ const BerthsFields = () => {
           id="period"
           name="period"
           label={t('pricing.berths.period')}
-          options={Object.values(PeriodType).map((option) => ({
+          options={periodOptions.map((option) => ({
             value: option,
             label: t(getPeriodTKey(option)),
           }))}
