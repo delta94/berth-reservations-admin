@@ -8,6 +8,7 @@ import IconWrapper from '../../common/iconWrapper/IconWrapper';
 import { IconDollyEmpty, IconFence, IconPlug, IconTrestle, IconWaterTap } from '../../common/icons';
 import PageContent from '../../common/pageContent/PageContent';
 import Pagination from '../../common/pagination/Pagination';
+import GlobalSearchTableTools from '../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';
 
 type ColumnType = Column<WinterStorageAreaData> & { accessor: keyof WinterStorageAreaData };
 
@@ -85,6 +86,7 @@ const WinterStorageAreaList = ({ data, loading }: WinterStorageAreaListProps) =>
           />
         )}
         renderSubComponent={() => <div>Placeholder</div>}
+        renderTableToolsTop={(_, setters) => <GlobalSearchTableTools handleGlobalFilter={setters.setGlobalFilter} />}
       />
     </PageContent>
   );
