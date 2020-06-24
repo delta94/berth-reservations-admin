@@ -51,14 +51,14 @@ const HarborDetails = ({
         <HarborMapLinks maps={maps} />
       </div>
       <div className={styles.column}>
-        <Section title={t('harborList.details.maxWidth').toUpperCase()}>
+        <Section title={t('common.terminology.maxWidth').toUpperCase()}>
           <Text>{formatDimension(maxWidth, i18n.language)}</Text>
         </Section>
         <Section title={t('common.terminology.mooring').toUpperCase()}>-</Section>
       </div>
       <div className={styles.column}>
-        <Section title={t('harborList.details.maintenance').toUpperCase()}>-</Section>
-        <Section title={t('harborList.details.harborChief').toUpperCase()}>-</Section>
+        <Section title={t('common.terminology.maintenance').toUpperCase()}>-</Section>
+        <Section title={t('common.terminology.harborChief').toUpperCase()}>-</Section>
       </div>
     </Grid>
   );

@@ -85,14 +85,17 @@
       "dataEntry": "Tietue",
       "depth": "Syvyys",
       "dinghyPlace": "Jollapaikka",
-      "draught": "Syväys",
       "dockingEquipmentSummerStorage": "Telakointitarvikkeiden kesäsäilytys",
+      "draught": "Syväys",
       "electricity": "Sähkö",
       "gate": "Portti",
+      "harborChief": "Satamapäällikkö",
       "harborMap": "Satamakartta",
       "inQueue": "Jonossa",
       "length": "Pituus",
       "lighting": "Valaistus",
+      "maintenance": "Kunnossapito",
+      "maxWidth": "Suurin leveys",
       "mooring": "Kiinnitys",
       "parkingPermit": "Pysäköintilupa",
       "serviceMap": "Palvelukartta",
@@ -196,11 +199,7 @@
       "boats": "VENEET",
       "applications": "HAKEMUKSET",
       "bills": "LASKUT",
-      "comments": "HUOMIOT",
-      "maxWidth": "Suurin leveys",
-      "mooring": "Kiinnitys",
-      "harborChief": "Satamapäällikkö",
-      "maintenance": "Kunnossapito"
+      "comments": "HUOMIOT"
     }
   },
   "harborView": {
