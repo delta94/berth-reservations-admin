@@ -8,6 +8,7 @@ export const WINTER_STORAGE_PRICING_FRAGMENT = gql`
         properties {
           name
           product {
+            id
             priceValue
             priceUnit
           }

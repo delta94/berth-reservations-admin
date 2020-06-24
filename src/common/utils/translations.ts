@@ -1,4 +1,9 @@
-import { PeriodType, ProductServiceType, AdditionalProductTaxEnum } from '../../@types/__generated__/globalTypes';
+import {
+  PeriodType,
+  ProductServiceType,
+  AdditionalProductTaxEnum,
+  PriceUnits,
+} from '../../@types/__generated__/globalTypes';
 import { formatPercentage } from './format';
 
 export const getPeriodTKey = (period: PeriodType) => {
@@ -46,11 +51,23 @@ export const getProductServiceTKey = (productService: ProductServiceType) => {
 export const getProductTax = (tax: AdditionalProductTaxEnum, locale: string) => {
   switch (tax) {
     case AdditionalProductTaxEnum.TAX_10_00:
-      return formatPercentage(0.1, locale);
+      return formatPercentage(10, locale);
     case AdditionalProductTaxEnum.TAX_24_00:
-      return formatPercentage(0.24, locale);
+      return formatPercentage(24, locale);
 
     default:
       return tax;
+  }
+};
+
+export const getPriceUnits = (unit: PriceUnits) => {
+  switch (unit) {
+    case PriceUnits.AMOUNT:
+      return '€';
+    case PriceUnits.PERCENTAGE:
+      return '%';
+
+    default:
+      return unit;
   }
 };

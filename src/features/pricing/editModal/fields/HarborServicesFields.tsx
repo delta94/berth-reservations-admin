@@ -10,12 +10,12 @@ import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
 import FormTypeTitle from '../FormTypeTitle';
 import { HarborService } from '../../harborServicePricing/HarborServicePricing';
-import { PeriodType } from '../../../../@types/__generated__/globalTypes';
-import { getPeriodTKey } from '../../../../common/utils/translations';
+import { PeriodType, PriceUnits, ProductServiceType } from '../../../../@types/__generated__/globalTypes';
+import { getPeriodTKey, getProductServiceTKey, getPriceUnits } from '../../../../common/utils/translations';
 
-const serviceOptions = ['mooring', 'electricity', 'water', 'wasteCollection', 'gate', 'lighting'];
-const unitOptions = ['%', '€'];
-const periodOptions = [PeriodType.SEASON, PeriodType.MONTH, PeriodType.YEAR];
+const serviceOptions = Object.values(ProductServiceType);
+const unitOptions = Object.values(PriceUnits);
+const periodOptions = Object.values(PeriodType);
 
 export const getHarborServicesValidationSchema = (t: TFunction) =>
   Yup.object().shape({
@@ -24,11 +24,8 @@ export const getHarborServicesValidationSchema = (t: TFunction) =>
       .positive()
       .typeError(t('forms.common.errors.numberType'))
       .required(t('forms.common.errors.required')),
-    unit: Yup.string()
-      .oneOf(unitOptions)
-      .typeError(t('forms.common.errors.numberType'))
-      .required(t('forms.common.errors.required')),
-    period: Yup.string().oneOf(periodOptions).required(t('forms.common.errors.required')),
+    unit: Yup.string().oneOf(unitOptions).typeError(t('forms.common.errors.numberType')),
+    period: Yup.string().oneOf(periodOptions),
   });
 
 const HarborServicesFields = () => {
@@ -50,8 +47,9 @@ const HarborServicesFields = () => {
           label={t('pricing.harborServices.service')}
           options={serviceOptions.map((option) => ({
             value: option,
-            label: t([`common.terminology.${option}`]),
+            label: t(getProductServiceTKey(option)),
           }))}
+          disabled
         />
       </Grid>
       <Grid colsCount={2} className={styles.row}>
@@ -65,20 +63,18 @@ const HarborServicesFields = () => {
           helperText={errors.price}
         />
         <Field
-          required={true}
           as={Select}
           id="unit"
           name="unit"
           label={t('pricing.harborServices.unit')}
           options={unitOptions.map((option) => ({
             value: option,
-            label: option,
+            label: getPriceUnits(option),
           }))}
         />
       </Grid>
       <Grid colsCount={2} className={styles.row}>
         <Field
-          required={true}
           as={Select}
           id="period"
           name="period"
@@ -87,6 +83,7 @@ const HarborServicesFields = () => {
             value: option,
             label: t(getPeriodTKey(option)),
           }))}
+          disabled
         />
       </Grid>
     </>

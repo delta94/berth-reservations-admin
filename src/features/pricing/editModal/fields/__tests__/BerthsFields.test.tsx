@@ -4,14 +4,16 @@ import { Form, Formik } from 'formik';
 
 import BerthsFields from '../BerthsFields';
 import { PeriodType } from '../../../../../@types/__generated__/globalTypes';
+import { BerthPrice } from '../../../berthPricing/BerthPricing';
 
 describe('BerthsFields', () => {
-  const mockValues: any = {
-    id: '1',
-    width: 2,
+  const mockValues: BerthPrice = {
+    id: '1870f0d4-fa63-48a8-8e8e-5d0a9df7e88b',
+    name: '2 m',
     privateCustomer: 116,
-    company: 236,
+    company: 232,
     period: PeriodType.SEASON,
+    productId: '9518ddd2-28d9-4b62-b5db-a9605bff9b4d',
   };
 
   const getWrapper = () =>
@@ -27,14 +29,13 @@ describe('BerthsFields', () => {
 
   it('renders normally', () => {
     const wrapper = getWrapper();
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   describe('Width field', () => {
     it('Should show provided initialValue', () => {
-      const input = getWrapper().find('Select').at(0);
-      expect(input.prop('id')).toEqual('width');
-      expect(input.prop('value')).toEqual(2);
+      const input = getWrapper().find('input#name');
+      expect(input.prop('value')).toEqual('2 m');
     });
   });
 
@@ -48,13 +49,13 @@ describe('BerthsFields', () => {
   describe('Company (customer) field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('input#company');
-      expect(input.prop('value')).toEqual(236);
+      expect(input.prop('value')).toEqual(232);
     });
   });
 
   describe('Period field', () => {
     it('Should show provided initialValue', () => {
-      const input = getWrapper().find('Select').at(1);
+      const input = getWrapper().find('Select').at(0);
       expect(input.prop('id')).toEqual('period');
       expect(input.prop('value')).toEqual('SEASON');
     });

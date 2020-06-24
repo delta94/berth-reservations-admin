@@ -14,6 +14,7 @@ export const data: WinterStoragePricingProps['data'] = {
           name: 'Corporate Developer Mobility',
           product: {
             __typename: 'WinterStorageProductNode',
+            id: '29bd49ad-fc7a-4673-be6b-03068d27edfb',
             priceValue: '10.2',
             priceUnit: PriceUnits.AMOUNT,
           },

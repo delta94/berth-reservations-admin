@@ -7,6 +7,7 @@ export const BERTH_PRICING_FRAGMENT = gql`
         id
         name
         defaultProduct {
+          id
           priceUnit
           priceValue
         }

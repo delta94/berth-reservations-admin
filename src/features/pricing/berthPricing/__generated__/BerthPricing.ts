@@ -11,6 +11,7 @@ import { PriceUnits } from "./../../../../@types/__generated__/globalTypes";
 
 export interface BerthPricing_edges_node_defaultProduct {
   __typename: "BerthProductNode";
+  id: string;
   priceUnit: PriceUnits;
   priceValue: any;
 }

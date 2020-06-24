@@ -45,7 +45,7 @@ export const formatPrice = (value: number, locale: string) => {
 export const formatPercentage = (value: number, locale: string) => {
   return new Intl.NumberFormat(locale, {
     style: 'percent',
-  }).format(value);
+  }).format(value / 100);
 };
 
 export const formatBytes = (value: number, locale: string) => {

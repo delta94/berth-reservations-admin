@@ -9,14 +9,14 @@ interface ModalProps {
   children: React.ReactNode;
   isOpen: boolean;
   label?: string;
-  toggleModal: (value: boolean) => void;
+  toggleModal?: (value: boolean) => void;
   className?: string;
   shouldCloseOnOverlayClick?: boolean;
 }
 
 const Modal = ({ isOpen, label, children, toggleModal, className, shouldCloseOnOverlayClick = true }: ModalProps) => {
   const onClose = () => {
-    toggleModal(false);
+    toggleModal?.(false);
   };
   return (
     <ReactModal

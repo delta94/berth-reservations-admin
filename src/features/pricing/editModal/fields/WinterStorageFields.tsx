@@ -12,27 +12,23 @@ import FormTypeTitle from '../FormTypeTitle';
 import { WinterStoragePrice } from '../../winterStoragePricing/WinterStoragePricing';
 import { PeriodType } from '../../../../@types/__generated__/globalTypes';
 import { getPeriodTKey } from '../../../../common/utils/translations';
+import { calcCompanyPrice } from '../../utils';
 
-const areaOptions = ['Kaisaniemi'];
-const periodOptions = [PeriodType.SEASON, PeriodType.MONTH, PeriodType.YEAR];
+const periodOptions = Object.values(PeriodType);
 
 export const getWinterStorageValidationSchema = (t: TFunction) =>
   Yup.object().shape({
-    area: Yup.string().oneOf(areaOptions).required(t('forms.common.errors.required')),
+    area: Yup.string().required(t('forms.common.errors.required')),
     privateCustomer: Yup.number()
       .positive()
       .typeError(t('forms.common.errors.numberType'))
       .required(t('forms.common.errors.required')),
-    company: Yup.number()
-      .positive()
-      .typeError(t('forms.common.errors.numberType'))
-      .required(t('forms.common.errors.required')),
-    period: Yup.string().oneOf(periodOptions).required(t('forms.common.errors.required')),
+    period: Yup.string().oneOf(periodOptions),
   });
 
 const WinterStorageFields = () => {
   const { t } = useTranslation();
-  const { errors } = useFormikContext<WinterStoragePrice>();
+  const { values, errors } = useFormikContext<WinterStoragePrice>();
 
   return (
     <>
@@ -41,17 +37,7 @@ const WinterStorageFields = () => {
       </div>
       <hr />
       <Grid colsCount={2} className={styles.row}>
-        <Field
-          required={true}
-          as={Select}
-          id="area"
-          name="area"
-          label={t('pricing.winterStorage.area')}
-          options={areaOptions.map((option) => ({
-            value: option,
-            label: option,
-          }))}
-        />
+        <Field as={TextInput} id="area" name="area" labelText={t('pricing.winterStorage.area')} readOnly />
       </Grid>
       <Grid colsCount={2} className={styles.row}>
         <Field
@@ -59,23 +45,24 @@ const WinterStorageFields = () => {
           as={TextInput}
           id="privateCustomer"
           name="privateCustomer"
+          value={values.privateCustomer || ''}
           labelText={`${t('pricing.winterStorage.privateCustomer')} (€)`}
           invalid={!!errors.privateCustomer}
           helperText={errors.privateCustomer}
         />
         <Field
-          required={true}
           as={TextInput}
           id="company"
           name="company"
           labelText={`${t('pricing.winterStorage.company')} (€)`}
           invalid={!!errors.company}
           helperText={errors.company}
+          value={calcCompanyPrice(values.privateCustomer) || ''}
+          readOnly
         />
       </Grid>
       <Grid colsCount={2} className={styles.row}>
         <Field
-          required={true}
           as={Select}
           id="period"
           name="period"
@@ -84,6 +71,7 @@ const WinterStorageFields = () => {
             value: option,
             label: t(getPeriodTKey(option)),
           }))}
+          disabled
         />
       </Grid>
     </>

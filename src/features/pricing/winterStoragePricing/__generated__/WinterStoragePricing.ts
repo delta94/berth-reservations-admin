@@ -11,6 +11,7 @@ import { PriceUnits } from "./../../../../@types/__generated__/globalTypes";
 
 export interface WinterStoragePricing_edges_node_properties_product {
   __typename: "WinterStorageProductNode";
+  id: string;
   priceValue: any;
   priceUnit: PriceUnits;
 }

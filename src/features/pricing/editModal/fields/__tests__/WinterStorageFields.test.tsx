@@ -13,6 +13,7 @@ describe('WinterStorageFields', () => {
     privateCustomer: 8.5,
     company: 17,
     period: PeriodType.SEASON,
+    productId: 'debc3311-675e-41db-8666-877d10842aab',
   };
 
   const getWrapper = () =>
@@ -28,13 +29,12 @@ describe('WinterStorageFields', () => {
 
   it('renders normally', () => {
     const wrapper = getWrapper();
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   describe('Area field', () => {
     it('Should show provided initialValue', () => {
-      const input = getWrapper().find('Select').at(0);
-      expect(input.prop('id')).toEqual('area');
+      const input = getWrapper().find('input#area');
       expect(input.prop('value')).toEqual('Kaisaniemi');
     });
   });
@@ -55,7 +55,7 @@ describe('WinterStorageFields', () => {
 
   describe('Period field', () => {
     it('Should show provided initialValue', () => {
-      const input = getWrapper().find('Select').at(1);
+      const input = getWrapper().find('Select').at(0);
       expect(input.prop('id')).toEqual('period');
       expect(input.prop('value')).toEqual('SEASON');
     });

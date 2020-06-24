@@ -1,15 +1,19 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
+import { MockedProvider } from '@apollo/react-testing';
 
 import BerthPricing, { BerthPricingProps } from '../BerthPricing';
 import { data } from '../__fixtures__/data';
 
 describe('BerthPricing', () => {
-  const initialProps: BerthPricingProps = { data, loading: false, openModal: jest.fn() };
+  const initialProps: BerthPricingProps = { data, loading: false };
 
-  const getWrapper = (props: Partial<BerthPricingProps> = {}) => shallow(<BerthPricing {...initialProps} {...props} />);
-  const getMountWrapper = (props: Partial<BerthPricingProps> = {}) =>
-    mount(<BerthPricing {...initialProps} {...props} />);
+  const getWrapper = (props: Partial<BerthPricingProps> = {}) =>
+    mount(
+      <MockedProvider>
+        <BerthPricing {...initialProps} {...props} />
+      </MockedProvider>
+    );
 
   beforeEach(() => {
     jest.resetAllMocks();
@@ -17,21 +21,12 @@ describe('BerthPricing', () => {
   it('renders normally', () => {
     const wrapper = getWrapper();
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('renders noData message when there is no data', () => {
     const wrapper = getWrapper({ data: undefined });
 
-    expect(wrapper.html()).toMatchSnapshot();
-  });
-
-  it('calls the provided openModal function when edit button is clicked', () => {
-    const wrapper = getMountWrapper();
-    const button = wrapper.find('button').first();
-
-    button.simulate('click');
-
-    expect(initialProps.openModal).toHaveBeenCalledTimes(1);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

@@ -8,15 +8,14 @@ import { TFunction } from 'i18next';
 import styles from '../editForm.module.scss';
 import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
-import { formatPercentage } from '../../../../common/utils/format';
 import FormTypeTitle from '../FormTypeTitle';
 import { AdditionalService } from '../../additionalServicePricing/AdditionalServicePricing';
-import { PeriodType } from '../../../../@types/__generated__/globalTypes';
-import { getPeriodTKey } from '../../../../common/utils/translations';
+import { PeriodType, AdditionalProductTaxEnum, ProductServiceType } from '../../../../@types/__generated__/globalTypes';
+import { getPeriodTKey, getProductTax, getProductServiceTKey } from '../../../../common/utils/translations';
 
-const serviceOptions = ['trawlerSummerStorage', 'parkingPermit', 'dinghyPlace'];
-const taxOptions = [24];
-const periodOptions = [PeriodType.SEASON, PeriodType.MONTH, PeriodType.YEAR];
+const serviceOptions = Object.values(ProductServiceType);
+const taxOptions = Object.values(AdditionalProductTaxEnum);
+const periodOptions = Object.values(PeriodType);
 
 export const getAdditionalServicesValidationSchema = (t: TFunction) =>
   Yup.object().shape({
@@ -25,7 +24,7 @@ export const getAdditionalServicesValidationSchema = (t: TFunction) =>
       .positive()
       .typeError(t('forms.common.errors.numberType'))
       .required(t('forms.common.errors.required')),
-    tax: Yup.number()
+    tax: Yup.string()
       .oneOf(taxOptions)
       .typeError(t('forms.common.errors.numberType'))
       .required(t('forms.common.errors.required')),
@@ -51,8 +50,9 @@ const AdditionalServicesFields = () => {
           label={t('pricing.additionalServices.service')}
           options={serviceOptions.map((option) => ({
             value: option,
-            label: t([`common.terminology.${option}`]),
+            label: t(getProductServiceTKey(option)),
           }))}
+          disabled
         />
       </Grid>
       <Grid colsCount={2} className={styles.row}>
@@ -73,7 +73,7 @@ const AdditionalServicesFields = () => {
           label={t('pricing.additionalServices.tax')}
           options={taxOptions.map((option) => ({
             value: option,
-            label: formatPercentage(option * 0.01, i18n.language),
+            label: getProductTax(option, i18n.language),
           }))}
         />
       </Grid>

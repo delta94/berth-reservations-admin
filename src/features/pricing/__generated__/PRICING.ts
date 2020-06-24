@@ -11,6 +11,7 @@ import { PriceUnits, ProductServiceType, PeriodType, AdditionalProductType, Addi
 
 export interface PRICING_berthPriceGroups_edges_node_defaultProduct {
   __typename: "BerthProductNode";
+  id: string;
   priceUnit: PriceUnits;
   priceValue: any;
 }
@@ -34,6 +35,7 @@ export interface PRICING_berthPriceGroups {
 
 export interface PRICING_winterStorageAreas_edges_node_properties_product {
   __typename: "WinterStorageProductNode";
+  id: string;
   priceValue: any;
   priceUnit: PriceUnits;
 }

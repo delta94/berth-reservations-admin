@@ -12,7 +12,12 @@ import { BerthPrice } from '../../berthPricing/BerthPricing';
 import { WinterStoragePrice } from '../../winterStoragePricing/WinterStoragePricing';
 import { HarborService } from '../../harborServicePricing/HarborServicePricing';
 import { AdditionalService } from '../../additionalServicePricing/AdditionalServicePricing';
-import { PeriodType, AdditionalProductTaxEnum, ProductServiceType } from '../../../../@types/__generated__/globalTypes';
+import {
+  PeriodType,
+  AdditionalProductTaxEnum,
+  ProductServiceType,
+  PriceUnits,
+} from '../../../../@types/__generated__/globalTypes';
 
 const berthsData: BerthPrice = {
   id: '1',
@@ -20,6 +25,7 @@ const berthsData: BerthPrice = {
   privateCustomer: 116,
   company: 236,
   period: PeriodType.SEASON,
+  productId: '632be637-304e-4501-8642-f24c5b3c5d5f',
 };
 
 const winterStorageData: WinterStoragePrice = {
@@ -28,31 +34,32 @@ const winterStorageData: WinterStoragePrice = {
   privateCustomer: 8.5,
   company: 17,
   period: PeriodType.SEASON,
+  productId: '4e08ff02-4a79-497e-8275-6f33fd242462',
 };
 
 const harborServicesData: HarborService = {
   id: '1',
   service: ProductServiceType.PARKING_PERMIT,
   price: 28,
-  unit: '€',
+  unit: PriceUnits.AMOUNT,
   period: PeriodType.SEASON,
 };
 
 const additionalServicesData: AdditionalService = {
   id: '1',
   service: ProductServiceType.SUMMER_STORAGE_FOR_TRAILERS,
-  price: '24 €',
+  price: 24,
   tax: AdditionalProductTaxEnum.TAX_10_00,
   period: PeriodType.SEASON,
 };
 
 describe('EditForm', () => {
-  const mockProps: Pick<EditPricingFormProps, 'closeModal' | 'onSubmit'> = {
+  const mockProps: Pick<EditPricingFormProps<any>, 'closeModal' | 'onSubmit'> = {
     onSubmit: jest.fn(),
     closeModal: jest.fn(),
   };
 
-  const getWrapper = (props: Pick<EditPricingFormProps, 'initialValues' | 'formType'>) =>
+  const getWrapper = (props: Pick<EditPricingFormProps<any>, 'initialValues' | 'formType'>) =>
     mount(<EditForm {...mockProps} {...props} />);
 
   // [name, component, data, formType]
@@ -76,7 +83,7 @@ describe('EditForm', () => {
     it(`should render ${component.name}`, () => {
       const form = getWrapper({
         initialValues: data,
-        formType: formType,
+        formType,
       }).find(Form);
 
       expect(form.find(component)).toHaveLength(1);
@@ -85,7 +92,7 @@ describe('EditForm', () => {
     it('should render a working cancel button', () => {
       const form = getWrapper({
         initialValues: data,
-        formType: formType,
+        formType,
       }).find(Form);
       const cancelButton = form.find('button#cancel');
       cancelButton.simulate('click');
@@ -96,18 +103,17 @@ describe('EditForm', () => {
     it('should render a working submit button', () => {
       const form = getWrapper({
         initialValues: data,
-        formType: formType,
+        formType,
       }).find(Form);
       const submitButton = form.find('button[type="submit"]');
 
       expect(submitButton).toHaveLength(1);
     });
 
-    // TODO: fix unit tests when the validation schema is updated in VEN-667
-    it.skip('should have working onSubmit', async () => {
+    it('should have working onSubmit', async () => {
       const form = getWrapper({
         initialValues: data,
-        formType: formType,
+        formType,
       }).find(Form);
 
       await act(async () => {

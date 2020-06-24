@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
+import { MockedProvider } from '@apollo/react-testing';
 
 import Pricing, { PricingProps } from '../Pricing';
 import { data as berthsData } from '../berthPricing/__fixtures__/data';
@@ -9,18 +10,19 @@ import { data as additionalServicesData } from '../additionalServicePricing/__fi
 
 const initialProps: PricingProps = {
   berthsData,
-  berthsLoading: false,
   winterStorageData,
-  winterStorageLoading: false,
   harborServicesData,
-  harborServicesLoading: false,
   additionalServicesData,
-  additionalServicesLoading: false,
-  openModal: jest.fn(),
+  loading: false,
 };
 
-describe('Pricing', () => {
-  const getWrapper = (props: Partial<PricingProps> = {}) => shallow(<Pricing {...initialProps} {...props} />);
+describe('PricingPage', () => {
+  const getWrapper = (props: Partial<PricingProps> = {}) =>
+    mount(
+      <MockedProvider>
+        <Pricing {...initialProps} {...props} />
+      </MockedProvider>
+    );
 
   beforeEach(() => {
     jest.restoreAllMocks();
