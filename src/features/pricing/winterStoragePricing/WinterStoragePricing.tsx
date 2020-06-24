@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Row } from 'react-table';
 import { useMutation } from '@apollo/react-hooks';
+import { PureQueryOptions } from 'apollo-client';
 
 import Card from '../../../common/card/Card';
 import Section from '../../../common/section/Section';
@@ -39,9 +40,10 @@ export interface WinterStoragePricingProps {
   data: WinterStoragePricingData | undefined | null;
   loading: boolean;
   className?: string;
+  refetchQueries?: PureQueryOptions[] | string[];
 }
 
-const WinterStoragePricing = ({ data, loading, className }: WinterStoragePricingProps) => {
+const WinterStoragePricing = ({ data, loading, className, refetchQueries }: WinterStoragePricingProps) => {
   const { t, i18n } = useTranslation();
   const [editRowValues, setEditRowValues] = useState<WinterStoragePrice>();
   const [updateWinterStoragePrice] = useMutation<UPDATE_WINTER_STORAGE_PRICE, UPDATE_WINTER_STORAGE_PRICE_VARS>(
@@ -96,6 +98,7 @@ const WinterStoragePricing = ({ data, loading, className }: WinterStoragePricing
     } else {
       await createWinterStoragePrice({
         variables: { input: { winterStorageAreaId, priceValue } },
+        refetchQueries,
       });
     }
 

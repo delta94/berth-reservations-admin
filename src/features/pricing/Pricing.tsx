@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { PureQueryOptions } from 'apollo-client';
 
 import styles from './pricing.module.scss';
 import PageTitle from '../../common/pageTitle/PageTitle';
@@ -13,24 +14,20 @@ import PageContent from '../../common/pageContent/PageContent';
 
 export interface PricingProps {
   berthsData: BerthPricingProps['data'];
-  berthsLoading: boolean;
   winterStorageData: WinterStoragePricingProps['data'];
-  winterStorageLoading: boolean;
   harborServicesData: HarborServicePricingProps['data'];
-  harborServicesLoading: boolean;
   additionalServicesData: AdditionalServicePricingProps['data'];
-  additionalServicesLoading: boolean;
+  loading: boolean;
+  refetchQueries?: PureQueryOptions[] | string[];
 }
 
 const Pricing = ({
   berthsData,
-  berthsLoading,
   winterStorageData,
-  winterStorageLoading,
   harborServicesData,
-  harborServicesLoading,
   additionalServicesData,
-  additionalServicesLoading,
+  loading,
+  refetchQueries,
 }: PricingProps) => {
   const { t } = useTranslation();
 
@@ -38,10 +35,15 @@ const Pricing = ({
     <PageContent className={styles.pricing}>
       <PageTitle title={t('pricing.title')} />
       <div className={styles.grid}>
-        <BerthPricing className={styles.fullWidth} data={berthsData} loading={berthsLoading} />
-        <WinterStoragePricing className={styles.fullWidth} data={winterStorageData} loading={winterStorageLoading} />
-        <HarborServicePricing data={harborServicesData} loading={harborServicesLoading} />
-        <AdditionalServicePricing data={additionalServicesData} loading={additionalServicesLoading} />
+        <BerthPricing
+          className={styles.fullWidth}
+          data={berthsData}
+          loading={loading}
+          refetchQueries={refetchQueries}
+        />
+        <WinterStoragePricing className={styles.fullWidth} data={winterStorageData} loading={loading} />
+        <HarborServicePricing data={harborServicesData} loading={loading} />
+        <AdditionalServicePricing data={additionalServicesData} loading={loading} />
       </div>
     </PageContent>
   );

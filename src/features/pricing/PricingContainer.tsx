@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { Notification } from 'hds-react';
 import { useTranslation } from 'react-i18next';
+import { getOperationName } from 'apollo-link';
 
 import Pricing from './Pricing';
 import { PRICING_QUERY } from './queries';
@@ -22,13 +23,11 @@ const PricingContainer = () => {
   return (
     <Pricing
       berthsData={data?.berthPriceGroups}
-      berthsLoading={loading}
       winterStorageData={data?.winterStorageAreas}
-      winterStorageLoading={loading}
       harborServicesData={data?.additionalProducts}
-      harborServicesLoading={loading}
       additionalServicesData={data?.optionalProducts}
-      additionalServicesLoading={loading}
+      loading={loading}
+      refetchQueries={[getOperationName(PRICING_QUERY) || 'PRICING_QUERY']}
     />
   );
 };

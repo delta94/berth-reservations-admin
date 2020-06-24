@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Row } from 'react-table';
 import { useMutation } from '@apollo/react-hooks';
+import { PureQueryOptions } from 'apollo-client';
 
 import Card from '../../../common/card/Card';
 import CardHeader from '../../../common/cardHeader/CardHeader';
@@ -39,9 +40,10 @@ export interface BerthPricingProps {
   className?: string;
   data: BerthPricingData | undefined | null;
   loading: boolean;
+  refetchQueries?: PureQueryOptions[] | string[];
 }
 
-const BerthPricing = ({ className, data, loading }: BerthPricingProps) => {
+const BerthPricing = ({ className, data, loading, refetchQueries }: BerthPricingProps) => {
   const { t, i18n } = useTranslation();
   const [editRowValues, setEditRowValues] = useState<BerthPrice>();
   const [updateBerthPrice] = useMutation<UPDATE_BERTH_PRICE, UPDATE_BERTH_PRICE_VARS>(UPDATE_BERTH_PRICE_MUTATION);
@@ -94,6 +96,7 @@ const BerthPricing = ({ className, data, loading }: BerthPricingProps) => {
     } else {
       await createBerthPrice({
         variables: { input: { priceGroupId, priceValue } },
+        refetchQueries,
       });
     }
 
