@@ -12,8 +12,8 @@ import Grid from '../grid/Grid';
 import Property from '../property/Property';
 import styles from './harborCard.module.scss';
 import Section from '../section/Section';
-import placeholder from './harborPlaceholder.svg';
-import HarborMapLinks from '../harborMapLinks/HarborMapLinks';
+import placeholderImage from '../placeholderImage.svg';
+import MapLinks from '../mapLinks/MapLinks';
 import { IconFence, IconPlug, IconStreetLight, IconWaterTap } from '../icons';
 
 export interface HarborCardProps {
@@ -67,7 +67,7 @@ const HarborCard = ({
         <div className={styles.cardBody}>
           <div className={styles.details}>
             <div className={styles.imageWrapper}>
-              <img alt="Harbor's location" src={imageUrl ? imageUrl : placeholder} className={styles.image} />
+              <img alt="Harbor's location" src={imageUrl ? imageUrl : placeholderImage} className={styles.image} />
             </div>
             <div>
               <Section>
@@ -81,7 +81,7 @@ const HarborCard = ({
                   {t('common.terminology.serviceMap')}
                 </ExternalLink>
               </Section>
-              <HarborMapLinks maps={maps} />
+              <MapLinks maps={maps} />
             </div>
           </div>
           <Grid colsCount={5} className={styles.propsGrid}>

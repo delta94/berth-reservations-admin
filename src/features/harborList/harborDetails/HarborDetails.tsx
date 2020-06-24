@@ -9,6 +9,7 @@ import Text from '../../../common/text/Text';
 import { formatDimension } from '../../../common/utils/format';
 import { HarborData } from '../types';
 import MapLinks from '../../../common/mapLinks/MapLinks';
+import placeholderImage from '../../../common/placeholderImage.svg';
 
 export type HarborDetailsProps = {
   imageFile: HarborData['imageFile'];
@@ -31,7 +32,7 @@ const HarborDetails = ({
 }: HarborDetailsProps) => {
   const { t, i18n } = useTranslation();
   const address = `${streetAddress}, ${zipCode} ${municipality}`;
-  const imageSrc = imageFile ? imageFile : '';
+  const imageSrc = imageFile ? imageFile : placeholderImage;
   const serviceMapUrl = `${process.env.REACT_APP_SERVICE_MAP_URI}${servicemapId}`;
 
   return (
