@@ -5,7 +5,7 @@ Object {
   "electricity": 0,
   "gate": 0,
   "id": "0",
-  "imageFile": "https://venepaikka-api.test.hel.ninja/media/harbors/9a8d8313-eaa2-47d2-8f2d-2bb9893f9bc7/41359.jpg",
+  "imageFile": null,
   "maps": Array [
     Object {
       "id": "testmap",
@@ -32,7 +32,7 @@ Object {
   "electricity": 1,
   "gate": 1,
   "id": "1",
-  "imageFile": "https://venepaikka-api.test.hel.ninja/media/harbors/9a8d8313-eaa2-47d2-8f2d-2bb9893f9bc7/41359.jpg",
+  "imageFile": null,
   "maps": Array [
     Object {
       "id": "testmap",

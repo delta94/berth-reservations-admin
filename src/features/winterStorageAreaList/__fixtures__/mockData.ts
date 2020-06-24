@@ -11,8 +11,7 @@ export const mockData: WINTER_STORAGE_AREAS = {
           id: '0',
           properties: {
             __typename: 'WinterStorageAreaProperties',
-            imageFile:
-              'https://venepaikka-api.test.hel.ninja/media/harbors/9a8d8313-eaa2-47d2-8f2d-2bb9893f9bc7/41359.jpg',
+            imageFile: null,
             maps: [
               {
                 __typename: 'WinterStorageAreaMapType',
@@ -57,8 +56,7 @@ export const mockData: WINTER_STORAGE_AREAS = {
           id: '1',
           properties: {
             __typename: 'WinterStorageAreaProperties',
-            imageFile:
-              'https://venepaikka-api.test.hel.ninja/media/harbors/9a8d8313-eaa2-47d2-8f2d-2bb9893f9bc7/41359.jpg',
+            imageFile: null,
             maps: [
               {
                 __typename: 'WinterStorageAreaMapType',
