@@ -53,14 +53,14 @@ const getBerthValidationSchema = (t: TFunction, pierOptions: Pier[]): ObjectSche
   });
 };
 
-const transformValues = (values: any): Berth => {
+const transformValues = (values: BerthFormValues): Berth => {
   const { number, width, length, depth } = values;
   return {
     ...values,
-    number: parseInt(number),
-    width: parseFloat(replaceCommaWithDot(width)),
-    length: parseFloat(replaceCommaWithDot(length)),
-    depth: parseFloat(replaceCommaWithDot(depth)),
+    number: number,
+    width: width ? parseFloat(replaceCommaWithDot(width)) : undefined,
+    length: length ? parseFloat(replaceCommaWithDot(length)) : undefined,
+    depth: depth ? parseFloat(replaceCommaWithDot(depth)) : undefined,
   };
 };
 

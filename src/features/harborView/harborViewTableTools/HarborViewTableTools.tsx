@@ -6,10 +6,10 @@ import GlobalSearchTableTools from '../../../common/tableTools/globalSearchTable
 import styles from './harborViewTableTools.module.scss';
 
 interface Props {
+  canAddBerth: boolean;
   onAddPier(): void;
   onAddBerth(): void;
   handleGlobalFilter(value?: string): void;
-  canAddBerth: boolean;
 }
 
 const HarborViewTableTools = ({ onAddPier, onAddBerth, handleGlobalFilter, canAddBerth }: Props) => {

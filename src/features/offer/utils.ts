@@ -43,7 +43,7 @@ export const getOfferData = (data: OFFER | undefined): BerthData[] => {
 
   const harborId = data.harborByServicemapId.id;
   const harbor = data.harborByServicemapId.properties.name || '';
-  const allBerths = data.harborByServicemapId.properties.piers.edges.reduce<BerthData[]>((acc, pier) => {
+  return data.harborByServicemapId.properties.piers.edges.reduce<BerthData[]>((acc, pier) => {
     if (!pier?.node?.properties) return acc;
 
     const { properties } = pier.node;
@@ -99,8 +99,6 @@ export const getOfferData = (data: OFFER | undefined): BerthData[] => {
 
     return [...acc, ...berths];
   }, []);
-
-  return allBerths;
 };
 
 interface PierTab {
@@ -172,18 +170,19 @@ export const getHarbor = (data: OFFER | undefined): HarborCardProps | null => {
     return acc;
   }, []);
 
+  const { properties } = data.harborByServicemapId;
   return {
-    imageUrl: data.harborByServicemapId.properties.imageFile,
+    imageUrl: properties.imageFile,
     maps,
-    name: data.harborByServicemapId.properties.name || '',
-    address: `${data.harborByServicemapId.properties.streetAddress} ${data.harborByServicemapId.properties.municipality} ${data.harborByServicemapId.properties.zipCode}`,
-    servicemapId: data.harborByServicemapId.properties.servicemapId || '',
+    name: properties.name || '',
+    address: `${properties.streetAddress} ${properties.municipality} ${properties.zipCode}`,
+    servicemapId: properties.servicemapId || '',
     properties: {
       ...pierProps,
-      queue: data.harborByServicemapId.properties.numberOfPlaces, // TODO
-      numberOfPlaces: data.harborByServicemapId.properties.numberOfPlaces,
-      numberOfFreePlaces: data.harborByServicemapId.properties.numberOfFreePlaces,
-      maxWidth: data.harborByServicemapId.properties.maxWidth || 0,
+      queue: properties.numberOfPlaces, // TODO
+      numberOfPlaces: properties.numberOfPlaces,
+      numberOfFreePlaces: properties.numberOfFreePlaces,
+      maxWidth: properties.maxWidth || 0,
     },
   };
 };

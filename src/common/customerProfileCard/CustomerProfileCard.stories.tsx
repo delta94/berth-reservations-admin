@@ -8,7 +8,7 @@ import { InvoicingType, OrganizationType } from '../../@types/__generated__/glob
 export default {
   component: CustomerProfileCard,
   decorators: [
-    (storyFn: any) => (
+    (storyFn: Function) => (
       <div
         style={{
           padding: '20px',

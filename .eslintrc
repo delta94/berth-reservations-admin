@@ -55,7 +55,9 @@
       "warn",
       {
         "code": 120,
-        "ignorePattern": "d=\"([\\s\\S]*?)\""
+        "ignorePattern":
+          "d=\"([\\s\\S]*?)\"|^import\\W.*"
+
       }
     ],
     "no-console": "warn",

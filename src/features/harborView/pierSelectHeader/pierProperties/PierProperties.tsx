@@ -12,11 +12,11 @@ import Section from '../../../../common/section/Section';
 import Text from '../../../../common/text/Text';
 import { IconFence, IconPlug, IconStreetLight, IconWaterTap } from '../../../../common/icons';
 
-export interface PierProperties {
+export interface PierPropertiesProps {
   pier: Pier;
 }
 
-const PierProperties = ({ pier }: PierProperties) => {
+const PierProperties = ({ pier }: PierPropertiesProps) => {
   const { t } = useTranslation();
 
   return (

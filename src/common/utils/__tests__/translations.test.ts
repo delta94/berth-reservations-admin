@@ -24,7 +24,7 @@ describe('translations', () => {
     });
 
     it('should fallback to the actual value from the backend if there is no match during the runtime', () => {
-      const randomValue: any = 'random';
+      const randomValue = 'random' as PeriodType;
       const tKey = getPeriodTKey(randomValue);
 
       expect(tKey).toBe(randomValue);
@@ -43,7 +43,7 @@ describe('translations', () => {
     });
 
     it('should fallback to the actual value from the backend if there is no match during the runtime', () => {
-      const randomValue: any = 'random';
+      const randomValue = 'random' as ProductServiceType;
       const tKey = getProductServiceTKey(randomValue);
 
       expect(tKey).toBe(randomValue);
@@ -66,7 +66,7 @@ describe('translations', () => {
     });
 
     it('should fallback to the actual value from the backend if there is no match during the runtime', () => {
-      const randomValue: any = 'random';
+      const randomValue = 'random' as AdditionalProductTaxEnum;
       const tKey = getProductTax(randomValue, 'fi');
 
       expect(tKey).toBe(randomValue);
@@ -86,7 +86,7 @@ describe('translations', () => {
     });
 
     it('should fallback to the actual value from the backend if there is no match during the runtime', () => {
-      const randomValue: any = 'random';
+      const randomValue = 'random' as PriceUnits;
       const unit = getPriceUnits(randomValue);
 
       expect(unit).toBe(randomValue);
