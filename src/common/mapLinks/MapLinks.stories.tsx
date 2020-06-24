@@ -1,21 +1,21 @@
 import React from 'react';
 
-import HarborMapLinks from './HarborMapLinks';
+import MapLinks from './MapLinks';
 
 export default {
-  component: HarborMapLinks,
-  title: 'HarborMapLinks',
+  component: MapLinks,
+  title: 'MapLinks',
 };
 
 export const single = () => (
   <div>
-    <HarborMapLinks maps={[{ id: '0', url: 'testurl' }]} />
+    <MapLinks maps={[{ id: '0', url: 'testurl' }]} />
   </div>
 );
 
 export const multiple = () => (
   <div>
-    <HarborMapLinks
+    <MapLinks
       maps={[
         { id: '0', url: 'testurl' },
         { id: '1', url: 'testurl' },

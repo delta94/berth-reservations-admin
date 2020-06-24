@@ -8,7 +8,7 @@ import Section from '../../../common/section/Section';
 import Text from '../../../common/text/Text';
 import { formatDimension } from '../../../common/utils/format';
 import { HarborData } from '../types';
-import HarborMapLinks from '../../../common/harborMapLinks/HarborMapLinks';
+import MapLinks from '../../../common/mapLinks/MapLinks';
 
 export type HarborDetailsProps = {
   imageFile: HarborData['imageFile'];
@@ -48,7 +48,7 @@ const HarborDetails = ({
             {t('common.terminology.serviceMap')}
           </ExternalLink>
         </Section>
-        <HarborMapLinks maps={maps} />
+        <MapLinks maps={maps} />
       </div>
       <div className={styles.column}>
         <Section title={t('common.terminology.maxWidth').toUpperCase()}>
