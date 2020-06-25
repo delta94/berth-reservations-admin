@@ -8,7 +8,7 @@ exports[`WinterStorageAreaDetails renders normally 1`] = `
     class="column"
   >
     <img
-      alt="map"
+      alt="Kuva kohteesta"
       class="image"
       src="placeholderImage.svg"
     />

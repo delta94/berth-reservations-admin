@@ -32,6 +32,7 @@
     "lastName": "Sukunimi",
     "email": "Sähköposti",
     "address": "Osoite",
+    "imageAltText": "Kuva kohteesta",
     "table": {
       "minimizeAll": "Pienennä kaikki",
       "all": "Kaikki",

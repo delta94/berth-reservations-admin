@@ -33,7 +33,7 @@ const WinterStorageAreaDetails = ({
   return (
     <Grid colsCount={4}>
       <div className={styles.column}>
-        <img className={styles.image} src={imageSrc} alt="map" />
+        <img className={styles.image} src={imageSrc} alt={t('common.imageAltText')} />
       </div>
       <div className={styles.column}>
         <Section className={styles.address} title={t('common.terminology.address').toUpperCase()}>

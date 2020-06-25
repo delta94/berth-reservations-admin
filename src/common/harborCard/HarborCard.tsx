@@ -67,7 +67,11 @@ const HarborCard = ({
         <div className={styles.cardBody}>
           <div className={styles.details}>
             <div className={styles.imageWrapper}>
-              <img alt="Harbor's location" src={imageUrl ? imageUrl : placeholderImage} className={styles.image} />
+              <img
+                alt={t('common.imageAltText')}
+                src={imageUrl ? imageUrl : placeholderImage}
+                className={styles.image}
+              />
             </div>
             <div>
               <Section>
