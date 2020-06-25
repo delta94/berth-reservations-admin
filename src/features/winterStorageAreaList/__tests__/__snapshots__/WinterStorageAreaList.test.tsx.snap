@@ -455,7 +455,7 @@ exports[`WinterStorageAreaList renders normally 1`] = `
                 role="cell"
                 style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
               >
-                0
+                5
               </div>
               <div
                 class="tableCell"
@@ -641,7 +641,7 @@ exports[`WinterStorageAreaList renders normally 1`] = `
                 role="cell"
                 style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
               >
-                0
+                5
               </div>
               <div
                 class="tableCell"

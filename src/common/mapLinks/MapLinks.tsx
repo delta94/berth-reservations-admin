@@ -9,11 +9,11 @@ type Map = {
   url: string;
 };
 
-export interface HarborMapLinksProps {
+export interface MapLinksProps {
   maps: Map[];
 }
 
-const HarborMapLinks = ({ maps }: HarborMapLinksProps) => {
+const MapLinks = ({ maps }: MapLinksProps) => {
   const { t } = useTranslation();
 
   if (maps.length === 0) return null;
@@ -30,4 +30,4 @@ const HarborMapLinks = ({ maps }: HarborMapLinksProps) => {
   );
 };
 
-export default HarborMapLinks;
+export default MapLinks;

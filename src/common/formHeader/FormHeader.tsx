@@ -7,8 +7,8 @@ import styles from './formHeader.module.scss';
 interface Props {
   title: string;
   isSubmitting?: boolean;
-  onDelete?(): void;
   onDeleteText?: string;
+  onDelete?(): void;
 }
 
 const FormHeader = ({ title, isSubmitting, onDelete, onDeleteText }: Props) => {

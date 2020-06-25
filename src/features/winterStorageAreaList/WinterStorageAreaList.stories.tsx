@@ -7,7 +7,13 @@ import { mockData } from './__fixtures__/mockData';
 
 export default {
   component: WinterStorageAreaList,
-  decorators: [(storyFn: Function) => <HashRouter>{storyFn()}</HashRouter>],
+  decorators: [
+    (storyFn: Function) => (
+      <div style={{ backgroundColor: '#f1f1f1' }}>
+        <HashRouter>{storyFn()}</HashRouter>
+      </div>
+    ),
+  ],
   title: 'WinterStorageAreaList',
 };
 

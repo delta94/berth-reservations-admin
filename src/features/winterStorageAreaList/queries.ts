@@ -1,18 +1,21 @@
 import gql from 'graphql-tag';
 
-export const WINTER_STORAGE_AREA_QUERY = gql`
+export const WINTER_STORAGE_AREAS_QUERY = gql`
   query WINTER_STORAGE_AREAS {
     winterStorageAreas {
       edges {
         node {
           id
           properties {
+            imageFile
+            maps {
+              id
+              url
+            }
             maxWidth
             municipality
             name
-            streetAddress
-            wwwUrl
-            zipCode
+            numberOfMarkedPlaces
             sections {
               edges {
                 node {
@@ -27,6 +30,10 @@ export const WINTER_STORAGE_AREA_QUERY = gql`
                 }
               }
             }
+            servicemapId
+            streetAddress
+            wwwUrl
+            zipCode
           }
         }
       }

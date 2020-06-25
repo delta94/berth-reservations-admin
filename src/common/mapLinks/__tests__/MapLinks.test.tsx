@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import HarborMapLinks, { HarborMapLinksProps } from '../HarborMapLinks';
+import MapLinks, { MapLinksProps } from '../MapLinks';
 import ExternalLink from '../../externalLink/ExternalLink';
 
-describe('HarborMapLinks', () => {
-  const getWrapper = (props: HarborMapLinksProps) => shallow(<HarborMapLinks {...props} />);
+describe('MapLinks', () => {
+  const getWrapper = (props: MapLinksProps) => shallow(<MapLinks {...props} />);
 
   it('renders "null" if maps is empty', () => {
     const wrapper = getWrapper({ maps: [] });

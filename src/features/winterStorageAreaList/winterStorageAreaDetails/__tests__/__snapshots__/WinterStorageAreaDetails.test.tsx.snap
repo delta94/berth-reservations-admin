@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WinterStorageAreaDetails renders normally 1`] = `
+<div
+  class="grid cols4"
+>
+  <div
+    class="column"
+  >
+    <img
+      alt="Kuva kohteesta"
+      class="image"
+      src="placeholderImage.svg"
+    />
+  </div>
+  <div
+    class="column"
+  >
+    <article
+      class="section address"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        OSOITE
+      </h4>
+      <section
+        class="body"
+      >
+        Pursilahdenranta 1, 00990 Helsinki
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <section
+        class="body"
+      >
+        <a
+          class="link withArrow"
+          href="https://palvelukartta.hel.fi/unit/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Palvelukartta
+          <svg
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv arrow"
+            color="brand"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <path
+                d="M0 24V0h24v24z"
+              />
+              <path
+                d="M13 12.5l-5-5L9.5 6l6.5 6.5L9.5 19 8 17.5z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+        </a>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <section
+        class="body"
+      >
+        <div>
+          <a
+            class="link withArrow"
+            href="testmap"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Satamakartta (PDF)
+            <svg
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv arrow"
+              color="brand"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 24V0h24v24z"
+                />
+                <path
+                  d="M13 12.5l-5-5L9.5 6l6.5 6.5L9.5 19 8 17.5z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          </a>
+        </div>
+      </section>
+    </article>
+  </div>
+  <div
+    class="column"
+  >
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        SUURIN LEVEYS
+      </h4>
+      <section
+        class="body"
+      >
+        <span
+          class="text standard span"
+        >
+          5,0 m
+        </span>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        KIINNITYS
+      </h4>
+      <section
+        class="body"
+      >
+        -
+      </section>
+    </article>
+  </div>
+  <div
+    class="column"
+  >
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        KUNNOSSAPITO
+      </h4>
+      <section
+        class="body"
+      >
+        -
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        SATAMAPÄÄLLIKKÖ
+      </h4>
+      <section
+        class="body"
+      >
+        -
+      </section>
+    </article>
+  </div>
+</div>
+`;

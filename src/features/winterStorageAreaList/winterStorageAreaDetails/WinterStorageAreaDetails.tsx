@@ -1,30 +1,30 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { WinterStorageAreaData } from '../types';
 import Grid from '../../../common/grid/Grid';
-import ExternalLink from '../../../common/externalLink/ExternalLink';
-import styles from './harborDetails.module.scss';
+import styles from '../../harborList/harborDetails/harborDetails.module.scss';
 import Section from '../../../common/section/Section';
+import ExternalLink from '../../../common/externalLink/ExternalLink';
+import MapLinks from '../../../common/mapLinks/MapLinks';
 import Text from '../../../common/text/Text';
 import { formatDimension } from '../../../common/utils/format';
-import { HarborData } from '../types';
-import MapLinks from '../../../common/mapLinks/MapLinks';
 import placeholderImage from '../../../common/placeholderImage.svg';
 
-export type HarborDetailsProps = Pick<
-  HarborData,
+export type WinterStorageAreaDetailsProps = Pick<
+  WinterStorageAreaData,
   'imageFile' | 'maps' | 'maxWidth' | 'municipality' | 'servicemapId' | 'streetAddress' | 'zipCode'
 >;
 
-const HarborDetails = ({
+const WinterStorageAreaDetails = ({
   maps,
-  imageFile,
-  streetAddress,
-  zipCode,
+  maxWidth,
   municipality,
   servicemapId,
-  maxWidth,
-}: HarborDetailsProps) => {
+  streetAddress,
+  zipCode,
+  imageFile,
+}: WinterStorageAreaDetailsProps) => {
   const { t, i18n } = useTranslation();
   const address = `${streetAddress}, ${zipCode} ${municipality}`;
   const imageSrc = imageFile ? imageFile : placeholderImage;
@@ -60,4 +60,4 @@ const HarborDetails = ({
   );
 };
 
-export default HarborDetails;
+export default WinterStorageAreaDetails;
