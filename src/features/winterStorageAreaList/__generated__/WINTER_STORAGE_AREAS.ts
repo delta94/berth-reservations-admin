@@ -45,6 +45,7 @@ export interface WINTER_STORAGE_AREAS_winterStorageAreas_edges_node_properties {
   maxWidth: number | null;
   municipality: string | null;
   name: string | null;
+  numberOfMarkedPlaces: number | null;
   sections: WINTER_STORAGE_AREAS_winterStorageAreas_edges_node_properties_sections;
   servicemapId: string | null;
   streetAddress: string | null;

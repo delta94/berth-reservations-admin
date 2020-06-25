@@ -15,6 +15,7 @@ export const WINTER_STORAGE_AREA_QUERY = gql`
             maxWidth
             municipality
             name
+            numberOfMarkedPlaces
             sections {
               edges {
                 node {

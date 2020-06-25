@@ -51,21 +51,22 @@ export const getWinterStorageAreasData = (data: WINTER_STORAGE_AREAS | undefined
       return acc;
     }, []);
 
+    const { properties: propertiesNode } = winterStorageArea.node;
     return [
       ...acc,
       {
         id: winterStorageArea.node.id,
-        imageFile: winterStorageArea.node.properties.imageFile,
+        imageFile: propertiesNode.imageFile,
         maps,
-        maxWidth: winterStorageArea.node.properties.maxWidth,
-        municipality: winterStorageArea.node.properties.municipality,
-        name: winterStorageArea.node.properties.name || '-',
+        maxWidth: propertiesNode.maxWidth,
+        municipality: propertiesNode.municipality,
+        name: propertiesNode.name || '-',
         numberOfFreePlaces: 0, // TODO
-        numberOfMarkedPlaces: 0, // TODO
-        servicemapId: winterStorageArea.node.properties.servicemapId,
-        streetAddress: winterStorageArea.node.properties.streetAddress,
-        wwwUrl: winterStorageArea.node.properties.wwwUrl,
-        zipCode: winterStorageArea.node.properties.zipCode,
+        numberOfMarkedPlaces: propertiesNode.numberOfMarkedPlaces || 0,
+        servicemapId: propertiesNode.servicemapId,
+        streetAddress: propertiesNode.streetAddress,
+        wwwUrl: propertiesNode.wwwUrl,
+        zipCode: propertiesNode.zipCode,
         ...properties,
       },
     ];
