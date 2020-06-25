@@ -9,6 +9,7 @@ import { IconDollyEmpty, IconFence, IconPlug, IconTrestle, IconWaterTap } from '
 import PageContent from '../../common/pageContent/PageContent';
 import Pagination from '../../common/pagination/Pagination';
 import GlobalSearchTableTools from '../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';
+import InternalLink from '../../common/internalLink/InternalLink';
 
 type ColumnType = Column<WinterStorageAreaData> & { accessor: keyof WinterStorageAreaData };
 
@@ -22,6 +23,9 @@ const WinterStorageAreaList = ({ data, loading }: WinterStorageAreaListProps) =>
 
   const columns: ColumnType[] = [
     {
+      Cell: ({ cell }) => (
+        <InternalLink to={`/winter-storage-areas/${cell.row.original.id}`}>{cell.value}</InternalLink>
+      ),
       Header: t('winterStorageAreaList.tableHeaders.name') || '',
       accessor: 'name',
       width: COLUMN_WIDTH.S,
