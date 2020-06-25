@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import { TFunction } from 'i18next';
 import { ObjectSchema } from 'yup';
 import { useTranslation } from 'react-i18next';
-import { TextInput, Checkbox } from 'hds-react';
+import { TextInput } from 'hds-react';
 
 import Text from '../../../../common/text/Text';
 import styles from './pierForm.module.scss';
@@ -12,6 +12,7 @@ import { BoatType, FormProps, Pier } from '../types';
 import Grid from '../../../../common/grid/Grid';
 import FormHeader from '../../../../common/formHeader/FormHeader';
 import ConfirmationModal from '../../../../common/confirmationModal/ConfirmationModal';
+import Checkbox from '../../../../common/checkbox/Checkbox';
 import Button from '../../../../common/button/Button';
 
 interface PierFormProps extends FormProps<Pier> {

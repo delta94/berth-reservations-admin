@@ -364,7 +364,7 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
                 style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
               >
                 <div
-                  class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz"
+                  class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz checkbox"
                   style="cursor: pointer;"
                 >
                   <input
@@ -430,7 +430,7 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
                   style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
                 >
                   <div
-                    class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz"
+                    class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz checkbox"
                     style="cursor: pointer;"
                   >
                     <input
