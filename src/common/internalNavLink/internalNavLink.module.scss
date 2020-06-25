@@ -3,7 +3,7 @@
 @import 'fonts';
 
 .internalNavLink {
-  --vene-internal-link-color: #{$gray-700};
+  --vene-internal-link-color: #{$black-70};
 
   display: flex;
   align-items: center;
@@ -13,11 +13,11 @@
   color: var(--vene-internal-link-color);
 
   &:hover {
-    background-color: $gray-50;
+    background-color: $black-5;
   }
 
   &.isActive {
-    background-color: $gray-100;
+    background-color: $black-10;
     font-weight: 500;
   }
 }
@@ -36,13 +36,13 @@
 }
 
 .brand {
-  --vene-internal-link-color: #{$blue-500};
+  --vene-internal-link-color: #{$blue};
 }
 
 .critical {
-  --vene-internal-link-color: #{$red-500};
+  --vene-internal-link-color: #{$error};
 }
 
 .secondary {
-  --vene-internal-link-color: #{$gray-600};
+  --vene-internal-link-color: #{$black-60};
 }

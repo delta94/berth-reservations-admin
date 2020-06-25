@@ -23,7 +23,7 @@
   display: inline-block;
   padding: units(1) 0;
   vertical-align: middle;
-  color: $blue-500;
+  color: $blue;
   font-weight: 500;
   cursor: pointer;
 }
@@ -42,20 +42,20 @@
   text-align: center;
 
   &:hover {
-    background-color: $gray-100;
+    background-color: $black-10;
   }
 
   &.active {
-    background-color: $blue-100;
+    background-color: $blue-light-20;
   }
 }
 
 .disabled .navLink {
-  color: $gray-500;
+  color: $black-50;
   pointer-events: none;
 
   svg {
-    fill: $gray-500;
+    fill: $black-50;
   }
 }
 

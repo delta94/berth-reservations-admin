@@ -1,9 +1,10 @@
-// Variables from HDS
+@import 'colours';
+
 .checkbox {
   line-height: var(--lineheight-l);
-  --background-selected: var(--color-coat-of-arms-blue);
-  --background-hover: var(--color-coat-of-arms-blue-dark-50);
-  --border-color-selected: var(--color-coat-of-arms-blue);
-  --border-color-selected-hover: var(--color-coat-of-arms-blue-dark-50);
-  --border-color-selected-focus: var(--color-coat-of-arms-blue);
+  --background-selected: #{$blue};
+  --background-hover: #{$blue-dark-50};
+  --border-color-selected: #{$blue};
+  --border-color-selected-hover: #{$blue-dark-50};
+  --border-color-selected-focus: #{$blue};
 }

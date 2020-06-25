@@ -13,7 +13,7 @@
 }
 
 .brand {
-  --icon-stroke-color: #{$blue-500};
+  --icon-stroke-color: #{$blue};
 }
 
 .standard {
@@ -22,9 +22,9 @@
 
 .disabled,
 .secondary {
-  --icon-stroke-color: #{$gray-200};
+  --icon-stroke-color: #{$black-20};
 }
 
 .critical {
-  --icon-stroke-color: #{$red-500};
+  --icon-stroke-color: #{$error};
 }

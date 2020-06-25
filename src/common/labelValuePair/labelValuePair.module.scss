@@ -29,13 +29,13 @@
 }
 
 .brand {
-  --vene-text-color: #{$blue-500};
+  --vene-text-color: #{$blue};
 }
 
 .critical {
-  --vene-text-color: #{$red-500};
+  --vene-text-color: #{$error};
 }
 
 .secondary {
-  --vene-text-color: #{$gray-200};
+  --vene-text-color: #{$black-20};
 }
