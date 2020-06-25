@@ -11,15 +11,10 @@ import Text from '../../../common/text/Text';
 import { formatDimension } from '../../../common/utils/format';
 import placeholderImage from '../../../common/placeholderImage.svg';
 
-export type WinterStorageAreaDetailsProps = {
-  imageFile: WinterStorageAreaData['imageFile'];
-  maps: WinterStorageAreaData['maps'];
-  maxWidth: WinterStorageAreaData['maxWidth'];
-  municipality: WinterStorageAreaData['municipality'];
-  servicemapId: WinterStorageAreaData['servicemapId'];
-  streetAddress: WinterStorageAreaData['streetAddress'];
-  zipCode: WinterStorageAreaData['zipCode'];
-};
+export type WinterStorageAreaDetailsProps = Pick<
+  WinterStorageAreaData,
+  'imageFile' | 'maps' | 'maxWidth' | 'municipality' | 'servicemapId' | 'streetAddress' | 'zipCode'
+>;
 
 const WinterStorageAreaDetails = ({
   maps,

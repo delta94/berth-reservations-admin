@@ -11,15 +11,10 @@ import { HarborData } from '../types';
 import MapLinks from '../../../common/mapLinks/MapLinks';
 import placeholderImage from '../../../common/placeholderImage.svg';
 
-export type HarborDetailsProps = {
-  imageFile: HarborData['imageFile'];
-  maps: HarborData['maps'];
-  maxWidth: HarborData['maxWidth'];
-  municipality: HarborData['municipality'];
-  servicemapId: HarborData['servicemapId'];
-  streetAddress: HarborData['streetAddress'];
-  zipCode: HarborData['zipCode'];
-};
+export type HarborDetailsProps = Pick<
+  HarborData,
+  'imageFile' | 'maps' | 'maxWidth' | 'municipality' | 'servicemapId' | 'streetAddress' | 'zipCode'
+>;
 
 const HarborDetails = ({
   maps,
