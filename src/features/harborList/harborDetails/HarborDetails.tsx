@@ -50,11 +50,11 @@ const HarborDetails = ({
         <Section title={t('common.terminology.maxWidth').toUpperCase()}>
           <Text>{formatDimension(maxWidth, i18n.language)}</Text>
         </Section>
-        <Section title={t('common.terminology.mooring').toUpperCase()}>-</Section>
+        <Section title={t('common.terminology.mooring').toUpperCase()}>-{/* TODO */}</Section>
       </div>
       <div className={styles.column}>
-        <Section title={t('common.terminology.maintenance').toUpperCase()}>-</Section>
-        <Section title={t('common.terminology.harborChief').toUpperCase()}>-</Section>
+        <Section title={t('common.terminology.maintenance').toUpperCase()}>-{/* TODO */}</Section>
+        <Section title={t('common.terminology.harborChief').toUpperCase()}>-{/* TODO */}</Section>
       </div>
     </Grid>
   );
