@@ -39,7 +39,7 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
               <img
                 alt="Talvisäilytyspaikan sijainti"
                 class="image"
-                src="winterStorageAreaPlaceholder.svg"
+                src="placeholderImage.svg"
               />
             </div>
             <div>
@@ -121,7 +121,7 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
               </span>
             </div>
             <div
-              class="property"
+              class="property wordBreak"
             >
               <div
                 class="iconWrapper secondary outlined"
@@ -145,7 +145,7 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
               </span>
             </div>
             <div
-              class="property"
+              class="property wordBreak"
             >
               <div
                 class="iconWrapper secondary outlined"
@@ -169,7 +169,7 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
               </span>
             </div>
             <div
-              class="property"
+              class="property wordBreak"
             >
               <div
                 class="iconWrapper secondary outlined"
@@ -193,7 +193,7 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
               </span>
             </div>
             <div
-              class="property"
+              class="property wordBreak"
             >
               <div
                 class="iconWrapper secondary outlined"
@@ -248,7 +248,7 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
               </span>
             </div>
             <div
-              class="property"
+              class="property wordBreak"
             >
               <div
                 class="iconWrapper secondary outlined"
@@ -272,7 +272,7 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
               </span>
             </div>
             <div
-              class="property"
+              class="property wordBreak"
             >
               <div
                 class="iconWrapper secondary outlined"
@@ -292,7 +292,7 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
               <span
                 class="text secondary span s bold label"
               >
-                Telakointitarvikkeiden kesäsäilytys
+                Telakointi­tarvikkeiden kesäsäilytys
               </span>
             </div>
           </div>
