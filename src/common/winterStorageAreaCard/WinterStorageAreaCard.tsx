@@ -84,23 +84,37 @@ const WinterStorageAreaCard = ({
               icon={IconPlug}
               label={t(getProductServiceTKey(ProductServiceType.ELECTRICITY))}
               active={electricity}
+              className={styles.wordBreak}
             />
-            <Property icon={IconFence} label={t(getProductServiceTKey(ProductServiceType.GATE))} active={gate} />
-            <Property icon={IconWaterTap} label={t(getProductServiceTKey(ProductServiceType.WATER))} active={water} />
+            <Property
+              icon={IconFence}
+              label={t(getProductServiceTKey(ProductServiceType.GATE))}
+              active={gate}
+              className={styles.wordBreak}
+            />
+            <Property
+              icon={IconWaterTap}
+              label={t(getProductServiceTKey(ProductServiceType.WATER))}
+              active={water}
+              className={styles.wordBreak}
+            />
             <Property
               icon={IconBoat}
               label={t('common.terminology.boatSummerStorage')}
               active={summerStorageForBoats}
+              className={styles.wordBreak}
             />
             <Property
               icon={IconDollyEmpty}
               label={t(getProductServiceTKey(ProductServiceType.SUMMER_STORAGE_FOR_TRAILERS))}
               active={summerStorageForTrailers}
+              className={styles.wordBreak}
             />
             <Property
               icon={IconTrestle}
               label={t(getProductServiceTKey(ProductServiceType.SUMMER_STORAGE_FOR_DOCKING_EQUIPMENT))}
               active={summerStorageForDockingEquipment}
+              className={styles.wordBreak}
             />
           </Grid>
         </div>
