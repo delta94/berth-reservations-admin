@@ -1,5 +1,6 @@
 import { WinterStorageAreaData } from './types';
 import { WINTER_STORAGE_AREAS } from './__generated__/WINTER_STORAGE_AREAS';
+import { Map } from '../harborList/types';
 
 interface WinterStorageProperties {
   electricity: number;
@@ -40,18 +41,32 @@ export const getWinterStorageAreasData = (data: WINTER_STORAGE_AREAS | undefined
       }
     );
 
+    const maps: Map[] = winterStorageArea.node.properties.maps.reduce<Map[]>((acc, map) => {
+      if (map !== null) {
+        return acc.concat({
+          id: map.id,
+          url: map.url,
+        });
+      }
+      return acc;
+    }, []);
+
+    const { properties: propertiesNode } = winterStorageArea.node;
     return [
       ...acc,
       {
         id: winterStorageArea.node.id,
-        maxWidth: winterStorageArea.node.properties.maxWidth,
-        municipality: winterStorageArea.node.properties.municipality,
-        name: winterStorageArea.node.properties.name || '-',
+        imageFile: propertiesNode.imageFile,
+        maps,
+        maxWidth: propertiesNode.maxWidth,
+        municipality: propertiesNode.municipality,
+        name: propertiesNode.name || '-',
         numberOfFreePlaces: 0, // TODO
-        numberOfMarkedPlaces: 0, // TODO
-        streetAddress: winterStorageArea.node.properties.streetAddress,
-        wwwUrl: winterStorageArea.node.properties.wwwUrl,
-        zipCode: winterStorageArea.node.properties.zipCode,
+        numberOfMarkedPlaces: propertiesNode.numberOfMarkedPlaces || 0,
+        servicemapId: propertiesNode.servicemapId,
+        streetAddress: propertiesNode.streetAddress,
+        wwwUrl: propertiesNode.wwwUrl,
+        zipCode: propertiesNode.zipCode,
         ...properties,
       },
     ];

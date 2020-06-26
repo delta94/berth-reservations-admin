@@ -16,7 +16,7 @@ describe('HarborCard', () => {
   describe('"imageUrl" prop', () => {
     it('if null, image should be placeholder', () => {
       const wrapper = getWrapper({ imageUrl: null });
-      expect(wrapper.find('img').prop('src')).toEqual('harborPlaceholder.svg');
+      expect(wrapper.find('img').prop('src')).toEqual('placeholderImage.svg');
     });
 
     it('if string, image should be defined', () => {

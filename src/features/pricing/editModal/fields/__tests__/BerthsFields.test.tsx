@@ -6,16 +6,16 @@ import BerthsFields from '../BerthsFields';
 import { PeriodType } from '../../../../../@types/__generated__/globalTypes';
 import { BerthPrice } from '../../../berthPricing/BerthPricing';
 
-describe('BerthsFields', () => {
-  const mockValues: BerthPrice = {
-    id: '1870f0d4-fa63-48a8-8e8e-5d0a9df7e88b',
-    name: '2 m',
-    privateCustomer: 116,
-    company: 232,
-    period: PeriodType.SEASON,
-    productId: '9518ddd2-28d9-4b62-b5db-a9605bff9b4d',
-  };
+const mockValues: BerthPrice = {
+  id: '1870f0d4-fa63-48a8-8e8e-5d0a9df7e88b',
+  name: '2 m',
+  privateCustomer: 116,
+  company: 232,
+  period: PeriodType.SEASON,
+  productId: '9518ddd2-28d9-4b62-b5db-a9605bff9b4d',
+};
 
+describe('BerthsFields', () => {
   const getWrapper = () =>
     mount(
       <Formik initialValues={mockValues} onSubmit={jest.fn()} validate={jest.fn()}>

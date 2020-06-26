@@ -8,6 +8,7 @@ import IconWrapper from '../../common/iconWrapper/IconWrapper';
 import { IconDollyEmpty, IconFence, IconPlug, IconTrestle, IconWaterTap } from '../../common/icons';
 import PageContent from '../../common/pageContent/PageContent';
 import Pagination from '../../common/pagination/Pagination';
+import WinterStorageAreaDetails from './winterStorageAreaDetails/WinterStorageAreaDetails';
 import GlobalSearchTableTools from '../../common/tableTools/globalSearchTableTools/GlobalSearchTableTools';
 import InternalLink from '../../common/internalLink/InternalLink';
 
@@ -89,7 +90,7 @@ const WinterStorageAreaList = ({ data, loading }: WinterStorageAreaListProps) =>
             onPageChange={({ selected }) => goToPage(selected)}
           />
         )}
-        renderSubComponent={() => <div>Placeholder</div>}
+        renderSubComponent={(row) => <WinterStorageAreaDetails {...row.original} />}
         renderTableToolsTop={(_, setters) => <GlobalSearchTableTools handleGlobalFilter={setters.setGlobalFilter} />}
       />
     </PageContent>

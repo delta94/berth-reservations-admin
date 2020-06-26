@@ -54,13 +54,20 @@ const additionalServicesData: AdditionalService = {
 };
 
 describe('EditForm', () => {
-  const mockProps: Pick<EditPricingFormProps<any>, 'closeModal' | 'onSubmit'> = {
+  const mockProps: Pick<
+    EditPricingFormProps<BerthPrice | WinterStoragePrice | HarborService | AdditionalService>,
+    'closeModal' | 'onSubmit'
+  > = {
     onSubmit: jest.fn(),
     closeModal: jest.fn(),
   };
 
-  const getWrapper = (props: Pick<EditPricingFormProps<any>, 'initialValues' | 'formType'>) =>
-    mount(<EditForm {...mockProps} {...props} />);
+  const getWrapper = (
+    props: Pick<
+      EditPricingFormProps<BerthPrice | WinterStoragePrice | HarborService | AdditionalService>,
+      'initialValues' | 'formType'
+    >
+  ) => mount(<EditForm {...mockProps} {...props} />);
 
   // [name, component, data, formType]
   const cases: [

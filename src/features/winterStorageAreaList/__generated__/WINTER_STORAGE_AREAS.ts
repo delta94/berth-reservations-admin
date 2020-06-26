@@ -7,6 +7,12 @@
 // GraphQL query operation: WINTER_STORAGE_AREAS
 // ====================================================
 
+export interface WINTER_STORAGE_AREAS_winterStorageAreas_edges_node_properties_maps {
+  __typename: "WinterStorageAreaMapType";
+  id: any;
+  url: string;
+}
+
 export interface WINTER_STORAGE_AREAS_winterStorageAreas_edges_node_properties_sections_edges_node_properties {
   __typename: "WinterStorageSectionProperties";
   electricity: boolean;
@@ -34,13 +40,17 @@ export interface WINTER_STORAGE_AREAS_winterStorageAreas_edges_node_properties_s
 
 export interface WINTER_STORAGE_AREAS_winterStorageAreas_edges_node_properties {
   __typename: "WinterStorageAreaProperties";
+  imageFile: string | null;
+  maps: (WINTER_STORAGE_AREAS_winterStorageAreas_edges_node_properties_maps | null)[];
   maxWidth: number | null;
   municipality: string | null;
   name: string | null;
+  numberOfMarkedPlaces: number | null;
+  sections: WINTER_STORAGE_AREAS_winterStorageAreas_edges_node_properties_sections;
+  servicemapId: string | null;
   streetAddress: string | null;
   wwwUrl: string;
   zipCode: string;
-  sections: WINTER_STORAGE_AREAS_winterStorageAreas_edges_node_properties_sections;
 }
 
 export interface WINTER_STORAGE_AREAS_winterStorageAreas_edges_node {

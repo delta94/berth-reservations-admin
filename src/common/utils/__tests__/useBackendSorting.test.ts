@@ -15,16 +15,20 @@ describe('useBackendSorting', () => {
       expect(result.current.orderBy).toBe('firstName');
     });
 
-    it('should set "orderBy" to the corresponding value in "colIdOrderByMap" prefixed with "-" for descending order', () => {
-      const { result } = renderHook(() => useBackendSorting());
+    it(
+      'should set "orderBy" to the corresponding value in "colIdOrderByMap" ' +
+        'prefixed with "-" for descending order',
+      () => {
+        const { result } = renderHook(() => useBackendSorting());
 
-      const colIdOrderByMap = { name: 'firstName' };
-      const onSortedColChange = result.current.handleSortedColChange(colIdOrderByMap);
+        const colIdOrderByMap = { name: 'firstName' };
+        const onSortedColChange = result.current.handleSortedColChange(colIdOrderByMap);
 
-      act(() => onSortedColChange({ id: 'name', desc: true }));
+        act(() => onSortedColChange({ id: 'name', desc: true }));
 
-      expect(result.current.orderBy).toBe('-firstName');
-    });
+        expect(result.current.orderBy).toBe('-firstName');
+      }
+    );
 
     it('should set "orderBy" to undefined if there is no corresponding value in "colIdOrderByMap"', () => {
       const { result } = renderHook(() => useBackendSorting());

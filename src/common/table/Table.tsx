@@ -104,7 +104,7 @@ const Table = <D extends { id: string }>({
 
   const selectorCol: Column<D> = React.useMemo(
     () => ({
-      Cell: ({ row }: { row: any }) => {
+      Cell: ({ row }: { row: Row }) => {
         const { title, style, checked, onChange } = row.getToggleRowSelectedProps();
         return <Checkbox id={'checkbox-' + row.id} title={title} style={style} checked={checked} onChange={onChange} />;
       },
@@ -124,7 +124,7 @@ const Table = <D extends { id: string }>({
         toggleAllRowsSelected,
         toggleRowSelected,
       }: {
-        row: any;
+        row: Row;
         toggleAllRowsSelected: (selected: boolean) => void;
         toggleRowSelected: (rowId: string) => void;
       }) => {
@@ -149,7 +149,7 @@ const Table = <D extends { id: string }>({
 
   const expanderCol: Column<D> = React.useMemo(
     () => ({
-      Cell: ({ row }: { row: any }) => (
+      Cell: ({ row }: { row: Row }) => (
         <div {...row.getToggleRowExpandedProps()}>
           <IconAngleDown
             size="m"
