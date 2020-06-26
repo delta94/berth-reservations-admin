@@ -7,10 +7,10 @@ import styles from '../harborCard/harborCard.module.scss';
 import CardHeader from '../cardHeader/CardHeader';
 import Text from '../text/Text';
 import CardBody from '../cardBody/CardBody';
-import placeholder from './winterStorageAreaPlaceholder.svg';
+import placeholder from '../placeholderImage.svg';
 import Section from '../section/Section';
 import ExternalLink from '../externalLink/ExternalLink';
-import HarborMapLinks from '../harborMapLinks/HarborMapLinks';
+import MapLinks from '../mapLinks/MapLinks';
 import Grid from '../grid/Grid';
 import Property from '../property/Property';
 import { IconDollyEmpty, IconFence, IconPlug, IconTrestle, IconWaterTap, IconBoat } from '../icons';
@@ -69,7 +69,7 @@ const WinterStorageAreaCard = ({
                   {t('common.terminology.serviceMap')}
                 </ExternalLink>
               </Section>
-              <HarborMapLinks maps={maps} />
+              <MapLinks maps={maps} />
             </div>
           </div>
           <Grid colsCount={6} className={styles.propsGrid}>
