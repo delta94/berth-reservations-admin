@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import { Button, IconAngleDown } from 'hds-react';
+import { IconAngleDown } from 'hds-react';
 
 import styles from './expandable.module.scss';
+import Button from '../button/Button';
 
 export interface ExpandableProps {
   children: React.ReactNode;
@@ -29,7 +30,7 @@ const Expandable = ({ label, onClick, children }: ExpandableProps) => {
               [styles.up]: expanded,
             })}
           >
-            <Button variant="secondary" theme="coat" onClick={() => setExpanded(!expanded)}>
+            <Button variant="secondary" onClick={() => setExpanded(!expanded)}>
               <IconAngleDown />
             </Button>
           </div>

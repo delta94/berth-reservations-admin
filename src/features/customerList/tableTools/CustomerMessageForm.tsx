@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Formik } from 'formik';
-import { Button, TextArea, TextInput } from 'hds-react';
+import { TextArea, TextInput } from 'hds-react';
 import { TFunction } from 'i18next';
 import * as Yup from 'yup';
 import { ObjectSchema } from 'yup';
@@ -10,6 +10,7 @@ import { MessageFormValues, MessageTemplate } from '../types';
 import Text from '../../../common/text/Text';
 import styles from './customerMessageForm.module.scss';
 import Select from '../../../common/select/Select';
+import Button from '../../../common/button/Button';
 
 type CustomerMessageFormProps = {
   closeModal: () => void;
@@ -90,16 +91,14 @@ export const CustomerMessageForm = ({ closeModal, handleSendMessage }: CustomerM
               helperText={errors.message || t('customerList.message.messageHelperText')}
             />
             <div className={styles.formActionButtons}>
-              <Button variant="secondary" theme="coat" onClick={closeModal}>
+              <Button variant="secondary" onClick={closeModal}>
                 {t('common.cancel')}
               </Button>
               <div className={styles.formActionButtonsRight}>
-                <Button variant="secondary" theme="coat" onClick={closeModal}>
+                <Button variant="secondary" onClick={closeModal}>
                   {t('customerList.message.preview')}
                 </Button>
-                <Button theme="coat" type="submit">
-                  {t('customerList.message.send')}
-                </Button>
+                <Button type="submit">{t('customerList.message.send')}</Button>
               </div>
             </div>
           </form>

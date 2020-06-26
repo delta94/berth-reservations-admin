@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, TextInput } from 'hds-react';
+import { TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
@@ -18,6 +18,7 @@ import { UPDATE_HARBOR_MUTATION } from './mutations';
 import { UPDATE_HARBOR, UPDATE_HARBORVariables as UPDATE_HARBOR_VARS } from './__generated__/UPDATE_HARBOR';
 import { HARBOR_FORM } from './__generated__/HARBOR_FORM';
 import FileList, { PersistedFile } from '../../../../common/fileList/FileList';
+import Button from '../../../../common/button/Button';
 
 export interface Props extends FormProps<Harbor> {
   harborId: string;
@@ -192,10 +193,10 @@ const HarborEditForm = ({ harborId, onCancel, onSubmit, refetchQueries }: Props)
           </Section>
 
           <div className={styles.formActionButtons}>
-            <Button variant="secondary" theme="coat" onClick={onCancel}>
+            <Button variant="secondary" onClick={onCancel}>
               {t('common.cancel')}
             </Button>
-            <Button theme="coat" type="submit" disabled={isSubmitting}>
+            <Button type="submit" disabled={isSubmitting}>
               {t('common.save')}
             </Button>
           </div>

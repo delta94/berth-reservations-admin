@@ -1,8 +1,8 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { Button } from 'hds-react';
 
 import Expandable from './Expandable';
+import Button from '../button/Button';
 
 export default {
   component: Expandable,

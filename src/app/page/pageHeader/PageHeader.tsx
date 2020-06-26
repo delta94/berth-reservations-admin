@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Button, IconShare, IconAngleRight, IconUser } from 'hds-react';
+import { IconShare, IconAngleRight, IconUser } from 'hds-react';
 
 import Header from '../../../common/header/Header';
 import HelsinkiLogo from '../../../common/helsinkiLogo/HelsinkiLogo';
@@ -12,6 +12,7 @@ import { useCurrentUser } from '../../../features/auth/hooks';
 import authService from '../../../features/auth/authService';
 import Text from '../../../common/text/Text';
 import styles from './pageHeader.module.scss';
+import Button from '../../../common/button/Button';
 
 const PageHeader = () => {
   const { t } = useTranslation();
@@ -28,7 +29,7 @@ const PageHeader = () => {
       </Link>
       <Dropdown
         label={
-          <Button variant="primary" theme="coat" iconLeft={<IconUser />}>
+          <Button variant="primary" iconLeft={<IconUser />}>
             {fullName}
           </Button>
         }
@@ -38,7 +39,6 @@ const PageHeader = () => {
             <Button
               onClick={authService.logout}
               variant="secondary"
-              theme="coat"
               iconLeft={<IconShare />}
               iconRight={<IconAngleRight />}
             >

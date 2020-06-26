@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
-import { Button, IconCross } from 'hds-react';
+import { IconCross } from 'hds-react';
 
 import styles from './fileUpload.module.scss';
 import Text from '../text/Text';
@@ -9,6 +9,7 @@ import List from '../list/List';
 import { formatBytes } from '../utils/format';
 import InputWrapper, { InputWrapperProps } from '../inputWrapper/InputWrapper';
 import IconWrapper from '../iconWrapper/IconWrapper';
+import Button from '../button/Button';
 
 type SharedProps = InputWrapperProps &
   Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> & {
@@ -128,13 +129,7 @@ const FileUpload = (props: FileUploadProps) => {
             multiple={multiple}
             onChange={handleChange}
           />
-          <Button
-            variant="secondary"
-            theme="coat"
-            size="small"
-            disabled={disabled}
-            onClick={() => inputRef.current.click()}
-          >
+          <Button variant="secondary" size="small" disabled={disabled} onClick={() => inputRef.current.click()}>
             {buttonLabel || `${multiple ? t('common.add') : t('common.select')}...`}
           </Button>
         </div>

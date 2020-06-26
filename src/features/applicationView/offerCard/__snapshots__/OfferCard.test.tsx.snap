@@ -513,7 +513,7 @@ exports[`OfferCard renders normally 1`] = `
       </div>
       <div>
         <button
-          class="Button-module_button__3wgee button_hds-button__2A0je Button-module_supplementary__3Epn- button_hds-button--supplementary__GcHcV button"
+          class="Button-module_button__3wgee button_hds-button__2A0je Button-module_supplementary__3Epn- button_hds-button--supplementary__GcHcV Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0 button"
           disabled=""
           type="button"
         >
@@ -524,7 +524,7 @@ exports[`OfferCard renders normally 1`] = `
           </span>
         </button>
         <button
-          class="Button-module_button__3wgee button_hds-button__2A0je Button-module_supplementary__3Epn- button_hds-button--supplementary__GcHcV button"
+          class="Button-module_button__3wgee button_hds-button__2A0je Button-module_supplementary__3Epn- button_hds-button--supplementary__GcHcV Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0 button"
           disabled=""
           type="button"
         >

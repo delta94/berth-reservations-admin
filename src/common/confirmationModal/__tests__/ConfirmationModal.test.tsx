@@ -17,6 +17,6 @@ describe('ConfirmationModal', () => {
         onConfirm={jest.fn}
       />
     );
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

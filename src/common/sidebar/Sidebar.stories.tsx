@@ -1,9 +1,9 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { Button } from 'hds-react';
 
 import Sidebar from './Sidebar';
 import Expandable from '../expandable/Expandable';
+import Button from '../button/Button';
 
 export default {
   component: Sidebar,

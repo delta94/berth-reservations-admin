@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, IconTrash } from 'hds-react';
+import { IconTrash } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 
 import Card from '../../../common/card/Card';
@@ -14,6 +14,7 @@ import { formatDimension } from '../../../common/utils/format';
 import { BerthMooringType } from '../../../@types/__generated__/globalTypes';
 import Property from '../../../common/property/Property';
 import { IconFence, IconPlug, IconProps, IconStreetLight, IconWaterTap } from '../../../common/icons';
+import Button from '../../../common/button/Button';
 
 export interface OfferCardProps {
   leaseDetails: {
@@ -162,7 +163,7 @@ const OfferCard = ({
         <hr />
         <div className={styles.buttonRow}>
           <div>
-            <Button className={styles.alignLeft} theme="coat" disabled>
+            <Button className={styles.alignLeft} disabled>
               {t('offer.billing.acceptAndSend')}
             </Button>
           </div>
@@ -173,7 +174,7 @@ const OfferCard = ({
             <Button variant="supplementary" className={styles.button} disabled>
               {t('offer.billing.showContract')}
             </Button>
-            <Button variant="secondary" theme="coat" className={styles.button} onClick={() => handleDeleteLease(id)}>
+            <Button variant="secondary" className={styles.button} onClick={() => handleDeleteLease(id)}>
               {t('offer.billing.removeOffer')}
             </Button>
           </div>

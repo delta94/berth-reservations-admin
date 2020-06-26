@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'hds-react';
 
 import Card from '../../../common/card/Card';
 import CardHeader from '../../../common/cardHeader/CardHeader';
@@ -8,6 +7,7 @@ import CardBody from '../../../common/cardBody/CardBody';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 import Section from '../../../common/section/Section';
 import styles from './billsCard.module.scss';
+import Button from '../../../common/button/Button';
 
 export interface BillsCardProps {
   berthPlace: string;
@@ -54,7 +54,7 @@ const BillsCard = ({
     <Card>
       <CardHeader title={t('customerView.customerBill.title')} />
       <CardBody>
-        <Button variant="secondary" theme="coat" onClick={handleShowBill} className={styles.button}>
+        <Button variant="secondary" onClick={handleShowBill} className={styles.button}>
           {t('customerView.customerBill.showInvoice')}
         </Button>
         <Section title={t('customerView.customerBill.berthRental')}>

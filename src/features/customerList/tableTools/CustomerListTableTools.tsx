@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import { Button, TextInput } from 'hds-react';
+import { TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 
 import Select from '../../../common/select/Select';
@@ -9,6 +9,7 @@ import Modal from '../../../common/modal/Modal';
 import Text from '../../../common/text/Text';
 import { CustomerMessageForm } from './CustomerMessageForm';
 import { MessageFormValues } from '../types';
+import Button from '../../../common/button/Button';
 
 export interface CustomerListTableToolsProps<T> {
   className?: string;
@@ -39,12 +40,7 @@ const CustomerListTableTools = <T extends string>({
   return (
     <div className={classNames(styles.tableTools, className)}>
       <div className={styles.tableToolsLeft}>
-        <Button
-          onClick={() => setMessageModalOpen(true)}
-          variant="secondary"
-          theme="coat"
-          disabled={selectedRowsCount <= 0}
-        >
+        <Button onClick={() => setMessageModalOpen(true)} variant="secondary" disabled={selectedRowsCount <= 0}>
           {selectedRowsCount <= 0 ? t('customerList.message.selectRows') : t('customerList.message.new')}
         </Button>
         {selectedRowsCount > 0 && (

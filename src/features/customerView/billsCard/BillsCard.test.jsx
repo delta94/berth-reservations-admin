@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Button } from 'hds-react';
 
+import Button from '../../../common/button/Button';
 import BillsCard from './BillsCard';
 
 const mockProps = {

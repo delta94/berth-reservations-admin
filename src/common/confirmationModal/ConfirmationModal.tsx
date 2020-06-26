@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button } from 'hds-react';
 
 import Modal from '../modal/Modal';
 import Text from '../text/Text';
 import styles from './confirmationModal.module.scss';
+import Button from '../button/Button';
 
 interface ConfirmationModalProps {
   isOpen: boolean;
@@ -42,7 +42,7 @@ const ConfirmationModal = ({
         )}
       </div>
       <div className={styles.actionButtons}>
-        <Button variant="secondary" theme="coat" onClick={onCancel} type="button">
+        <Button variant="secondary" onClick={onCancel} type="button">
           {onCancelText}
         </Button>
         <Button variant="danger" onClick={onConfirm} type="button">

@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import { TFunction } from 'i18next';
 import { ObjectSchema } from 'yup';
 import { useTranslation } from 'react-i18next';
-import { TextInput, Button, Checkbox } from 'hds-react';
+import { TextInput, Checkbox } from 'hds-react';
 
 import Text from '../../../../common/text/Text';
 import styles from './pierForm.module.scss';
@@ -12,6 +12,7 @@ import { BoatType, FormProps, Pier } from '../types';
 import Grid from '../../../../common/grid/Grid';
 import FormHeader from '../../../../common/formHeader/FormHeader';
 import ConfirmationModal from '../../../../common/confirmationModal/ConfirmationModal';
+import Button from '../../../../common/button/Button';
 
 interface PierFormProps extends FormProps<Pier> {
   suitableBoatTypeOptions: BoatType[];
@@ -133,10 +134,10 @@ const PierForm = ({
           />
 
           <div className={styles.formActionButtons}>
-            <Button variant="secondary" theme="coat" disabled={isSubmitting} onClick={onCancel}>
+            <Button variant="secondary" disabled={isSubmitting} onClick={onCancel}>
               {t('forms.common.cancel')}
             </Button>
-            <Button theme="coat" type="submit" disabled={isSubmitting}>
+            <Button type="submit" disabled={isSubmitting}>
               {onSubmitText}
             </Button>
           </div>
@@ -146,7 +147,7 @@ const PierForm = ({
             title={t('forms.pier.title')}
             infoText={t('forms.pier.deleteConfirmation.infoText', { pierIdentifier: values.identifier })}
             onCancelText={t('forms.common.cancel')}
-            onConfirmText={t('forms.pier.')}
+            onConfirmText={t('forms.pier.delete')}
             warningText={t('forms.pier.deleteConfirmation.warningText')}
             onCancel={() => setIsDeleteModalOpen(false)}
             onConfirm={() => onDelete?.(values)}
