@@ -23,7 +23,7 @@ Array [
     class="grid cols1 row"
   >
     <div
-      class="Dropdown-module_root__2LI4- Dropdown-module_disabled__2ej9O"
+      class="Dropdown-module_root__2LI4- Dropdown-module_disabled__2ej9O select"
     >
       <label
         class="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
@@ -115,7 +115,7 @@ Array [
       </div>
     </div>
     <div
-      class="Dropdown-module_root__2LI4-"
+      class="Dropdown-module_root__2LI4- select"
     >
       <label
         class="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
@@ -179,7 +179,7 @@ Array [
     class="grid cols2 row"
   >
     <div
-      class="Dropdown-module_root__2LI4-"
+      class="Dropdown-module_root__2LI4- select"
     >
       <label
         class="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "

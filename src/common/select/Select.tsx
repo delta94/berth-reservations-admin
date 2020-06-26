@@ -1,5 +1,8 @@
 import React from 'react';
 import { Dropdown } from 'hds-react';
+import classNames from 'classnames';
+
+import styles from './select.module.scss';
 
 type OptionValue = string | number;
 
@@ -53,7 +56,7 @@ const Select = <T extends OptionValue>({
 
   return (
     <Dropdown
-      className={className}
+      className={classNames(styles.select, className)}
       disabled={disabled}
       id={id}
       label={label}

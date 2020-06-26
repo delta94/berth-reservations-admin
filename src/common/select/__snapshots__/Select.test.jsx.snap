@@ -2,7 +2,7 @@
 
 exports[`Select renders normally 1`] = `
 <div
-  class="Dropdown-module_root__2LI4-"
+  class="Dropdown-module_root__2LI4- select"
 >
   <label
     class="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
