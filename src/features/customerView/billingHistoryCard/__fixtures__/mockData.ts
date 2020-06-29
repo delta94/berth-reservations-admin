@@ -2,7 +2,7 @@ import { OrderStatus, ProductServiceType } from '../../../../@types/__generated_
 
 export const mockBills = [
   {
-    status: OrderStatus.WAITING,
+    status: OrderStatus.PAID,
     berthInformation: {
       number: 1,
       pierIdentifier: 'C',

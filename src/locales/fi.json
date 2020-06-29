@@ -130,6 +130,12 @@
         "label": "Virhe",
         "description": "Tapahtui virhe"
       }
+    },
+    "orderStatus": {
+      "waiting": "Odottaa maksua",
+      "expired": "Erääntynyt",
+      "rejected": "Hylätty",
+      "paid": "Maksettu"
     }
   },
   "login": {
@@ -444,7 +450,15 @@
       "waste": "Jäte",
       "gate": "Portti",
       "lighting": "Valaistus",
-      "total": "YHTEENSÄ"
+      "total": "YHTEENSÄ",
+      "noBill": "Ei avoimia laskuja"
+    },
+    "billingHistory": {
+      "title": "LASKUHISTORIA",
+      "sectionTitle": "LASKUT",
+      "noBillingHistory": "Ei laskuhistoriaa",
+      "berthBill": "Venepaikan vuokra",
+      "winterStorageBill": "Talvisäilytyspaikan vuokra"
     },
     "customerBoats": {
       "title": "ASIAKKAAN VENEET",

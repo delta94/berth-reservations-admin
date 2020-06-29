@@ -106,39 +106,6 @@ export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth {
   pier: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth_pier;
 }
 
-export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order_orderLines_edges_node_product {
-  __typename: "AdditionalProductNode";
-  service: ProductServiceType;
-}
-
-export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order_orderLines_edges_node {
-  __typename: "OrderLineNode";
-  product: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order_orderLines_edges_node_product | null;
-  price: any;
-  taxPercentage: any;
-}
-
-export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order_orderLines_edges {
-  __typename: "OrderLineNodeEdge";
-  node: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order_orderLines_edges_node | null;
-}
-
-export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order_orderLines {
-  __typename: "OrderLineNodeConnection";
-  edges: (INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order_orderLines_edges | null)[];
-}
-
-export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order {
-  __typename: "OrderNode";
-  dueDate: any;
-  totalPrice: any;
-  totalTaxPercentage: any;
-  price: any;
-  taxPercentage: any;
-  status: OrderStatus;
-  orderLines: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order_orderLines;
-}
-
 export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node {
   __typename: "BerthLeaseNode";
   id: string;
@@ -146,7 +113,6 @@ export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node {
   startDate: any;
   endDate: any;
   berth: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth;
-  order: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order | null;
 }
 
 export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges {
@@ -157,6 +123,84 @@ export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges {
 export interface INDIVIDUAL_CUSTOMER_profile_berthLeases {
   __typename: "BerthLeaseNodeConnection";
   edges: (INDIVIDUAL_CUSTOMER_profile_berthLeases_edges | null)[];
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_orderLines_edges_node_product {
+  __typename: "AdditionalProductNode";
+  service: ProductServiceType;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_orderLines_edges_node {
+  __typename: "OrderLineNode";
+  product: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_orderLines_edges_node_product | null;
+  price: any;
+  taxPercentage: any;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_orderLines_edges {
+  __typename: "OrderLineNodeEdge";
+  node: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_orderLines_edges_node | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_orderLines {
+  __typename: "OrderLineNodeConnection";
+  edges: (INDIVIDUAL_CUSTOMER_profile_orders_edges_node_orderLines_edges | null)[];
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier_properties_harbor_properties {
+  __typename: "HarborProperties";
+  name: string | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier_properties_harbor {
+  __typename: "HarborNode";
+  properties: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier_properties_harbor_properties | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier_properties {
+  __typename: "PierProperties";
+  identifier: string;
+  harbor: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier_properties_harbor;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier {
+  __typename: "PierNode";
+  properties: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier_properties | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth {
+  __typename: "BerthNode";
+  number: number;
+  pier: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease {
+  __typename: "BerthLeaseNode";
+  startDate: any;
+  endDate: any;
+  berth: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node {
+  __typename: "OrderNode";
+  dueDate: any;
+  totalPrice: any;
+  totalTaxPercentage: any;
+  price: any;
+  taxPercentage: any;
+  status: OrderStatus;
+  orderLines: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_orderLines;
+  lease: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges {
+  __typename: "OrderNodeEdge";
+  node: INDIVIDUAL_CUSTOMER_profile_orders_edges_node | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders {
+  __typename: "OrderNodeConnection";
+  edges: (INDIVIDUAL_CUSTOMER_profile_orders_edges | null)[];
 }
 
 export interface INDIVIDUAL_CUSTOMER_profile_berthApplications_edges_node_berthSwitch_reason {
@@ -258,6 +302,7 @@ export interface INDIVIDUAL_CUSTOMER_profile {
   language: Language | null;
   boats: INDIVIDUAL_CUSTOMER_profile_boats | null;
   berthLeases: INDIVIDUAL_CUSTOMER_profile_berthLeases | null;
+  orders: INDIVIDUAL_CUSTOMER_profile_orders | null;
   berthApplications: INDIVIDUAL_CUSTOMER_profile_berthApplications | null;
 }
 

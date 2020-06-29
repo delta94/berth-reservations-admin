@@ -149,7 +149,8 @@ type OrderLine = {
   taxPercentage: number;
 };
 
-type Bill = {
+export type Bill = {
+  status: OrderStatus;
   contractPeriod: {
     startDate: string;
     endDate: string;
@@ -170,16 +171,17 @@ export type BerthBill = Bill & {
   };
 };
 
-export const getOpenBills = (profile: CUSTOMER_PROFILE): BerthBill[] => {
+export type WinterStorageBill = Bill;
+
+export const getBills = (profile: CUSTOMER_PROFILE): (BerthBill | WinterStorageBill)[] => {
   return (
-    profile.berthLeases?.edges
+    profile.orders?.edges
       .map((edge) => edge?.node)
-      .filter((node) => node?.order?.status === OrderStatus.WAITING)
-      .reduce<BerthBill[]>((acc, berthLeaseNode) => {
-        if (!berthLeaseNode || !berthLeaseNode.order) {
+      .reduce<(BerthBill | WinterStorageBill)[]>((acc, orderNode) => {
+        if (!orderNode || !orderNode.lease) {
           return acc;
         }
-        const orderLines = berthLeaseNode.order.orderLines.edges
+        const orderLines = orderNode.orderLines.edges
           .map((edge) => edge?.node)
           .reduce<OrderLine[]>((acc, orderLineNode) => {
             if (!orderLineNode || !orderLineNode.product) {
@@ -194,26 +196,30 @@ export const getOpenBills = (profile: CUSTOMER_PROFILE): BerthBill[] => {
               },
             ];
           }, []);
+        const { lease } = orderNode;
         return [
           ...acc,
           {
+            status: orderNode.status,
             berthInformation: {
-              number: berthLeaseNode.berth.number,
-              pierIdentifier: berthLeaseNode.berth.pier.properties?.identifier ?? '',
-              harborName: berthLeaseNode.berth.pier.properties?.harbor?.properties?.name ?? '',
+              number: lease.berth.number,
+              pierIdentifier: lease.berth.pier.properties?.identifier ?? '',
+              harborName: lease.berth.pier.properties?.harbor?.properties?.name ?? '',
             },
             contractPeriod: {
-              startDate: berthLeaseNode.startDate,
-              endDate: berthLeaseNode.endDate,
+              startDate: lease.startDate,
+              endDate: lease.endDate,
             },
-            dueDate: berthLeaseNode.order.dueDate,
-            basePrice: berthLeaseNode.order.price,
-            basePriceTaxPercentage: berthLeaseNode.order.taxPercentage,
-            totalPrice: berthLeaseNode.order.totalPrice,
-            totalPriceTaxPercentage: berthLeaseNode.order.totalTaxPercentage,
+            dueDate: orderNode.dueDate,
+            basePrice: orderNode.price,
+            basePriceTaxPercentage: orderNode.taxPercentage,
+            totalPrice: orderNode.totalPrice,
+            totalPriceTaxPercentage: orderNode.totalTaxPercentage,
             orderLines,
           },
         ];
       }, []) ?? []
   );
 };
+
+export const isBerthBill = (bill: Bill): bill is BerthBill => (bill as BerthBill).berthInformation !== undefined;

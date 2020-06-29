@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BillingHistoryCard renders correctly 1`] = `
+<div
+  class="card"
+>
+  <div
+    class="cardHeader"
+  >
+    <span
+      class="title"
+    >
+      LASKUHISTORIA
+    </span>
+  </div>
+  <div
+    class="cardBody"
+  >
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        LASKUT
+      </h4>
+      <section
+        class="body"
+      >
+        <div
+          class="grid cols4"
+        >
+          <button
+            class="gridItem"
+          >
+            <span
+              class="text brand span"
+            >
+              Venepaikan vuokra
+            </span>
+          </button>
+          <div
+            class="gridItem"
+          >
+            <span
+              class="text standard span"
+            >
+              10.07.2020
+            </span>
+          </div>
+          <div
+            class="gridItem"
+          >
+            <span
+              class="text standard span"
+            >
+              191,70 €
+            </span>
+          </div>
+          <span
+            class="chip green"
+          >
+            Maksettu
+          </span>
+        </div>
+      </section>
+    </article>
+  </div>
+   
+</div>
+`;

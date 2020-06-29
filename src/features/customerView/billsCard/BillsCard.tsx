@@ -7,13 +7,13 @@ import CardBody from '../../../common/cardBody/CardBody';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 import Section from '../../../common/section/Section';
 import styles from './billsCard.module.scss';
-import { BerthBill } from '../utils';
+import { Bill, isBerthBill } from '../utils';
 import { getProductServiceTKey } from '../../../common/utils/translations';
 import { formatDate } from '../../../common/utils/format';
 import Button from '../../../common/button/Button';
 
 export interface BillsCardProps {
-  bills: BerthBill[];
+  bills: Bill[];
   handleShowBill(event: React.MouseEvent<HTMLButtonElement>): void;
 }
 
@@ -33,18 +33,21 @@ const BillsCard = ({ bills, handleShowBill }: BillsCardProps) => {
     return formatter.format(fee);
   };
 
-  const renderBill = (bill: BerthBill, id: number) => {
-    const { berthInformation, contractPeriod } = bill;
+  const renderBill = (bill: Bill, id: number) => {
+    const { contractPeriod } = bill;
+
     return (
       <div key={id}>
         <Button variant="secondary" onClick={handleShowBill} className={styles.button}>
           {t('customerView.customerBill.showInvoice')}
         </Button>
         <Section title={t('customerView.customerBill.berthRental')}>
-          <LabelValuePair
-            label={t('customerView.customerBill.berthPlace')}
-            value={`${berthInformation.harborName} ${berthInformation.pierIdentifier} ${berthInformation.number}`}
-          />
+          {isBerthBill(bill) && (
+            <LabelValuePair
+              label={t('customerView.customerBill.berthPlace')}
+              value={`${bill.berthInformation.harborName} ${bill.berthInformation.pierIdentifier} ${bill.berthInformation.number}`}
+            />
+          )}
           <LabelValuePair
             label={t('customerView.customerBill.contractPeriod')}
             value={`${formatDate(contractPeriod.startDate, i18n.language)} - ${formatDate(
@@ -86,7 +89,9 @@ const BillsCard = ({ bills, handleShowBill }: BillsCardProps) => {
   return (
     <Card>
       <CardHeader title={t('customerView.customerBill.title')} />
-      {bills.length > 0 && <CardBody>{bills.map((bill, id) => renderBill(bill, id))}</CardBody>}
+      <CardBody>
+        {bills.length > 0 ? bills.map((bill, id) => renderBill(bill, id)) : t('customerView.customerBill.noBill')}
+      </CardBody>
     </Card>
   );
 };

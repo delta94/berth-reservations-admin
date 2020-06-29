@@ -16,7 +16,9 @@ import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import ApplicationsCard from './applicationsCard/ApplicationsCard';
 import BoatsCard from './boatsCard/BoatsCard';
 import LeasesCard from './leasesCard/LeasesCard';
-import { getLeases, getBoats, getApplications, getCustomerProfile, getOpenBills, BerthBill } from './utils';
+import { getLeases, getBoats, getApplications, getCustomerProfile, getBills } from './utils';
+import BillingHistoryCard from './billingHistoryCard/BillingHistoryCard';
+import { OrderStatus } from '../../@types/__generated__/globalTypes';
 
 const CustomerViewContainer = () => {
   const { t } = useTranslation();
@@ -41,7 +43,8 @@ const CustomerViewContainer = () => {
   const leases = getLeases(data.profile);
   const boats = getBoats(data.profile);
   const applications = getApplications(data.profile, data.boatTypes || []);
-  const openBills: BerthBill[] = getOpenBills(data.profile);
+  const bills = getBills(data.profile);
+  const openBills = bills.filter((bill) => bill.status === OrderStatus.WAITING);
 
   return (
     <CustomerView>
@@ -52,10 +55,7 @@ const CustomerViewContainer = () => {
       </Card>
       <ApplicationsCard applications={applications} />
       <BillsCard bills={openBills} handleShowBill={() => alert("Here's your bill!")} />
-      <Card>
-        <CardHeader title="LASKUHISTORIA" />
-        <CardBody>Placeholder</CardBody>
-      </Card>
+      <BillingHistoryCard bills={bills} onClick={() => alert("Here's your bill!")} />
       <LeasesCard handleShowContract={(id) => alert(`Here's your contract for ${id}`)} leases={leases} />
       <Card>
         <CardHeader title="TALVISÄILYTYSPAIKAT" />
