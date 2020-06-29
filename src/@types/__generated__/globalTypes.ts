@@ -75,6 +75,13 @@ export enum LeaseStatus {
   REFUSED = "REFUSED",
 }
 
+export enum OrderStatus {
+  EXPIRED = "EXPIRED",
+  PAID = "PAID",
+  REJECTED = "REJECTED",
+  WAITING = "WAITING",
+}
+
 export enum OrganizationType {
   COMPANY = "COMPANY",
   INTERNAL = "INTERNAL",

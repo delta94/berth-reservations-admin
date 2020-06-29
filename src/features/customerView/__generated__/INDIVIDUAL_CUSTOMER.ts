@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { InvoicingType, OrganizationType, Language, BoatCertificateType, LeaseStatus, ApplicationStatus } from "./../../../@types/__generated__/globalTypes";
+import { InvoicingType, OrganizationType, Language, BoatCertificateType, LeaseStatus, OrderStatus, ProductServiceType, ApplicationStatus } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: INDIVIDUAL_CUSTOMER
@@ -106,6 +106,39 @@ export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth {
   pier: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth_pier;
 }
 
+export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order_orderLines_edges_node_product {
+  __typename: "AdditionalProductNode";
+  service: ProductServiceType;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order_orderLines_edges_node {
+  __typename: "OrderLineNode";
+  product: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order_orderLines_edges_node_product | null;
+  price: any;
+  taxPercentage: any;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order_orderLines_edges {
+  __typename: "OrderLineNodeEdge";
+  node: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order_orderLines_edges_node | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order_orderLines {
+  __typename: "OrderLineNodeConnection";
+  edges: (INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order_orderLines_edges | null)[];
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order {
+  __typename: "OrderNode";
+  dueDate: any;
+  totalPrice: any;
+  totalTaxPercentage: any;
+  price: any;
+  taxPercentage: any;
+  status: OrderStatus;
+  orderLines: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order_orderLines;
+}
+
 export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node {
   __typename: "BerthLeaseNode";
   id: string;
@@ -113,6 +146,7 @@ export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node {
   startDate: any;
   endDate: any;
   berth: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_berth;
+  order: INDIVIDUAL_CUSTOMER_profile_berthLeases_edges_node_order | null;
 }
 
 export interface INDIVIDUAL_CUSTOMER_profile_berthLeases_edges {

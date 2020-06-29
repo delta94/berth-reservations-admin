@@ -16,7 +16,7 @@ import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import ApplicationsCard from './applicationsCard/ApplicationsCard';
 import BoatsCard from './boatsCard/BoatsCard';
 import LeasesCard from './leasesCard/LeasesCard';
-import { getLeases, getBoats, getApplications, getCustomerProfile } from './utils';
+import { getLeases, getBoats, getApplications, getCustomerProfile, getOpenBills, BerthBill } from './utils';
 
 const CustomerViewContainer = () => {
   const { t } = useTranslation();
@@ -41,6 +41,7 @@ const CustomerViewContainer = () => {
   const leases = getLeases(data.profile);
   const boats = getBoats(data.profile);
   const applications = getApplications(data.profile, data.boatTypes || []);
+  const openBills: BerthBill[] = getOpenBills(data.profile);
 
   return (
     <CustomerView>
@@ -50,20 +51,7 @@ const CustomerViewContainer = () => {
         <CardBody>Placeholder</CardBody>
       </Card>
       <ApplicationsCard applications={applications} />
-      <BillsCard
-        berthPlace="Pursilahdenranta B 31"
-        contractPeriod="14.9.2019 - 10.6.2019"
-        dueDate="1.4.2019"
-        basicFee={284}
-        mooringFee={[79.52, '28%']}
-        electricityFee={[34.08, '12%']}
-        waterFee={[5.68, '2%']}
-        wasteFee={[22.72, '8%']}
-        gateFee={4}
-        lightingFee={10}
-        total={440}
-        handleShowBill={() => alert("Here's your bill!")}
-      />
+      <BillsCard bills={openBills} handleShowBill={() => alert("Here's your bill!")} />
       <Card>
         <CardHeader title="LASKUHISTORIA" />
         <CardBody>Placeholder</CardBody>

@@ -1,9 +1,10 @@
 import {
-  INDIVIDUAL_CUSTOMER_profile as CUSTOMER_PROFILE,
   INDIVIDUAL_CUSTOMER_boatTypes as BOAT_TYPES,
+  INDIVIDUAL_CUSTOMER_profile as CUSTOMER_PROFILE,
 } from './__generated__/INDIVIDUAL_CUSTOMER';
 import { Application, ApplicationLease, Boat, LargeBoat } from './types';
 import { CustomerProfileCardProps } from '../../common/customerProfileCard/CustomerProfileCard';
+import { OrderStatus, ProductServiceType } from '../../@types/__generated__/globalTypes';
 
 export const getCustomerProfile = (profile: CUSTOMER_PROFILE): CustomerProfileCardProps => {
   return {
@@ -139,5 +140,80 @@ export const getApplications = (profile: CUSTOMER_PROFILE, boatTypes: BOAT_TYPES
       }
       return acc;
     }, []) ?? []
+  );
+};
+
+type OrderLine = {
+  product: ProductServiceType;
+  price: number;
+  taxPercentage: number;
+};
+
+type Bill = {
+  contractPeriod: {
+    startDate: string;
+    endDate: string;
+  };
+  dueDate: string;
+  totalPrice: number;
+  totalPriceTaxPercentage: number;
+  basePrice: number;
+  basePriceTaxPercentage: number;
+  orderLines: OrderLine[];
+};
+
+export type BerthBill = Bill & {
+  berthInformation: {
+    number: number;
+    pierIdentifier: string;
+    harborName: string;
+  };
+};
+
+export const getOpenBills = (profile: CUSTOMER_PROFILE): BerthBill[] => {
+  return (
+    profile.berthLeases?.edges
+      .map((edge) => edge?.node)
+      .filter((node) => node?.order?.status === OrderStatus.WAITING)
+      .reduce<BerthBill[]>((acc, berthLeaseNode) => {
+        if (!berthLeaseNode || !berthLeaseNode.order) {
+          return acc;
+        }
+        const orderLines = berthLeaseNode.order.orderLines.edges
+          .map((edge) => edge?.node)
+          .reduce<OrderLine[]>((acc, orderLineNode) => {
+            if (!orderLineNode || !orderLineNode.product) {
+              return acc;
+            }
+            return [
+              ...acc,
+              {
+                product: orderLineNode.product.service,
+                price: orderLineNode.price,
+                taxPercentage: orderLineNode.taxPercentage,
+              },
+            ];
+          }, []);
+        return [
+          ...acc,
+          {
+            berthInformation: {
+              number: berthLeaseNode.berth.number,
+              pierIdentifier: berthLeaseNode.berth.pier.properties?.identifier ?? '',
+              harborName: berthLeaseNode.berth.pier.properties?.harbor?.properties?.name ?? '',
+            },
+            contractPeriod: {
+              startDate: berthLeaseNode.startDate,
+              endDate: berthLeaseNode.endDate,
+            },
+            dueDate: berthLeaseNode.order.dueDate,
+            basePrice: berthLeaseNode.order.price,
+            basePriceTaxPercentage: berthLeaseNode.order.taxPercentage,
+            totalPrice: berthLeaseNode.order.totalPrice,
+            totalPriceTaxPercentage: berthLeaseNode.order.totalTaxPercentage,
+            orderLines,
+          },
+        ];
+      }, []) ?? []
   );
 };

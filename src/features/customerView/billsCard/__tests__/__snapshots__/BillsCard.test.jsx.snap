@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BillsCard renders normally 1`] = `
+<div
+  class="card"
+>
+  <div
+    class="cardHeader"
+  >
+    <span
+      class="title"
+    >
+      AVOIMET LASKUT
+    </span>
+  </div>
+  <div
+    class="cardBody"
+  >
+    <div>
+      <button
+        class="Button-module_button__3wgee button_hds-button__2A0je Button-module_secondary__399Vd button_hds-button--secondary__1NOWS Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0 button"
+        type="button"
+      >
+        <span
+          class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+        >
+          Näytä lasku
+        </span>
+      </button>
+      <article
+        class="section"
+      >
+        <h4
+          class="text standard h4 m title"
+        >
+          VENEPAIKAN VUOKRA
+        </h4>
+        <section
+          class="body"
+        >
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Venepaikka:
+            </span>
+            <span
+              class="value left"
+            >
+              Aurinkolahden venesatama (Aurinkoranta) C 1
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Sopimuskausi:
+            </span>
+            <span
+              class="value left"
+            >
+              26.06.2020 - 14.09.2020
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Eräpäivä:
+            </span>
+            <span
+              class="value left"
+            >
+              10.07.2020
+            </span>
+          </div>
+        </section>
+      </article>
+      <article
+        class="section feesSection"
+      >
+        <section
+          class="body"
+        >
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Perushinta:
+            </span>
+            <span
+              class="value right"
+            >
+              24%  96,67 €
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Sähkö:
+            </span>
+            <span
+              class="value right"
+            >
+              24%  20,50 €
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Vesi:
+            </span>
+            <span
+              class="value right"
+            >
+              24%  19,33 €
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Portti:
+            </span>
+            <span
+              class="value right"
+            >
+              24%  02,42 €
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Kiinnitys:
+            </span>
+            <span
+              class="value right"
+            >
+              24%  08,33 €
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Jätehuolto:
+            </span>
+            <span
+              class="value right"
+            >
+              24%  04,17 €
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Valaistus:
+            </span>
+            <span
+              class="value right"
+            >
+              24%  40,28 €
+            </span>
+          </div>
+        </section>
+      </article>
+      <article
+        class="section feesSection"
+      >
+        <section
+          class="body"
+        >
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              YHTEENSÄ:
+            </span>
+            <span
+              class="value right"
+            >
+              19.36%  191,70 €
+            </span>
+          </div>
+        </section>
+      </article>
+    </div>
+  </div>
+   
+</div>
+`;

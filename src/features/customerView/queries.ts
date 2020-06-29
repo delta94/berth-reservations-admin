@@ -77,6 +77,25 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
                 }
               }
             }
+            order {
+              dueDate
+              totalPrice
+              totalTaxPercentage
+              price
+              taxPercentage
+              status
+              orderLines {
+                edges {
+                  node {
+                    product {
+                      service
+                    }
+                    price
+                    taxPercentage
+                  }
+                }
+              }
+            }
           }
         }
       }
