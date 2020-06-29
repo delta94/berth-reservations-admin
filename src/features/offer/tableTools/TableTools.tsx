@@ -1,13 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'hds-react';
 
 import styles from './tableTools.module.scss';
 import Text from '../../../common/text/Text';
 import Chip from '../../../common/chip/Chip';
 import { APPLICATION_STATUS } from '../../../common/utils/consonants';
 import { ApplicationStatus } from '../../../@types/__generated__/globalTypes';
+import Button from '../../../common/button/Button';
 
 export interface TableToolsProps {
   applicationDate: string;
@@ -32,7 +32,7 @@ const TableTools = ({ applicationDate, applicationType, applicationStatus, handl
         />
       </div>
       <div>
-        <Button variant="secondary" theme="coat" className={classNames(styles.button)} onClick={handleReturn}>
+        <Button variant="secondary" className={classNames(styles.button)} onClick={handleReturn}>
           {t('offer.tableTools.return')}
         </Button>
       </div>

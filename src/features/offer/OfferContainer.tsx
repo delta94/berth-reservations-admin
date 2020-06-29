@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useParams, useHistory } from 'react-router-dom';
-import { Notification, Button } from 'hds-react';
+import { Notification } from 'hds-react';
 import { getOperationName } from 'apollo-link';
 
 import styles from './offer.module.scss';
@@ -22,6 +22,7 @@ import TableFilters from '../../common/tableFilters/TableFilters';
 import { BERTH_APPLICATIONS_QUERY } from '../applicationList/queries';
 import HarborCard from '../../common/harborCard/HarborCard';
 import BoatCard from '../../common/boatCard/BoatCard';
+import Button from '../../common/button/Button';
 
 type ColumnType = Column<BerthData> & { accessor: keyof BerthData };
 
@@ -49,7 +50,6 @@ const OfferContainer = () => {
     {
       Cell: ({ row }) => (
         <Button
-          theme="coat"
           onClick={() => {
             createBerthLease({
               variables: {

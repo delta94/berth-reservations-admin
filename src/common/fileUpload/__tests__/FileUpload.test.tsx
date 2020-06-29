@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import { Button } from 'hds-react/lib';
 
 import FileUpload, { FileUploadProps } from '../FileUpload';
+import Button from '../../button/Button';
 
 const createMockFile = (name: string, size?: number) => {
   return {
@@ -56,7 +56,7 @@ describe('FileUpload', () => {
     it('if not provided, should not change button label', () => {
       const wrapper = getWrapper();
 
-      expect(wrapper.find(Button).text()).toEqual('Valitse...');
+      expect(wrapper.find(Button).render().text()).toEqual('Valitse...');
     });
 
     it('if provided, should show custom button label', () => {
@@ -64,7 +64,7 @@ describe('FileUpload', () => {
         buttonLabel: 'Insert File',
       });
 
-      expect(wrapper.find(Button).text()).toEqual('Insert File');
+      expect(wrapper.find(Button).render().text()).toEqual('Insert File');
     });
   });
 

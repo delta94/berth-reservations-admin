@@ -1,10 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { Button, TextInput } from 'hds-react';
+import { TextInput } from 'hds-react';
 
 import Select from '../../../common/select/Select';
 import styles from './customersTableTools.module.scss';
+import Button from '../../../common/button/Button';
 
 export interface CustomersTableToolsProps<T> {
   className?: string;
@@ -44,10 +45,10 @@ const CustomersTableTools = <T extends string>({
         value={searchVal}
         onChange={(e) => setSearchVal((e.target as HTMLInputElement).value)}
       />
-      <Button theme="coat" disabled={!handleLinkCustomer} onClick={handleLinkCustomer}>
+      <Button disabled={!handleLinkCustomer} onClick={handleLinkCustomer}>
         {t('applicationView.customerTableTools.linkCustomer')}
       </Button>
-      <Button variant="secondary" theme="coat" onClick={handleCreateCustomer}>
+      <Button variant="secondary" onClick={handleCreateCustomer}>
         {t('applicationView.customerTableTools.createNewCustomer')}
       </Button>
     </div>

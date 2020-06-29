@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
-import { Button, TextInput, Checkbox } from 'hds-react';
+import { TextInput, Checkbox } from 'hds-react';
 import { ObjectSchema } from 'yup';
 
 import { Berth, FormProps } from '../types';
@@ -15,6 +15,7 @@ import { Pier } from '../../utils/utils';
 import FormHeader from '../../../../common/formHeader/FormHeader';
 import ConfirmationModal from '../../../../common/confirmationModal/ConfirmationModal';
 import { isNumber, isPositive, replaceCommaWithDot, replaceDotWithComma } from './utils/utils';
+import Button from '../../../../common/button/Button';
 
 interface BerthFormProps extends FormProps<Berth> {
   isEditing?: boolean;
@@ -182,10 +183,10 @@ const BerthForm = ({
             labelText={t('forms.berth.isActive')}
           />
           <div className={styles.formActionButtons}>
-            <Button variant="secondary" theme="coat" disabled={isSubmitting} color={'supplementary'} onClick={onCancel}>
+            <Button variant="secondary" disabled={isSubmitting} color={'supplementary'} onClick={onCancel}>
               {t('forms.common.cancel')}
             </Button>
-            <Button theme="coat" type="submit" disabled={isSubmitting}>
+            <Button type="submit" disabled={isSubmitting}>
               {onSubmitText}
             </Button>
           </div>

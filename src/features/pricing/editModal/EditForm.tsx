@@ -1,6 +1,5 @@
 import React from 'react';
 import { Form, Formik } from 'formik';
-import { Button } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 
 import styles from './editForm.module.scss';
@@ -12,6 +11,7 @@ import { AdditionalService } from '../additionalServicePricing/AdditionalService
 import { HarborService } from '../harborServicePricing/HarborServicePricing';
 import { WinterStoragePrice } from '../winterStoragePricing/WinterStoragePricing';
 import { BerthPrice } from '../berthPricing/BerthPricing';
+import Button from '../../../common/button/Button';
 
 export enum EDIT_FORM_TYPE {
   BERTHS = 'BERTHS',
@@ -67,10 +67,10 @@ const EditForm = <T extends BerthPrice | WinterStoragePrice | HarborService | Ad
         <Form className={styles.form}>
           {form.component}
           <div className={styles.buttonRow}>
-            <Button variant="secondary" theme="coat" id="cancel" onClick={closeModal}>
+            <Button variant="secondary" id="cancel" onClick={closeModal}>
               {t('common.cancel')}
             </Button>
-            <Button theme="coat" type="submit" disabled={isSubmitting}>
+            <Button type="submit" disabled={isSubmitting}>
               {t('common.save')}
             </Button>
           </div>

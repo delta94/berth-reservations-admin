@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'hds-react';
 
 import Card from '../../../common/card/Card';
 import styles from './leasesCard.module.scss';
@@ -10,6 +9,7 @@ import CardHeader from '../../../common/cardHeader/CardHeader';
 import CardBody from '../../../common/cardBody/CardBody';
 import InternalLink from '../../../common/internalLink/InternalLink';
 import { formatDate } from '../../../common/utils/format';
+import Button from '../../../common/button/Button';
 
 interface Harbor {
   id: string;
@@ -42,7 +42,7 @@ const LeasesCard = ({ leases, handleShowContract }: LeasesCardProps) => {
 
         return (
           <CardBody key={id}>
-            <Button variant="secondary" theme="coat" onClick={() => handleShowContract(id)} className={styles.button}>
+            <Button variant="secondary" onClick={() => handleShowContract(id)} className={styles.button}>
               {t('customerView.leases.showContract')}
             </Button>
             <Section title={t('customerView.leases.berth')}>
