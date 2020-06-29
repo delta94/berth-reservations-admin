@@ -26,12 +26,4 @@
 
 .propsGrid {
   grid-row-gap: units(1.5);
-  grid-column-gap: units(0.5);
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-}
-
-.wordBreak {
-  overflow-wrap: break-word;
-  width: 100%;
-  hyphens: auto;
 }

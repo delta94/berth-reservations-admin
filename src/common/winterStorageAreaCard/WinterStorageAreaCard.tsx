@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
 import Card from '../card/Card';
-import styles from '../harborCard/harborCard.module.scss';
 import CardHeader from '../cardHeader/CardHeader';
 import Text from '../text/Text';
 import CardBody from '../cardBody/CardBody';
@@ -17,6 +16,7 @@ import { IconDollyEmpty, IconFence, IconPlug, IconTrestle, IconWaterTap, IconBoa
 import { WinterStorageArea } from '../../features/winterStorageAreaView/types';
 import { getProductServiceTKey } from '../utils/translations';
 import { ProductServiceType } from '../../@types/__generated__/globalTypes';
+import styles from './winterStorageAreaCard.module.scss';
 
 interface WinterStorageAreaCardProps extends WinterStorageArea {
   className?: string;
