@@ -38,6 +38,7 @@ const CustomerListContainer = () => {
 
   const { data, loading } = useQuery<CUSTOMERS, CUSTOMERS_VARS>(CUSTOMERS_QUERY, {
     variables: customersVars,
+    fetchPolicy: 'no-cache',
   });
 
   const handleSendMessage = (customerIds: string[], message: MessageFormValues) => {
