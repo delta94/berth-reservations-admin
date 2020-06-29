@@ -2,7 +2,7 @@
 @import 'spacings';
 
 .internalLink {
-  --vene-internal-link-color: #{$blue-500};
+  --vene-internal-link-color: #{$blue};
 
   text-decoration: none;
   color: var(--vene-internal-link-color);
@@ -23,7 +23,7 @@
 }
 
 .critical {
-  --vene-internal-link-color: #{$red-500};
+  --vene-internal-link-color: #{$error};
 }
 
 .hasIcon {

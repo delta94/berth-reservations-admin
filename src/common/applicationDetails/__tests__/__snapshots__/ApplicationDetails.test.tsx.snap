@@ -486,7 +486,7 @@ exports[`ApplicationDetails renders normally with organization customer applican
         class="body"
       >
         <div
-          class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz accessibleCheckbox"
+          class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz accessibleCheckbox checkbox"
         >
           <input
             aria-checked="true"
@@ -953,7 +953,7 @@ exports[`ApplicationDetails renders normally with private customer applicant 1`]
         class="body"
       >
         <div
-          class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz accessibleCheckbox"
+          class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz accessibleCheckbox checkbox"
         >
           <input
             aria-checked="true"

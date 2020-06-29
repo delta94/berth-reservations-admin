@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
-import { Checkbox } from 'hds-react';
 
 import Section from '../section/Section';
 import LabelValuePair from '../labelValuePair/LabelValuePair';
@@ -18,6 +17,7 @@ import PrivateCustomerDetails, { PrivateCustomerDetailsProps } from '../privateC
 import OrganizationCustomerDetails, {
   OrganizationCustomerDetailsProps,
 } from '../organizationCustomerDetails/OrganizationCustomerDetails';
+import Checkbox from '../checkbox/Checkbox';
 
 interface HarborChoice {
   harborName: string;

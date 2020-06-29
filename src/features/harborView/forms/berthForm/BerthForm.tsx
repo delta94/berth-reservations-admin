@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
-import { TextInput, Checkbox } from 'hds-react';
+import { TextInput } from 'hds-react';
 import { ObjectSchema } from 'yup';
 
 import { Berth, FormProps } from '../types';
@@ -15,6 +15,7 @@ import { Pier } from '../../utils/utils';
 import FormHeader from '../../../../common/formHeader/FormHeader';
 import ConfirmationModal from '../../../../common/confirmationModal/ConfirmationModal';
 import { isNumber, isPositive, replaceCommaWithDot, replaceDotWithComma } from './utils/utils';
+import Checkbox from '../../../../common/checkbox/Checkbox';
 import Button from '../../../../common/button/Button';
 
 interface BerthFormProps extends FormProps<Berth> {

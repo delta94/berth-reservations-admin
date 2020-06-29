@@ -1,0 +1,10 @@
+@import 'colours';
+
+.checkbox {
+  line-height: var(--lineheight-l);
+  --background-selected: #{$blue};
+  --background-hover: #{$blue-dark-50};
+  --border-color-selected: #{$blue};
+  --border-color-selected-hover: #{$blue-dark-50};
+  --border-color-selected-focus: #{$blue};
+}

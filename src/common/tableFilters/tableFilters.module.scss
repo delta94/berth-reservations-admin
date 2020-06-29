@@ -6,7 +6,7 @@
   $indicator-margin: units(0.5);
 
   margin-right: units(3);
-  color: $blue-100;
+  color: $blue-light-20;
   font-weight: normal;
   text-transform: inherit;
   letter-spacing: 0.01em;
@@ -30,7 +30,7 @@
   }
 
   &.disabled {
-    color: $blue-300;
+    color: $blue-light-50;
     pointer-events: none;
   }
 
