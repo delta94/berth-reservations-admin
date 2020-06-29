@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { MemoryRouter } from 'react-router-dom';
 
 import WinterStorageAreaList from '../WinterStorageAreaList';
 import { getWinterStorageAreasData } from '../utils';
@@ -10,7 +11,12 @@ const mockProps = {
 };
 
 describe('WinterStorageAreaList', () => {
-  const getWrapper = (props = {}) => shallow(<WinterStorageAreaList {...mockProps} {...props} />);
+  const getWrapper = (props = {}) =>
+    shallow(
+      <MemoryRouter>
+        <WinterStorageAreaList {...mockProps} {...props} />
+      </MemoryRouter>
+    );
 
   it('renders normally', () => {
     const wrapper = getWrapper();

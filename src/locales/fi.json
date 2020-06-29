@@ -86,8 +86,9 @@
       "dataEntry": "Tietue",
       "depth": "Syvyys",
       "dinghyPlace": "Jollapaikka",
-      "dockingEquipmentSummerStorage": "Telakointitarvikkeiden kesäsäilytys",
       "draught": "Syväys",
+      "dockingEquipmentSummerStorage": "Telakointi\u00ADtarvikkeiden kesäsäilytys",
+      "boatSummerStorage": "Veneiden kesäsäilytys",
       "electricity": "Sähkö",
       "gate": "Portti",
       "harborChief": "Satamapäällikkö",
@@ -524,6 +525,11 @@
     "numberOfPlaces": "Paikkoja",
     "maxWidth": "Max. leveys"
   },
+  "winterStorageAreaCard": {
+    "title": "TALVISÄILYTYSALUE",
+    "imgAlt": "Talvisäilytyspaikan sijainti",
+    "numberOfCustomers": "Asiakasta"
+  },
   "errorPage": {
     "heading": "Virhetilanne",
     "text": "Pahoittelumme, järjestelmässä ilmeni virhe. Voit yrittää uudelleen, mutta jos sama toistuu, kerro siitä meille niin korjaamme asian.",
@@ -552,6 +558,16 @@
       "name": "Alue",
       "places": "Paikkoja",
       "freePlaces": "Vapaita"
+    }
+  },
+  "winterStorageAreaView": {
+    "title": "Talvisäilytysalue",
+    "contactInformation": "Yhteystiedot",
+    "history": "Toimintahistoria",
+    "table": {
+      "tableHeaders": {
+        "name": "Asiakas"
+      }
     }
   }
 }

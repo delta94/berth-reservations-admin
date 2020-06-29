@@ -18,6 +18,7 @@ import Page from './page/Page';
 import Pricing from '../features/pricing/PricingContainer';
 import PrivateRoute from '../features/auth/privateRoute/PrivateRoute';
 import WinterStorageAreaList from '../features/winterStorageAreaList/WinterStorageAreaListContainer';
+import WinterStorageAreaView from '../features/winterStorageAreaView/WinterStorageAreaViewContainer';
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
                   <PrivateRoute exact path="/applications" component={ApplicationList} />
                   <PrivateRoute exact path="/offer/:applicationId" component={Offer} />
                   <PrivateRoute exact path="/pricing" component={Pricing} />
+                  <PrivateRoute exact path="/winter-storage-areas/:id" component={WinterStorageAreaView} />
                   <PrivateRoute exact path="/winter-storage-areas" component={WinterStorageAreaList} />
                 </Switch>
               </Page>

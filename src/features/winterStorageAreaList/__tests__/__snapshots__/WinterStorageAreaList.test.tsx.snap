@@ -448,7 +448,13 @@ exports[`WinterStorageAreaList renders normally 1`] = `
                 role="cell"
                 style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
               >
-                -
+                <a
+                  class="internalLink brand"
+                  href="/winter-storage-areas/0"
+                  title="-"
+                >
+                  -
+                </a>
               </div>
               <div
                 class="tableCell"
@@ -634,7 +640,13 @@ exports[`WinterStorageAreaList renders normally 1`] = `
                 role="cell"
                 style="box-sizing:border-box;flex:112.5 0 auto;min-width:0px;width:112.5px"
               >
-                Pursilahdenranta
+                <a
+                  class="internalLink brand"
+                  href="/winter-storage-areas/1"
+                  title="Pursilahdenranta"
+                >
+                  Pursilahdenranta
+                </a>
               </div>
               <div
                 class="tableCell"
