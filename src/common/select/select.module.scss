@@ -1,0 +1,9 @@
+@import 'colours';
+
+.select {
+  --menu-item-background-selected: #{$blue-500};
+  --menu-item-background-selected-hover: var(--color-coat-of-arms-blue-dark-50);
+  span[class^='RequiredIndicator'] {
+    line-height: 0;
+  }
+}

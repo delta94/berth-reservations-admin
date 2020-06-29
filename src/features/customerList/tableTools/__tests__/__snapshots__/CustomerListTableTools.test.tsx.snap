@@ -23,7 +23,7 @@ exports[`CustomerListTableTools renders normally 1`] = `
     class="tableToolsRight"
   >
     <div
-      class="Dropdown-module_root__2LI4- select"
+      class="Dropdown-module_root__2LI4- select select"
     >
       <div
         class="Dropdown-module_wrapper__1oIw5"
