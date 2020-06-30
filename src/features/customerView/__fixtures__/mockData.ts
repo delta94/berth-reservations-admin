@@ -1,4 +1,4 @@
-import { OrderStatus, ProductServiceType } from '../../../../@types/__generated__/globalTypes';
+import { OrderStatus, ProductServiceType } from '../../../@types/__generated__/globalTypes';
 
 export const mockBills = [
   {

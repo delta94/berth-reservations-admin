@@ -437,6 +437,7 @@
       "accessible": "Tarvitsen esteettömän paikan"
     },
     "customerBill": {
+      "bill": "LASKU",
       "title": "AVOIMET LASKUT",
       "berthRental": "VENEPAIKAN VUOKRA",
       "showInvoice": "Näytä lasku",
@@ -451,7 +452,12 @@
       "gate": "Portti",
       "lighting": "Valaistus",
       "total": "YHTEENSÄ",
-      "noBill": "Ei avoimia laskuja"
+      "noBill": "Ei avoimia laskuja",
+      "billType": "Laskun aihe",
+      "berthBill": "Venepaikan vuokra",
+      "winterStorageBill": "Talvisäilytyspaikan vuokra",
+      "status": "Laskun tila",
+      "closeModal": "Sulje"
     },
     "billingHistory": {
       "title": "LASKUHISTORIA",

@@ -34,12 +34,17 @@ export const formatDate = (date: string, locale: string, withTime = false) => {
   return new Date(date).toLocaleString(locale, options);
 };
 
-export const formatPrice = (value: number, locale: string) => {
-  return new Intl.NumberFormat(locale, {
+export const formatPrice = (value: number, locale: string, percentage?: number) => {
+  const formatter = new Intl.NumberFormat(locale, {
     style: 'currency',
     currency: 'EUR',
     minimumIntegerDigits: 2,
-  }).format(value);
+  });
+
+  if (percentage) {
+    return `${percentage}%\u00A0\u00A0${formatter.format(value)}`;
+  }
+  return formatter.format(value);
 };
 
 export const formatPercentage = (value: number, locale: string) => {

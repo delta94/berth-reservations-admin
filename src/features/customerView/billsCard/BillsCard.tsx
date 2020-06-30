@@ -9,29 +9,16 @@ import Section from '../../../common/section/Section';
 import styles from './billsCard.module.scss';
 import { Bill, isBerthBill } from '../utils';
 import { getProductServiceTKey } from '../../../common/utils/translations';
-import { formatDate } from '../../../common/utils/format';
+import { formatDate, formatPrice } from '../../../common/utils/format';
 import Button from '../../../common/button/Button';
 
 export interface BillsCardProps {
   bills: Bill[];
-  handleShowBill(event: React.MouseEvent<HTMLButtonElement>): void;
+  handleShowBill(bill: Bill): void;
 }
 
 const BillsCard = ({ bills, handleShowBill }: BillsCardProps) => {
   const { t, i18n } = useTranslation();
-
-  const formatPrice = (fee: number, percentage?: number) => {
-    const formatter = new Intl.NumberFormat(i18n.language, {
-      style: 'currency',
-      currency: 'EUR',
-      minimumIntegerDigits: 2,
-    });
-
-    if (percentage) {
-      return `${percentage}%\u00A0\u00A0${formatter.format(fee)}`;
-    }
-    return formatter.format(fee);
-  };
 
   const renderBill = (bill: Bill, id: number) => {
     const { contractPeriod } = bill;
@@ -61,13 +48,13 @@ const BillsCard = ({ bills, handleShowBill }: BillsCardProps) => {
           <LabelValuePair
             align="right"
             label={t('customerView.customerBill.basicFee')}
-            value={formatPrice(bill.basePrice, bill.basePriceTaxPercentage)}
+            value={formatPrice(bill.basePrice, i18n.language, bill.basePriceTaxPercentage)}
           />
           {bill.orderLines.map((orderLine, id) => (
             <LabelValuePair
               align="right"
               label={t(getProductServiceTKey(orderLine.product))}
-              value={formatPrice(orderLine.price, orderLine.taxPercentage)}
+              value={formatPrice(orderLine.price, i18n.language, orderLine.taxPercentage)}
               key={id}
             />
           ))}
@@ -76,10 +63,10 @@ const BillsCard = ({ bills, handleShowBill }: BillsCardProps) => {
           <LabelValuePair
             align="right"
             label={t('customerView.customerBill.total')}
-            value={formatPrice(bill.totalPrice, bill.totalPriceTaxPercentage)}
+            value={formatPrice(bill.totalPrice, i18n.language, bill.totalPriceTaxPercentage)}
           />
         </Section>
-        <Button variant="secondary" theme="coat" onClick={handleShowBill} className={styles.button}>
+        <Button variant="secondary" theme="coat" onClick={() => handleShowBill(bill)} className={styles.button}>
           {t('customerView.customerBill.showInvoice')}
         </Button>
       </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
@@ -16,14 +16,16 @@ import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import ApplicationsCard from './applicationsCard/ApplicationsCard';
 import BoatsCard from './boatsCard/BoatsCard';
 import LeasesCard from './leasesCard/LeasesCard';
-import { getLeases, getBoats, getApplications, getCustomerProfile, getBills } from './utils';
+import { getLeases, getBoats, getApplications, getCustomerProfile, getBills, Bill } from './utils';
 import BillingHistoryCard from './billingHistoryCard/BillingHistoryCard';
 import { OrderStatus } from '../../@types/__generated__/globalTypes';
+import BillModal from './billModal/BillModal';
 
 const CustomerViewContainer = () => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const { loading, error, data } = useQuery<INDIVIDUAL_CUSTOMER>(INDIVIDUAL_CUSTOMER_QUERY, { variables: { id } });
+  const [openBill, setOpenBill] = useState<Bill>();
 
   if (loading) return <LoadingSpinner isLoading={loading} />;
   if (!data?.profile)
@@ -54,14 +56,15 @@ const CustomerViewContainer = () => {
         <CardBody>Placeholder</CardBody>
       </Card>
       <ApplicationsCard applications={applications} />
-      <BillsCard bills={openBills} handleShowBill={() => alert("Here's your bill!")} />
-      <BillingHistoryCard bills={bills} onClick={() => alert("Here's your bill!")} />
+      <BillsCard bills={openBills} handleShowBill={(bill) => setOpenBill(bill)} />
+      <BillingHistoryCard bills={bills} onClick={(bill) => setOpenBill(bill)} />
       <LeasesCard handleShowContract={(id) => alert(`Here's your contract for ${id}`)} leases={leases} />
       <Card>
         <CardHeader title="TALVISÄILYTYSPAIKAT" />
         <CardBody>Placeholder</CardBody>
       </Card>
       <BoatsCard boats={boats} />
+      <BillModal bill={openBill} toggleModal={() => setOpenBill(undefined)} />
     </CustomerView>
   );
 };

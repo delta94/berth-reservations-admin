@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import Button from '../../../../common/button/Button';
 import BillsCard from '../BillsCard';
-import { mockBills } from '../__fixtures__/mockData';
+import { mockBills } from '../../__fixtures__/mockData';
 
 const mockProps = {
   bills: mockBills,

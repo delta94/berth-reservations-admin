@@ -2,7 +2,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import BillsCard from './BillsCard';
-import { mockBills } from './__fixtures__/mockData';
+import { mockBills } from '../__fixtures__/mockData';
 
 export default {
   component: BillsCard,

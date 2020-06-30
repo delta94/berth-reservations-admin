@@ -58,9 +58,9 @@ exports[`BillingHistoryCard renders correctly 1`] = `
             </span>
           </div>
           <span
-            class="chip green"
+            class="chip orange"
           >
-            Maksettu
+            Odottaa maksua
           </span>
         </div>
       </section>
