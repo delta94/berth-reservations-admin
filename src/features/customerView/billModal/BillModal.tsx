@@ -41,7 +41,13 @@ const BillModal = ({ bill, toggleModal, ...modalProps }: BillModalProps) => {
         {isBerthBill(bill) ? (
           <LabelValuePair
             label={t('customerView.customerBill.berthPlace')}
-            value={`${bill.berthInformation.harborName} ${bill.berthInformation.pierIdentifier} ${bill.berthInformation.number}`}
+            value={
+              bill.berthInformation.harborName +
+              ' ' +
+              bill.berthInformation.pierIdentifier +
+              ' ' +
+              bill.berthInformation.number
+            }
           />
         ) : (
           'Placeholder'
