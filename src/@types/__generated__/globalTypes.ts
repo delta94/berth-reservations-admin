@@ -27,6 +27,12 @@ export enum ApplicationStatus {
   PENDING = "PENDING",
 }
 
+export enum BerthApplicationLanguage {
+  EN = "EN",
+  FI = "FI",
+  SV = "SV",
+}
+
 export enum BerthMooringType {
   DINGHY_PLACE = "DINGHY_PLACE",
   NO_STERN_TO_MOORING = "NO_STERN_TO_MOORING",
@@ -53,6 +59,12 @@ export enum InvoicingType {
   DIGITAL_INVOICE = "DIGITAL_INVOICE",
   ONLINE_PAYMENT = "ONLINE_PAYMENT",
   PAPER_INVOICE = "PAPER_INVOICE",
+}
+
+export enum Language {
+  ENGLISH = "ENGLISH",
+  FINNISH = "FINNISH",
+  SWEDISH = "SWEDISH",
 }
 
 export enum LeaseStatus {

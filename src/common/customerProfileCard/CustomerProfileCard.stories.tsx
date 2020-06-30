@@ -3,7 +3,7 @@ import React from 'react';
 import { boolean, withKnobs } from '@storybook/addon-knobs';
 
 import CustomerProfileCard from './CustomerProfileCard';
-import { InvoicingType, OrganizationType } from '../../@types/__generated__/globalTypes';
+import { InvoicingType, Language, OrganizationType } from '../../@types/__generated__/globalTypes';
 
 export default {
   component: CustomerProfileCard,
@@ -41,6 +41,7 @@ const baseCustomerProps = {
   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   Aenean malesuada id est ut pellentesque.
   Vivamus quis maximus sem. Ut auctor vestibulum mattis.`,
+  language: Language.FINNISH,
 };
 
 export const privateCustomer = () => (

@@ -182,6 +182,20 @@ exports[`CustomerProfileCard with a private customer profile renders normally 1`
         >
           <span
             class="label standard"
+          >
+            Asiointikieli:
+          </span>
+          <span
+            class="value left"
+          >
+            Suomi
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
           />
           <span
             class="value left"
@@ -445,6 +459,20 @@ exports[`CustomerProfileCard with an organization customer profile renders norma
       <section
         class="body"
       >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Asiointikieli:
+          </span>
+          <span
+            class="value left"
+          >
+            Suomi
+          </span>
+        </div>
         <div
           class="labelValuePair"
         >

@@ -19,6 +19,7 @@ describe('CustomerProfileCard', () => {
       const wrapper = getWrapper({
         firstName: 'Testi',
         lastName: 'Käyttäjä',
+        language: null,
       });
       expect(wrapper.render()).toMatchSnapshot();
     });
@@ -54,6 +55,7 @@ describe('CustomerProfileCard', () => {
         firstName: 'Testi',
         lastName: 'Käyttäjä',
         organization: organizationCustomerProfile.organization,
+        language: null,
       });
       expect(wrapper.render()).toMatchSnapshot();
     });
