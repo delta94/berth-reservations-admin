@@ -38,9 +38,6 @@ const BillsCard = ({ bills, handleShowBill }: BillsCardProps) => {
 
     return (
       <div key={id}>
-        <Button variant="secondary" onClick={handleShowBill} className={styles.button}>
-          {t('customerView.customerBill.showInvoice')}
-        </Button>
         <Section title={t('customerView.customerBill.berthRental')}>
           {isBerthBill(bill) && (
             <LabelValuePair
@@ -82,6 +79,9 @@ const BillsCard = ({ bills, handleShowBill }: BillsCardProps) => {
             value={formatPrice(bill.totalPrice, bill.totalPriceTaxPercentage)}
           />
         </Section>
+        <Button variant="secondary" theme="coat" onClick={handleShowBill} className={styles.button}>
+          {t('customerView.customerBill.showInvoice')}
+        </Button>
       </div>
     );
   };
