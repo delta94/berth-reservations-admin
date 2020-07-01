@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils getOfferDetailsData should return the correct data 1`] = `
+Object {
+  "berthComment": "",
+  "berthDepth": null,
+  "berthIsAccessible": false,
+  "berthLength": 6,
+  "berthMooringType": "SINGLE_SLIP_PLACE",
+  "berthNum": "1",
+  "berthWidth": 2.5,
+  "electricity": true,
+  "gate": true,
+  "harborName": "Aurinkolahden venesatama (Aurinkoranta)",
+  "id": "165023f5-5b74-4656-9315-d4e1a22f111d",
+  "lighting": true,
+  "order": Object {
+    "fixedProducts": Array [
+      Object {
+        "id": "dc7f8158-a4cb-49a9-9368-e586f224fdb5",
+        "name": "ELECTRICITY",
+        "orderId": "9b97b9bc-bba5-46d9-aae2-86e8686012ef",
+        "price": "20.50",
+      },
+      Object {
+        "id": "2e55f605-061e-4299-814d-bf2cd53aa8ce",
+        "name": "WATER",
+        "orderId": "ea2ef175-f790-45a0-b16f-9e5a98340691",
+        "price": "19.33",
+      },
+      Object {
+        "id": "3a2e3a2f-2782-40e9-a139-b9a4d4a36c3b",
+        "name": "GATE",
+        "orderId": "8ba4de61-63cc-49fc-afe2-26068f3c8e4d",
+        "price": "2.42",
+      },
+      Object {
+        "id": "762da6e9-89be-43bc-b097-53dff4ed8415",
+        "name": "MOORING",
+        "orderId": "59c768c1-f371-4178-afda-1e16d2c725b0",
+        "price": "8.33",
+      },
+      Object {
+        "id": "34c5b6bc-7eb8-457e-bce8-8ba3a07b9057",
+        "name": "WASTE_COLLECTION",
+        "orderId": "6d910d8e-80b6-4486-aa85-4958bcd98dd5",
+        "price": "4.17",
+      },
+      Object {
+        "id": "650dbfcb-8f10-46b6-af64-197b77686a5b",
+        "name": "LIGHTING",
+        "orderId": "ab7cf1e5-92b5-42ad-844a-e2d577d30baf",
+        "price": "40.28",
+      },
+    ],
+    "id": "07f65f54-4a25-47fd-9eea-d9fdddfa46f9",
+    "optionalProducts": Array [
+      Object {
+        "id": "5194dd14-0226-4603-808c-831cfbec72de",
+        "name": "DINGHY_PLACE",
+        "orderId": "244a7af9-6f91-4f08-9738-82ef06a2e790",
+        "price": "65.00",
+      },
+    ],
+    "price": "96.67",
+    "totalPrice": "256.70",
+  },
+  "pierIdentifier": "C",
+  "wasteCollection": true,
+  "water": true,
+}
+`;
