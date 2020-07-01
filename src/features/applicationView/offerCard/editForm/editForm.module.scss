@@ -1,0 +1,27 @@
+@import 'spacings';
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 600px;
+  min-height: 400px;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 units(0.5);
+  line-height: 1.5;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+}
