@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import Grid from '../../../common/grid/Grid';
 import Section from '../../../common/section/Section';
+import Text from '../../../common/text/Text';
 import { OrganizationType } from '../../../@types/__generated__/globalTypes';
 import {
   CustomerListApplication,
@@ -77,7 +78,9 @@ const CustomerDetails = ({
           </Section>
           <Section title={t('harborList.details.boats')}>
             {boats.map((boat) => (
-              <div key={boat.id}>{boat.name}</div>
+              <div key={boat.id}>
+                {boat.name.length > 0 ? boat.name : <Text italic>{t('common.terminology.unnamedBoat')}</Text>}
+              </div>
             ))}
           </Section>
         </div>
