@@ -124,20 +124,6 @@ exports[`WinterStorageAreaDetails renders normally 1`] = `
         </span>
       </section>
     </article>
-    <article
-      class="section"
-    >
-      <h4
-        class="text standard h4 m title"
-      >
-        KIINNITYS
-      </h4>
-      <section
-        class="body"
-      >
-        -
-      </section>
-    </article>
   </div>
   <div
     class="column"
