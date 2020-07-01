@@ -44,11 +44,12 @@ export interface ApplicationViewProps {
   similarCustomersData: CustomerData[] | null;
   customerProfile: CustomerProfileCardProps | null;
   applicationDetails: ApplicationDetailsProps;
-  offerDetails: OfferCardProps | null;
+  leaseDetails: OfferCardProps['leaseDetails'] | null;
   customerTableTools: CustomersTableToolsProps<SearchBy>;
   loadingCustomers?: boolean;
   pagination: PaginationProps;
   handleLinkCustomer(customerId: string): void;
+  handleDeleteLease(id: string): void;
   onSortedColChange(sortBy: { id: string; desc?: boolean } | undefined): void;
 }
 
@@ -56,11 +57,12 @@ const ApplicationView = ({
   similarCustomersData,
   customerProfile,
   applicationDetails,
-  offerDetails,
+  leaseDetails,
   customerTableTools,
   loadingCustomers,
   pagination,
   handleLinkCustomer,
+  handleDeleteLease,
   onSortedColChange,
 }: ApplicationViewProps) => {
   const { t, i18n } = useTranslation();
@@ -156,11 +158,11 @@ const ApplicationView = ({
         <Card className={styles.fullWidth}>
           <CardHeader title={t('applicationView.applicationDetails.title')} />
           <CardBody>
-            <ApplicationDetails {...applicationDetails} queue={null} />
+            <ApplicationDetails {...applicationDetails} handleDeleteLease={handleDeleteLease} queue={null} />
           </CardBody>
         </Card>
       )}
-      {offerDetails && <OfferCard {...offerDetails} />}
+      {leaseDetails && <OfferCard leaseDetails={leaseDetails} handleDeleteLease={handleDeleteLease} />}
     </PageContent>
   );
 };

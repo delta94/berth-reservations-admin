@@ -130,18 +130,11 @@ const ApplicationViewContainer = () => {
 
   const customerProfile = customer ? getCustomerProfile(customer) : null;
 
-  const applicationDetailsData = getApplicationDetailsData(data.berthApplication, data.boatTypes || []);
+  const applicationDetails = getApplicationDetailsData(data.berthApplication, data.boatTypes || []);
 
   const filteredCustomersData = !customer ? getFilteredCustomersData(customersData) : null;
 
-  const applicationDetails = { ...applicationDetailsData, handleDeleteLease };
-
-  const offerDetails = data.berthApplication.lease
-    ? {
-        leaseDetails: getOfferDetailsData(data.berthApplication.lease),
-        handleDeleteLease,
-      }
-    : null;
+  const leaseDetails = getOfferDetailsData(data.berthApplication.lease);
 
   const handleLinkCustomer = (customerId: string) =>
     linkCustomer({
@@ -201,7 +194,8 @@ const ApplicationViewContainer = () => {
       similarCustomersData={filteredCustomersData}
       customerProfile={customerProfile}
       applicationDetails={applicationDetails}
-      offerDetails={offerDetails}
+      leaseDetails={leaseDetails}
+      handleDeleteLease={handleDeleteLease}
     />
   );
 };
