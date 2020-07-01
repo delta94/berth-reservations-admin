@@ -25,10 +25,11 @@ import {
   CREATE_NEW_PROFILE,
   CREATE_NEW_PROFILEVariables as CREATE_NEW_PROFILE_VARS,
 } from './__generated__/CREATE_NEW_PROFILE';
-import { getApplicationDetailsData, getCustomerProfile, getFilteredCustomersData, getOfferDetailsData } from './utils';
+import { getApplicationDetailsData, getCustomerProfile, getFilteredCustomersData } from './utils';
 import { usePagination } from '../../common/utils/usePagination';
 import { usePrevious } from '../../common/utils/usePrevious';
 import { useBackendSorting } from '../../common/utils/useBackendSorting';
+import { getOfferDetailsData } from './offerCard/utils';
 
 const ApplicationViewContainer = () => {
   const { t } = useTranslation();
@@ -137,7 +138,7 @@ const ApplicationViewContainer = () => {
 
   const offerDetails = data.berthApplication.lease
     ? {
-        ...getOfferDetailsData(data.berthApplication.lease),
+        leaseDetails: getOfferDetailsData(data.berthApplication.lease),
         handleDeleteLease,
       }
     : null;
