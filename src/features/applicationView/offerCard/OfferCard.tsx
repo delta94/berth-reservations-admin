@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IconTrash } from 'hds-react';
 import { useTranslation } from 'react-i18next';
+import { PureQueryOptions } from 'apollo-client';
 
 import Card from '../../../common/card/Card';
 import CardHeader from '../../../common/cardHeader/CardHeader';
@@ -56,6 +57,7 @@ export interface LeaseDetails {
 
 export interface OfferCardProps {
   leaseDetails: LeaseDetails;
+  refetchQueries: PureQueryOptions[] | string[];
   handleDeleteLease: (id: string) => void;
 }
 
@@ -78,6 +80,7 @@ const OfferCard = ({
     water,
     order,
   },
+  refetchQueries,
   handleDeleteLease,
 }: OfferCardProps) => {
   const { t, i18n } = useTranslation();
@@ -233,14 +236,17 @@ const OfferCard = ({
           </div>
         </CardBody>
       </Card>
-      <Modal isOpen={isEditing}>
-        <EditForm
-          orderId={order?.id || ''}
-          selectedProducts={selectedProducts}
-          handleCancel={() => setIsEditing(false)}
-          handleSubmit={() => setIsEditing(false)}
-        ></EditForm>
-      </Modal>
+      {order && (
+        <Modal isOpen={isEditing}>
+          <EditForm
+            orderId={order.id}
+            selectedProducts={selectedProducts}
+            refetchQueries={refetchQueries}
+            handleCancel={() => setIsEditing(false)}
+            handleSubmit={() => setIsEditing(false)}
+          ></EditForm>
+        </Modal>
+      )}
     </>
   );
 };

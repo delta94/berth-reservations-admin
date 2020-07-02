@@ -3,6 +3,7 @@ import { useQuery, useMutation, useLazyQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { useDebounce } from 'use-debounce';
+import { getOperationName } from 'apollo-link';
 
 import ApplicationView, { SearchBy } from './ApplicationView';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
@@ -195,6 +196,7 @@ const ApplicationViewContainer = () => {
       customerProfile={customerProfile}
       applicationDetails={applicationDetails}
       leaseDetails={leaseDetails}
+      refetchQueries={[getOperationName(INDIVIDUAL_APPLICATION_QUERY) || 'INDIVIDUAL_APPLICATION']}
       handleDeleteLease={handleDeleteLease}
     />
   );

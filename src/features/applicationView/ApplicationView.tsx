@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { Notification } from 'hds-react';
+import { PureQueryOptions } from 'apollo-client';
 
 import styles from './applicationView.module.scss';
 import Card from '../../common/card/Card';
@@ -48,6 +49,7 @@ export interface ApplicationViewProps {
   customerTableTools: CustomersTableToolsProps<SearchBy>;
   loadingCustomers?: boolean;
   pagination: PaginationProps;
+  refetchQueries: PureQueryOptions[] | string[];
   handleLinkCustomer(customerId: string): void;
   handleDeleteLease(id: string): void;
   onSortedColChange(sortBy: { id: string; desc?: boolean } | undefined): void;
@@ -61,6 +63,7 @@ const ApplicationView = ({
   customerTableTools,
   loadingCustomers,
   pagination,
+  refetchQueries,
   handleLinkCustomer,
   handleDeleteLease,
   onSortedColChange,
@@ -162,7 +165,9 @@ const ApplicationView = ({
           </CardBody>
         </Card>
       )}
-      {leaseDetails && <OfferCard leaseDetails={leaseDetails} handleDeleteLease={handleDeleteLease} />}
+      {leaseDetails && (
+        <OfferCard leaseDetails={leaseDetails} handleDeleteLease={handleDeleteLease} refetchQueries={refetchQueries} />
+      )}
     </PageContent>
   );
 };

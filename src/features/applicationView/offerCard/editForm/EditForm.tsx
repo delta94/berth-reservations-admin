@@ -3,6 +3,7 @@ import { Formik } from 'formik';
 import { Checkbox } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { useQuery, useMutation } from '@apollo/react-hooks';
+import { PureQueryOptions } from 'apollo-client';
 
 import styles from './editForm.module.scss';
 import { ORDER_OPTIONAL_PRODUCTS_QUERY } from './queries';
@@ -27,6 +28,7 @@ import Text from '../../../../common/text/Text';
 export interface EditFormProps {
   orderId: string;
   selectedProducts: { productId: string; orderId: string }[];
+  refetchQueries: PureQueryOptions[] | string[];
   handleCancel(): void;
   handleSubmit(): void;
 }
@@ -35,11 +37,19 @@ interface Values {
   [productId: string]: boolean;
 }
 
-const EditForm: React.FC<EditFormProps> = ({ orderId, selectedProducts, handleCancel, handleSubmit }) => {
+const EditForm: React.FC<EditFormProps> = ({
+  orderId,
+  selectedProducts,
+  refetchQueries,
+  handleCancel,
+  handleSubmit,
+}) => {
   const { t, i18n } = useTranslation();
   const { data, loading } = useQuery<ORDER_OPTIONAL_PRODUCTS>(ORDER_OPTIONAL_PRODUCTS_QUERY);
   const [createOrderLine] = useMutation<CREATE_ORDER_LINE, CREATE_ORDER_LINE_VARS>(CREATE_ORDER_LINE_MUTATION);
-  const [deleteOrderLine] = useMutation<DELETE_ORDER_LINE, DELETE_ORDER_LINE_VARS>(DELETE_ORDER_LINE_MUTATION);
+  const [deleteOrderLine] = useMutation<DELETE_ORDER_LINE, DELETE_ORDER_LINE_VARS>(DELETE_ORDER_LINE_MUTATION, {
+    refetchQueries,
+  });
 
   if (loading)
     return (
