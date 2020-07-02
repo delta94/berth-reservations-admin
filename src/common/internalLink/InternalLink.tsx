@@ -4,12 +4,12 @@ import classNames from 'classnames';
 
 import styles from './internalLink.module.scss';
 
-type Props = {
+export type InternalLinkProps = {
   color?: 'standard' | 'critical' | 'brand';
   underlined?: boolean;
 } & LinkProps;
 
-const InternalLink = ({ color = 'brand', children, underlined, className, ...props }: Props) => {
+const InternalLink = ({ color = 'brand', children, underlined, className, ...props }: InternalLinkProps) => {
   return (
     <Link
       {...props}

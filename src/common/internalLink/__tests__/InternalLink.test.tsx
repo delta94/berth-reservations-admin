@@ -2,22 +2,26 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { HashRouter, Link } from 'react-router-dom';
 
-import InternalLink from './InternalLink';
+import InternalLink, { InternalLinkProps } from '../InternalLink';
 
 describe('InternalLink', () => {
-  const getWrapper = ({ children = 'Home Page', ...props } = {}) =>
+  const getWrapper = (props?: Omit<InternalLinkProps, 'to'>) =>
     shallow(
       <HashRouter>
-        <InternalLink to="/" {...props}>
-          {children}
-        </InternalLink>
+        <InternalLink to="/" children="Home Page" {...props} />
       </HashRouter>
     );
 
   it('renders normally', () => {
     const wrapper = getWrapper();
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('renders normally with element children', () => {
+    const wrapper = getWrapper({ children: <p>Test!</p> });
+
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('renders Link component', () => {
