@@ -2,22 +2,30 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { HashRouter, NavLink } from 'react-router-dom';
 
-import InternalNavLink from './InternalNavLink';
+import InternalNavLink, { InternalNavLinkProps } from '../InternalNavLink';
 
 describe('InternalNavLink', () => {
-  const getWrapper = ({ children = 'Home Page', ...props } = {}) =>
+  const getWrapper = (props?: Omit<InternalNavLinkProps, 'to'>) =>
     shallow(
       <HashRouter>
-        <InternalNavLink to="/" {...props}>
-          {children}
-        </InternalNavLink>
+        <InternalNavLink to="/" children="Home Page" {...props} />
       </HashRouter>
     );
 
   it('renders normally', () => {
     const wrapper = getWrapper();
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('renders normally with all props', () => {
+    const wrapper = getWrapper({
+      color: 'brand',
+      icon: <i>Test icon</i>,
+      className: 'test',
+    });
+
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('renders NavLink component', () => {
