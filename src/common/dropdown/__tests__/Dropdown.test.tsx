@@ -1,11 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import Dropdown, { DropdownProps } from '../Dropdown';
 
 describe('Dropdown', () => {
-  const getWrapper = (props: DropdownProps = { label: 'Click here' }) =>
-    shallow(
+  const getWrapper = (props: Omit<DropdownProps, 'children'> = { label: 'Click here' }) =>
+    mount(
       <Dropdown {...props}>
         <ul>
           <li>one</li>
@@ -23,10 +23,9 @@ describe('Dropdown', () => {
   it('opens the menu when you click on the label', () => {
     const label = <button className="label">Click here</button>;
     const wrapper = getWrapper({ label });
-    const labelWrapper = wrapper.find('button.label');
 
-    labelWrapper.simulate('click');
+    wrapper.find('button.label').simulate('click');
 
-    expect(wrapper.find('ul').length).toBeDefined();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

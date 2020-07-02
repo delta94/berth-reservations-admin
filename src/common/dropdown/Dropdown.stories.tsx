@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Dropdown from './Dropdown';
+import Button from '../button/Button';
 
 export default {
   component: Dropdown,
@@ -8,7 +9,7 @@ export default {
 };
 
 export const dropdown = () => (
-  <Dropdown label="test">
+  <Dropdown label={<Button>Test</Button>}>
     <div>one</div>
     <div>two</div>
   </Dropdown>
