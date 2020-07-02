@@ -21,7 +21,7 @@ const Expandable = ({ label, onClick, children }: ExpandableProps) => {
   return (
     <>
       <div className={styles.expandable}>
-        <div className={classNames(styles.headerBtn, styles.label)} role="button" onClick={handleClick}>
+        <div className={classNames(styles.headerBtn, styles.label)} role="button">
           {label}
         </div>
         {children && (
@@ -30,7 +30,7 @@ const Expandable = ({ label, onClick, children }: ExpandableProps) => {
               [styles.up]: expanded,
             })}
           >
-            <Button variant="secondary" onClick={() => setExpanded(!expanded)}>
+            <Button variant="secondary" onClick={handleClick}>
               <IconAngleDown />
             </Button>
           </div>
