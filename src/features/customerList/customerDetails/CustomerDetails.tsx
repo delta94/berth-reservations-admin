@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import Grid from '../../../common/grid/Grid';
 import Section from '../../../common/section/Section';
+import Text from '../../../common/text/Text';
 import { OrganizationType } from '../../../@types/__generated__/globalTypes';
 import {
   CustomerListApplication,
@@ -50,7 +51,7 @@ const CustomerDetails = ({
     <div>
       <Grid colsCount={4}>
         <div>
-          <Section title={t('harborList.details.customer')}>{name}</Section>
+          <Section title={t('common.terminology.customer').toUpperCase()}>{name}</Section>
           <Section>
             {address}
             <br />
@@ -65,36 +66,38 @@ const CustomerDetails = ({
           </Section>
         </div>
         <div>
-          <Section title={t('harborList.details.berths')}>
+          <Section title={t('common.terminology.berths').toUpperCase()}>
             {berths.map((berth) => (
               <div key={berth.id}>{berth.title}</div>
             ))}
           </Section>
-          <Section title={t('harborList.details.winterStoragePlaces')}>
+          <Section title={t('common.terminology.winterStoragePlaces').toUpperCase()}>
             {winterStoragePlaces.map((place) => (
               <div key={place.id}>{place.title}</div>
             ))}
           </Section>
-          <Section title={t('harborList.details.boats')}>
+          <Section title={t('common.terminology.boats').toUpperCase()}>
             {boats.map((boat) => (
-              <div key={boat.id}>{boat.name}</div>
+              <div key={boat.id}>
+                {boat.name.length > 0 ? boat.name : <Text italic>{t('common.terminology.unnamedBoat')}</Text>}
+              </div>
             ))}
           </Section>
         </div>
         <div>
-          <Section title={t('harborList.details.applications')}>
+          <Section title={t('common.terminology.applications').toUpperCase()}>
             {applications.map((application) => (
               <div key={application.id}>{formatDate(application.createdAt, i18n.language)}</div>
             ))}
           </Section>
-          <Section title={t('harborList.details.bills')}>
+          <Section title={t('common.terminology.bills').toUpperCase()}>
             {bills.map((bill) => (
               <div key={bill.id}>{bill.date}</div>
             ))}
           </Section>
         </div>
         <div>
-          <Section title={t('harborList.details.comments')}>{comment}</Section>
+          <Section title={t('common.terminology.comments').toUpperCase()}>{comment}</Section>
         </div>
       </Grid>
     </div>
