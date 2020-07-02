@@ -18,13 +18,15 @@ exports[`Select renders normally 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="hds-label hds-toggle-button"
-      class="Dropdown-module_buttonDropdown__IwbnQ Dropdown-module_dropdown__22ZdF Dropdown-module_placeholder__2nbDo"
+      class="Dropdown-module_buttonDropdown__IwbnQ Dropdown-module_dropdown__22ZdF"
       id="hds-toggle-button"
       type="button"
     >
       <span
         class="Dropdown-module_buttonLabel__2jVRU"
-      />
+      >
+        First
+      </span>
       <svg
         class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Dropdown-module_angleIcon__1Y1mT"
         viewBox="0 0 24 24"
