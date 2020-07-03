@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import { wait } from '@apollo/react-testing';
 import { act } from 'react-dom/test-utils';
+import { GraphQLError } from 'graphql';
 
 import hdsToast from '../hdsToast';
 import HDSToastContainer from '../HDSToastContainer';
@@ -62,5 +63,34 @@ describe('HDSToastContainer', () => {
     await simulateCloseToast(wrapper, 0);
     expect(wrapper.find('#toast-0')).toHaveLength(0);
     expect(wrapper.find('.Toastify__toast')).toHaveLength(0);
+  });
+
+  describe('graphQLErrors', () => {
+    const graphQLErrors = [
+      new GraphQLError('error', undefined, undefined, undefined, undefined, undefined, {
+        code: 'default',
+      }),
+      new GraphQLError('error', undefined, undefined, undefined, undefined, undefined, undefined),
+    ];
+
+    const GraphQLErrorsTestComponent = () => {
+      return (
+        <div>
+          <HDSToastContainer />
+          <button
+            id="toastBtn"
+            onClick={() => {
+              hdsToast.graphQLErrors(graphQLErrors);
+            }}
+          />
+        </div>
+      );
+    };
+
+    it('creates a toast from each graphQLError', async () => {
+      const wrapper = mount(<GraphQLErrorsTestComponent />);
+      await simulateToast(wrapper);
+      expect(wrapper.find('.Toastify__toast')).toHaveLength(2);
+    });
   });
 });
