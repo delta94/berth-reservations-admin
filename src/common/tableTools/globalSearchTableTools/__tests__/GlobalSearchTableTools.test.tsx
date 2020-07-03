@@ -17,7 +17,7 @@ describe('GlobalSearchTableTools', () => {
   it('renders normally', () => {
     const wrapper = getWrapper();
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should call handleGlobalFilter when onChange is called', () => {

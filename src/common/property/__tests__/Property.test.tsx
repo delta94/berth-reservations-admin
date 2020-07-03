@@ -10,13 +10,13 @@ describe('Property', () => {
   it('renders normally', () => {
     const wrapper = getWrapper({ icon: IconFence, label: 'Test' });
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('renders normally without icon', () => {
     const wrapper = getWrapper({ label: 'Test' });
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('renders icon with secondary color if active is false', () => {

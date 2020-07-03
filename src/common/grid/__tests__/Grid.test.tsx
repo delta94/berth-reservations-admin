@@ -16,7 +16,7 @@ describe('Grid', () => {
   it('renders normally', () => {
     const wrapper = getWrapper();
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('assigns the right className to the wrapper when the colsCount prop is provided', () => {
