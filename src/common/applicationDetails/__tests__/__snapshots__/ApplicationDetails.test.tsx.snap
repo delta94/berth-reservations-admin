@@ -1,6 +1,533 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ApplicationDetails renders normally with organization customer applicant 1`] = `
+exports[`ApplicationDetails renders normally with a lease 1`] = `
+<div
+  class="grid cols3"
+>
+  <div>
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        HAKEMUS
+      </h4>
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Hakemustyyppi:
+          </span>
+          <span
+            class="value left"
+          >
+            Vaihtohakemus
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Vastaanotettu:
+          </span>
+          <span
+            class="value left"
+          >
+            23.10.2019 klo 12.15
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Jononumero:
+          </span>
+          <span
+            class="value left"
+          >
+            245
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Status:
+          </span>
+          <span
+            class="value left"
+          >
+            Odottaa käsittelyä
+          </span>
+        </div>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        NYKYINEN VENEPAIKKA
+      </h4>
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Satama ja paikka:
+          </span>
+          <span
+            class="value left"
+          >
+            harbor pier berth
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Erityistoive:
+          </span>
+          <span
+            class="value left"
+          >
+            reason
+          </span>
+        </div>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        HAKEVAN YRITYKSEN TIEDOT
+      </h4>
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Nimi:
+          </span>
+          <span
+            class="value left"
+          >
+            Liikeyritys Oy
+          </span>
+        </div>
+         
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Y-tunnus:
+          </span>
+          <span
+            class="value left"
+          >
+            1234567-8
+          </span>
+        </div>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Jakeluosoite:
+          </span>
+          <span
+            class="value left"
+          >
+            Liiketoimintaraitti 12
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Postinumero:
+          </span>
+          <span
+            class="value left"
+          >
+            00100
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Postitoimipaikka:
+          </span>
+          <span
+            class="value left"
+          >
+            Helsinki
+          </span>
+        </div>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Asiakasryhmä:
+          </span>
+          <span
+            class="value left"
+          >
+            Yritys
+          </span>
+        </div>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        YHTEYSHENKILÖ
+      </h4>
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Etunimet:
+          </span>
+          <span
+            class="value left"
+          >
+            Testi
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Sukunimi:
+          </span>
+          <span
+            class="value left"
+          >
+            Käyttäjä
+          </span>
+        </div>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Matkapuhelin:
+          </span>
+          <span
+            class="value left"
+          >
+            0504391742
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Sähköpostiosoite:
+          </span>
+          <span
+            class="value left"
+          >
+            test@example.com
+          </span>
+        </div>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Huomiot:
+          </span>
+          <span
+            class="value left"
+          >
+            -
+          </span>
+        </div>
+      </section>
+    </article>
+  </div>
+  <div>
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        VENEEN TIEDOT
+      </h4>
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Veneen tyyppi:
+          </span>
+          <span
+            class="value left"
+          >
+            Purjevene / moottoripursi
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Rekisterinumero:
+          </span>
+          <span
+            class="value left"
+          >
+            A 12345
+          </span>
+        </div>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Veneen leveys:
+          </span>
+          <span
+            class="value left"
+          >
+            3,2 m
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Veneen pituus:
+          </span>
+          <span
+            class="value left"
+          >
+            6,0 m
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Veneen syväys:
+          </span>
+          <span
+            class="value left"
+          >
+            0,8 m
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Veneen paino:
+          </span>
+          <span
+            class="value left"
+          >
+            350 kg
+          </span>
+        </div>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Nimi:
+          </span>
+          <span
+            class="value left"
+          >
+            Cama la Yano
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Merkki:
+          </span>
+          <span
+            class="value left"
+          >
+            Marine
+          </span>
+        </div>
+      </section>
+    </article>
+  </div>
+  <div>
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        LIITETTY SATAMAPAIKKA
+      </h4>
+      <section
+        class="body"
+      >
+        Testisatama 2 1
+        <button
+          class="deleteButton"
+        >
+          <span
+            class="text brand span"
+          >
+            Poista ehdotettu paikka
+          </span>
+        </button>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <section
+        class="body"
+      >
+        <div
+          class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz accessibleCheckbox checkbox"
+        >
+          <input
+            aria-checked="true"
+            checked=""
+            class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
+            id="accessible"
+            readonly=""
+            type="checkbox"
+            value=""
+          />
+          <label
+            class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
+            for="accessible"
+          >
+            Tarvitsen esteettömän paikan
+          </label>
+        </div>
+      </section>
+    </article>
+  </div>
+</div>
+`;
+
+exports[`ApplicationDetails renders normally with harborChoices and no customerId 1`] = `
 <div
   class="grid cols3"
 >
@@ -55,6 +582,563 @@ exports[`ApplicationDetails renders normally with organization customer applican
           <span
             class="value left"
           >
+            -
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Status:
+          </span>
+          <span
+            class="value left"
+          >
+            Odottaa käsittelyä
+          </span>
+        </div>
+      </section>
+    </article>
+  </div>
+  <div>
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        VENEEN TIEDOT
+      </h4>
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Veneen tyyppi:
+          </span>
+          <span
+            class="value left"
+          >
+            -
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Rekisterinumero:
+          </span>
+          <span
+            class="value left"
+          >
+            A 12345
+          </span>
+        </div>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Veneen leveys:
+          </span>
+          <span
+            class="value left"
+          >
+            3,2 m
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Veneen pituus:
+          </span>
+          <span
+            class="value left"
+          >
+            6,0 m
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Veneen syväys:
+          </span>
+          <span
+            class="value left"
+          >
+            -
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Veneen paino:
+          </span>
+          <span
+            class="value left"
+          >
+            -
+          </span>
+        </div>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Nimi:
+          </span>
+          <span
+            class="value left"
+          >
+            Cama la Yano
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Merkki:
+          </span>
+          <span
+            class="value left"
+          >
+            Marine
+          </span>
+        </div>
+      </section>
+    </article>
+  </div>
+  <div>
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        VALITUT SATAMAT
+      </h4>
+      <section
+        class="body"
+      >
+        <ul
+          class="list standard noBullets"
+        >
+          <li>
+            <span
+              class="text standard span"
+            >
+              Toive 
+                      1: 
+            </span>
+            <span
+              class="text standard span"
+            >
+              Eka satama
+            </span>
+          </li>
+          <li>
+            <span
+              class="text standard span"
+            >
+              Toive 
+                      2: 
+            </span>
+            <span
+              class="text standard span"
+            >
+              Kolmas satama
+            </span>
+          </li>
+        </ul>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <section
+        class="body"
+      >
+        <div
+          class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz accessibleCheckbox checkbox"
+        >
+          <input
+            aria-checked="false"
+            class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
+            id="accessible"
+            readonly=""
+            type="checkbox"
+            value=""
+          />
+          <label
+            class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
+            for="accessible"
+          >
+            Tarvitsen esteettömän paikan
+          </label>
+        </div>
+      </section>
+    </article>
+  </div>
+</div>
+`;
+
+exports[`ApplicationDetails renders normally with minimum props 1`] = `
+<div
+  class="grid cols3"
+>
+  <div>
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        HAKEMUS
+      </h4>
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Hakemustyyppi:
+          </span>
+          <span
+            class="value left"
+          >
+            Uusi hakemus
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Vastaanotettu:
+          </span>
+          <span
+            class="value left"
+          >
+            23.10.2019 klo 12.15
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Jononumero:
+          </span>
+          <span
+            class="value left"
+          >
+            -
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Status:
+          </span>
+          <span
+            class="value left"
+          >
+            Odottaa käsittelyä
+          </span>
+        </div>
+      </section>
+    </article>
+  </div>
+  <div>
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        VENEEN TIEDOT
+      </h4>
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Veneen tyyppi:
+          </span>
+          <span
+            class="value left"
+          >
+            -
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Rekisterinumero:
+          </span>
+          <span
+            class="value left"
+          >
+            A 12345
+          </span>
+        </div>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Veneen leveys:
+          </span>
+          <span
+            class="value left"
+          >
+            3,2 m
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Veneen pituus:
+          </span>
+          <span
+            class="value left"
+          >
+            6,0 m
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Veneen syväys:
+          </span>
+          <span
+            class="value left"
+          >
+            -
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Veneen paino:
+          </span>
+          <span
+            class="value left"
+          >
+            -
+          </span>
+        </div>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Nimi:
+          </span>
+          <span
+            class="value left"
+          >
+            Cama la Yano
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Merkki:
+          </span>
+          <span
+            class="value left"
+          >
+            Marine
+          </span>
+        </div>
+      </section>
+    </article>
+  </div>
+  <div>
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        VALITUT SATAMAT
+      </h4>
+      <section
+        class="body"
+      >
+        <ul
+          class="list standard noBullets"
+        />
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <section
+        class="body"
+      >
+        <div
+          class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz accessibleCheckbox checkbox"
+        >
+          <input
+            aria-checked="false"
+            class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
+            id="accessible"
+            readonly=""
+            type="checkbox"
+            value=""
+          />
+          <label
+            class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
+            for="accessible"
+          >
+            Tarvitsen esteettömän paikan
+          </label>
+        </div>
+      </section>
+    </article>
+  </div>
+</div>
+`;
+
+exports[`ApplicationDetails renders normally with organization customer applicant 1`] = `
+<div
+  class="grid cols3"
+>
+  <div>
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        HAKEMUS
+      </h4>
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Hakemustyyppi:
+          </span>
+          <span
+            class="value left"
+          >
+            Vaihtohakemus
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Vastaanotettu:
+          </span>
+          <span
+            class="value left"
+          >
+            23.10.2019 klo 12.15
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Jononumero:
+          </span>
+          <span
+            class="value left"
+          >
             245
           </span>
         </div>
@@ -70,6 +1154,47 @@ exports[`ApplicationDetails renders normally with organization customer applican
             class="value left"
           >
             Odottaa käsittelyä
+          </span>
+        </div>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        NYKYINEN VENEPAIKKA
+      </h4>
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Satama ja paikka:
+          </span>
+          <span
+            class="value left"
+          >
+            harbor pier berth
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Erityistoive:
+          </span>
+          <span
+            class="value left"
+          >
+            reason
           </span>
         </div>
       </section>
@@ -495,6 +1620,7 @@ exports[`ApplicationDetails renders normally with organization customer applican
             id="accessible"
             readonly=""
             type="checkbox"
+            value=""
           />
           <label
             class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
@@ -536,7 +1662,7 @@ exports[`ApplicationDetails renders normally with private customer applicant 1`]
           <span
             class="value left"
           >
-            Uusi hakemus
+            Vaihtohakemus
           </span>
         </div>
         <div
@@ -579,6 +1705,47 @@ exports[`ApplicationDetails renders normally with private customer applicant 1`]
             class="value left"
           >
             Odottaa käsittelyä
+          </span>
+        </div>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        NYKYINEN VENEPAIKKA
+      </h4>
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Satama ja paikka:
+          </span>
+          <span
+            class="value left"
+          >
+            harbor pier berth
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Erityistoive:
+          </span>
+          <span
+            class="value left"
+          >
+            reason
           </span>
         </div>
       </section>
@@ -962,6 +2129,7 @@ exports[`ApplicationDetails renders normally with private customer applicant 1`]
             id="accessible"
             readonly=""
             type="checkbox"
+            value=""
           />
           <label
             class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"

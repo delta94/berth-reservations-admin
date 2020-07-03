@@ -42,25 +42,25 @@ interface BerthSwitch {
 }
 
 export interface ApplicationDetailsProps {
-  id: string;
-  customerId?: string;
+  accessibilityRequired: boolean;
   applicant?: PrivateCustomerDetailsProps | OrganizationCustomerDetailsProps;
   berthSwitch: BerthSwitch | null;
+  boatDraught: number | null;
+  boatLength: number;
+  boatModel: string;
+  boatName: string;
+  boatRegistrationNumber: string;
+  boatType?: string | null;
+  boatWeight: number | null;
+  boatWidth: number;
   createdAt: string;
+  customerId?: string;
+  handleDeleteLease?: (id: string) => void;
+  harborChoices: Array<HarborChoice | null>;
+  id: string;
+  lease?: Lease | null;
   queue: number | null;
   status: ApplicationStatus;
-  lease?: Lease | null;
-  boatType?: string | null;
-  boatRegistrationNumber: string;
-  boatWidth: number;
-  boatLength: number;
-  boatDraught: number | null;
-  boatWeight: number | null;
-  boatName: string;
-  boatModel: string;
-  harborChoices: Array<HarborChoice | null>;
-  accessibilityRequired: boolean;
-  handleDeleteLease?: (id: string) => void;
 }
 
 const ApplicationDetails = ({
