@@ -5,13 +5,13 @@ import ReactModal from 'react-modal';
 import Modal, { ModalProps } from '../Modal';
 
 describe('Modal', () => {
+  ReactModal.setAppElement('body');
   const getWrapper = (props?: Partial<ModalProps>) =>
     mount(
       <Modal isOpen={true} {...props}>
         <p>Content</p>
       </Modal>
     );
-  ReactModal.setAppElement('body'); // suppress ReactModal warning
 
   it('renders normally', () => {
     const wrapper = getWrapper();

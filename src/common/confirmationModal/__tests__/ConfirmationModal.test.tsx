@@ -1,10 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import ReactModal from 'react-modal';
 
 import ConfirmationModal from '../ConfirmationModal';
 
 describe('ConfirmationModal', () => {
   it('renders correctly', () => {
+    ReactModal.setAppElement('body');
     const wrapper = mount(
       <ConfirmationModal
         isOpen={true}
@@ -17,6 +19,7 @@ describe('ConfirmationModal', () => {
         onConfirm={jest.fn}
       />
     );
+
     expect(wrapper.render()).toMatchSnapshot();
   });
 });
