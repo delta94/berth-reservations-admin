@@ -8,7 +8,7 @@ import Section from '../../../common/section/Section';
 import ExternalLink from '../../../common/externalLink/ExternalLink';
 import MapLinks from '../../../common/mapLinks/MapLinks';
 import Text from '../../../common/text/Text';
-import { formatDimension } from '../../../common/utils/format';
+import { formatAddress, formatDimension } from '../../../common/utils/format';
 import placeholderImage from '../../../common/placeholderImage.svg';
 
 export type WinterStorageAreaDetailsProps = Pick<
@@ -26,7 +26,6 @@ const WinterStorageAreaDetails = ({
   imageFile,
 }: WinterStorageAreaDetailsProps) => {
   const { t, i18n } = useTranslation();
-  const address = `${streetAddress}, ${zipCode} ${municipality}`;
   const imageSrc = imageFile ? imageFile : placeholderImage;
   const serviceMapUrl = `${process.env.REACT_APP_SERVICE_MAP_URI}${servicemapId}`;
 
@@ -37,7 +36,7 @@ const WinterStorageAreaDetails = ({
       </div>
       <div className={styles.column}>
         <Section className={styles.address} title={t('common.terminology.address').toUpperCase()}>
-          {address}
+          {formatAddress(streetAddress, zipCode, municipality)}
         </Section>
         <Section>
           <ExternalLink href={serviceMapUrl} variant="withArrow">

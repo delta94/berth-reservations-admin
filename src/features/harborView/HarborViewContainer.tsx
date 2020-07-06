@@ -45,7 +45,9 @@ const HarborViewContainer = () => {
           imageUrl={harbor.imageFile}
           maps={maps}
           servicemapId={harbor.servicemapId || ''}
-          address={`${harbor.streetAddress} ${harbor.zipCode} ${harbor.municipality}`}
+          streetAddress={harbor.streetAddress}
+          zipCode={harbor.zipCode}
+          municipality={harbor.municipality}
           properties={{
             electricity: harbor.electricity,
             gate: harbor.gate,

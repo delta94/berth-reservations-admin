@@ -175,7 +175,9 @@ export const getHarbor = (data: OFFER | undefined): HarborCardProps | null => {
     imageUrl: properties.imageFile,
     maps,
     name: properties.name || '',
-    address: `${properties.streetAddress} ${properties.municipality} ${properties.zipCode}`,
+    streetAddress: properties.streetAddress,
+    municipality: properties.municipality,
+    zipCode: properties.zipCode,
     servicemapId: properties.servicemapId || '',
     properties: {
       ...pierProps,

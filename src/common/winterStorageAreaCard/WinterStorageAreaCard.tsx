@@ -17,6 +17,7 @@ import { WinterStorageArea } from '../../features/winterStorageAreaView/types';
 import { getProductServiceTKey } from '../utils/translations';
 import { ProductServiceType } from '../../@types/__generated__/globalTypes';
 import styles from './winterStorageAreaCard.module.scss';
+import { formatAddress } from '../utils/format';
 
 interface WinterStorageAreaCardProps extends WinterStorageArea {
   className?: string;
@@ -60,9 +61,7 @@ const WinterStorageAreaCard = ({
                 <Text as="h2" size="xxl">
                   {name}
                 </Text>
-                <Text>
-                  {streetAddress ? `${streetAddress}, ${zipCode} ${municipality}` : `${zipCode} ${municipality}`}
-                </Text>
+                <Text>{formatAddress(streetAddress, zipCode, municipality)}</Text>
               </Section>
               <Section>
                 <ExternalLink href={serviceMapUrl} variant="withArrow">

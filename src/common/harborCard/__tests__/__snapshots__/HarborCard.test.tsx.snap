@@ -46,7 +46,7 @@ exports[`HarborCard renders normally 1`] = `
               <span
                 class="text standard span"
               >
-                Meripuistotie 1a Helsinki 00210
+                Meripuistotie 1a, 00210 Helsinki
               </span>
             </section>
           </article>
