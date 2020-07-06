@@ -63,3 +63,9 @@ export const formatBytes = (value: number, locale: string) => {
     return `${formatter(value / 1000 / 1000)} MB`;
   }
 };
+
+export const formatAddress = (streetAddress?: string | null, zipCode?: string | null, municipality?: string | null) => {
+  if (!streetAddress && !zipCode && !municipality) return '-';
+
+  return [streetAddress ? `${streetAddress},` : '', zipCode, municipality].filter(Boolean).join(' ');
+};

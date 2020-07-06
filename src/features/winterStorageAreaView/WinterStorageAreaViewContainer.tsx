@@ -14,6 +14,7 @@ import CardHeader from '../../common/cardHeader/CardHeader';
 import CardBody from '../../common/cardBody/CardBody';
 import styles from './winterStorageAreaView.module.scss';
 import WinterStorageAreaViewTable from './WinterStorageAreaViewTable';
+import ContactInformationCard from '../../common/contactInformationCard/ContactInformationCard';
 
 const WinterStorageAreaViewContainer = () => {
   const { id } = useParams<{ id: string }>();
@@ -31,10 +32,12 @@ const WinterStorageAreaViewContainer = () => {
     <WinterStorageAreaView>
       <div className={styles.grid}>
         <WinterStorageAreaCard {...winterStorageArea} className={styles.fullWidth} />
-        <Card>
-          <CardHeader title={t('winterStorageAreaView.contactInformation')} />
-          <CardBody>Placeholder</CardBody>
-        </Card>
+        <ContactInformationCard
+          name={winterStorageArea.name}
+          streetAddress={winterStorageArea.streetAddress}
+          municipality={winterStorageArea.municipality}
+          zipCode={winterStorageArea.zipCode}
+        />
         <Card>
           <CardHeader title={t('winterStorageAreaView.history')} />
           <CardBody>Placeholder</CardBody>

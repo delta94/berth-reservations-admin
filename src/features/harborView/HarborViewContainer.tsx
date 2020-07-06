@@ -15,6 +15,8 @@ import PierCreateForm from './forms/pierForm/PierCreateForm';
 import PierEditForm from './forms/pierForm/PierEditForm';
 import HarborEditForm from './forms/harborForm/HarborEditForm';
 import HarborViewTable from './HarborViewTable';
+import ContactInformationCard from '../../common/contactInformationCard/ContactInformationCard';
+import Grid from '../../common/grid/Grid';
 
 const HarborViewContainer = () => {
   const [editingHarbor, setEditingHarbor] = useState<boolean>(false);
@@ -54,6 +56,14 @@ const HarborViewContainer = () => {
         }}
         editHarbor={() => setEditingHarbor(true)}
       />
+      <Grid colsCount={2}>
+        <ContactInformationCard
+          name={harbor.name}
+          streetAddress={harbor.streetAddress}
+          municipality={harbor.municipality}
+          zipCode={harbor.zipCode}
+        />
+      </Grid>
       <HarborViewTable
         berths={berths}
         piers={piers}

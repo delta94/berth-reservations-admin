@@ -89,6 +89,7 @@
       "boatSummerStorage": "Veneiden kesäsäilytys",
       "boats": "Veneet",
       "comments": "Huomiot",
+      "contactInformation": "Yhteystiedot",
       "customer": "Asiakas",
       "dataEntry": "Tietue",
       "depth": "Syvyys",
@@ -563,7 +564,6 @@
   },
   "winterStorageAreaView": {
     "title": "Talvisäilytysalue",
-    "contactInformation": "Yhteystiedot",
     "history": "Toimintahistoria",
     "table": {
       "tableHeaders": {
