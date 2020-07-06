@@ -1,0 +1,28 @@
+@import 'colours';
+@import 'spacings';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cardBody {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  flex-grow: 1;
+  margin-bottom: units(1);
+  h4 {
+    color: $blue;
+  }
+}
+
+.linkRow {
+  width: 100%;
+  text-align: center;
+  margin-bottom: units(1);
+}

@@ -16,7 +16,8 @@ import PierEditForm from './forms/pierForm/PierEditForm';
 import HarborEditForm from './forms/harborForm/HarborEditForm';
 import HarborViewTable from './HarborViewTable';
 import ContactInformationCard from '../../common/contactInformationCard/ContactInformationCard';
-import Grid from '../../common/grid/Grid';
+import ActionHistoryCard from '../../common/actionHistoryCard/ActionHistoryCard';
+import styles from './harborView.module.scss';
 
 const HarborViewContainer = () => {
   const [editingHarbor, setEditingHarbor] = useState<boolean>(false);
@@ -37,33 +38,35 @@ const HarborViewContainer = () => {
 
   return (
     <HarborView>
-      <HarborCard
-        name={harbor.name || ''}
-        imageUrl={harbor.imageFile}
-        maps={maps}
-        servicemapId={harbor.servicemapId || ''}
-        address={`${harbor.streetAddress} ${harbor.zipCode} ${harbor.municipality}`}
-        properties={{
-          electricity: harbor.electricity,
-          gate: harbor.gate,
-          lighting: harbor.lighting,
-          maxWidth: harbor.maxWidth || 0,
-          numberOfPlaces: harbor.numberOfPlaces || 0,
-          numberOfFreePlaces: harbor.numberOfFreePlaces || 0,
-          queue: harbor.numberOfPlaces || 0,
-          wasteCollection: harbor.wasteCollection,
-          water: harbor.water,
-        }}
-        editHarbor={() => setEditingHarbor(true)}
-      />
-      <Grid colsCount={2}>
+      <div className={styles.grid}>
+        <HarborCard
+          className={styles.fullWidth}
+          name={harbor.name || ''}
+          imageUrl={harbor.imageFile}
+          maps={maps}
+          servicemapId={harbor.servicemapId || ''}
+          address={`${harbor.streetAddress} ${harbor.zipCode} ${harbor.municipality}`}
+          properties={{
+            electricity: harbor.electricity,
+            gate: harbor.gate,
+            lighting: harbor.lighting,
+            maxWidth: harbor.maxWidth || 0,
+            numberOfPlaces: harbor.numberOfPlaces || 0,
+            numberOfFreePlaces: harbor.numberOfFreePlaces || 0,
+            queue: harbor.numberOfPlaces || 0,
+            wasteCollection: harbor.wasteCollection,
+            water: harbor.water,
+          }}
+          editHarbor={() => setEditingHarbor(true)}
+        />
         <ContactInformationCard
           name={harbor.name}
           streetAddress={harbor.streetAddress}
           municipality={harbor.municipality}
           zipCode={harbor.zipCode}
         />
-      </Grid>
+        <ActionHistoryCard />
+      </div>
       <HarborViewTable
         berths={berths}
         piers={piers}

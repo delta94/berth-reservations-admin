@@ -564,11 +564,15 @@
   },
   "winterStorageAreaView": {
     "title": "Talvisäilytysalue",
-    "history": "Toimintahistoria",
     "table": {
       "tableHeaders": {
         "name": "Asiakas"
       }
     }
+  },
+  "actionHistoryCard": {
+    "title": "Toimintahistoria",
+    "recentActions": "Viimeaikainen toiminta",
+    "showFullHistory": "Näytä koko historia"
   }
 }

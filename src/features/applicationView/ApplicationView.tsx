@@ -21,6 +21,7 @@ import { OrganizationType } from '../../@types/__generated__/globalTypes';
 import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
 import PageTitle from '../../common/pageTitle/PageTitle';
 import PageContent from '../../common/pageContent/PageContent';
+import ActionHistoryCard from '../../common/actionHistoryCard/ActionHistoryCard';
 
 export enum SearchBy {
   FIRST_NAME = 'firstName',
@@ -151,10 +152,7 @@ const ApplicationView = ({
       {customerProfile && (
         <>
           <CustomerProfileCard {...customerProfile} />
-          <Card>
-            <CardHeader title={'TOIMINTAHISTORIA'} />
-            <CardBody>Placeholder</CardBody>
-          </Card>
+          <ActionHistoryCard />
         </>
       )}
       {applicationDetails && (
