@@ -196,6 +196,13 @@
   },
   "harborList": {
     "title": "Venepaikat",
+    "berthSummary": {
+      "berthCount": "Venepaikkoja",
+      "freeCount": "Vapaita",
+      "reservedCount": "Varattuja",
+      "otherCount": "Muita paikkoja",
+      "offeredCount": "Tarjottu"
+    },
     "tableHeaders": {
       "mainHeader": "Satamat",
       "harbor": "Satama",
