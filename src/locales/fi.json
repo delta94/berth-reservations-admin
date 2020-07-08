@@ -82,13 +82,19 @@
     },
     "terminology": {
       "address": "Osoite",
+      "applications": "Hakemukset",
       "berth": "Venepaikka",
+      "berths": "Venepaikat",
+      "bills": "Laskut",
+      "boatSummerStorage": "Veneiden kesäsäilytys",
+      "boats": "Veneet",
+      "comments": "Huomiot",
+      "customer": "Asiakas",
       "dataEntry": "Tietue",
       "depth": "Syvyys",
       "dinghyPlace": "Jollapaikka",
-      "draught": "Syväys",
       "dockingEquipmentSummerStorage": "Telakointi\u00ADtarvikkeiden kesäsäilytys",
-      "boatSummerStorage": "Veneiden kesäsäilytys",
+      "draught": "Syväys",
       "electricity": "Sähkö",
       "gate": "Portti",
       "harborChief": "Satamapäällikkö",
@@ -102,10 +108,12 @@
       "parkingPermit": "Pysäköintilupa",
       "serviceMap": "Palvelukartta",
       "trawlerSummerStorage": "Trailerin kesäsäilytys",
+      "unnamedBoat": "Nimetön vene",
       "waste": "Jäte",
       "wasteCollection": "Jätehuolto",
       "water": "Vesi",
-      "width": "Leveys"
+      "width": "Leveys",
+      "winterStoragePlaces": "Talvisäilytyspaikat"
     },
     "notification": {
       "noData": {
@@ -193,15 +201,6 @@
       "harbor": "Satama",
       "places": "Paikkoja",
       "freePlaces": "Vapaita"
-    },
-    "details": {
-      "customer": "ASIAKAS",
-      "berths": "VENEPAIKAT",
-      "winterStoragePlaces": "TALVISÄILYTYSPAIKAT",
-      "boats": "VENEET",
-      "applications": "HAKEMUKSET",
-      "bills": "LASKUT",
-      "comments": "HUOMIOT"
     }
   },
   "harborView": {

@@ -50,7 +50,6 @@ const WinterStorageAreaDetails = ({
         <Section title={t('common.terminology.maxWidth').toUpperCase()}>
           <Text>{formatDimension(maxWidth, i18n.language)}</Text>
         </Section>
-        <Section title={t('common.terminology.mooring').toUpperCase()}>-{/* TODO */}</Section>
       </div>
       <div className={styles.column}>
         <Section title={t('common.terminology.maintenance').toUpperCase()}>-{/* TODO */}</Section>
