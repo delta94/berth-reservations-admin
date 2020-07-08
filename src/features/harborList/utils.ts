@@ -76,17 +76,20 @@ export const calculateBerthSummary = (
     return {};
   }
 
-  const berthCount = data.reduce<number>((acc, harbor) => {
-    return acc + harbor.numberOfPlaces;
-  }, 0);
-
-  const freeCount = data.reduce<number>((acc, harbor) => {
-    return acc + harbor.numberOfFreePlaces;
-  }, 0);
-
-  return {
-    berthCount,
-    freeCount,
-    reservedCount: berthCount - freeCount,
-  };
+  return data.reduce(
+    (acc, harbor) => {
+      const berthCount = acc.berthCount + harbor.numberOfPlaces;
+      const freeCount = acc.freeCount + harbor.numberOfFreePlaces;
+      return {
+        berthCount,
+        freeCount,
+        reservedCount: berthCount - freeCount,
+      };
+    },
+    {
+      berthCount: 0,
+      freeCount: 0,
+      reservedCount: 0,
+    }
+  );
 };
