@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 
 import styles from './pierSelectHeader.module.scss';
-import { Pier } from '../utils/utils';
+import { Pier } from '../types';
 import PierProperties from './pierProperties/PierProperties';
 
 interface PierSelectHeaderProps {

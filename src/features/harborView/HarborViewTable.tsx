@@ -6,7 +6,7 @@ import HarborViewTableTools from './harborViewTableTools/HarborViewTableTools';
 import PierSelectHeader from './pierSelectHeader/PierSelectHeader';
 import BerthDetails from '../../common/berthDetails/BerthDetails';
 import Table, { Column } from '../../common/table/Table';
-import { Berth, Pier } from './utils/utils';
+import { Berth, Pier } from './types';
 import Chip from '../../common/chip/Chip';
 import InternalLink from '../../common/internalLink/InternalLink';
 import { formatDimension } from '../../common/utils/format';

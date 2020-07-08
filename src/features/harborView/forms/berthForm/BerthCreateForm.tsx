@@ -6,7 +6,7 @@ import { CREATE_BERTH, CREATE_BERTHVariables as CREATE_BERTH_VARS } from './__ge
 import { CREATE_BERTH_MUTATION } from './mutations';
 import { Berth, FormProps } from '../types';
 import BerthForm from './BerthForm';
-import { Pier } from '../../utils/utils';
+import { Pier } from '../../types';
 import { CreateBerthMutationInput } from '../../../../@types/__generated__/globalTypes';
 
 interface BerthCreateFormProps extends Omit<FormProps<Berth>, 'initialValues' | 'onDelete'> {
