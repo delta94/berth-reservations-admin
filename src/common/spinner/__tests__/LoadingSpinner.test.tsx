@@ -5,7 +5,7 @@ import LoadingSpinner from '../LoadingSpinner';
 
 it('renders snapshot correctly', () => {
   const spinner = shallow(<LoadingSpinner isLoading={false} />);
-  expect(spinner.html()).toMatchSnapshot();
+  expect(spinner.render()).toMatchSnapshot();
 });
 
 it('render spinner if isLoading is true', () => {

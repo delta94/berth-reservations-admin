@@ -22,8 +22,8 @@ describe('Expandable', () => {
     expect(getWrapper().render()).toMatchSnapshot();
   });
 
-  it('calls the supplied onClick when the label button is clicked', () => {
-    const labelContainer = getWrapper().find('.label');
+  it('calls the supplied onClick when the button is clicked', () => {
+    const labelContainer = getWrapper().find('Button');
     labelContainer.simulate('click');
 
     expect(onClick).toHaveBeenCalledTimes(1);

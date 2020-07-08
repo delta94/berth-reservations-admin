@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardHeader renders normally 1`] = `
+<div
+  class="cardHeader"
+>
+  <span
+    class="title"
+  >
+    Title
+  </span>
+</div>
+`;
+
+exports[`CardHeader renders normally with children 1`] = `
+<div
+  class="cardHeader"
+>
+  <span
+    class="title"
+  >
+    Title
+  </span>
+  <div
+    class="widgets"
+  >
+    <p>
+      Test
+    </p>
+  </div>
+</div>
+`;

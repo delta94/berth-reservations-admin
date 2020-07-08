@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormHeader renders normally with all props 1`] = `
+<div
+  class="heading"
+>
+  <h4
+    class="text brand h4 titleText"
+  >
+    Test
+  </h4>
+  <button
+    disabled=""
+    type="button"
+  >
+    <span
+      class="text critical span"
+    >
+      Delete this
+    </span>
+  </button>
+</div>
+`;
+
+exports[`FormHeader renders normally with minimum props 1`] = `
+<div
+  class="heading"
+>
+  <h4
+    class="text brand h4 titleText"
+  >
+    Test
+  </h4>
+</div>
+`;

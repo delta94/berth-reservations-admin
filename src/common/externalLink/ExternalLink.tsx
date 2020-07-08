@@ -1,21 +1,23 @@
 import React from 'react';
+import classNames from 'classnames';
+import { IconAngleRight } from 'hds-react';
 
-import withAnchor from './withAnchor';
+import styles from './externalLink.module.scss';
 
-export interface ExternalLinkProps {
-  href?: string;
-  to?: string;
-  underline?: 'none' | 'hover' | 'always';
-  variant?: 'default' | 'withArrow';
+export type ExternalLinkProps = {
   children: React.ReactNode;
-}
+  href?: string;
+  target?: '_blank' | '_self';
+  variant?: 'default' | 'withArrow';
+};
 
-const ExternalLink = ({ href, underline, variant, children }: ExternalLinkProps) => (
-  <ExternalLink href={href} underline={underline} variant={variant}>
-    {children}
-  </ExternalLink>
-);
+const ExternalLink = ({ variant = 'default', href, children, target = '_blank' }: ExternalLinkProps) => {
+  return (
+    <a className={classNames(styles.link, styles[variant])} href={href} target={target} rel="noopener noreferrer">
+      {children}
+      {variant === 'withArrow' && <IconAngleRight color="brand" size="m" className={styles.arrow} />}
+    </a>
+  );
+};
 
-const WrappedComponent = withAnchor(ExternalLink);
-
-export default WrappedComponent;
+export default ExternalLink;

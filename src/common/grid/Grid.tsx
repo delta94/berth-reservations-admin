@@ -5,7 +5,7 @@ import styles from './grid.module.scss';
 
 export interface GridProps {
   children: React.ReactNode;
-  colsCount: number;
+  colsCount?: number;
   className?: string;
 }
 

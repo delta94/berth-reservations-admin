@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`InternalLink renders normally 1`] = `"<a title=\\"Home Page\\" class=\\"internalLink brand\\" href=\\"#/\\">Home Page</a>"`;

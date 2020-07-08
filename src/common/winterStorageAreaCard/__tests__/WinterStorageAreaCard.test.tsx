@@ -4,24 +4,53 @@ import { shallow } from 'enzyme';
 import WinterStorageAreaCard from '../WinterStorageAreaCard';
 
 describe('WinterStorageAreaCard', () => {
-  it('renders correctly', () => {
+  it('renders correctly with minimum props', () => {
     const wrapper = shallow(
       <WinterStorageAreaCard
+        electricity={false}
+        gate={false}
+        imageFile={null}
+        maps={[]}
+        municipality={null}
         name={'name'}
-        gate={true}
+        numberOfCustomers={0}
+        servicemapId={'12345'}
+        streetAddress={null}
+        summerStorageForBoats={false}
+        summerStorageForDockingEquipment={false}
+        summerStorageForTrailers={false}
+        water={false}
+        wwwUrl={'https://www.hel.fi'}
+        zipCode={'00000'}
+      />
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('renders correctly with all props', () => {
+    const wrapper = shallow(
+      <WinterStorageAreaCard
+        className={'test'}
         electricity={true}
+        gate={true}
+        imageFile={'https://www.hel.fi'}
+        maps={[
+          {
+            id: 'test',
+            url: 'https://www.hel.fi',
+          },
+        ]}
+        municipality={'municipality'}
+        name={'name'}
+        numberOfCustomers={0}
         servicemapId={'12345'}
         streetAddress={'street'}
-        zipCode={'00000'}
-        municipality={'municipality'}
-        imageFile={''}
-        maps={[]}
-        numberOfCustomers={0}
-        summerStorageForBoats={false}
+        summerStorageForBoats={true}
         summerStorageForDockingEquipment={true}
-        summerStorageForTrailers={false}
+        summerStorageForTrailers={true}
         water={true}
-        wwwUrl={'www.google.com'}
+        wwwUrl={'https://www.hel.fi'}
+        zipCode={'00000'}
       />
     );
     expect(wrapper.render()).toMatchSnapshot();

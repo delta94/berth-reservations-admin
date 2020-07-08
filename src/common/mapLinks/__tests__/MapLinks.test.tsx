@@ -7,16 +7,16 @@ import ExternalLink from '../../externalLink/ExternalLink';
 describe('MapLinks', () => {
   const getWrapper = (props: MapLinksProps) => shallow(<MapLinks {...props} />);
 
-  it('renders "null" if maps is empty', () => {
+  it('renders empty if maps is empty', () => {
     const wrapper = getWrapper({ maps: [] });
 
-    expect(wrapper.html()).toBeNull();
+    expect(wrapper.isEmptyRender()).toEqual(true);
   });
 
   it('renders consistently with a single map', () => {
     const wrapper = getWrapper({ maps: [{ id: '0', url: 'testurl' }] });
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('renders a single map without numbering if there is only one map', () => {
@@ -33,7 +33,7 @@ describe('MapLinks', () => {
       ],
     });
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('renders maps with numbering if there are multiple maps', () => {

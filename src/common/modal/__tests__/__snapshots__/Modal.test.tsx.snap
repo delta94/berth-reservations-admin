@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal renders normally 1`] = `
+<div
+  class="ReactModal__Overlay ReactModal__Overlay--after-open overlay"
+>
+  <div
+    class="ReactModal__Content ReactModal__Content--after-open modal"
+    role="dialog"
+    tabindex="-1"
+  >
+    <p>
+      Content
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Modal renders normally with all props 1`] = `
+<div
+  class="ReactModal__Overlay ReactModal__Overlay--after-open overlay"
+>
+  <div
+    aria-label="Label"
+    class="ReactModal__Content ReactModal__Content--after-open modal test"
+    role="dialog"
+    tabindex="-1"
+  >
+    <h4
+      class="text brand h4"
+    >
+      Label
+    </h4>
+    <p>
+      Content
+    </p>
+  </div>
+</div>
+`;

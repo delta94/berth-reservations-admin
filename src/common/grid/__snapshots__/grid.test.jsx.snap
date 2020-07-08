@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Grid renders normally 1`] = `"<div class=\\"grid cols3\\"><div>one</div><div>two</div><div>three</div></div>"`;

@@ -18,7 +18,7 @@ type ConstructedChangeEvent<T extends OptionValue> = {
   };
 };
 
-export type SelectProps<T extends OptionValue> = {
+export type SelectProps<T extends OptionValue = string> = {
   className?: string;
   disabled?: boolean;
   id?: string;
@@ -29,7 +29,7 @@ export type SelectProps<T extends OptionValue> = {
   value?: T;
 };
 
-const Select = <T extends OptionValue>({
+const Select = <T extends OptionValue = string>({
   className,
   disabled,
   id,

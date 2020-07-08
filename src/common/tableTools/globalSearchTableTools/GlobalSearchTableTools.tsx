@@ -4,9 +4,9 @@ import { TextInput } from 'hds-react';
 
 import styles from './globalSearchTableTools.module.scss';
 
-export interface GlobalSearchTableToolsProps {
-  handleGlobalFilter(value?: string): void;
-}
+export type GlobalSearchTableToolsProps = {
+  handleGlobalFilter: (value?: string) => void;
+};
 
 const GlobalSearchTableTools = ({ handleGlobalFilter }: GlobalSearchTableToolsProps) => {
   const { t } = useTranslation();

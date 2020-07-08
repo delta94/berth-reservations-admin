@@ -5,19 +5,20 @@ import classNames from 'classnames';
 import styles from './modal.module.scss';
 import Text from '../../common/text/Text';
 
-interface ModalProps {
+export type ModalProps = {
   children: React.ReactNode;
+  className?: string;
   isOpen: boolean;
   label?: string;
-  toggleModal?: (value: boolean) => void;
-  className?: string;
   shouldCloseOnOverlayClick?: boolean;
-}
+  toggleModal?: (value: boolean) => void;
+};
 
-const Modal = ({ isOpen, label, children, toggleModal, className, shouldCloseOnOverlayClick = true }: ModalProps) => {
+const Modal = ({ children, className, isOpen, label, shouldCloseOnOverlayClick = true, toggleModal }: ModalProps) => {
   const onClose = () => {
     toggleModal?.(false);
   };
+
   return (
     <ReactModal
       appElement={document.getElementById('root') as HTMLElement}
