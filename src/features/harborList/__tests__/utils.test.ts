@@ -1,4 +1,4 @@
-import { getHarborsData } from '../utils';
+import { calculateBerthSummary, getHarborsData } from '../utils';
 import { HARBORS } from '../__generated__/HARBORS';
 import { mockData } from '../__fixtures__/mockData';
 
@@ -38,6 +38,41 @@ describe('utils', () => {
         expect(firstHarbor).toMatchSnapshot();
         expect(secondHarbor).toMatchSnapshot();
       });
+    });
+  });
+
+  describe('calculateBerthSummary', () => {
+    it('returns an empty object if data length is 0', () => {
+      expect(calculateBerthSummary([])).toEqual({});
+    });
+
+    it('sums the counts together', () => {
+      const result = calculateBerthSummary([
+        {
+          numberOfPlaces: 5,
+          numberOfFreePlaces: 3,
+        },
+        {
+          numberOfPlaces: 502,
+          numberOfFreePlaces: 203,
+        },
+      ]);
+      expect(result.berthCount).toEqual(507);
+      expect(result.freeCount).toEqual(206);
+    });
+
+    it('calculates "reservedCount" from "berthCount" and "freeCount"', () => {
+      const result = calculateBerthSummary([
+        {
+          numberOfPlaces: 5,
+          numberOfFreePlaces: 3,
+        },
+        {
+          numberOfPlaces: 502,
+          numberOfFreePlaces: 203,
+        },
+      ]);
+      expect(result.reservedCount).toEqual(301);
     });
   });
 });

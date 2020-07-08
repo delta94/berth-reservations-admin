@@ -12,6 +12,8 @@ import PageTitle from '../../common/pageTitle/PageTitle';
 import { HarborData } from './types';
 import { IconFence, IconPlug, IconStreetLight, IconWaterTap } from '../../common/icons';
 import PageContent from '../../common/pageContent/PageContent';
+import BerthSummary from './berthSummary/BerthSummary';
+import { calculateBerthSummary } from './utils';
 
 type ColumnType = Column<HarborData> & { accessor: keyof HarborData };
 
@@ -72,9 +74,18 @@ const HarborList = ({ data, loading }: HarborListProps) => {
     },
   ];
 
+  const { berthCount, freeCount, reservedCount, otherCount, offeredCount } = calculateBerthSummary(data);
+
   return (
     <PageContent>
       <PageTitle title={t('harborList.title')} />
+      <BerthSummary
+        berthCount={berthCount}
+        freeCount={freeCount}
+        reservedCount={reservedCount}
+        otherCount={otherCount}
+        offeredCount={offeredCount}
+      />
       <Table
         data={data}
         loading={loading}

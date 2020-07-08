@@ -1,5 +1,6 @@
 import { HARBORS } from './__generated__/HARBORS';
 import { HarborData, Map } from './types';
+import { BerthSummaryProps } from './berthSummary/BerthSummary';
 
 export const getHarborsData = (data: HARBORS | undefined) => {
   if (data?.harbors?.edges) {
@@ -66,4 +67,29 @@ export const getHarborsData = (data: HARBORS | undefined) => {
     }, []);
   }
   return [];
+};
+
+export const calculateBerthSummary = (
+  data: { numberOfPlaces: number; numberOfFreePlaces: number }[]
+): BerthSummaryProps => {
+  if (data.length === 0) {
+    return {};
+  }
+
+  return data.reduce(
+    (acc, harbor) => {
+      const berthCount = acc.berthCount + harbor.numberOfPlaces;
+      const freeCount = acc.freeCount + harbor.numberOfFreePlaces;
+      return {
+        berthCount,
+        freeCount,
+        reservedCount: berthCount - freeCount,
+      };
+    },
+    {
+      berthCount: 0,
+      freeCount: 0,
+      reservedCount: 0,
+    }
+  );
 };
