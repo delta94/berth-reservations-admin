@@ -11,9 +11,19 @@ export interface TextProps {
   size?: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxl' | 'xxxl';
   weight?: 'bold' | 'normalWeight' | 'light';
   italic?: boolean;
+  uppercase?: boolean;
 }
 
-const Text = ({ className, color = 'standard', size, as: Element = 'span', weight, italic, children }: TextProps) => {
+const Text = ({
+  className,
+  color = 'standard',
+  size,
+  as: Element = 'span',
+  weight,
+  italic,
+  uppercase,
+  children,
+}: TextProps) => {
   return (
     <Element
       className={classNames(
@@ -24,6 +34,7 @@ const Text = ({ className, color = 'standard', size, as: Element = 'span', weigh
         weight && styles[weight],
         {
           [styles.italic]: italic,
+          [styles.uppercase]: uppercase,
         },
         className
       )}

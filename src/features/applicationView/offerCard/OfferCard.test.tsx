@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { HashRouter } from 'react-router-dom';
 
 import OfferCard from './OfferCard';
@@ -24,11 +24,12 @@ describe('OfferCard', () => {
         pierIdentifier: 'Testilaituri',
         wasteCollection: true,
         water: true,
+        order: null,
       },
       handleDeleteLease: jest.fn(),
     }
   ) =>
-    shallow(
+    mount(
       <HashRouter>
         <OfferCard {...props} />
       </HashRouter>

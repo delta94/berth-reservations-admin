@@ -15,6 +15,8 @@ export const variations = () => (
     <br />
     <Text italic>italic</Text>
     <br />
+    <Text uppercase>uppercase</Text>
+    <br />
     <Text color="brand">branded</Text>
     <br />
     <Text color="critical">critical</Text>

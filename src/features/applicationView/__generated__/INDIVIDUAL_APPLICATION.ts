@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { InvoicingType, OrganizationType, ApplicationStatus, BerthMooringType } from "./../../../@types/__generated__/globalTypes";
+import { InvoicingType, OrganizationType, ApplicationStatus, BerthMooringType, ProductServiceType, AdditionalProductType, PriceUnits, PeriodType } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: INDIVIDUAL_APPLICATION
@@ -64,6 +64,13 @@ export interface INDIVIDUAL_APPLICATION_berthApplication_berthSwitch {
   reason: INDIVIDUAL_APPLICATION_berthApplication_berthSwitch_reason | null;
 }
 
+export interface INDIVIDUAL_APPLICATION_berthApplication_harborChoices {
+  __typename: "HarborChoiceType";
+  harbor: string;
+  priority: number;
+  harborName: string;
+}
+
 export interface INDIVIDUAL_APPLICATION_berthApplication_lease_berth_pier_properties_harbor_properties {
   __typename: "HarborProperties";
   name: string | null;
@@ -104,17 +111,43 @@ export interface INDIVIDUAL_APPLICATION_berthApplication_lease_berth {
   pier: INDIVIDUAL_APPLICATION_berthApplication_lease_berth_pier;
 }
 
+export interface INDIVIDUAL_APPLICATION_berthApplication_lease_order_orderLines_edges_node_product {
+  __typename: "AdditionalProductNode";
+  id: string;
+  service: ProductServiceType;
+  productType: AdditionalProductType;
+}
+
+export interface INDIVIDUAL_APPLICATION_berthApplication_lease_order_orderLines_edges_node {
+  __typename: "OrderLineNode";
+  id: string;
+  price: any;
+  product: INDIVIDUAL_APPLICATION_berthApplication_lease_order_orderLines_edges_node_product | null;
+}
+
+export interface INDIVIDUAL_APPLICATION_berthApplication_lease_order_orderLines_edges {
+  __typename: "OrderLineNodeEdge";
+  node: INDIVIDUAL_APPLICATION_berthApplication_lease_order_orderLines_edges_node | null;
+}
+
+export interface INDIVIDUAL_APPLICATION_berthApplication_lease_order_orderLines {
+  __typename: "OrderLineNodeConnection";
+  edges: (INDIVIDUAL_APPLICATION_berthApplication_lease_order_orderLines_edges | null)[];
+}
+
+export interface INDIVIDUAL_APPLICATION_berthApplication_lease_order {
+  __typename: "OrderNode";
+  id: string;
+  price: any;
+  totalPrice: any;
+  orderLines: INDIVIDUAL_APPLICATION_berthApplication_lease_order_orderLines;
+}
+
 export interface INDIVIDUAL_APPLICATION_berthApplication_lease {
   __typename: "BerthLeaseNode";
   id: string;
   berth: INDIVIDUAL_APPLICATION_berthApplication_lease_berth;
-}
-
-export interface INDIVIDUAL_APPLICATION_berthApplication_harborChoices {
-  __typename: "HarborChoiceType";
-  harbor: string;
-  priority: number;
-  harborName: string;
+  order: INDIVIDUAL_APPLICATION_berthApplication_lease_order | null;
 }
 
 export interface INDIVIDUAL_APPLICATION_berthApplication {
@@ -142,8 +175,8 @@ export interface INDIVIDUAL_APPLICATION_berthApplication {
   boatModel: string;
   accessibilityRequired: boolean;
   status: ApplicationStatus;
-  lease: INDIVIDUAL_APPLICATION_berthApplication_lease | null;
   harborChoices: (INDIVIDUAL_APPLICATION_berthApplication_harborChoices | null)[] | null;
+  lease: INDIVIDUAL_APPLICATION_berthApplication_lease | null;
 }
 
 export interface INDIVIDUAL_APPLICATION_boatTypes {
@@ -152,9 +185,31 @@ export interface INDIVIDUAL_APPLICATION_boatTypes {
   name: string | null;
 }
 
+export interface INDIVIDUAL_APPLICATION_additionalProducts_edges_node {
+  __typename: "AdditionalProductNode";
+  id: string;
+  service: ProductServiceType;
+  priceValue: any;
+  priceUnit: PriceUnits;
+  period: PeriodType;
+  productType: AdditionalProductType;
+}
+
+export interface INDIVIDUAL_APPLICATION_additionalProducts_edges {
+  __typename: "AdditionalProductNodeEdge";
+  node: INDIVIDUAL_APPLICATION_additionalProducts_edges_node | null;
+}
+
+export interface INDIVIDUAL_APPLICATION_additionalProducts {
+  __typename: "AdditionalProductNodeConnection";
+  edges: (INDIVIDUAL_APPLICATION_additionalProducts_edges | null)[];
+}
+
 export interface INDIVIDUAL_APPLICATION {
   berthApplication: INDIVIDUAL_APPLICATION_berthApplication | null;
   boatTypes: INDIVIDUAL_APPLICATION_boatTypes[] | null;
+  __typename: "Query";
+  additionalProducts: INDIVIDUAL_APPLICATION_additionalProducts | null;
 }
 
 export interface INDIVIDUAL_APPLICATIONVariables {

@@ -135,6 +135,13 @@ export interface CreateBerthProductMutationInput {
   clientMutationId?: string | null;
 }
 
+export interface CreateOrderLineMutationInput {
+  quantity?: number | null;
+  orderId: string;
+  productId: string;
+  clientMutationId?: string | null;
+}
+
 export interface CreatePierMutationInput {
   identifier?: string | null;
   location?: any | null;
@@ -162,6 +169,11 @@ export interface DeleteBerthLeaseMutationInput {
 }
 
 export interface DeleteBerthMutationInput {
+  id: string;
+  clientMutationId?: string | null;
+}
+
+export interface DeleteOrderLineMutationInput {
   id: string;
   clientMutationId?: string | null;
 }

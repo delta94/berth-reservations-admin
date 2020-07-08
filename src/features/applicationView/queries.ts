@@ -1,5 +1,7 @@
 import gql from 'graphql-tag';
 
+import { BERTH_LEASE_FRAGMENT, ADDITIONAL_SERVICES_FRAGMENT } from './offerCard/fragments';
+
 export const FILTERED_CUSTOMERS_QUERY = gql`
   query FILTERED_CUSTOMERS(
     $first: Int!
@@ -131,44 +133,19 @@ export const INDIVIDUAL_APPLICATION_QUERY = gql`
       boatModel
       accessibilityRequired
       status
-      lease {
-        id
-        berth {
-          depth
-          length
-          mooringType
-          width
-          comment
-          isAccessible
-          number
-          pier {
-            properties {
-              identifier
-              electricity
-              gate
-              lighting
-              mooring
-              wasteCollection
-              water
-              harbor {
-                id
-                properties {
-                  name
-                }
-              }
-            }
-          }
-        }
-      }
       harborChoices {
         harbor
         priority
         harborName
       }
+      ...BerthLease
     }
     boatTypes {
       id
       name
     }
+    ...AdditionalServices
   }
+  ${BERTH_LEASE_FRAGMENT}
+  ${ADDITIONAL_SERVICES_FRAGMENT}
 `;

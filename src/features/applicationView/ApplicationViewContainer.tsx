@@ -3,6 +3,7 @@ import { useQuery, useMutation, useLazyQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { useDebounce } from 'use-debounce';
+import { getOperationName } from 'apollo-link';
 
 import ApplicationView, { SearchBy } from './ApplicationView';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
@@ -25,10 +26,11 @@ import {
   CREATE_NEW_PROFILE,
   CREATE_NEW_PROFILEVariables as CREATE_NEW_PROFILE_VARS,
 } from './__generated__/CREATE_NEW_PROFILE';
-import { getApplicationDetailsData, getCustomerProfile, getFilteredCustomersData, getOfferDetailsData } from './utils';
+import { getApplicationDetailsData, getCustomerProfile, getFilteredCustomersData } from './utils';
 import { usePagination } from '../../common/utils/usePagination';
 import { usePrevious } from '../../common/utils/usePrevious';
 import { useBackendSorting } from '../../common/utils/useBackendSorting';
+import { getOfferDetailsData } from './offerCard/utils';
 
 const ApplicationViewContainer = () => {
   const { t } = useTranslation();
@@ -129,18 +131,11 @@ const ApplicationViewContainer = () => {
 
   const customerProfile = customer ? getCustomerProfile(customer) : null;
 
-  const applicationDetailsData = getApplicationDetailsData(data.berthApplication, data.boatTypes || []);
+  const applicationDetails = getApplicationDetailsData(data.berthApplication, data.boatTypes || []);
 
   const filteredCustomersData = !customer ? getFilteredCustomersData(customersData) : null;
 
-  const applicationDetails = { ...applicationDetailsData, handleDeleteLease };
-
-  const offerDetails = data.berthApplication.lease
-    ? {
-        ...getOfferDetailsData(data.berthApplication.lease),
-        handleDeleteLease,
-      }
-    : null;
+  const leaseDetails = getOfferDetailsData(data.berthApplication.lease);
 
   const handleLinkCustomer = (customerId: string) =>
     linkCustomer({
@@ -200,7 +195,9 @@ const ApplicationViewContainer = () => {
       similarCustomersData={filteredCustomersData}
       customerProfile={customerProfile}
       applicationDetails={applicationDetails}
-      offerDetails={offerDetails}
+      leaseDetails={leaseDetails}
+      refetchQueries={[getOperationName(INDIVIDUAL_APPLICATION_QUERY) || 'INDIVIDUAL_APPLICATION']}
+      handleDeleteLease={handleDeleteLease}
     />
   );
 };
