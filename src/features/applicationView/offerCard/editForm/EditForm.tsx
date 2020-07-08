@@ -33,6 +33,12 @@ export interface EditFormProps {
   handleSubmit(): void;
 }
 
+interface Product {
+  id: string;
+  label: string;
+  price: number;
+}
+
 interface Values {
   [productId: string]: boolean;
 }
@@ -91,6 +97,18 @@ const EditForm: React.FC<EditFormProps> = ({
     handleSubmit();
   };
 
+  const products = data?.additionalProducts?.edges.reduce<Product[]>((acc, edge) => {
+    if (!edge?.node) return acc;
+
+    const product = {
+      id: edge.node.id,
+      label: `${t(getProductServiceTKey(edge.node.service))}, ${t(getPeriodTKey(edge.node.period))}`,
+      price: edge.node.priceValue,
+    };
+
+    return [...acc, product];
+  }, []);
+
   return (
     <Formik
       initialValues={initialValues}
@@ -98,45 +116,29 @@ const EditForm: React.FC<EditFormProps> = ({
       validateOnBlur={false}
       validateOnChange={false}
     >
-      {({ values, errors, handleChange, handleSubmit }) => {
-        type Product = { id: string; label: string; price: number };
-
-        const products = data?.additionalProducts?.edges.reduce<Product[]>((acc, edge) => {
-          if (!edge?.node) return acc;
-
-          const product = {
-            id: edge.node.id,
-            label: `${t(getProductServiceTKey(edge.node.service))}, ${t(getPeriodTKey(edge.node.period))}`,
-            price: edge.node.priceValue,
-          };
-
-          return [...acc, product];
-        }, []);
-
-        const ProductsItems = products?.map(({ id, label, price }, i) => (
-          <ListItem key={i} className={styles.listItem}>
-            <Checkbox id={id} name={id} checked={values[id]} onChange={handleChange} label={label} />
-            <span>{formatPrice(price, i18n.language)}</span>
-          </ListItem>
-        ));
-
-        return (
-          <form className={styles.editForm} onSubmit={handleSubmit}>
-            <div>
-              <Text as="h4" color="brand" size="m" uppercase>
-                {t('offer.billing.additionalServices')}
-              </Text>
-              <List noBullets>{ProductsItems}</List>
-            </div>
-            <div className={styles.buttons}>
-              <Button onClick={handleCancel} variant="secondary">
-                {t('common.cancel')}
-              </Button>
-              <Button type="submit">{t('common.save')}</Button>
-            </div>
-          </form>
-        );
-      }}
+      {({ values, handleChange, handleSubmit }) => (
+        <form className={styles.editForm} onSubmit={handleSubmit}>
+          <div>
+            <Text as="h4" color="brand" size="m" uppercase>
+              {t('offer.billing.additionalServices')}
+            </Text>
+            <List noBullets>
+              {products?.map(({ id, label, price }, i) => (
+                <ListItem key={i} className={styles.listItem}>
+                  <Checkbox id={id} name={id} checked={values[id]} onChange={handleChange} label={label} />
+                  <span>{formatPrice(price, i18n.language)}</span>
+                </ListItem>
+              ))}
+            </List>
+          </div>
+          <div className={styles.buttons}>
+            <Button onClick={handleCancel} variant="secondary">
+              {t('common.cancel')}
+            </Button>
+            <Button type="submit">{t('common.save')}</Button>
+          </div>
+        </form>
+      )}
     </Formik>
   );
 };
