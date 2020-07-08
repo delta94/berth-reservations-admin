@@ -23,10 +23,11 @@ import {
   UseGlobalFiltersOptions,
   actions,
 } from 'react-table';
-import { IconAngleDown, IconArrowLeft, RadioButton } from 'hds-react';
+import { IconAngleDown, IconArrowLeft } from 'hds-react';
 
 import styles from './table.module.scss';
 import Checkbox from '../checkbox/Checkbox';
+import RadioButton from '../radioButton/RadioButton';
 
 export type Column<D extends object> = ColumnType<D> & UseFiltersColumnOptions<D> & UseSortByColumnOptions<D>;
 

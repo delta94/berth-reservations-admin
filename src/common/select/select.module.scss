@@ -1,6 +1,6 @@
 @import 'colours';
 
-.select {
+div.select {
   --menu-item-background-selected: #{$blue};
   --menu-item-background-selected-hover: #{$blue-dark-50};
   span[class^='RequiredIndicator'] {
