@@ -1,10 +1,11 @@
+@import 'containers';
 @import 'spacings';
 
 .form {
+  width: container(m);
   > * {
     margin: units(1) 0;
   }
-  width: units(48);
 }
 
 .formActionButtons {

@@ -1,5 +1,6 @@
-@import 'spacings';
 @import 'colours';
+@import 'containers';
+@import 'spacings';
 
 .loginPage {
   width: 100vw;
@@ -16,7 +17,7 @@
 }
 
 .contentWrapper {
-  max-width: 300px;
+  max-width: container(xs);
   text-align: center;
   margin-bottom: units(2);
 }

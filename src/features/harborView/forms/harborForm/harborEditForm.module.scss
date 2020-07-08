@@ -1,7 +1,8 @@
+@import 'containers';
 @import 'spacings';
 
 .harborEditForm {
-  max-width: units(32);
+  max-width: container(s);
 }
 
 .formActionButtons {

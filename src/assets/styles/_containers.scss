@@ -1,0 +1,33 @@
+$container-widths: (
+  // 'xs': var(--container-width-xs),
+    'xs': 19rem,
+  // 's': var(--container-width-s),
+    's': 35rem,
+  // 'm': var(--container-width-m),
+    'm': 47rem,
+  // 'l': var(--container-width-l),
+    'l': 60.5rem,
+  // 'xl': var(--container-width-xl),
+    'xl': 75rem
+);
+
+/*
+===================================
+    Usage
+===================================
+.element {
+  width: container(s);
+}
+*/
+
+@function container($value) {
+  $converted: if(type-of($value) == 'string', $value, inspect($value));
+
+  @if not map-has-key($container-widths, $converted) {
+    @error '`#{$value}` is not a valid container width token. '
+          + 'Valid container width tokens: '
+          + '#{map-keys($container-widths)}';
+  }
+
+  @return map-get($container-widths, $converted);
+}

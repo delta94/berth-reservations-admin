@@ -1,3 +1,4 @@
+@import 'containers';
 @import 'spacings';
 @import 'z-index';
 
@@ -5,6 +6,6 @@
   position: absolute;
   bottom: 0;
   right: units(1);
-  width: units(32);
+  width: container(s);
   z-index: z-index(toasts);
 }
