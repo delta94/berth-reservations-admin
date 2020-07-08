@@ -55,9 +55,9 @@ export interface INDIVIDUAL_CUSTOMER_profile_boats_edges_node {
   __typename: "BoatNode";
   id: string;
   boatType: INDIVIDUAL_CUSTOMER_profile_boats_edges_node_boatType;
-  width: number;
-  length: number;
-  draught: number | null;
+  width: any;
+  length: any;
+  draught: any | null;
   weight: number | null;
   name: string;
   model: string;
