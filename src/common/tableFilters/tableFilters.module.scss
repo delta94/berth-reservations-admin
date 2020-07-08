@@ -15,16 +15,16 @@
     position: relative;
     height: 100%;
     color: $active-color;
-    text-shadow: 0px 0px 0.02em $active-color;
+    text-shadow: 0 0 1px $active-color;
 
     &::after {
       content: '';
       display: block;
       position: absolute;
-      height: 4px;
+      height: units(0.25);
       width: calc(100% + 2 * #{$indicator-margin});
-      left: -#{$indicator-margin};
-      bottom: -#{units(1)};
+      left: calc(-1 * #{$indicator-margin});
+      bottom: calc(-1 * #{units(1)});
       background-color: $active-color;
     }
   }

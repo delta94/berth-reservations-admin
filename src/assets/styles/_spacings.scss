@@ -27,14 +27,17 @@ $layout-spacing-tokens: (
 
 $spacing-hds: map-merge($spacing-tokens, $layout-spacing-tokens);
 
-$spacings: map-merge($spacing-hds, (
-  '12': 12rem,
-  '16': 16rem,
-  '24': 24rem,
-  '32': 32rem,
-  '40': 40rem,
-  '48': 48rem,
-));
+$spacings: map-merge(
+  $spacing-hds,
+  (
+    '12': 12rem,
+    '16': 16rem,
+    '24': 24rem,
+    '32': 32rem,
+    '40': 40rem,
+    '48': 48rem,
+  )
+);
 
 /*
 ===================================
