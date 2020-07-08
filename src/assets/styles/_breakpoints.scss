@@ -1,4 +1,4 @@
-$project-breakpoints: 'phone-down', 'tablet-portrait-down', 'tablet-landscape-down', 'desktop-down', 'big-desktop-up';
+$breakpoints: 'xs', 's', 'm', 'l', 'xl';
 
 /*
 ===================================
@@ -14,34 +14,35 @@ $project-breakpoints: 'phone-down', 'tablet-portrait-down', 'tablet-landscape-do
 */
 
 @mixin for-size($range) {
-  $phone-upper-boundary: 600px;
-  $tablet-portrait-upper-boundary: 900px;
-  $tablet-landscape-upper-boundary: 1200px;
-  $desktop-upper-boundary: 1800px;
+  $xs-upper-boundary: 320px;
+  $s-upper-boundary: 576px;
+  $m-upper-boundary: 768px;
+  $l-upper-boundary: 992px;
+  $xl-upper-boundary: 1224px;
 
-  @if not index($project-breakpoints, $range) {
+  @if not index($breakpoints, $range) {
     @error '`#{$range}` is not a valid breakpoint token. '
-            + 'Valid breakpoints: #{$project-breakpoints}';
+            + 'Valid breakpoints: #{$breakpoints}';
   }
 
-  @if $range == phone-down {
-    @media (max-width: $phone-upper-boundary) {
+  @if $range == xs {
+    @media (max-width: $xs-upper-boundary) {
       @content;
     }
-  } @else if $range == tablet-portrait-down {
-    @media (max-width: $tablet-portrait-upper-boundary) {
+  } @else if $range == s {
+    @media (max-width: $s-upper-boundary) {
       @content;
     }
-  } @else if $range == tablet-landscape-down {
-    @media (max-width: $tablet-landscape-upper-boundary) {
+  } @else if $range == m {
+    @media (max-width: $m-upper-boundary) {
       @content;
     }
-  } @else if $range == desktop-down {
-    @media (max-width: $desktop-upper-boundary) {
+  } @else if $range == l {
+    @media (max-width: $l-upper-boundary) {
       @content;
     }
-  } @else if $range == big-desktop-up {
-    @media (min-width: #{$desktop-upper-boundary + 1}) {
+  } @else if $range == xl {
+    @media (max-width: $xl-upper-boundary) {
       @content;
     }
   }

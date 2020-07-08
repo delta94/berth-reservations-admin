@@ -37,7 +37,7 @@ $noSidebar: 'header  header' 'content content' 'footer  footer';
     grid-template-areas: $noSidebar;
   }
 
-  @include for-size(tablet-portrait-down) {
+  @include for-size(m) {
     grid-template-areas: $noSidebar;
 
     .sidebar {
