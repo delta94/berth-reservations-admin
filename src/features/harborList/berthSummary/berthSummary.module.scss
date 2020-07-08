@@ -2,16 +2,16 @@
 @import 'spacings';
 
 .berthSummary {
-  width: 100%;
-  margin-bottom: units(0.5);
   border: 1px solid $black-50;
-  padding: units(0.5);
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-bottom: units(0.5);
+  padding: units(0.5);
 }
 
 .count {
   padding: units(0.5) units(1);
+
   &:not(:last-child) {
     border-right: 1px solid $black-50;
   }
