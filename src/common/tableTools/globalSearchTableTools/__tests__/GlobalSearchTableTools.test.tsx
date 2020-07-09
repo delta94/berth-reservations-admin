@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ChangeEventHandler, EventHandler } from 'react';
+import React, { ChangeEvent, ChangeEventHandler } from 'react';
 import { shallow } from 'enzyme';
 import { TextInput } from 'hds-react';
 
