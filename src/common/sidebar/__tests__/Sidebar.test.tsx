@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Sidebar from './Sidebar';
+import Sidebar, { SidebarProps } from '../Sidebar';
 
 describe('Sidebar', () => {
-  const getWrapper = (props) =>
+  const getWrapper = (props?: Omit<SidebarProps, 'children'>) =>
     shallow(
       <Sidebar {...props}>
         <div>First page</div>
@@ -15,7 +15,7 @@ describe('Sidebar', () => {
   it('renders normally', () => {
     const wrapper = getWrapper({ actions: [<div>Logout</div>] });
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it("doesn't render actions section when actions prop is not provided", () => {
