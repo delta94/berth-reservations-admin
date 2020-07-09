@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout renders normally 1`] = `
+<main
+  class="layout"
+>
+  <header
+    class="header"
+  >
+    <div>
+      header
+    </div>
+  </header>
+  <nav
+    class="sidebar"
+  >
+    <div>
+      sidebar
+    </div>
+  </nav>
+  <div
+    class="content"
+  >
+    Content
+  </div>
+  <footer
+    class="footer"
+  >
+    <footer>
+      footer
+    </footer>
+  </footer>
+</main>
+`;
