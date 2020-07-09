@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Table from './Table';
+import Table from '../Table';
 
 const data = [
   { a: 'foobar', b: 'foobar', c: 'foobar' },
@@ -37,6 +37,6 @@ describe('Table', () => {
   it('renders normally', () => {
     const wrapper = getWrapper();
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });
