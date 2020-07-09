@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text renders normally 1`] = `
+<span
+  class="text standard span"
+>
+  Test
+</span>
+`;

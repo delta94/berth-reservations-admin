@@ -1,14 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Text from './Text';
+import Text, { TextProps } from '../Text';
 
 describe('Text', () => {
-  const getWrapper = (props) => shallow(<Text {...props} />);
+  const getWrapper = (props?: TextProps) => shallow(<Text {...props}>Test</Text>);
 
   it('renders normally', () => {
     const wrapper = getWrapper({ children: 'test' });
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should render "h1" if the supplied "as" prop is "h1"', () => {
@@ -17,7 +17,7 @@ describe('Text', () => {
   });
 
   it('should add the supplied color prop as a className', () => {
-    const color = 'primary';
+    const color = 'standard';
     const wrapper = getWrapper({ children: 'test', color });
     expect(wrapper.hasClass(color)).toBe(true);
   });
