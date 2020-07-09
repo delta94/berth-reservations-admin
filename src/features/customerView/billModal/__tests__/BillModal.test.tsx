@@ -1,10 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import ReactModal from 'react-modal';
 
 import BillModal from '../BillModal';
 import { mockBills } from '../../__fixtures__/mockData';
 
 describe('BillModal', () => {
+  ReactModal.setAppElement('body');
+
   it('renders correctly', () => {
     const wrapper = mount(<BillModal bill={mockBills[0]} />);
     expect(wrapper.render()).toMatchSnapshot();
