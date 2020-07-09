@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import List from './List';
+import List, { ListProps } from '../List';
 
 describe('List', () => {
-  const getWrapper = (props) =>
+  const getWrapper = (props?: Omit<ListProps, 'children'>) =>
     shallow(
       <List {...props}>
         <li>first</li>
@@ -15,7 +15,7 @@ describe('List', () => {
   it('should render normally', () => {
     const wrapper = getWrapper();
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('renders a "ul" element by default', () => {
