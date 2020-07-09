@@ -1,11 +1,12 @@
+@import 'containers';
 @import 'spacings';
 
 .editForm {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 600px;
-  min-height: 400px;
+  width: container(s);
+  min-height: container(xs);
 }
 
 .listItem {
