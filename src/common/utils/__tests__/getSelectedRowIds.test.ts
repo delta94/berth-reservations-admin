@@ -1,4 +1,4 @@
-import { getSelectedRowIds } from './getSelectedRowIds';
+import { getSelectedRowIds } from '../getSelectedRowIds';
 
 describe('getSelectedRowIds', () => {
   it('should get selected rowids', () => {

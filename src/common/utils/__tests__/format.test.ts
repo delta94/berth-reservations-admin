@@ -6,7 +6,7 @@ import {
   formatPercentage,
   formatPrice,
   formatWeight,
-} from './format';
+} from '../format';
 
 describe('format', () => {
   describe('formatDimension', () => {
@@ -18,9 +18,9 @@ describe('format', () => {
       expect(formatDimension(1, 'fi')).toMatch('m');
     });
 
-    it('should return "-" if the value is undefined/null', () => {
-      expect(formatDimension()).toBe('-');
-      expect(formatDimension(null)).toBe('-');
+    it('should return "-" if the value is null', () => {
+      expect(formatDimension(null, 'fi')).toBe('-');
+      expect(formatDimension(null, 'fi')).toBe('-');
     });
   });
 
@@ -30,8 +30,8 @@ describe('format', () => {
     });
 
     it('should return "-" if the value is undefined/null', () => {
-      expect(formatWeight()).toBe('-');
-      expect(formatWeight(null)).toBe('-');
+      expect(formatWeight(null, 'fi')).toBe('-');
+      expect(formatWeight(null, 'fi')).toBe('-');
     });
   });
 
