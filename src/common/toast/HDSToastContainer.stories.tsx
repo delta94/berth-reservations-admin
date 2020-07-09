@@ -10,10 +10,10 @@ export default {
     () => {
       const [count, setCount] = useState(0);
       return (
-        <div style={{ padding: '2em', width: '100vw', height: '100vh' }}>
+        <div style={{ padding: '2rem', width: '100vw', height: '100vh' }}>
           <HDSToastContainer />
           <button
-            style={{ border: '1px solid black', padding: '1em' }}
+            style={{ border: '1px solid black', padding: '1rem' }}
             onClick={() => {
               hdsToast({ type: 'error', labelText: 'Test label', text: 'Test text', toastId: `toast-${count}` });
               setCount(count + 1);
