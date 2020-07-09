@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 
 import BerthForm from '../BerthForm';
 import { BerthMooringType } from '../../../../../@types/__generated__/globalTypes';
-import { Pier } from '../../../utils/utils';
+import { Pier } from '../../../types';
 
 const pierOptions = [{ id: 'a', identifier: 'A' }] as Pier[];
 const validValues = {

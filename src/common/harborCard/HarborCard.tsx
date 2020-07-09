@@ -15,6 +15,7 @@ import Section from '../section/Section';
 import placeholderImage from '../placeholderImage.svg';
 import MapLinks from '../mapLinks/MapLinks';
 import { IconFence, IconPlug, IconStreetLight, IconWaterTap } from '../icons';
+import { formatAddress } from '../utils/format';
 
 export interface HarborCardProps {
   className?: string;
@@ -24,7 +25,9 @@ export interface HarborCardProps {
     url: string;
   }[];
   name: string;
-  address: string;
+  streetAddress: string | null;
+  zipCode: string;
+  municipality: string | null;
   servicemapId: string;
   properties: {
     electricity: boolean;
@@ -43,7 +46,9 @@ export interface HarborCardProps {
 const HarborCard = ({
   className,
   name,
-  address,
+  streetAddress,
+  zipCode,
+  municipality,
   imageUrl,
   maps,
   servicemapId,
@@ -78,7 +83,7 @@ const HarborCard = ({
                 <Text as="h2" size="xxl">
                   {name}
                 </Text>
-                <Text>{address}</Text>
+                <Text>{formatAddress(streetAddress, zipCode, municipality)}</Text>
               </Section>
               <Section>
                 <ExternalLink href={serviceMapUrl} variant="withArrow">

@@ -374,7 +374,7 @@ exports[`WinterStorageAreaCard renders correctly with minimum props 1`] = `
               <span
                 class="text standard span"
               >
-                00000 null
+                00000
               </span>
             </section>
           </article>

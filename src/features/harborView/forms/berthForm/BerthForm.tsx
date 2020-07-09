@@ -11,7 +11,7 @@ import { BerthMooringType } from '../../../../@types/__generated__/globalTypes';
 import Grid from '../../../../common/grid/Grid';
 import Select from '../../../../common/select/Select';
 import styles from './berthForm.module.scss';
-import { Pier } from '../../utils/utils';
+import { Pier } from '../../types';
 import FormHeader from '../../../../common/formHeader/FormHeader';
 import ConfirmationModal from '../../../../common/confirmationModal/ConfirmationModal';
 import { isNumber, isPositive, replaceCommaWithDot, replaceDotWithComma } from './utils/utils';

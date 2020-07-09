@@ -1,21 +1,5 @@
-import {
-  INDIVIDUAL_HARBOR,
-  INDIVIDUAL_HARBOR_harbor_properties as HarborProperties,
-} from '../__generated__/INDIVIDUAL_HARBOR';
-
-interface PierProps {
-  electricity: boolean;
-  gate: boolean;
-  lighting: boolean;
-  water: boolean;
-  wasteCollection: boolean;
-}
-
-export type IndividualHarborData = {
-  id: string;
-  name: string | null;
-} & HarborProperties &
-  PierProps;
+import { INDIVIDUAL_HARBOR } from './__generated__/INDIVIDUAL_HARBOR';
+import { Berth, IndividualHarborData, Lease, Map, Pier } from './types';
 
 export const getIndividualHarborData = (data: INDIVIDUAL_HARBOR | undefined): IndividualHarborData | null => {
   if (data?.harbor?.properties?.piers) {
@@ -40,38 +24,25 @@ export const getIndividualHarborData = (data: INDIVIDUAL_HARBOR | undefined): In
         water: false,
       }
     );
+
+    const { properties } = data.harbor;
+
     return {
       id: data.harbor.id,
-      ...data.harbor.properties,
+      name: properties.name,
+      numberOfPlaces: properties.numberOfPlaces,
+      numberOfFreePlaces: properties.numberOfFreePlaces,
+      streetAddress: properties.streetAddress,
+      zipCode: properties.zipCode,
+      municipality: properties.municipality,
+      wwwUrl: properties.wwwUrl,
+      imageFile: properties.imageFile,
+      servicemapId: properties.servicemapId,
+      maxWidth: properties.maxWidth,
       ...pierProps,
     };
   }
   return null;
-};
-
-interface Lease {
-  customer: {
-    id: string;
-    firstName: string;
-    lastName: string;
-  };
-  status: string;
-  startDate: string;
-  endDate: string;
-  isActive: boolean;
-}
-
-export type Berth = {
-  id: string;
-  isActive: boolean;
-  number: number;
-  identifier: string;
-  length: number;
-  width: number;
-  depth: number | null;
-  mooringType: string;
-  comment: string;
-  leases?: Lease[];
 };
 
 export const getBerths = (data: INDIVIDUAL_HARBOR | undefined): Berth[] => {
@@ -111,17 +82,6 @@ export const getBerths = (data: INDIVIDUAL_HARBOR | undefined): Berth[] => {
   }, []);
 };
 
-export type Pier = {
-  id: string;
-  identifier: string;
-  electricity: boolean;
-  wasteCollection: boolean;
-  water: boolean;
-  lighting: boolean;
-  gate: boolean;
-  suitableBoatTypes: string[];
-};
-
 export const getPiers = (data: INDIVIDUAL_HARBOR | undefined): Pier[] => {
   if (!data?.harbor?.properties?.piers) return [];
 
@@ -149,11 +109,6 @@ export const getPiers = (data: INDIVIDUAL_HARBOR | undefined): Pier[] => {
       },
     ];
   }, []);
-};
-
-type Map = {
-  id: string;
-  url: string;
 };
 
 export const getMaps = (data: INDIVIDUAL_HARBOR | undefined): Map[] => {

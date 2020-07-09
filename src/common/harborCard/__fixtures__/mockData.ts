@@ -1,7 +1,9 @@
 import { HarborCardProps } from '../HarborCard';
 
 export const mockProps: HarborCardProps = {
-  address: 'Meripuistotie 1a Helsinki 00210',
+  streetAddress: 'Meripuistotie 1a',
+  municipality: 'Helsinki',
+  zipCode: '00210',
   imageUrl: 'https://venepaikka-api.test.hel.ninja/media/harbors/9a8d8313-eaa2-47d2-8f2d-2bb9893f9bc7/41359.jpg',
   maps: [
     {

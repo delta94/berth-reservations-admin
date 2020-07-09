@@ -1,5 +1,5 @@
-import { INDIVIDUAL_HARBOR } from '../../__generated__/INDIVIDUAL_HARBOR';
-import { BerthMooringType } from '../../../../@types/__generated__/globalTypes';
+import { INDIVIDUAL_HARBOR } from '../__generated__/INDIVIDUAL_HARBOR';
+import { BerthMooringType } from '../../../@types/__generated__/globalTypes';
 
 export const IndividualHarborQueryData: INDIVIDUAL_HARBOR = {
   harbor: {

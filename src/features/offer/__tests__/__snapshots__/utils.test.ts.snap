@@ -12,7 +12,6 @@ Array [
 
 exports[`utils getHarbor should return harbor 1`] = `
 Object {
-  "address": "Meripuistotie 1a Helsinki 00210",
   "imageUrl": "https://venepaikka-api.test.hel.ninja/media/harbors/9a8d8313-eaa2-47d2-8f2d-2bb9893f9bc7/41359.jpg",
   "maps": Array [
     Object {
@@ -20,6 +19,7 @@ Object {
       "url": "testmap",
     },
   ],
+  "municipality": "Helsinki",
   "name": "Pajalahden venesatama (Meripuistotie) / Venesatama",
   "properties": Object {
     "electricity": true,
@@ -33,6 +33,8 @@ Object {
     "water": true,
   },
   "servicemapId": "41359",
+  "streetAddress": "Meripuistotie 1a",
+  "zipCode": "00210",
 }
 `;
 

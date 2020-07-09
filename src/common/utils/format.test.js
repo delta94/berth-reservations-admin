@@ -1,4 +1,12 @@
-import { formatBytes, formatDate, formatDimension, formatPercentage, formatPrice, formatWeight } from './format';
+import {
+  formatAddress,
+  formatBytes,
+  formatDate,
+  formatDimension,
+  formatPercentage,
+  formatPrice,
+  formatWeight,
+} from './format';
 
 describe('format', () => {
   describe('formatDimension', () => {
@@ -63,17 +71,36 @@ describe('format', () => {
       expect(formatBytes(2, 'fi')).toMatch('2 B');
       expect(formatBytes(999, 'fi')).toMatch('999 B');
     });
+
     it('should format values >=1000 and <999950 as kB', () => {
       expect(formatBytes(1000, 'fi')).toMatch('1 kB');
       expect(formatBytes(1010, 'fi')).toMatch('1 kB');
       expect(formatBytes(1099, 'fi')).toMatch('1,1 kB');
       expect(formatBytes(999949, 'fi')).toMatch('999,9 kB');
     });
+
     it('should format values >=999950 as MB', () => {
       expect(formatBytes(999950, 'fi')).toMatch('1 MB');
       expect(formatBytes(1000000, 'fi')).toMatch('1 MB');
       expect(formatBytes(1099000, 'fi')).toMatch('1,1 MB');
       expect(formatBytes(999900000, 'fi')).toMatch('999,9 MB');
+    });
+  });
+
+  describe('formatAddress', () => {
+    it('should format an address correctly', () => {
+      expect(formatAddress('Aurinkoranta 1', '00990', 'Helsinki')).toEqual('Aurinkoranta 1, 00990 Helsinki');
+    });
+
+    it('should format partial address values correctly', () => {
+      expect(formatAddress(null, '00990', 'Helsinki')).toEqual('00990 Helsinki');
+      expect(formatAddress('Aurinkoranta 1', null, 'Helsinki')).toEqual('Aurinkoranta 1, Helsinki');
+      expect(formatAddress('Aurinkoranta 1', '00990', null)).toEqual('Aurinkoranta 1, 00990');
+      expect(formatAddress(null, '00990', null)).toEqual('00990');
+    });
+
+    it('should return "-" if all values are undefined/null', () => {
+      expect(formatAddress(null, undefined, null)).toEqual('-');
     });
   });
 });

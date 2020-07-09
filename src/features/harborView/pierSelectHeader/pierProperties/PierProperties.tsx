@@ -7,7 +7,7 @@ import CardBody from '../../../../common/cardBody/CardBody';
 import Grid from '../../../../common/grid/Grid';
 import Property from '../../../../common/property/Property';
 import styles from './pierProperties.module.scss';
-import { Pier } from '../../utils/utils';
+import { Pier } from '../../types';
 import Section from '../../../../common/section/Section';
 import Text from '../../../../common/text/Text';
 import { IconFence, IconPlug, IconStreetLight, IconWaterTap } from '../../../../common/icons';

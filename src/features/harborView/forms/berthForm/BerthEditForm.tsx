@@ -11,7 +11,7 @@ import { Berth, FormProps } from '../types';
 import { DELETE_BERTH, DELETE_BERTHVariables as DELETE_BERTH_VARS } from './__generated__/DELETE_BERTH';
 import { getBerth } from './utils/utils';
 import BerthForm from './BerthForm';
-import { Pier } from '../../utils/utils';
+import { Pier } from '../../types';
 
 interface BerthEditFormProps extends Omit<FormProps<Berth>, 'initialValues' | 'onCreate'> {
   berthId: string;

@@ -4,9 +4,8 @@ import { useQuery } from '@apollo/react-hooks';
 
 import { INDIVIDUAL_HARBOR_QUERY } from './queries';
 import { INDIVIDUAL_HARBOR } from './__generated__/INDIVIDUAL_HARBOR';
-import { getIndividualHarborData, getBerths, getPiers, getMaps } from './utils/utils';
+import { getIndividualHarborData, getBerths, getPiers, getMaps } from './utils';
 import HarborView from './HarborView';
-import HarborCard from '../../common/harborCard/HarborCard';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import Modal from '../../common/modal/Modal';
 import BerthEditForm from './forms/berthForm/BerthEditForm';
@@ -14,7 +13,6 @@ import BerthCreateForm from './forms/berthForm/BerthCreateForm';
 import PierCreateForm from './forms/pierForm/PierCreateForm';
 import PierEditForm from './forms/pierForm/PierEditForm';
 import HarborEditForm from './forms/harborForm/HarborEditForm';
-import HarborViewTable from './HarborViewTable';
 
 const HarborViewContainer = () => {
   const [editingHarbor, setEditingHarbor] = useState<boolean>(false);
@@ -34,34 +32,19 @@ const HarborViewContainer = () => {
   const maps = getMaps(data);
 
   return (
-    <HarborView>
-      <HarborCard
-        name={harbor.name || ''}
-        imageUrl={harbor.imageFile}
-        maps={maps}
-        servicemapId={harbor.servicemapId || ''}
-        address={`${harbor.streetAddress} ${harbor.zipCode} ${harbor.municipality}`}
-        properties={{
-          electricity: harbor.electricity,
-          gate: harbor.gate,
-          lighting: harbor.lighting,
-          maxWidth: harbor.maxWidth || 0,
-          numberOfPlaces: harbor.numberOfPlaces || 0,
-          numberOfFreePlaces: harbor.numberOfFreePlaces || 0,
-          queue: harbor.numberOfPlaces || 0,
-          wasteCollection: harbor.wasteCollection,
-          water: harbor.water,
-        }}
-        editHarbor={() => setEditingHarbor(true)}
-      />
-      <HarborViewTable
+    <>
+      <HarborView
         berths={berths}
+        harbor={harbor}
+        maps={maps}
         piers={piers}
-        onAddPier={() => setCreatingPier(true)}
-        onAddBerth={() => setCreatingBerth(true)}
-        onEditBerth={(berth) => setBerthToEdit(berth.id)}
-        onEditPier={(pier) => setPierToEdit(pier.id)}
+        setBerthToEdit={setBerthToEdit}
+        setCreatingBerth={setCreatingBerth}
+        setCreatingPier={setCreatingPier}
+        setEditingHarbor={setEditingHarbor}
+        setPierToEdit={setPierToEdit}
       />
+
       {berthToEdit && (
         <Modal isOpen={!!berthToEdit} toggleModal={() => setBerthToEdit(null)}>
           <BerthEditForm
@@ -74,6 +57,7 @@ const HarborViewContainer = () => {
           />
         </Modal>
       )}
+
       <Modal isOpen={creatingBerth} toggleModal={() => setCreatingBerth(false)}>
         <BerthCreateForm
           onCancel={() => setCreatingBerth(false)}
@@ -82,6 +66,7 @@ const HarborViewContainer = () => {
           pierOptions={piers}
         />
       </Modal>
+
       <Modal isOpen={creatingPier} toggleModal={() => setCreatingPier(false)}>
         <PierCreateForm
           harborId={id}
@@ -90,6 +75,7 @@ const HarborViewContainer = () => {
           refetchQueries={[{ query: INDIVIDUAL_HARBOR_QUERY, variables: { id } }]}
         />
       </Modal>
+
       {pierToEdit && (
         <Modal isOpen={!!pierToEdit} toggleModal={() => setPierToEdit(null)}>
           <PierEditForm
@@ -101,6 +87,7 @@ const HarborViewContainer = () => {
           />
         </Modal>
       )}
+
       <Modal isOpen={editingHarbor} toggleModal={() => setEditingHarbor(false)}>
         <HarborEditForm
           harborId={id}
@@ -109,7 +96,7 @@ const HarborViewContainer = () => {
           refetchQueries={[{ query: INDIVIDUAL_HARBOR_QUERY, variables: { id } }]}
         />
       </Modal>
-    </HarborView>
+    </>
   );
 };
 
