@@ -6,6 +6,7 @@ import BillingHistoryCard from './BillingHistoryCard';
 
 export default {
   component: BillingHistoryCard,
+  title: 'BillingHistoryCard',
 };
 
 export const billingHistoryCard = () => <BillingHistoryCard bills={mockBills} onClick={action("Here's your bill!")} />;

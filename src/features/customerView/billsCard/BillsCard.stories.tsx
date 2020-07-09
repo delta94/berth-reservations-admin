@@ -6,6 +6,7 @@ import { mockBills } from '../__fixtures__/mockData';
 
 export default {
   component: BillsCard,
+  title: 'BillsCard',
 };
 
 export const billsCard = () => <BillsCard bills={mockBills} handleShowBill={action("Here's your bill!")} />;
