@@ -67,6 +67,7 @@ $placeholder-bg-size: 1000px;
     border-bottom: solid units(0.125) $black-50;
     margin-bottom: $rows-spacing;
     padding: units(0.5) 0;
+    background-color: $black-5;
     z-index: z-index(table-header);
   }
 
