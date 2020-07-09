@@ -244,7 +244,7 @@ const OfferCard = ({
             refetchQueries={refetchQueries}
             handleCancel={() => setIsEditing(false)}
             handleSubmit={() => setIsEditing(false)}
-          ></EditForm>
+          />
         </Modal>
       )}
     </>
