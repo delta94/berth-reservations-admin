@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import InputWrapper, { InputWrapperProps } from './InputWrapper';
+import InputWrapper, { InputWrapperProps } from '../InputWrapper';
 
 const mockProps = {
   id: 'test',
