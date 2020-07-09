@@ -1,14 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import HelsinkiLogo from './HelsinkiLogo';
+import HelsinkiLogo from '../HelsinkiLogo';
 
 describe('HelsinkiLogo', () => {
-  const getWrapper = (props) => shallow(<HelsinkiLogo {...props} />).dive();
+  const getWrapper = () => shallow(<HelsinkiLogo />);
 
   it('renders normally', () => {
     const wrapper = getWrapper();
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });
