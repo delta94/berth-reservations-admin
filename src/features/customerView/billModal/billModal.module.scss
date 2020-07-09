@@ -1,0 +1,15 @@
+@import 'spacings';
+
+.heading {
+  margin-bottom: units(2);
+}
+
+.divider {
+  width: 100%;
+}
+
+.closeButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: units(2);
+}

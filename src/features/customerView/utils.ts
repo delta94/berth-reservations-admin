@@ -1,9 +1,10 @@
 import {
-  INDIVIDUAL_CUSTOMER_profile as CUSTOMER_PROFILE,
   INDIVIDUAL_CUSTOMER_boatTypes as BOAT_TYPES,
+  INDIVIDUAL_CUSTOMER_profile as CUSTOMER_PROFILE,
 } from './__generated__/INDIVIDUAL_CUSTOMER';
 import { Application, ApplicationLease, Boat, LargeBoat } from './types';
 import { CustomerProfileCardProps } from '../../common/customerProfileCard/CustomerProfileCard';
+import { OrderStatus, ProductServiceType } from '../../@types/__generated__/globalTypes';
 
 export const getCustomerProfile = (profile: CUSTOMER_PROFILE): CustomerProfileCardProps => {
   return {
@@ -141,3 +142,84 @@ export const getApplications = (profile: CUSTOMER_PROFILE, boatTypes: BOAT_TYPES
     }, []) ?? []
   );
 };
+
+type OrderLine = {
+  product: ProductServiceType;
+  price: number;
+  taxPercentage: number;
+};
+
+export type Bill = {
+  status: OrderStatus;
+  contractPeriod: {
+    startDate: string;
+    endDate: string;
+  };
+  dueDate: string;
+  totalPrice: number;
+  totalPriceTaxPercentage: number;
+  basePrice: number;
+  basePriceTaxPercentage: number;
+  orderLines: OrderLine[];
+};
+
+export type BerthBill = Bill & {
+  berthInformation: {
+    number: number;
+    pierIdentifier: string;
+    harborName: string;
+  };
+};
+
+export type WinterStorageBill = Bill;
+
+export const getBills = (profile: CUSTOMER_PROFILE): (BerthBill | WinterStorageBill)[] => {
+  return (
+    profile.orders?.edges
+      .map((edge) => edge?.node)
+      .reduce<(BerthBill | WinterStorageBill)[]>((acc, orderNode) => {
+        if (!orderNode || !orderNode.lease) {
+          return acc;
+        }
+        const orderLines = orderNode.orderLines.edges
+          .map((edge) => edge?.node)
+          .reduce<OrderLine[]>((acc, orderLineNode) => {
+            if (!orderLineNode || !orderLineNode.product) {
+              return acc;
+            }
+            return [
+              ...acc,
+              {
+                product: orderLineNode.product.service,
+                price: orderLineNode.price,
+                taxPercentage: orderLineNode.taxPercentage,
+              },
+            ];
+          }, []);
+        const { lease } = orderNode;
+        return [
+          ...acc,
+          {
+            status: orderNode.status,
+            berthInformation: {
+              number: lease.berth.number,
+              pierIdentifier: lease.berth.pier.properties?.identifier ?? '',
+              harborName: lease.berth.pier.properties?.harbor?.properties?.name ?? '',
+            },
+            contractPeriod: {
+              startDate: lease.startDate,
+              endDate: lease.endDate,
+            },
+            dueDate: orderNode.dueDate,
+            basePrice: orderNode.price,
+            basePriceTaxPercentage: orderNode.taxPercentage,
+            totalPrice: orderNode.totalPrice,
+            totalPriceTaxPercentage: orderNode.totalTaxPercentage,
+            orderLines,
+          },
+        ];
+      }, []) ?? []
+  );
+};
+
+export const isBerthBill = (bill: Bill): bill is BerthBill => (bill as BerthBill).berthInformation !== undefined;

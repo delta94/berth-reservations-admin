@@ -80,6 +80,48 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
           }
         }
       }
+      orders {
+        edges {
+          node {
+            dueDate
+            totalPrice
+            totalTaxPercentage
+            price
+            taxPercentage
+            status
+            orderLines {
+              edges {
+                node {
+                  product {
+                    service
+                  }
+                  price
+                  taxPercentage
+                }
+              }
+            }
+            lease {
+              ... on BerthLeaseNode {
+                startDate
+                endDate
+                berth {
+                  number
+                  pier {
+                    properties {
+                      identifier
+                      harbor {
+                        properties {
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
       berthApplications {
         edges {
           node {

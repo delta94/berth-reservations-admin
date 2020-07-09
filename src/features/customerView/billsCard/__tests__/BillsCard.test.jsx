@@ -1,21 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Button from '../../../common/button/Button';
-import BillsCard from './BillsCard';
+import Button from '../../../../common/button/Button';
+import BillsCard from '../BillsCard';
+import { mockBills } from '../../__fixtures__/mockData';
 
 const mockProps = {
-  berthPlace: 'Pursilahdenranta B 31',
-  contractPeriod: '14.9.2019 - 10.6.2019',
-  dueDate: '1.4.2019',
-  basicFee: 284,
-  mooringFee: [79.52, '28%'],
-  electricityFee: [34.08, '12%'],
-  waterFee: [5.68, '2%'],
-  wasteFee: [22.72, '8%'],
-  gateFee: 4,
-  lightingFee: 10,
-  total: 440,
+  bills: mockBills,
   handleShowBill: jest.fn(),
 };
 
@@ -28,7 +19,7 @@ describe('BillsCard', () => {
   it('renders normally', () => {
     const wrapper = getWrapper();
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('invokes handleShowBill method when the user clicks on the Show Invoice button', () => {

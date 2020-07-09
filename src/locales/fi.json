@@ -130,6 +130,12 @@
         "label": "Virhe",
         "description": "Tapahtui virhe"
       }
+    },
+    "orderStatus": {
+      "waiting": "Odottaa maksua",
+      "expired": "Erääntynyt",
+      "rejected": "Hylätty",
+      "paid": "Maksettu"
     }
   },
   "login": {
@@ -431,6 +437,7 @@
       "accessible": "Tarvitsen esteettömän paikan"
     },
     "customerBill": {
+      "bill": "LASKU",
       "title": "AVOIMET LASKUT",
       "berthRental": "VENEPAIKAN VUOKRA",
       "showInvoice": "Näytä lasku",
@@ -444,7 +451,20 @@
       "waste": "Jäte",
       "gate": "Portti",
       "lighting": "Valaistus",
-      "total": "YHTEENSÄ"
+      "total": "YHTEENSÄ",
+      "noBill": "Ei avoimia laskuja",
+      "billType": "Laskun aihe",
+      "berthBill": "Venepaikan vuokra",
+      "winterStorageBill": "Talvisäilytyspaikan vuokra",
+      "status": "Laskun tila",
+      "closeModal": "Sulje"
+    },
+    "billingHistory": {
+      "title": "LASKUHISTORIA",
+      "sectionTitle": "LASKUT",
+      "noBillingHistory": "Ei laskuhistoriaa",
+      "berthBill": "Venepaikan vuokra",
+      "winterStorageBill": "Talvisäilytyspaikan vuokra"
     },
     "customerBoats": {
       "title": "ASIAKKAAN VENEET",
