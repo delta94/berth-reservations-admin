@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButton renders normally 1`] = `
+<div
+  class="RadioButton-module_radioButton__cl9Gp radio-button_hds-radio-button__qM8AJ radioButton"
+>
+  <input
+    aria-checked="false"
+    class="RadioButton-module_input__3Jcdf radio-button_hds-radio-button__input__ztS8g"
+    id="test"
+    type="radio"
+  />
+  <label
+    class="RadioButton-module_label__g_pgE radio-button_hds-radio-button__label__1e-Rr"
+    for="test"
+  />
+</div>
+`;
