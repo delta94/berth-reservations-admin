@@ -27,6 +27,7 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
       primaryPhone {
         phone
       }
+      language
       boats {
         edges {
           node {

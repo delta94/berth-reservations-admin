@@ -1,4 +1,4 @@
-import { InvoicingType, OrganizationType } from '../../../@types/__generated__/globalTypes';
+import { InvoicingType, Language, OrganizationType } from '../../../@types/__generated__/globalTypes';
 
 export const organizationCustomerProfile = {
   comment: 'Testikäyttäjä',
@@ -21,5 +21,6 @@ export const organizationCustomerProfile = {
   },
   primaryEmail: 'test@example.com',
   primaryPhone: '0504391742',
+  language: Language.FINNISH,
   ssn: '010101A1234',
 };

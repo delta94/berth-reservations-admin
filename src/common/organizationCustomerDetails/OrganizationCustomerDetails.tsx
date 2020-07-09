@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Section from '../section/Section';
 import LabelValuePair from '../labelValuePair/LabelValuePair';
 import InternalLink from '../internalLink/InternalLink';
-import { InvoicingType, OrganizationType } from '../../@types/__generated__/globalTypes';
+import { InvoicingType, Language, OrganizationType } from '../../@types/__generated__/globalTypes';
 
 export interface OrganizationCustomerDetailsProps {
   title?: string;
@@ -28,6 +28,7 @@ export interface OrganizationCustomerDetailsProps {
   } | null;
   primaryEmail?: string | null;
   primaryPhone?: string | null;
+  language: Language | null;
   showCustomerNameAsLink?: boolean;
   ssn?: string;
 }
@@ -42,6 +43,7 @@ const OrganizationCustomerDetails = ({
   organization,
   primaryEmail,
   primaryPhone,
+  language,
   showCustomerNameAsLink = false,
   ssn,
 }: OrganizationCustomerDetailsProps) => {
@@ -102,9 +104,12 @@ const OrganizationCustomerDetails = ({
         <LabelValuePair label={t('customerProfile.phone')} value={primaryPhone} />
         <LabelValuePair label={t('customerProfile.email')} value={primaryEmail} />
       </Section>
-      {invoicingType && (
+      {(language || invoicingType) && (
         <Section>
-          <LabelValuePair value={t([`common.invoicingTypes.${invoicingType}`])} />
+          {language && (
+            <LabelValuePair label={t('customerProfile.language')} value={t([`common.languages.${language}`])} />
+          )}
+          {invoicingType && <LabelValuePair value={t([`common.invoicingTypes.${invoicingType}`])} />}
         </Section>
       )}
       <Section>

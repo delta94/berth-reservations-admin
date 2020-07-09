@@ -6,6 +6,7 @@ import {
 } from './__generated__/INDIVIDUAL_APPLICATION';
 import { CustomerProfileCardProps } from '../../common/customerProfileCard/CustomerProfileCard';
 import { CustomerData } from './ApplicationView';
+import { BerthApplicationLanguage, Language } from '../../@types/__generated__/globalTypes';
 import { FILTERED_CUSTOMERS } from './__generated__/FILTERED_CUSTOMERS';
 
 export const getCustomerProfile = (profile: CUSTOMER_PROFILE): CustomerProfileCardProps => {
@@ -17,6 +18,7 @@ export const getCustomerProfile = (profile: CUSTOMER_PROFILE): CustomerProfileCa
     primaryPhone: profile.primaryPhone?.phone,
     primaryEmail: profile.primaryEmail?.email,
     ssn: '-', // TODO
+    language: profile.language,
     showCustomerNameAsLink: true,
   };
 };
@@ -37,6 +39,19 @@ interface BerthSwitch {
   reason: string | null;
 }
 
+const mapBerthApplicationLanguageToLanguage = (berthApplicationLanguage: BerthApplicationLanguage): Language | null => {
+  switch (berthApplicationLanguage) {
+    case BerthApplicationLanguage.FI:
+      return Language.FINNISH;
+    case BerthApplicationLanguage.SV:
+      return Language.SWEDISH;
+    case BerthApplicationLanguage.EN:
+      return Language.ENGLISH;
+    default:
+      return null;
+  }
+};
+
 const getApplicantDetails = (berthApplication: BERTH_APPLICATION): CustomerProfileCardProps => {
   const {
     firstName,
@@ -48,6 +63,7 @@ const getApplicantDetails = (berthApplication: BERTH_APPLICATION): CustomerProfi
     email,
     businessId,
     companyName,
+    language,
   } = berthApplication;
 
   return {
@@ -60,6 +76,7 @@ const getApplicantDetails = (berthApplication: BERTH_APPLICATION): CustomerProfi
     },
     primaryPhone: phoneNumber,
     primaryEmail: email,
+    language: mapBerthApplicationLanguageToLanguage(language),
     ...(businessId && {
       organization: {
         businessId,

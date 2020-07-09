@@ -15,6 +15,7 @@ export const getCustomerProfile = (profile: CUSTOMER_PROFILE): CustomerProfileCa
       primaryAddress: profile.primaryAddress,
       primaryPhone: profile.primaryPhone?.phone,
       primaryEmail: profile.primaryEmail?.email,
+      language: profile.language,
       ssn: '-', // TODO
     },
     ...(profile.organization && {

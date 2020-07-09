@@ -80,6 +80,11 @@
       "MONTH": "1 kk",
       "YEAR": "Vuosi"
     },
+    "languages": {
+      "FINNISH": "Suomi",
+      "SWEDISH": "Ruotsi",
+      "ENGLISH": "Englanti"
+    },
     "terminology": {
       "address": "Osoite",
       "applications": "Hakemukset",
@@ -519,6 +524,7 @@
     "phone": "Matkapuhelin",
     "email": "Sähköpostiosoite",
     "customerGroup": "Asiakasryhmä",
+    "language": "Asiointikieli",
     "remarks": "Huomiot"
   },
   "harborCard": {

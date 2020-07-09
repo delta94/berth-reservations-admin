@@ -85,6 +85,7 @@ export const INDIVIDUAL_APPLICATION_QUERY = gql`
       email
       businessId
       companyName
+      language
       customer {
         comment
         firstName
@@ -110,6 +111,7 @@ export const INDIVIDUAL_APPLICATION_QUERY = gql`
         primaryPhone {
           phone
         }
+        language
       }
       berthSwitch {
         berthNumber

@@ -1,4 +1,4 @@
-import { InvoicingType } from '../../../@types/__generated__/globalTypes';
+import { InvoicingType, Language } from '../../../@types/__generated__/globalTypes';
 
 export const privateCustomerProfile = {
   comment: 'Testikäyttäjä',
@@ -13,5 +13,6 @@ export const privateCustomerProfile = {
   },
   primaryEmail: 'test@example.com',
   primaryPhone: '0504391742',
+  language: Language.FINNISH,
   ssn: '010101A1234',
 };
