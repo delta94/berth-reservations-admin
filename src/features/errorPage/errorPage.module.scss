@@ -1,3 +1,4 @@
+@import 'containers';
 @import 'spacings';
 
 .container {
@@ -11,7 +12,7 @@
   @extend .container;
   position: relative;
   top: 20%;
-  max-width: units(32);
+  max-width: container(s);
   text-align: center;
 }
 

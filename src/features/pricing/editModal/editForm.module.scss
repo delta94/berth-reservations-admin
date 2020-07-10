@@ -1,6 +1,5 @@
-@import 'colours';
+@import 'containers';
 @import 'spacings';
-@import 'z-index';
 
 .row {
   margin: units(2) 0;
@@ -17,5 +16,5 @@
 }
 
 .form {
-  width: units(24);
+  width: container(s);
 }

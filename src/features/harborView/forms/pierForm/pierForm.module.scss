@@ -1,8 +1,9 @@
+@import 'containers';
 @import 'spacings';
 
 .form {
   padding: units(1) 0;
-  max-width: units(32);
+  max-width: container(s);
 
   > * {
     margin: units(1) 0;
@@ -10,7 +11,7 @@
 }
 
 .confirmationModal {
-  max-width: units(32);
+  max-width: container(s);
 }
 
 .grid {

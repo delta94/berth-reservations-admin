@@ -1,4 +1,5 @@
 @import 'colours';
+@import 'spacings';
 
 /*
  * Pure CSS spinner, taken from:
@@ -10,7 +11,7 @@
   }
 }
 
-@mixin add_spinner($size: 5rem, $main-color: $black-20, $alt-color: $black, $thickness: 2px) {
+@mixin add_spinner($size: units(4.5), $main-color: $black-20, $alt-color: $black, $thickness: units(0.125)) {
   content: '';
   box-sizing: border-box;
   width: $size;
@@ -35,8 +36,8 @@
 
 .spinner {
   position: relative;
-  height: 5rem;
-  width: 5rem;
+  height: units(4.5);
+  width: units(4.5);
 
   &::before {
     @include add_spinner();

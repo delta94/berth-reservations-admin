@@ -119,7 +119,7 @@ const BerthDetails = ({
           )}
         </div>
       )}
-      <Grid colsCount={3}>
+      <Grid colsCount={3} className={styles.grid}>
         <Section title={t('offer.berthDetails.previousLeases').toUpperCase()}>
           {expiredLeasesElements.length ? expiredLeasesElements : '-'}
         </Section>

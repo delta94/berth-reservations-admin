@@ -30,12 +30,14 @@
 }
 
 .select {
-  width: 14em;
+  width: units(12);
 }
 
 .searchInput {
-  background-color: $white;
+  input {
+    background-color: $white;
+  }
   margin-left: units(0.5);
   width: 25%;
-  min-width: 12em;
+  min-width: units(12);
 }

@@ -13,13 +13,18 @@
   display: flex;
   padding-bottom: units(1);
   margin-bottom: units(1);
-  border-bottom: solid 2px $black-20;
+  border-bottom: solid units(0.125) $black-20;
 }
 
 .property {
   margin-right: units(6);
 }
 
+.grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .comment {
-  max-width: 32em;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }

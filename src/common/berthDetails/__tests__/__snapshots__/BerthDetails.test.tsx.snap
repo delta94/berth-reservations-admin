@@ -165,7 +165,7 @@ exports[`BerthDetails renders normally with all props 1`] = `
     </div>
   </div>
   <div
-    class="grid cols3"
+    class="grid cols3 grid"
   >
     <article
       class="section"
@@ -250,7 +250,7 @@ exports[`BerthDetails renders normally with minimum props 1`] = `
   class="berthDetails"
 >
   <div
-    class="grid cols3"
+    class="grid cols3 grid"
   >
     <article
       class="section"
@@ -293,7 +293,7 @@ exports[`BerthDetails renders normally with null props 1`] = `
   class="berthDetails"
 >
   <div
-    class="grid cols3"
+    class="grid cols3 grid"
   >
     <article
       class="section"

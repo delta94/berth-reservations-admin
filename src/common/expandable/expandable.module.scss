@@ -23,7 +23,7 @@
 .children {
   margin-left: units(2);
   padding-left: units(0.5);
-  border-left: 2px solid $black-20;
+  border-left: units(0.125) solid $black-20;
   overflow: hidden;
   max-height: 0;
 
