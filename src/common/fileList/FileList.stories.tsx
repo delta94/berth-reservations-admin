@@ -41,7 +41,7 @@ const getKnobs = (defaultLabel: string) => ({
   allowDelete: boolean('allowDelete', true),
   helperText: text('helperText', ''),
   invalid: boolean('invalid', false),
-  labelText: text('labelText', defaultLabel),
+  label: text('label', defaultLabel),
   willBeOverwritten: boolean('willBeOverwritten', false),
 });
 

@@ -38,7 +38,7 @@ describe('FileList', () => {
 
   it('renders normally with single file props', () => {
     const wrapper = getWrapper({
-      labelText: 'Test',
+      label: 'Test',
       allowDelete: true,
     });
 
@@ -49,7 +49,7 @@ describe('FileList', () => {
   it('renders normally with multiple files props', () => {
     const wrapper = getWrapper({
       ...mockPropsMultiple,
-      labelText: 'Test',
+      label: 'Test',
       allowDelete: true,
     });
 

@@ -41,7 +41,7 @@ const FileUpload = (props: FileUploadProps) => {
     disabled,
     helperText,
     invalid = false,
-    labelText,
+    label,
     maxSize,
     multiple,
     id,
@@ -113,7 +113,7 @@ const FileUpload = (props: FileUploadProps) => {
   };
 
   return (
-    <InputWrapper id={id} invalid={invalid} helperText={helperText} labelText={labelText}>
+    <InputWrapper id={id} invalid={invalid} helperText={helperText} label={label}>
       {renderFileList()}
 
       <div className={styles.row}>

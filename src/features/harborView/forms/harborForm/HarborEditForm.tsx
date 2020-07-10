@@ -93,7 +93,7 @@ const HarborEditForm = ({ harborId, onCancel, onSubmit, refetchQueries }: Props)
               as={TextInput}
               id="name"
               name="name"
-              labelText={t('forms.harbor.name')}
+              label={t('forms.harbor.name')}
               invalid={!!errors.name}
               helperText={errors.name}
             />
@@ -105,7 +105,7 @@ const HarborEditForm = ({ harborId, onCancel, onSubmit, refetchQueries }: Props)
               as={TextInput}
               id="streetAddress"
               name="streetAddress"
-              labelText={t('forms.harbor.streetAddress')}
+              label={t('forms.harbor.streetAddress')}
               invalid={!!errors.streetAddress}
               helperText={errors.streetAddress}
             />
@@ -114,7 +114,7 @@ const HarborEditForm = ({ harborId, onCancel, onSubmit, refetchQueries }: Props)
               as={TextInput}
               id="zipCode"
               name="zipCode"
-              labelText={t('forms.harbor.zipCode')}
+              label={t('forms.harbor.zipCode')}
               invalid={!!errors.zipCode}
               helperText={errors.zipCode}
             />
@@ -123,7 +123,7 @@ const HarborEditForm = ({ harborId, onCancel, onSubmit, refetchQueries }: Props)
               as={TextInput}
               id="municipality"
               name="municipality"
-              labelText={t('forms.harbor.municipality')}
+              label={t('forms.harbor.municipality')}
               invalid={!!errors.municipality}
               helperText={errors.municipality}
             />
@@ -135,7 +135,7 @@ const HarborEditForm = ({ harborId, onCancel, onSubmit, refetchQueries }: Props)
               as={TextInput}
               id="wwwUrl"
               name="wwwUrl"
-              labelText={t('forms.harbor.wwwUrl')}
+              label={t('forms.harbor.wwwUrl')}
               invalid={!!errors.wwwUrl}
               helperText={errors.wwwUrl}
             />
@@ -146,7 +146,7 @@ const HarborEditForm = ({ harborId, onCancel, onSubmit, refetchQueries }: Props)
               as={FileList}
               allowDelete={false}
               name="existingImageFile"
-              labelText={t('forms.harbor.imageFile')}
+              label={t('forms.harbor.imageFile')}
               onChange={(value: undefined | PersistedFile) => {
                 setFieldValue('existingImageFile', value);
               }}
@@ -173,7 +173,7 @@ const HarborEditForm = ({ harborId, onCancel, onSubmit, refetchQueries }: Props)
               as={FileList}
               name="existingMaps"
               multiple
-              labelText={t('forms.harbor.maps')}
+              label={t('forms.harbor.maps')}
               onChange={(value: PersistedFile[]) => {
                 setFieldValue('existingMaps', value);
               }}

@@ -77,7 +77,7 @@ export const CustomerMessageForm = ({ closeModal, handleSendMessage }: CustomerM
               id="subject"
               value={values.subject}
               onChange={handleChange}
-              labelText={t('customerList.message.subject')}
+              label={t('customerList.message.subject')}
               invalid={!!errors.subject}
               helperText={errors.subject}
             />
@@ -86,7 +86,7 @@ export const CustomerMessageForm = ({ closeModal, handleSendMessage }: CustomerM
               className={styles.message}
               value={values.message}
               onChange={handleChange}
-              labelText={t('customerList.message.message')}
+              label={t('customerList.message.message')}
               invalid={!!errors.message}
               helperText={errors.message || t('customerList.message.messageHelperText')}
             />

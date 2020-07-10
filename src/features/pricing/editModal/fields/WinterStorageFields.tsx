@@ -37,7 +37,7 @@ const WinterStorageFields = () => {
       </div>
       <hr />
       <Grid colsCount={2} className={styles.row}>
-        <Field as={TextInput} id="area" name="area" labelText={t('pricing.winterStorage.area')} readOnly />
+        <Field as={TextInput} id="area" name="area" label={t('pricing.winterStorage.area')} readOnly />
       </Grid>
       <Grid colsCount={2} className={styles.row}>
         <Field
@@ -46,7 +46,7 @@ const WinterStorageFields = () => {
           id="privateCustomer"
           name="privateCustomer"
           value={values.privateCustomer || ''}
-          labelText={`${t('pricing.winterStorage.privateCustomer')} (€)`}
+          label={`${t('pricing.winterStorage.privateCustomer')} (€)`}
           invalid={!!errors.privateCustomer}
           helperText={errors.privateCustomer}
         />
@@ -54,7 +54,7 @@ const WinterStorageFields = () => {
           as={TextInput}
           id="company"
           name="company"
-          labelText={`${t('pricing.winterStorage.company')} (€)`}
+          label={`${t('pricing.winterStorage.company')} (€)`}
           invalid={!!errors.company}
           helperText={errors.company}
           value={calcCompanyPrice(values.privateCustomer) || ''}

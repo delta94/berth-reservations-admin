@@ -61,7 +61,7 @@ const AdditionalServicesFields = () => {
           as={TextInput}
           id="price"
           name="price"
-          labelText={`${t('pricing.additionalServices.price')} (€)`}
+          label={`${t('pricing.additionalServices.price')} (€)`}
           invalid={!!errors.price}
           helperText={errors.price}
         />
