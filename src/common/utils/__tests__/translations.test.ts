@@ -1,11 +1,18 @@
 import i18n from 'i18next';
 
-import { getPeriodTKey, getProductServiceTKey, getProductTax, getPriceUnits } from '../translations';
+import {
+  getPeriodTKey,
+  getProductServiceTKey,
+  getProductTax,
+  getPriceUnits,
+  getOrderStatusTKey,
+} from '../translations';
 import {
   PeriodType,
   ProductServiceType,
   AdditionalProductTaxEnum,
   PriceUnits,
+  OrderStatus,
 } from '../../../@types/__generated__/globalTypes';
 import { formatPercentage } from '../format';
 
@@ -45,6 +52,25 @@ describe('translations', () => {
     it('should fallback to the actual value from the backend if there is no match during the runtime', () => {
       const randomValue = 'random' as ProductServiceType;
       const tKey = getProductServiceTKey(randomValue);
+
+      expect(tKey).toBe(randomValue);
+    });
+  });
+
+  describe('getOrderStatusTKey', () => {
+    test('each provided value of type OrderStatus should have a corresponding translated value', () => {
+      const statuses = Object.values(OrderStatus);
+      expect.assertions(statuses.length);
+
+      statuses.forEach((status) => {
+        const tKey = getOrderStatusTKey(status);
+        expect(i18n.exists(tKey)).toBe(true);
+      });
+    });
+
+    it('should fallback to the actual value from the backend if there is no match during the runtime', () => {
+      const randomValue = 'random' as OrderStatus;
+      const tKey = getOrderStatusTKey(randomValue);
 
       expect(tKey).toBe(randomValue);
     });

@@ -1,0 +1,273 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table renders normally 1`] = `
+<div>
+  <div
+    class="tableWrapper"
+  >
+    <div
+      class="table primary noMainHeader"
+      role="table"
+      style="min-width:450px"
+    >
+      <div
+        class="stickyHeaders"
+      >
+        <div
+          class="header"
+          role="row"
+          style="display:flex;flex:1 0 auto;min-width:0px"
+        >
+          <div
+            class="headerCell"
+            colspan="1"
+            role="columnheader"
+            style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+            title="Toggle SortBy"
+          >
+            name
+            <div
+              class="sortArrowWrapper"
+            >
+              <svg
+                class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv sortArrow sortArrowDown"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                  />
+                  <path
+                    d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div
+            class="headerCell"
+            colspan="1"
+            role="columnheader"
+            style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+            title="Toggle SortBy"
+          >
+            height
+            <div
+              class="sortArrowWrapper"
+            >
+              <svg
+                class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv sortArrow sortArrowDown"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                  />
+                  <path
+                    d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div
+            class="headerCell"
+            colspan="1"
+            role="columnheader"
+            style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+            title="Toggle SortBy"
+          >
+            country
+            <div
+              class="sortArrowWrapper"
+            >
+              <svg
+                class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv sortArrow sortArrowDown"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                  />
+                  <path
+                    d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        role="rowgroup"
+      >
+        <div
+          class="rowWrapper"
+        >
+          <div
+            role="row"
+            style="display:flex;flex:1 0 auto;min-width:0px"
+          >
+            <div
+              class="tableCell"
+              role="cell"
+              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+            >
+              foobar
+            </div>
+            <div
+              class="tableCell"
+              role="cell"
+              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+            >
+              foobar
+            </div>
+            <div
+              class="tableCell"
+              role="cell"
+              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+            >
+              foobar
+            </div>
+          </div>
+        </div>
+        <div
+          class="rowWrapper"
+        >
+          <div
+            role="row"
+            style="display:flex;flex:1 0 auto;min-width:0px"
+          >
+            <div
+              class="tableCell"
+              role="cell"
+              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+            >
+              foobar
+            </div>
+            <div
+              class="tableCell"
+              role="cell"
+              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+            >
+              foobar
+            </div>
+            <div
+              class="tableCell"
+              role="cell"
+              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+            >
+              foobar
+            </div>
+          </div>
+        </div>
+        <div
+          class="rowWrapper"
+        >
+          <div
+            role="row"
+            style="display:flex;flex:1 0 auto;min-width:0px"
+          >
+            <div
+              class="tableCell"
+              role="cell"
+              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+            >
+              foobar
+            </div>
+            <div
+              class="tableCell"
+              role="cell"
+              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+            >
+              foobar
+            </div>
+            <div
+              class="tableCell"
+              role="cell"
+              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+            >
+              foobar
+            </div>
+          </div>
+        </div>
+        <div
+          class="rowWrapper"
+        >
+          <div
+            role="row"
+            style="display:flex;flex:1 0 auto;min-width:0px"
+          >
+            <div
+              class="tableCell"
+              role="cell"
+              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+            >
+              foobar
+            </div>
+            <div
+              class="tableCell"
+              role="cell"
+              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+            >
+              foobar
+            </div>
+            <div
+              class="tableCell"
+              role="cell"
+              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+            >
+              foobar
+            </div>
+          </div>
+        </div>
+        <div
+          class="rowWrapper"
+        >
+          <div
+            role="row"
+            style="display:flex;flex:1 0 auto;min-width:0px"
+          >
+            <div
+              class="tableCell"
+              role="cell"
+              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+            >
+              foobar
+            </div>
+            <div
+              class="tableCell"
+              role="cell"
+              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+            >
+              foobar
+            </div>
+            <div
+              class="tableCell"
+              role="cell"
+              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+            >
+              foobar
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

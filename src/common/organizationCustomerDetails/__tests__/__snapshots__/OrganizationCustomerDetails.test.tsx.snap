@@ -1,0 +1,503 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrganizationCustomerDetails renders normally with all props 1`] = `
+Array [
+  <article
+    class="section"
+  >
+    <h4
+      class="text standard h4 m title"
+    >
+      Test
+    </h4>
+    <section
+      class="body"
+    >
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Nimi:
+        </span>
+        <span
+          class="value left"
+        >
+          Liikeyritys Oy
+        </span>
+      </div>
+       
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Y-tunnus:
+        </span>
+        <span
+          class="value left"
+        >
+          1234567-8
+        </span>
+      </div>
+    </section>
+  </article>,
+  <article
+    class="section"
+  >
+    <section
+      class="body"
+    >
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Jakeluosoite:
+        </span>
+        <span
+          class="value left"
+        >
+          Liiketoimintaraitti 12
+        </span>
+      </div>
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Postinumero:
+        </span>
+        <span
+          class="value left"
+        >
+          00100
+        </span>
+      </div>
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Postitoimipaikka:
+        </span>
+        <span
+          class="value left"
+        >
+          Helsinki
+        </span>
+      </div>
+    </section>
+  </article>,
+  <article
+    class="section"
+  >
+    <section
+      class="body"
+    >
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Asiakasryhmä:
+        </span>
+        <span
+          class="value left"
+        >
+          Yritys
+        </span>
+      </div>
+    </section>
+  </article>,
+  <article
+    class="section"
+  >
+    <h4
+      class="text standard h4 m title"
+    >
+      YHTEYSHENKILÖ
+    </h4>
+    <section
+      class="body"
+    >
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Etunimet:
+        </span>
+        <span
+          class="value left"
+        >
+          <a
+            class="internalLink brand"
+            href="#/customers/0"
+            title="Testi"
+          >
+            Testi
+          </a>
+        </span>
+      </div>
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Sukunimi:
+        </span>
+        <span
+          class="value left"
+        >
+          <a
+            class="internalLink brand"
+            href="#/customers/0"
+            title="Käyttäjä"
+          >
+            Käyttäjä
+          </a>
+        </span>
+      </div>
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Henkilötunnus:
+        </span>
+        <span
+          class="value left"
+        >
+          <a
+            class="internalLink brand"
+            href="#/customers/0"
+            title="010101A1234"
+          >
+            010101A1234
+          </a>
+        </span>
+      </div>
+    </section>
+  </article>,
+  <article
+    class="section"
+  >
+    <section
+      class="body"
+    >
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Matkapuhelin:
+        </span>
+        <span
+          class="value left"
+        >
+          0504391742
+        </span>
+      </div>
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Sähköpostiosoite:
+        </span>
+        <span
+          class="value left"
+        >
+          test@example.com
+        </span>
+      </div>
+    </section>
+  </article>,
+  <article
+    class="section"
+  >
+    <section
+      class="body"
+    >
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Asiointikieli:
+        </span>
+        <span
+          class="value left"
+        >
+          Suomi
+        </span>
+      </div>
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        />
+        <span
+          class="value left"
+        >
+          Laskutus paperisena
+        </span>
+      </div>
+    </section>
+  </article>,
+  <article
+    class="section"
+  >
+    <section
+      class="body"
+    >
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Huomiot:
+        </span>
+        <span
+          class="value left"
+        >
+          Testikäyttäjä
+        </span>
+      </div>
+    </section>
+  </article>,
+]
+`;
+
+exports[`OrganizationCustomerDetails renders normally with minimum props 1`] = `
+Array [
+  <article
+    class="section"
+  >
+    <h4
+      class="text standard h4 m title"
+    >
+      YRITYS / YHTEISÖ
+    </h4>
+    <section
+      class="body"
+    >
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Nimi:
+        </span>
+        <span
+          class="value left"
+        >
+          Liikeyritys Oy
+        </span>
+      </div>
+       
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Y-tunnus:
+        </span>
+        <span
+          class="value left"
+        >
+          1234567-8
+        </span>
+      </div>
+    </section>
+  </article>,
+  <article
+    class="section"
+  >
+    <section
+      class="body"
+    >
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Jakeluosoite:
+        </span>
+        <span
+          class="value left"
+        >
+          Liiketoimintaraitti 12
+        </span>
+      </div>
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Postinumero:
+        </span>
+        <span
+          class="value left"
+        >
+          00100
+        </span>
+      </div>
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Postitoimipaikka:
+        </span>
+        <span
+          class="value left"
+        >
+          Helsinki
+        </span>
+      </div>
+    </section>
+  </article>,
+  <article
+    class="section"
+  >
+    <section
+      class="body"
+    >
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Asiakasryhmä:
+        </span>
+        <span
+          class="value left"
+        >
+          Yritys
+        </span>
+      </div>
+    </section>
+  </article>,
+  <article
+    class="section"
+  >
+    <h4
+      class="text standard h4 m title"
+    >
+      YHTEYSHENKILÖ
+    </h4>
+    <section
+      class="body"
+    >
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Etunimet:
+        </span>
+        <span
+          class="value left"
+        >
+          Testi
+        </span>
+      </div>
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Sukunimi:
+        </span>
+        <span
+          class="value left"
+        >
+          Käyttäjä
+        </span>
+      </div>
+    </section>
+  </article>,
+  <article
+    class="section"
+  >
+    <section
+      class="body"
+    >
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Matkapuhelin:
+        </span>
+        <span
+          class="value left"
+        >
+          -
+        </span>
+      </div>
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Sähköpostiosoite:
+        </span>
+        <span
+          class="value left"
+        >
+          -
+        </span>
+      </div>
+    </section>
+  </article>,
+  <article
+    class="section"
+  >
+    <section
+      class="body"
+    >
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Huomiot:
+        </span>
+        <span
+          class="value left"
+        >
+          -
+        </span>
+      </div>
+    </section>
+  </article>,
+]
+`;

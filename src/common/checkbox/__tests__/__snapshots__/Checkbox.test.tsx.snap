@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox renders normally 1`] = `
+<div
+  class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz checkbox"
+>
+  <input
+    aria-checked="false"
+    class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
+    id="test"
+    type="checkbox"
+  />
+  <label
+    class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
+    for="test"
+  />
+</div>
+`;

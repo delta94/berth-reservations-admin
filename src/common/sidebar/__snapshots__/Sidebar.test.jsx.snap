@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Sidebar renders normally 1`] = `"<div class=\\"sidebar\\"><div class=\\"mainWrapper\\"><div class=\\"elementWrapper\\"><div>First page</div></div><div class=\\"elementWrapper\\"><div>Second page</div></div></div><div class=\\"actionsWrapper\\"><div class=\\"elementWrapper\\"><div>Logout</div></div></div></div>"`;

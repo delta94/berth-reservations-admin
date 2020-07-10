@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`HelsinkiLogo renders normally 1`] = `"<svg class=\\"helsinkiLogo standard standard\\">helsinki-logo.svg</svg>"`;
