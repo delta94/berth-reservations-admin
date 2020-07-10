@@ -5,11 +5,11 @@ import Text from '../text/Text';
 import styles from './section.module.scss';
 
 export interface SectionWithButtonProps {
-  children: React.ReactNode;
   buttonText: string;
-  onClick(): void;
-  title: string;
+  children: React.ReactNode;
   className?: string;
+  title: string;
+  onClick(): void;
 }
 
 const SectionWithButton = ({ title, children, className, buttonText, onClick }: SectionWithButtonProps) => (
