@@ -74,7 +74,7 @@ const BoatForm = ({ onCancel, onDelete, onSubmit, isSubmitting, initialValues, b
 
           <Select
             id="boatType.id"
-            labelText={t('forms.boat.boatType')}
+            label={t('forms.boat.boatType')}
             value={values.boatType.id}
             options={boatTypes.map((boatType) => {
               return {
@@ -89,7 +89,7 @@ const BoatForm = ({ onCancel, onDelete, onSubmit, isSubmitting, initialValues, b
             id="name"
             onChange={handleChange}
             value={values.registrationNumber}
-            labelText={t('forms.boat.registrationNumber')}
+            label={t('forms.boat.registrationNumber')}
             invalid={!!errors.registrationNumber}
             helperText={errors.registrationNumber}
           />
@@ -101,7 +101,7 @@ const BoatForm = ({ onCancel, onDelete, onSubmit, isSubmitting, initialValues, b
               id="width"
               value={values.width ? String(values.width) : ''}
               onChange={handleChange}
-              labelText={t('forms.boat.width')}
+              label={t('forms.boat.width')}
               invalid={!!errors.width}
               helperText={errors.width}
             />
@@ -109,7 +109,7 @@ const BoatForm = ({ onCancel, onDelete, onSubmit, isSubmitting, initialValues, b
               id="length"
               value={values.length ? String(values.length) : ''}
               onChange={handleChange}
-              labelText={t('forms.boat.length')}
+              label={t('forms.boat.length')}
               invalid={!!errors.length}
               helperText={errors.length}
             />
@@ -117,7 +117,7 @@ const BoatForm = ({ onCancel, onDelete, onSubmit, isSubmitting, initialValues, b
               id="draught"
               onChange={handleChange}
               value={values.draught ? String(values.draught) : ''}
-              labelText={t('forms.boat.draught')}
+              label={t('forms.boat.draught')}
               invalid={!!errors.draught}
               helperText={errors.draught}
             />
@@ -125,7 +125,7 @@ const BoatForm = ({ onCancel, onDelete, onSubmit, isSubmitting, initialValues, b
               id="weight"
               onChange={handleChange}
               value={values.weight ? String(values.weight) : ''}
-              labelText={t('forms.boat.weight')}
+              label={t('forms.boat.weight')}
               invalid={!!errors.weight}
               helperText={errors.weight}
             />
@@ -137,7 +137,7 @@ const BoatForm = ({ onCancel, onDelete, onSubmit, isSubmitting, initialValues, b
             id="name"
             onChange={handleChange}
             value={values.name}
-            labelText={t('forms.boat.name')}
+            label={t('forms.boat.name')}
             invalid={!!errors.name}
             helperText={errors.name}
           />
@@ -145,7 +145,7 @@ const BoatForm = ({ onCancel, onDelete, onSubmit, isSubmitting, initialValues, b
             id="model"
             onChange={handleChange}
             value={values.model}
-            labelText={t('forms.boat.model')}
+            label={t('forms.boat.model')}
             invalid={!!errors.model}
             helperText={errors.model}
           />
