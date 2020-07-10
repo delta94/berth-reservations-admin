@@ -14,7 +14,7 @@ import styles from './berthForm.module.scss';
 import { Pier } from '../../types';
 import FormHeader from '../../../../common/formHeader/FormHeader';
 import ConfirmationModal from '../../../../common/confirmationModal/ConfirmationModal';
-import { isNumber, isPositive, replaceCommaWithDot, replaceDotWithComma } from './utils/utils';
+import { isNumber, isPositive, replaceCommaWithDot, replaceDotWithComma } from '../../../../common/utils/forms';
 import Checkbox from '../../../../common/checkbox/Checkbox';
 import Button from '../../../../common/button/Button';
 
