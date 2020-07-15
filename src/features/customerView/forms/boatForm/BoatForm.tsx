@@ -12,9 +12,17 @@ import FormHeader from '../../../../common/formHeader/FormHeader';
 import styles from './boatForm.module.scss';
 import ConfirmationModal from '../../../../common/confirmationModal/ConfirmationModal';
 import Select from '../../../../common/select/Select';
+import { isNumber, isPositive, replaceCommaWithDot, replaceDotWithComma } from '../../../../common/utils/forms';
 
 export interface BoatFormProps extends FormProps<Boat> {
   boatTypes: BoatType[];
+}
+
+interface BoatFormValues extends Omit<Boat, 'width' | 'length' | 'draught' | 'weight'> {
+  width: string;
+  length: string;
+  draught?: string;
+  weight?: string;
 }
 
 const getBoatValidationSchema = (t: TFunction, boatTypes: BoatType[]): ObjectSchema => {
@@ -24,28 +32,32 @@ const getBoatValidationSchema = (t: TFunction, boatTypes: BoatType[]): ObjectSch
         .oneOf(boatTypes.map((boatType) => boatType.id))
         .required(t('forms.common.errors.required')),
     }),
-    registrationNumber: Yup.string().required(t('forms.common.errors.required')),
-    width: Yup.number()
-      .typeError(t('forms.common.errors.numberType'))
-      .positive(t('forms.common.errors.positive'))
+    registrationNumber: Yup.string(),
+    width: Yup.string()
+      .test('isNumber', t('forms.common.errors.numberType'), (val) => isNumber(val))
+      .test('isPositive', t('forms.common.errors.positive'), (val) => isPositive(val))
       .required(t('forms.common.errors.required')),
-    length: Yup.number()
-      .typeError(t('forms.common.errors.numberType'))
-      .positive(t('forms.common.errors.positive'))
+    length: Yup.string()
+      .test('isNumber', t('forms.common.errors.numberType'), (val) => isNumber(val))
+      .test('isPositive', t('forms.common.errors.positive'), (val) => isPositive(val))
       .required(t('forms.common.errors.required')),
-    draught: Yup.number().typeError(t('forms.common.errors.numberType')).positive(t('forms.common.errors.positive')),
-    weight: Yup.number().typeError(t('forms.common.errors.numberType')).positive(t('forms.common.errors.positive')),
+    draught: Yup.string()
+      .test('isNumber', t('forms.common.errors.numberType'), (val) => isNumber(val))
+      .test('isPositive', t('forms.common.errors.positive'), (val) => isPositive(val)),
+    weight: Yup.string()
+      .test('isNumber', t('forms.common.errors.numberType'), (val) => isNumber(val))
+      .test('isPositive', t('forms.common.errors.positive'), (val) => isPositive(val)),
   });
 };
 
-const transformValues = (values: any): Boat => {
+const transformValues = (values: BoatFormValues): Boat => {
   const { width, length, draught, weight } = values;
   return {
     ...values,
-    width: parseFloat(width),
-    length: parseFloat(length),
-    draught: parseFloat(draught),
-    weight: parseFloat(weight),
+    width: parseFloat(replaceCommaWithDot(width)),
+    length: parseFloat(replaceCommaWithDot(length)),
+    draught: draught ? parseFloat(replaceCommaWithDot(draught)) : null,
+    weight: weight ? parseFloat(replaceCommaWithDot(weight)) : null,
   };
 };
 
@@ -54,7 +66,16 @@ const BoatForm = ({ onCancel, onDelete, onSubmit, isSubmitting, initialValues, b
   const validationSchema = getBoatValidationSchema(t, boatTypes);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
-  const initial = initialValues ?? ({} as Boat);
+  const initial: BoatFormValues = initialValues
+    ? {
+        ...initialValues,
+        width: initialValues.width ? replaceDotWithComma(String(initialValues.width)) : '',
+        length: initialValues.length ? replaceDotWithComma(String(initialValues.length)) : '',
+        draught: initialValues.draught ? replaceDotWithComma(String(initialValues.draught)) : '',
+        weight: initialValues.weight ? replaceDotWithComma(String(initialValues.weight)) : '',
+      }
+    : ({} as BoatFormValues);
+
   return (
     <Formik
       initialValues={initial}
@@ -86,7 +107,7 @@ const BoatForm = ({ onCancel, onDelete, onSubmit, isSubmitting, initialValues, b
             required
           />
           <TextInput
-            id="name"
+            id="registrationNumber"
             onChange={handleChange}
             value={values.registrationNumber}
             label={t('forms.boat.registrationNumber')}
@@ -99,7 +120,7 @@ const BoatForm = ({ onCancel, onDelete, onSubmit, isSubmitting, initialValues, b
           <div className={styles.horizontal}>
             <TextInput
               id="width"
-              value={values.width ? String(values.width) : ''}
+              value={values.width}
               onChange={handleChange}
               label={t('forms.boat.width')}
               invalid={!!errors.width}
@@ -107,7 +128,7 @@ const BoatForm = ({ onCancel, onDelete, onSubmit, isSubmitting, initialValues, b
             />
             <TextInput
               id="length"
-              value={values.length ? String(values.length) : ''}
+              value={values.length}
               onChange={handleChange}
               label={t('forms.boat.length')}
               invalid={!!errors.length}
@@ -116,7 +137,7 @@ const BoatForm = ({ onCancel, onDelete, onSubmit, isSubmitting, initialValues, b
             <TextInput
               id="draught"
               onChange={handleChange}
-              value={values.draught ? String(values.draught) : ''}
+              value={values.draught}
               label={t('forms.boat.draught')}
               invalid={!!errors.draught}
               helperText={errors.draught}
@@ -124,7 +145,7 @@ const BoatForm = ({ onCancel, onDelete, onSubmit, isSubmitting, initialValues, b
             <TextInput
               id="weight"
               onChange={handleChange}
-              value={values.weight ? String(values.weight) : ''}
+              value={values.weight}
               label={t('forms.boat.weight')}
               invalid={!!errors.weight}
               helperText={errors.weight}
@@ -151,7 +172,7 @@ const BoatForm = ({ onCancel, onDelete, onSubmit, isSubmitting, initialValues, b
           />
 
           <div className={styles.formActionButtons}>
-            <Button variant="secondary" theme="black" disabled={isSubmitting} color="supplementary" onClick={onCancel}>
+            <Button theme="coat" variant="secondary" disabled={isSubmitting} color="supplementary" onClick={onCancel}>
               {t('forms.common.cancel')}
             </Button>
             <Button theme="coat" type="submit" disabled={isSubmitting}>
@@ -167,7 +188,7 @@ const BoatForm = ({ onCancel, onDelete, onSubmit, isSubmitting, initialValues, b
             onConfirmText={t('forms.boat.delete')}
             warningText={t('forms.boat.deleteConfirmation.warningText')}
             onCancel={() => setIsDeleteModalOpen(false)}
-            onConfirm={() => onDelete?.(values)}
+            onConfirm={() => onDelete?.(transformValues(values))}
             className={styles.confirmationModal}
           />
         </form>

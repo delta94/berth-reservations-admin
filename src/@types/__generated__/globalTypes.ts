@@ -124,6 +124,14 @@ export enum ServiceType {
   YOUTH_MEMBERSHIP = "YOUTH_MEMBERSHIP",
 }
 
+export interface AddBoatCertificateInput {
+  file?: any | null;
+  certificateType: BoatCertificateType;
+  validUntil?: any | null;
+  checkedAt?: any | null;
+  checkedBy?: string | null;
+}
+
 export interface CreateBerthLeaseMutationInput {
   boatId?: string | null;
   startDate?: any | null;
@@ -192,6 +200,11 @@ export interface DeleteBerthMutationInput {
   clientMutationId?: string | null;
 }
 
+export interface DeleteBoatMutationInput {
+  id: string;
+  clientMutationId?: string | null;
+}
+
 export interface DeleteOrderLineMutationInput {
   id: string;
   clientMutationId?: string | null;
@@ -237,6 +250,34 @@ export interface UpdateBerthProductMutationInput {
   priceValue?: any | null;
   priceGroupId?: string | null;
   harborId?: string | null;
+  clientMutationId?: string | null;
+}
+
+export interface UpdateBoatCertificateInput {
+  file?: any | null;
+  certificateType?: BoatCertificateType | null;
+  validUntil?: any | null;
+  checkedAt?: any | null;
+  checkedBy?: string | null;
+  id: string;
+}
+
+export interface UpdateBoatMutationInput {
+  boatTypeId?: string | null;
+  registrationNumber?: string | null;
+  name?: string | null;
+  model?: string | null;
+  length?: any | null;
+  width?: any | null;
+  draught?: any | null;
+  weight?: number | null;
+  propulsion?: string | null;
+  hullMaterial?: string | null;
+  intendedUse?: string | null;
+  addBoatCertificates?: (AddBoatCertificateInput | null)[] | null;
+  id: string;
+  updateBoatCertificates?: (UpdateBoatCertificateInput | null)[] | null;
+  removeBoatCertificates?: (string | null)[] | null;
   clientMutationId?: string | null;
 }
 

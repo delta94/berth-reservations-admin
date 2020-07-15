@@ -78,7 +78,7 @@ exports[`BoatForm renders correctly 1`] = `
   >
     <label
       class="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
-      for="name"
+      for="registrationNumber"
     >
       Rekisterinumero
     </label>
@@ -87,7 +87,7 @@ exports[`BoatForm renders correctly 1`] = `
     >
       <input
         class="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
-        id="name"
+        id="registrationNumber"
         type="text"
         value="123456"
       />
@@ -223,7 +223,7 @@ exports[`BoatForm renders correctly 1`] = `
     class="formActionButtons"
   >
     <button
-      class="Button-module_button__3wgee button_hds-button__2A0je Button-module_secondary__399Vd button_hds-button--secondary__1NOWS Button-module_theme-black__zO4WO button_hds-button--theme-black__3K_k4"
+      class="Button-module_button__3wgee button_hds-button__2A0je Button-module_secondary__399Vd button_hds-button--secondary__1NOWS Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0"
       color="supplementary"
       type="button"
     >
