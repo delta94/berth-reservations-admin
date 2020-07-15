@@ -1,5 +1,5 @@
 import { getCertificate, getFilename, getValidUntilColor, isLargeBoat } from '../boatsCardUtils';
-import { Boat, BoatCert, LargeBoat } from '../../types';
+import { Boat, BoatCertificate, LargeBoat } from '../../types';
 import { BoatCertificateType } from '../../../../@types/__generated__/globalTypes';
 import { inspectionCert, insuraceCert } from '../__fixtures__/mockData';
 
@@ -19,7 +19,7 @@ const largeBoat: Partial<LargeBoat> = {
   },
 };
 
-const certificates: BoatCert[] = [insuraceCert, inspectionCert];
+const certificates: BoatCertificate[] = [insuraceCert, inspectionCert];
 
 describe('boat card utils', () => {
   describe('isLargeBoat', () => {

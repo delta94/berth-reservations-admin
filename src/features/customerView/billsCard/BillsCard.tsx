@@ -7,10 +7,11 @@ import CardBody from '../../../common/cardBody/CardBody';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 import Section from '../../../common/section/Section';
 import styles from './billsCard.module.scss';
-import { Bill, isBerthBill } from '../utils';
+import { isBerthBill } from '../utils';
 import { getProductServiceTKey } from '../../../common/utils/translations';
 import { formatDate, formatPrice } from '../../../common/utils/format';
 import Button from '../../../common/button/Button';
+import { Bill } from '../types';
 
 export interface BillsCardProps {
   bills: Bill[];

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { BoatCert } from '../types';
+import { BoatCertificate as TBoatCertificate } from '../types';
 import BoatCertificate from './BoatCertificate';
 import { getCertificate } from './boatsCardUtils';
 import { BoatCertificateType } from '../../../@types/__generated__/globalTypes';
 
 interface BoatCertificatesProps {
-  certificates: BoatCert[];
+  certificates: TBoatCertificate[];
 }
 
 const BoatCertificates = ({ certificates }: BoatCertificatesProps) => {

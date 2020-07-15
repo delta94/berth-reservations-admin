@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Section from '../../../common/section/Section';
-import { BoatCert } from '../types';
+import { BoatCertificate as TBoatCertificate } from '../types';
 import styles from './boatsCard.module.scss';
 import Text from '../../../common/text/Text';
 import ExternalLink from '../../../common/externalLink/ExternalLink';
@@ -10,7 +10,7 @@ import { formatDate } from '../../../common/utils/format';
 import { getFilename, getValidUntilColor } from './boatsCardUtils';
 
 export interface BoatCertificateProps {
-  certificate: BoatCert;
+  certificate: TBoatCertificate;
 }
 
 const BoatCertificate = ({ certificate }: BoatCertificateProps) => {
