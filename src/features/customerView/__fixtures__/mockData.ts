@@ -1,6 +1,26 @@
 import { OrderStatus, ProductServiceType } from '../../../@types/__generated__/globalTypes';
+import { BerthBill, WinterStorageBill } from '../types';
+import { INDIVIDUAL_CUSTOMER_profile as CUSTOMER_PROFILE } from '../__generated__/INDIVIDUAL_CUSTOMER';
 
-export const mockBills = [
+export const emptyMockProfile: CUSTOMER_PROFILE = {
+  __typename: 'ProfileNode',
+  berthApplications: null,
+  berthLeases: null,
+  boats: null,
+  comment: null,
+  firstName: '',
+  id: '',
+  invoicingType: null,
+  language: null,
+  lastName: '',
+  orders: null,
+  organization: null,
+  primaryAddress: null,
+  primaryEmail: null,
+  primaryPhone: null,
+};
+
+export const mockBills: (BerthBill | WinterStorageBill)[] = [
   {
     status: OrderStatus.WAITING,
     berthInformation: {

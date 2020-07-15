@@ -3,28 +3,32 @@ import { shallow, mount } from 'enzyme';
 import { Button } from 'hds-react';
 import { HashRouter } from 'react-router-dom';
 
-import LeasesCard from './LeasesCard';
+import LeasesCard, { LeasesCardProps } from './LeasesCard';
 
-describe('BerthsCard', () => {
-  const initialProps = {
+describe('LeasesCard', () => {
+  const initialProps: LeasesCardProps = {
     handleShowContract: jest.fn(),
     leases: [
       {
         id: '1234',
-        berth: 'Pursilahdenranta B 31',
-        harborId: '9999',
-        valid: '14.6.2019 - 10.9.2019',
+        berthNum: 31,
+        pierIdentifier: 'B',
+        harbor: { id: '9999', name: 'Pursilahdenranta' },
+        startDate: '2019-06-14',
+        endDate: '2019-09-10',
       },
       {
         id: '4321',
-        berth: 'Telakkakatu 1 A 10',
-        harborId: '1234',
-        valid: '20.5.2019 - 15.6.202',
+        berthNum: 10,
+        pierIdentifier: 'A',
+        harbor: { id: '1234', name: 'Telakkakatu 1' },
+        startDate: '2019-05-20',
+        endDate: '2020-06-15',
       },
     ],
   };
 
-  const getWrapper = (props) =>
+  const getWrapper = (props?: Partial<LeasesCardProps>) =>
     shallow(
       <HashRouter>
         <LeasesCard {...initialProps} {...props} />
@@ -38,7 +42,7 @@ describe('BerthsCard', () => {
   it('renders normally', () => {
     const wrapper = getWrapper();
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('calls handleShowContract when "Näytä sopimus" button is clicked', () => {

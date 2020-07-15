@@ -1,0 +1,364 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomerView renders normally 1`] = `
+<div
+  class="pageContent"
+>
+  <h2
+    class="text standard h2 xl normalWeight pageTitle"
+  >
+    ASIAKAS
+  </h2>
+  <div
+    class="grid"
+  >
+    <div
+      class="card"
+    >
+      <div
+        class="cardHeader"
+      >
+        <span
+          class="title"
+        >
+          ASIAKASTIEDOT
+        </span>
+      </div>
+      <div
+        class="cardBody"
+      >
+        <article
+          class="section"
+        >
+          <h4
+            class="text standard h4 m title"
+          >
+            HENKILÖTIEDOT
+          </h4>
+          <section
+            class="body"
+          >
+            <div
+              class="labelValuePair"
+            >
+              <span
+                class="label standard"
+              >
+                Etunimet:
+              </span>
+              <span
+                class="value left"
+              >
+                Testi
+              </span>
+            </div>
+            <div
+              class="labelValuePair"
+            >
+              <span
+                class="label standard"
+              >
+                Sukunimi:
+              </span>
+              <span
+                class="value left"
+              >
+                Käyttäjä
+              </span>
+            </div>
+            <div
+              class="labelValuePair"
+            >
+              <span
+                class="label standard"
+              >
+                Henkilötunnus:
+              </span>
+              <span
+                class="value left"
+              >
+                010101A1234
+              </span>
+            </div>
+          </section>
+        </article>
+        <article
+          class="section"
+        >
+          <section
+            class="body"
+          >
+            <div
+              class="labelValuePair"
+            >
+              <span
+                class="label standard"
+              >
+                Jakeluosoite:
+              </span>
+              <span
+                class="value left"
+              >
+                Testikatu 1
+              </span>
+            </div>
+            <div
+              class="labelValuePair"
+            >
+              <span
+                class="label standard"
+              >
+                Postinumero:
+              </span>
+              <span
+                class="value left"
+              >
+                00100
+              </span>
+            </div>
+            <div
+              class="labelValuePair"
+            >
+              <span
+                class="label standard"
+              >
+                Postitoimipaikka:
+              </span>
+              <span
+                class="value left"
+              >
+                Helsinki
+              </span>
+            </div>
+          </section>
+        </article>
+        <article
+          class="section"
+        >
+          <section
+            class="body"
+          >
+            <div
+              class="labelValuePair"
+            >
+              <span
+                class="label standard"
+              >
+                Matkapuhelin:
+              </span>
+              <span
+                class="value left"
+              >
+                0504391742
+              </span>
+            </div>
+            <div
+              class="labelValuePair"
+            >
+              <span
+                class="label standard"
+              >
+                Sähköpostiosoite:
+              </span>
+              <span
+                class="value left"
+              >
+                test@example.com
+              </span>
+            </div>
+          </section>
+        </article>
+        <article
+          class="section"
+        >
+          <section
+            class="body"
+          >
+            <div
+              class="labelValuePair"
+            >
+              <span
+                class="label standard"
+              >
+                Asiakasryhmä:
+              </span>
+              <span
+                class="value left"
+              >
+                Yksityinen
+              </span>
+            </div>
+            <div
+              class="labelValuePair"
+            >
+              <span
+                class="label standard"
+              >
+                Asiointikieli:
+              </span>
+              <span
+                class="value left"
+              >
+                Suomi
+              </span>
+            </div>
+            <div
+              class="labelValuePair"
+            >
+              <span
+                class="label standard"
+              />
+              <span
+                class="value left"
+              >
+                Laskutus paperisena
+              </span>
+            </div>
+          </section>
+        </article>
+        <article
+          class="section"
+        >
+          <section
+            class="body"
+          >
+            <div
+              class="labelValuePair"
+            >
+              <span
+                class="label standard"
+              >
+                Huomiot:
+              </span>
+              <span
+                class="value left"
+              >
+                Testikäyttäjä
+              </span>
+            </div>
+          </section>
+        </article>
+      </div>
+       
+    </div>
+    <div
+      class="card"
+    >
+      <div
+        class="cardHeader"
+      >
+        <span
+          class="title"
+        >
+          VIIMEAIKAINEN TOIMINTA
+        </span>
+      </div>
+      <div
+        class="cardBody"
+      >
+        Placeholder
+      </div>
+       
+    </div>
+    <div
+      class="card applicationsCard"
+    >
+      <div
+        class="cardHeader"
+      >
+        <span
+          class="title"
+        >
+          HAKEMUKSET
+        </span>
+      </div>
+       
+    </div>
+    <div
+      class="card"
+    >
+      <div
+        class="cardHeader"
+      >
+        <span
+          class="title"
+        >
+          AVOIMET LASKUT
+        </span>
+      </div>
+      <div
+        class="cardBody"
+      >
+        Ei avoimia laskuja
+      </div>
+       
+    </div>
+    <div
+      class="card"
+    >
+      <div
+        class="cardHeader"
+      >
+        <span
+          class="title"
+        >
+          LASKUHISTORIA
+        </span>
+      </div>
+      <div
+        class="cardBody"
+      >
+        Ei laskuhistoriaa
+      </div>
+       
+    </div>
+    <div
+      class="card"
+    >
+      <div
+        class="cardHeader"
+      >
+        <span
+          class="title"
+        >
+          VENEPAIKAT
+        </span>
+      </div>
+       
+    </div>
+    <div
+      class="card"
+    >
+      <div
+        class="cardHeader"
+      >
+        <span
+          class="title"
+        >
+          TALVISÄILYTYSPAIKAT
+        </span>
+      </div>
+      <div
+        class="cardBody"
+      >
+        Placeholder
+      </div>
+       
+    </div>
+    <div
+      class="card boatsCard"
+    >
+      <div
+        class="cardHeader"
+      >
+        <span
+          class="title"
+        >
+          ASIAKKAAN VENEET
+        </span>
+      </div>
+       
+    </div>
+  </div>
+</div>
+`;
