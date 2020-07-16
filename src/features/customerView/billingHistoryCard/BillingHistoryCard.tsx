@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Bill, isBerthBill } from '../utils';
+import { isBerthBill } from '../utils';
 import Card from '../../../common/card/Card';
 import CardHeader from '../../../common/cardHeader/CardHeader';
 import Section from '../../../common/section/Section';
@@ -13,6 +13,7 @@ import styles from './billingHistoryCard.module.scss';
 import Chip, { ChipProps } from '../../../common/chip/Chip';
 import { getOrderStatusTKey } from '../../../common/utils/translations';
 import { OrderStatus } from '../../../@types/__generated__/globalTypes';
+import { Bill } from '../types';
 
 interface BillingHistoryProps {
   bills: Bill[];

@@ -35,7 +35,7 @@ interface MultipleModeProps extends SharedProps {
 export type FileListProps = SingleModeProps | MultipleModeProps;
 
 const FileList = (props: FileListProps) => {
-  const { allowDelete = true, helperText, id, invalid = false, labelText, value, willBeOverwritten = false } = props;
+  const { allowDelete = true, helperText, id, invalid = false, label, value, willBeOverwritten = false } = props;
 
   if (value === undefined) return null;
 
@@ -62,7 +62,7 @@ const FileList = (props: FileListProps) => {
   const valueList = Array.isArray(value) ? value : [value];
 
   return (
-    <InputWrapper id={id} invalid={invalid} helperText={helperText} labelText={labelText}>
+    <InputWrapper id={id} invalid={invalid} helperText={helperText} label={label}>
       <List noBullets>
         {valueList.map((file) => {
           return (

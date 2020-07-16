@@ -9,21 +9,21 @@ export type InputWrapperProps = {
   helperText?: string;
   id: string;
   invalid?: boolean;
-  labelText?: string;
+  label?: string;
 };
 
 /* Simplified duplicate of HDS internal InputWrapper */
-const InputWrapper = ({ children, helperText, id, invalid, labelText }: InputWrapperProps) => (
+const InputWrapper = ({ children, helperText, id, invalid, label }: InputWrapperProps) => (
   <div className={classNames(styles.root, invalid && styles.invalid)}>
-    {labelText && (
+    {label && (
       <label
         htmlFor={id}
         className={classNames({
-          [styles.labelText]: true,
+          [styles.label]: true,
           [styles.invalid]: invalid,
         })}
       >
-        {labelText}
+        {label}
       </label>
     )}
     <div className={styles.inputWrapper}>{children}</div>

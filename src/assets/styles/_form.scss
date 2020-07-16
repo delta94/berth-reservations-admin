@@ -1,0 +1,26 @@
+@import 'containers';
+@import 'spacings';
+
+.form {
+  padding: units(1) 0;
+  max-width: container(s);
+
+  > * {
+    margin: units(1) 0;
+  }
+}
+
+.confirmationModal {
+  max-width: container(s);
+}
+
+.grid {
+  grid-row-gap: units(1);
+  grid-column-gap: units(1);
+}
+
+.formActionButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: units(4);
+}

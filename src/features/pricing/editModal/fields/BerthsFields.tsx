@@ -37,7 +37,7 @@ const BerthsFields = () => {
       </div>
       <hr />
       <Grid colsCount={2} className={styles.row}>
-        <Field as={TextInput} id="name" name="name" labelText={t('pricing.berths.width')} readOnly />
+        <Field as={TextInput} id="name" name="name" label={t('pricing.berths.width')} readOnly />
       </Grid>
       <Grid colsCount={2} className={styles.row}>
         <Field
@@ -46,7 +46,7 @@ const BerthsFields = () => {
           id="privateCustomer"
           name="privateCustomer"
           value={values.privateCustomer || ''}
-          labelText={`${t('pricing.berths.privateCustomer')} (€)`}
+          label={`${t('pricing.berths.privateCustomer')} (€)`}
           invalid={!!errors.privateCustomer}
           helperText={errors.privateCustomer}
         />
@@ -54,7 +54,7 @@ const BerthsFields = () => {
           as={TextInput}
           id="company"
           name="company"
-          labelText={`${t('pricing.berths.company')} (€)`}
+          label={`${t('pricing.berths.company')} (€)`}
           invalid={!!errors.company}
           helperText={errors.company}
           value={calcCompanyPrice(values.privateCustomer) || ''}

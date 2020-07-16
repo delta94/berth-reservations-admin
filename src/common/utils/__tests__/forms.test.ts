@@ -1,4 +1,4 @@
-import { isNumber, isPositive, replaceCommaWithDot, replaceDotWithComma } from '../utils';
+import { isNumber, isPositive, replaceCommaWithDot, replaceDotWithComma } from '../forms';
 
 describe('utils', () => {
   describe('isNumber', () => {

@@ -1,7 +1,7 @@
-import { Boat, BoatCert, LargeBoat } from '../../types';
+import { Boat, BoatCertificate, LargeBoat } from '../../types';
 import { BoatCertificateType } from '../../../../@types/__generated__/globalTypes';
 
-export const insuraceCert: BoatCert = {
+export const insuraceCert: BoatCertificate = {
   file: 'https://venepaikka-api.test.hel.ninja/media/boats/2c736de2-5659-46ea-ad3f-9c1364307d7d/dummy_pdf2.pdf',
   certificateType: BoatCertificateType.INSURANCE,
   validUntil: null,
@@ -9,7 +9,7 @@ export const insuraceCert: BoatCert = {
   checkedBy: null,
 };
 
-export const inspectionCert: BoatCert = {
+export const inspectionCert: BoatCertificate = {
   file: null,
   certificateType: BoatCertificateType.INSPECTION,
   validUntil: '2099-09-04',

@@ -17,22 +17,22 @@ describe('InputWrapper', () => {
   describe('"invalid" prop', () => {
     it('if false, should not render things with error color', () => {
       const wrapper = getWrapper({
-        labelText: 'Test',
+        label: 'Test',
         helperText: 'Test',
       });
 
-      expect(wrapper.find('label.labelText').hasClass('invalid')).toBe(false);
+      expect(wrapper.find('label.label').hasClass('invalid')).toBe(false);
       expect(wrapper.find('Text.helperText').prop('color')).toBe(undefined);
     });
 
     it('if true, should render things with error color', () => {
       const wrapper = getWrapper({
         invalid: true,
-        labelText: 'Test',
+        label: 'Test',
         helperText: 'Test',
       });
 
-      expect(wrapper.find('label.labelText').hasClass('invalid')).toBe(true);
+      expect(wrapper.find('label.label').hasClass('invalid')).toBe(true);
       expect(wrapper.find('Text.helperText').prop('color')).toBe('critical');
     });
   });
@@ -56,16 +56,16 @@ describe('InputWrapper', () => {
   describe('"label" prop', () => {
     it('when provided, should be shown', () => {
       const wrapper = getWrapper({
-        labelText: 'Upload Service',
+        label: 'Upload Service',
       });
 
-      expect(wrapper.find('label.labelText').text()).toEqual('Upload Service');
+      expect(wrapper.find('label.label').text()).toEqual('Upload Service');
     });
 
     it('when provided, should not be shown', () => {
       const wrapper = getWrapper();
 
-      expect(wrapper.find('label.labelText')).toHaveLength(0);
+      expect(wrapper.find('label.label')).toHaveLength(0);
     });
   });
 });

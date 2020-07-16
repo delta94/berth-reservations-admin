@@ -18,7 +18,7 @@ const getKnobs = (defaultLabel: string) => ({
   disabled: boolean('disabled', false),
   helperText: text('helperText', ''),
   invalid: boolean('invalid', false),
-  labelText: text('labelText', defaultLabel),
+  label: text('label', defaultLabel),
   maxSize: select(
     'maxSize',
     {

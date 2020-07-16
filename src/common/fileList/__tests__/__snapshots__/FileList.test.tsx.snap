@@ -5,7 +5,7 @@ exports[`FileList renders normally with multiple files props 1`] = `
   class="root"
 >
   <label
-    class="labelText"
+    class="label"
     for="multiple"
   >
     Test
@@ -98,7 +98,7 @@ exports[`FileList renders normally with single file props 1`] = `
   class="root"
 >
   <label
-    class="labelText"
+    class="label"
     for="single"
   >
     Test

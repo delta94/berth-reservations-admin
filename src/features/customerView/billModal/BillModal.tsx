@@ -3,13 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { Button } from 'hds-react/lib';
 
 import Modal, { ModalProps } from '../../../common/modal/Modal';
-import { Bill, isBerthBill } from '../utils';
+import { isBerthBill } from '../utils';
 import Section from '../../../common/section/Section';
 import LabelValuePair from '../../../common/labelValuePair/LabelValuePair';
 import { formatDate, formatPrice } from '../../../common/utils/format';
 import { getOrderStatusTKey, getProductServiceTKey } from '../../../common/utils/translations';
 import Text from '../../../common/text/Text';
 import styles from './billModal.module.scss';
+import { Bill } from '../types';
 
 interface BillModalProps extends Omit<ModalProps, 'children' | 'isOpen'> {
   bill?: Bill;

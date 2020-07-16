@@ -9,7 +9,7 @@ import { UPDATE_BERTH, UPDATE_BERTHVariables as UPDATE_BERTH_VARS } from './__ge
 import { DELETE_BERTH_MUTATION, UPDATE_BERTH_MUTATION } from './mutations';
 import { Berth, FormProps } from '../types';
 import { DELETE_BERTH, DELETE_BERTHVariables as DELETE_BERTH_VARS } from './__generated__/DELETE_BERTH';
-import { getBerth } from './utils/utils';
+import { getBerth } from '../utils';
 import BerthForm from './BerthForm';
 import { Pier } from '../../types';
 

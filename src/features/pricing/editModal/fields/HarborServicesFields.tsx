@@ -58,7 +58,7 @@ const HarborServicesFields = () => {
           as={TextInput}
           id="price"
           name="price"
-          labelText={t('pricing.harborServices.price')}
+          label={t('pricing.harborServices.price')}
           invalid={!!errors.price}
           helperText={errors.price}
         />

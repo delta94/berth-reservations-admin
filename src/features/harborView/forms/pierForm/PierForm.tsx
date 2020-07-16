@@ -82,7 +82,7 @@ const PierForm = ({
             type="text"
             value={values.identifier}
             onChange={handleChange}
-            labelText={t('forms.pier.identifier')}
+            label={t('forms.pier.identifier')}
             invalid={!!errors.identifier}
             helperText={errors.identifier}
           />
@@ -98,7 +98,7 @@ const PierForm = ({
                   id={keyForCheckbox}
                   onChange={handleChange}
                   checked={values[keyForCheckbox as keyof Pier] as boolean}
-                  labelText={t(`forms.pier.${keyForCheckbox}`)}
+                  label={t(`forms.pier.${keyForCheckbox}`)}
                 />
               ))}
             </div>
@@ -121,7 +121,7 @@ const PierForm = ({
                     });
                   }}
                   checked={values.suitableBoatTypes && values.suitableBoatTypes.includes(boatType.id)}
-                  labelText={boatType.name ?? ''}
+                  label={boatType.name ?? ''}
                 />
               ))}
             </div>
@@ -131,7 +131,7 @@ const PierForm = ({
             id="personalElectricity"
             onChange={handleChange}
             checked={values.personalElectricity}
-            labelText={t('forms.pier.personalElectricity')}
+            label={t('forms.pier.personalElectricity')}
           />
 
           <div className={styles.formActionButtons}>

@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`CustomerView renders normally 1`] = `"<div class=\\"pageContent\\"><h2 class=\\"text standard h2 xl normalWeight pageTitle\\">ASIAKAS</h2><div class=\\"grid\\">Customer view</div></div>"`;

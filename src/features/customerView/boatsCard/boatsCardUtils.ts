@@ -1,5 +1,5 @@
 import { BoatCertificateType } from '../../../@types/__generated__/globalTypes';
-import { Boat, BoatCert, LargeBoat } from '../types';
+import { Boat, BoatCertificate, LargeBoat } from '../types';
 
 const LARGE_BOAT_ID = '8';
 
@@ -7,9 +7,9 @@ export const isLargeBoat = (boat: LargeBoat | Boat): boat is LargeBoat =>
   (boat as LargeBoat).boatType.id === LARGE_BOAT_ID;
 
 export const getCertificate = (
-  certificates: BoatCert[],
+  certificates: BoatCertificate[],
   certificateType: BoatCertificateType
-): BoatCert | undefined => {
+): BoatCertificate | undefined => {
   return certificates.find((cert) => cert.certificateType === certificateType);
 };
 

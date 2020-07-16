@@ -11,12 +11,14 @@ import styles from './boatsCard.module.scss';
 import { Boat, LargeBoat } from '../types';
 import BoatCertificates from './BoatCertificates';
 import { isLargeBoat } from './boatsCardUtils';
+import SectionWithButton from '../../../common/section/SectionWithButton';
 
 export interface BoatsCardProps {
   boats: (Boat | LargeBoat)[];
+  onEdit(boat: Boat | LargeBoat): void;
 }
 
-const BoatsCard = ({ boats }: BoatsCardProps) => {
+const BoatsCard = ({ boats, onEdit }: BoatsCardProps) => {
   const { t, i18n } = useTranslation();
 
   return (
@@ -24,13 +26,17 @@ const BoatsCard = ({ boats }: BoatsCardProps) => {
       <CardHeader title={t('customerView.customerBoats.title')} />
       {boats.map((boat) => (
         <CardBody key={boat.id}>
-          <Section title={t('customerView.customerBoats.boatInfo')}>
+          <SectionWithButton
+            title={t('customerView.customerBoats.boatInfo')}
+            onClick={() => onEdit(boat)}
+            buttonText={t('customerView.customerBoats.editBoat')}
+          >
             <LabelValuePair label={t('customerView.customerBoats.boatType')} value={boat.boatType.name} />
             <LabelValuePair
               label={t('customerView.customerBoats.registrationNumber')}
               value={boat.registrationNumber}
             />
-          </Section>
+          </SectionWithButton>
           <Section>
             <LabelValuePair
               label={t('customerView.customerBoats.width')}

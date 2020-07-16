@@ -2,9 +2,18 @@ import {
   INDIVIDUAL_CUSTOMER_boatTypes as BOAT_TYPES,
   INDIVIDUAL_CUSTOMER_profile as CUSTOMER_PROFILE,
 } from './__generated__/INDIVIDUAL_CUSTOMER';
-import { Application, ApplicationLease, Boat, LargeBoat } from './types';
+import {
+  Application,
+  ApplicationLease,
+  BerthBill,
+  Bill,
+  Boat,
+  LargeBoat,
+  Lease,
+  OrderLine,
+  WinterStorageBill,
+} from './types';
 import { CustomerProfileCardProps } from '../../common/customerProfileCard/CustomerProfileCard';
-import { OrderStatus, ProductServiceType } from '../../@types/__generated__/globalTypes';
 
 export const getCustomerProfile = (profile: CUSTOMER_PROFILE): CustomerProfileCardProps => {
   return {
@@ -24,15 +33,6 @@ export const getCustomerProfile = (profile: CUSTOMER_PROFILE): CustomerProfileCa
     }),
   };
 };
-
-interface Lease {
-  id: string;
-  harbor: { id: string; name: string } | null;
-  berthNum: string | number;
-  pierIdentifier: string | null;
-  startDate: string;
-  endDate: string;
-}
 
 export const getLeases = (profile: CUSTOMER_PROFILE): Lease[] => {
   if (!profile.berthLeases?.edges) return [];
@@ -65,13 +65,11 @@ export const getLeases = (profile: CUSTOMER_PROFILE): Lease[] => {
 export const getBoats = (profile: CUSTOMER_PROFILE) => {
   if (!profile.boats) return [];
 
-  const boats = profile.boats.edges.reduce<(Boat | LargeBoat)[]>((acc, edge) => {
+  return profile.boats.edges.reduce<(Boat | LargeBoat)[]>((acc, edge) => {
     if (!edge?.node) return acc;
 
     return [...acc, edge.node];
   }, []);
-
-  return boats;
 };
 
 export const getApplications = (profile: CUSTOMER_PROFILE, boatTypes: BOAT_TYPES[]) => {
@@ -142,36 +140,6 @@ export const getApplications = (profile: CUSTOMER_PROFILE, boatTypes: BOAT_TYPES
     }, []) ?? []
   );
 };
-
-type OrderLine = {
-  product: ProductServiceType;
-  price: number;
-  taxPercentage: number;
-};
-
-export type Bill = {
-  status: OrderStatus;
-  contractPeriod: {
-    startDate: string;
-    endDate: string;
-  };
-  dueDate: string;
-  totalPrice: number;
-  totalPriceTaxPercentage: number;
-  basePrice: number;
-  basePriceTaxPercentage: number;
-  orderLines: OrderLine[];
-};
-
-export type BerthBill = Bill & {
-  berthInformation: {
-    number: number;
-    pierIdentifier: string;
-    harborName: string;
-  };
-};
-
-export type WinterStorageBill = Bill;
 
 export const getBills = (profile: CUSTOMER_PROFILE): (BerthBill | WinterStorageBill)[] => {
   return (

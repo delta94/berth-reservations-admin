@@ -14,7 +14,7 @@ import styles from './berthForm.module.scss';
 import { Pier } from '../../types';
 import FormHeader from '../../../../common/formHeader/FormHeader';
 import ConfirmationModal from '../../../../common/confirmationModal/ConfirmationModal';
-import { isNumber, isPositive, replaceCommaWithDot, replaceDotWithComma } from './utils/utils';
+import { isNumber, isPositive, replaceCommaWithDot, replaceDotWithComma } from '../../../../common/utils/forms';
 import Checkbox from '../../../../common/checkbox/Checkbox';
 import Button from '../../../../common/button/Button';
 
@@ -129,7 +129,7 @@ const BerthForm = ({
               id="number"
               value={values.number ? String(values.number) : ''}
               onChange={handleChange}
-              labelText={t('forms.berth.number')}
+              label={t('forms.berth.number')}
               invalid={!!errors.number}
               helperText={errors.number}
               disabled={isEditing}
@@ -139,7 +139,7 @@ const BerthForm = ({
               id="width"
               value={values.width}
               onChange={handleChange}
-              labelText={t('forms.berth.width')}
+              label={t('forms.berth.width')}
               invalid={!!errors.width}
               helperText={errors.width}
             />
@@ -147,7 +147,7 @@ const BerthForm = ({
               id="length"
               value={values.length}
               onChange={handleChange}
-              labelText={t('forms.berth.length')}
+              label={t('forms.berth.length')}
               invalid={!!errors.length}
               helperText={errors.length}
             />
@@ -155,7 +155,7 @@ const BerthForm = ({
               id="depth"
               onChange={handleChange}
               value={values.depth}
-              labelText={t('forms.berth.depth')}
+              label={t('forms.berth.depth')}
               invalid={!!errors.depth}
               helperText={errors.depth}
             />
@@ -176,13 +176,8 @@ const BerthForm = ({
             onChange={handleChange}
             required
           />
-          <TextInput id="comment" onChange={handleChange} value={values.comment} labelText={t('forms.berth.comment')} />
-          <Checkbox
-            id="isActive"
-            onChange={handleChange}
-            checked={values.isActive}
-            labelText={t('forms.berth.isActive')}
-          />
+          <TextInput id="comment" onChange={handleChange} value={values.comment} label={t('forms.berth.comment')} />
+          <Checkbox id="isActive" onChange={handleChange} checked={values.isActive} label={t('forms.berth.isActive')} />
           <div className={styles.formActionButtons}>
             <Button variant="secondary" disabled={isSubmitting} color={'supplementary'} onClick={onCancel}>
               {t('forms.common.cancel')}
