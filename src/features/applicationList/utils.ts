@@ -41,7 +41,7 @@ export interface ApplicationData {
   boatWeight: number | null;
   boatName: string;
   boatModel: string;
-  harborChoices: Array<HarborChoice | null>;
+  choices: Array<HarborChoice>;
   accessibilityRequired: boolean;
 }
 
@@ -67,9 +67,17 @@ export const getBerthApplicationData = (data: BERTH_APPLICATIONS | undefined): A
           boatLength,
           boatType,
           boatWeight,
-          harborChoices = [],
           accessibilityRequired,
         } = application.node;
+
+        const choices =
+          application.node.harborChoices?.map((choice) => {
+            return {
+              priority: choice?.priority ?? Number.MAX_VALUE,
+              harbor: choice?.harbor ?? '',
+              harborName: choice?.harborName ?? '',
+            };
+          }) ?? [];
 
         let leaseProps: Lease | null = null;
         if (lease?.berth?.pier.properties?.harbor) {
@@ -108,7 +116,7 @@ export const getBerthApplicationData = (data: BERTH_APPLICATIONS | undefined): A
           boatDraught,
           boatWeight,
           boatType: boatTypes?.find(({ id }) => id === boatType)?.name,
-          harborChoices: harborChoices || [],
+          choices,
           accessibilityRequired,
         };
         return [...acc, applicationData];

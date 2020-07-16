@@ -72,7 +72,7 @@ export const getBoats = (profile: CUSTOMER_PROFILE) => {
   }, []);
 };
 
-export const getApplications = (profile: CUSTOMER_PROFILE, boatTypes: BOAT_TYPES[]) => {
+export const getApplications = (profile: CUSTOMER_PROFILE, boatTypes: BOAT_TYPES[]): Application[] => {
   return (
     profile?.berthApplications?.edges.reduce<Application[]>((acc, edge) => {
       if (edge?.node) {
@@ -90,10 +90,18 @@ export const getApplications = (profile: CUSTOMER_PROFILE, boatTypes: BOAT_TYPES
           boatWeight,
           boatName,
           boatModel,
-          harborChoices,
           accessibilityRequired,
         } = edge.node;
         let leaseProps: ApplicationLease | null = null;
+
+        const choices =
+          edge.node.harborChoices?.map((choice) => {
+            return {
+              priority: choice?.priority ?? Number.MAX_VALUE,
+              harbor: choice?.harbor ?? '',
+              harborName: choice?.harborName ?? '',
+            };
+          }) ?? [];
 
         if (lease?.berth?.pier.properties?.harbor) {
           leaseProps = {
@@ -130,7 +138,7 @@ export const getApplications = (profile: CUSTOMER_PROFILE, boatTypes: BOAT_TYPES
           boatDraught,
           boatWeight,
           boatType: boatTypes?.find(({ id }) => id === boatType)?.name,
-          harborChoices: harborChoices || [],
+          choices,
           accessibilityRequired,
         };
 

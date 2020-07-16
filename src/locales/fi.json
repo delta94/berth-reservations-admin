@@ -41,7 +41,8 @@
     "sidebar": {
       "harbors": "Venepaikat",
       "winterStorageAreas": "Talvisäilytys",
-      "applications": "Hakemukset",
+      "applications": "Venepaikkahakemukset",
+      "winterStorageApplications": "Talvisäilytyshakemukset",
       "customers": "Asiakkaat",
       "pricing": "Hinnasto"
     },
@@ -311,6 +312,7 @@
       "boatName": "Nimi",
       "boatBrand": "Merkki",
       "selectedPorts": "VALITUT SATAMAT",
+      "selectedWinterStorageAreas": "VALITUT TALVISÄILYTYSPAIKAT",
       "choice": "Toive",
       "connectedLease": "Liitetty satamapaikka",
       "deleteLease": "Poista ehdotettu paikka",

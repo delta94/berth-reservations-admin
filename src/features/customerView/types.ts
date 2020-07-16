@@ -71,7 +71,7 @@ export type Application = {
   boatWeight: number | null;
   boatName: string;
   boatModel: string;
-  harborChoices: Array<HarborChoice | null>;
+  choices: Array<HarborChoice>;
   accessibilityRequired: boolean;
 };
 

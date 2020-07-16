@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { HashRouter } from 'react-router-dom';
 
 import ApplicationDetails, { ApplicationDetailsProps } from '../ApplicationDetails';
-import { ApplicationStatus } from '../../../@types/__generated__/globalTypes';
+import { ApplicationStatus, Language } from '../../../@types/__generated__/globalTypes';
 import { PrivateCustomerDetailsProps } from '../../privateCustomerDetails/PrivateCustomerDetails';
 import { OrganizationCustomerDetailsProps } from '../../organizationCustomerDetails/OrganizationCustomerDetails';
 
@@ -19,7 +19,7 @@ const minimumProps: ApplicationDetailsProps = {
   boatWeight: null,
   boatWidth: 3.2,
   createdAt: 'Wed Oct 23 2019 15:15:05 GMT+0300 (Eastern European Summer Time)',
-  harborChoices: [null],
+  choices: [],
   id: '54321',
   queue: null,
   status: ApplicationStatus.PENDING,
@@ -38,7 +38,7 @@ const moreProps: Partial<ApplicationDetailsProps> = {
   boatType: 'Purjevene / moottoripursi',
   boatWeight: 350,
   customerId: '47',
-  harborChoices: [
+  choices: [
     { harborName: 'Eka satama', harbor: '123', priority: 1 },
     { harborName: 'Kolmas satama', harbor: '321', priority: 3 },
   ],
@@ -55,6 +55,7 @@ const privateCustomerProfile: PrivateCustomerDetailsProps = {
   },
   primaryEmail: 'test@example.com',
   primaryPhone: '0504391742',
+  language: Language.FINNISH,
 };
 
 const organizationCustomerProfile: OrganizationCustomerDetailsProps = {
@@ -92,7 +93,7 @@ describe('ApplicationDetails', () => {
 
   it('renders normally with harborChoices and no customerId', () => {
     const wrapper = getWrapper({
-      harborChoices: moreProps.harborChoices,
+      choices: moreProps.choices,
     });
 
     expect(wrapper.render()).toMatchSnapshot();

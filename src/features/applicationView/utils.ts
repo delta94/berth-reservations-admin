@@ -93,7 +93,14 @@ export const getApplicationDetailsData = (
   berthApplication: BERTH_APPLICATION,
   boatTypes: BOAT_TYPES[]
 ): ApplicationDetailsProps & Required<Pick<ApplicationDetailsProps, 'applicant'>> => {
-  const harborChoices = berthApplication.harborChoices || [];
+  const choices =
+    berthApplication.harborChoices?.map((choice) => {
+      return {
+        priority: choice?.priority ?? Number.MAX_VALUE,
+        harborName: choice?.harborName ?? '',
+        harbor: choice?.harbor ?? '',
+      };
+    }) ?? [];
   const lease: Lease | null = berthApplication.lease
     ? {
         harborId: berthApplication.lease.berth?.pier.properties?.harbor.id || '',
@@ -119,7 +126,7 @@ export const getApplicationDetailsData = (
     applicant: getApplicantDetails(berthApplication),
     berthSwitch,
     queue: null,
-    harborChoices,
+    choices,
     lease,
     boatType: boatTypes.find(({ id }) => id === berthApplication.boatType)?.name,
   };

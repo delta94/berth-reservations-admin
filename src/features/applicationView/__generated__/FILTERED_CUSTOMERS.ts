@@ -103,7 +103,7 @@ export interface FILTERED_CUSTOMERS_profiles_edges {
 
 export interface FILTERED_CUSTOMERS_profiles {
   __typename: "ProfileNodeConnection";
-  count: number | null;
+  count: number;
   edges: (FILTERED_CUSTOMERS_profiles_edges | null)[];
 }
 

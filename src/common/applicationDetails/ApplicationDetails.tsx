@@ -19,10 +19,18 @@ import OrganizationCustomerDetails, {
 } from '../organizationCustomerDetails/OrganizationCustomerDetails';
 import Checkbox from '../checkbox/Checkbox';
 
-interface HarborChoice {
+interface Choice {
+  priority: number;
+}
+
+interface HarborChoice extends Choice {
   harborName: string;
   harbor: string;
-  priority: number;
+}
+
+interface WinterStorageAreaChoice extends Choice {
+  winterStorageAreaName: string;
+  winterStorageArea: string;
 }
 
 interface Lease {
@@ -42,26 +50,28 @@ interface BerthSwitch {
 }
 
 export interface ApplicationDetailsProps {
-  accessibilityRequired: boolean;
+  accessibilityRequired?: boolean;
   applicant?: PrivateCustomerDetailsProps | OrganizationCustomerDetailsProps;
-  berthSwitch: BerthSwitch | null;
-  boatDraught: number | null;
+  berthSwitch?: BerthSwitch | null;
+  boatDraught?: number | null;
   boatLength: number;
   boatModel: string;
   boatName: string;
   boatRegistrationNumber: string;
   boatType?: string | null;
-  boatWeight: number | null;
+  boatWeight?: number | null;
   boatWidth: number;
   createdAt: string;
   customerId?: string;
   handleDeleteLease?: (id: string) => void;
-  harborChoices: Array<HarborChoice | null>;
+  choices: Array<HarborChoice> | Array<WinterStorageAreaChoice>;
   id: string;
   lease?: Lease | null;
   queue: number | null;
   status: ApplicationStatus;
 }
+
+const isHarborChoice = (choice: Choice): choice is HarborChoice => (choice as HarborChoice).harbor !== undefined;
 
 const ApplicationDetails = ({
   id,
@@ -79,13 +89,12 @@ const ApplicationDetails = ({
   boatWeight,
   boatName,
   boatModel,
-  harborChoices,
+  choices,
   lease,
   handleDeleteLease,
   accessibilityRequired,
 }: ApplicationDetailsProps) => {
   const { t, i18n } = useTranslation();
-  const notNull = (choice: HarborChoice | null): choice is HarborChoice => !!choice;
   const routerQuery = new URLSearchParams(useLocation().search);
 
   return (
@@ -95,7 +104,7 @@ const ApplicationDetails = ({
           <LabelValuePair
             label={t('applicationList.applicationDetails.applicationType')}
             value={
-              berthSwitch !== null
+              berthSwitch
                 ? t('applicationList.applicationType.switchApplication')
                 : t('applicationList.applicationType.newApplication')
             }
@@ -110,7 +119,7 @@ const ApplicationDetails = ({
             value={t(APPLICATION_STATUS[status]?.label)}
           />
         </Section>
-        {berthSwitch !== null && (
+        {berthSwitch && (
           <Section title={t('applicationList.applicationDetails.currentBerth')}>
             <LabelValuePair
               label={t('applicationList.applicationDetails.portAndBerth')}
@@ -176,30 +185,40 @@ const ApplicationDetails = ({
             )}
           </Section>
         ) : (
-          <Section title={t('applicationList.applicationDetails.selectedPorts')}>
-            <List noBullets>
-              {[...harborChoices]
-                .filter(notNull)
-                .sort((choiceA, choiceB) => choiceA.priority - choiceB.priority)
-                .map(({ harborName, harbor }, i) => {
-                  routerQuery.set('harbor', harbor);
+          choices.length > 0 && (
+            <Section
+              title={
+                isHarborChoice(choices[0])
+                  ? t('applicationList.applicationDetails.selectedPorts')
+                  : t('applicationList.applicationDetails.selectedWinterStorageAreas')
+              }
+            >
+              <List noBullets>
+                {[...choices]
+                  .sort((choiceA, choiceB) => choiceA.priority - choiceB.priority)
+                  .map((choice, i) => {
+                    const target = isHarborChoice(choice) ? choice.harbor : choice.winterStorageArea;
+                    const targetName = isHarborChoice(choice) ? choice.harborName : choice.winterStorageAreaName;
 
-                  return (
-                    <ListItem key={i}>
-                      <Text>
-                        {`${t('applicationList.applicationDetails.choice')} 
+                    routerQuery.set(isHarborChoice(choice) ? 'harbor' : 'winter-storage-area', target);
+
+                    return (
+                      <ListItem key={i}>
+                        <Text>
+                          {`${t('applicationList.applicationDetails.choice')} 
                       ${i + 1}: `}
-                      </Text>
-                      {!!customerId ? (
-                        <InternalLink to={`/offer/${id}?${routerQuery}`}>{harborName}</InternalLink>
-                      ) : (
-                        <Text>{harborName}</Text>
-                      )}
-                    </ListItem>
-                  );
-                })}
-            </List>
-          </Section>
+                        </Text>
+                        {!!customerId ? (
+                          <InternalLink to={`/offer/${id}?${routerQuery}`}>{targetName}</InternalLink>
+                        ) : (
+                          <Text>{targetName}</Text>
+                        )}
+                      </ListItem>
+                    );
+                  })}
+              </List>
+            </Section>
+          )
         )}
         <Section>
           <Checkbox
