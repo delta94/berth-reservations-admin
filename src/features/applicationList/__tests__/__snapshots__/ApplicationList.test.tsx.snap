@@ -1,0 +1,739 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationList renders normally with all props 1`] = `
+<div
+  class="pageContent"
+>
+  <h2
+    class="text standard h2 xl normalWeight pageTitle"
+  >
+    HAKEMUKSET
+  </h2>
+  <div>
+    <div
+      class="tableWrapper"
+    >
+      <div
+        class="table primary"
+        role="table"
+        style="min-width: 1200px;"
+      >
+        <div
+          class="stickyHeaders"
+        >
+          <div
+            class="header mainHeader"
+            role="row"
+            style="display: flex; flex: 1 0 auto; min-width: 0px;"
+          >
+            <div
+              class="headerCell"
+              colspan="8"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 1200 0 auto; min-width: 0px; width: 1200px;"
+            >
+              <button
+                class="filterBtn"
+              >
+                Kaikki
+              </button>
+              <button
+                class="filterBtn"
+              >
+                 Vaihtohakemukset
+              </button>
+              <button
+                class="filterBtn active"
+              >
+                 Uudet hakemukset
+              </button>
+            </div>
+          </div>
+          <div
+            class="header"
+            role="row"
+            style="display: flex; flex: 1 0 auto; min-width: 0px;"
+          >
+            <div
+              class="headerCell selector"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz checkbox"
+                style="cursor: pointer;"
+              >
+                <input
+                  aria-checked="false"
+                  class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
+                  id="checkbox"
+                  title="Toggle All Rows Selected"
+                  type="checkbox"
+                  value=""
+                />
+                <label
+                  class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
+                  for="checkbox"
+                />
+              </div>
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+              Hakemustyyppi
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 112.5 0 auto; min-width: 0px; width: 112.5px; cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              PVM
+              <div
+                class="sortArrowWrapper"
+              >
+                <svg
+                  class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv sortArrow sortArrowDown"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <path
+                      d="M0 0h24v24H0z"
+                    />
+                    <path
+                      d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                      fill="currentColor"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 75 0 auto; min-width: 0px; width: 75px;"
+            >
+              Jono
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 112.5 0 auto; min-width: 0px; width: 112.5px;"
+            >
+              Kotikunta
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+              Tila
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 300 0 auto; min-width: 0px; width: 300px;"
+            >
+              Vene- / talvisäilytyspaikka
+            </div>
+            <div
+              class="headerCell expander"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+              <button>
+                Pienennä kaikki
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          role="rowgroup"
+        >
+          <div
+            class="rowWrapper"
+          >
+            <div
+              role="row"
+              style="display: flex; flex: 1 0 auto; min-width: 0px;"
+            >
+              <div
+                class="tableCell selector"
+                role="cell"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz checkbox"
+                  style="cursor: pointer;"
+                >
+                  <input
+                    aria-checked="false"
+                    class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
+                    id="checkbox-0"
+                    title="Toggle Row Selected"
+                    type="checkbox"
+                    value=""
+                  />
+                  <label
+                    class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
+                    for="checkbox-0"
+                  />
+                </div>
+              </div>
+              <div
+                class="tableCell"
+                role="cell"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+              >
+                <a
+                  class="internalLink brand"
+                  href="#/applications/0"
+                  title="Vaihtohakemus"
+                >
+                  Vaihtohakemus
+                </a>
+              </div>
+              <div
+                class="tableCell"
+                role="cell"
+                style="box-sizing: border-box; flex: 112.5 0 auto; min-width: 0px; width: 112.5px;"
+              >
+                16.07.2020
+              </div>
+              <div
+                class="tableCell"
+                role="cell"
+                style="box-sizing: border-box; flex: 75 0 auto; min-width: 0px; width: 75px;"
+              />
+              <div
+                class="tableCell"
+                role="cell"
+                style="box-sizing: border-box; flex: 112.5 0 auto; min-width: 0px; width: 112.5px;"
+              >
+                Helsinki
+              </div>
+              <div
+                class="tableCell"
+                role="cell"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+              >
+                <span
+                  class="chip yellow"
+                >
+                  Odottaa käsittelyä
+                </span>
+              </div>
+              <div
+                class="tableCell"
+                role="cell"
+                style="box-sizing: border-box; flex: 300 0 auto; min-width: 0px; width: 300px;"
+              >
+                <a
+                  class="internalLink brand"
+                  href="#/harbors/0"
+                  title="Harbor Testilaituri 0"
+                >
+                  Harbor Testilaituri 0
+                </a>
+              </div>
+              <div
+                class="tableCell expander"
+                role="cell"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+              >
+                <div
+                  style="cursor: pointer;"
+                  title="Toggle Row Expanded"
+                >
+                  <svg
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv expandArrow"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 0h24v24H0z"
+                      />
+                      <path
+                        d="M12 13.5l5-5 1.5 1.5-6.5 6.5L5.5 10 7 8.5z"
+                        fill="currentColor"
+                      />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rowWrapper"
+          >
+            <div
+              role="row"
+              style="display: flex; flex: 1 0 auto; min-width: 0px;"
+            >
+              <div
+                class="tableCell selector"
+                role="cell"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz checkbox"
+                  style="cursor: pointer;"
+                >
+                  <input
+                    aria-checked="false"
+                    class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
+                    id="checkbox-1"
+                    title="Toggle Row Selected"
+                    type="checkbox"
+                    value=""
+                  />
+                  <label
+                    class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
+                    for="checkbox-1"
+                  />
+                </div>
+              </div>
+              <div
+                class="tableCell"
+                role="cell"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+              >
+                <a
+                  class="internalLink brand"
+                  href="#/applications/1"
+                  title="Uusi hakemus"
+                >
+                  Uusi hakemus
+                </a>
+              </div>
+              <div
+                class="tableCell"
+                role="cell"
+                style="box-sizing: border-box; flex: 112.5 0 auto; min-width: 0px; width: 112.5px;"
+              >
+                16.07.2020
+              </div>
+              <div
+                class="tableCell"
+                role="cell"
+                style="box-sizing: border-box; flex: 75 0 auto; min-width: 0px; width: 75px;"
+              />
+              <div
+                class="tableCell"
+                role="cell"
+                style="box-sizing: border-box; flex: 112.5 0 auto; min-width: 0px; width: 112.5px;"
+              >
+                Helsinki
+              </div>
+              <div
+                class="tableCell"
+                role="cell"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+              >
+                <span
+                  class="chip yellow"
+                >
+                  Odottaa käsittelyä
+                </span>
+              </div>
+              <div
+                class="tableCell"
+                role="cell"
+                style="box-sizing: border-box; flex: 300 0 auto; min-width: 0px; width: 300px;"
+              />
+              <div
+                class="tableCell expander"
+                role="cell"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+              >
+                <div
+                  style="cursor: pointer;"
+                  title="Toggle Row Expanded"
+                >
+                  <svg
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv expandArrow"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 0h24v24H0z"
+                      />
+                      <path
+                        d="M12 13.5l5-5 1.5 1.5-6.5 6.5L5.5 10 7 8.5z"
+                        fill="currentColor"
+                      />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul
+      class="pagination"
+    >
+      <li
+        class="prevBtn disabled"
+      >
+        <a
+          aria-disabled="true"
+          class="navLink"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="icnBtn"
+          >
+            <svg
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+            <span
+              class="text standard span"
+            >
+              Edellinen
+            </span>
+          </div>
+        </a>
+      </li>
+      <li
+        class="nextBtn"
+      >
+        <a
+          aria-disabled="false"
+          class="navLink"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="icnBtn"
+          >
+            <span
+              class="text standard span"
+            >
+              Seuraava
+            </span>
+            <svg
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M12.586 7.05L14 5.636 20.364 12 14 18.364l-1.414-1.414 3.95-3.95H4v-2h12.535z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`ApplicationList renders normally with minimum props 1`] = `
+<div
+  class="pageContent"
+>
+  <h2
+    class="text standard h2 xl normalWeight pageTitle"
+  >
+    HAKEMUKSET
+  </h2>
+  <div>
+    <div
+      class="tableWrapper"
+    >
+      <div
+        class="table primary"
+        role="table"
+        style="min-width: 1200px;"
+      >
+        <div
+          class="stickyHeaders"
+        >
+          <div
+            class="header mainHeader"
+            role="row"
+            style="display: flex; flex: 1 0 auto; min-width: 0px;"
+          >
+            <div
+              class="headerCell"
+              colspan="8"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 1200 0 auto; min-width: 0px; width: 1200px;"
+            >
+              <button
+                class="filterBtn"
+              >
+                Kaikki
+              </button>
+              <button
+                class="filterBtn"
+              >
+                 Vaihtohakemukset
+              </button>
+              <button
+                class="filterBtn active"
+              >
+                 Uudet hakemukset
+              </button>
+            </div>
+          </div>
+          <div
+            class="header"
+            role="row"
+            style="display: flex; flex: 1 0 auto; min-width: 0px;"
+          >
+            <div
+              class="headerCell selector"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+              <div
+                class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz checkbox"
+                style="cursor: pointer;"
+              >
+                <input
+                  aria-checked="false"
+                  class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
+                  id="checkbox"
+                  title="Toggle All Rows Selected"
+                  type="checkbox"
+                  value=""
+                />
+                <label
+                  class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
+                  for="checkbox"
+                />
+              </div>
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+              Hakemustyyppi
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 112.5 0 auto; min-width: 0px; width: 112.5px; cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              PVM
+              <div
+                class="sortArrowWrapper"
+              >
+                <svg
+                  class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv sortArrow sortArrowDown"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <path
+                      d="M0 0h24v24H0z"
+                    />
+                    <path
+                      d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                      fill="currentColor"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 75 0 auto; min-width: 0px; width: 75px;"
+            >
+              Jono
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 112.5 0 auto; min-width: 0px; width: 112.5px;"
+            >
+              Kotikunta
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+              Tila
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 300 0 auto; min-width: 0px; width: 300px;"
+            >
+              Vene- / talvisäilytyspaikka
+            </div>
+            <div
+              class="headerCell expander"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+              <button>
+                Pienennä kaikki
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          role="rowgroup"
+        >
+          <div
+            class="rowWrapper"
+            role="row"
+          >
+            <div
+              class="tableCell"
+            >
+              Ei tietoja
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul
+      class="pagination"
+    >
+      <li
+        class="prevBtn disabled"
+      >
+        <a
+          aria-disabled="true"
+          class="navLink"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="icnBtn"
+          >
+            <svg
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+            <span
+              class="text standard span"
+            >
+              Edellinen
+            </span>
+          </div>
+        </a>
+      </li>
+      <li
+        class="nextBtn"
+      >
+        <a
+          aria-disabled="false"
+          class="navLink"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="icnBtn"
+          >
+            <span
+              class="text standard span"
+            >
+              Seuraava
+            </span>
+            <svg
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M12.586 7.05L14 5.636 20.364 12 14 18.364l-1.414-1.414 3.95-3.95H4v-2h12.535z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
