@@ -7,11 +7,6 @@ import { INDIVIDUAL_WINTER_STORAGE_AREA } from './__generated__/INDIVIDUAL_WINTE
 import { getIndividualWinterStorageArea, getCustomers } from './utils';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import WinterStorageAreaView from './WinterStorageAreaView';
-import WinterStorageAreaCard from '../../common/winterStorageAreaCard/WinterStorageAreaCard';
-import styles from './winterStorageAreaView.module.scss';
-import WinterStorageAreaViewTable from './WinterStorageAreaViewTable';
-import ContactInformationCard from '../../common/contactInformationCard/ContactInformationCard';
-import ActionHistoryCard from '../../common/actionHistoryCard/ActionHistoryCard';
 
 const WinterStorageAreaViewContainer = () => {
   const { id } = useParams<{ id: string }>();
@@ -24,21 +19,7 @@ const WinterStorageAreaViewContainer = () => {
 
   if (loading || !winterStorageArea) return <LoadingSpinner isLoading={true} />;
 
-  return (
-    <WinterStorageAreaView>
-      <div className={styles.grid}>
-        <WinterStorageAreaCard {...winterStorageArea} className={styles.fullWidth} />
-        <ContactInformationCard
-          name={winterStorageArea.name}
-          streetAddress={winterStorageArea.streetAddress}
-          municipality={winterStorageArea.municipality}
-          zipCode={winterStorageArea.zipCode}
-        />
-        <ActionHistoryCard />
-        <WinterStorageAreaViewTable data={customers} className={styles.fullWidth} />
-      </div>
-    </WinterStorageAreaView>
-  );
+  return <WinterStorageAreaView winterStorageArea={winterStorageArea} customers={customers} />;
 };
 
 export default WinterStorageAreaViewContainer;

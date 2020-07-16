@@ -3,17 +3,34 @@ import { useTranslation } from 'react-i18next';
 
 import PageContent from '../../common/pageContent/PageContent';
 import PageTitle from '../../common/pageTitle/PageTitle';
+import styles from './winterStorageAreaView.module.scss';
+import WinterStorageAreaCard from '../../common/winterStorageAreaCard/WinterStorageAreaCard';
+import ContactInformationCard from '../../common/contactInformationCard/ContactInformationCard';
+import ActionHistoryCard from '../../common/actionHistoryCard/ActionHistoryCard';
+import WinterStorageAreaViewTable from './WinterStorageAreaViewTable';
+import { WinterStorageArea, WinterStorageCustomer } from './types';
 
-interface WinterStorageAreaViewPageProps {
-  children: React.ReactNode;
+export interface WinterStorageAreaViewPageProps {
+  winterStorageArea: WinterStorageArea;
+  customers: WinterStorageCustomer[];
 }
 
-const WinterStorageAreaView = ({ children }: WinterStorageAreaViewPageProps) => {
+const WinterStorageAreaView = ({ winterStorageArea, customers }: WinterStorageAreaViewPageProps) => {
   const { t } = useTranslation();
   return (
     <PageContent>
       <PageTitle title={t('winterStorageAreaView.title')} />
-      {children}
+      <div className={styles.grid}>
+        <WinterStorageAreaCard {...winterStorageArea} className={styles.fullWidth} />
+        <ContactInformationCard
+          name={winterStorageArea.name}
+          streetAddress={winterStorageArea.streetAddress}
+          municipality={winterStorageArea.municipality}
+          zipCode={winterStorageArea.zipCode}
+        />
+        <ActionHistoryCard />
+        <WinterStorageAreaViewTable data={customers} className={styles.fullWidth} />
+      </div>
     </PageContent>
   );
 };
