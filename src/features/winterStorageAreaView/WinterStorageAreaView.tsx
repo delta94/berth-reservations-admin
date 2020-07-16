@@ -18,6 +18,7 @@ interface WinterStorageAreaViewPageProps {
 
 const WinterStorageAreaView = ({ winterStorageArea, places, sections }: WinterStorageAreaViewPageProps) => {
   const { t } = useTranslation();
+
   return (
     <PageContent>
       <PageTitle title={t('winterStorageAreaView.title')} />
