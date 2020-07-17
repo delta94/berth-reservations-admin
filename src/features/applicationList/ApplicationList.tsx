@@ -56,7 +56,7 @@ const ApplicationList = ({
             : t('applicationList.applicationType.newApplication')}
         </InternalLink>
       ),
-      Header: t('applicationList.tableHeaders.applicationType') || '',
+      Header: t('applicationList.tableHeaders.applicationType') as string,
       accessor: 'isSwitch',
       filter: 'exact',
       disableSortBy: true,
@@ -64,18 +64,18 @@ const ApplicationList = ({
     },
     {
       Cell: ({ cell }) => formatDate(cell.value, i18n.language),
-      Header: t('applicationList.tableHeaders.pvm') || '',
+      Header: t('applicationList.tableHeaders.pvm') as string,
       accessor: 'createdAt',
       width: COLUMN_WIDTH.S,
     },
     {
-      Header: t('applicationList.tableHeaders.queue') || '',
+      Header: t('applicationList.tableHeaders.queue') as string,
       accessor: 'queue',
       disableSortBy: true,
       width: COLUMN_WIDTH.XS,
     },
     {
-      Header: t('applicationList.tableHeaders.municipality') || '',
+      Header: t('applicationList.tableHeaders.municipality') as string,
       accessor: 'municipality',
       disableSortBy: true,
       width: COLUMN_WIDTH.S,
@@ -87,7 +87,7 @@ const ApplicationList = ({
           label={t(APPLICATION_STATUS[value as ApplicationStatus].label)}
         />
       ),
-      Header: t('applicationList.tableHeaders.status') || '',
+      Header: t('applicationList.tableHeaders.status') as string,
       accessor: 'status',
       disableSortBy: true,
       width: COLUMN_WIDTH.M,
@@ -99,7 +99,7 @@ const ApplicationList = ({
             {[cell.value.harborName, cell.value.pierIdentifier, cell.value.berthNum].filter(Boolean).join(' ')}
           </InternalLink>
         ),
-      Header: t('applicationList.tableHeaders.lease') || '',
+      Header: t('applicationList.tableHeaders.lease') as string,
       accessor: 'lease',
       disableSortBy: true,
       width: COLUMN_WIDTH.XL,
