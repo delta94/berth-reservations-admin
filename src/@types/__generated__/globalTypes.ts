@@ -316,6 +316,12 @@ export interface UpdatePierMutationInput {
   clientMutationId?: string | null;
 }
 
+export interface UpdateWinterStorageApplicationInput {
+  customerId: string;
+  id: string;
+  clientMutationId?: string | null;
+}
+
 export interface UpdateWinterStorageProductMutationInput {
   id: string;
   priceValue?: any | null;

@@ -4,6 +4,7 @@ import {
   INDIVIDUAL_APPLICATION_berthApplication_customer as CUSTOMER_PROFILE,
   INDIVIDUAL_APPLICATION_boatTypes as BOAT_TYPES,
 } from './__generated__/INDIVIDUAL_APPLICATION';
+import { INDIVIDUAL_WINTER_STORAGE_APPLICATION_winterStorageApplication as WINTER_STORAGE_APPLICATION } from '../winterStorageApplicationView/__generated__/INDIVIDUAL_WINTER_STORAGE_APPLICATION';
 import { CustomerProfileCardProps } from '../../common/customerProfileCard/CustomerProfileCard';
 import { CustomerData } from './ApplicationView';
 import { BerthApplicationLanguage, Language } from '../../@types/__generated__/globalTypes';
@@ -52,7 +53,9 @@ const mapBerthApplicationLanguageToLanguage = (berthApplicationLanguage: BerthAp
   }
 };
 
-const getApplicantDetails = (berthApplication: BERTH_APPLICATION): CustomerProfileCardProps => {
+export const getApplicantDetails = (
+  berthApplication: BERTH_APPLICATION | WINTER_STORAGE_APPLICATION
+): CustomerProfileCardProps => {
   const {
     firstName,
     lastName,

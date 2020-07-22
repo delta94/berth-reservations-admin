@@ -5,42 +5,43 @@ import { useParams } from 'react-router-dom';
 import { useDebounce } from 'use-debounce';
 import { getOperationName } from 'apollo-link';
 
-import ApplicationView, { SearchBy } from './ApplicationView';
+import WinterStorageApplicationView, { SearchBy } from './WinterStorageApplicationView';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
-import { INDIVIDUAL_APPLICATION_QUERY, FILTERED_CUSTOMERS_QUERY } from './queries';
-import {
-  INDIVIDUAL_APPLICATION,
-  INDIVIDUAL_APPLICATIONVariables as INDIVIDUAL_APPLICATION_VARS,
-} from './__generated__/INDIVIDUAL_APPLICATION';
+import { INDIVIDUAL_WINTER_STORAGE_APPLICATION_QUERY } from './queries';
 import { useDeleteBerthApplication } from '../../common/mutations/deleteBerthApplication';
 import {
   FILTERED_CUSTOMERS,
   FILTERED_CUSTOMERSVariables as FILTERED_CUSTOMERS_VARS,
-} from './__generated__/FILTERED_CUSTOMERS';
-import { UPDATE_BERTH_APPLICATION_MUTATION } from './mutations';
+} from '../applicationView/__generated__/FILTERED_CUSTOMERS';
+import { UPDATE_WINTER_STORAGE_APPLICATION_MUTATION } from './mutations';
 import {
-  UPDATE_BERTH_APPLICATION,
-  UPDATE_BERTH_APPLICATIONVariables as UPDATE_BERTH_APPLICATION_VARS,
-} from './__generated__/UPDATE_BERTH_APPLICATION';
-import { getApplicationDetailsData, getCustomerProfile, getFilteredCustomersData } from './utils';
+  UPDATE_WINTER_STORAGE_APPLICATION,
+  UPDATE_WINTER_STORAGE_APPLICATIONVariables as UPDATE_WINTER_STORAGE_APPLICATION_VARS,
+} from './__generated__/UPDATE_WINTER_STORAGE_APPLICATION';
+import { getWinterStorageApplicationDetailsData } from './utils';
 import { usePagination } from '../../common/utils/usePagination';
 import { usePrevious } from '../../common/utils/usePrevious';
 import { useBackendSorting } from '../../common/utils/useBackendSorting';
-import { getOfferDetailsData } from './offerCard/utils';
-import { CREATE_NEW_PROFILE_MUTATION } from '../../common/mutations/createProfile';
+import { FILTERED_CUSTOMERS_QUERY } from '../applicationView/queries';
 import {
   CREATE_NEW_PROFILE,
   CREATE_NEW_PROFILEVariables as CREATE_NEW_PROFILE_VARS,
 } from '../../common/mutations/__generated__/CREATE_NEW_PROFILE';
+import { CREATE_NEW_PROFILE_MUTATION } from '../../common/mutations/createProfile';
+import {
+  INDIVIDUAL_WINTER_STORAGE_APPLICATION,
+  INDIVIDUAL_WINTER_STORAGE_APPLICATIONVariables as INDIVIDUAL_WINTER_STORAGE_APPLICATION_VARS,
+} from './__generated__/INDIVIDUAL_WINTER_STORAGE_APPLICATION';
+import { getCustomerProfile, getFilteredCustomersData } from '../applicationView/utils';
 
-const ApplicationViewContainer = () => {
+const WinterStorageApplicationViewContainer = () => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const [searchBy, setSearchBy] = useState<SearchBy>(SearchBy.LAST_NAME);
   const [searchVal, setSearchVal] = useState<string>('');
 
-  const { loading, data } = useQuery<INDIVIDUAL_APPLICATION, INDIVIDUAL_APPLICATION_VARS>(
-    INDIVIDUAL_APPLICATION_QUERY,
+  const { loading, data } = useQuery<INDIVIDUAL_WINTER_STORAGE_APPLICATION, INDIVIDUAL_WINTER_STORAGE_APPLICATION_VARS>(
+    INDIVIDUAL_WINTER_STORAGE_APPLICATION_QUERY,
     {
       variables: {
         id,
@@ -74,12 +75,12 @@ const ApplicationViewContainer = () => {
 
   const [deleteDraftedApplication] = useDeleteBerthApplication();
   useEffect(() => {
-    if (!data?.berthApplication) return;
+    if (!data?.winterStorageApplication) return;
 
-    setSearchVal(data.berthApplication[searchBy]);
+    setSearchVal(data.winterStorageApplication[searchBy]);
   }, [data, searchBy]);
 
-  const customer = data?.berthApplication?.customer;
+  const customer = data?.winterStorageApplication?.customer;
 
   useEffect(() => {
     // Only fetch customers if the application doesn't have an attached customer.
@@ -95,12 +96,12 @@ const ApplicationViewContainer = () => {
     }
   }, [searchVal, searchBy, customer, loading, goToPage]);
 
-  const [linkCustomer] = useMutation<UPDATE_BERTH_APPLICATION, UPDATE_BERTH_APPLICATION_VARS>(
-    UPDATE_BERTH_APPLICATION_MUTATION,
+  const [linkCustomer] = useMutation<UPDATE_WINTER_STORAGE_APPLICATION, UPDATE_WINTER_STORAGE_APPLICATION_VARS>(
+    UPDATE_WINTER_STORAGE_APPLICATION_MUTATION,
     {
       refetchQueries: [
         {
-          query: INDIVIDUAL_APPLICATION_QUERY,
+          query: INDIVIDUAL_WINTER_STORAGE_APPLICATION_QUERY,
           variables: {
             id,
           },
@@ -118,7 +119,7 @@ const ApplicationViewContainer = () => {
     ],
   });
 
-  if (loading || !data?.berthApplication) return <LoadingSpinner isLoading={true} />;
+  if (loading || !data?.winterStorageApplication) return <LoadingSpinner isLoading={true} />;
 
   const handleDeleteLease = (id: string) => {
     deleteDraftedApplication({
@@ -132,18 +133,20 @@ const ApplicationViewContainer = () => {
 
   const customerProfile = customer ? getCustomerProfile(customer) : null;
 
-  const applicationDetails = getApplicationDetailsData(data.berthApplication, data.boatTypes || []);
+  const applicationDetails = getWinterStorageApplicationDetailsData(
+    data.winterStorageApplication,
+    data.boatTypes || []
+  );
 
   const filteredCustomersData = !customer ? getFilteredCustomersData(customersData) : null;
 
-  const leaseDetails = getOfferDetailsData(data.berthApplication.lease);
-
-  const handleLinkCustomer = (customerId: string) =>
+  const handleLinkCustomer = (customerId: string) => {
     linkCustomer({
       variables: {
         input: { id, customerId },
       },
     });
+  };
 
   const handleCreateCustomer = () => {
     const { firstName, lastName, primaryAddress, primaryEmail, primaryPhone } = applicationDetails.applicant;
@@ -167,7 +170,7 @@ const ApplicationViewContainer = () => {
   };
 
   return (
-    <ApplicationView
+    <WinterStorageApplicationView
       applicationId={id}
       handleLinkCustomer={handleLinkCustomer}
       loadingCustomers={loadingCustomers}
@@ -177,7 +180,7 @@ const ApplicationViewContainer = () => {
         setSearchVal,
         setSearchBy: (searchBy) => {
           setSearchBy(searchBy);
-          setSearchVal(data?.berthApplication?.[searchBy] ?? '');
+          setSearchVal(data?.winterStorageApplication?.[searchBy] ?? '');
         },
         handleCreateCustomer,
         searchByOptions: [
@@ -196,11 +199,10 @@ const ApplicationViewContainer = () => {
       similarCustomersData={filteredCustomersData}
       customerProfile={customerProfile}
       applicationDetails={applicationDetails}
-      leaseDetails={leaseDetails}
-      refetchQueries={[getOperationName(INDIVIDUAL_APPLICATION_QUERY) || 'INDIVIDUAL_APPLICATION']}
+      refetchQueries={[getOperationName(INDIVIDUAL_WINTER_STORAGE_APPLICATION_QUERY) || 'INDIVIDUAL_APPLICATION']}
       handleDeleteLease={handleDeleteLease}
     />
   );
 };
 
-export default ApplicationViewContainer;
+export default WinterStorageApplicationViewContainer;

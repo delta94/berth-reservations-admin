@@ -49,6 +49,14 @@ interface BerthSwitch {
   reason: string | null;
 }
 
+interface WinterStorageAreaSummary {
+  applicationCode: string;
+  acceptBoatingNewsletter: boolean;
+  acceptFitnessNews: boolean;
+  acceptLibraryNews: boolean;
+  acceptOtherCultureNews: boolean;
+}
+
 export interface ApplicationDetailsProps {
   accessibilityRequired?: boolean;
   applicant?: PrivateCustomerDetailsProps | OrganizationCustomerDetailsProps;
@@ -69,6 +77,7 @@ export interface ApplicationDetailsProps {
   lease?: Lease | null;
   queue: number | null;
   status: ApplicationStatus;
+  winterStorageAreaSummary?: WinterStorageAreaSummary;
 }
 
 const isHarborChoice = (choice: Choice): choice is HarborChoice => (choice as HarborChoice).harbor !== undefined;
@@ -93,6 +102,7 @@ const ApplicationDetails = ({
   lease,
   handleDeleteLease,
   accessibilityRequired,
+  winterStorageAreaSummary,
 }: ApplicationDetailsProps) => {
   const { t, i18n } = useTranslation();
   const routerQuery = new URLSearchParams(useLocation().search);
@@ -173,6 +183,35 @@ const ApplicationDetails = ({
           <LabelValuePair label={t('applicationList.applicationDetails.boatName')} value={boatName} />
           <LabelValuePair label={t('applicationList.applicationDetails.boatBrand')} value={boatModel} />
         </Section>
+        {winterStorageAreaSummary && (
+          <Section title={t('applicationList.applicationDetails.winterStorageApplicationSummary')}>
+            <LabelValuePair
+              label={t('applicationList.applicationDetails.applicationCode')}
+              value={winterStorageAreaSummary.applicationCode}
+            />
+            <br />
+            {winterStorageAreaSummary.acceptBoatingNewsletter && (
+              <div>
+                <Text>{t('applicationList.applicationDetails.acceptBoatingNewsletter')}</Text>
+              </div>
+            )}
+            {winterStorageAreaSummary.acceptFitnessNews && (
+              <div>
+                <Text>{t('applicationList.applicationDetails.acceptFitnessNews')}</Text>
+              </div>
+            )}
+            {winterStorageAreaSummary.acceptLibraryNews && (
+              <div>
+                <Text>{t('applicationList.applicationDetails.acceptLibraryNews')}</Text>
+              </div>
+            )}
+            {winterStorageAreaSummary.acceptOtherCultureNews && (
+              <div>
+                <Text>{t('applicationList.applicationDetails.acceptOtherCultureNews')}</Text>
+              </div>
+            )}
+          </Section>
+        )}
       </div>
       <div>
         {lease ? (

@@ -147,39 +147,45 @@ export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_orderLines {
   edges: (INDIVIDUAL_CUSTOMER_profile_orders_edges_node_orderLines_edges | null)[];
 }
 
-export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier_properties_harbor_properties {
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_WinterStorageLeaseNode {
+  __typename: "WinterStorageLeaseNode";
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth_pier_properties_harbor_properties {
   __typename: "HarborProperties";
   name: string | null;
 }
 
-export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier_properties_harbor {
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth_pier_properties_harbor {
   __typename: "HarborNode";
-  properties: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier_properties_harbor_properties | null;
+  properties: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth_pier_properties_harbor_properties | null;
 }
 
-export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier_properties {
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth_pier_properties {
   __typename: "PierProperties";
   identifier: string;
-  harbor: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier_properties_harbor;
+  harbor: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth_pier_properties_harbor;
 }
 
-export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier {
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth_pier {
   __typename: "PierNode";
-  properties: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier_properties | null;
+  properties: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth_pier_properties | null;
 }
 
-export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth {
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth {
   __typename: "BerthNode";
   number: number;
-  pier: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier;
+  pier: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth_pier;
 }
 
-export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease {
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode {
   __typename: "BerthLeaseNode";
   startDate: any;
   endDate: any;
-  berth: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth;
+  berth: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth;
 }
+
+export type INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease = INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_WinterStorageLeaseNode | INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode;
 
 export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node {
   __typename: "OrderNode";

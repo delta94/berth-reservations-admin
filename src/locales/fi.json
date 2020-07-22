@@ -319,7 +319,13 @@
       "accessible": "Tarvitsen esteettömän paikan",
       "currentBerth": "NYKYINEN VENEPAIKKA",
       "portAndBerth": "Satama ja paikka",
-      "reason": "Erityistoive"
+      "reason": "Erityistoive",
+      "winterStorageApplicationSummary": "YHTEENVETO",
+      "applicationCode": "Hakukoodi",
+      "acceptBoatingNewsletter": "Tilaan uutiskirjeen",
+      "acceptFitnessNews": "Tilaan tietoa liikuntapalveluista",
+      "acceptLibraryNews": "Tilaan tietoa kirjastopalveluista",
+      "acceptOtherCultureNews": "Tilaan tietoa muista kulttuuripalveluista"
     }
   },
   "applicationView": {

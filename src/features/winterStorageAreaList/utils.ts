@@ -61,8 +61,8 @@ export const getWinterStorageAreasData = (data: WINTER_STORAGE_AREAS | undefined
         maxWidth: propertiesNode.maxWidth,
         municipality: propertiesNode.municipality,
         name: propertiesNode.name || '-',
-        numberOfFreePlaces: 0, // TODO
-        numberOfMarkedPlaces: propertiesNode.numberOfMarkedPlaces || 0,
+        numberOfFreePlaces: propertiesNode.numberOfFreePlaces,
+        numberOfMarkedPlaces: propertiesNode.numberOfPlaces,
         servicemapId: propertiesNode.servicemapId,
         streetAddress: propertiesNode.streetAddress,
         wwwUrl: propertiesNode.wwwUrl,
