@@ -13,7 +13,7 @@ export interface WinterStorageAreaData {
   municipality: string | null;
   name: string | null;
   numberOfFreePlaces: number;
-  numberOfMarkedPlaces: number;
+  numberOfPlaces: number;
   servicemapId: string | null;
   streetAddress: string | null;
   summerStorageForDockingEquipment: number;
