@@ -33,7 +33,7 @@ const WinterStorageAreaList = ({ data, loading }: WinterStorageAreaListProps) =>
     },
     {
       Header: t('winterStorageAreaList.tableHeaders.places') || '',
-      accessor: 'numberOfMarkedPlaces',
+      accessor: 'numberOfPlaces',
       width: COLUMN_WIDTH.S,
     },
     {
