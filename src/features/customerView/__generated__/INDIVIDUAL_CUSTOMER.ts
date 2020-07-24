@@ -125,6 +125,53 @@ export interface INDIVIDUAL_CUSTOMER_profile_berthLeases {
   edges: (INDIVIDUAL_CUSTOMER_profile_berthLeases_edges | null)[];
 }
 
+export interface INDIVIDUAL_CUSTOMER_profile_winterStorageLeases_edges_node_place_winterStorageSection_properties_area_properties {
+  __typename: "WinterStorageAreaProperties";
+  name: string | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_winterStorageLeases_edges_node_place_winterStorageSection_properties_area {
+  __typename: "WinterStorageAreaNode";
+  id: string;
+  properties: INDIVIDUAL_CUSTOMER_profile_winterStorageLeases_edges_node_place_winterStorageSection_properties_area_properties | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_winterStorageLeases_edges_node_place_winterStorageSection_properties {
+  __typename: "WinterStorageSectionProperties";
+  identifier: string;
+  area: INDIVIDUAL_CUSTOMER_profile_winterStorageLeases_edges_node_place_winterStorageSection_properties_area;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_winterStorageLeases_edges_node_place_winterStorageSection {
+  __typename: "WinterStorageSectionNode";
+  properties: INDIVIDUAL_CUSTOMER_profile_winterStorageLeases_edges_node_place_winterStorageSection_properties | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_winterStorageLeases_edges_node_place {
+  __typename: "WinterStoragePlaceNode";
+  number: number;
+  winterStorageSection: INDIVIDUAL_CUSTOMER_profile_winterStorageLeases_edges_node_place_winterStorageSection;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_winterStorageLeases_edges_node {
+  __typename: "WinterStorageLeaseNode";
+  id: string;
+  status: LeaseStatus;
+  startDate: any;
+  endDate: any;
+  place: INDIVIDUAL_CUSTOMER_profile_winterStorageLeases_edges_node_place;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_winterStorageLeases_edges {
+  __typename: "WinterStorageLeaseNodeEdge";
+  node: INDIVIDUAL_CUSTOMER_profile_winterStorageLeases_edges_node | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_winterStorageLeases {
+  __typename: "WinterStorageLeaseNodeConnection";
+  edges: (INDIVIDUAL_CUSTOMER_profile_winterStorageLeases_edges | null)[];
+}
+
 export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_orderLines_edges_node_product {
   __typename: "AdditionalProductNode";
   service: ProductServiceType;
@@ -147,39 +194,74 @@ export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_orderLines {
   edges: (INDIVIDUAL_CUSTOMER_profile_orders_edges_node_orderLines_edges | null)[];
 }
 
-export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier_properties_harbor_properties {
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth_pier_properties_harbor_properties {
   __typename: "HarborProperties";
   name: string | null;
 }
 
-export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier_properties_harbor {
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth_pier_properties_harbor {
   __typename: "HarborNode";
-  properties: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier_properties_harbor_properties | null;
+  properties: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth_pier_properties_harbor_properties | null;
 }
 
-export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier_properties {
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth_pier_properties {
   __typename: "PierProperties";
   identifier: string;
-  harbor: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier_properties_harbor;
+  harbor: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth_pier_properties_harbor;
 }
 
-export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier {
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth_pier {
   __typename: "PierNode";
-  properties: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier_properties | null;
+  properties: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth_pier_properties | null;
 }
 
-export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth {
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth {
   __typename: "BerthNode";
   number: number;
-  pier: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth_pier;
+  pier: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth_pier;
 }
 
-export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease {
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode {
   __typename: "BerthLeaseNode";
   startDate: any;
   endDate: any;
-  berth: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_berth;
+  berth: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode_berth;
 }
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_WinterStorageLeaseNode_place_winterStorageSection_properties_area_properties {
+  __typename: "WinterStorageAreaProperties";
+  name: string | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_WinterStorageLeaseNode_place_winterStorageSection_properties_area {
+  __typename: "WinterStorageAreaNode";
+  id: string;
+  properties: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_WinterStorageLeaseNode_place_winterStorageSection_properties_area_properties | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_WinterStorageLeaseNode_place_winterStorageSection_properties {
+  __typename: "WinterStorageSectionProperties";
+  area: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_WinterStorageLeaseNode_place_winterStorageSection_properties_area;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_WinterStorageLeaseNode_place_winterStorageSection {
+  __typename: "WinterStorageSectionNode";
+  properties: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_WinterStorageLeaseNode_place_winterStorageSection_properties | null;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_WinterStorageLeaseNode_place {
+  __typename: "WinterStoragePlaceNode";
+  winterStorageSection: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_WinterStorageLeaseNode_place_winterStorageSection;
+}
+
+export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_WinterStorageLeaseNode {
+  __typename: "WinterStorageLeaseNode";
+  startDate: any;
+  endDate: any;
+  place: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_WinterStorageLeaseNode_place;
+}
+
+export type INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease = INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode | INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_WinterStorageLeaseNode;
 
 export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node {
   __typename: "OrderNode";
@@ -302,6 +384,7 @@ export interface INDIVIDUAL_CUSTOMER_profile {
   language: Language | null;
   boats: INDIVIDUAL_CUSTOMER_profile_boats | null;
   berthLeases: INDIVIDUAL_CUSTOMER_profile_berthLeases | null;
+  winterStorageLeases: INDIVIDUAL_CUSTOMER_profile_winterStorageLeases | null;
   orders: INDIVIDUAL_CUSTOMER_profile_orders | null;
   berthApplications: INDIVIDUAL_CUSTOMER_profile_berthApplications | null;
 }

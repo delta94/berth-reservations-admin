@@ -1,4 +1,4 @@
-import { getBoats, getLeases } from '../utils';
+import { getBoats, getBerthLeases } from '../utils';
 import {
   INDIVIDUAL_CUSTOMER_profile as CUSTOMER_PROFILE,
   INDIVIDUAL_CUSTOMER_profile_boats_edges as BOAT_EDGE,
@@ -93,7 +93,7 @@ describe('utils', () => {
         berthLeases: null,
       };
 
-      const leases = getLeases(profile);
+      const leases = getBerthLeases(profile);
 
       expect(leases).toEqual([]);
     });
@@ -107,7 +107,7 @@ describe('utils', () => {
         },
       };
 
-      const leases = getLeases(profile);
+      const leases = getBerthLeases(profile);
 
       expect(leases).toMatchSnapshot();
     });
@@ -121,7 +121,7 @@ describe('utils', () => {
         },
       };
 
-      const leases = getLeases(profile);
+      const leases = getBerthLeases(profile);
 
       expect(leases).toEqual(expect.not.arrayContaining([null]));
     });
@@ -135,7 +135,7 @@ describe('utils', () => {
         },
       };
 
-      const leases = getLeases(profile);
+      const leases = getBerthLeases(profile);
 
       expect(leases).toEqual(expect.not.arrayContaining([null]));
     });
@@ -156,7 +156,7 @@ describe('utils', () => {
         },
       };
 
-      const leases = getLeases(profile);
+      const leases = getBerthLeases(profile);
 
       expect(leases).toHaveLength(mockLeases.length);
     });

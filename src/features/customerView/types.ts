@@ -75,14 +75,25 @@ export type Application = {
   accessibilityRequired: boolean;
 };
 
-export type Lease = {
+type LeaseBase = {
   id: string;
-  harbor: { id: string; name: string } | null;
-  berthNum: string | number;
-  pierIdentifier: string | null;
   startDate: string;
   endDate: string;
 };
+
+export type BerthLease = LeaseBase & {
+  harbor: { id: string; name: string } | null;
+  berthNum: string | number;
+  pierIdentifier: string | null;
+};
+
+export type WinterStorageLease = LeaseBase & {
+  winterStorageArea: { id: string; name: string } | null;
+  placeNum: string | number;
+  sectionIdentifier: string | number;
+};
+
+export type Lease = BerthLease | WinterStorageLease;
 
 export type OrderLine = {
   product: ProductServiceType;
@@ -112,6 +123,10 @@ export type BerthBill = Bill & {
   };
 };
 
-export type WinterStorageBill = Bill;
+export type WinterStorageBill = Bill & {
+  winterStorageInformation: {
+    winterStorageAreaName: string;
+  };
+};
 
 export type BoatType = Omit<IndividualCustomerBoatType, '__typename__'>;

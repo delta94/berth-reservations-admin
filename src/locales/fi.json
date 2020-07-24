@@ -473,7 +473,9 @@
       "berthBill": "Venepaikan vuokra",
       "winterStorageBill": "Talvisäilytyspaikan vuokra",
       "status": "Laskun tila",
-      "closeModal": "Sulje"
+      "closeModal": "Sulje",
+      "winterStorageRental": "TALVISÄILYTYSPAIKAN VUOKRA",
+      "winterStorageArea": "Talvisäilytyspaikka"
     },
     "billingHistory": {
       "title": "LASKUHISTORIA",
@@ -503,11 +505,18 @@
       "fileMissing": "Tiedosto puuttuu"
     },
     "leases": {
-      "title": "VENEPAIKAT",
       "showContract": "Näytä sopimus",
-      "berth": "VENEPAIKKA",
-      "portAndPlace": "Satama ja paikka",
-      "valid": "Voimassa"
+      "valid": "Voimassa",
+      "berth": {
+        "title": "VENEPAIKAT",
+        "infoSectionTitle": "VENEPAIKKA",
+        "addressLabel": "Satama ja paikka"
+      },
+      "winterStorage": {
+        "title": "TALVISÄILYTYSPAIKAT",
+        "infoSectionTitle": "TALVISÄILYTYSPAIKKA",
+        "addressLabel": "Talvisäilytysalue"
+      }
     }
   },
   "pricing": {
