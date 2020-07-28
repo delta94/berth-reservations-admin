@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { usePrevious } from './usePrevious';
 
-interface SortedCol {
+export interface SortedCol {
   id: string;
   desc?: boolean;
 }
