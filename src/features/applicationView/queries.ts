@@ -140,6 +140,11 @@ export const INDIVIDUAL_APPLICATION_QUERY = gql`
         priority
         harborName
       }
+      acceptBoatingNewsletter
+      acceptFitnessNews
+      acceptLibraryNews
+      acceptOtherCultureNews
+      applicationCode
       ...BerthLease
     }
     boatTypes {

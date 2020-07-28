@@ -25,7 +25,7 @@ export const getWinterStorageApplicationDetailsData = (
     queue: null,
     choices,
     boatType: boatTypes.find(({ id }) => id === winterStorageApplication.boatType)?.name,
-    winterStorageAreaSummary: {
+    summaryInformation: {
       applicationCode: winterStorageApplication.applicationCode,
       acceptBoatingNewsletter: winterStorageApplication.acceptBoatingNewsletter,
       acceptFitnessNews: winterStorageApplication.acceptFitnessNews,

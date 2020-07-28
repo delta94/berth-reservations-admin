@@ -132,6 +132,13 @@ export const getApplicationDetailsData = (
     choices,
     lease,
     boatType: boatTypes.find(({ id }) => id === berthApplication.boatType)?.name,
+    summaryInformation: {
+      applicationCode: berthApplication.applicationCode,
+      acceptBoatingNewsletter: berthApplication.acceptBoatingNewsletter,
+      acceptFitnessNews: berthApplication.acceptFitnessNews,
+      acceptLibraryNews: berthApplication.acceptLibraryNews,
+      acceptOtherCultureNews: berthApplication.acceptOtherCultureNews,
+    },
   };
 };
 

@@ -49,7 +49,7 @@ interface BerthSwitch {
   reason: string | null;
 }
 
-interface WinterStorageAreaSummary {
+interface SummaryInformation {
   applicationCode: string;
   acceptBoatingNewsletter: boolean;
   acceptFitnessNews: boolean;
@@ -77,7 +77,7 @@ export interface ApplicationDetailsProps {
   lease?: Lease | null;
   queue: number | null;
   status: ApplicationStatus;
-  winterStorageAreaSummary?: WinterStorageAreaSummary;
+  summaryInformation?: SummaryInformation;
 }
 
 const isHarborChoice = (choice: Choice): choice is HarborChoice => (choice as HarborChoice).harbor !== undefined;
@@ -102,7 +102,7 @@ const ApplicationDetails = ({
   lease,
   handleDeleteLease,
   accessibilityRequired,
-  winterStorageAreaSummary,
+  summaryInformation,
 }: ApplicationDetailsProps) => {
   const { t, i18n } = useTranslation();
   const routerQuery = new URLSearchParams(useLocation().search);
@@ -183,29 +183,29 @@ const ApplicationDetails = ({
           <LabelValuePair label={t('applicationList.applicationDetails.boatName')} value={boatName} />
           <LabelValuePair label={t('applicationList.applicationDetails.boatBrand')} value={boatModel} />
         </Section>
-        {winterStorageAreaSummary && (
+        {summaryInformation && (
           <Section title={t('applicationList.applicationDetails.winterStorageApplicationSummary')}>
             <LabelValuePair
               label={t('applicationList.applicationDetails.applicationCode')}
-              value={winterStorageAreaSummary.applicationCode}
+              value={summaryInformation.applicationCode}
             />
             <br />
-            {winterStorageAreaSummary.acceptBoatingNewsletter && (
+            {summaryInformation.acceptBoatingNewsletter && (
               <div>
                 <Text>{t('applicationList.applicationDetails.acceptBoatingNewsletter')}</Text>
               </div>
             )}
-            {winterStorageAreaSummary.acceptFitnessNews && (
+            {summaryInformation.acceptFitnessNews && (
               <div>
                 <Text>{t('applicationList.applicationDetails.acceptFitnessNews')}</Text>
               </div>
             )}
-            {winterStorageAreaSummary.acceptLibraryNews && (
+            {summaryInformation.acceptLibraryNews && (
               <div>
                 <Text>{t('applicationList.applicationDetails.acceptLibraryNews')}</Text>
               </div>
             )}
-            {winterStorageAreaSummary.acceptOtherCultureNews && (
+            {summaryInformation.acceptOtherCultureNews && (
               <div>
                 <Text>{t('applicationList.applicationDetails.acceptOtherCultureNews')}</Text>
               </div>

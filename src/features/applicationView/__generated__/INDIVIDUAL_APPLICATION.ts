@@ -178,6 +178,11 @@ export interface INDIVIDUAL_APPLICATION_berthApplication {
   accessibilityRequired: boolean;
   status: ApplicationStatus;
   harborChoices: (INDIVIDUAL_APPLICATION_berthApplication_harborChoices | null)[] | null;
+  acceptBoatingNewsletter: boolean;
+  acceptFitnessNews: boolean;
+  acceptLibraryNews: boolean;
+  acceptOtherCultureNews: boolean;
+  applicationCode: string;
   lease: INDIVIDUAL_APPLICATION_berthApplication_lease | null;
 }
 
