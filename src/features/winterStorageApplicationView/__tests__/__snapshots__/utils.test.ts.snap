@@ -53,6 +53,13 @@ Object {
   "phoneNumber": "555555",
   "queue": null,
   "status": "PENDING",
+  "summaryInformation": Object {
+    "acceptBoatingNewsletter": true,
+    "acceptFitnessNews": true,
+    "acceptLibraryNews": true,
+    "acceptOtherCultureNews": true,
+    "applicationCode": "1234",
+  },
   "winterStorageAreaChoices": Array [
     Object {
       "__typename": "WinterStorageAreaChoiceType",
@@ -67,13 +74,6 @@ Object {
       "winterStorageAreaName": "Rajasaari",
     },
   ],
-  "winterStorageAreaSummary": Object {
-    "acceptBoatingNewsletter": true,
-    "acceptFitnessNews": true,
-    "acceptLibraryNews": true,
-    "acceptOtherCultureNews": true,
-    "applicationCode": "1234",
-  },
   "zipCode": "00100",
 }
 `;
