@@ -270,6 +270,7 @@
   },
   "applicationList": {
     "title": "Hakemukset",
+    "winterStorageTitle": "Talvisäilytyspaikkahakemukset",
     "tableHeaders": {
       "switchFilter": "Vaihtohakemukset",
       "newApplicationFilter": "Uudet hakemukset",

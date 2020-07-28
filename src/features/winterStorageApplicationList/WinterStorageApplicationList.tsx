@@ -82,7 +82,7 @@ const WinterStorageApplicationList = ({
 
   return (
     <PageContent>
-      <PageTitle title={t('applicationList.title')} />
+      <PageTitle title={t('applicationList.winterStorageTitle')} />
       <Table
         columns={columns}
         data={applications}
