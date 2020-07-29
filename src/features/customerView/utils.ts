@@ -169,10 +169,11 @@ export const getBills = (profile: CUSTOMER_PROFILE): (BerthBill | WinterStorageB
           ...acc,
           {
             status: orderNode.status,
+            // FIXME: resolve berthInformation correctly from new schema.
             berthInformation: {
-              number: lease.berth.number,
-              pierIdentifier: lease.berth.pier.properties?.identifier ?? '',
-              harborName: lease.berth.pier.properties?.harbor?.properties?.name ?? '',
+              number: 0,
+              pierIdentifier: '',
+              harborName: '',
             },
             contractPeriod: {
               startDate: lease.startDate,

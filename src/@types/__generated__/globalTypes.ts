@@ -162,6 +162,23 @@ export interface CreateBerthProductMutationInput {
   clientMutationId?: string | null;
 }
 
+export interface CreateBoatMutationInput {
+  boatTypeId: string;
+  registrationNumber?: string | null;
+  name?: string | null;
+  model?: string | null;
+  length: any;
+  width: any;
+  draught?: any | null;
+  weight?: number | null;
+  propulsion?: string | null;
+  hullMaterial?: string | null;
+  intendedUse?: string | null;
+  addBoatCertificates?: (AddBoatCertificateInput | null)[] | null;
+  ownerId: string;
+  clientMutationId?: string | null;
+}
+
 export interface CreateOrderLineMutationInput {
   quantity?: number | null;
   orderId: string;

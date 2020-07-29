@@ -486,6 +486,7 @@
       "title": "ASIAKKAAN VENEET",
       "boatInfo": "VENEEN TIEDOT",
       "editBoat": "Muokkaa",
+      "createBoat": "Lisää uusi",
       "boatType": "Veneen tyyppi",
       "registrationNumber": "Rekisterinumero",
       "width": "Veneen leveys",

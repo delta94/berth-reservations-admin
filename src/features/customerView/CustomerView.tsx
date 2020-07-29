@@ -24,6 +24,7 @@ export interface CustomerViewProps {
   openBills: Bill[];
   setBoatToEdit: (boat: Boat | null) => void;
   setOpenBill: (bill: Bill | undefined) => void;
+  onClickCreateBoat: () => void;
 }
 
 const CustomerView = ({
@@ -35,6 +36,7 @@ const CustomerView = ({
   openBills,
   setBoatToEdit,
   setOpenBill,
+  onClickCreateBoat,
 }: CustomerViewProps) => {
   const { t } = useTranslation();
   return (
@@ -61,7 +63,7 @@ const CustomerView = ({
           <CardBody>Placeholder</CardBody>
         </Card>
 
-        <BoatsCard boats={boats} onEdit={(boat) => setBoatToEdit(boat)} />
+        <BoatsCard boats={boats} onEdit={(boat) => setBoatToEdit(boat)} onCreate={onClickCreateBoat} />
       </div>
     </PageContent>
   );

@@ -12,13 +12,15 @@ import { Boat, LargeBoat } from '../types';
 import BoatCertificates from './BoatCertificates';
 import { isLargeBoat } from './boatsCardUtils';
 import SectionWithButton from '../../../common/section/SectionWithButton';
+import Text from '../../../common/text/Text';
 
 export interface BoatsCardProps {
   boats: (Boat | LargeBoat)[];
   onEdit(boat: Boat | LargeBoat): void;
+  onCreate(): void;
 }
 
-const BoatsCard = ({ boats, onEdit }: BoatsCardProps) => {
+const BoatsCard = ({ boats, onEdit, onCreate }: BoatsCardProps) => {
   const { t, i18n } = useTranslation();
 
   return (
@@ -71,6 +73,11 @@ const BoatsCard = ({ boats, onEdit }: BoatsCardProps) => {
           )}
         </CardBody>
       ))}
+      <CardBody className={styles.createBoat}>
+        <button onClick={() => onCreate()}>
+          <Text color="brand">{t('customerView.customerBoats.createBoat')}</Text>
+        </button>
+      </CardBody>
     </Card>
   );
 };
