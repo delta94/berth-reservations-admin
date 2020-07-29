@@ -357,6 +357,17 @@ exports[`CustomerView renders normally 1`] = `
           ASIAKKAAN VENEET
         </span>
       </div>
+      <div
+        class="cardBody createBoat"
+      >
+        <button>
+          <span
+            class="text brand span"
+          >
+            Lisää uusi
+          </span>
+        </button>
+      </div>
        
     </div>
   </div>
