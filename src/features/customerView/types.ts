@@ -2,6 +2,7 @@ import {
   ApplicationStatus,
   BoatCertificateType,
   OrderStatus,
+  PriceUnits,
   ProductServiceType,
 } from '../../@types/__generated__/globalTypes';
 import { INDIVIDUAL_CUSTOMER_boatTypes as IndividualCustomerBoatType } from './__generated__/INDIVIDUAL_CUSTOMER';
@@ -90,7 +91,7 @@ export type BerthLease = LeaseBase & {
 export type WinterStorageLease = LeaseBase & {
   winterStorageArea: { id: string; name: string } | null;
   placeNum: string | number;
-  sectionIdentifier: string | number;
+  sectionIdentifier: string | null;
 };
 
 export type Lease = BerthLease | WinterStorageLease;
@@ -98,7 +99,8 @@ export type Lease = BerthLease | WinterStorageLease;
 export type OrderLine = {
   product: ProductServiceType;
   price: number;
-  taxPercentage: number;
+  priceUnit: PriceUnits;
+  priceValue: number;
 };
 
 export type Bill = {
@@ -109,9 +111,7 @@ export type Bill = {
   };
   dueDate: string;
   totalPrice: number;
-  totalPriceTaxPercentage: number;
   basePrice: number;
-  basePriceTaxPercentage: number;
   orderLines: OrderLine[];
 };
 

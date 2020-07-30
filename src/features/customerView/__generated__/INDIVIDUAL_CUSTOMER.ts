@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { InvoicingType, OrganizationType, Language, BoatCertificateType, LeaseStatus, OrderStatus, ProductServiceType, ApplicationStatus } from "./../../../@types/__generated__/globalTypes";
+import { InvoicingType, OrganizationType, Language, BoatCertificateType, LeaseStatus, OrderStatus, ProductServiceType, PriceUnits, ApplicationStatus } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: INDIVIDUAL_CUSTOMER
@@ -175,13 +175,14 @@ export interface INDIVIDUAL_CUSTOMER_profile_winterStorageLeases {
 export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_orderLines_edges_node_product {
   __typename: "AdditionalProductNode";
   service: ProductServiceType;
+  priceUnit: PriceUnits;
+  priceValue: any;
 }
 
 export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_orderLines_edges_node {
   __typename: "OrderLineNode";
   product: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_orderLines_edges_node_product | null;
   price: any;
-  taxPercentage: any;
 }
 
 export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_orderLines_edges {
@@ -267,9 +268,7 @@ export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node {
   __typename: "OrderNode";
   dueDate: any;
   totalPrice: any;
-  totalTaxPercentage: any;
   price: any;
-  taxPercentage: any;
   status: OrderStatus;
   orderLines: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_orderLines;
   lease: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease | null;

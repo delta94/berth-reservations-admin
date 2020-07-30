@@ -71,7 +71,7 @@ export const getWinterStorageLeases = (profile: CUSTOMER_PROFILE): Lease[] => {
     if (!edge?.node || edge?.node?.status !== 'PAID') return acc;
 
     const placeNum = edge.node.place.number.toString(10);
-    const placeIdentifier = edge.node.place.winterStorageSection.properties.identifier;
+    const sectionIdentifier = edge.node.place.winterStorageSection.properties?.identifier || null;
     const winterStorageArea = edge.node.place.winterStorageSection.properties?.area;
 
     const lease = {
@@ -83,7 +83,7 @@ export const getWinterStorageLeases = (profile: CUSTOMER_PROFILE): Lease[] => {
           }
         : null,
       placeNum,
-      placeIdentifier,
+      sectionIdentifier,
       startDate: edge.node.startDate,
       endDate: edge.node.endDate,
     };
@@ -190,7 +190,8 @@ export const getBills = (profile: CUSTOMER_PROFILE): (BerthBill | WinterStorageB
               {
                 product: orderLineNode.product.service,
                 price: orderLineNode.price,
-                taxPercentage: orderLineNode.taxPercentage,
+                priceUnit: orderLineNode.product.priceUnit,
+                priceValue: orderLineNode.product.priceValue,
               },
             ];
           }, []);
@@ -203,9 +204,7 @@ export const getBills = (profile: CUSTOMER_PROFILE): (BerthBill | WinterStorageB
           },
           dueDate: orderNode.dueDate,
           basePrice: orderNode.price,
-          basePriceTaxPercentage: orderNode.taxPercentage,
           totalPrice: orderNode.totalPrice,
-          totalPriceTaxPercentage: orderNode.totalTaxPercentage,
           orderLines,
         };
         if ('berth' in lease) {

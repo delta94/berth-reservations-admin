@@ -12,6 +12,7 @@ import { getProductServiceTKey } from '../../../common/utils/translations';
 import { formatDate, formatPrice } from '../../../common/utils/format';
 import Button from '../../../common/button/Button';
 import { Bill } from '../types';
+import { PriceUnits } from '../../../@types/__generated__/globalTypes';
 
 export interface BillsCardProps {
   bills: Bill[];
@@ -67,13 +68,17 @@ const BillsCard = ({ bills, handleShowBill }: BillsCardProps) => {
           <LabelValuePair
             align="right"
             label={t('customerView.customerBill.basicFee')}
-            value={formatPrice(bill.basePrice, i18n.language, bill.basePriceTaxPercentage)}
+            value={formatPrice(bill.basePrice, i18n.language)}
           />
           {bill.orderLines.map((orderLine, id) => (
             <LabelValuePair
               align="right"
               label={t(getProductServiceTKey(orderLine.product))}
-              value={formatPrice(orderLine.price, i18n.language, orderLine.taxPercentage)}
+              value={
+                orderLine.priceUnit === PriceUnits.PERCENTAGE
+                  ? formatPrice(orderLine.price, i18n.language, orderLine.priceValue)
+                  : formatPrice(orderLine.price, i18n.language)
+              }
               key={id}
             />
           ))}
@@ -82,7 +87,7 @@ const BillsCard = ({ bills, handleShowBill }: BillsCardProps) => {
           <LabelValuePair
             align="right"
             label={t('customerView.customerBill.total')}
-            value={formatPrice(bill.totalPrice, i18n.language, bill.totalPriceTaxPercentage)}
+            value={formatPrice(bill.totalPrice, i18n.language)}
           />
         </Section>
         <Button variant="secondary" theme="coat" onClick={() => handleShowBill(bill)} className={styles.button}>

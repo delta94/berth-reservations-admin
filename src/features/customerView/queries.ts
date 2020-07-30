@@ -109,18 +109,17 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
           node {
             dueDate
             totalPrice
-            totalTaxPercentage
             price
-            taxPercentage
             status
             orderLines {
               edges {
                 node {
                   product {
                     service
+                    priceUnit
+                    priceValue
                   }
                   price
-                  taxPercentage
                 }
               }
             }
