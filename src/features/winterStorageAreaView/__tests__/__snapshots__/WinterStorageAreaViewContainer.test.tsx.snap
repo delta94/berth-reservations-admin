@@ -124,7 +124,7 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
               class="property wordBreak"
             >
               <div
-                class="iconWrapper secondary outlined"
+                class="iconWrapper standard outlined"
               >
                 <svg
                   class="icon m"
@@ -139,7 +139,7 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
                 </svg>
               </div>
               <span
-                class="text secondary span s bold label"
+                class="text standard span s bold label"
               >
                 Sähkö
               </span>
@@ -172,7 +172,7 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
               class="property wordBreak"
             >
               <div
-                class="iconWrapper secondary outlined"
+                class="iconWrapper standard outlined"
               >
                 <svg
                   class="icon m"
@@ -187,7 +187,7 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
                 </svg>
               </div>
               <span
-                class="text secondary span s bold label"
+                class="text standard span s bold label"
               >
                 Vesi
               </span>
@@ -462,16 +462,68 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
       class="fullWidth"
     >
       <div
+        class="globalSearchTableTools"
+      >
+        <div
+          class="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 filterField"
+        >
+          <div
+            class="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+          >
+            <input
+              class="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
+              id="textSearchGlobalFilter"
+              placeholder="Haku"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
         class="tableWrapper"
       >
         <div
-          class="table primary noMainHeader"
+          class="table primary"
           role="table"
-          style="min-width: 300px;"
+          style="min-width: 900px;"
         >
           <div
             class="stickyHeaders"
           >
+            <div
+              class="header mainHeaderReset"
+              role="row"
+              style="display: flex; flex: 1 0 auto; min-width: 0px;"
+            >
+              <div
+                class=""
+                colspan="6"
+                role="columnheader"
+                style="box-sizing: border-box; flex: 900 0 auto; min-width: 0px; width: 900px;"
+              >
+                <div
+                  class="container"
+                >
+                  <div
+                    class="selectContainer"
+                  >
+                    <div>
+                      <button
+                        class="button buttonSelected"
+                      >
+                        Kaikki
+                      </button>
+                      <button
+                        class="button"
+                      >
+                        Osasto -
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div
               class="header"
               role="row"
@@ -508,7 +560,131 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
                 style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
                 title="Toggle SortBy"
               >
+                Paikka
+                <div
+                  class="sortArrowWrapper"
+                >
+                  <svg
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv sortArrow sortArrowDown"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 0h24v24H0z"
+                      />
+                      <path
+                        d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                        fill="currentColor"
+                      />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div
+                class="headerCell"
+                colspan="1"
+                role="columnheader"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
+                title="Toggle SortBy"
+              >
+                Osasto
+                <div
+                  class="sortArrowWrapper"
+                >
+                  <svg
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv sortArrow sortArrowDown"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 0h24v24H0z"
+                      />
+                      <path
+                        d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                        fill="currentColor"
+                      />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div
+                class="headerCell"
+                colspan="1"
+                role="columnheader"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
+                title="Toggle SortBy"
+              >
                 Asiakas
+                <div
+                  class="sortArrowWrapper"
+                >
+                  <svg
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv sortArrow sortArrowDown"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 0h24v24H0z"
+                      />
+                      <path
+                        d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                        fill="currentColor"
+                      />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div
+                class="headerCell"
+                colspan="1"
+                role="columnheader"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
+                title="Toggle SortBy"
+              >
+                Pituus
+                <div
+                  class="sortArrowWrapper"
+                >
+                  <svg
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv sortArrow sortArrowDown"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 0h24v24H0z"
+                      />
+                      <path
+                        d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                        fill="currentColor"
+                      />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div
+                class="headerCell"
+                colspan="1"
+                role="columnheader"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
+                title="Toggle SortBy"
+              >
+                Leveys
                 <div
                   class="sortArrowWrapper"
                 >
@@ -556,14 +732,14 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
                     <input
                       aria-checked="false"
                       class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
-                      id="checkbox-placehold"
+                      id="checkbox-V2ludGVyU3RvcmFnZVBsYWNlTm9kZTo0YzUzZTY3NC0zMmFjLTRkNTEtYmQzMC0wNTcyMWNjMjUyMTE="
                       title="Toggle Row Selected"
                       type="checkbox"
                       value=""
                     />
                     <label
                       class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
-                      for="checkbox-placehold"
+                      for="checkbox-V2ludGVyU3RvcmFnZVBsYWNlTm9kZTo0YzUzZTY3NC0zMmFjLTRkNTEtYmQzMC0wNTcyMWNjMjUyMTE="
                     />
                   </div>
                 </div>
@@ -572,19 +748,197 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
                   role="cell"
                   style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
                 >
-                  <a
-                    class="internalLink brand"
-                    href="/customers/placehold"
-                    title="placeholder"
+                  1
+                </div>
+                <div
+                  class="tableCell"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                >
+                  -
+                </div>
+                <div
+                  class="tableCell"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                />
+                <div
+                  class="tableCell"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                >
+                  5,0 m
+                </div>
+                <div
+                  class="tableCell"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                >
+                  3,0 m
+                </div>
+              </div>
+            </div>
+            <div
+              class="rowWrapper"
+            >
+              <div
+                role="row"
+                style="display: flex; flex: 1 0 auto; min-width: 0px;"
+              >
+                <div
+                  class="tableCell selector"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                >
+                  <div
+                    class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz checkbox"
+                    style="cursor: pointer;"
                   >
-                    placeholder
-                  </a>
+                    <input
+                      aria-checked="false"
+                      class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
+                      id="checkbox-V2ludGVyU3RvcmFnZVBsYWNlTm9kZTo3OTkzYzAxOC0zMTMwLTRjNTItYjA3Ni1mMGZlN2Q5YjRmYTE="
+                      title="Toggle Row Selected"
+                      type="checkbox"
+                      value=""
+                    />
+                    <label
+                      class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
+                      for="checkbox-V2ludGVyU3RvcmFnZVBsYWNlTm9kZTo3OTkzYzAxOC0zMTMwLTRjNTItYjA3Ni1mMGZlN2Q5YjRmYTE="
+                    />
+                  </div>
+                </div>
+                <div
+                  class="tableCell"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                >
+                  2
+                </div>
+                <div
+                  class="tableCell"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                >
+                  -
+                </div>
+                <div
+                  class="tableCell"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                />
+                <div
+                  class="tableCell"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                >
+                  5,0 m
+                </div>
+                <div
+                  class="tableCell"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                >
+                  3,0 m
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <ul
+        class="pagination"
+      >
+        <li
+          class="prevBtn disabled"
+        >
+          <a
+            aria-disabled="true"
+            class="navLink"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="icnBtn"
+            >
+              <svg
+                class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                  />
+                  <path
+                    d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+              <span
+                class="text standard span"
+              >
+                Edellinen
+              </span>
+            </div>
+          </a>
+        </li>
+        <li
+          class="pageBtn selected"
+        >
+          <a
+            aria-current="page"
+            aria-label="Page 1 is your current page"
+            class="navLink pageLink active"
+            role="button"
+            tabindex="0"
+          >
+            1
+          </a>
+        </li>
+        <li
+          class="nextBtn disabled"
+        >
+          <a
+            aria-disabled="true"
+            class="navLink"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="icnBtn"
+            >
+              <span
+                class="text standard span"
+              >
+                Seuraava
+              </span>
+              <svg
+                class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                  />
+                  <path
+                    d="M12.586 7.05L14 5.636 20.364 12 14 18.364l-1.414-1.414 3.95-3.95H4v-2h12.535z"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </div>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

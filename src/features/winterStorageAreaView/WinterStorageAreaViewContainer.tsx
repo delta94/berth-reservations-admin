@@ -4,14 +4,9 @@ import { useQuery } from '@apollo/react-hooks';
 
 import { INDIVIDUAL_WINTER_STORAGE_AREA_QUERY } from './queries';
 import { INDIVIDUAL_WINTER_STORAGE_AREA } from './__generated__/INDIVIDUAL_WINTER_STORAGE_AREA';
-import { getIndividualWinterStorageArea, getCustomers } from './utils';
+import { getIndividualWinterStorageArea, getWinterStoragePlaces, getWinterStorageSections } from './utils';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import WinterStorageAreaView from './WinterStorageAreaView';
-import WinterStorageAreaCard from '../../common/winterStorageAreaCard/WinterStorageAreaCard';
-import styles from './winterStorageAreaView.module.scss';
-import WinterStorageAreaViewTable from './WinterStorageAreaViewTable';
-import ContactInformationCard from '../../common/contactInformationCard/ContactInformationCard';
-import ActionHistoryCard from '../../common/actionHistoryCard/ActionHistoryCard';
 
 const WinterStorageAreaViewContainer = () => {
   const { id } = useParams<{ id: string }>();
@@ -20,25 +15,12 @@ const WinterStorageAreaViewContainer = () => {
   });
 
   const winterStorageArea = getIndividualWinterStorageArea(data);
-  const customers = getCustomers(data);
+  const places = getWinterStoragePlaces(data);
+  const sections = getWinterStorageSections(data);
 
   if (loading || !winterStorageArea) return <LoadingSpinner isLoading={true} />;
 
-  return (
-    <WinterStorageAreaView>
-      <div className={styles.grid}>
-        <WinterStorageAreaCard {...winterStorageArea} className={styles.fullWidth} />
-        <ContactInformationCard
-          name={winterStorageArea.name}
-          streetAddress={winterStorageArea.streetAddress}
-          municipality={winterStorageArea.municipality}
-          zipCode={winterStorageArea.zipCode}
-        />
-        <ActionHistoryCard />
-        <WinterStorageAreaViewTable data={customers} className={styles.fullWidth} />
-      </div>
-    </WinterStorageAreaView>
-  );
+  return <WinterStorageAreaView winterStorageArea={winterStorageArea} places={places} sections={sections} />;
 };
 
 export default WinterStorageAreaViewContainer;

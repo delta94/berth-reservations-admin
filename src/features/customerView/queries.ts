@@ -118,6 +118,10 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
                   }
                 }
               }
+              ... on WinterStorageLeaseNode {
+                startDate
+                endDate
+              }
             }
           }
         }

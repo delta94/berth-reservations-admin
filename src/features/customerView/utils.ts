@@ -170,9 +170,10 @@ export const getBills = (profile: CUSTOMER_PROFILE): (BerthBill | WinterStorageB
           {
             status: orderNode.status,
             berthInformation: {
-              number: lease.berth.number,
-              pierIdentifier: lease.berth.pier.properties?.identifier ?? '',
-              harborName: lease.berth.pier.properties?.harbor?.properties?.name ?? '',
+              // TODO: properly resolve these from the query (addressed in PR #249)
+              number: 0,
+              pierIdentifier: '',
+              harborName: '',
             },
             contractPeriod: {
               startDate: lease.startDate,
