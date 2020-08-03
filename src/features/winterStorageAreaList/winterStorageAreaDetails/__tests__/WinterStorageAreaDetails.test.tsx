@@ -12,7 +12,6 @@ const mockProps: WinterStorageAreaDetailsProps = {
   maps: mockArea.maps,
   maxWidth: mockArea.maxWidth,
   municipality: mockArea.municipality,
-  servicemapId: mockArea.servicemapId,
   streetAddress: mockArea.streetAddress,
   zipCode: mockArea.zipCode,
 };
