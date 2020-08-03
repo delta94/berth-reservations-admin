@@ -25,6 +25,7 @@
     "search": "Haku",
     "edit": "Muokkaa",
     "add": "Lisää",
+    "addNew": "Lisää uusi",
     "select": "Valitse",
     "save": "Tallenna",
     "cancel": "Peruuta",
@@ -485,8 +486,6 @@
     "customerBoats": {
       "title": "ASIAKKAAN VENEET",
       "boatInfo": "VENEEN TIEDOT",
-      "editBoat": "Muokkaa",
-      "createBoat": "Lisää uusi",
       "boatType": "Veneen tyyppi",
       "registrationNumber": "Rekisterinumero",
       "width": "Veneen leveys",

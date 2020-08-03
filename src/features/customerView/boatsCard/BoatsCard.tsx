@@ -31,7 +31,7 @@ const BoatsCard = ({ boats, onEdit, onCreate }: BoatsCardProps) => {
           <SectionWithButton
             title={t('customerView.customerBoats.boatInfo')}
             onClick={() => onEdit(boat)}
-            buttonText={t('customerView.customerBoats.editBoat')}
+            buttonText={t('common.edit')}
           >
             <LabelValuePair label={t('customerView.customerBoats.boatType')} value={boat.boatType.name} />
             <LabelValuePair
@@ -75,7 +75,7 @@ const BoatsCard = ({ boats, onEdit, onCreate }: BoatsCardProps) => {
       ))}
       <CardBody className={styles.createBoat}>
         <button onClick={() => onCreate()}>
-          <Text color="brand">{t('customerView.customerBoats.createBoat')}</Text>
+          <Text color="brand">{t('common.addNew')}</Text>
         </button>
       </CardBody>
     </Card>
