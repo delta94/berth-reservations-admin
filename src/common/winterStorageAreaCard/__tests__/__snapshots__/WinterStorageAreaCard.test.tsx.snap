@@ -56,41 +56,6 @@ exports[`WinterStorageAreaCard renders correctly with all props 1`] = `
             <section
               class="body"
             >
-              <a
-                class="link withArrow"
-                href="https://palvelukartta.hel.fi/unit/12345"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Palvelukartta
-                <svg
-                  class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv arrow"
-                  color="brand"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g
-                    fill="none"
-                    fill-rule="evenodd"
-                  >
-                    <path
-                      d="M0 24V0h24v24z"
-                    />
-                    <path
-                      d="M13 12.5l-5-5L9.5 6l6.5 6.5L9.5 19 8 17.5z"
-                      fill="currentColor"
-                    />
-                  </g>
-                </svg>
-              </a>
-            </section>
-          </article>
-          <article
-            class="section"
-          >
-            <section
-              class="body"
-            >
               <div>
                 <a
                   class="link withArrow"
@@ -376,41 +341,6 @@ exports[`WinterStorageAreaCard renders correctly with minimum props 1`] = `
               >
                 00000
               </span>
-            </section>
-          </article>
-          <article
-            class="section"
-          >
-            <section
-              class="body"
-            >
-              <a
-                class="link withArrow"
-                href="https://palvelukartta.hel.fi/unit/12345"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Palvelukartta
-                <svg
-                  class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv arrow"
-                  color="brand"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g
-                    fill="none"
-                    fill-rule="evenodd"
-                  >
-                    <path
-                      d="M0 24V0h24v24z"
-                    />
-                    <path
-                      d="M13 12.5l-5-5L9.5 6l6.5 6.5L9.5 19 8 17.5z"
-                      fill="currentColor"
-                    />
-                  </g>
-                </svg>
-              </a>
             </section>
           </article>
         </div>

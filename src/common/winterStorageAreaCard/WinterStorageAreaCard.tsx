@@ -8,7 +8,6 @@ import Text from '../text/Text';
 import CardBody from '../cardBody/CardBody';
 import placeholder from '../placeholderImage.svg';
 import Section from '../section/Section';
-import ExternalLink from '../externalLink/ExternalLink';
 import MapLinks from '../mapLinks/MapLinks';
 import Grid from '../grid/Grid';
 import Property from '../property/Property';
@@ -26,7 +25,6 @@ interface WinterStorageAreaCardProps extends WinterStorageArea {
 const WinterStorageAreaCard = ({
   className,
   name,
-  servicemapId,
   imageFile,
   streetAddress,
   zipCode,
@@ -41,7 +39,6 @@ const WinterStorageAreaCard = ({
   maps,
 }: WinterStorageAreaCardProps) => {
   const { t } = useTranslation();
-  const serviceMapUrl = `${process.env.REACT_APP_SERVICE_MAP_URI}${servicemapId}`;
 
   return (
     <Card className={classNames(className, styles.card)}>
@@ -62,11 +59,6 @@ const WinterStorageAreaCard = ({
                   {name}
                 </Text>
                 <Text>{formatAddress(streetAddress, zipCode, municipality)}</Text>
-              </Section>
-              <Section>
-                <ExternalLink href={serviceMapUrl} variant="withArrow">
-                  {t('common.terminology.serviceMap')}
-                </ExternalLink>
               </Section>
               <MapLinks maps={maps} />
             </div>

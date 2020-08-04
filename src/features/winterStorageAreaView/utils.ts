@@ -10,15 +10,7 @@ export const getIndividualWinterStorageArea = (
   if (!data || !data.winterStorageArea || !data.winterStorageArea.properties) {
     return null;
   }
-  const {
-    name,
-    servicemapId,
-    zipCode,
-    municipality,
-    streetAddress,
-    wwwUrl,
-    imageFile,
-  } = data.winterStorageArea.properties;
+  const { name, zipCode, municipality, streetAddress, wwwUrl, imageFile } = data.winterStorageArea.properties;
 
   const maps = data.winterStorageArea.properties.maps.reduce<Map[]>((acc, map) => {
     if (map !== null) {
@@ -44,7 +36,6 @@ export const getIndividualWinterStorageArea = (
     wwwUrl,
     imageFile,
     maps,
-    servicemapId: servicemapId ?? '',
     electricity: hasService('electricity'),
     water: hasService('water'),
     gate: hasService('gate'),
