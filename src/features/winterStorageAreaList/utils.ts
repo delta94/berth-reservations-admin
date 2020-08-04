@@ -63,7 +63,6 @@ export const getWinterStorageAreasData = (data: WINTER_STORAGE_AREAS | undefined
         name: propertiesNode.name || '-',
         numberOfFreePlaces: propertiesNode.numberOfFreePlaces,
         numberOfPlaces: propertiesNode.numberOfPlaces,
-        servicemapId: propertiesNode.servicemapId,
         streetAddress: propertiesNode.streetAddress,
         wwwUrl: propertiesNode.wwwUrl,
         zipCode: propertiesNode.zipCode,
