@@ -8,22 +8,23 @@ import LeasesCard, { LeasesCardProps } from './LeasesCard';
 describe('LeasesCard', () => {
   const initialProps: LeasesCardProps = {
     handleShowContract: jest.fn(),
-    leases: [
+    title: 'title',
+    infoSectionTitle: 'infoSectionTitle',
+    addressLabel: 'addressLabel',
+    leaseDetails: [
       {
         id: '1234',
-        berthNum: 31,
-        pierIdentifier: 'B',
-        harbor: { id: '9999', name: 'Pursilahdenranta' },
+        address: 'Pursilahdenranta',
         startDate: '2019-06-14',
         endDate: '2019-09-10',
+        link: 'link',
       },
       {
         id: '4321',
-        berthNum: 10,
-        pierIdentifier: 'A',
-        harbor: { id: '1234', name: 'Telakkakatu 1' },
+        address: 'Telakkakatu 1',
         startDate: '2019-05-20',
         endDate: '2020-06-15',
+        link: 'link',
       },
     ],
   };
@@ -51,7 +52,7 @@ describe('LeasesCard', () => {
         <LeasesCard {...initialProps} />
       </HashRouter>
     );
-    const firstLeaseId = initialProps.leases[0].id;
+    const firstLeaseId = initialProps.leaseDetails[0].id;
     const button = wrapper.find(Button).first();
 
     button.simulate('click');

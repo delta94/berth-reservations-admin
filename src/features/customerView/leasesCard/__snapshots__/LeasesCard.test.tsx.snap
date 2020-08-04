@@ -10,7 +10,7 @@ exports[`LeasesCard renders normally 1`] = `
     <span
       class="title"
     >
-      VENEPAIKAT
+      title
     </span>
   </div>
   <div
@@ -32,7 +32,7 @@ exports[`LeasesCard renders normally 1`] = `
       <h4
         class="text standard h4 m title"
       >
-        VENEPAIKKA
+        infoSectionTitle
       </h4>
       <section
         class="body"
@@ -43,17 +43,17 @@ exports[`LeasesCard renders normally 1`] = `
           <span
             class="label standard"
           >
-            Satama ja paikka:
+            addressLabel:
           </span>
           <span
             class="value left"
           >
             <a
               class="internalLink brand"
-              href="#/harbors/9999"
-              title="Pursilahdenranta B 31"
+              href="#/link"
+              title="Pursilahdenranta"
             >
-              Pursilahdenranta B 31
+              Pursilahdenranta
             </a>
           </span>
         </div>
@@ -93,7 +93,7 @@ exports[`LeasesCard renders normally 1`] = `
       <h4
         class="text standard h4 m title"
       >
-        VENEPAIKKA
+        infoSectionTitle
       </h4>
       <section
         class="body"
@@ -104,17 +104,17 @@ exports[`LeasesCard renders normally 1`] = `
           <span
             class="label standard"
           >
-            Satama ja paikka:
+            addressLabel:
           </span>
           <span
             class="value left"
           >
             <a
               class="internalLink brand"
-              href="#/harbors/1234"
-              title="Telakkakatu 1 A 10"
+              href="#/link"
+              title="Telakkakatu 1"
             >
-              Telakkakatu 1 A 10
+              Telakkakatu 1
             </a>
           </span>
         </div>
