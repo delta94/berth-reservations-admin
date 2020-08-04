@@ -17,7 +17,7 @@ const BerthLeasesCard = ({ leases, handleShowContract }: BerthLeasesCardProps) =
       endDate: lease.endDate,
       startDate: lease.startDate,
       link: lease.harbor ? `/harbors/${lease.harbor.id}` : undefined,
-      address: `${lease.harbor?.name || ''} ${lease.pierIdentifier || ''} ${lease.berthNum}`,
+      address: [lease.harbor?.name || '', lease.pierIdentifier || '', lease.berthNum].filter(Boolean).join(' '),
     };
   });
 
