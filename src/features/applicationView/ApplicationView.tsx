@@ -18,8 +18,7 @@ import { CustomerGroup } from '../../@types/__generated__/globalTypes';
 import PageTitle from '../../common/pageTitle/PageTitle';
 import PageContent from '../../common/pageContent/PageContent';
 import ActionHistoryCard from '../../common/actionHistoryCard/ActionHistoryCard';
-import SimilarCustomersTableContainer from './SimilarCustomersTableContainer';
-import { INDIVIDUAL_APPLICATION_berthApplication as BERTH_APPLICATION } from './__generated__/INDIVIDUAL_APPLICATION';
+import SimilarCustomersTableContainer, { SimilarCustomersTableContainerProps } from './SimilarCustomersTableContainer';
 
 export enum SearchBy {
   FIRST_NAME = 'firstName',
@@ -39,7 +38,7 @@ export interface CustomerData {
 
 export interface ApplicationViewProps {
   applicationDetails: ApplicationDetailsProps;
-  berthApplication: BERTH_APPLICATION;
+  berthApplication: SimilarCustomersTableContainerProps['berthApplication'];
   customerProfile: CustomerProfileCardProps | null;
   leaseDetails: OfferCardProps['leaseDetails'] | null;
   refetchQueries: PureQueryOptions[] | string[];

@@ -26,7 +26,16 @@ import SimilarCustomersTable from './SimilarCustomersTable';
 import { INDIVIDUAL_APPLICATION_berthApplication as BERTH_APPLICATION } from './__generated__/INDIVIDUAL_APPLICATION';
 
 export interface SimilarCustomersTableContainerProps {
-  berthApplication: BERTH_APPLICATION;
+  berthApplication: {
+    id: BERTH_APPLICATION['id'];
+    firstName: BERTH_APPLICATION['firstName'];
+    lastName: BERTH_APPLICATION['lastName'];
+    address: BERTH_APPLICATION['address'];
+    email: BERTH_APPLICATION['email'];
+    phoneNumber: BERTH_APPLICATION['phoneNumber'];
+    zipCode: BERTH_APPLICATION['zipCode'];
+    municipality: BERTH_APPLICATION['municipality'];
+  };
 }
 
 const SimilarCustomersTableContainer = ({ berthApplication }: SimilarCustomersTableContainerProps) => {
