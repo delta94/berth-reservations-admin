@@ -31,7 +31,6 @@ export const WINTER_STORAGE_AREAS_QUERY = gql`
                 }
               }
             }
-            servicemapId
             streetAddress
             wwwUrl
             zipCode

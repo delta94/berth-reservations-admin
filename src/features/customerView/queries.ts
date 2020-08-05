@@ -80,23 +80,46 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
           }
         }
       }
+      winterStorageLeases {
+        edges {
+          node {
+            id
+            status
+            startDate
+            endDate
+            place {
+              number
+              winterStorageSection {
+                properties {
+                  identifier
+                  area {
+                    id
+                    properties {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
       orders {
         edges {
           node {
             dueDate
             totalPrice
-            totalTaxPercentage
             price
-            taxPercentage
             status
             orderLines {
               edges {
                 node {
                   product {
                     service
+                    priceUnit
+                    priceValue
                   }
                   price
-                  taxPercentage
                 }
               }
             }
@@ -121,6 +144,18 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
               ... on WinterStorageLeaseNode {
                 startDate
                 endDate
+                place {
+                  winterStorageSection {
+                    properties {
+                      area {
+                        id
+                        properties {
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }

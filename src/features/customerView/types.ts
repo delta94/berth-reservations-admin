@@ -2,6 +2,7 @@ import {
   ApplicationStatus,
   BoatCertificateType,
   OrderStatus,
+  PriceUnits,
   ProductServiceType,
 } from '../../@types/__generated__/globalTypes';
 import { INDIVIDUAL_CUSTOMER_boatTypes as IndividualCustomerBoatType } from './__generated__/INDIVIDUAL_CUSTOMER';
@@ -75,19 +76,31 @@ export type Application = {
   accessibilityRequired: boolean;
 };
 
-export type Lease = {
+type LeaseBase = {
   id: string;
-  harbor: { id: string; name: string } | null;
-  berthNum: string | number;
-  pierIdentifier: string | null;
   startDate: string;
   endDate: string;
 };
 
+export type BerthLease = LeaseBase & {
+  harbor: { id: string; name: string } | null;
+  berthNum: string | number;
+  pierIdentifier: string | null;
+};
+
+export type WinterStorageLease = LeaseBase & {
+  winterStorageArea: { id: string; name: string } | null;
+  placeNum: string | number;
+  sectionIdentifier: string | null;
+};
+
+export type Lease = BerthLease | WinterStorageLease;
+
 export type OrderLine = {
   product: ProductServiceType;
   price: number;
-  taxPercentage: number;
+  priceUnit: PriceUnits;
+  priceValue: number;
 };
 
 export type Bill = {
@@ -98,9 +111,7 @@ export type Bill = {
   };
   dueDate: string;
   totalPrice: number;
-  totalPriceTaxPercentage: number;
   basePrice: number;
-  basePriceTaxPercentage: number;
   orderLines: OrderLine[];
 };
 
@@ -112,6 +123,10 @@ export type BerthBill = Bill & {
   };
 };
 
-export type WinterStorageBill = Bill;
+export type WinterStorageBill = Bill & {
+  winterStorageInformation: {
+    winterStorageAreaName: string;
+  };
+};
 
 export type BoatType = Omit<IndividualCustomerBoatType, '__typename__'>;

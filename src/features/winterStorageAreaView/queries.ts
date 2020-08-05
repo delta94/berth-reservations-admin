@@ -5,7 +5,6 @@ export const INDIVIDUAL_WINTER_STORAGE_AREA_QUERY = gql`
     winterStorageArea(id: $id) {
       properties {
         name
-        servicemapId
         zipCode
         municipality
         streetAddress

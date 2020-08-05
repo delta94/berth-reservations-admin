@@ -11,9 +11,11 @@ import CardBody from '../../common/cardBody/CardBody';
 import ApplicationsCard from './applicationsCard/ApplicationsCard';
 import BillsCard from './billsCard/BillsCard';
 import BillingHistoryCard from './billingHistoryCard/BillingHistoryCard';
-import LeasesCard from './leasesCard/LeasesCard';
 import BoatsCard from './boatsCard/BoatsCard';
 import { Application, Bill, Boat, Lease } from './types';
+import BerthLeasesCard from './leasesCard/BerthLeasesCard';
+import WinterStorageLeasesCard from './leasesCard/WinterStorageLeasesCard';
+import { isBerthLease, isWinterStorageLease } from './utils';
 
 export interface CustomerViewProps {
   applications: Application[];
@@ -54,12 +56,14 @@ const CustomerView = ({
 
         <BillingHistoryCard bills={bills} onClick={(bill) => setOpenBill(bill)} />
 
-        <LeasesCard handleShowContract={(id) => alert(`Here's your contract for ${id}`)} leases={leases} />
-
-        <Card>
-          <CardHeader title="TALVISÄILYTYSPAIKAT" />
-          <CardBody>Placeholder</CardBody>
-        </Card>
+        <BerthLeasesCard
+          leases={leases.filter(isBerthLease)}
+          handleShowContract={(id) => alert(`Here's your contract for ${id}`)}
+        />
+        <WinterStorageLeasesCard
+          leases={leases.filter(isWinterStorageLease)}
+          handleShowContract={(id) => alert(`Here's your contract for ${id}`)}
+        />
 
         <BoatsCard boats={boats} onEdit={(boat) => setBoatToEdit(boat)} />
       </div>

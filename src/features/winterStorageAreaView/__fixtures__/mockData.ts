@@ -5,7 +5,6 @@ export const mockData: INDIVIDUAL_WINTER_STORAGE_AREA = {
   winterStorageArea: {
     properties: {
       name: 'WS Area 1',
-      servicemapId: '1908109',
       zipCode: '00100',
       municipality: 'Helsinki',
       streetAddress: '',

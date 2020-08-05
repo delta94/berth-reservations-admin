@@ -14,7 +14,6 @@ export type WinterStorageArea = {
   zipCode: string;
   municipality: string | null;
   streetAddress: string | null;
-  servicemapId: string;
   wwwUrl: string;
   imageFile: string | null;
   maps: Map[];

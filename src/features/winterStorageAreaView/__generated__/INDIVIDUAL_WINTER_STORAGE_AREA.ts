@@ -98,7 +98,6 @@ export interface INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sec
 export interface INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties {
   __typename: "WinterStorageAreaProperties";
   name: string | null;
-  servicemapId: string | null;
   zipCode: string;
   municipality: string | null;
   streetAddress: string | null;
