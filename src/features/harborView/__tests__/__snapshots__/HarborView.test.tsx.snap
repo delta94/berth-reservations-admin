@@ -540,32 +540,32 @@ exports[`HarborView renders normally 1`] = `
                 >
                   <div>
                     <button
-                      class="pierButton pierButtonSelected"
+                      class="button buttonSelected"
                     >
                       Kaikki
                     </button>
                     <button
-                      class="pierButton"
+                      class="button"
                     >
                       Laituri 10
                     </button>
                     <button
-                      class="pierButton"
+                      class="button"
                     >
                       Laituri 11 a
                     </button>
                     <button
-                      class="pierButton"
+                      class="button"
                     >
                       Laituri 11 b
                     </button>
                     <button
-                      class="pierButton"
+                      class="button"
                     >
                       Laituri 19 a
                     </button>
                     <button
-                      class="pierButton"
+                      class="button"
                     >
                       Laituri 19 b
                     </button>
