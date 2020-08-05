@@ -1,5 +1,5 @@
 import { CUSTOMERS } from '../__generated__/CUSTOMERS';
-import { ContactMethod, ServiceType } from '../../../@types/__generated__/globalTypes';
+import { ContactMethod, CustomerGroup, ServiceType } from '../../../@types/__generated__/globalTypes';
 
 export const customersResponse: CUSTOMERS = {
   profiles: {
@@ -21,6 +21,7 @@ export const customersResponse: CUSTOMERS = {
           },
           primaryPhone: { phone: '+358 494817677', __typename: 'PhoneNode' },
           primaryEmail: { email: 'tellervo@foobar.com', __typename: 'EmailNode' },
+          customerGroup: CustomerGroup.PRIVATE,
           serviceConnections: {
             edges: [
               {

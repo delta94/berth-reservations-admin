@@ -5,6 +5,7 @@ import { HashRouter } from 'react-router-dom';
 import CustomerProfileCard, { CustomerProfileCardProps } from '../CustomerProfileCard';
 import { privateCustomerProfile } from '../../privateCustomerDetails/__fixtures__/mockData';
 import { organizationCustomerProfile } from '../../organizationCustomerDetails/__fixtures__/mockData';
+import { CustomerGroup } from '../../../@types/__generated__/globalTypes';
 
 describe('CustomerProfileCard', () => {
   const getWrapper = (props: CustomerProfileCardProps) =>
@@ -56,6 +57,7 @@ describe('CustomerProfileCard', () => {
         lastName: 'Käyttäjä',
         organization: organizationCustomerProfile.organization,
         language: null,
+        customerGroup: CustomerGroup.COMPANY,
       });
       expect(wrapper.render()).toMatchSnapshot();
     });

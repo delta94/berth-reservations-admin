@@ -1,5 +1,5 @@
 import { CUSTOMERS } from '../__generated__/CUSTOMERS';
-import { ContactMethod, OrganizationType } from '../../../@types/__generated__/globalTypes';
+import { ContactMethod, CustomerGroup, OrganizationType } from '../../../@types/__generated__/globalTypes';
 
 export const dummyCustomers: CUSTOMERS = {
   profiles: {
@@ -42,6 +42,7 @@ export const dummyCustomers: CUSTOMERS = {
             __typename: 'BerthLeaseNodeConnection',
             edges: [],
           },
+          customerGroup: CustomerGroup.PRIVATE,
         },
       },
       {
@@ -88,6 +89,7 @@ export const dummyCustomers: CUSTOMERS = {
             __typename: 'BerthLeaseNodeConnection',
             edges: [],
           },
+          customerGroup: CustomerGroup.PRIVATE,
         },
       },
     ],

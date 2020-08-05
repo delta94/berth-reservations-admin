@@ -6,6 +6,7 @@ import {
   getProductTax,
   getPriceUnits,
   getOrderStatusTKey,
+  getCustomerGroupKey,
 } from '../translations';
 import {
   PeriodType,
@@ -13,6 +14,7 @@ import {
   AdditionalProductTaxEnum,
   PriceUnits,
   OrderStatus,
+  CustomerGroup,
 } from '../../../@types/__generated__/globalTypes';
 import { formatPercentage } from '../format';
 
@@ -116,6 +118,18 @@ describe('translations', () => {
       const unit = getPriceUnits(randomValue);
 
       expect(unit).toBe(randomValue);
+    });
+  });
+
+  describe('getCustomerGroupKey', () => {
+    it('should resolve key', () => {
+      const key = getCustomerGroupKey(CustomerGroup.COMPANY);
+      expect(key).toBe('common.customerGroups.COMPANY');
+    });
+
+    it('should fallback to PRIVATE in case of null', () => {
+      const key = getCustomerGroupKey(null);
+      expect(key).toBe('common.customerGroups.PRIVATE');
     });
   });
 });

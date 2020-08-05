@@ -28,6 +28,7 @@ export const FILTERED_CUSTOMERS_QUERY = gql`
           id
           firstName
           lastName
+          customerGroup
           primaryAddress {
             address
             postalCode
@@ -92,6 +93,7 @@ export const INDIVIDUAL_APPLICATION_QUERY = gql`
         invoicingType
         lastName
         id
+        customerGroup
         organization {
           address
           businessId

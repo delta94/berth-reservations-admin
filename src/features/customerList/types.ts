@@ -1,4 +1,4 @@
-import { OrganizationType } from '../../@types/__generated__/globalTypes';
+import { CustomerGroup, OrganizationType } from '../../@types/__generated__/globalTypes';
 
 export interface MessageTemplate {
   id: string;
@@ -36,6 +36,7 @@ export interface CustomerData {
   boats: CustomerListBoat[];
   applications: CustomerListApplication[];
   berthLeases: CustomerListBerthLeases[];
+  customerGroup: CustomerGroup | null;
 }
 
 export interface CustomerListBerthLeases {

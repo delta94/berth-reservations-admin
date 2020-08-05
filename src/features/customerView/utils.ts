@@ -28,7 +28,8 @@ export const getCustomerProfile = (profile: CUSTOMER_PROFILE): CustomerProfileCa
       primaryPhone: profile.primaryPhone?.phone,
       primaryEmail: profile.primaryEmail?.email,
       language: profile.language,
-      ssn: '-', // TODO
+      ssn: '-', // TODO,
+      customerGroup: profile.customerGroup,
     },
     ...(profile.organization && {
       organization: profile.organization,

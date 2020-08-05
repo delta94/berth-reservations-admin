@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { HashRouter } from 'react-router-dom';
 
 import ApplicationDetails, { ApplicationDetailsProps } from '../ApplicationDetails';
-import { ApplicationStatus } from '../../../@types/__generated__/globalTypes';
+import { ApplicationStatus, CustomerGroup, Language } from '../../../@types/__generated__/globalTypes';
 import { PrivateCustomerDetailsProps } from '../../privateCustomerDetails/PrivateCustomerDetails';
 import { OrganizationCustomerDetailsProps } from '../../organizationCustomerDetails/OrganizationCustomerDetails';
 
@@ -55,6 +55,7 @@ const privateCustomerProfile: PrivateCustomerDetailsProps = {
   },
   primaryEmail: 'test@example.com',
   primaryPhone: '0504391742',
+  language: Language.FINNISH,
 };
 
 const organizationCustomerProfile: OrganizationCustomerDetailsProps = {
@@ -66,6 +67,7 @@ const organizationCustomerProfile: OrganizationCustomerDetailsProps = {
     name: 'Liikeyritys Oy',
     postalCode: '00100',
   },
+  customerGroup: CustomerGroup.COMPANY,
 };
 
 const lease: ApplicationDetailsProps['lease'] = {

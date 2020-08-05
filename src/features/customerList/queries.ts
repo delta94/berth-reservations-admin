@@ -28,6 +28,7 @@ export const CUSTOMERS_QUERY = gql`
           lastName
           nickname
           comment
+          customerGroup
           organization {
             name
             address

@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { InvoicingType, OrganizationType, Language, BoatCertificateType, LeaseStatus, OrderStatus, ProductServiceType, PriceUnits, ApplicationStatus } from "./../../../@types/__generated__/globalTypes";
+import { InvoicingType, CustomerGroup, OrganizationType, Language, BoatCertificateType, LeaseStatus, OrderStatus, ProductServiceType, PriceUnits, ApplicationStatus } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: INDIVIDUAL_CUSTOMER
@@ -376,6 +376,7 @@ export interface INDIVIDUAL_CUSTOMER_profile {
   invoicingType: InvoicingType | null;
   lastName: string;
   id: string;
+  customerGroup: CustomerGroup | null;
   organization: INDIVIDUAL_CUSTOMER_profile_organization | null;
   primaryAddress: INDIVIDUAL_CUSTOMER_profile_primaryAddress | null;
   primaryEmail: INDIVIDUAL_CUSTOMER_profile_primaryEmail | null;

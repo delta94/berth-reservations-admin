@@ -19,6 +19,7 @@ export const emptyMockProfile: CUSTOMER_PROFILE = {
   primaryAddress: null,
   primaryEmail: null,
   primaryPhone: null,
+  customerGroup: null,
 };
 
 export const mockBills: (BerthBill | WinterStorageBill)[] = [

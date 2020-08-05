@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { OrganizationType } from "./../../../@types/__generated__/globalTypes";
+import { CustomerGroup, OrganizationType } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: FILTERED_CUSTOMERS
@@ -90,6 +90,7 @@ export interface FILTERED_CUSTOMERS_profiles_edges_node {
   id: string;
   firstName: string;
   lastName: string;
+  customerGroup: CustomerGroup | null;
   primaryAddress: FILTERED_CUSTOMERS_profiles_edges_node_primaryAddress | null;
   organization: FILTERED_CUSTOMERS_profiles_edges_node_organization | null;
   berthLeases: FILTERED_CUSTOMERS_profiles_edges_node_berthLeases | null;

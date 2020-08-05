@@ -6,7 +6,7 @@ import {
 } from './__generated__/INDIVIDUAL_APPLICATION';
 import { CustomerProfileCardProps } from '../../common/customerProfileCard/CustomerProfileCard';
 import { CustomerData } from './ApplicationView';
-import { BerthApplicationLanguage, Language } from '../../@types/__generated__/globalTypes';
+import { BerthApplicationLanguage, CustomerGroup, Language } from '../../@types/__generated__/globalTypes';
 import { FILTERED_CUSTOMERS } from './__generated__/FILTERED_CUSTOMERS';
 
 export const getCustomerProfile = (profile: CUSTOMER_PROFILE): CustomerProfileCardProps => {
@@ -20,6 +20,7 @@ export const getCustomerProfile = (profile: CUSTOMER_PROFILE): CustomerProfileCa
     ssn: '-', // TODO
     language: profile.language,
     showCustomerNameAsLink: true,
+    customerGroup: profile.customerGroup,
   };
 };
 
@@ -65,6 +66,7 @@ const getApplicantDetails = (berthApplication: BERTH_APPLICATION): CustomerProfi
     companyName,
     language,
   } = berthApplication;
+  const customerGroup = businessId ? CustomerGroup.COMPANY : CustomerGroup.PRIVATE;
 
   return {
     firstName: firstName,
@@ -77,6 +79,7 @@ const getApplicantDetails = (berthApplication: BERTH_APPLICATION): CustomerProfi
     primaryPhone: phoneNumber,
     primaryEmail: email,
     language: mapBerthApplicationLanguageToLanguage(language),
+    customerGroup,
     ...(businessId && {
       organization: {
         businessId,
@@ -130,7 +133,7 @@ export const getFilteredCustomersData = (data?: FILTERED_CUSTOMERS): CustomerDat
 
   return data.profiles.edges.reduce<CustomerData[]>((acc, edge) => {
     if (!edge?.node) return acc;
-    const { id, firstName, lastName, primaryAddress, berthLeases } = edge.node;
+    const { id, firstName, lastName, primaryAddress, berthLeases, customerGroup } = edge.node;
 
     const berths = berthLeases?.edges
       .map((edge) => edge?.node?.berth?.pier.properties?.harbor.properties?.name)
@@ -144,6 +147,7 @@ export const getFilteredCustomersData = (data?: FILTERED_CUSTOMERS): CustomerDat
         city: primaryAddress?.city,
         address: primaryAddress?.address,
         berths,
+        customerGroup,
       },
     ];
   }, []);

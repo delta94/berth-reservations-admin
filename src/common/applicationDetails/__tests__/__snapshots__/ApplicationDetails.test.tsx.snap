@@ -318,6 +318,28 @@ exports[`ApplicationDetails renders normally with a lease 1`] = `
           <span
             class="label standard"
           >
+            Asiointikieli:
+          </span>
+          <span
+            class="value left"
+          >
+            Suomi
+          </span>
+        </div>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
             Huomiot:
           </span>
           <span
@@ -1402,6 +1424,28 @@ exports[`ApplicationDetails renders normally with organization customer applican
           <span
             class="label standard"
           >
+            Asiointikieli:
+          </span>
+          <span
+            class="value left"
+          >
+            Suomi
+          </span>
+        </div>
+      </section>
+    </article>
+    <article
+      class="section"
+    >
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
             Huomiot:
           </span>
           <span
@@ -1895,6 +1939,20 @@ exports[`ApplicationDetails renders normally with private customer applicant 1`]
             class="value left"
           >
             Yksityinen
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Asiointikieli:
+          </span>
+          <span
+            class="value left"
+          >
+            Suomi
           </span>
         </div>
       </section>
