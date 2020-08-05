@@ -2,12 +2,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Notification } from 'hds-react';
 
-import Table, { Column } from '../../common/table/Table';
-import styles from './applicationView.module.scss';
-import CustomersTableTools, { CustomersTableToolsProps } from './customersTableTools/CustomersTableTools';
-import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
-import { CustomerData, SearchBy } from './ApplicationView';
-import { getCustomerGroupKey } from '../../common/utils/translations';
+import Table, { Column } from '../../../common/table/Table';
+import styles from '../applicationView.module.scss';
+import CustomersTableTools, { CustomersTableToolsProps } from './tableTools/CustomersTableTools';
+import Pagination, { PaginationProps } from '../../../common/pagination/Pagination';
+import { CustomerData, SearchBy } from '../ApplicationView';
+import { getCustomerGroupKey } from '../../../common/utils/translations';
 
 export interface SimilarCustomersTableProps {
   data: CustomerData[];

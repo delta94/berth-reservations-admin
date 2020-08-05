@@ -3,9 +3,9 @@ import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { TextInput } from 'hds-react';
 
-import Select from '../../../common/select/Select';
+import Select from '../../../../common/select/Select';
 import styles from './customersTableTools.module.scss';
-import Button from '../../../common/button/Button';
+import Button from '../../../../common/button/Button';
 
 export interface CustomersTableToolsProps<T> {
   className?: string;

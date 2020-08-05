@@ -18,7 +18,9 @@ import { CustomerGroup } from '../../@types/__generated__/globalTypes';
 import PageTitle from '../../common/pageTitle/PageTitle';
 import PageContent from '../../common/pageContent/PageContent';
 import ActionHistoryCard from '../../common/actionHistoryCard/ActionHistoryCard';
-import SimilarCustomersTableContainer, { SimilarCustomersTableContainerProps } from './SimilarCustomersTableContainer';
+import SimilarCustomersTableContainer, {
+  SimilarCustomersTableContainerProps,
+} from './similarCustomersTable/SimilarCustomersTableContainer';
 
 export enum SearchBy {
   FIRST_NAME = 'firstName',

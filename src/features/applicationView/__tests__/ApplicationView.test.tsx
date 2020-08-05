@@ -39,7 +39,7 @@ const mockProps: ApplicationViewProps = {
 };
 
 // SimilarCustomersTableContainer is mocked to limit the test scope
-jest.mock('../SimilarCustomersTableContainer', () => {
+jest.mock('../similarCustomersTable/SimilarCustomersTableContainer', () => {
   const SimilarCustomersTableContainer = () => <div>SimilarCustomersTableContainer</div>;
 
   return {

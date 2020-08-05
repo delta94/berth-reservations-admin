@@ -3,27 +3,27 @@ import { useTranslation } from 'react-i18next';
 import { useLazyQuery, useMutation } from '@apollo/react-hooks';
 import { useDebounce } from 'use-debounce';
 
-import { getFilteredCustomersData } from './utils';
+import { getFilteredCustomersData } from '../utils';
 import {
   UPDATE_BERTH_APPLICATION,
   UPDATE_BERTH_APPLICATIONVariables as UPDATE_BERTH_APPLICATION_VARS,
-} from './__generated__/UPDATE_BERTH_APPLICATION';
-import { CREATE_NEW_PROFILE_MUTATION, UPDATE_BERTH_APPLICATION_MUTATION } from './mutations';
-import { FILTERED_CUSTOMERS_QUERY, INDIVIDUAL_APPLICATION_QUERY } from './queries';
+} from '../__generated__/UPDATE_BERTH_APPLICATION';
+import { CREATE_NEW_PROFILE_MUTATION, UPDATE_BERTH_APPLICATION_MUTATION } from '../mutations';
+import { FILTERED_CUSTOMERS_QUERY, INDIVIDUAL_APPLICATION_QUERY } from '../queries';
 import {
   CREATE_NEW_PROFILE,
   CREATE_NEW_PROFILEVariables as CREATE_NEW_PROFILE_VARS,
-} from './__generated__/CREATE_NEW_PROFILE';
+} from '../__generated__/CREATE_NEW_PROFILE';
 import {
   FILTERED_CUSTOMERS,
   FILTERED_CUSTOMERSVariables as FILTERED_CUSTOMERS_VARS,
-} from './__generated__/FILTERED_CUSTOMERS';
-import { SearchBy } from './ApplicationView';
-import { usePrevious } from '../../common/utils/usePrevious';
-import { usePagination } from '../../common/utils/usePagination';
-import { useBackendSorting } from '../../common/utils/useBackendSorting';
+} from '../__generated__/FILTERED_CUSTOMERS';
+import { SearchBy } from '../ApplicationView';
+import { usePrevious } from '../../../common/utils/usePrevious';
+import { usePagination } from '../../../common/utils/usePagination';
+import { useBackendSorting } from '../../../common/utils/useBackendSorting';
 import SimilarCustomersTable from './SimilarCustomersTable';
-import { INDIVIDUAL_APPLICATION_berthApplication as BERTH_APPLICATION } from './__generated__/INDIVIDUAL_APPLICATION';
+import { INDIVIDUAL_APPLICATION_berthApplication as BERTH_APPLICATION } from '../__generated__/INDIVIDUAL_APPLICATION';
 
 export interface SimilarCustomersTableContainerProps {
   berthApplication: {

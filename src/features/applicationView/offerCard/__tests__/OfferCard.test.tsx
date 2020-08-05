@@ -2,8 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { HashRouter } from 'react-router-dom';
 
-import OfferCard from './OfferCard';
-import { BerthMooringType } from '../../../@types/__generated__/globalTypes';
+import OfferCard from '../OfferCard';
+import { BerthMooringType } from '../../../../@types/__generated__/globalTypes';
 
 describe('OfferCard', () => {
   const getWrapper = (
