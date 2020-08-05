@@ -11,6 +11,7 @@ import { getOrderStatusTKey, getProductServiceTKey } from '../../../common/utils
 import Text from '../../../common/text/Text';
 import styles from './billModal.module.scss';
 import { Bill } from '../types';
+import { PriceUnits } from '../../../@types/__generated__/globalTypes';
 
 interface BillModalProps extends Omit<ModalProps, 'children' | 'isOpen'> {
   bill?: Bill;
@@ -72,12 +73,16 @@ const BillModal = ({ bill, toggleModal, ...modalProps }: BillModalProps) => {
       <Section>
         <LabelValuePair
           label={t('customerView.customerBill.basicFee')}
-          value={formatPrice(bill.basePrice, i18n.language, bill.basePriceTaxPercentage)}
+          value={formatPrice(bill.basePrice, i18n.language)}
         />
         {bill.orderLines.map((orderLine, id) => (
           <LabelValuePair
             label={t(getProductServiceTKey(orderLine.product))}
-            value={formatPrice(orderLine.price, i18n.language, orderLine.taxPercentage)}
+            value={
+              orderLine.priceUnit === PriceUnits.PERCENTAGE
+                ? formatPrice(orderLine.price, i18n.language, orderLine.priceValue)
+                : formatPrice(orderLine.price, i18n.language)
+            }
             key={id}
           />
         ))}
@@ -88,7 +93,7 @@ const BillModal = ({ bill, toggleModal, ...modalProps }: BillModalProps) => {
       <Section>
         <LabelValuePair
           label={t('customerView.customerBill.total')}
-          value={formatPrice(bill.totalPrice, i18n.language, bill.totalPriceTaxPercentage)}
+          value={formatPrice(bill.totalPrice, i18n.language)}
         />
       </Section>
 

@@ -338,11 +338,6 @@ exports[`CustomerView renders normally 1`] = `
           TALVISÄILYTYSPAIKAT
         </span>
       </div>
-      <div
-        class="cardBody"
-      >
-        Placeholder
-      </div>
        
     </div>
     <div

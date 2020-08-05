@@ -1,5 +1,5 @@
 import ApolloClient from 'apollo-client';
-import { InMemoryCache } from 'apollo-cache-inmemory';
+import { InMemoryCache, IntrospectionFragmentMatcher } from 'apollo-cache-inmemory';
 import { setContext } from 'apollo-link-context';
 import { createUploadLink } from 'apollo-upload-client';
 import { onError } from 'apollo-link-error';
@@ -21,7 +21,15 @@ const typeDefs = gql`
   }
 `;
 
-const cache = new InMemoryCache();
+const cache = new InMemoryCache({
+  fragmentMatcher: new IntrospectionFragmentMatcher({
+    introspectionQueryResultData: {
+      __schema: {
+        types: [],
+      },
+    },
+  }),
+});
 cache.writeData({ data: { currentUser: null } });
 
 const authLink = setContext((_, { headers }) => {
