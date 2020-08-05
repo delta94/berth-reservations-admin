@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils getWinterStoragePlaces should parse places from data correctly 1`] = `
+Array [
+  Object {
+    "id": "V2ludGVyU3RvcmFnZVBsYWNlTm9kZTo0YzUzZTY3NC0zMmFjLTRkNTEtYmQzMC0wNTcyMWNjMjUyMTE=",
+    "identifier": "-",
+    "isActive": true,
+    "leases": Array [
+      Object {
+        "customer": Object {
+          "firstName": "Heikki",
+          "id": "UHJvZmlsZU5vZGU6NWNjYzgyNDUtNmRiOS00YTRiLWI5NTEtNWYxNDQ5YTY5NzY2",
+          "lastName": "Kinnunen",
+        },
+        "endDate": "2021-06-10",
+        "isActive": false,
+        "startDate": "2020-09-15",
+        "status": "DRAFTED",
+      },
+    ],
+    "length": 5,
+    "number": 1,
+    "width": 3,
+  },
+  Object {
+    "id": "V2ludGVyU3RvcmFnZVBsYWNlTm9kZTo3OTkzYzAxOC0zMTMwLTRjNTItYjA3Ni1mMGZlN2Q5YjRmYTE=",
+    "identifier": "-",
+    "isActive": true,
+    "leases": Array [],
+    "length": 5,
+    "number": 2,
+    "width": 3,
+  },
+]
+`;

@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 
 import { INDIVIDUAL_WINTER_STORAGE_AREA_QUERY } from './queries';
 import { INDIVIDUAL_WINTER_STORAGE_AREA } from './__generated__/INDIVIDUAL_WINTER_STORAGE_AREA';
-import { getIndividualWinterStorageArea, getCustomers } from './utils';
+import { getIndividualWinterStorageArea, getWinterStoragePlaces, getWinterStorageSections } from './utils';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import WinterStorageAreaView from './WinterStorageAreaView';
 
@@ -15,11 +15,12 @@ const WinterStorageAreaViewContainer = () => {
   });
 
   const winterStorageArea = getIndividualWinterStorageArea(data);
-  const customers = getCustomers(data);
+  const places = getWinterStoragePlaces(data);
+  const sections = getWinterStorageSections(data);
 
   if (loading || !winterStorageArea) return <LoadingSpinner isLoading={true} />;
 
-  return <WinterStorageAreaView winterStorageArea={winterStorageArea} customers={customers} />;
+  return <WinterStorageAreaView winterStorageArea={winterStorageArea} places={places} sections={sections} />;
 };
 
 export default WinterStorageAreaViewContainer;

@@ -8,14 +8,15 @@ import WinterStorageAreaCard from '../../common/winterStorageAreaCard/WinterStor
 import ContactInformationCard from '../../common/contactInformationCard/ContactInformationCard';
 import ActionHistoryCard from '../../common/actionHistoryCard/ActionHistoryCard';
 import WinterStorageAreaViewTable from './WinterStorageAreaViewTable';
-import { WinterStorageArea, WinterStorageCustomer } from './types';
+import { WinterStorageArea, WinterStoragePlace, WinterStorageSection } from './types';
 
-export interface WinterStorageAreaViewPageProps {
+interface WinterStorageAreaViewPageProps {
   winterStorageArea: WinterStorageArea;
-  customers: WinterStorageCustomer[];
+  places: WinterStoragePlace[];
+  sections: WinterStorageSection[];
 }
 
-const WinterStorageAreaView = ({ winterStorageArea, customers }: WinterStorageAreaViewPageProps) => {
+const WinterStorageAreaView = ({ winterStorageArea, places, sections }: WinterStorageAreaViewPageProps) => {
   const { t } = useTranslation();
   return (
     <PageContent>
@@ -29,7 +30,7 @@ const WinterStorageAreaView = ({ winterStorageArea, customers }: WinterStorageAr
           zipCode={winterStorageArea.zipCode}
         />
         <ActionHistoryCard />
-        <WinterStorageAreaViewTable data={customers} className={styles.fullWidth} />
+        <WinterStorageAreaViewTable places={places} sections={sections} className={styles.fullWidth} />
       </div>
     </PageContent>
   );

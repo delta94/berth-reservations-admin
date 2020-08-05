@@ -616,11 +616,13 @@
   },
   "winterStorageAreaView": {
     "title": "Talvisäilytysalue",
-    "table": {
       "tableHeaders": {
-        "name": "Asiakas"
+        "customer": "Asiakas",
+        "identifier": "Osasto",
+        "number": "Paikka",
+        "length": "Pituus",
+        "width": "Leveys"
       }
-    }
   },
   "actionHistoryCard": {
     "title": "Toimintahistoria",

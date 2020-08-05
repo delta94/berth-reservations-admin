@@ -14,7 +14,7 @@
   justify-content: space-between;
 }
 
-.pierButton {
+.button {
   text-transform: uppercase;
   padding: units(1);
   margin: 0 units(1);
@@ -24,7 +24,7 @@
   padding: units(1);
 }
 
-.pierButtonSelected {
+.buttonSelected {
   font-weight: bold;
   border-bottom: units(0.25) solid $white;
 }

@@ -20,7 +20,28 @@ export type WinterStorageArea = {
   numberOfCustomers: number;
 };
 
-export type WinterStorageCustomer = {
+export type Lease = {
+  customer: {
+    id: string;
+    firstName: string;
+    lastName: string;
+  };
+  status: string;
+  startDate: string;
+  endDate: string;
+  isActive: boolean;
+};
+
+export type WinterStoragePlace = {
   id: string;
-  name: string;
+  identifier: string;
+  number: number;
+  isActive: boolean;
+  width: number;
+  length: number;
+  leases?: Lease[];
+};
+
+export type WinterStorageSection = {
+  identifier: string;
 };
