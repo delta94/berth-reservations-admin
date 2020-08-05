@@ -67,18 +67,18 @@ export const getBerthApplicationData = (data: BERTH_APPLICATIONS | undefined): A
           boatLength,
           boatType,
           boatWeight,
-          harborChoices = [],
+          harborChoices,
           accessibilityRequired,
         } = application.node;
 
         let leaseProps: Lease | null = null;
         if (lease?.berth?.pier.properties?.harbor) {
           leaseProps = {
-            berthNum: lease.berth.number.toString(10) || '',
+            berthNum: lease.berth.number.toString(10),
             harborId: lease.berth.pier.properties.harbor.id,
             harborName: lease.berth.pier.properties.harbor.properties?.name || '',
             id: lease.id,
-            pierIdentifier: lease.berth.pier.properties?.identifier || '',
+            pierIdentifier: lease.berth.pier.properties.identifier,
           };
         }
 

@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils getBerthApplicationData should return berth application data 1`] = `
+Array [
+  Object {
+    "accessibilityRequired": false,
+    "berthSwitch": Object {
+      "berthNum": "1",
+      "harborId": "123",
+      "harborName": "Testisatama",
+      "pierIdentifier": "Testilaituri",
+      "reason": "Syy",
+    },
+    "boatDraught": 5,
+    "boatLength": 6,
+    "boatModel": "Marine",
+    "boatName": "Cama la Yano",
+    "boatRegistrationNumber": "A 12345",
+    "boatType": "Purjevene",
+    "boatWeight": 5,
+    "boatWidth": 0,
+    "createdAt": "2020-07-16",
+    "customerId": "1",
+    "harborChoices": Array [
+      Object {
+        "__typename": "HarborChoiceType",
+        "harbor": "1",
+        "harborName": "1",
+        "priority": 0,
+      },
+    ],
+    "id": "0",
+    "isSwitch": true,
+    "lease": Object {
+      "berthNum": "0",
+      "harborId": "0",
+      "harborName": "Harbor",
+      "id": "0",
+      "pierIdentifier": "Testilaituri",
+    },
+    "municipality": "Helsinki",
+    "queue": null,
+    "status": "PENDING",
+  },
+  Object {
+    "accessibilityRequired": false,
+    "berthSwitch": null,
+    "boatDraught": 5,
+    "boatLength": 6,
+    "boatModel": "Marine",
+    "boatName": "Cama la Yano II",
+    "boatRegistrationNumber": "B 12345",
+    "boatType": "Purjevene",
+    "boatWeight": 5,
+    "boatWidth": 0,
+    "createdAt": "2020-07-16",
+    "customerId": "1",
+    "harborChoices": Array [
+      Object {
+        "__typename": "HarborChoiceType",
+        "harbor": "1",
+        "harborName": "1",
+        "priority": 0,
+      },
+    ],
+    "id": "1",
+    "isSwitch": false,
+    "lease": null,
+    "municipality": "Helsinki",
+    "queue": null,
+    "status": "PENDING",
+  },
+]
+`;
