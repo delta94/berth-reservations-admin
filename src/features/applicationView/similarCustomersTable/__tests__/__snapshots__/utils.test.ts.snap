@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils getFilteredCustomersData should map filtered customers data 1`] = `
+Array [
+  Object {
+    "address": "Testikatu 1",
+    "berths": "Test Harbor, ",
+    "city": "Helsinki",
+    "customerGroup": "PRIVATE",
+    "id": "MOCK-PROFILE",
+    "name": "Testinen, Testi",
+  },
+]
+`;
