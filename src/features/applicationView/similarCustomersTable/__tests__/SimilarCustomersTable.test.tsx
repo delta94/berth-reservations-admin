@@ -1,5 +1,6 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React, { ChangeEvent, ChangeEventHandler } from 'react';
+import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 
 import SimilarCustomersTable, { SimilarCustomersTableProps } from '../SimilarCustomersTable';
 import { SearchBy } from '../../ApplicationView';
@@ -23,9 +24,28 @@ const mockProps: SimilarCustomersTableProps = {
   pagination: { pageCount: 1 },
 };
 
+const mockData: SimilarCustomersTableProps['data'] = [
+  {
+    address: 'Testiosoite 1',
+    berths: null,
+    city: 'Helsinki',
+    id: '1',
+    name: 'Testi Ykkönen',
+    customerGroup: null,
+  },
+  {
+    address: 'Testiosoite 2',
+    berths: 'Testisatama',
+    city: 'Helsinki',
+    id: '2',
+    name: 'Testi Kakkonen',
+    customerGroup: CustomerGroup.COMPANY,
+  },
+];
+
 describe('SimilarCustomersTable', () => {
   const getWrapper = (props?: Partial<SimilarCustomersTableProps>) =>
-    shallow(<SimilarCustomersTable {...mockProps} {...props} />);
+    mount(<SimilarCustomersTable {...mockProps} {...props} />);
 
   it('renders normally with minimum props', () => {
     const wrapper = getWrapper();
@@ -35,26 +55,35 @@ describe('SimilarCustomersTable', () => {
 
   it('renders normally with data', () => {
     const wrapper = getWrapper({
-      data: [
-        {
-          address: 'Testiosoite 1',
-          berths: null,
-          city: 'Helsinki',
-          id: '1',
-          name: 'Testi Ykkönen',
-          customerGroup: null,
-        },
-        {
-          address: 'Testiosoite 2',
-          berths: null,
-          city: 'Helsinki',
-          id: '2',
-          name: 'Testi Kakkonen',
-          customerGroup: CustomerGroup.COMPANY,
-        },
-      ],
+      data: mockData,
     });
 
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('if no row is selected, CustomersTableTools prop handleLinkCustomer is undefined', () => {
+    const wrapper = getWrapper({
+      data: mockData,
+    });
+
+    expect(wrapper.find('CustomersTableTools').prop('handleLinkCustomer')).toEqual(undefined);
+  });
+
+  it('if a row is selected, CustomersTableTools prop handleLinkCustomer is set', async () => {
+    const handleLinkCustomer = jest.fn();
+    const wrapper = getWrapper({
+      handleLinkCustomer,
+      data: mockData,
+    });
+
+    const onChange = wrapper.find('input#radio-1').prop('onChange') as ChangeEventHandler<HTMLInputElement>;
+    await act(async () => {
+      await onChange({ target: {} } as ChangeEvent<HTMLInputElement>);
+    });
+    wrapper.update();
+    expect(wrapper.find('input#radio-1').prop('checked')).toEqual(true);
+
+    wrapper.find('CustomersTableTools').find('Button').at(0).simulate('click');
+    expect(handleLinkCustomer).toHaveBeenCalledWith('1');
   });
 });

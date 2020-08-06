@@ -95,7 +95,7 @@ Array [
           class="Dropdown-module_menu__3rei6"
           id="hds-menu"
           role="listbox"
-          style="max-height:calc(var(--dropdown-height) * 5)"
+          style="max-height: calc(var(--dropdown-height) * 5);"
           tabindex="-1"
         />
       </div>
@@ -109,6 +109,7 @@ Array [
             class="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
             id="searchSimilarCustomers"
             type="text"
+            value=""
           />
         </div>
       </div>
@@ -140,7 +141,7 @@ Array [
       <div
         class="table primary"
         role="table"
-        style="min-width:900px"
+        style="min-width: 900px;"
       >
         <div
           class="stickyHeaders"
@@ -148,13 +149,13 @@ Array [
           <div
             class="header mainHeader"
             role="row"
-            style="display:flex;flex:1 0 auto;min-width:0px"
+            style="display: flex; flex: 1 0 auto; min-width: 0px;"
           >
             <div
               class="headerCell"
               colspan="6"
               role="columnheader"
-              style="box-sizing:border-box;flex:900 0 auto;min-width:0px;width:900px"
+              style="box-sizing: border-box; flex: 900 0 auto; min-width: 0px; width: 900px;"
             >
               LIITÄ HAKEMUS OLEMASSA OLEVAAN ASIAKASPROFIILIIN
             </div>
@@ -162,13 +163,13 @@ Array [
           <div
             class="header"
             role="row"
-            style="display:flex;flex:1 0 auto;min-width:0px"
+            style="display: flex; flex: 1 0 auto; min-width: 0px;"
           >
             <div
               class="headerCell radioSelector"
               colspan="1"
               role="columnheader"
-              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
             >
                
             </div>
@@ -176,7 +177,7 @@ Array [
               class="headerCell"
               colspan="1"
               role="columnheader"
-              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
               title="Toggle SortBy"
             >
               Nimi
@@ -207,7 +208,7 @@ Array [
               class="headerCell"
               colspan="1"
               role="columnheader"
-              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
             >
               Asiakasryhmä
             </div>
@@ -215,7 +216,7 @@ Array [
               class="headerCell"
               colspan="1"
               role="columnheader"
-              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
             >
               Kotikunta
             </div>
@@ -223,7 +224,7 @@ Array [
               class="headerCell"
               colspan="1"
               role="columnheader"
-              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
             >
               Jakeluosoite
             </div>
@@ -231,7 +232,7 @@ Array [
               class="headerCell"
               colspan="1"
               role="columnheader"
-              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
             >
               Venepaikat
             </div>
@@ -245,16 +246,16 @@ Array [
           >
             <div
               role="row"
-              style="display:flex;flex:1 0 auto;min-width:0px"
+              style="display: flex; flex: 1 0 auto; min-width: 0px;"
             >
               <div
                 class="tableCell radioSelector"
                 role="cell"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
               >
                 <div
                   class="RadioButton-module_radioButton__cl9Gp radio-button_hds-radio-button__qM8AJ radioButton"
-                  style="cursor:pointer"
+                  style="cursor: pointer;"
                 >
                   <input
                     aria-checked="false"
@@ -262,6 +263,7 @@ Array [
                     id="radio-1"
                     title="Toggle Row Selected"
                     type="radio"
+                    value=""
                   />
                   <label
                     class="RadioButton-module_label__g_pgE radio-button_hds-radio-button__label__1e-Rr"
@@ -272,35 +274,35 @@ Array [
               <div
                 class="tableCell"
                 role="cell"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
               >
                 Testi Ykkönen
               </div>
               <div
                 class="tableCell"
                 role="cell"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
               >
                 Yksityinen
               </div>
               <div
                 class="tableCell"
                 role="cell"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
               >
                 Helsinki
               </div>
               <div
                 class="tableCell"
                 role="cell"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
               >
                 Testiosoite 1
               </div>
               <div
                 class="tableCell"
                 role="cell"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
               >
                 <div
                   class="berthsCell"
@@ -313,16 +315,16 @@ Array [
           >
             <div
               role="row"
-              style="display:flex;flex:1 0 auto;min-width:0px"
+              style="display: flex; flex: 1 0 auto; min-width: 0px;"
             >
               <div
                 class="tableCell radioSelector"
                 role="cell"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
               >
                 <div
                   class="RadioButton-module_radioButton__cl9Gp radio-button_hds-radio-button__qM8AJ radioButton"
-                  style="cursor:pointer"
+                  style="cursor: pointer;"
                 >
                   <input
                     aria-checked="false"
@@ -330,6 +332,7 @@ Array [
                     id="radio-2"
                     title="Toggle Row Selected"
                     type="radio"
+                    value=""
                   />
                   <label
                     class="RadioButton-module_label__g_pgE radio-button_hds-radio-button__label__1e-Rr"
@@ -340,39 +343,42 @@ Array [
               <div
                 class="tableCell"
                 role="cell"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
               >
                 Testi Kakkonen
               </div>
               <div
                 class="tableCell"
                 role="cell"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
               >
                 Yritys
               </div>
               <div
                 class="tableCell"
                 role="cell"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
               >
                 Helsinki
               </div>
               <div
                 class="tableCell"
                 role="cell"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
               >
                 Testiosoite 2
               </div>
               <div
                 class="tableCell"
                 role="cell"
-                style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
               >
                 <div
                   class="berthsCell"
-                />
+                  title="Testisatama"
+                >
+                  Testisatama
+                </div>
               </div>
             </div>
           </div>
@@ -571,7 +577,7 @@ Array [
           class="Dropdown-module_menu__3rei6"
           id="hds-menu"
           role="listbox"
-          style="max-height:calc(var(--dropdown-height) * 5)"
+          style="max-height: calc(var(--dropdown-height) * 5);"
           tabindex="-1"
         />
       </div>
@@ -585,6 +591,7 @@ Array [
             class="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
             id="searchSimilarCustomers"
             type="text"
+            value=""
           />
         </div>
       </div>
@@ -616,7 +623,7 @@ Array [
       <div
         class="table primary"
         role="table"
-        style="min-width:900px"
+        style="min-width: 900px;"
       >
         <div
           class="stickyHeaders"
@@ -624,13 +631,13 @@ Array [
           <div
             class="header mainHeader"
             role="row"
-            style="display:flex;flex:1 0 auto;min-width:0px"
+            style="display: flex; flex: 1 0 auto; min-width: 0px;"
           >
             <div
               class="headerCell"
               colspan="6"
               role="columnheader"
-              style="box-sizing:border-box;flex:900 0 auto;min-width:0px;width:900px"
+              style="box-sizing: border-box; flex: 900 0 auto; min-width: 0px; width: 900px;"
             >
               LIITÄ HAKEMUS OLEMASSA OLEVAAN ASIAKASPROFIILIIN
             </div>
@@ -638,13 +645,13 @@ Array [
           <div
             class="header"
             role="row"
-            style="display:flex;flex:1 0 auto;min-width:0px"
+            style="display: flex; flex: 1 0 auto; min-width: 0px;"
           >
             <div
               class="headerCell radioSelector"
               colspan="1"
               role="columnheader"
-              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
             >
                
             </div>
@@ -652,7 +659,7 @@ Array [
               class="headerCell"
               colspan="1"
               role="columnheader"
-              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px;cursor:pointer"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
               title="Toggle SortBy"
             >
               Nimi
@@ -683,7 +690,7 @@ Array [
               class="headerCell"
               colspan="1"
               role="columnheader"
-              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
             >
               Asiakasryhmä
             </div>
@@ -691,7 +698,7 @@ Array [
               class="headerCell"
               colspan="1"
               role="columnheader"
-              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
             >
               Kotikunta
             </div>
@@ -699,7 +706,7 @@ Array [
               class="headerCell"
               colspan="1"
               role="columnheader"
-              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
             >
               Jakeluosoite
             </div>
@@ -707,7 +714,7 @@ Array [
               class="headerCell"
               colspan="1"
               role="columnheader"
-              style="box-sizing:border-box;flex:150 0 auto;min-width:0px;width:150px"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
             >
               Venepaikat
             </div>

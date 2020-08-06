@@ -32,7 +32,7 @@ const SimilarCustomersTable = ({
 
   const columns: ColumnType[] = [
     {
-      Header: t('applicationView.customersTable.name') || '',
+      Header: t('applicationView.customersTable.name') as string,
       sortType: 'toString',
       accessor: 'name',
     },
@@ -42,17 +42,17 @@ const SimilarCustomersTable = ({
         const customerGroupKey = getCustomerGroupKey(value);
         return t(customerGroupKey);
       },
-      Header: t('customerList.tableHeaders.group') || '',
+      Header: t('customerList.tableHeaders.group') as string,
       disableSortBy: true,
       accessor: 'customerGroup',
     },
     {
-      Header: t('applicationView.customersTable.municipality') || '',
+      Header: t('applicationView.customersTable.municipality') as string,
       disableSortBy: true,
       accessor: 'city',
     },
     {
-      Header: t('applicationView.customersTable.address') || '',
+      Header: t('applicationView.customersTable.address') as string,
       disableSortBy: true,
       accessor: 'address',
     },
@@ -62,7 +62,7 @@ const SimilarCustomersTable = ({
           {cell.value}
         </div>
       ),
-      Header: t('applicationView.customersTable.berths') || '',
+      Header: t('applicationView.customersTable.berths') as string,
       disableSortBy: true,
       accessor: 'berths',
     },
