@@ -21,9 +21,11 @@ import { OrderStatus } from '../../@types/__generated__/globalTypes';
 import Modal from '../../common/modal/Modal';
 import BoatEditForm from './forms/boatForm/BoatEditForm';
 import BillModal from './billModal/BillModal';
+import BoatCreateForm from './forms/boatForm/BoatCreateForm';
 
 const CustomerViewContainer = () => {
   const [boatToEdit, setBoatToEdit] = useState<Boat | null>();
+  const [creatingBoat, setCreatingBoat] = useState<boolean>(false);
   const [openBill, setOpenBill] = useState<Bill>();
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
@@ -62,6 +64,7 @@ const CustomerViewContainer = () => {
         openBills={openBills}
         setBoatToEdit={setBoatToEdit}
         setOpenBill={setOpenBill}
+        onClickCreateBoat={() => setCreatingBoat(true)}
       />
 
       {boatToEdit && (
@@ -76,6 +79,16 @@ const CustomerViewContainer = () => {
           />
         </Modal>
       )}
+
+      <Modal isOpen={creatingBoat} toggleModal={() => setCreatingBoat(false)}>
+        <BoatCreateForm
+          ownerId={data.profile.id}
+          boatTypes={boatTypes}
+          onCancel={() => setCreatingBoat(false)}
+          onSubmit={() => setCreatingBoat(false)}
+          refetchQueries={[{ query: INDIVIDUAL_CUSTOMER_QUERY, variables: { id } }]}
+        />
+      </Modal>
 
       <BillModal bill={openBill} toggleModal={() => setOpenBill(undefined)} />
     </>

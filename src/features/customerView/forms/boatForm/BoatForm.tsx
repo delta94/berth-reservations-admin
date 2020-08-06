@@ -74,7 +74,7 @@ const BoatForm = ({ onCancel, onDelete, onSubmit, isSubmitting, initialValues, b
         draught: initialValues.draught ? replaceDotWithComma(String(initialValues.draught)) : '',
         weight: initialValues.weight ? replaceDotWithComma(String(initialValues.weight)) : '',
       }
-    : ({} as BoatFormValues);
+    : (({ boatType: boatTypes[0] } as unknown) as BoatFormValues);
 
   return (
     <Formik
