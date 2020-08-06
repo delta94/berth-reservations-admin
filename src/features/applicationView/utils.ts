@@ -5,9 +5,7 @@ import {
   INDIVIDUAL_APPLICATION_boatTypes as BOAT_TYPES,
 } from './__generated__/INDIVIDUAL_APPLICATION';
 import { CustomerProfileCardProps } from '../../common/customerProfileCard/CustomerProfileCard';
-import { CustomerData } from './ApplicationView';
 import { BerthApplicationLanguage, CustomerGroup, Language } from '../../@types/__generated__/globalTypes';
-import { FILTERED_CUSTOMERS } from './__generated__/FILTERED_CUSTOMERS';
 
 export const getCustomerProfile = (profile: CUSTOMER_PROFILE): CustomerProfileCardProps => {
   return {
@@ -40,7 +38,9 @@ interface BerthSwitch {
   reason: string | null;
 }
 
-const mapBerthApplicationLanguageToLanguage = (berthApplicationLanguage: BerthApplicationLanguage): Language | null => {
+export const mapBerthApplicationLanguageToLanguage = (
+  berthApplicationLanguage: BerthApplicationLanguage
+): Language | null => {
   switch (berthApplicationLanguage) {
     case BerthApplicationLanguage.FI:
       return Language.FINNISH;
@@ -96,14 +96,27 @@ export const getApplicationDetailsData = (
   berthApplication: BERTH_APPLICATION,
   boatTypes: BOAT_TYPES[]
 ): ApplicationDetailsProps & Required<Pick<ApplicationDetailsProps, 'applicant'>> => {
-  const harborChoices = berthApplication.harborChoices || [];
+  const {
+    accessibilityRequired,
+    boatDraught,
+    boatLength,
+    boatModel,
+    boatName,
+    boatRegistrationNumber,
+    boatWeight,
+    boatWidth,
+    createdAt,
+    harborChoices,
+    id,
+    status,
+  } = berthApplication;
   const lease: Lease | null = berthApplication.lease
     ? {
-        harborId: berthApplication.lease.berth?.pier.properties?.harbor.id || '',
-        harborName: berthApplication.lease.berth?.pier.properties?.harbor.properties?.name || '',
+        harborId: berthApplication.lease.berth.pier.properties?.harbor.id || '',
+        harborName: berthApplication.lease.berth.pier.properties?.harbor.properties?.name || '',
         id: berthApplication.lease.id,
-        berthNum: berthApplication.lease.berth?.number.toString(10) || '',
-        pierIdentifier: berthApplication.lease.berth?.pier.properties?.identifier || '',
+        berthNum: berthApplication.lease.berth.number.toString(10),
+        pierIdentifier: berthApplication.lease.berth.pier.properties?.identifier || '',
       }
     : null;
   const berthSwitch: BerthSwitch | null = berthApplication.berthSwitch
@@ -117,38 +130,23 @@ export const getApplicationDetailsData = (
     : null;
 
   return {
-    ...berthApplication,
-    customerId: berthApplication.customer?.id,
+    accessibilityRequired,
     applicant: getApplicantDetails(berthApplication),
     berthSwitch,
-    queue: null,
-    harborChoices,
-    lease,
+    boatDraught,
+    boatLength,
+    boatModel,
+    boatName,
+    boatRegistrationNumber,
     boatType: boatTypes.find(({ id }) => id === berthApplication.boatType)?.name,
+    boatWeight,
+    boatWidth,
+    createdAt,
+    customerId: berthApplication.customer?.id,
+    harborChoices: harborChoices || [],
+    id,
+    lease,
+    queue: null,
+    status,
   };
-};
-
-export const getFilteredCustomersData = (data?: FILTERED_CUSTOMERS): CustomerData[] => {
-  if (!data?.profiles) return [];
-
-  return data.profiles.edges.reduce<CustomerData[]>((acc, edge) => {
-    if (!edge?.node) return acc;
-    const { id, firstName, lastName, primaryAddress, berthLeases, customerGroup } = edge.node;
-
-    const berths = berthLeases?.edges
-      .map((edge) => edge?.node?.berth?.pier.properties?.harbor.properties?.name)
-      .join(', ');
-
-    return [
-      ...acc,
-      {
-        id,
-        name: `${lastName}, ${firstName}`,
-        city: primaryAddress?.city,
-        address: primaryAddress?.address,
-        berths,
-        customerGroup,
-      },
-    ];
-  }, []);
 };
