@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditForm renders noData message when there is no data 1`] = `
+<div
+  class="editForm"
+>
+  <div
+    class="Notification-module_notification__2hN3H notification_hds-notification__2DQPN Notification-module_notification__2hN3H notification_hds-notification__2DQPN"
+  >
+    <div
+      class="Notification-module_label__1bhNu notification_hds-notification__label__2t1lR"
+    >
+      <span
+        aria-hidden="true"
+        class="Notification-module_icon__1ans7 notification_hds-icon__29HQM"
+      >
+        <svg
+          class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Notification-module_iconInfo__2KdZz undefined"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            fill="none"
+            fill-rule="evenodd"
+          >
+            <path
+              d="M0 0h24v24H0z"
+            />
+            <path
+              d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 2a8 8 0 100 16 8 8 0 000-16zm1 6v6.5h2V18H9v-1.5h2v-5H9V10h4zm-1.187-4a1.312 1.312 0 110 2.625 1.312 1.312 0 010-2.625z"
+              fill="currentColor"
+            />
+          </g>
+        </svg>
+      </span>
+      <span
+        class="Notification-module_labelText__1qBt6 helpers_text-bold__1mCMR helpers_text-md__2Td0C"
+      >
+        Ei tietoja
+      </span>
+    </div>
+    <div
+      class="Notification-module_bodyText__2seBK notification_hds-notification__body__3cobH helpers_text-body__1PMI3"
+    >
+      Ei tietoja
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EditForm renders normally 1`] = `
+<form
+  class="editForm"
+>
+  <div>
+    <h4
+      class="text brand h4 m uppercase"
+    >
+      Lisäpalvelut
+    </h4>
+    <ul
+      class="list standard noBullets"
+    >
+      <li
+        class="listItem"
+      >
+        <div
+          class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz"
+        >
+          <input
+            aria-checked="false"
+            class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
+            id="MOCK-ADDITIONAL-PRODUCT"
+            name="MOCK-ADDITIONAL-PRODUCT"
+            type="checkbox"
+            value=""
+          />
+          <label
+            class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
+            for="MOCK-ADDITIONAL-PRODUCT"
+          >
+            Pysäköintilupa, Kausi
+          </label>
+        </div>
+        <span>
+          350,00 €
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="buttons"
+  >
+    <button
+      class="Button-module_button__3wgee button_hds-button__2A0je Button-module_secondary__399Vd button_hds-button--secondary__1NOWS Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0"
+      type="button"
+    >
+      <span
+        class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+      >
+        Peruuta
+      </span>
+    </button>
+    <button
+      class="Button-module_button__3wgee button_hds-button__2A0je Button-module_primary__3bo_T button_hds-button--primary__2NVvO Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0"
+      type="submit"
+    >
+      <span
+        class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+      >
+        Tallenna
+      </span>
+    </button>
+  </div>
+</form>
+`;

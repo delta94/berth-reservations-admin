@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik } from 'formik';
-import { Checkbox } from 'hds-react';
+import { Checkbox, Notification } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { PureQueryOptions } from 'apollo-client';
@@ -63,7 +63,14 @@ const EditForm: React.FC<EditFormProps> = ({
         <LoadingSpinner isLoading={loading} />
       </div>
     );
-  if (!data?.additionalProducts) return <div className={styles.editForm}>{t('common.notification.noData')}</div>;
+  if (!data?.additionalProducts)
+    return (
+      <div className={styles.editForm}>
+        <Notification labelText={t('common.notification.noData.label')}>
+          {t('common.notification.noData.description')}
+        </Notification>
+      </div>
+    );
 
   const initialValues = data.additionalProducts.edges.reduce<Values>((acc, edge) => {
     if (!edge?.node) return acc;
