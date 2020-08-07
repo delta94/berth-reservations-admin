@@ -1,4 +1,4 @@
-import { InvoicingType, Language, OrganizationType } from '../../../@types/__generated__/globalTypes';
+import { CustomerGroup, InvoicingType, Language } from '../../../@types/__generated__/globalTypes';
 
 export const organizationCustomerProfile = {
   comment: 'Testikäyttäjä',
@@ -11,7 +11,6 @@ export const organizationCustomerProfile = {
     businessId: '1234567-8',
     city: 'Helsinki',
     name: 'Liikeyritys Oy',
-    organizationType: OrganizationType.COMPANY,
     postalCode: '00100',
   },
   primaryAddress: {
@@ -23,4 +22,5 @@ export const organizationCustomerProfile = {
   primaryPhone: '0504391742',
   language: Language.FINNISH,
   ssn: '010101A1234',
+  customerGroup: CustomerGroup.COMPANY,
 };

@@ -4,11 +4,14 @@ import { HashRouter } from 'react-router-dom';
 
 import OrganizationCustomerDetails, { OrganizationCustomerDetailsProps } from '../OrganizationCustomerDetails';
 import { organizationCustomerProfile as mockData } from '../__fixtures__/mockData';
+import { CustomerGroup, Language } from '../../../@types/__generated__/globalTypes';
 
 const mockProps: OrganizationCustomerDetailsProps = {
   firstName: mockData.firstName,
   lastName: mockData.lastName,
   organization: mockData.organization,
+  customerGroup: CustomerGroup.COMPANY,
+  language: Language.FINNISH,
 };
 
 describe('OrganizationCustomerDetails', () => {

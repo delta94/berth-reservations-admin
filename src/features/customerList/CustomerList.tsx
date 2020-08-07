@@ -7,11 +7,11 @@ import { CustomerData, MessageFormValues } from './types';
 import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
 import CustomerListTableTools, { CustomerListTableToolsProps } from './tableTools/CustomerListTableTools';
 import InternalLink from '../../common/internalLink/InternalLink';
-import { OrganizationType } from '../../@types/__generated__/globalTypes';
 import { formatDate } from '../../common/utils/format';
 import CustomerDetails from './customerDetails/CustomerDetails';
 import { getSelectedRowIds } from '../../common/utils/getSelectedRowIds';
 import PageContent from '../../common/pageContent/PageContent';
+import { getCustomerGroupKey } from '../../common/utils/translations';
 
 export enum SearchBy {
   FIRST_NAME = 'firstName',
@@ -51,12 +51,11 @@ const CustomerList = ({
     {
       Cell: ({ cell }) => {
         const { value } = cell;
-        return value?.organizationType
-          ? t([`common.organizationTypes.${value.organizationType as OrganizationType}`])
-          : t([`common.privateCustomer`]);
+        const key = getCustomerGroupKey(value);
+        return t(key);
       },
       Header: t('customerList.tableHeaders.group') || '',
-      accessor: 'organization',
+      accessor: 'customerGroup',
       disableSortBy: true,
       width: COLUMN_WIDTH.S,
     },
@@ -111,13 +110,13 @@ const CustomerList = ({
               city={row.original.organization ? row.original.organization.city : row.original.city}
               phone={row.original.phone}
               email={row.original.email}
-              organizationType={row.original.organization?.organizationType}
               berths={row.original.berthLeases}
               winterStoragePlaces={[]}
               boats={row.original.boats}
               applications={row.original.applications}
               bills={[]}
               comment={row.original.comment}
+              customerGroup={row.original.customerGroup}
             />
           );
         }}

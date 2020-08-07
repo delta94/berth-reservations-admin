@@ -8,12 +8,12 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
       invoicingType
       lastName
       id
+      customerGroup
       organization {
         address
         businessId
         city
         name
-        organizationType
         postalCode
       }
       primaryAddress {

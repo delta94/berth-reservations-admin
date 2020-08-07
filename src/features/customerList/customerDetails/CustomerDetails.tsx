@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Grid from '../../../common/grid/Grid';
 import Section from '../../../common/section/Section';
 import Text from '../../../common/text/Text';
-import { OrganizationType } from '../../../@types/__generated__/globalTypes';
+import { CustomerGroup } from '../../../@types/__generated__/globalTypes';
 import {
   CustomerListApplication,
   CustomerListBerthLeases,
@@ -13,6 +13,7 @@ import {
   CustomerListWinterStoragePlaces,
 } from '../types';
 import { formatDate } from '../../../common/utils/format';
+import { getCustomerGroupKey } from '../../../common/utils/translations';
 
 export interface CustomerDetailsProps {
   name: string;
@@ -27,7 +28,7 @@ export interface CustomerDetailsProps {
   applications: CustomerListApplication[];
   bills: CustomerListBill[];
   comment: string | null;
-  organizationType?: OrganizationType;
+  customerGroup: CustomerGroup | null;
 }
 
 const CustomerDetails = ({
@@ -43,9 +44,10 @@ const CustomerDetails = ({
   applications,
   bills,
   comment,
-  organizationType,
+  customerGroup,
 }: CustomerDetailsProps) => {
   const { t, i18n } = useTranslation();
+  const customerGroupKey = getCustomerGroupKey(customerGroup);
 
   return (
     <div>
@@ -62,7 +64,7 @@ const CustomerDetails = ({
             <br />
             {email}
             <br />
-            {organizationType ? t([`common.organizationTypes.${organizationType}`]) : t([`common.privateCustomer`])}
+            {t(customerGroupKey)}
           </Section>
         </div>
         <div>

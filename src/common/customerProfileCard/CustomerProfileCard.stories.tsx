@@ -3,7 +3,7 @@ import React from 'react';
 import { boolean, withKnobs } from '@storybook/addon-knobs';
 
 import CustomerProfileCard from './CustomerProfileCard';
-import { InvoicingType, Language, OrganizationType } from '../../@types/__generated__/globalTypes';
+import { CustomerGroup, InvoicingType, Language } from '../../@types/__generated__/globalTypes';
 
 export default {
   component: CustomerProfileCard,
@@ -56,8 +56,8 @@ const organizationCustomerProps = {
     city: 'Helsinki',
     name: 'Venekuljetukset Oy',
     postalCode: '00100',
-    organizationType: OrganizationType.COMPANY,
   },
+  customerGroup: CustomerGroup.COMPANY,
 };
 
 export const organizationCustomer = () => (

@@ -55,6 +55,14 @@ export enum ContactMethod {
   SMS = "SMS",
 }
 
+export enum CustomerGroup {
+  COMPANY = "COMPANY",
+  INTERNAL = "INTERNAL",
+  NON_BILLABLE = "NON_BILLABLE",
+  OTHER = "OTHER",
+  PRIVATE = "PRIVATE",
+}
+
 export enum InvoicingType {
   DIGITAL_INVOICE = "DIGITAL_INVOICE",
   ONLINE_PAYMENT = "ONLINE_PAYMENT",
@@ -80,13 +88,6 @@ export enum OrderStatus {
   PAID = "PAID",
   REJECTED = "REJECTED",
   WAITING = "WAITING",
-}
-
-export enum OrganizationType {
-  COMPANY = "COMPANY",
-  INTERNAL = "INTERNAL",
-  NON_BILLABLE = "NON_BILLABLE",
-  OTHER = "OTHER",
 }
 
 export enum PeriodType {

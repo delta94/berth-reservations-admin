@@ -17,11 +17,12 @@ import Chip from '../../common/chip/Chip';
 import { APPLICATION_STATUS } from '../../common/utils/consonants';
 import CustomerProfileCard, { CustomerProfileCardProps } from '../../common/customerProfileCard/CustomerProfileCard';
 import OfferCard, { OfferCardProps } from './offerCard/OfferCard';
-import { OrganizationType } from '../../@types/__generated__/globalTypes';
+import { CustomerGroup } from '../../@types/__generated__/globalTypes';
 import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
 import PageTitle from '../../common/pageTitle/PageTitle';
 import PageContent from '../../common/pageContent/PageContent';
 import ActionHistoryCard from '../../common/actionHistoryCard/ActionHistoryCard';
+import { getCustomerGroupKey } from '../../common/utils/translations';
 
 export enum SearchBy {
   FIRST_NAME = 'firstName',
@@ -36,7 +37,7 @@ export interface CustomerData {
   city?: string;
   address?: string;
   berths?: string | null;
-  organizationType?: OrganizationType;
+  customerGroup: CustomerGroup | null;
 }
 
 type ColumnType = Column<CustomerData> & { accessor: keyof CustomerData };
@@ -79,11 +80,12 @@ const ApplicationView = ({
     {
       Cell: ({ cell }) => {
         const { value } = cell;
-        return value ? t([`common.organizationTypes.${value as OrganizationType}`]) : t([`common.privateCustomer`]);
+        const customerGroupKey = getCustomerGroupKey(value);
+        return t(customerGroupKey);
       },
       Header: t('customerList.tableHeaders.group') || '',
       disableSortBy: true,
-      accessor: 'organizationType',
+      accessor: 'customerGroup',
     },
     {
       Header: t('applicationView.customersTable.municipality') || '',
