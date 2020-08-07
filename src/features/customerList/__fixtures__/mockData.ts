@@ -1,5 +1,5 @@
 import { CUSTOMERS } from '../__generated__/CUSTOMERS';
-import { ContactMethod, CustomerGroup, OrganizationType } from '../../../@types/__generated__/globalTypes';
+import { ContactMethod, CustomerGroup } from '../../../@types/__generated__/globalTypes';
 
 export const dummyCustomers: CUSTOMERS = {
   profiles: {
@@ -56,7 +56,6 @@ export const dummyCustomers: CUSTOMERS = {
           organization: {
             __typename: 'OrganizationNode',
             businessId: '1234567-8',
-            organizationType: OrganizationType.COMPANY,
             name: 'Virtanen Oy',
             address: 'Virtasentie 1',
             city: 'Helsinki',

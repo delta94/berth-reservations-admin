@@ -14,7 +14,6 @@ export const INDIVIDUAL_CUSTOMER_QUERY = gql`
         businessId
         city
         name
-        organizationType
         postalCode
       }
       primaryAddress {

@@ -1,4 +1,4 @@
-import { CustomerGroup, OrganizationType } from '../../@types/__generated__/globalTypes';
+import { CustomerGroup } from '../../@types/__generated__/globalTypes';
 
 export interface MessageTemplate {
   id: string;
@@ -17,7 +17,6 @@ export interface Organization {
   postalCode: string;
   city: string;
   businessId: string;
-  organizationType: OrganizationType;
 }
 
 export interface CustomerData {

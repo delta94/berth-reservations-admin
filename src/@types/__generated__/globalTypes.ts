@@ -90,13 +90,6 @@ export enum OrderStatus {
   WAITING = "WAITING",
 }
 
-export enum OrganizationType {
-  COMPANY = "COMPANY",
-  INTERNAL = "INTERNAL",
-  NON_BILLABLE = "NON_BILLABLE",
-  OTHER = "OTHER",
-}
-
 export enum PeriodType {
   MONTH = "MONTH",
   SEASON = "SEASON",

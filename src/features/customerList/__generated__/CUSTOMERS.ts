@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { CustomerGroup, OrganizationType, ServiceType, ContactMethod } from "./../../../@types/__generated__/globalTypes";
+import { CustomerGroup, ServiceType, ContactMethod } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: CUSTOMERS
@@ -16,7 +16,6 @@ export interface CUSTOMERS_profiles_edges_node_organization {
   postalCode: string;
   city: string;
   businessId: string;
-  organizationType: OrganizationType;
 }
 
 export interface CUSTOMERS_profiles_edges_node_primaryAddress {

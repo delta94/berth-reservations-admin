@@ -17,7 +17,7 @@ import Chip from '../../common/chip/Chip';
 import { APPLICATION_STATUS } from '../../common/utils/consonants';
 import CustomerProfileCard, { CustomerProfileCardProps } from '../../common/customerProfileCard/CustomerProfileCard';
 import OfferCard, { OfferCardProps } from './offerCard/OfferCard';
-import { CustomerGroup, OrganizationType } from '../../@types/__generated__/globalTypes';
+import { CustomerGroup } from '../../@types/__generated__/globalTypes';
 import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
 import PageTitle from '../../common/pageTitle/PageTitle';
 import PageContent from '../../common/pageContent/PageContent';
@@ -37,7 +37,6 @@ export interface CustomerData {
   city?: string;
   address?: string;
   berths?: string | null;
-  organizationType?: OrganizationType;
   customerGroup: CustomerGroup | null;
 }
 

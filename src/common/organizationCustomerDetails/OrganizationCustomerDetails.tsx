@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Section from '../section/Section';
 import LabelValuePair from '../labelValuePair/LabelValuePair';
 import InternalLink from '../internalLink/InternalLink';
-import { CustomerGroup, InvoicingType, Language, OrganizationType } from '../../@types/__generated__/globalTypes';
+import { CustomerGroup, InvoicingType, Language } from '../../@types/__generated__/globalTypes';
 import { getCustomerGroupKey } from '../utils/translations';
 
 export interface OrganizationCustomerDetailsProps {
@@ -19,7 +19,6 @@ export interface OrganizationCustomerDetailsProps {
     businessId: string;
     city: string;
     name: string;
-    organizationType?: OrganizationType;
     postalCode: string;
   };
   primaryAddress?: {
