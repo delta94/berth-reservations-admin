@@ -183,14 +183,14 @@ exports[`ApplicationListContainer renders normally 1`] = `
                   <input
                     aria-checked="false"
                     class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
-                    id="checkbox-0"
+                    id="checkbox-MOCK-APPLICATION-0"
                     title="Toggle Row Selected"
                     type="checkbox"
                     value=""
                   />
                   <label
                     class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
-                    for="checkbox-0"
+                    for="checkbox-MOCK-APPLICATION-0"
                   />
                 </div>
               </div>
@@ -201,7 +201,7 @@ exports[`ApplicationListContainer renders normally 1`] = `
               >
                 <a
                   class="internalLink brand"
-                  href="#/applications/0"
+                  href="#/applications/MOCK-APPLICATION-0"
                   title="Vaihtohakemus"
                 >
                   Vaihtohakemus
@@ -244,10 +244,10 @@ exports[`ApplicationListContainer renders normally 1`] = `
               >
                 <a
                   class="internalLink brand"
-                  href="#/harbors/0"
-                  title="Harbor Testilaituri 0"
+                  href="#/harbors/MOCK-HARBOR-0"
+                  title="Testisatama G 7"
                 >
-                  Harbor Testilaituri 0
+                  Testisatama G 7
                 </a>
               </div>
               <div
@@ -300,14 +300,14 @@ exports[`ApplicationListContainer renders normally 1`] = `
                   <input
                     aria-checked="false"
                     class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
-                    id="checkbox-1"
+                    id="checkbox-MOCK-APPLICATION-2"
                     title="Toggle Row Selected"
                     type="checkbox"
                     value=""
                   />
                   <label
                     class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
-                    for="checkbox-1"
+                    for="checkbox-MOCK-APPLICATION-2"
                   />
                 </div>
               </div>
@@ -318,7 +318,7 @@ exports[`ApplicationListContainer renders normally 1`] = `
               >
                 <a
                   class="internalLink brand"
-                  href="#/applications/1"
+                  href="#/applications/MOCK-APPLICATION-2"
                   title="Uusi hakemus"
                 >
                   Uusi hakemus
