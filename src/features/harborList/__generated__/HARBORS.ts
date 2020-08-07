@@ -42,6 +42,7 @@ export interface HARBORS_harbors_edges_node_properties {
   __typename: "HarborProperties";
   name: string | null;
   numberOfPlaces: number;
+  numberOfInactivePlaces: number;
   numberOfFreePlaces: number;
   streetAddress: string | null;
   zipCode: string;

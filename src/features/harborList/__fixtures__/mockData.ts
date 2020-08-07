@@ -23,6 +23,7 @@ export const mockData: HARBORS = {
             servicemapId: '41359',
             numberOfPlaces: 4,
             numberOfFreePlaces: 2,
+            numberOfInactivePlaces: 1,
             piers: {
               __typename: 'PierNodeConnection',
               edges: [
@@ -65,6 +66,7 @@ export const mockData: HARBORS = {
             servicemapId: '42225',
             numberOfPlaces: 4,
             numberOfFreePlaces: 2,
+            numberOfInactivePlaces: 1,
             piers: {
               __typename: 'PierNodeConnection',
               edges: [

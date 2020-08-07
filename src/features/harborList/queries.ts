@@ -9,6 +9,7 @@ export const HARBORS_QUERY = gql`
           properties {
             name
             numberOfPlaces
+            numberOfInactivePlaces
             numberOfFreePlaces
             streetAddress
             zipCode
