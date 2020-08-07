@@ -1,7 +1,4 @@
-import {
-  BERTH_APPLICATIONS,
-  BERTH_APPLICATIONS_berthApplications_edges as BerthApplicationNodeEdge,
-} from '../__generated__/BERTH_APPLICATIONS';
+import { BERTH_APPLICATIONS } from '../__generated__/BERTH_APPLICATIONS';
 import { getBerthApplicationData } from '../utils';
 import { ApplicationStatus } from '../../../@types/__generated__/globalTypes';
 

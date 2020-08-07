@@ -1,6 +1,7 @@
 import {
   INDIVIDUAL_WINTER_STORAGE_AREA,
   INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sections_edges_node_properties as SECTION_PROPERTIES,
+  // eslint-disable-next-line max-len
   INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sections_edges_node_properties_places_edges as WINTER_STORAGE_PLACES,
 } from './__generated__/INDIVIDUAL_WINTER_STORAGE_AREA';
 import { WinterStorageArea, Map, WinterStoragePlace, WinterStorageSection, Lease } from './types';
