@@ -280,14 +280,6 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
       <div
         class="cardBody"
       >
-        <h3
-          class="text standard h3"
-        >
-          WS Area 1
-        </h3>
-        <p>
-          00100 Helsinki
-        </p>
         <article
           class="section section"
         >
