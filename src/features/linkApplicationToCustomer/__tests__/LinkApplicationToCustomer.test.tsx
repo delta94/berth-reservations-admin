@@ -2,11 +2,11 @@ import React, { ChangeEvent, ChangeEventHandler } from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 
-import SimilarCustomersTable, { SimilarCustomersTableProps } from '../SimilarCustomersTable';
-import { SearchBy } from '../../ApplicationView';
-import { CustomerGroup } from '../../../../@types/__generated__/globalTypes';
+import LinkApplicationToCustomer, { LinkApplicationToCustomerProps } from '../LinkApplicationToCustomer';
+import { SearchBy } from '../../applicationView/ApplicationView';
+import { CustomerGroup } from '../../../@types/__generated__/globalTypes';
 
-const mockProps: SimilarCustomersTableProps = {
+const mockProps: LinkApplicationToCustomerProps = {
   customersTableTools: {
     className: '',
     searchBy: SearchBy.FIRST_NAME,
@@ -24,7 +24,7 @@ const mockProps: SimilarCustomersTableProps = {
   pagination: { pageCount: 1 },
 };
 
-const mockData: SimilarCustomersTableProps['data'] = [
+const mockData: LinkApplicationToCustomerProps['data'] = [
   {
     address: 'Testiosoite 1',
     berths: null,
@@ -43,9 +43,9 @@ const mockData: SimilarCustomersTableProps['data'] = [
   },
 ];
 
-describe('SimilarCustomersTable', () => {
-  const getWrapper = (props?: Partial<SimilarCustomersTableProps>) =>
-    mount(<SimilarCustomersTable {...mockProps} {...props} />);
+describe('LinkApplicationToCustomer', () => {
+  const getWrapper = (props?: Partial<LinkApplicationToCustomerProps>) =>
+    mount(<LinkApplicationToCustomer {...mockProps} {...props} />);
 
   it('renders normally with minimum props', () => {
     const wrapper = getWrapper();

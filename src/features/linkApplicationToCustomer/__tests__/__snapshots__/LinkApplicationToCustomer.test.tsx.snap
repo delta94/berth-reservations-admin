@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SimilarCustomersTable renders normally with data 1`] = `
+exports[`LinkApplicationToCustomer renders normally with data 1`] = `
 Array [
   <div
     class="fullWidth"
@@ -482,7 +482,7 @@ Array [
 ]
 `;
 
-exports[`SimilarCustomersTable renders normally with minimum props 1`] = `
+exports[`LinkApplicationToCustomer renders normally with minimum props 1`] = `
 Array [
   <div
     class="fullWidth"

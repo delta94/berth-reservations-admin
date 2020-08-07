@@ -38,13 +38,13 @@ const mockProps: ApplicationViewProps = {
   handleDeleteLease: jest.fn(),
 };
 
-// SimilarCustomersTableContainer is mocked to limit the test scope
-jest.mock('../similarCustomersTable/SimilarCustomersTableContainer', () => {
-  const SimilarCustomersTableContainer = () => <div>SimilarCustomersTableContainer</div>;
+// LinkApplicationToCustomer is mocked to limit the test scope
+jest.mock('../../linkApplicationToCustomer/LinkApplicationToCustomerContainer', () => {
+  const LinkApplicationToCustomerContainer = () => <div>LinkApplicationToCustomerContainer</div>;
 
   return {
     __esModule: true,
-    default: SimilarCustomersTableContainer,
+    default: LinkApplicationToCustomerContainer,
   };
 });
 
@@ -86,15 +86,15 @@ describe('ApplicationView', () => {
 
     expect(wrapper.find('CustomerProfileCard')).toHaveLength(1);
     expect(wrapper.find('ActionHistoryCard')).toHaveLength(1);
-    expect(wrapper.find('SimilarCustomersTableContainer')).toHaveLength(0);
+    expect(wrapper.find('LinkApplicationToCustomerContainer')).toHaveLength(0);
   });
 
-  it('renders SimilarCustomersTableContainer without "customerProfile" prop', () => {
+  it('renders LinkApplicationToCustomerContainer without "customerProfile" prop', () => {
     const wrapper = getWrapper();
 
     expect(wrapper.find('CustomerProfileCard')).toHaveLength(0);
     expect(wrapper.find('ActionHistoryCard')).toHaveLength(0);
-    expect(wrapper.find('SimilarCustomersTableContainer')).toHaveLength(1);
+    expect(wrapper.find('LinkApplicationToCustomerContainer')).toHaveLength(1);
   });
 
   it('does not render OfferCard without "leaseDetails" prop', () => {

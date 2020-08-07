@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { CustomerGroup } from "./../../../../@types/__generated__/globalTypes";
+import { CustomerGroup } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: FILTERED_CUSTOMERS

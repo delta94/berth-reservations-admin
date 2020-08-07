@@ -18,15 +18,15 @@ import {
   FILTERED_CUSTOMERS,
   FILTERED_CUSTOMERSVariables as FILTERED_CUSTOMERS_VARS,
 } from './__generated__/FILTERED_CUSTOMERS';
-import { SearchBy } from '../ApplicationView';
-import { usePrevious } from '../../../common/utils/usePrevious';
-import { usePagination } from '../../../common/utils/usePagination';
-import { useBackendSorting } from '../../../common/utils/useBackendSorting';
-import SimilarCustomersTable from './SimilarCustomersTable';
-import { INDIVIDUAL_APPLICATION_berthApplication as BERTH_APPLICATION } from '../__generated__/INDIVIDUAL_APPLICATION';
-import { INDIVIDUAL_APPLICATION_QUERY } from '../queries';
+import { SearchBy } from '../applicationView/ApplicationView';
+import { usePrevious } from '../../common/utils/usePrevious';
+import { usePagination } from '../../common/utils/usePagination';
+import { useBackendSorting } from '../../common/utils/useBackendSorting';
+import LinkApplicationToCustomer from './LinkApplicationToCustomer';
+import { INDIVIDUAL_APPLICATION_berthApplication as BERTH_APPLICATION } from '../applicationView/__generated__/INDIVIDUAL_APPLICATION';
+import { INDIVIDUAL_APPLICATION_QUERY } from '../applicationView/queries';
 
-export interface SimilarCustomersTableContainerProps {
+export interface LinkApplicationToCustomerContainerProps {
   berthApplication: {
     id: BERTH_APPLICATION['id'];
     firstName: BERTH_APPLICATION['firstName'];
@@ -39,7 +39,7 @@ export interface SimilarCustomersTableContainerProps {
   };
 }
 
-const SimilarCustomersTableContainer = ({ berthApplication }: SimilarCustomersTableContainerProps) => {
+const LinkApplicationToCustomerContainer = ({ berthApplication }: LinkApplicationToCustomerContainerProps) => {
   const { t } = useTranslation();
 
   const [searchBy, setSearchBy] = useState<SearchBy>(SearchBy.LAST_NAME);
@@ -129,7 +129,7 @@ const SimilarCustomersTableContainer = ({ berthApplication }: SimilarCustomersTa
   };
 
   return (
-    <SimilarCustomersTable
+    <LinkApplicationToCustomer
       data={filteredCustomersData}
       customersTableTools={{
         searchVal,
@@ -159,4 +159,4 @@ const SimilarCustomersTableContainer = ({ berthApplication }: SimilarCustomersTa
   );
 };
 
-export default SimilarCustomersTableContainer;
+export default LinkApplicationToCustomerContainer;

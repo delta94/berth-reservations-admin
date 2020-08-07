@@ -3,7 +3,7 @@ import {
   FILTERED_CUSTOMERS_profiles_edges as PROFILE_EDGE,
   FILTERED_CUSTOMERS_profiles_edges_node as PROFILE_NODE,
 } from './__generated__/FILTERED_CUSTOMERS';
-import { CustomerData } from '../ApplicationView';
+import { CustomerData } from '../applicationView/ApplicationView';
 
 export const getFilteredCustomersData = (data?: FILTERED_CUSTOMERS): CustomerData[] => {
   if (!data?.profiles) return [];

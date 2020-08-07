@@ -24,7 +24,7 @@ exports[`ApplicationView renders normally with minimum props 1`] = `
     </span>
   </div>
   <div>
-    SimilarCustomersTableContainer
+    LinkApplicationToCustomerContainer
   </div>
   <div
     class="card fullWidth"

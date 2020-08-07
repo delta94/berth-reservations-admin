@@ -2,14 +2,14 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Notification } from 'hds-react';
 
-import Table, { Column } from '../../../common/table/Table';
-import styles from '../applicationView.module.scss';
+import Table, { Column } from '../../common/table/Table';
+import styles from '../applicationView/applicationView.module.scss';
 import CustomersTableTools, { CustomersTableToolsProps } from './tableTools/CustomersTableTools';
-import Pagination, { PaginationProps } from '../../../common/pagination/Pagination';
-import { CustomerData, SearchBy } from '../ApplicationView';
-import { getCustomerGroupKey } from '../../../common/utils/translations';
+import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
+import { CustomerData, SearchBy } from '../applicationView/ApplicationView';
+import { getCustomerGroupKey } from '../../common/utils/translations';
 
-export interface SimilarCustomersTableProps {
+export interface LinkApplicationToCustomerProps {
   data: CustomerData[];
   customersTableTools: CustomersTableToolsProps<SearchBy>;
   loadingCustomers?: boolean;
@@ -20,19 +20,19 @@ export interface SimilarCustomersTableProps {
 
 type ColumnType = Column<CustomerData> & { accessor: keyof CustomerData };
 
-const SimilarCustomersTable = ({
+const LinkApplicationToCustomer = ({
   customersTableTools,
   loadingCustomers,
   pagination,
   onSortedColChange,
   handleLinkCustomer,
   data,
-}: SimilarCustomersTableProps) => {
+}: LinkApplicationToCustomerProps) => {
   const { t } = useTranslation();
 
   const columns: ColumnType[] = [
     {
-      Header: t('applicationView.customersTable.name') as string,
+      Header: t('linkApplicationToCustomer.name') as string,
       sortType: 'toString',
       accessor: 'name',
     },
@@ -42,17 +42,17 @@ const SimilarCustomersTable = ({
         const customerGroupKey = getCustomerGroupKey(value);
         return t(customerGroupKey);
       },
-      Header: t('customerList.tableHeaders.group') as string,
+      Header: t('linkApplicationToCustomer.customerGroup') as string,
       disableSortBy: true,
       accessor: 'customerGroup',
     },
     {
-      Header: t('applicationView.customersTable.municipality') as string,
+      Header: t('linkApplicationToCustomer.municipality') as string,
       disableSortBy: true,
       accessor: 'city',
     },
     {
-      Header: t('applicationView.customersTable.address') as string,
+      Header: t('linkApplicationToCustomer.address') as string,
       disableSortBy: true,
       accessor: 'address',
     },
@@ -62,7 +62,7 @@ const SimilarCustomersTable = ({
           {cell.value}
         </div>
       ),
-      Header: t('applicationView.customersTable.berths') as string,
+      Header: t('linkApplicationToCustomer.berths') as string,
       disableSortBy: true,
       accessor: 'berths',
     },
@@ -71,8 +71,8 @@ const SimilarCustomersTable = ({
   return (
     <>
       <div className={styles.fullWidth}>
-        <Notification labelText={t('applicationView.noCustomerProfileNotification.label')} type="warning">
-          {t('applicationView.noCustomerProfileNotification.description')}
+        <Notification labelText={t('linkApplicationToCustomer.noCustomerProfileNotification.label')} type="warning">
+          {t('linkApplicationToCustomer.noCustomerProfileNotification.description')}
         </Notification>
       </div>
       <Table
@@ -80,14 +80,14 @@ const SimilarCustomersTable = ({
         data={data}
         loading={loadingCustomers}
         columns={columns}
-        renderMainHeader={() => t('applicationView.customersTable.mainHeader')}
+        renderMainHeader={() => t('linkApplicationToCustomer.mainHeader')}
         renderTableToolsTop={({ selectedRows }) => {
           const onLinkCustomer = selectedRows.length ? () => handleLinkCustomer(selectedRows[0].id) : undefined;
 
           return <CustomersTableTools {...customersTableTools} handleLinkCustomer={onLinkCustomer} />;
         }}
         renderTableToolsBottom={() => <Pagination {...pagination} className={styles.fullWidth} />}
-        renderEmptyStateRow={() => <div>{t('applicationView.customersTable.emptyState')}</div>}
+        renderEmptyStateRow={() => <div>{t('linkApplicationToCustomer.emptyState')}</div>}
         onSortedColChange={onSortedColChange}
         canSelectOneRow
       />
@@ -95,4 +95,4 @@ const SimilarCustomersTable = ({
   );
 };
 
-export default SimilarCustomersTable;
+export default LinkApplicationToCustomer;

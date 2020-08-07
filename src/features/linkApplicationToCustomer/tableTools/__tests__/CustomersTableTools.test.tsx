@@ -4,7 +4,7 @@ import { act } from 'react-dom/test-utils';
 import { TextInput } from 'hds-react';
 
 import CustomersTableTools, { CustomersTableToolsProps } from '../CustomersTableTools';
-import Select from '../../../../../common/select/Select';
+import Select from '../../../../common/select/Select';
 
 const searchByOptions = [
   {

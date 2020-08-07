@@ -5,10 +5,12 @@ import { HashRouter } from 'react-router-dom';
 import { act } from 'react-dom/test-utils';
 import waitForExpect from 'wait-for-expect';
 
-import SimilarCustomersTableContainer, { SimilarCustomersTableContainerProps } from '../SimilarCustomersTableContainer';
-import LoadingSpinner from '../../../../common/spinner/LoadingSpinner';
+import LinkApplicationToCustomerContainer, {
+  LinkApplicationToCustomerContainerProps,
+} from '../LinkApplicationToCustomerContainer';
+import LoadingSpinner from '../../../common/spinner/LoadingSpinner';
 
-const mockProps: SimilarCustomersTableContainerProps = {
+const mockProps: LinkApplicationToCustomerContainerProps = {
   berthApplication: {
     address: 'Testikatu 1',
     email: 'test@example.com',
@@ -21,12 +23,12 @@ const mockProps: SimilarCustomersTableContainerProps = {
   },
 };
 
-describe('SimilarCustomersTableContainer', () => {
-  const getWrapper = (props?: Partial<SimilarCustomersTableContainerProps>) =>
+describe('LinkApplicationToCustomerContainer', () => {
+  const getWrapper = (props?: Partial<LinkApplicationToCustomerContainerProps>) =>
     mount(
       <MockedProvider>
         <HashRouter>
-          <SimilarCustomersTableContainer {...mockProps} {...props} />
+          <LinkApplicationToCustomerContainer {...mockProps} {...props} />
         </HashRouter>
       </MockedProvider>
     );

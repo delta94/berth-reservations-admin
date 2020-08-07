@@ -18,9 +18,9 @@ import { CustomerGroup } from '../../@types/__generated__/globalTypes';
 import PageTitle from '../../common/pageTitle/PageTitle';
 import PageContent from '../../common/pageContent/PageContent';
 import ActionHistoryCard from '../../common/actionHistoryCard/ActionHistoryCard';
-import SimilarCustomersTableContainer, {
-  SimilarCustomersTableContainerProps,
-} from './similarCustomersTable/SimilarCustomersTableContainer';
+import LinkApplicationToCustomerContainer, {
+  LinkApplicationToCustomerContainerProps,
+} from '../linkApplicationToCustomer/LinkApplicationToCustomerContainer';
 
 export enum SearchBy {
   FIRST_NAME = 'firstName',
@@ -40,7 +40,7 @@ export interface CustomerData {
 
 export interface ApplicationViewProps {
   applicationDetails: ApplicationDetailsProps;
-  berthApplication: SimilarCustomersTableContainerProps['berthApplication'];
+  berthApplication: LinkApplicationToCustomerContainerProps['berthApplication'];
   customerProfile: CustomerProfileCardProps | null;
   leaseDetails: OfferCardProps['leaseDetails'] | null;
   refetchQueries: PureQueryOptions[] | string[];
@@ -81,7 +81,7 @@ const ApplicationView = ({
           <ActionHistoryCard />
         </>
       ) : (
-        <SimilarCustomersTableContainer berthApplication={berthApplication} />
+        <LinkApplicationToCustomerContainer berthApplication={berthApplication} />
       )}
 
       <Card className={styles.fullWidth}>

@@ -4,7 +4,7 @@ import {
   FILTERED_CUSTOMERS_profiles_edges_node_berthApplications as BERTH_APPLICATIONS,
   FILTERED_CUSTOMERS_profiles_edges_node_berthLeases as BERTH_LEASES,
 } from '../__generated__/FILTERED_CUSTOMERS';
-import { CustomerGroup } from '../../../../@types/__generated__/globalTypes';
+import { CustomerGroup } from '../../../@types/__generated__/globalTypes';
 
 const berthApplications: BERTH_APPLICATIONS = {
   __typename: 'BerthApplicationNodeConnection',
