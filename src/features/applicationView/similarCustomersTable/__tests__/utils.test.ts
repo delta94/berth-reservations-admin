@@ -18,32 +18,5 @@ describe('utils', () => {
       };
       expect(getFilteredCustomersData(testData)).toEqual([]);
     });
-
-    it('should remove the edges with a value of null', () => {
-      const testData: FILTERED_CUSTOMERS = {
-        profiles: {
-          __typename: 'ProfileNodeConnection',
-          count: 0,
-          edges: [null],
-        },
-      };
-      expect(getFilteredCustomersData(testData)).toEqual(expect.not.arrayContaining([null]));
-    });
-
-    it('should remove the nodes with a value of null', () => {
-      const testData: FILTERED_CUSTOMERS = {
-        profiles: {
-          __typename: 'ProfileNodeConnection',
-          count: 0,
-          edges: [
-            {
-              __typename: 'ProfileNodeEdge',
-              node: null,
-            },
-          ],
-        },
-      };
-      expect(getFilteredCustomersData(testData)).toEqual(expect.not.arrayContaining([null]));
-    });
   });
 });
