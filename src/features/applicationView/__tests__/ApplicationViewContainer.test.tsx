@@ -93,7 +93,10 @@ describe('ApplicationViewContainer', () => {
     await waitForContent(wrapper);
     await act(async () => {
       await wrapper.find(ApplicationView).invoke('handleDeleteLease')('0');
-      expect(mockDelete).toHaveBeenCalledWith({ variables: { input: { id: '0' } } });
+      expect(mockDelete).toHaveBeenCalledWith({
+        refetchQueries: ['INDIVIDUAL_APPLICATION'],
+        variables: { input: { id: '0' } },
+      });
     });
   });
 });

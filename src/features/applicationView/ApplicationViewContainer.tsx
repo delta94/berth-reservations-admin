@@ -43,6 +43,7 @@ const ApplicationViewContainer = () => {
           id,
         },
       },
+      refetchQueries: [getOperationName(INDIVIDUAL_APPLICATION_QUERY) || 'INDIVIDUAL_APPLICATION'],
     });
   };
 
