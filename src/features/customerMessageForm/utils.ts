@@ -37,6 +37,6 @@ export const getNotificationTemplates = (data: NOTIFICATION_TEMPLATES | undefine
       };
 
       return [...acc, template];
-    }, []) || []
+    }, []) ?? []
   );
 };

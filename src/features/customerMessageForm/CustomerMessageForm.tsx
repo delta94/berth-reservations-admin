@@ -12,7 +12,7 @@ import styles from './customerMessageForm.module.scss';
 import Select from '../../common/select/Select';
 import Button from '../../common/button/Button';
 
-type CustomerMessageFormProps = {
+export type CustomerMessageFormProps = {
   templates: NotificationTemplate[];
   handleCancel: () => void;
   handlePreview: (templateId: string) => void;
@@ -32,15 +32,12 @@ export const CustomerMessageForm = ({
   handleSendMessage,
   templates,
 }: CustomerMessageFormProps) => {
-  const {
-    t,
-    i18n: { language },
-  } = useTranslation();
+  const { t } = useTranslation();
 
-  const templateOptions = templates.map(({ id, translations }) => {
+  const templateOptions = templates.map(({ id, type }) => {
     return {
       value: id,
-      label: translations[language.toUpperCase()]?.subject || id,
+      label: type,
     };
   });
 

@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils getNotificationTemplates should return notification templates 1`] = `
+Array [
+  Object {
+    "id": "Tm90aWZpY2F0aW9uVGVtcGxhdGVOb2RlOjE=",
+    "preview": "<!DOCTYPE html PUBLIC \\"-//W3C//DTD XHTML 1.0 Transitional//EN\\" \\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\\"><html xmlns=\\"http://www.w3.org/1999/xhtml\\" lang=\\"fi\\" xml:lang=\\"fi\\"><head><meta http-equiv=\\"Content-Type\\" content=\\"text/html; charset=utf-8\\"><meta name=\\"viewport\\" content=\\"width=device-width\\"><title>Test HTML</title></head><body><h1>Test HTML</h1><p>Test HTML</p></body></html>",
+    "translations": Object {
+      "EN": Object {
+        "bodyHtml": "<!DOCTYPE html PUBLIC \\"-//W3C//DTD XHTML 1.0 Transitional//EN\\" \\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\\"><html xmlns=\\"http://www.w3.org/1999/xhtml\\" lang=\\"fi\\" xml:lang=\\"fi\\"><head><meta http-equiv=\\"Content-Type\\" content=\\"text/html; charset=utf-8\\"><meta name=\\"viewport\\" content=\\"width=device-width\\"><title>Test HTML</title></head><body><h1>Test HTML</h1><p>Test HTML</p></body></html>",
+        "bodyText": "",
+        "preview": "<!DOCTYPE html PUBLIC \\"-//W3C//DTD XHTML 1.0 Transitional//EN\\" \\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\\"><html xmlns=\\"http://www.w3.org/1999/xhtml\\" lang=\\"fi\\" xml:lang=\\"fi\\"><head><meta http-equiv=\\"Content-Type\\" content=\\"text/html; charset=utf-8\\"><meta name=\\"viewport\\" content=\\"width=device-width\\"><title>Test HTML</title></head><body><h1>Test HTML</h1><p>Test HTML</p></body></html>",
+        "subject": "Confirmation: Berth application",
+      },
+      "FI": Object {
+        "bodyHtml": "<!DOCTYPE html PUBLIC \\"-//W3C//DTD XHTML 1.0 Transitional//EN\\" \\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\\"><html xmlns=\\"http://www.w3.org/1999/xhtml\\" lang=\\"fi\\" xml:lang=\\"fi\\"><head><meta http-equiv=\\"Content-Type\\" content=\\"text/html; charset=utf-8\\"><meta name=\\"viewport\\" content=\\"width=device-width\\"><title>Test HTML</title></head><body><h1>Test HTML</h1><p>Test HTML</p></body></html>",
+        "bodyText": "",
+        "preview": "<!DOCTYPE html PUBLIC \\"-//W3C//DTD XHTML 1.0 Transitional//EN\\" \\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\\"><html xmlns=\\"http://www.w3.org/1999/xhtml\\" lang=\\"fi\\" xml:lang=\\"fi\\"><head><meta http-equiv=\\"Content-Type\\" content=\\"text/html; charset=utf-8\\"><meta name=\\"viewport\\" content=\\"width=device-width\\"><title>Test HTML</title></head><body><h1>Test HTML</h1><p>Test HTML</p></body></html>",
+        "subject": "Vahvistus: venepaikan hakemus",
+      },
+      "SV": Object {
+        "bodyHtml": "<!DOCTYPE html PUBLIC \\"-//W3C//DTD XHTML 1.0 Transitional//EN\\" \\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\\"><html xmlns=\\"http://www.w3.org/1999/xhtml\\" lang=\\"fi\\" xml:lang=\\"fi\\"><head><meta http-equiv=\\"Content-Type\\" content=\\"text/html; charset=utf-8\\"><meta name=\\"viewport\\" content=\\"width=device-width\\"><title>Test HTML</title></head><body><h1>Test HTML</h1><p>Test HTML</p></body></html>",
+        "bodyText": "",
+        "preview": "<!DOCTYPE html PUBLIC \\"-//W3C//DTD XHTML 1.0 Transitional//EN\\" \\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\\"><html xmlns=\\"http://www.w3.org/1999/xhtml\\" lang=\\"fi\\" xml:lang=\\"fi\\"><head><meta http-equiv=\\"Content-Type\\" content=\\"text/html; charset=utf-8\\"><meta name=\\"viewport\\" content=\\"width=device-width\\"><title>Test HTML</title></head><body><h1>Test HTML</h1><p>Test HTML</p></body></html>",
+        "subject": "Bekräftelse: båtplatsansökning",
+      },
+    },
+    "type": "berth_application_created",
+  },
+  Object {
+    "id": "Tm90aWZpY2F0aW9uVGVtcGxhdGVOb2RlOjI=",
+    "preview": "<!DOCTYPE html PUBLIC \\"-//W3C//DTD XHTML 1.0 Transitional//EN\\" \\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\\"><html xmlns=\\"http://www.w3.org/1999/xhtml\\" lang=\\"fi\\" xml:lang=\\"fi\\"><head><meta http-equiv=\\"Content-Type\\" content=\\"text/html; charset=utf-8\\"><meta name=\\"viewport\\" content=\\"width=device-width\\"><title>Test HTML</title></head><body><h1>Test HTML</h1><p>Test HTML</p></body></html>",
+    "translations": Object {
+      "EN": Object {
+        "bodyHtml": "<!DOCTYPE html PUBLIC \\"-//W3C//DTD XHTML 1.0 Transitional//EN\\" \\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\\"><html xmlns=\\"http://www.w3.org/1999/xhtml\\" lang=\\"fi\\" xml:lang=\\"fi\\"><head><meta http-equiv=\\"Content-Type\\" content=\\"text/html; charset=utf-8\\"><meta name=\\"viewport\\" content=\\"width=device-width\\"><title>Test HTML</title></head><body><h1>Test HTML</h1><p>Test HTML</p></body></html>",
+        "bodyText": "",
+        "preview": "<!DOCTYPE html PUBLIC \\"-//W3C//DTD XHTML 1.0 Transitional//EN\\" \\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\\"><html xmlns=\\"http://www.w3.org/1999/xhtml\\" lang=\\"fi\\" xml:lang=\\"fi\\"><head><meta http-equiv=\\"Content-Type\\" content=\\"text/html; charset=utf-8\\"><meta name=\\"viewport\\" content=\\"width=device-width\\"><title>Test HTML</title></head><body><h1>Test HTML</h1><p>Test HTML</p></body></html>",
+        "subject": "Confirmation: boat winter storage application",
+      },
+      "FI": Object {
+        "bodyHtml": "<!DOCTYPE html PUBLIC \\"-//W3C//DTD XHTML 1.0 Transitional//EN\\" \\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\\"><html xmlns=\\"http://www.w3.org/1999/xhtml\\" lang=\\"fi\\" xml:lang=\\"fi\\"><head><meta http-equiv=\\"Content-Type\\" content=\\"text/html; charset=utf-8\\"><meta name=\\"viewport\\" content=\\"width=device-width\\"><title>Test HTML</title></head><body><h1>Test HTML</h1><p>Test HTML</p></body></html>",
+        "bodyText": "",
+        "preview": "<!DOCTYPE html PUBLIC \\"-//W3C//DTD XHTML 1.0 Transitional//EN\\" \\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\\"><html xmlns=\\"http://www.w3.org/1999/xhtml\\" lang=\\"fi\\" xml:lang=\\"fi\\"><head><meta http-equiv=\\"Content-Type\\" content=\\"text/html; charset=utf-8\\"><meta name=\\"viewport\\" content=\\"width=device-width\\"><title>Test HTML</title></head><body><h1>Test HTML</h1><p>Test HTML</p></body></html>",
+        "subject": "Vahvistus: Veneen talvisäilytyspaikan hakemus",
+      },
+      "SV": Object {
+        "bodyHtml": "<!DOCTYPE html PUBLIC \\"-//W3C//DTD XHTML 1.0 Transitional//EN\\" \\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\\"><html xmlns=\\"http://www.w3.org/1999/xhtml\\" lang=\\"fi\\" xml:lang=\\"fi\\"><head><meta http-equiv=\\"Content-Type\\" content=\\"text/html; charset=utf-8\\"><meta name=\\"viewport\\" content=\\"width=device-width\\"><title>Test HTML</title></head><body><h1>Test HTML</h1><p>Test HTML</p></body></html>",
+        "bodyText": "",
+        "preview": "<!DOCTYPE html PUBLIC \\"-//W3C//DTD XHTML 1.0 Transitional//EN\\" \\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\\"><html xmlns=\\"http://www.w3.org/1999/xhtml\\" lang=\\"fi\\" xml:lang=\\"fi\\"><head><meta http-equiv=\\"Content-Type\\" content=\\"text/html; charset=utf-8\\"><meta name=\\"viewport\\" content=\\"width=device-width\\"><title>Test HTML</title></head><body><h1>Test HTML</h1><p>Test HTML</p></body></html>",
+        "subject": "Bekräftelse: ansökan om vinteruppläggningsplats",
+      },
+    },
+    "type": "winter_storage_application_created",
+  },
+]
+`;
