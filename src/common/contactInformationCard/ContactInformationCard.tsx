@@ -4,30 +4,20 @@ import { useTranslation } from 'react-i18next';
 import CardHeader from '../cardHeader/CardHeader';
 import CardBody from '../cardBody/CardBody';
 import Card from '../card/Card';
-import Text from '../text/Text';
 import Section from '../section/Section';
 import LabelValuePair from '../labelValuePair/LabelValuePair';
 import ExternalLink from '../externalLink/ExternalLink';
 import styles from './contactInformation.module.scss';
-import { formatAddress } from '../utils/format';
 
-export type ContactInformationCardProps = {
-  municipality?: string | null;
-  name?: string | null;
-  streetAddress?: string | null;
-  zipCode: string;
-};
+export type ContactInformationCardProps = {};
 
-const ContactInformationCard = ({ name, streetAddress, zipCode, municipality }: ContactInformationCardProps) => {
+const ContactInformationCard = (props: ContactInformationCardProps) => {
   const { t } = useTranslation();
 
   return (
     <Card>
       <CardHeader title={t('common.terminology.contactInformation').toUpperCase()} />
       <CardBody>
-        <Text as="h3">{name || '-'}</Text>
-        <p>{formatAddress(streetAddress, zipCode, municipality)}</p>
-
         <Section
           title={t('common.terminology.maintenance').toUpperCase() + ' (PLACEHOLDER)'}
           className={styles.section}

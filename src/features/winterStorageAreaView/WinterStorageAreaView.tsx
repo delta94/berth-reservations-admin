@@ -24,12 +24,7 @@ const WinterStorageAreaView = ({ winterStorageArea, places, sections }: WinterSt
       <PageTitle title={t('winterStorageAreaView.title')} />
       <div className={styles.grid}>
         <WinterStorageAreaCard {...winterStorageArea} className={styles.fullWidth} />
-        <ContactInformationCard
-          name={winterStorageArea.name}
-          streetAddress={winterStorageArea.streetAddress}
-          municipality={winterStorageArea.municipality}
-          zipCode={winterStorageArea.zipCode}
-        />
+        <ContactInformationCard />
         <ActionHistoryCard />
         <WinterStorageAreaViewTable places={places} sections={sections} className={styles.fullWidth} />
       </div>

@@ -61,12 +61,7 @@ const HarborView = ({
           }}
           editHarbor={() => setEditingHarbor(true)}
         />
-        <ContactInformationCard
-          name={harbor.name}
-          streetAddress={harbor.streetAddress}
-          municipality={harbor.municipality}
-          zipCode={harbor.zipCode}
-        />
+        <ContactInformationCard />
         <ActionHistoryCard />
       </div>
 
