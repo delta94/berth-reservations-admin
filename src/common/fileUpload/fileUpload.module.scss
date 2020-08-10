@@ -1,0 +1,39 @@
+@import 'colours';
+@import 'fonts';
+@import 'spacings';
+
+.row {
+  margin-top: units(0.5);
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.maxSize {
+  margin-left: units(1.5);
+}
+
+.disabled {
+  color: $black-50;
+}
+
+.fileListItem {
+  margin: units(0.25) 0;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.fileName {
+  flex-grow: 1;
+  line-height: font-size(24);
+}
+
+.delete {
+  cursor: pointer;
+}

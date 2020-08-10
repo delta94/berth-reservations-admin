@@ -1,0 +1,12 @@
+@import 'colours';
+@import 'spacings';
+
+.header {
+  background-color: $blue;
+  padding: units(0.5) units(2);
+  color: $white;
+  fill: $white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

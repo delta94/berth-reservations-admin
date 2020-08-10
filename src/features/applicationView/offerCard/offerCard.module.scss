@@ -1,0 +1,31 @@
+@import 'colours';
+@import 'spacings';
+
+.offerCard {
+  grid-column: 1 / -1;
+}
+
+.berthProperties {
+  display: grid;
+  margin-right: units(0.5);
+  grid-row-gap: units(0.5);
+  grid-column-gap: units(0.5);
+  grid-template-columns: repeat(auto-fit, minmax(units(4), 1fr));
+}
+
+.property {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.gridItem {
+  margin-left: units(1);
+}

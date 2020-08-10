@@ -1,0 +1,632 @@
+{
+  "authentication": {
+    "errorMessage": "Tapahtui virhe. Yritä uudestaan",
+    "loadUserError": {
+      "message": "Tapahtui virhe. Yritä kirjautua uudelleen."
+    },
+    "login": {
+      "text": "Kirjaudu sisään"
+    },
+    "logout": {
+      "text": "Kirjaudu ulos"
+    },
+    "networkError": {
+      "message": "Virhe kirjautumisessa: Tarkista verkkoyhteytesi ja yritä uudestaan"
+    },
+    "redirect": {
+      "text": "Ohjataan tunnistautumiseen..."
+    }
+  },
+  "common": {
+    "yes": "Kyllä",
+    "no": "Ei",
+    "next": "Seuraava",
+    "previous": "Edellinen",
+    "search": "Haku",
+    "edit": "Muokkaa",
+    "add": "Lisää",
+    "addNew": "Lisää uusi",
+    "select": "Valitse",
+    "save": "Tallenna",
+    "cancel": "Peruuta",
+    "firstName": "Etunimi",
+    "lastName": "Sukunimi",
+    "email": "Sähköposti",
+    "address": "Osoite",
+    "imageAltText": "Kuva kohteesta",
+    "table": {
+      "minimizeAll": "Pienennä kaikki",
+      "all": "Kaikki",
+      "noMatches": "Ei hakua vastaavia osumia"
+    },
+    "sidebar": {
+      "harbors": "Venepaikat",
+      "winterStorageAreas": "Talvisäilytys",
+      "applications": "Hakemukset",
+      "customers": "Asiakkaat",
+      "pricing": "Hinnasto"
+    },
+    "header": {
+      "serviceName": "Venepaikat",
+      "logout": "Kirjaudu ulos"
+    },
+    "fileUpload": {
+      "maxSize": "Tiedostokoko enintään {{maxSize}}"
+    },
+    "mooringTypes": {
+      "NO_STERN_TO_MOORING": "Ilman peräkiinnitystä",
+      "SINGLE_SLIP_PLACE": "Aisapaikka",
+      "SIDE_SLIP_PLACE": "Kävelyaisapaikka",
+      "STERN_BUOY_PLACE": "Peräpoijupaikka",
+      "STERN_POLE_MOORING": "Paaluperäkiinnitys",
+      "QUAYSIDE_MOORING": "Sivukiinnitys",
+      "DINGHY_PLACE": "Jollapaikka",
+      "SEA_BUOY_MOORING": "Poiju (merellä)",
+      "TRAWLER_PLACE": "Traileripaikka"
+    },
+    "customerGroups": {
+      "COMPANY": "Yritys",
+      "INTERNAL": "Sisäinen",
+      "NON_BILLABLE": "Ei laskutettava",
+      "OTHER": "Yhdistys",
+      "PRIVATE": "Yksityinen"
+    },
+    "invoicingTypes": {
+      "DIGITAL_INVOICE": "Laskutus sähköisenä",
+      "ONLINE_PAYMENT": "Verkkomaksu",
+      "PAPER_INVOICE": "Laskutus paperisena"
+    },
+    "periodTypes": {
+      "SEASON": "Kausi",
+      "MONTH": "1 kk",
+      "YEAR": "Vuosi"
+    },
+    "languages": {
+      "FINNISH": "Suomi",
+      "SWEDISH": "Ruotsi",
+      "ENGLISH": "Englanti"
+    },
+    "terminology": {
+      "address": "Osoite",
+      "applications": "Hakemukset",
+      "berth": "Venepaikka",
+      "berths": "Venepaikat",
+      "bills": "Laskut",
+      "boatSummerStorage": "Veneiden kesäsäilytys",
+      "boats": "Veneet",
+      "comments": "Huomiot",
+      "contactInformation": "Yhteystiedot",
+      "customer": "Asiakas",
+      "dataEntry": "Tietue",
+      "depth": "Syvyys",
+      "dinghyPlace": "Jollapaikka",
+      "dockingEquipmentSummerStorage": "Telakointi\u00ADtarvikkeiden kesäsäilytys",
+      "draught": "Syväys",
+      "electricity": "Sähkö",
+      "gate": "Portti",
+      "harborChief": "Satamapäällikkö",
+      "harborMap": "Satamakartta",
+      "inQueue": "Jonossa",
+      "length": "Pituus",
+      "lighting": "Valaistus",
+      "maintenance": "Kunnossapito",
+      "maxWidth": "Suurin leveys",
+      "mooring": "Kiinnitys",
+      "parkingPermit": "Pysäköintilupa",
+      "serviceMap": "Palvelukartta",
+      "trawlerSummerStorage": "Trailerin kesäsäilytys",
+      "unnamedBoat": "Nimetön vene",
+      "waste": "Jäte",
+      "wasteCollection": "Jätehuolto",
+      "water": "Vesi",
+      "width": "Leveys",
+      "winterStoragePlaces": "Talvisäilytyspaikat"
+    },
+    "notification": {
+      "noData": {
+        "label": "Ei tietoja",
+        "description": "Ei tietoja"
+      },
+      "error": {
+        "label": "Virhe",
+        "description": "Tapahtui virhe"
+      }
+    },
+    "orderStatus": {
+      "waiting": "Odottaa maksua",
+      "expired": "Erääntynyt",
+      "rejected": "Hylätty",
+      "paid": "Maksettu"
+    }
+  },
+  "login": {
+    "heading": "Helsingin kaupungin venepaikkapalvelut",
+    "loginButton": "Kirjaudu sisään"
+  },
+  "home": {
+    "title": "Venepaikka admin interface"
+  },
+  "forms": {
+    "common": {
+      "edit": "Muokkaa",
+      "errors": {
+        "required": "Tämä kenttä on pakollinen.",
+        "numberType": "Kentän pitää olla numero.",
+        "integer": "Kentän pitää olla kokonaisluku.",
+        "positive": "Kentän pitää olla positiivinen luku.",
+        "maxFileSize": "Tiedosto on liian suuri.",
+        "nonNegative": "Kenttä ei saa sisältää negatiivista lukua."
+      },
+      "error": "Tapahtui virhe. Yritä uudestaan.",
+      "create": "Luo",
+      "update": "Tallenna",
+      "delete": "Poista",
+      "cancel": "Peruuta"
+    },
+    "berth": {
+      "delete": "Poista venepaikka",
+      "title": "Venepaikka",
+      "pier": "Laituri",
+      "number": "Paikka",
+      "width": "Leveys (m)",
+      "length": "Pituus (m)",
+      "depth": "Syvyys (m)",
+      "mooringType": "Kiinnitystapa",
+      "comment": "Huomiot",
+      "isActive": "Paikka on käytössä",
+      "deleteConfirmation": {
+        "infoText": "Oletko varma että haluat poistaa venepaikan {{berthNumber}} laiturista {{pier}}?",
+        "warningText": "Tätä toimenpidettä ei voi perua."
+      }
+    },
+    "harbor": {
+      "title": "Satama",
+      "name": "Nimi",
+      "streetAddress": "Osoite",
+      "zipCode": "Postinumero",
+      "municipality": "Postitoimipaikka",
+      "wwwUrl": "WWW-osoite",
+      "imageFile": "Sataman kuva",
+      "maps": "Satamakartat"
+    },
+    "pier": {
+      "delete": "Poista laituri",
+      "title": "Laituri",
+      "identifier": "Laituri",
+      "services": "Palvelut",
+      "boatTypes": "Laiturin venetyypit",
+      "wasteCollection": "Jätehuolto",
+      "gate": "Portti",
+      "electricity": "Sähkö",
+      "lighting": "Valaistus",
+      "water": "Vesi",
+      "personalElectricity": "Erillinen sähkösopimus mahdollinen",
+      "deleteConfirmation": {
+        "infoText": "Oletko varma että haluat poistaa laiturin {{pierIdentifier}}?",
+        "warningText": "Tämä poistaa koko laiturin ja kaikki siinä olevat venepaikat. Tätä toimenpidettä ei voi perua."
+      }
+    },
+    "boat": {
+      "title": "Veneen tiedot",
+      "boatType": "Veneen tyyppi",
+      "registrationNumber": "Rekisterinumero",
+      "width": "Leveys (m)",
+      "length": "Pituus (m)",
+      "draught": "Syväys (m)",
+      "weight": "Paino (kg)",
+      "name": "Nimi",
+      "model": "Merkki",
+      "delete": "Poista vene",
+      "deleteConfirmation": {
+        "infoText": "Oletko varma että haluat poistaa asiakkaan tämän asiakkaan veneen?",
+        "warningText": "Tätä toimenpidettä ei voi perua."
+      }
+    }
+  },
+  "harborList": {
+    "title": "Venepaikat",
+    "berthSummary": {
+      "berthCount": "Venepaikkoja",
+      "freeCount": "Vapaita",
+      "reservedCount": "Varattuja",
+      "otherCount": "Muita paikkoja",
+      "offeredCount": "Tarjottu"
+    },
+    "tableHeaders": {
+      "mainHeader": "Satamat",
+      "harbor": "Satama",
+      "places": "Paikkoja",
+      "freePlaces": "Vapaita"
+    }
+  },
+  "harborView": {
+    "title": "Satama",
+    "berthProperties": {
+      "inactive": "Ei käytössä"
+    },
+    "tableHeaders": {
+      "mainHeader": "Venepaikat",
+      "number": "Paikka",
+      "identifier": "Laituri",
+      "customer": "Asiakas",
+      "length": "Pituus",
+      "width": "Leveys",
+      "depth": "Syvyys",
+      "mooring": "Kiinnitys",
+      "harbor": "Satama",
+      "places": "Paikkoja",
+      "freePlaces": "Vapaita",
+      "all": "Kaikki",
+      "editPier": "Muokkaa"
+    },
+    "pierProperties": {
+      "pier": "Laituri",
+      "services": "Palvelut"
+    },
+    "tableTools": {
+      "addPier": "Lisää laituri",
+      "addBerth": "Lisää venepaikka"
+    }
+  },
+  "applicationList": {
+    "title": "Hakemukset",
+    "tableHeaders": {
+      "switchFilter": "Vaihtohakemukset",
+      "newApplicationFilter": "Uudet hakemukset",
+      "applicationType": "Hakemustyyppi",
+      "queue": "Jono",
+      "pvm": "PVM",
+      "municipality": "Kotikunta",
+      "status": "Tila",
+      "lease": "Vene- / talvisäilytyspaikka"
+    },
+    "status": {
+      "pending": "Odottaa käsittelyä",
+      "offerGenerated": "Käsitelty",
+      "offerSent": "Tarjous lähetetty",
+      "handled": "Tarjous maksettu",
+      "expired": "Vanhentunut",
+      "noSuitable": "Ei paikkaa",
+      "noSuitableNotified": "Ei paikkaa, lähetetty"
+    },
+    "applicationType": {
+      "newApplication": "Uusi hakemus",
+      "switchApplication": "Vaihtohakemus"
+    },
+    "applicationDetails": {
+      "title": "HAKEMUKSET",
+      "application": "HAKEMUS",
+      "applicationType": "Hakemustyyppi",
+      "receivedDate": "Vastaanotettu",
+      "queueNumber": "Jononumero",
+      "status": "Status",
+      "applicantInformation": "Hakijan henkilötiedot",
+      "applicantCompanyInformation": "Hakevan yrityksen tiedot",
+      "boatInfo": "VENEEN TIEDOT",
+      "boatType": "Veneen tyyppi",
+      "registrationNumber": "Rekisterinumero",
+      "boatWidth": "Veneen leveys",
+      "boatLength": "Veneen pituus",
+      "boatDepth": "Veneen syväys",
+      "boatWeight": "Veneen paino",
+      "boatName": "Nimi",
+      "boatBrand": "Merkki",
+      "selectedPorts": "VALITUT SATAMAT",
+      "choice": "Toive",
+      "connectedLease": "Liitetty satamapaikka",
+      "deleteLease": "Poista ehdotettu paikka",
+      "accessible": "Tarvitsen esteettömän paikan",
+      "currentBerth": "NYKYINEN VENEPAIKKA",
+      "portAndBerth": "Satama ja paikka",
+      "reason": "Erityistoive"
+    }
+  },
+  "applicationView": {
+    "title": "Hakemus",
+    "customerTableTools": {
+      "linkCustomer": "Liitä valittuun",
+      "createNewCustomer": "Luo uusi asiakas"
+    },
+    "applicationDetails": {
+      "title": "HAKEMUS"
+    }
+  },
+  "linkApplicationToCustomer": {
+    "noCustomerProfileNotification": {
+      "label": "Hakemusta ei ole liitetty mihinkään asiakkaaseen",
+      "description": "Liitä hakemus olemassa olevaan asiakasprofiiliin tai luo uusi asiakasprofiili hakemuksen tiedoilla."
+    },
+    "mainHeader": "LIITÄ HAKEMUS OLEMASSA OLEVAAN ASIAKASPROFIILIIN",
+    "name": "Nimi",
+    "customerGroup": "Asiakasryhmä",
+    "municipality": "Kotikunta",
+    "address": "Jakeluosoite",
+    "berths": "Venepaikat",
+    "emptyState": "Rajauksella ei löytynyt asiakastietoja"
+  },
+  "offer": {
+    "title": "Tarjous",
+    "tableHeaders": {
+      "pierFilterBtn": "Laituri",
+      "harbor": "Satama",
+      "pier": "Laituri",
+      "berth": "Paikka",
+      "width": "Leveys",
+      "length": "Pituus",
+      "draught": "Syvyys",
+      "mooringType": "Kiinnitys",
+      "selection": "Valinta"
+    },
+    "tableCells": {
+      "select": "Valitse"
+    },
+    "tableTools": {
+      "berths": "Venepaikat",
+      "return": "Palaa valitsematta"
+    },
+    "berthDetails": {
+      "title": "Paikan tiedot",
+      "mooringType": "Kiinnitystyyppi",
+      "maintenanceDetails": "Huoltotiedot",
+      "gate": "Portti",
+      "electricity": "Sähkö",
+      "water": "Vesi",
+      "lighting": "Valaistus",
+      "waste": "Roskat",
+      "accessible": "Esteetön paikka",
+      "previousLeases": "Edelliset vuokralaiset",
+      "comment": "Huomiot",
+      "emptyName": "Ei nimeä"
+    },
+    "billing": {
+      "title": "Lasku",
+      "basePrice": "Perushinta",
+      "gate": "Portti",
+      "lighting": "Valaistus",
+      "additionalServices": "Lisäpalvelut",
+      "total": "Yhteensä",
+      "acceptAndSend": "Hyväksy ja lähetä tarjous",
+      "showBill": "Näytä lasku",
+      "showContract": "Näytä sopimus",
+      "removeOffer": "Poista tarjous"
+    },
+    "boatCard": {
+      "heading": "ASIAKKAAN VENE",
+      "type": "Veneen tyyppi",
+      "boatRegistrationNumber": "Rekisterinumero",
+      "boatName": "Nimi",
+      "boatModel": "Merkki",
+      "boatWidth": "Veneen leveys",
+      "boatLength": "Veneen pituus",
+      "boatDraught": "Veneen syväys",
+      "boatWeight": "Veneen paino"
+    }
+  },
+  "customerList": {
+    "title": "Asiakkaat",
+    "tableHeaders": {
+      "name": "Nimi",
+      "group": "Asiakasryhmä",
+      "municipality": "Kotikunta",
+      "berths": "Venepaikat",
+      "invoice": "Laskut",
+      "applications": "Hakemukset",
+      "boats": "Veneitä",
+      "minimizeAll": "Pienennä kaikki",
+      "mainHeader": "Asiakkaat",
+      "queue": "Jono"
+    },
+    "message": {
+      "new": "Lähetä viesti",
+      "header": "Viesti",
+      "template": "Viestipohja",
+      "subject": "Viestin aihe",
+      "message": "Viesti",
+      "messageHelperText": "Voit tarkastella viestiä esikatselussa ennen lähetystä.",
+      "preview": "Esikatsele",
+      "send": "Lähetä",
+      "selectedRowsSingular": "{{selectedRowsCount}} rivi valittu",
+      "selectedRowsPlural": "{{selectedRowsCount}} riviä valittu",
+      "clearSelectedRows": "Tyhjennä valinnat",
+      "selectRows": "Valitse listasta asiakkaita lähettääksesi viesti"
+    }
+  },
+  "customerView": {
+    "title": "Asiakas",
+    "application": {
+      "title": "HAKEMUKSET",
+      "application": "HAKEMUS",
+      "applicationType": "Hakemustyyppi",
+      "receivedDate": "Vastaanotettu",
+      "queueNumber": "Jononumero",
+      "status": "Status",
+      "boatInfo": "VENEEN TIEDOT",
+      "boatType": "Veneen tyyppi",
+      "registrationNumber": "Rekisterinumero",
+      "boatWidth": "Veneen leveys",
+      "boatLength": "Veneen pituus",
+      "boatDepth": "Veneen syväys",
+      "boatWeight": "Veneen paino",
+      "boatName": "Nimi",
+      "boatBrand": "Merkki",
+      "selectedPorts": "VALITUT SATAMAT",
+      "choice": "Toive",
+      "accessible": "Tarvitsen esteettömän paikan"
+    },
+    "customerBill": {
+      "bill": "LASKU",
+      "title": "AVOIMET LASKUT",
+      "berthRental": "VENEPAIKAN VUOKRA",
+      "showInvoice": "Näytä lasku",
+      "berthPlace": "Venepaikka",
+      "contractPeriod": "Sopimuskausi",
+      "dueDate": "Eräpäivä",
+      "basicFee": "Perushinta",
+      "mooring": "Kiinnitys",
+      "electricity": "Sähkö",
+      "water": "Vesi",
+      "waste": "Jäte",
+      "gate": "Portti",
+      "lighting": "Valaistus",
+      "total": "YHTEENSÄ",
+      "noBill": "Ei avoimia laskuja",
+      "billType": "Laskun aihe",
+      "berthBill": "Venepaikan vuokra",
+      "winterStorageBill": "Talvisäilytyspaikan vuokra",
+      "status": "Laskun tila",
+      "closeModal": "Sulje",
+      "winterStorageRental": "TALVISÄILYTYSPAIKAN VUOKRA",
+      "winterStorageArea": "Talvisäilytyspaikka"
+    },
+    "billingHistory": {
+      "title": "LASKUHISTORIA",
+      "sectionTitle": "LASKUT",
+      "noBillingHistory": "Ei laskuhistoriaa",
+      "berthBill": "Venepaikan vuokra",
+      "winterStorageBill": "Talvisäilytyspaikan vuokra"
+    },
+    "customerBoats": {
+      "title": "ASIAKKAAN VENEET",
+      "boatInfo": "VENEEN TIEDOT",
+      "boatType": "Veneen tyyppi",
+      "registrationNumber": "Rekisterinumero",
+      "width": "Veneen leveys",
+      "length": "Veneen pituus",
+      "draught": "Veneen syväys",
+      "weight": "Veneen paino",
+      "name": "Nimi",
+      "model": "Merkki",
+      "propulsion": "Käyttövoima",
+      "hullMaterial": "Runkomateriaali",
+      "purpose": "Käyttötarkoitus",
+      "inspection": "Katsastustodistus",
+      "insurance": "Vakuutuskirjaote",
+      "validUntil": "Voimassa {{validUntil}} asti",
+      "fileMissing": "Tiedosto puuttuu"
+    },
+    "leases": {
+      "showContract": "Näytä sopimus",
+      "valid": "Voimassa",
+      "berth": {
+        "title": "VENEPAIKAT",
+        "infoSectionTitle": "VENEPAIKKA",
+        "addressLabel": "Satama ja paikka"
+      },
+      "winterStorage": {
+        "title": "TALVISÄILYTYSPAIKAT",
+        "infoSectionTitle": "TALVISÄILYTYSPAIKKA",
+        "addressLabel": "Talvisäilytysalue"
+      }
+    }
+  },
+  "pricing": {
+    "title": "Hinnasto",
+    "editModalHeading": "Hinnaston muokkaus",
+    "berths": {
+      "title": "Venepaikka",
+      "description": "Perushinta. Hinnat sisältävät alv 24 %.",
+      "width": "Leveys",
+      "privateCustomer": "Yksityinen",
+      "company": "Yritys",
+      "period": "Aika"
+    },
+    "winterStorage": {
+      "title": "Talvisäilytyspaikka",
+      "description": "Hinta €/m2 sisältäen palvelut. Hinnat sisältävät alv 24 %.",
+      "area": "Alue",
+      "privateCustomer": "Yksityinen",
+      "company": "Yritys",
+      "period": "Aika"
+    },
+    "harborServices": {
+      "title": "Satamapalvelut",
+      "description": "Lisähinnat venepaikoille. Hinnat sisältävät alv 24 %.",
+      "service": "Palvelu",
+      "price": "Hinta",
+      "unit": "Yksikkö",
+      "period": "Aika"
+    },
+    "additionalServices": {
+      "title": "Lisäpalvelut",
+      "service": "Palvelu",
+      "price": "Hinta",
+      "tax": "ALV",
+      "period": "Aika"
+    }
+  },
+  "customerProfile": {
+    "title": "Asiakastiedot",
+    "personalInformation": "Henkilötiedot",
+    "organization": "Yritys / Yhteisö",
+    "contactPerson": "Yhteyshenkilö",
+    "name": "Nimi",
+    "firstName": "Etunimet",
+    "lastName": "Sukunimi",
+    "ssn": "Henkilötunnus",
+    "businessId": "Y-tunnus",
+    "address": "Jakeluosoite",
+    "postalCode": "Postinumero",
+    "city": "Postitoimipaikka",
+    "phone": "Matkapuhelin",
+    "email": "Sähköpostiosoite",
+    "customerGroup": "Asiakasryhmä",
+    "language": "Asiointikieli",
+    "remarks": "Huomiot"
+  },
+  "harborCard": {
+    "title": "SATAMA",
+    "numberOfFreePlaces": "Vapaata",
+    "numberOfPlaces": "Paikkoja",
+    "maxWidth": "Max. leveys"
+  },
+  "winterStorageAreaCard": {
+    "title": "TALVISÄILYTYSALUE",
+    "imgAlt": "Talvisäilytyspaikan sijainti",
+    "numberOfCustomers": "Asiakasta"
+  },
+  "errorPage": {
+    "heading": "Virhetilanne",
+    "text": "Pahoittelumme, järjestelmässä ilmeni virhe. Voit yrittää uudelleen, mutta jos sama toistuu, kerro siitä meille niin korjaamme asian.",
+    "linkText": "Etusivulle"
+  },
+  "toast": {
+    "closeToast": "Sulje ilmoitus",
+    "graphQLError": {
+      "label": "Virhe"
+    },
+    "networkError": {
+      "label": "Verkkoyhteys on katkennut",
+      "description": "Palauta verkkoyhteys ja lataa sivu uudelleen."
+    },
+    "graphQLErrors": {
+      "default": {
+        "label": "Virhe",
+        "description": "Tapahtui odottamaton virhe."
+      }
+    }
+  },
+  "winterStorageAreaList": {
+    "title": "Talvisäilytysalueet",
+    "tableHeaders": {
+      "mainHeader": "Talvisäilytysalueet",
+      "name": "Alue",
+      "places": "Paikkoja",
+      "freePlaces": "Vapaita"
+    }
+  },
+  "winterStorageAreaView": {
+    "title": "Talvisäilytysalue",
+      "tableHeaders": {
+        "customer": "Asiakas",
+        "identifier": "Osasto",
+        "number": "Paikka",
+        "length": "Pituus",
+        "width": "Leveys"
+      }
+  },
+  "actionHistoryCard": {
+    "title": "Toimintahistoria",
+    "recentActions": "Viimeaikainen toiminta",
+    "showFullHistory": "Näytä koko historia"
+  }
+}

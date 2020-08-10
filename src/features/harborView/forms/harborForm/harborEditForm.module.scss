@@ -1,0 +1,12 @@
+@import 'containers';
+@import 'spacings';
+
+.harborEditForm {
+  max-width: container(s);
+}
+
+.formActionButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: units(4);
+}

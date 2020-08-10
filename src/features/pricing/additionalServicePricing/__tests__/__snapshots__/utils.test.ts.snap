@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils getAdditionalServiceData should return an array of AdditionalService objects 1`] = `
+Array [
+  Object {
+    "id": "a8400b59-534c-4934-b643-083a4273ca1a",
+    "period": "SEASON",
+    "price": 10,
+    "service": "DINGHY_PLACE",
+    "tax": "TAX_24_00",
+  },
+]
+`;

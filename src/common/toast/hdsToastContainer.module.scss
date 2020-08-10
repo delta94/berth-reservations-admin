@@ -1,0 +1,11 @@
+@import 'containers';
+@import 'spacings';
+@import 'z-index';
+
+.container {
+  position: absolute;
+  bottom: 0;
+  right: units(1);
+  width: container(s);
+  z-index: z-index(toasts);
+}

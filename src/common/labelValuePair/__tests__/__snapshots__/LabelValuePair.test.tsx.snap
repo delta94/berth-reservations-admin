@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LabelValuePair renders normally 1`] = `
+<div
+  class="labelValuePair"
+>
+  <span
+    class="label standard"
+  >
+    foo:
+  </span>
+  <span
+    class="value left"
+  >
+    bar
+  </span>
+</div>
+`;
+
+exports[`LabelValuePair renders normally with all props 1`] = `
+<div
+  class="labelValuePair"
+>
+  <span
+    class="label brand"
+  >
+    test:
+  </span>
+  <span
+    class="value right secondary"
+  >
+    example
+  </span>
+</div>
+`;

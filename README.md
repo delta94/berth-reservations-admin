@@ -1,44 +1,174 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Berth Reservation Admin
 
-## Available Scripts
+[![Build Status](https://travis-ci.com/City-of-Helsinki/berth-reservations-admin.svg?branch=develop)](https://travis-ci.com/City-of-Helsinki/berth-reservations-admin) [![Codecov](https://codecov.io/gh/City-of-Helsinki/berth-reservations-admin/branch/develop/graph/badge.svg)](https://codecov.io/gh/City-of-Helsinki/berth-reservations-admin/branch/develop/graph/badge.svg) [![Dependency Status](https://img.shields.io/david/City-of-Helsinki/berth-reservations-admin?branch=develop)](https://img.shields.io/david/City-of-Helsinki/berth-reservations-admin?branch=develop) [![devDependencies Status](https://david-dm.org/city-of-helsinki/berth-reservations-admin/dev-status.svg?branch=develop)](https://david-dm.org/city-of-helsinki/berth-reservations-admin?type=dev&branch=develop) [![GitHub license](https://img.shields.io/github/license/City-of-Helsinki/berth-reservations-admin)](https://img.shields.io/github/license/City-of-Helsinki/berth-reservations-admin)
 
-In the project directory, you can run:
+Staff interface for Venepaikka.
 
-### `npm start`
+Environments:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [Storybook](https://city-of-helsinki.github.io/berth-reservations-admin/?path=/story/*)
+- [Staging](https://venepaikka-admin.test.kuva.hel.ninja)
+- [GraphQL API URL](https://venepaikka-federation.test.kuva.hel.ninja/)
+- [GraphQL API overview](https://venepaikka-federation.test.kuva.hel.ninja/voyager)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## Requirements
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node 12.x
+- Yarn
+- Git
+- Docker and docker-compose
+- Recommended editor for this project is Visual Studio Code
 
-### `npm run build`
+## Common setup
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clone the repo and install the dependencies.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```bash
+git clone https://github.com/City-of-Helsinki/berth-reservations-admin.git
+cd berth-reservations-admin
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+yarn
+```
 
-### `npm run eject`
+After cloning this repository, create a new `.env.development.local` file from the provided `.env` file to be able to change environment variables such as `REACT_APP_API_URI`.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+cp .env.example .env.development.local
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Development environment setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Storybook development
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+To start the Storybook development server, run the following:
 
-## Learn More
+```bash
+yarn storybook
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Open [http://localhost:6006](http://localhost:6006) and take a look around.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### React development environment
+
+To start the development server, run the following
+
+```bash
+yarn start
+```
+
+Open [http://localhost:3000](http://localhost:3000) and take a look around.
+
+### Testing
+
+To run tests, run:
+
+```bash
+yarn test
+```
+
+### Dockerized development environment
+
+1. Check that Docker and Docker CLI are installed, and port `3000` is free and not occupied by a running server.
+
+2. Make sure you have env variables in `.env.development.local`, otherwise extend it from the example by:
+
+   ```bash
+   cp .env .env.development.local
+   ```
+
+3. Start building Docker image and start container:
+
+   ```bash
+   docker-compose up
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000).
+
+### Dockerized production environment
+
+1. Check that Docker and Docker CLI are installed, port `80` is free and not occupied by a running server.
+
+2. Build Docker image with:
+
+    ```bash
+    docker build -t berth-reservation-admin .
+    ```
+
+3. Start Docker container with:
+
+    ```bash
+    docker container run -p 80:80 -d berth-reservation-admin
+    ```
+
+4. Open [http://localhost](http://localhost).
+
+## Useful Docker commands
+
+- To rebuild the Docker images:
+
+  ```bash
+  docker-compose up --force-recreate --build
+  ```
+
+- To enter inside Docker container environment:
+
+  ```bash
+  docker-compose exec app sh
+  ```
+
+- Remove Docker container if needed:
+
+  ```bash
+  docker rm -f berth-reservation-admin
+  ```
+
+- Remove Docker image:
+
+  ```bash
+  docker rmi berth-reservations-admin_app
+  ```
+
+- Running commands inside the Docker environment (tests for example):
+  (Make sure Docker container is running)
+  `$ docker-compose run app YOUR_COMMAND_HERE`
+  - Encounter `node-sass` issue ? Try going inside the Docker container environment and running `npm rebuild node-sass`
+
+## Deployment
+
+### Storybook deployment
+
+Storybook is used for development and there's no CI/CD pipeline set up. To deploy a new version of Storybook, run the following:
+
+```bash
+yarn deploy-storybook
+```
+
+To verify deployment, open [https://city-of-helsinki.github.io/berth-reservations-admin/](https://city-of-helsinki.github.io/berth-reservations-admin/) and check that everything is looking ok.
+
+### Staging deployment
+
+Staging deployment is handled by CI/CD pipeline for new commits on `develop` branch.
+
+## Browser tests
+
+Browser tests are written in TypeScript with [TestCafe](https://devexpress.github.io/testcafe/) framework and they are run against [test environment](https://venepaikka-admin.test.kuva.hel.ninja) in CI as Travis Cron Job (daily) with Chrome (headless mode).
+
+### How to run locally
+
+Set test user login credentials
+- Open `.env.development.local` and set `BROWSER_TESTS_UID` and `BROWSER_TESTS_PWD`
+- TBD: Link to values
+
+Running against test environment
+
+- `yarn browser-test`
+
+Running against local environment
+
+- `yarn browser-test:local`
+
+### CI setup
+
+Travis runs the `yarn browser-test:ci` script. Known issue: screen shots are taken on failure, but we cannot access them at the moment. We would need to setup Travis `artifacts` plugin for that, but it seems that there are no suitable AWS S3 we could use.

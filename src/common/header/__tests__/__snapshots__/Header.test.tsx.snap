@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders normally 1`] = `
+<header
+  class="header"
+>
+  Hello
+</header>
+`;

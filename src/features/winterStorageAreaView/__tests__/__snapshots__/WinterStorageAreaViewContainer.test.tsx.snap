@@ -1,0 +1,902 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
+<div
+  class="pageContent"
+>
+  <h2
+    class="text standard h2 xl normalWeight pageTitle"
+  >
+    TALVISÄILYTYSALUE
+  </h2>
+  <div
+    class="grid"
+  >
+    <div
+      class="card fullWidth card"
+    >
+      <div
+        class="cardHeader"
+      >
+        <span
+          class="title"
+        >
+          TALVISÄILYTYSALUE
+        </span>
+      </div>
+      <div
+        class="cardBody"
+      >
+        <div
+          class="cardBody"
+        >
+          <div
+            class="details"
+          >
+            <div
+              class="imageWrapper"
+            >
+              <img
+                alt="Talvisäilytyspaikan sijainti"
+                class="image"
+                src="placeholderImage.svg"
+              />
+            </div>
+            <div>
+              <article
+                class="section"
+              >
+                <section
+                  class="body"
+                >
+                  <h2
+                    class="text standard h2 xxl"
+                  >
+                    WS Area 1
+                  </h2>
+                  <span
+                    class="text standard span"
+                  >
+                    00100 Helsinki
+                  </span>
+                </section>
+              </article>
+            </div>
+          </div>
+          <div
+            class="grid cols6 propsGrid"
+          >
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div
+              class="property"
+            >
+              <strong
+                class="text standard strong xxxl"
+              >
+                0
+              </strong>
+              <span
+                class="text standard span s bold label"
+              >
+                Asiakasta
+              </span>
+            </div>
+            <div
+              class="property wordBreak"
+            >
+              <div
+                class="iconWrapper standard outlined"
+              >
+                <svg
+                  class="icon m"
+                  height="100%"
+                  viewBox="0 0 400 400"
+                  width="100%"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M159.86 380.84h42v74.41h-42zM327.33 142.77H262.1v-81h-32v81h-98.47v-81h-32v81H34.39v32H67v48.82a111.59 111.59 0 0 0 21.6 65.91 119.83 119.83 0 0 0 43.63 36.86v42.86h97.24v-42.5a113.69 113.69 0 0 0 65.23-103.13v-48.82h32.62zm-64.62 80.82c0 34.94-21.88 66-54.46 77.24l-10.77 3.72v32.67h-33.24V305L154 301c-32.91-12.8-55-43.92-55-77.45v-48.78h163.7z"
+                  />
+                </svg>
+              </div>
+              <span
+                class="text standard span s bold label"
+              >
+                Sähkö
+              </span>
+            </div>
+            <div
+              class="property wordBreak"
+            >
+              <div
+                class="iconWrapper secondary outlined"
+              >
+                <svg
+                  class="icon m"
+                  height="100%"
+                  viewBox="0 0 480 480"
+                  width="100%"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M410.18 85l-62 46.23v60.5h-25v-60.44L262.1 85l-62 46.23v60.5h-25v-60.44L114 85l-62 46.22v332.17h123.16V383.5h25v79.89h123.09V383.5h25v79.89h123.08v-332.1zm-178.06 62.27L262 125l29.3 22.18v44.52h-59.18zm59.13 76.45V351.5h-59.13V223.72zM143.16 431.39H84V147.27L113.87 125l29.29 22.18v44.52h-41v32h41v127.8h-41v32h41zm32-79.89V223.72h25V351.5zm116.09 79.89h-59.13V383.5h59.13zm32-79.89V223.72h25V351.5zm116.08 79.89h-59.12V383.5h39v-32h-39V223.72h39v-32h-39v-44.45L410 125l29.29 22.18z"
+                  />
+                </svg>
+              </div>
+              <span
+                class="text secondary span s bold label"
+              >
+                Portti
+              </span>
+            </div>
+            <div
+              class="property wordBreak"
+            >
+              <div
+                class="iconWrapper standard outlined"
+              >
+                <svg
+                  class="icon m"
+                  height="100%"
+                  viewBox="0 0 480 480"
+                  width="100%"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M154.61 313.9l-11.36-11.45-11.36 11.45a341.93 341.93 0 0 0-26.29 30.56c-18.95 25-28.16 45.16-28.16 61.73C77.44 425 84.87 442 98.37 454a68.35 68.35 0 0 0 89.76 0c13.5-12 20.94-29 20.94-47.81 0-16.57-9.21-36.76-28.16-61.73a341.09 341.09 0 0 0-26.3-30.56zm-11.36 124.9c-22.2 0-33.81-16.4-33.81-32.61 0-4.14 2.09-16.54 21.44-42.11 4.29-5.66 8.61-10.88 12.37-15.22 3.76 4.34 8.09 9.56 12.37 15.22 19.36 25.57 21.45 38 21.45 42.11 0 16.21-11.62 32.61-33.82 32.61zM341.91 158.33v-44h66.42v-32H243.49v32h66.42v44h-83.63c-57.36 0-104 45.76-104 102v21h42v-21c0-33.1 27.83-60 62-60h220.26v-42z"
+                  />
+                </svg>
+              </div>
+              <span
+                class="text standard span s bold label"
+              >
+                Vesi
+              </span>
+            </div>
+            <div
+              class="property wordBreak"
+            >
+              <div
+                class="iconWrapper secondary outlined"
+              >
+                <svg
+                  class="icon m"
+                  height="100%"
+                  viewBox="0 0 24 24"
+                  width="100%"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    id="prefix__prefix__Symbols"
+                  >
+                    <g
+                      id="prefix__prefix__app_x2F_navigation-sidebar"
+                      transform="translate(-21 -24)"
+                    >
+                      <g
+                        id="prefix__prefix__Venepaikat"
+                        transform="translate(0 16)"
+                      >
+                        <g
+                          id="prefix__prefix__atoms_x2F_icons_x2F_ship_x2F_24"
+                          transform="translate(20 3.5)"
+                        >
+                          <g
+                            id="prefix__prefix__Icon-color"
+                            transform="translate(1 5)"
+                          >
+                            <g
+                              id="prefix__prefix__Mask"
+                            >
+                              <path
+                                d="M22 15.1l-1.5-4H1l2.9 4.4c-.1.1-.2.1-.3.2-.6.4-1 .7-1.8.7v1.5c1.2 0 2-.5 2.6-.9.6-.4 1-.7 1.8-.7.7 0 1.2.3 1.8.7.6.4 1.4.9 2.6.9 1.2 0 2-.5 2.6-.9.6-.4 1-.7 1.8-.7s1.2.3 1.8.7c.7.4 1.4.9 2.6.9 1.2 0 2-.5 2.6-.9.6-.4 1-.7 1.8-.7v-1.5c-.8-.1-1.4.1-1.8.3m-4.5.5c-.6-.4-1.4-.9-2.5-.9-1.2 0-1.9.5-2.5.9-.6.4-1 .7-1.8.7s-1.2-.3-1.8-.7c-.6-.4-1.4-.9-2.5-.9-.4 0-.7 0-1 .1l-1.5-2.3h15.8l1.2 3.3c-.4.3-.8.4-1.5.4-.9.1-1.4-.2-1.9-.6"
+                              />
+                              <path
+                                d="M19.1 9V4.5h-3.2l-2.1 3.1h-7l-.9 1.5L19.1 9zm-2.5-3h1v1.7h-2.1L16.6 6z"
+                              />
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <span
+                class="text secondary span s bold label"
+              >
+                Veneiden kesäsäilytys
+              </span>
+            </div>
+            <div
+              class="property wordBreak"
+            >
+              <div
+                class="iconWrapper secondary outlined"
+              >
+                <svg
+                  class="icon m"
+                  height="100%"
+                  viewBox="0 0 480 480"
+                  width="100%"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M456.93 233.27l-10.42-10.42.14-.13-6.47-6.2-8.7-8.7-.19.18-28-26.84-24.91 26 27.46 26.31-35.94 36a70.3 70.3 0 0 0-85.9-5.94l-97.31-97.31c-19.2-19.21-42.56-27.17-67.53-23-21 3.47-42.28 15.54-61.66 34.92l-12.74 12.69 25.45 25.46 12.73-12.73c16.84-16.83 49.39-40.77 78.27-11.89l99 99a70.19 70.19 0 0 0 112.56 80.69 70.22 70.22 0 0 0 17.16-71.08zM347.31 345.91a34.16 34.16 0 1 1 0-48.33 34.22 34.22 0 0 1 0 48.33z"
+                  />
+                </svg>
+              </div>
+              <span
+                class="text secondary span s bold label"
+              >
+                Trailerin kesäsäilytys
+              </span>
+            </div>
+            <div
+              class="property wordBreak"
+            >
+              <div
+                class="iconWrapper secondary outlined"
+              >
+                <svg
+                  class="icon m"
+                  height="100%"
+                  viewBox="0 0 480 480"
+                  width="100%"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M386.18 428.65l33-14.47-99.78-227.27h56.29V83.35H134.31v103.56h58.29L140 306.83h-.27v.61L92.86 414.18l33 14.47 37.67-85.82h185zm-206.9-121.82l52.63-119.92h1.52v-3.46l.33-.75-.33-.14v-31.65h-63.12v-31.56h169.38v31.56h-60.92v31.56l-.53.23.53 1.2v3h1.32l52.63 119.92z"
+                  />
+                </svg>
+              </div>
+              <span
+                class="text secondary span s bold label"
+              >
+                Telakointi­tarvikkeiden kesäsäilytys
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+    </div>
+    <div
+      class="card"
+    >
+      <div
+        class="cardHeader"
+      >
+        <span
+          class="title"
+        >
+          YHTEYSTIEDOT
+        </span>
+      </div>
+      <div
+        class="cardBody"
+      >
+        <article
+          class="section section"
+        >
+          <h4
+            class="text standard h4 m title"
+          >
+            KUNNOSSAPITO (PLACEHOLDER)
+          </h4>
+          <section
+            class="body"
+          >
+            <p>
+              Itäinen veneilytiimi
+            </p>
+            <p>
+              (Kulosaaren sillasta itään)
+            </p>
+            <a
+              class="link default"
+              href="mailto:itainenveneilytiimi@hel.fi"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              itainenveneilytiimi@hel.fi
+            </a>
+          </section>
+        </article>
+        <article
+          class="section section"
+        >
+          <h4
+            class="text standard h4 m title"
+          >
+            SATAMAPÄÄLLIKKÖ (PLACEHOLDER)
+          </h4>
+          <section
+            class="body"
+          >
+            <div
+              class="labelValuePair"
+            >
+              <span
+                class="label standard"
+              >
+                Nimi:
+              </span>
+              <span
+                class="value left"
+              >
+                Mikko Mallikas
+              </span>
+            </div>
+            <div
+              class="labelValuePair"
+            >
+              <span
+                class="label standard"
+              >
+                Puhelin:
+              </span>
+              <span
+                class="value left"
+              >
+                +358 00 000 0000
+              </span>
+            </div>
+            <div
+              class="labelValuePair"
+            >
+              <span
+                class="label standard"
+              >
+                Sähköposti:
+              </span>
+              <span
+                class="value left"
+              >
+                <a
+                  class="link default"
+                  href="mailto:etunimi.sukunimi@gmail.com"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  etunimi.sukunimi@gmail.com
+                </a>
+              </span>
+            </div>
+          </section>
+        </article>
+      </div>
+       
+    </div>
+    <div
+      class="card card"
+    >
+      <div
+        class="cardHeader"
+      >
+        <span
+          class="title"
+        >
+          TOIMINTAHISTORIA
+        </span>
+      </div>
+      <div
+        class="cardBody cardBody"
+      >
+        <article
+          class="section section"
+        >
+          <h4
+            class="text standard h4 m title"
+          >
+            VIIMEAIKAINEN TOIMINTA
+          </h4>
+          <section
+            class="body"
+          >
+            Placeholder
+          </section>
+        </article>
+        <div
+          class="linkRow"
+        >
+          <a
+            class="internalLink brand"
+            href="/"
+            title="Näytä koko historia"
+          >
+            Näytä koko historia
+          </a>
+        </div>
+      </div>
+       
+    </div>
+    <div
+      class="fullWidth"
+    >
+      <div
+        class="globalSearchTableTools"
+      >
+        <div
+          class="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 filterField"
+        >
+          <div
+            class="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+          >
+            <input
+              class="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
+              id="textSearchGlobalFilter"
+              placeholder="Haku"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="tableWrapper"
+      >
+        <div
+          class="table primary"
+          role="table"
+          style="min-width: 900px;"
+        >
+          <div
+            class="stickyHeaders"
+          >
+            <div
+              class="header mainHeaderReset"
+              role="row"
+              style="display: flex; flex: 1 0 auto; min-width: 0px;"
+            >
+              <div
+                class=""
+                colspan="6"
+                role="columnheader"
+                style="box-sizing: border-box; flex: 900 0 auto; min-width: 0px; width: 900px;"
+              >
+                <div
+                  class="container"
+                >
+                  <div
+                    class="selectContainer"
+                  >
+                    <div>
+                      <button
+                        class="button buttonSelected"
+                      >
+                        Kaikki
+                      </button>
+                      <button
+                        class="button"
+                      >
+                        Osasto -
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="header"
+              role="row"
+              style="display: flex; flex: 1 0 auto; min-width: 0px;"
+            >
+              <div
+                class="headerCell selector"
+                colspan="1"
+                role="columnheader"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+              >
+                <div
+                  class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz checkbox"
+                  style="cursor: pointer;"
+                >
+                  <input
+                    aria-checked="false"
+                    class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
+                    id="checkbox"
+                    title="Toggle All Rows Selected"
+                    type="checkbox"
+                    value=""
+                  />
+                  <label
+                    class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
+                    for="checkbox"
+                  />
+                </div>
+              </div>
+              <div
+                class="headerCell"
+                colspan="1"
+                role="columnheader"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
+                title="Toggle SortBy"
+              >
+                Paikka
+                <div
+                  class="sortArrowWrapper"
+                >
+                  <svg
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv sortArrow sortArrowDown"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 0h24v24H0z"
+                      />
+                      <path
+                        d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                        fill="currentColor"
+                      />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div
+                class="headerCell"
+                colspan="1"
+                role="columnheader"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
+                title="Toggle SortBy"
+              >
+                Osasto
+                <div
+                  class="sortArrowWrapper"
+                >
+                  <svg
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv sortArrow sortArrowDown"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 0h24v24H0z"
+                      />
+                      <path
+                        d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                        fill="currentColor"
+                      />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div
+                class="headerCell"
+                colspan="1"
+                role="columnheader"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
+                title="Toggle SortBy"
+              >
+                Asiakas
+                <div
+                  class="sortArrowWrapper"
+                >
+                  <svg
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv sortArrow sortArrowDown"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 0h24v24H0z"
+                      />
+                      <path
+                        d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                        fill="currentColor"
+                      />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div
+                class="headerCell"
+                colspan="1"
+                role="columnheader"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
+                title="Toggle SortBy"
+              >
+                Pituus
+                <div
+                  class="sortArrowWrapper"
+                >
+                  <svg
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv sortArrow sortArrowDown"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 0h24v24H0z"
+                      />
+                      <path
+                        d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                        fill="currentColor"
+                      />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div
+                class="headerCell"
+                colspan="1"
+                role="columnheader"
+                style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
+                title="Toggle SortBy"
+              >
+                Leveys
+                <div
+                  class="sortArrowWrapper"
+                >
+                  <svg
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv sortArrow sortArrowDown"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 0h24v24H0z"
+                      />
+                      <path
+                        d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                        fill="currentColor"
+                      />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            role="rowgroup"
+          >
+            <div
+              class="rowWrapper"
+            >
+              <div
+                role="row"
+                style="display: flex; flex: 1 0 auto; min-width: 0px;"
+              >
+                <div
+                  class="tableCell selector"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                >
+                  <div
+                    class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz checkbox"
+                    style="cursor: pointer;"
+                  >
+                    <input
+                      aria-checked="false"
+                      class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
+                      id="checkbox-V2ludGVyU3RvcmFnZVBsYWNlTm9kZTo0YzUzZTY3NC0zMmFjLTRkNTEtYmQzMC0wNTcyMWNjMjUyMTE="
+                      title="Toggle Row Selected"
+                      type="checkbox"
+                      value=""
+                    />
+                    <label
+                      class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
+                      for="checkbox-V2ludGVyU3RvcmFnZVBsYWNlTm9kZTo0YzUzZTY3NC0zMmFjLTRkNTEtYmQzMC0wNTcyMWNjMjUyMTE="
+                    />
+                  </div>
+                </div>
+                <div
+                  class="tableCell"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                >
+                  1
+                </div>
+                <div
+                  class="tableCell"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                >
+                  -
+                </div>
+                <div
+                  class="tableCell"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                />
+                <div
+                  class="tableCell"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                >
+                  5,0 m
+                </div>
+                <div
+                  class="tableCell"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                >
+                  3,0 m
+                </div>
+              </div>
+            </div>
+            <div
+              class="rowWrapper"
+            >
+              <div
+                role="row"
+                style="display: flex; flex: 1 0 auto; min-width: 0px;"
+              >
+                <div
+                  class="tableCell selector"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                >
+                  <div
+                    class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz checkbox"
+                    style="cursor: pointer;"
+                  >
+                    <input
+                      aria-checked="false"
+                      class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
+                      id="checkbox-V2ludGVyU3RvcmFnZVBsYWNlTm9kZTo3OTkzYzAxOC0zMTMwLTRjNTItYjA3Ni1mMGZlN2Q5YjRmYTE="
+                      title="Toggle Row Selected"
+                      type="checkbox"
+                      value=""
+                    />
+                    <label
+                      class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
+                      for="checkbox-V2ludGVyU3RvcmFnZVBsYWNlTm9kZTo3OTkzYzAxOC0zMTMwLTRjNTItYjA3Ni1mMGZlN2Q5YjRmYTE="
+                    />
+                  </div>
+                </div>
+                <div
+                  class="tableCell"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                >
+                  2
+                </div>
+                <div
+                  class="tableCell"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                >
+                  -
+                </div>
+                <div
+                  class="tableCell"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                />
+                <div
+                  class="tableCell"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                >
+                  5,0 m
+                </div>
+                <div
+                  class="tableCell"
+                  role="cell"
+                  style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+                >
+                  3,0 m
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul
+        class="pagination"
+      >
+        <li
+          class="prevBtn disabled"
+        >
+          <a
+            aria-disabled="true"
+            class="navLink"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="icnBtn"
+            >
+              <svg
+                class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                  />
+                  <path
+                    d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+              <span
+                class="text standard span"
+              >
+                Edellinen
+              </span>
+            </div>
+          </a>
+        </li>
+        <li
+          class="pageBtn selected"
+        >
+          <a
+            aria-current="page"
+            aria-label="Page 1 is your current page"
+            class="navLink pageLink active"
+            role="button"
+            tabindex="0"
+          >
+            1
+          </a>
+        </li>
+        <li
+          class="nextBtn disabled"
+        >
+          <a
+            aria-disabled="true"
+            class="navLink"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="icnBtn"
+            >
+              <span
+                class="text standard span"
+              >
+                Seuraava
+              </span>
+              <svg
+                class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                  />
+                  <path
+                    d="M12.586 7.05L14 5.636 20.364 12 14 18.364l-1.414-1.414 3.95-3.95H4v-2h12.535z"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

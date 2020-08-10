@@ -1,0 +1,307 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BoatCard renders correctly 1`] = `
+<div
+  class="card card"
+>
+  <div
+    class="cardHeader"
+  >
+    <span
+      class="title"
+    >
+      ASIAKKAAN VENE
+    </span>
+  </div>
+  <div
+    class="cardBody"
+  >
+    <div
+      class="grid cols2"
+    >
+      <article
+        class="section"
+      >
+        <section
+          class="body"
+        >
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Veneen tyyppi:
+            </span>
+            <span
+              class="value left"
+            >
+              -
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Rekisterinumero:
+            </span>
+            <span
+              class="value left"
+            >
+              registration number
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Nimi:
+            </span>
+            <span
+              class="value left"
+            >
+              name
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Merkki:
+            </span>
+            <span
+              class="value left"
+            >
+              model
+            </span>
+          </div>
+        </section>
+      </article>
+      <article
+        class="section"
+      >
+        <section
+          class="body"
+        >
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Veneen leveys:
+            </span>
+            <span
+              class="value left"
+            >
+              3,0 m
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Veneen pituus:
+            </span>
+            <span
+              class="value left"
+            >
+              7,0 m
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Veneen syväys:
+            </span>
+            <span
+              class="value left"
+            >
+              2,0 m
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Veneen paino:
+            </span>
+            <span
+              class="value left"
+            >
+              600 kg
+            </span>
+          </div>
+        </section>
+      </article>
+    </div>
+  </div>
+   
+</div>
+`;
+
+exports[`BoatCard renders missing fields correctly 1`] = `
+<div
+  class="card card"
+>
+  <div
+    class="cardHeader"
+  >
+    <span
+      class="title"
+    >
+      ASIAKKAAN VENE
+    </span>
+  </div>
+  <div
+    class="cardBody"
+  >
+    <div
+      class="grid cols2"
+    >
+      <article
+        class="section"
+      >
+        <section
+          class="body"
+        >
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Veneen tyyppi:
+            </span>
+            <span
+              class="value left"
+            >
+              -
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Rekisterinumero:
+            </span>
+            <span
+              class="value left"
+            >
+              registration number
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Nimi:
+            </span>
+            <span
+              class="value left"
+            >
+              -
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Merkki:
+            </span>
+            <span
+              class="value left"
+            >
+              -
+            </span>
+          </div>
+        </section>
+      </article>
+      <article
+        class="section"
+      >
+        <section
+          class="body"
+        >
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Veneen leveys:
+            </span>
+            <span
+              class="value left"
+            >
+              3,0 m
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Veneen pituus:
+            </span>
+            <span
+              class="value left"
+            >
+              7,0 m
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Veneen syväys:
+            </span>
+            <span
+              class="value left"
+            >
+              2,0 m
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Veneen paino:
+            </span>
+            <span
+              class="value left"
+            >
+              -
+            </span>
+          </div>
+        </section>
+      </article>
+    </div>
+  </div>
+   
+</div>
+`;

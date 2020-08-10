@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FileUpload renders normally with multiple files props 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="inputWrapper"
+  >
+    <ul
+      class="list standard noBullets"
+    >
+      <li
+        class="fileListItem"
+      >
+        <span
+          class="text brand span fileName"
+        >
+          test.jpg (10 kB)
+        </span>
+        <button
+          class="delete"
+          type="button"
+        >
+          <div
+            class="iconWrapper critical"
+          >
+            <svg
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M17.657 7.757L13.414 12l4.243 4.243-1.414 1.414L12 13.414l-4.243 4.243-1.414-1.414L10.586 12 6.343 7.757l1.414-1.414L12 10.586l4.243-4.243z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          </div>
+        </button>
+      </li>
+    </ul>
+    <div
+      class="row"
+    >
+      <div
+        class="field"
+      >
+        <input
+          class="input"
+          id="multiple"
+          multiple=""
+          type="file"
+        />
+        <button
+          class="Button-module_button__3wgee button_hds-button__2A0je Button-module_secondary__399Vd button_hds-button--secondary__1NOWS Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0 Button-module_size-small__2u97E button_hds-button--small__2NFef"
+          type="button"
+        >
+          <span
+            class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+          >
+            Lisää...
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FileUpload renders normally with single file props 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="inputWrapper"
+  >
+    <ul
+      class="list standard noBullets"
+    >
+      <li
+        class="fileListItem"
+      >
+        <span
+          class="text brand span fileName"
+        >
+          test.jpg (10 kB)
+        </span>
+        <button
+          class="delete"
+          type="button"
+        >
+          <div
+            class="iconWrapper critical"
+          >
+            <svg
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M17.657 7.757L13.414 12l4.243 4.243-1.414 1.414L12 13.414l-4.243 4.243-1.414-1.414L10.586 12 6.343 7.757l1.414-1.414L12 10.586l4.243-4.243z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          </div>
+        </button>
+      </li>
+    </ul>
+    <div
+      class="row"
+    >
+      <div
+        class="field"
+      >
+        <input
+          class="input"
+          id="single"
+          type="file"
+        />
+        <button
+          class="Button-module_button__3wgee button_hds-button__2A0je Button-module_secondary__399Vd button_hds-button--secondary__1NOWS Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0 Button-module_size-small__2u97E button_hds-button--small__2NFef"
+          type="button"
+        >
+          <span
+            class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+          >
+            Valitse...
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

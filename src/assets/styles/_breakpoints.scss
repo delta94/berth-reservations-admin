@@ -1,0 +1,49 @@
+$breakpoints: 'xs', 's', 'm', 'l', 'xl';
+
+/*
+===================================
+    Usage
+===================================
+.element {
+  padding: 10px;
+
+  @include for-size(desktop-down) {
+    padding: 20px;
+  }
+}
+*/
+
+@mixin for-size($range) {
+  $xs-upper-boundary: 320px;
+  $s-upper-boundary: 576px;
+  $m-upper-boundary: 768px;
+  $l-upper-boundary: 992px;
+  $xl-upper-boundary: 1224px;
+
+  @if not index($breakpoints, $range) {
+    @error '`#{$range}` is not a valid breakpoint token. '
+            + 'Valid breakpoints: #{$breakpoints}';
+  }
+
+  @if $range == xs {
+    @media (max-width: $xs-upper-boundary) {
+      @content;
+    }
+  } @else if $range == s {
+    @media (max-width: $s-upper-boundary) {
+      @content;
+    }
+  } @else if $range == m {
+    @media (max-width: $m-upper-boundary) {
+      @content;
+    }
+  } @else if $range == l {
+    @media (max-width: $l-upper-boundary) {
+      @content;
+    }
+  } @else if $range == xl {
+    @media (max-width: $xl-upper-boundary) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SectionWithButton renders normally 1`] = `
+<article
+  class="section"
+>
+  <div
+    class="sectionHeadWithButton"
+  >
+    <h4
+      class="text standard h4 m title"
+    >
+      title
+    </h4>
+    <button
+      class="title"
+      type="button"
+    >
+      <span
+        class="text brand span"
+      >
+        button
+      </span>
+    </button>
+  </div>
+  <section
+    class="body"
+  >
+    Content
+  </section>
+</article>
+`;

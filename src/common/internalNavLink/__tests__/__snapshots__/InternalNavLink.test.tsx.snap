@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InternalNavLink renders normally 1`] = `
+<a
+  aria-current="page"
+  class="internalNavLink standard isActive"
+  href="#/"
+>
+  <div
+    class="label"
+  >
+    Home Page
+  </div>
+</a>
+`;
+
+exports[`InternalNavLink renders normally with all props 1`] = `
+<a
+  aria-current="page"
+  class="internalNavLink brand isActive"
+  href="#/"
+>
+  <div
+    class="icon"
+  >
+    <i>
+      Test icon
+    </i>
+  </div>
+  <div
+    class="label"
+  >
+    Home Page
+  </div>
+</a>
+`;

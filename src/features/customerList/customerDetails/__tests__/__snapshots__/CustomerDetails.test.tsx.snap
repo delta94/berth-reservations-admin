@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomerDetails renders normally 1`] = `
+<div>
+  <div
+    class="grid cols4"
+  >
+    <div>
+      <article
+        class="section"
+      >
+        <h4
+          class="text standard h4 m title"
+        >
+          ASIAKAS
+        </h4>
+        <section
+          class="body"
+        >
+          Mikko Matias Mallikas
+        </section>
+      </article>
+      <article
+        class="section"
+      >
+        <section
+          class="body"
+        >
+          Telakkakatu 1 A 10
+          <br />
+          00100 Helsinki
+        </section>
+      </article>
+      <article
+        class="section"
+      >
+        <section
+          class="body"
+        >
+          +358 040 123 4567
+          <br />
+          mikko.mallikas@meri.fi
+          <br />
+          Yksityinen
+        </section>
+      </article>
+    </div>
+    <div>
+      <article
+        class="section"
+      >
+        <h4
+          class="text standard h4 m title"
+        >
+          VENEPAIKAT
+        </h4>
+        <section
+          class="body"
+        >
+          <div>
+            Pursilahdenranta B31
+          </div>
+          <div>
+            Strömsinlahdenranta B31
+          </div>
+        </section>
+      </article>
+      <article
+        class="section"
+      >
+        <h4
+          class="text standard h4 m title"
+        >
+          TALVISÄILYTYSPAIKAT
+        </h4>
+        <section
+          class="body"
+        >
+          <div>
+            Rajasaari
+          </div>
+        </section>
+      </article>
+      <article
+        class="section"
+      >
+        <h4
+          class="text standard h4 m title"
+        >
+          VENEET
+        </h4>
+        <section
+          class="body"
+        >
+          <div>
+            Cama la Yano
+          </div>
+        </section>
+      </article>
+    </div>
+    <div>
+      <article
+        class="section"
+      >
+        <h4
+          class="text standard h4 m title"
+        >
+          HAKEMUKSET
+        </h4>
+        <section
+          class="body"
+        >
+          <div>
+            01.12.2019
+          </div>
+        </section>
+      </article>
+      <article
+        class="section"
+      >
+        <h4
+          class="text standard h4 m title"
+        >
+          LASKUT
+        </h4>
+        <section
+          class="body"
+        >
+          <div>
+            2020-01-21
+          </div>
+        </section>
+      </article>
+    </div>
+    <div>
+      <article
+        class="section"
+      >
+        <h4
+          class="text standard h4 m title"
+        >
+          HUOMIOT
+        </h4>
+        <section
+          class="body"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean malesuada id est ut pellentesque. Vivamus quis maximus sem. Ut auctor vestibulum mattis. Vestibulum mollis diam convallis ligula consequat sagittis.
+        </section>
+      </article>
+    </div>
+  </div>
+</div>
+`;

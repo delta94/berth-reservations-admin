@@ -1,0 +1,21 @@
+@import 'spacings';
+
+.harborView {
+  display: flex;
+  flex-direction: column;
+
+  & > * {
+    margin-bottom: units(1);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: max-content;
+  grid-gap: units(1.5);
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}

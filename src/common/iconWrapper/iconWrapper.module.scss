@@ -1,0 +1,30 @@
+@import 'colours';
+@import 'spacings';
+
+.iconWrapper {
+  display: inline-flex;
+  color: var(--icon-stroke-color);
+}
+
+.outlined {
+  border-radius: 50%;
+  border: units(0.125) solid currentColor;
+  padding: units(0.5);
+}
+
+.brand {
+  --icon-stroke-color: #{$blue};
+}
+
+.standard {
+  --icon-stroke-color: inherit;
+}
+
+.disabled,
+.secondary {
+  --icon-stroke-color: #{$black-20};
+}
+
+.critical {
+  --icon-stroke-color: #{$error};
+}

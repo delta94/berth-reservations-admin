@@ -1,0 +1,45 @@
+@import 'colours';
+@import 'spacings';
+
+/*
+ * Pure CSS spinner, taken from:
+ * https://stephanwagner.me/only-css-loading-spinner
+ */
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@mixin add_spinner($size: units(4.5), $main-color: $black-20, $alt-color: $black, $thickness: units(0.125)) {
+  content: '';
+  box-sizing: border-box;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: $thickness solid $main-color;
+  border-top-color: $alt-color;
+  animation: spinner 1s linear infinite;
+}
+
+.spinnerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  width: 100%;
+}
+
+.spinner {
+  position: relative;
+  height: units(4.5);
+  width: units(4.5);
+
+  &::before {
+    @include add_spinner();
+  }
+}

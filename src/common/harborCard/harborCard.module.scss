@@ -1,0 +1,29 @@
+@import 'spacings';
+
+.cardBody {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.details {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 60%;
+}
+
+.imageWrapper {
+  width: 270px;
+  min-width: 270px;
+  margin-right: units(1.5);
+}
+
+.image {
+  width: 100%;
+  max-height: 100%;
+}
+
+.propsGrid {
+  grid-row-gap: units(1.5);
+}

@@ -1,0 +1,16 @@
+@import 'spacings';
+@import 'form';
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  > * {
+    margin-right: units(0.5);
+  }
+
+  :last-child {
+    margin: 0;
+  }
+}

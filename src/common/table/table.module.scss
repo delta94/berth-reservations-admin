@@ -1,0 +1,180 @@
+@import 'colours';
+@import 'spacings';
+@import 'z-index';
+
+$rows-spacing: units(0.25);
+$cell-padding-vertical: units(0.5);
+$cell-padding-horizontal: units(1);
+$transition-duration: 300ms;
+$placeholder-bg-size: 1000px;
+
+@keyframes shimmer {
+  0% {
+    background-position: -#{$placeholder-bg-size} 0;
+  }
+  100% {
+    background-position: $placeholder-bg-size 0;
+  }
+}
+
+.tableWrapper {
+  display: block;
+}
+
+.table {
+  width: 100%;
+  table-layout: fixed;
+
+  .tableCell {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: $cell-padding-vertical $cell-padding-horizontal;
+    min-width: units(4);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: inherit;
+    overflow: hidden;
+    border-right: solid 1px $black-20;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    .placeholder {
+      height: units(1.5);
+      width: 100%;
+      background: linear-gradient(90deg, $black-5, $black-10, $black-5);
+      background-size: $placeholder-bg-size 100%;
+      animation: shimmer 2s ease-in-out infinite;
+    }
+  }
+
+  .headerCell {
+    @extend .tableCell;
+
+    position: relative;
+    white-space: normal;
+  }
+
+  .stickyHeaders {
+    position: sticky;
+    top: 0;
+    z-index: z-index(table-header);
+  }
+
+  .header {
+    border-bottom: solid units(0.125) $black-50;
+    margin-bottom: $rows-spacing;
+    padding: units(0.5) 0;
+    background-color: $black-5;
+    z-index: z-index(table-header);
+  }
+
+  .mainHeaderReset {
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+
+  .mainHeader {
+    background-color: $blue;
+    color: $white;
+    font-weight: bold;
+    border: none;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+
+    & .tableCell {
+      margin: 0;
+      padding: units(1);
+    }
+  }
+
+  &.noMainHeader .header {
+    top: 0;
+  }
+
+  .sortArrowWrapper {
+    display: inline-flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: $cell-padding-horizontal;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear $transition-duration, opacity $transition-duration;
+
+    &.isSorted {
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 0s linear 0s, opacity $transition-duration;
+    }
+  }
+
+  .sortArrow {
+    transition: transform 0.25s;
+    transform: rotate(270deg);
+
+    &.sortArrowDown {
+      transform: rotate(90deg);
+    }
+  }
+
+  .rowWrapper {
+    background-color: $white;
+    padding: $cell-padding-horizontal 0;
+    margin-bottom: $rows-spacing;
+
+    &.isSelected {
+      box-shadow: inset 0 0 0 1px $blue;
+    }
+  }
+
+  .subComponent {
+    display: block;
+    padding: units(1.5);
+    margin-top: -#{$rows-spacing};
+  }
+
+  .selector,
+  .radioSelector {
+    display: flex;
+    justify-content: center;
+    max-width: units(4);
+  }
+
+  .expander {
+    display: flex;
+    justify-content: center;
+    max-width: units(6);
+  }
+
+  .expandArrow {
+    transition: transform $transition-duration;
+
+    &.isExpanded {
+      transform: rotate(180deg);
+    }
+  }
+
+  &.basic {
+    .header {
+      background-color: $white;
+      font-weight: bold;
+    }
+
+    .rowWrapper {
+      margin: 0;
+      border-bottom: 1px solid $black-50;
+      padding: 0;
+      background-color: unset;
+    }
+
+    .tableCell {
+      border: none;
+    }
+  }
+}

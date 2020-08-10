@@ -1,0 +1,41 @@
+@import 'colours';
+@import 'spacings';
+
+.labelValuePair {
+  display: flex;
+}
+
+.label {
+  --vene-text-color: inherit;
+
+  display: inline-block;
+  margin-right: units(0.5);
+  min-width: units(8);
+  color: var(--vene-text-color);
+  flex: 1;
+}
+
+.value {
+  --vene-text-color: inherit;
+
+  text-align: left;
+  margin-right: 0;
+  color: var(--vene-text-color);
+  flex: 1;
+
+  &.right {
+    text-align: right;
+  }
+}
+
+.brand {
+  --vene-text-color: #{$blue};
+}
+
+.critical {
+  --vene-text-color: #{$error};
+}
+
+.secondary {
+  --vene-text-color: #{$black-20};
+}

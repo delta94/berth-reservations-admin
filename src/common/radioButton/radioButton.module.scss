@@ -1,0 +1,9 @@
+@import 'colours';
+
+div.radioButton {
+  --border-color-selected: #{$blue};
+  --border-color-selected-hover: #{$blue-dark-50};
+  --border-color-selected-focus: #{$blue};
+  --icon-color-selected: #{$blue};
+  --icon-color-hover: #{$blue-dark-50};
+}

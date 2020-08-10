@@ -1,0 +1,42 @@
+@import 'spacings';
+@import 'colours';
+
+.chip {
+  --background-color: transparent;
+  --color: default;
+
+  background-color: var(--background-color);
+  color: var(--color);
+  padding: units(0.25) units(0.75);
+  white-space: nowrap;
+
+  &.grey {
+    --background-color: #{$black-10};
+    --color: #{$black-70};
+  }
+
+  &.green {
+    --background-color: #{$success-light};
+    --color: #{$success};
+  }
+
+  &.yellow {
+    --background-color: #{$alert-light};
+    --color: #{$alert-dark};
+  }
+
+  &.orange {
+    --background-color: #{$orange-20};
+    --color: #{$orange-50};
+  }
+
+  &.red {
+    --background-color: #{$error-light};
+    --color: #{$error};
+  }
+
+  &.blue {
+    --background-color: #{$info-light};
+    --color: #{$info};
+  }
+}

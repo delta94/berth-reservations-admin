@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactInformationCard renders normally with all props 1`] = `
+<div
+  class="card"
+>
+  <div
+    class="cardHeader"
+  >
+    <span
+      class="title"
+    >
+      YHTEYSTIEDOT
+    </span>
+  </div>
+  <div
+    class="cardBody"
+  >
+    <article
+      class="section section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        KUNNOSSAPITO (PLACEHOLDER)
+      </h4>
+      <section
+        class="body"
+      >
+        <p>
+          Itäinen veneilytiimi
+        </p>
+        <p>
+          (Kulosaaren sillasta itään)
+        </p>
+        <a
+          class="link default"
+          href="mailto:itainenveneilytiimi@hel.fi"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          itainenveneilytiimi@hel.fi
+        </a>
+      </section>
+    </article>
+    <article
+      class="section section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        SATAMAPÄÄLLIKKÖ (PLACEHOLDER)
+      </h4>
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Nimi:
+          </span>
+          <span
+            class="value left"
+          >
+            Mikko Mallikas
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Puhelin:
+          </span>
+          <span
+            class="value left"
+          >
+            +358 00 000 0000
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Sähköposti:
+          </span>
+          <span
+            class="value left"
+          >
+            <a
+              class="link default"
+              href="mailto:etunimi.sukunimi@gmail.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              etunimi.sukunimi@gmail.com
+            </a>
+          </span>
+        </div>
+      </section>
+    </article>
+  </div>
+   
+</div>
+`;

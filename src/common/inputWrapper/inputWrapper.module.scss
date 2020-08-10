@@ -1,0 +1,30 @@
+@import 'colours';
+@import 'fonts';
+@import 'spacings';
+
+.root {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+}
+
+.invalid {
+  color: $error;
+}
+
+.label {
+  display: block;
+  margin-top: units(0.25);
+  font-size: font-size(16);
+  font-weight: bold;
+}
+
+.helperText {
+  margin-top: units(0.25);
+  font-size: font-size(16);
+  display: block;
+}
+
+.inputWrapper {
+  position: relative;
+}

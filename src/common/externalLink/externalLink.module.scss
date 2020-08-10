@@ -1,0 +1,16 @@
+@import 'colours';
+@import 'spacings';
+
+.link {
+  text-decoration: none;
+  color: $blue;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.arrow {
+  margin-top: calc(-0.25 * var(--icon-size));
+  margin-bottom: calc(-0.25 * var(--icon-size));
+}

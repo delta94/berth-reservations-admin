@@ -1,0 +1,8 @@
+@import 'spacings';
+@import 'form';
+
+.checkboxes {
+  > * {
+    margin: units(0.5) 0;
+  }
+}

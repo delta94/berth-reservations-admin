@@ -1,0 +1,36 @@
+@import 'colours';
+@import 'spacings';
+
+.internalLink {
+  --vene-internal-link-color: #{$blue};
+
+  text-decoration: none;
+  color: var(--vene-internal-link-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  & > :first-child {
+    margin-right: units(1);
+  }
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+.standard {
+  --vene-internal-link-color: inherit;
+}
+
+.critical {
+  --vene-internal-link-color: #{$error};
+}
+
+.hasIcon {
+  display: flex;
+  align-items: center;
+
+  & > :first-child {
+    margin-right: units(0.5);
+  }
+}

@@ -1,0 +1,34 @@
+@import 'containers';
+@import 'spacings';
+
+.form {
+  width: container(m);
+  > * {
+    margin: units(1) 0;
+  }
+}
+
+.formActionButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.formActionButtonsRight {
+  display: flex;
+  justify-content: flex-end;
+
+  > button {
+    margin-left: units(0.5);
+  }
+}
+
+.template {
+  width: units(16);
+}
+
+.message {
+  textarea {
+    // HDS doesn't provide height prop at the moment
+    height: 30vh !important;
+  }
+}

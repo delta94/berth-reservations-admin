@@ -1,0 +1,27 @@
+@import 'spacings';
+
+.boatsCard {
+  margin-bottom: units(0.5);
+}
+
+.boatCertificate {
+  display: flex;
+}
+
+.boatCertificateLabel {
+  flex: 1;
+  margin-right: units(0.5);
+  min-width: units(8);
+}
+
+.boatCertificateValues {
+  flex: 1;
+  & > * {
+    margin-bottom: units(0.5);
+  }
+}
+
+.createBoat {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,64 @@
+@import 'spacings';
+@import 'colours';
+
+.pagination {
+  display: flex;
+  align-items: baseline;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.prevBtn,
+.nextBtn {
+  flex-grow: 1;
+  margin: 0 units(1);
+}
+
+.nextBtn {
+  text-align: right;
+}
+
+.navLink {
+  display: inline-block;
+  padding: units(1) 0;
+  vertical-align: middle;
+  color: $blue;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.icnBtn {
+  display: flex;
+  align-items: center;
+
+  :not(:last-child) {
+    margin-right: units(0.5);
+  }
+}
+
+.pageLink {
+  min-width: units(3);
+  text-align: center;
+
+  &:hover {
+    background-color: $black-10;
+  }
+
+  &.active {
+    background-color: $blue-light-20;
+  }
+}
+
+.disabled .navLink {
+  color: $black-50;
+  pointer-events: none;
+
+  svg {
+    fill: $black-50;
+  }
+}
+
+.break {
+  pointer-events: none;
+}

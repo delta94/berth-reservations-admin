@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LeasesCard renders normally 1`] = `
+<div
+  class="card"
+>
+  <div
+    class="cardHeader"
+  >
+    <span
+      class="title"
+    >
+      title
+    </span>
+  </div>
+  <div
+    class="cardBody"
+  >
+    <button
+      class="Button-module_button__3wgee button_hds-button__2A0je Button-module_secondary__399Vd button_hds-button--secondary__1NOWS Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0 button"
+      type="button"
+    >
+      <span
+        class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+      >
+        Näytä sopimus
+      </span>
+    </button>
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        infoSectionTitle
+      </h4>
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            addressLabel:
+          </span>
+          <span
+            class="value left"
+          >
+            <a
+              class="internalLink brand"
+              href="#/link"
+              title="Pursilahdenranta"
+            >
+              Pursilahdenranta
+            </a>
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Voimassa:
+          </span>
+          <span
+            class="value left"
+          >
+            14.06.2019 - 10.09.2019
+          </span>
+        </div>
+      </section>
+    </article>
+  </div>
+  <div
+    class="cardBody"
+  >
+    <button
+      class="Button-module_button__3wgee button_hds-button__2A0je Button-module_secondary__399Vd button_hds-button--secondary__1NOWS Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0 button"
+      type="button"
+    >
+      <span
+        class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+      >
+        Näytä sopimus
+      </span>
+    </button>
+    <article
+      class="section"
+    >
+      <h4
+        class="text standard h4 m title"
+      >
+        infoSectionTitle
+      </h4>
+      <section
+        class="body"
+      >
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            addressLabel:
+          </span>
+          <span
+            class="value left"
+          >
+            <a
+              class="internalLink brand"
+              href="#/link"
+              title="Telakkakatu 1"
+            >
+              Telakkakatu 1
+            </a>
+          </span>
+        </div>
+        <div
+          class="labelValuePair"
+        >
+          <span
+            class="label standard"
+          >
+            Voimassa:
+          </span>
+          <span
+            class="value left"
+          >
+            20.05.2019 - 15.06.2020
+          </span>
+        </div>
+      </section>
+    </article>
+  </div>
+   
+</div>
+`;

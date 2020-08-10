@@ -1,0 +1,18 @@
+@import 'spacings';
+@import 'colours';
+
+.cardHeader {
+  background-color: $blue;
+  padding: units(1);
+  font-weight: bold;
+  color: $white;
+  display: flex;
+}
+
+.title {
+  flex-grow: 1;
+}
+
+.widgets {
+  display: flex;
+}

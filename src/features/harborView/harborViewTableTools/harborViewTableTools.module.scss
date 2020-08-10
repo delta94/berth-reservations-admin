@@ -1,0 +1,11 @@
+@import 'spacings';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.buttons {
+  @include horizontal-margin-between(button, units(1));
+}

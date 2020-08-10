@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown opens the menu when you click on the label 1`] = `
+<div
+  class="dropdown"
+>
+  <div
+    class="label"
+  >
+    <button
+      class="label"
+    >
+      Click here
+    </button>
+  </div>
+  <div
+    class="menu"
+  >
+    <ul>
+      <li>
+        one
+      </li>
+      <li>
+        two
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Dropdown renders normally 1`] = `
+<div
+  class="dropdown"
+>
+  <div
+    class="label"
+  >
+    Click here
+  </div>
+</div>
+`;

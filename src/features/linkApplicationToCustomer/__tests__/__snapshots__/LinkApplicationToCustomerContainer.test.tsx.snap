@@ -1,0 +1,356 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinkApplicationToCustomerContainer renders normally 1`] = `
+Array [
+  <div
+    class="fullWidth"
+  >
+    <div
+      class="Notification-module_notification__2hN3H notification_hds-notification__2DQPN Notification-module_warning__2isNX notification_hds-notification--warning__1t18X"
+    >
+      <div
+        class="Notification-module_label__1bhNu notification_hds-notification__label__2t1lR"
+      >
+        <span
+          aria-hidden="true"
+          class="Notification-module_icon__1ans7 notification_hds-icon__29HQM"
+        >
+          <svg
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Notification-module_iconAttention__3i8Cj undefined"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <path
+                d="M0 0h24v24H0z"
+              />
+              <path
+                d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 2a8 8 0 100 16 8 8 0 000-16zm1 12v2h-2v-2h2zm0-10v8h-2V6h2z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+        </span>
+        <span
+          class="Notification-module_labelText__1qBt6 helpers_text-bold__1mCMR helpers_text-md__2Td0C"
+        >
+          Hakemusta ei ole liitetty mihinkään asiakkaaseen
+        </span>
+      </div>
+      <div
+        class="Notification-module_bodyText__2seBK notification_hds-notification__body__3cobH helpers_text-body__1PMI3"
+      >
+        Liitä hakemus olemassa olevaan asiakasprofiiliin tai luo uusi asiakasprofiili hakemuksen tiedoilla.
+      </div>
+    </div>
+  </div>,
+  <div
+    class="fullWidth"
+  >
+    <div
+      class="customersTableTools"
+    >
+      <div
+        class="Dropdown-module_root__2LI4- select select"
+      >
+        <div
+          class="Dropdown-module_wrapper__1oIw5"
+        >
+          <button
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-labelledby="hds-label hds-toggle-button"
+            class="Dropdown-module_buttonDropdown__IwbnQ Dropdown-module_dropdown__22ZdF"
+            id="hds-toggle-button"
+            type="button"
+          >
+            <span
+              class="Dropdown-module_buttonLabel__2jVRU"
+            >
+              Sukunimi
+            </span>
+            <svg
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Dropdown-module_angleIcon__1Y1mT"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M12 13.5l5-5 1.5 1.5-6.5 6.5L5.5 10 7 8.5z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          </button>
+        </div>
+        <ul
+          aria-labelledby="hds-label"
+          class="Dropdown-module_menu__3rei6"
+          id="hds-menu"
+          role="listbox"
+          style="max-height: calc(var(--dropdown-height) * 5);"
+          tabindex="-1"
+        />
+      </div>
+      <div
+        class="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 searchInput"
+      >
+        <div
+          class="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+        >
+          <input
+            class="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
+            id="searchSimilarCustomers"
+            type="text"
+            value="Käyttäjä"
+          />
+        </div>
+      </div>
+      <button
+        class="Button-module_button__3wgee button_hds-button__2A0je Button-module_primary__3bo_T button_hds-button--primary__2NVvO Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+        >
+          Liitä valittuun
+        </span>
+      </button>
+      <button
+        class="Button-module_button__3wgee button_hds-button__2A0je Button-module_secondary__399Vd button_hds-button--secondary__1NOWS Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0"
+        type="button"
+      >
+        <span
+          class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+        >
+          Luo uusi asiakas
+        </span>
+      </button>
+    </div>
+    <div
+      class="tableWrapper"
+    >
+      <div
+        class="table primary"
+        role="table"
+        style="min-width: 900px;"
+      >
+        <div
+          class="stickyHeaders"
+        >
+          <div
+            class="header mainHeader"
+            role="row"
+            style="display: flex; flex: 1 0 auto; min-width: 0px;"
+          >
+            <div
+              class="headerCell"
+              colspan="6"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 900 0 auto; min-width: 0px; width: 900px;"
+            >
+              LIITÄ HAKEMUS OLEMASSA OLEVAAN ASIAKASPROFIILIIN
+            </div>
+          </div>
+          <div
+            class="header"
+            role="row"
+            style="display: flex; flex: 1 0 auto; min-width: 0px;"
+          >
+            <div
+              class="headerCell radioSelector"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+               
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              Nimi
+              <div
+                class="sortArrowWrapper"
+              >
+                <svg
+                  class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv sortArrow sortArrowDown"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <path
+                      d="M0 0h24v24H0z"
+                    />
+                    <path
+                      d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                      fill="currentColor"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+              Asiakasryhmä
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+              Kotikunta
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+              Jakeluosoite
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+              Venepaikat
+            </div>
+          </div>
+        </div>
+        <div
+          role="rowgroup"
+        >
+          <div
+            class="rowWrapper"
+            role="row"
+          >
+            <div
+              class="tableCell"
+            >
+              <div>
+                Rajauksella ei löytynyt asiakastietoja
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul
+      class="pagination fullWidth"
+    >
+      <li
+        class="prevBtn disabled"
+      >
+        <a
+          aria-disabled="true"
+          class="navLink"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="icnBtn"
+          >
+            <svg
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+            <span
+              class="text standard span"
+            >
+              Edellinen
+            </span>
+          </div>
+        </a>
+      </li>
+      <li
+        class="pageBtn selected"
+      >
+        <a
+          aria-current="page"
+          aria-label="Page 1 is your current page"
+          class="navLink pageLink active"
+          role="button"
+          tabindex="0"
+        >
+          1
+        </a>
+      </li>
+      <li
+        class="nextBtn disabled"
+      >
+        <a
+          aria-disabled="true"
+          class="navLink"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="icnBtn"
+          >
+            <span
+              class="text standard span"
+            >
+              Seuraava
+            </span>
+            <svg
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M12.586 7.05L14 5.636 20.364 12 14 18.364l-1.414-1.414 3.95-3.95H4v-2h12.535z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>,
+]
+`;

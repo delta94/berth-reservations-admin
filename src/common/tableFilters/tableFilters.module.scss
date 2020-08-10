@@ -1,0 +1,39 @@
+@import 'spacings';
+@import 'colours';
+
+.filterBtn {
+  $active-color: $white;
+  $indicator-margin: units(0.5);
+
+  margin-right: units(3);
+  color: $blue-light-20;
+  font-weight: normal;
+  text-transform: inherit;
+
+  &.active {
+    position: relative;
+    height: 100%;
+    color: $active-color;
+    text-shadow: 0 0 1px $active-color;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: units(0.25);
+      width: calc(100% + 2 * #{$indicator-margin});
+      left: calc(-1 * #{$indicator-margin});
+      bottom: calc(-1 * #{units(1)});
+      background-color: $active-color;
+    }
+  }
+
+  &.disabled {
+    color: $blue-light-50;
+    pointer-events: none;
+  }
+
+  &:hover {
+    color: $active-color;
+  }
+}

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InternalLink renders normally 1`] = `
+<a
+  class="internalLink brand"
+  href="#/"
+  title="Home Page"
+>
+  Home Page
+</a>
+`;
+
+exports[`InternalLink renders normally with element children 1`] = `
+<a
+  class="internalLink brand"
+  href="#/"
+>
+  <p>
+    Test!
+  </p>
+</a>
+`;

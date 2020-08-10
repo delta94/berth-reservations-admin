@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils getBerthsData should return an array of BerthPrice objects 1`] = `
+Array [
+  Object {
+    "company": 20.4,
+    "id": "68ac7db5-b397-48f6-af19-99c35d645cb6",
+    "name": "sed sed debitis",
+    "period": "SEASON",
+    "privateCustomer": 10.2,
+    "productId": "7667c0af-a6dd-4d33-89c5-9142918b14d4",
+  },
+]
+`;

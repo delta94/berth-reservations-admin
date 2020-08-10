@@ -1,0 +1,14 @@
+$z-index: (
+  table-header: 1,
+  dropdown: 2,
+  modal: 3,
+  toasts: 4,
+);
+
+@function z-index($key) {
+  @return map-get($z-index, $key);
+}
+
+@mixin z-index($key) {
+  z-index: z-index($key);
+}

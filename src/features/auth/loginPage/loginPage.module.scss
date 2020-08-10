@@ -1,0 +1,23 @@
+@import 'colours';
+@import 'containers';
+@import 'spacings';
+
+.loginPage {
+  width: 100vw;
+  height: 100vh;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: $black-5;
+}
+
+.contentWrapper {
+  max-width: container(xs);
+  text-align: center;
+  margin-bottom: units(2);
+}

@@ -1,0 +1,36 @@
+@import 'spacings';
+@import 'colours';
+
+.icon {
+  --icon-size: 100%;
+  display: inline-block;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: auto;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: auto;
+  fill: currentColor;
+}
+
+.xs {
+  --icon-size: #{units(1)};
+}
+
+.s {
+  --icon-size: #{units(1.5)};
+}
+
+.m {
+  --icon-size: #{units(2)};
+}
+
+.l {
+  --icon-size: #{units(3)};
+}
+
+.xl {
+  --icon-size: #{units(4)};
+}

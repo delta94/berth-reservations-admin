@@ -1,0 +1,16 @@
+@import 'colours';
+@import 'spacings';
+
+.globalSearchTableTools {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: units(0.5);
+}
+
+.filterField {
+  input {
+    background-color: $white;
+  }
+  width: 25%;
+  min-width: units(12);
+}

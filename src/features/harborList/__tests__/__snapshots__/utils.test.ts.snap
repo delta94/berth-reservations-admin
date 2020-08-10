@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils getHarborsData success path harbors follow the expected shape 1`] = `
+Object {
+  "electricity": 1,
+  "gate": 1,
+  "id": "SGFyYm9yTm9kZTpmN2M2YTQwZjAtOWViMi0zZjgyMTI0YjY0OGI=",
+  "imageFile": "https://venepaikka-api.test.hel.ninja/media/harbors/9a8d8313-eaa2-47d2-8f2d-2bb9893f9bc7/41359.jpg",
+  "lighting": 1,
+  "maps": Array [],
+  "maxWidth": 4,
+  "municipality": "Helsinki",
+  "name": "Pajalahden venesatama (Meripuistotie) / Venesatama",
+  "numberOfFreePlaces": 2,
+  "numberOfInactivePlaces": 1,
+  "numberOfPlaces": 4,
+  "servicemapId": "41359",
+  "streetAddress": "Meripuistotie 1a",
+  "wasteCollection": 1,
+  "water": 1,
+  "wwwUrl": "https://www.hel.fi/",
+  "zipCode": "00210",
+}
+`;
+
+exports[`utils getHarborsData success path harbors follow the expected shape 2`] = `
+Object {
+  "electricity": 1,
+  "gate": 1,
+  "id": "SGFyYm9yTm9kZTplZDM1Q1ZTgtOGUyYS0zYmQxNDk4NjYzMDI=",
+  "imageFile": "https://venepaikka-api.test.hel.ninja/media/harbors/97c033ad-5470-4225-a49b-03958ce910e1/42225.jpg",
+  "lighting": 2,
+  "maps": Array [],
+  "maxWidth": 4,
+  "municipality": "Helsinki",
+  "name": "Nandelstadhin venesatama",
+  "numberOfFreePlaces": 2,
+  "numberOfInactivePlaces": 1,
+  "numberOfPlaces": 4,
+  "servicemapId": "42225",
+  "streetAddress": "Lars Sonckin tie 8a",
+  "wasteCollection": 2,
+  "water": 1,
+  "wwwUrl": "https://www.hel.fi/",
+  "zipCode": "00570",
+}
+`;
