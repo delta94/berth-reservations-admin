@@ -12,6 +12,7 @@ export interface HarborData {
   water: number;
   name: string;
   numberOfPlaces: number;
+  numberOfInactivePlaces: number;
   numberOfFreePlaces: number;
   streetAddress: string | null;
   zipCode: string | null;

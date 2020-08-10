@@ -54,6 +54,7 @@ export const getHarborsData = (data: HARBORS | undefined) => {
             municipality: harbor.node.properties.municipality,
             name: harbor.node.properties.name || '-',
             numberOfPlaces: harbor.node.properties.numberOfPlaces || 0,
+            numberOfInactivePlaces: harbor.node.properties.numberOfInactivePlaces || 0,
             numberOfFreePlaces: harbor.node.properties.numberOfFreePlaces || 0,
             servicemapId: harbor.node.properties.servicemapId,
             streetAddress: harbor.node.properties.streetAddress,
@@ -70,7 +71,7 @@ export const getHarborsData = (data: HARBORS | undefined) => {
 };
 
 export const calculateBerthSummary = (
-  data: { numberOfPlaces: number; numberOfFreePlaces: number }[]
+  data: { numberOfPlaces: number; numberOfInactivePlaces: number; numberOfFreePlaces: number }[]
 ): BerthSummaryProps => {
   if (data.length === 0) {
     return {};
@@ -80,15 +81,18 @@ export const calculateBerthSummary = (
     (acc, harbor) => {
       const berthCount = acc.berthCount + harbor.numberOfPlaces;
       const freeCount = acc.freeCount + harbor.numberOfFreePlaces;
+      const otherCount = acc.otherCount + harbor.numberOfInactivePlaces;
       return {
         berthCount,
         freeCount,
-        reservedCount: berthCount - freeCount,
+        otherCount,
+        reservedCount: berthCount - freeCount - otherCount,
       };
     },
     {
       berthCount: 0,
       freeCount: 0,
+      otherCount: 0,
       reservedCount: 0,
     }
   );
