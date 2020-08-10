@@ -323,19 +323,6 @@
   },
   "applicationView": {
     "title": "Hakemus",
-    "noCustomerProfileNotification": {
-      "label": "Hakemusta ei ole liitetty mihinkään asiakkaaseen",
-      "description": "Liitä hakemus olemassa olevaan asiakasprofiiliin tai luo uusi asiakasprofiili hakemuksen tiedoilla."
-    },
-    "customersTable": {
-      "mainHeader": "LIITÄ HAKEMUS OLEMASSA OLEVAAN ASIAKASPROFIILIIN",
-      "name": "Nimi",
-      "customerGroup": "Asiakasryhmä",
-      "municipality": "Kotikunta",
-      "address": "Jakeluosoite",
-      "berths": "Venepaikat",
-      "emptyState": "Rajauksella ei löytynyt asiakastietoja"
-    },
     "customerTableTools": {
       "linkCustomer": "Liitä valittuun",
       "createNewCustomer": "Luo uusi asiakas"
@@ -343,6 +330,19 @@
     "applicationDetails": {
       "title": "HAKEMUS"
     }
+  },
+  "linkApplicationToCustomer": {
+    "noCustomerProfileNotification": {
+      "label": "Hakemusta ei ole liitetty mihinkään asiakkaaseen",
+      "description": "Liitä hakemus olemassa olevaan asiakasprofiiliin tai luo uusi asiakasprofiili hakemuksen tiedoilla."
+    },
+    "mainHeader": "LIITÄ HAKEMUS OLEMASSA OLEVAAN ASIAKASPROFIILIIN",
+    "name": "Nimi",
+    "customerGroup": "Asiakasryhmä",
+    "municipality": "Kotikunta",
+    "address": "Jakeluosoite",
+    "berths": "Venepaikat",
+    "emptyState": "Rajauksella ei löytynyt asiakastietoja"
   },
   "offer": {
     "title": "Tarjous",

@@ -46,12 +46,16 @@ describe('format', () => {
   });
 
   describe('formatPrice', () => {
-    it('should add at least two fraction numbers', () => {
+    it('should add at least two decimals', () => {
       expect(formatPrice(1, 'fi')).toMatch('1,00');
     });
 
     it('should add the currency unit to to the supplied value', () => {
       expect(formatPrice(1, 'fi')).toMatch('€');
+    });
+
+    it('should format prices with percentage correctly', () => {
+      expect(formatPrice(1, 'fi', 0.5)).toEqual('0.5%  01,00 €');
     });
   });
 
@@ -61,29 +65,29 @@ describe('format', () => {
     });
 
     it('should return the right value', () => {
-      expect(formatPercentage(10, 'fi')).toMatch('10');
+      expect(formatPercentage(10, 'fi')).toEqual('10 %');
     });
   });
 
   describe('formatBytes', () => {
     it('should format values <1000 as B', () => {
-      expect(formatBytes(0, 'fi')).toMatch('0 B');
-      expect(formatBytes(2, 'fi')).toMatch('2 B');
-      expect(formatBytes(999, 'fi')).toMatch('999 B');
+      expect(formatBytes(0, 'fi')).toEqual('0 B');
+      expect(formatBytes(2, 'fi')).toEqual('2 B');
+      expect(formatBytes(999, 'fi')).toEqual('999 B');
     });
 
     it('should format values >=1000 and <999950 as kB', () => {
-      expect(formatBytes(1000, 'fi')).toMatch('1 kB');
-      expect(formatBytes(1010, 'fi')).toMatch('1 kB');
-      expect(formatBytes(1099, 'fi')).toMatch('1,1 kB');
-      expect(formatBytes(999949, 'fi')).toMatch('999,9 kB');
+      expect(formatBytes(1000, 'fi')).toEqual('1 kB');
+      expect(formatBytes(1010, 'fi')).toEqual('1 kB');
+      expect(formatBytes(1099, 'fi')).toEqual('1,1 kB');
+      expect(formatBytes(999949, 'fi')).toEqual('999,9 kB');
     });
 
     it('should format values >=999950 as MB', () => {
-      expect(formatBytes(999950, 'fi')).toMatch('1 MB');
-      expect(formatBytes(1000000, 'fi')).toMatch('1 MB');
-      expect(formatBytes(1099000, 'fi')).toMatch('1,1 MB');
-      expect(formatBytes(999900000, 'fi')).toMatch('999,9 MB');
+      expect(formatBytes(999950, 'fi')).toEqual('1 MB');
+      expect(formatBytes(1000000, 'fi')).toEqual('1 MB');
+      expect(formatBytes(1099000, 'fi')).toEqual('1,1 MB');
+      expect(formatBytes(999900000, 'fi')).toEqual('999,9 MB');
     });
   });
 
