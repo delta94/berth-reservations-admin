@@ -7,17 +7,15 @@ import Select from '../../../common/select/Select';
 import styles from './customerListTableTools.module.scss';
 import Modal from '../../../common/modal/Modal';
 import Text from '../../../common/text/Text';
-import { CustomerMessageForm } from '../../customerMessageForm/CustomerMessageForm';
-import { MessageFormValues } from '../types';
 import Button from '../../../common/button/Button';
+import CustomerMessageFormContainer from '../../customerMessageForm/CustomerMessageFormContainer';
 
 export interface CustomerListTableToolsProps<T> {
   className?: string;
   searchVal: string | undefined;
   searchBy: T;
   searchByOptions: Array<{ value: T; label: string }>;
-  selectedRowsCount: number;
-  handleSendMessage?: (message: MessageFormValues) => void;
+  selectedCustomerIds: string[];
   setSearchVal(val: string): void;
   setSearchBy(val: T): void;
   clearSelectedRows(): void;
@@ -30,12 +28,12 @@ const CustomerListTableTools = <T extends string>({
   searchByOptions,
   setSearchVal,
   setSearchBy,
-  handleSendMessage,
-  selectedRowsCount,
+  selectedCustomerIds,
   clearSelectedRows,
 }: CustomerListTableToolsProps<T>) => {
   const { t } = useTranslation();
   const [messageModalOpen, setMessageModalOpen] = useState<boolean>(false);
+  const selectedRowsCount = selectedCustomerIds.length;
 
   return (
     <div className={classNames(styles.tableTools, className)}>
@@ -72,7 +70,11 @@ const CustomerListTableTools = <T extends string>({
         />
       </div>
       <Modal isOpen={messageModalOpen} toggleModal={() => setMessageModalOpen(false)}>
-        <CustomerMessageForm handleSendMessage={handleSendMessage} closeModal={() => setMessageModalOpen(false)} />
+        <CustomerMessageFormContainer
+          closeModal={() => setMessageModalOpen(false)}
+          handleSendMessage={() => setMessageModalOpen(false)}
+          selectedCustomerIds={selectedCustomerIds}
+        />
       </Modal>
     </div>
   );

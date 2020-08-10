@@ -83,6 +83,12 @@ export enum LeaseStatus {
   REFUSED = "REFUSED",
 }
 
+export enum NotificationTemplateLanguage {
+  EN = "EN",
+  FI = "FI",
+  SV = "SV",
+}
+
 export enum OrderStatus {
   EXPIRED = "EXPIRED",
   PAID = "PAID",

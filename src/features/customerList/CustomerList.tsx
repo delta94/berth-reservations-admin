@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import PageTitle from '../../common/pageTitle/PageTitle';
 import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
-import { CustomerData, MessageFormValues } from './types';
+import { CustomerData } from './types';
 import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
 import CustomerListTableTools, { CustomerListTableToolsProps } from './tableTools/CustomerListTableTools';
 import InternalLink from '../../common/internalLink/InternalLink';
@@ -26,19 +26,11 @@ export interface CustomerListProps {
   loading: boolean;
   data: CustomerData[];
   pagination: PaginationProps;
-  tableTools: Omit<CustomerListTableToolsProps<SearchBy>, 'selectedRowsCount' | 'clearSelectedRows'>;
+  tableTools: Omit<CustomerListTableToolsProps<SearchBy>, 'selectedCustomerIds' | 'clearSelectedRows'>;
   onSortedColChange(sortBy: { id: string; desc?: boolean } | undefined): void;
-  handleSendMessage(customerIds: string[], message: MessageFormValues): void;
 }
 
-const CustomerList = ({
-  loading,
-  data,
-  pagination,
-  tableTools,
-  onSortedColChange,
-  handleSendMessage,
-}: CustomerListProps) => {
+const CustomerList = ({ loading, data, pagination, tableTools, onSortedColChange }: CustomerListProps) => {
   const { t, i18n } = useTranslation();
   const columns: ColumnType[] = [
     {
@@ -121,20 +113,13 @@ const CustomerList = ({
           );
         }}
         renderMainHeader={() => t('customerList.tableHeaders.mainHeader')}
-        renderTableToolsTop={({ selectedRowIds }, { resetSelectedRows }) => {
-          const onSendMessage = (message: MessageFormValues) => {
-            const selectedCustomerIds = getSelectedRowIds(selectedRowIds);
-            handleSendMessage(selectedCustomerIds, message);
-          };
-          return (
-            <CustomerListTableTools
-              {...tableTools}
-              handleSendMessage={onSendMessage}
-              selectedRowsCount={getSelectedRowIds(selectedRowIds).length}
-              clearSelectedRows={resetSelectedRows}
-            />
-          );
-        }}
+        renderTableToolsTop={({ selectedRowIds }, { resetSelectedRows }) => (
+          <CustomerListTableTools
+            {...tableTools}
+            selectedCustomerIds={getSelectedRowIds(selectedRowIds)}
+            clearSelectedRows={resetSelectedRows}
+          />
+        )}
         renderEmptyStateRow={() => t('common.notification.noData.description')}
         renderTableToolsBottom={() => <Pagination {...pagination} />}
         onSortedColChange={onSortedColChange}

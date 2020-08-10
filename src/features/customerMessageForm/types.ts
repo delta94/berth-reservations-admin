@@ -1,7 +1,16 @@
-export interface MessageTemplate {
+type Translation = {
+  bodyHtml: string | null;
+  bodyText: string | null;
+  preview: string | null;
+  subject: string | null;
+};
+
+export type NotificationTemplate = {
   id: string;
-  name: string;
-}
+  preview: string | null;
+  translations: { [languageCode: string]: Translation };
+  type: string;
+};
 
 export interface MessageFormValues {
   templateId: string;
