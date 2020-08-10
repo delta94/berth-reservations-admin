@@ -7,7 +7,7 @@ import Select from '../../../common/select/Select';
 import styles from './customerListTableTools.module.scss';
 import Modal from '../../../common/modal/Modal';
 import Text from '../../../common/text/Text';
-import { CustomerMessageForm } from './CustomerMessageForm';
+import { CustomerMessageForm } from '../../customerMessageForm/CustomerMessageForm';
 import { MessageFormValues } from '../types';
 import Button from '../../../common/button/Button';
 

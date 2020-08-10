@@ -6,11 +6,11 @@ import * as Yup from 'yup';
 import { ObjectSchema } from 'yup';
 import { useTranslation } from 'react-i18next';
 
-import { MessageFormValues, MessageTemplate } from '../types';
-import Text from '../../../common/text/Text';
+import { MessageFormValues, MessageTemplate } from './types';
+import Text from '../../common/text/Text';
 import styles from './customerMessageForm.module.scss';
-import Select from '../../../common/select/Select';
-import Button from '../../../common/button/Button';
+import Select from '../../common/select/Select';
+import Button from '../../common/button/Button';
 
 type CustomerMessageFormProps = {
   closeModal: () => void;
