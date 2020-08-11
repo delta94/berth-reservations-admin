@@ -55,6 +55,7 @@ FROM appbase as staticbuilder
 # ===================================
 
 ARG REACT_APP_API_URI
+ARG REACT_APP_TUNNISTAMO_URI
 ARG REACT_APP_SENTRY_DSN
 ARG REACT_APP_SENTRY_ENVIRONMENT
 
