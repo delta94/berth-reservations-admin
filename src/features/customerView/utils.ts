@@ -69,7 +69,7 @@ export const getWinterStorageLeases = (profile: CUSTOMER_PROFILE): Lease[] => {
   if (!profile.winterStorageLeases?.edges) return [];
 
   return profile.winterStorageLeases.edges.reduce<Lease[]>((acc, edge) => {
-    if (!edge?.node || edge?.node?.status !== 'PAID') return acc;
+    if (!edge?.node?.place || edge?.node?.status !== 'PAID') return acc;
 
     const placeNum = edge.node.place.number.toString(10);
     const sectionIdentifier = edge.node.place.winterStorageSection.properties?.identifier || null;
@@ -226,7 +226,7 @@ export const getBills = (profile: CUSTOMER_PROFILE): (BerthBill | WinterStorageB
             {
               ...bill,
               winterStorageInformation: {
-                winterStorageAreaName: lease.place.winterStorageSection.properties?.area.properties?.name ?? '',
+                winterStorageAreaName: lease.place?.winterStorageSection.properties?.area.properties?.name ?? '',
               },
             },
           ];

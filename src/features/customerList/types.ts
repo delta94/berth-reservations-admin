@@ -1,16 +1,5 @@
 import { CustomerGroup } from '../../@types/__generated__/globalTypes';
 
-export interface MessageTemplate {
-  id: string;
-  name: string;
-}
-
-export interface MessageFormValues {
-  templateId: string;
-  subject: string;
-  message: string;
-}
-
 export interface Organization {
   name: string;
   address: string;
