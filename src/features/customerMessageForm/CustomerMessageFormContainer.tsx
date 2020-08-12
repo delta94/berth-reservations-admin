@@ -22,18 +22,19 @@ const CustomerMessageFormContainer = ({
   selectedCustomerIds,
 }: CustomerMessageFormContainerProps) => {
   const { data, loading } = useQuery<NOTIFICATION_TEMPLATES>(NOTIFICATION_TEMPLATES_QUERY);
-  const [preview, setPreview] = useState<string | undefined>(undefined);
+  const [previewHtml, setPreviewHtml] = useState<string | undefined>(undefined);
 
   if (loading || !data?.notificationTemplates) return <LoadingSpinner isLoading={true} />;
 
   const notificationTemplates = getNotificationTemplates(data);
 
-  const handlePreview = (id: string) => {
-    setPreview(
-      notificationTemplates.find((template) => {
-        return template.id === id;
-      })?.preview || undefined
-    );
+  const getPreviewHtml = (templateId: string) =>
+    notificationTemplates.find((template) => {
+      return template.id === templateId;
+    })?.preview || undefined;
+
+  const handlePreview = (templateId: string) => {
+    setPreviewHtml(getPreviewHtml(templateId));
   };
 
   const onSubmit = (message: MessageFormValues) => {
@@ -49,11 +50,10 @@ const CustomerMessageFormContainer = ({
         handlePreview={handlePreview}
         handleSendMessage={onSubmit}
       />
-      {preview && (
-        <Modal isOpen={true} toggleModal={() => setPreview(undefined)}>
-          <Preview preview={preview} handleCancel={() => setPreview(undefined)} />
-        </Modal>
-      )}
+
+      <Modal isOpen={!!previewHtml} toggleModal={() => setPreviewHtml(undefined)}>
+        <Preview previewHtml={previewHtml as string} handleCancel={() => setPreviewHtml(undefined)} />
+      </Modal>
     </>
   );
 };
