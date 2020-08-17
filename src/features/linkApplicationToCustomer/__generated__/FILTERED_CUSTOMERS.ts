@@ -64,6 +64,31 @@ export interface FILTERED_CUSTOMERS_profiles_edges_node_berthLeases {
   edges: (FILTERED_CUSTOMERS_profiles_edges_node_berthLeases_edges | null)[];
 }
 
+export interface FILTERED_CUSTOMERS_profiles_edges_node_winterStorageLeases_edges_node_area_properties {
+  __typename: "WinterStorageAreaProperties";
+  name: string | null;
+}
+
+export interface FILTERED_CUSTOMERS_profiles_edges_node_winterStorageLeases_edges_node_area {
+  __typename: "WinterStorageAreaNode";
+  properties: FILTERED_CUSTOMERS_profiles_edges_node_winterStorageLeases_edges_node_area_properties | null;
+}
+
+export interface FILTERED_CUSTOMERS_profiles_edges_node_winterStorageLeases_edges_node {
+  __typename: "WinterStorageLeaseNode";
+  area: FILTERED_CUSTOMERS_profiles_edges_node_winterStorageLeases_edges_node_area | null;
+}
+
+export interface FILTERED_CUSTOMERS_profiles_edges_node_winterStorageLeases_edges {
+  __typename: "WinterStorageLeaseNodeEdge";
+  node: FILTERED_CUSTOMERS_profiles_edges_node_winterStorageLeases_edges_node | null;
+}
+
+export interface FILTERED_CUSTOMERS_profiles_edges_node_winterStorageLeases {
+  __typename: "WinterStorageLeaseNodeConnection";
+  edges: (FILTERED_CUSTOMERS_profiles_edges_node_winterStorageLeases_edges | null)[];
+}
+
 export interface FILTERED_CUSTOMERS_profiles_edges_node_berthApplications_edges_node_berthSwitch {
   __typename: "BerthSwitchType";
   harborName: string;
@@ -93,6 +118,7 @@ export interface FILTERED_CUSTOMERS_profiles_edges_node {
   primaryAddress: FILTERED_CUSTOMERS_profiles_edges_node_primaryAddress | null;
   organization: FILTERED_CUSTOMERS_profiles_edges_node_organization | null;
   berthLeases: FILTERED_CUSTOMERS_profiles_edges_node_berthLeases | null;
+  winterStorageLeases: FILTERED_CUSTOMERS_profiles_edges_node_winterStorageLeases | null;
   berthApplications: FILTERED_CUSTOMERS_profiles_edges_node_berthApplications | null;
 }
 

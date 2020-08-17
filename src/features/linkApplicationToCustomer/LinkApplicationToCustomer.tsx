@@ -6,8 +6,9 @@ import Table, { Column } from '../../common/table/Table';
 import styles from '../applicationView/applicationView.module.scss';
 import CustomersTableTools, { CustomersTableToolsProps } from './tableTools/CustomersTableTools';
 import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
-import { CustomerData, SearchBy } from '../applicationView/ApplicationView';
+import { SearchBy } from '../applicationView/ApplicationView';
 import { getCustomerGroupKey } from '../../common/utils/translations';
+import { CustomerData } from './utils';
 
 export interface LinkApplicationToCustomerProps {
   data: CustomerData[];
@@ -58,13 +59,23 @@ const LinkApplicationToCustomer = ({
     },
     {
       Cell: ({ cell }) => (
-        <div title={cell.value !== null ? cell.value : undefined} className={styles.berthsCell}>
+        <div title={cell.value !== null ? cell.value : undefined} className={styles.ellipsisCell}>
           {cell.value}
         </div>
       ),
       Header: t('linkApplicationToCustomer.berths') as string,
       disableSortBy: true,
       accessor: 'berths',
+    },
+    {
+      Cell: ({ cell }) => (
+        <div title={cell.value !== null ? cell.value : undefined} className={styles.ellipsisCell}>
+          {cell.value}
+        </div>
+      ),
+      Header: t('linkApplicationToCustomer.winterStoragePlaces') as string,
+      disableSortBy: true,
+      accessor: 'winterStoragePlaces',
     },
   ];
 

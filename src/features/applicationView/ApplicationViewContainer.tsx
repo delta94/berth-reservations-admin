@@ -1,5 +1,5 @@
 import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 import { useParams } from 'react-router-dom';
 import { getOperationName } from 'apollo-link';
 
@@ -14,6 +14,11 @@ import { useDeleteBerthApplication } from '../../common/mutations/deleteBerthApp
 import { getApplicationDetailsData } from './utils';
 import { getOfferDetailsData } from './offerCard/utils';
 import { getCustomerProfile } from '../customerView/utils';
+import {
+  UPDATE_BERTH_APPLICATION,
+  UPDATE_BERTH_APPLICATIONVariables as UPDATE_BERTH_APPLICATION_VARS,
+} from '../linkApplicationToCustomer/__generated__/UPDATE_BERTH_APPLICATION';
+import { UPDATE_BERTH_APPLICATION_MUTATION } from '../linkApplicationToCustomer/mutations';
 
 const ApplicationViewContainer = () => {
   const { id } = useParams<{ id: string }>();
@@ -26,6 +31,27 @@ const ApplicationViewContainer = () => {
       },
     }
   );
+
+  const [linkCustomer] = useMutation<UPDATE_BERTH_APPLICATION, UPDATE_BERTH_APPLICATION_VARS>(
+    UPDATE_BERTH_APPLICATION_MUTATION,
+    {
+      refetchQueries: [
+        {
+          query: INDIVIDUAL_APPLICATION_QUERY,
+          variables: {
+            id,
+          },
+        },
+      ],
+    }
+  );
+
+  const handleLinkCustomer = (customerId: string) =>
+    linkCustomer({
+      variables: {
+        input: { id, customerId },
+      },
+    });
 
   const [deleteDraftedApplication] = useDeleteBerthApplication();
 
@@ -54,6 +80,7 @@ const ApplicationViewContainer = () => {
       berthApplication={data.berthApplication}
       customerProfile={customerProfile}
       handleDeleteLease={handleDeleteLease}
+      handleLinkCustomer={handleLinkCustomer}
       leaseDetails={leaseDetails}
       refetchQueries={[getOperationName(INDIVIDUAL_APPLICATION_QUERY) || 'INDIVIDUAL_APPLICATION']}
     />

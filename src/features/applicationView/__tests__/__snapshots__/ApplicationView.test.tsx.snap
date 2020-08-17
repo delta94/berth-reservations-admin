@@ -262,22 +262,6 @@ exports[`ApplicationView renders normally with minimum props 1`] = `
           <article
             class="section"
           >
-            <h4
-              class="text standard h4 m title"
-            >
-              VALITUT SATAMAT
-            </h4>
-            <section
-              class="body"
-            >
-              <ul
-                class="list standard noBullets"
-              />
-            </section>
-          </article>
-          <article
-            class="section"
-          >
             <section
               class="body"
             >

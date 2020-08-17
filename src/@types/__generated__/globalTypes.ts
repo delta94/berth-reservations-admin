@@ -246,6 +246,11 @@ export interface DeletePierMutationInput {
   clientMutationId?: string | null;
 }
 
+export interface DeleteWinterStorageLeaseMutationInput {
+  id: string;
+  clientMutationId?: string | null;
+}
+
 export interface UpdateAdditionalProductMutationInput {
   service?: ProductServiceType | null;
   period?: PeriodType | null;

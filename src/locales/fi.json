@@ -351,6 +351,7 @@
     "municipality": "Kotikunta",
     "address": "Jakeluosoite",
     "berths": "Venepaikat",
+    "winterStoragePlaces": "Talvisäilytyspaikat",
     "emptyState": "Rajauksella ei löytynyt asiakastietoja"
   },
   "offer": {

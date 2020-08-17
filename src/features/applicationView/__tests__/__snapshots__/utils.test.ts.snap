@@ -51,11 +51,11 @@ Object {
   "queue": null,
   "status": "PENDING",
   "summaryInformation": Object {
-    "acceptBoatingNewsletter": undefined,
-    "acceptFitnessNews": undefined,
-    "acceptLibraryNews": undefined,
-    "acceptOtherCultureNews": undefined,
-    "applicationCode": undefined,
+    "acceptBoatingNewsletter": true,
+    "acceptFitnessNews": false,
+    "acceptLibraryNews": false,
+    "acceptOtherCultureNews": true,
+    "applicationCode": "1234",
   },
 }
 `;
@@ -67,6 +67,7 @@ Object {
   "firstName": "Testi",
   "language": "FINNISH",
   "lastName": "Testinen",
+  "organization": null,
   "primaryAddress": Object {
     "__typename": "AddressNode",
     "address": "Testikatu 1",
@@ -75,7 +76,6 @@ Object {
   },
   "primaryEmail": "test@example.com",
   "primaryPhone": "+358 00 000 0000",
-  "showCustomerNameAsLink": true,
   "ssn": "-",
 }
 `;

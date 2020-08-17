@@ -4,11 +4,6 @@ import { useLazyQuery, useMutation } from '@apollo/react-hooks';
 import { useDebounce } from 'use-debounce';
 
 import { getFilteredCustomersData } from './utils';
-import {
-  UPDATE_BERTH_APPLICATION,
-  UPDATE_BERTH_APPLICATIONVariables as UPDATE_BERTH_APPLICATION_VARS,
-} from './__generated__/UPDATE_BERTH_APPLICATION';
-import { UPDATE_BERTH_APPLICATION_MUTATION } from './mutations';
 import { FILTERED_CUSTOMERS_QUERY } from './queries';
 import {
   FILTERED_CUSTOMERS,
@@ -19,8 +14,6 @@ import { usePrevious } from '../../common/utils/usePrevious';
 import { usePagination } from '../../common/utils/usePagination';
 import { useBackendSorting } from '../../common/utils/useBackendSorting';
 import LinkApplicationToCustomer from './LinkApplicationToCustomer';
-import { INDIVIDUAL_APPLICATION_berthApplication as BERTH_APPLICATION } from '../applicationView/__generated__/INDIVIDUAL_APPLICATION';
-import { INDIVIDUAL_APPLICATION_QUERY } from '../applicationView/queries';
 import { CREATE_NEW_PROFILE_MUTATION } from '../../common/mutations/createProfile';
 import {
   CREATE_NEW_PROFILE,
@@ -28,19 +21,23 @@ import {
 } from '../../common/mutations/__generated__/CREATE_NEW_PROFILE';
 
 export interface LinkApplicationToCustomerContainerProps {
-  berthApplication: {
-    id: BERTH_APPLICATION['id'];
-    firstName: BERTH_APPLICATION['firstName'];
-    lastName: BERTH_APPLICATION['lastName'];
-    address: BERTH_APPLICATION['address'];
-    email: BERTH_APPLICATION['email'];
-    phoneNumber: BERTH_APPLICATION['phoneNumber'];
-    zipCode: BERTH_APPLICATION['zipCode'];
-    municipality: BERTH_APPLICATION['municipality'];
+  application: {
+    id: string;
+    firstName: string;
+    lastName: string;
+    address: string;
+    email: string;
+    phoneNumber: string;
+    zipCode: string;
+    municipality: string;
   };
+  handleLinkCustomer(customerId: string): void;
 }
 
-const LinkApplicationToCustomerContainer = ({ berthApplication }: LinkApplicationToCustomerContainerProps) => {
+const LinkApplicationToCustomerContainer = ({
+  application,
+  handleLinkCustomer,
+}: LinkApplicationToCustomerContainerProps) => {
   const { t } = useTranslation();
 
   const [searchBy, setSearchBy] = useState<SearchBy>(SearchBy.LAST_NAME);
@@ -66,20 +63,6 @@ const LinkApplicationToCustomerContainer = ({ berthApplication }: LinkApplicatio
     variables: filteredCustomersVars,
   });
 
-  const [linkCustomer] = useMutation<UPDATE_BERTH_APPLICATION, UPDATE_BERTH_APPLICATION_VARS>(
-    UPDATE_BERTH_APPLICATION_MUTATION,
-    {
-      refetchQueries: [
-        {
-          query: INDIVIDUAL_APPLICATION_QUERY,
-          variables: {
-            id: berthApplication.id,
-          },
-        },
-      ],
-    }
-  );
-
   const [createNewCustomer] = useMutation<CREATE_NEW_PROFILE, CREATE_NEW_PROFILE_VARS>(CREATE_NEW_PROFILE_MUTATION, {
     refetchQueries: [
       {
@@ -90,8 +73,8 @@ const LinkApplicationToCustomerContainer = ({ berthApplication }: LinkApplicatio
   });
 
   useEffect(() => {
-    setSearchVal(berthApplication[searchBy]);
-  }, [berthApplication, searchBy]);
+    setSearchVal(application[searchBy]);
+  }, [application, searchBy]);
 
   useEffect(() => {
     goToPage(0);
@@ -106,15 +89,8 @@ const LinkApplicationToCustomerContainer = ({ berthApplication }: LinkApplicatio
 
   const filteredCustomersData = getFilteredCustomersData(customersData);
 
-  const handleLinkCustomer = (customerId: string) =>
-    linkCustomer({
-      variables: {
-        input: { id: berthApplication.id, customerId },
-      },
-    });
-
   const handleCreateCustomer = () => {
-    const { firstName, lastName, address, email, phoneNumber, zipCode, municipality } = berthApplication;
+    const { firstName, lastName, address, email, phoneNumber, zipCode, municipality } = application;
 
     createNewCustomer({
       variables: {
@@ -138,7 +114,7 @@ const LinkApplicationToCustomerContainer = ({ berthApplication }: LinkApplicatio
         setSearchVal,
         setSearchBy: (searchBy) => {
           setSearchBy(searchBy);
-          setSearchVal(berthApplication[searchBy] ?? '');
+          setSearchVal(application[searchBy] ?? '');
         },
         handleCreateCustomer,
         searchByOptions: [
