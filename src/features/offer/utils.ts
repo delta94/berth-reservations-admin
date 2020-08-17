@@ -2,41 +2,7 @@ import { OFFER } from './__generated__/OFFER';
 import { LeaseStatus } from '../../@types/__generated__/globalTypes';
 import { HarborCardProps } from '../../common/harborCard/HarborCard';
 import { Boat } from '../../common/boatCard/types';
-
-interface Lease {
-  customer: {
-    id: string;
-    firstName: string;
-    lastName: string;
-  };
-  status: string;
-  startDate: string;
-  endDate: string;
-  isActive: boolean;
-}
-
-export interface BerthData {
-  id: string;
-  harborId: string;
-  harbor: string;
-  pier: string;
-  berth: string | number;
-  berthId: string;
-  width: number | null;
-  length: number | null;
-  draught: number | null;
-  mooringType: string;
-  leases: Lease[];
-  comment: string;
-  properties: {
-    lighting: boolean | null;
-    water: boolean | null;
-    gate: boolean | null;
-    electricity: boolean | null;
-    wasteCollection: boolean | null;
-    isAccessible: boolean | null;
-  };
-}
+import { BerthData, Lease, PierTab } from './types';
 
 export const getOfferData = (data: OFFER | undefined): BerthData[] => {
   if (!data?.harborByServicemapId?.properties?.piers) return [];
@@ -101,12 +67,6 @@ export const getOfferData = (data: OFFER | undefined): BerthData[] => {
   }, []);
 };
 
-interface PierTab {
-  label: string;
-  value: string;
-  disabled: boolean;
-}
-
 export const getAllPiersIdentifiers = (data: OFFER | undefined): PierTab[] => {
   const piers = data?.harborByServicemapId?.properties?.piers?.edges ?? [];
 
@@ -121,11 +81,6 @@ export const getAllPiersIdentifiers = (data: OFFER | undefined): PierTab[] => {
 
     return [...acc, pierTab];
   }, []);
-};
-
-type Map = {
-  id: string;
-  url: string;
 };
 
 export const getHarbor = (data: OFFER | undefined): HarborCardProps | null => {
@@ -159,6 +114,11 @@ export const getHarbor = (data: OFFER | undefined): HarborCardProps | null => {
       water: false,
     }
   );
+
+  type Map = {
+    id: string;
+    url: string;
+  };
 
   const maps = data.harborByServicemapId.properties.maps.reduce<Map[]>((acc, map) => {
     if (map !== null) {

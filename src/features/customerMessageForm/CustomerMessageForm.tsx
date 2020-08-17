@@ -6,14 +6,16 @@ import * as Yup from 'yup';
 import { ObjectSchema } from 'yup';
 import { useTranslation } from 'react-i18next';
 
-import { MessageFormValues, MessageTemplate } from '../types';
-import Text from '../../../common/text/Text';
+import { MessageFormValues, NotificationTemplate } from './types';
+import Text from '../../common/text/Text';
 import styles from './customerMessageForm.module.scss';
-import Select from '../../../common/select/Select';
-import Button from '../../../common/button/Button';
+import Select from '../../common/select/Select';
+import Button from '../../common/button/Button';
 
-type CustomerMessageFormProps = {
-  closeModal: () => void;
+export type CustomerMessageFormProps = {
+  templates: NotificationTemplate[];
+  handleCancel: () => void;
+  handlePreview: (templateId: string) => void;
   handleSendMessage?: (message: MessageFormValues) => void;
 };
 
@@ -24,32 +26,26 @@ const getMessageFormValidationSchema = (t: TFunction): ObjectSchema => {
   });
 };
 
-const mockTemplates: MessageTemplate[] = [
-  {
-    id: '1',
-    name: 'Tiedote',
-  },
-  {
-    id: '2',
-    name: 'Viesti',
-  },
-];
-
-const initialValues: MessageFormValues = {
-  templateId: '1',
-  subject: '',
-  message: '',
-};
-
-export const CustomerMessageForm = ({ closeModal, handleSendMessage }: CustomerMessageFormProps) => {
+export const CustomerMessageForm = ({
+  handleCancel,
+  handlePreview,
+  handleSendMessage,
+  templates,
+}: CustomerMessageFormProps) => {
   const { t } = useTranslation();
 
-  const templateOptions = mockTemplates.map(({ id, name }) => {
+  const templateOptions = templates.map(({ id, type }) => {
     return {
       value: id,
-      label: name,
+      label: type,
     };
   });
+
+  const initialValues: MessageFormValues = {
+    templateId: templates[0].id,
+    subject: '',
+    message: '',
+  };
 
   return (
     <Formik
@@ -63,16 +59,14 @@ export const CustomerMessageForm = ({ closeModal, handleSendMessage }: CustomerM
         return (
           <form onSubmit={handleSubmit} className={styles.form}>
             <Text as="h4">{t('customerList.message.header')}</Text>
-            <div className={styles.template}>
-              <Select
-                id="templateId"
-                value={values.templateId}
-                options={templateOptions}
-                onChange={handleChange}
-                label={t('customerList.message.template')}
-                required
-              />
-            </div>
+            <Select
+              id="templateId"
+              value={values.templateId}
+              options={templateOptions}
+              onChange={handleChange}
+              label={t('customerList.message.template')}
+              required
+            />
             <TextInput
               id="subject"
               value={values.subject}
@@ -91,11 +85,11 @@ export const CustomerMessageForm = ({ closeModal, handleSendMessage }: CustomerM
               helperText={errors.message || t('customerList.message.messageHelperText')}
             />
             <div className={styles.formActionButtons}>
-              <Button variant="secondary" onClick={closeModal}>
+              <Button variant="secondary" onClick={handleCancel}>
                 {t('common.cancel')}
               </Button>
               <div className={styles.formActionButtonsRight}>
-                <Button variant="secondary" onClick={closeModal}>
+                <Button variant="secondary" onClick={() => handlePreview(values.templateId)}>
                   {t('customerList.message.preview')}
                 </Button>
                 <Button type="submit">{t('customerList.message.send')}</Button>

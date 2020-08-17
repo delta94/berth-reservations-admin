@@ -5,7 +5,6 @@ export const INDIVIDUAL_WINTER_STORAGE_AREA_QUERY = gql`
     winterStorageArea(id: $id) {
       properties {
         name
-        servicemapId
         zipCode
         municipality
         streetAddress
@@ -18,13 +17,44 @@ export const INDIVIDUAL_WINTER_STORAGE_AREA_QUERY = gql`
         sections {
           edges {
             node {
+              id
               properties {
+                identifier
                 electricity
                 water
                 gate
                 summerStorageForBoats
                 summerStorageForTrailers
                 summerStorageForDockingEquipment
+                places {
+                  edges {
+                    node {
+                      id
+                      number
+                      width
+                      length
+                      isActive
+                      leases {
+                        edges {
+                          node {
+                            id
+                            startDate
+                            endDate
+                            status
+                            application {
+                              createdAt
+                              customer {
+                                id
+                                firstName
+                                lastName
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }

@@ -1,5 +1,6 @@
 import {
   AdditionalProductTaxEnum,
+  CustomerGroup,
   OrderStatus,
   PeriodType,
   PriceUnits,
@@ -87,4 +88,8 @@ export const getPriceUnits = (unit: PriceUnits) => {
     default:
       return unit;
   }
+};
+
+export const getCustomerGroupKey = (customerGroup: CustomerGroup | null): string => {
+  return customerGroup ? `common.customerGroups.${customerGroup}` : 'common.customerGroups.PRIVATE';
 };

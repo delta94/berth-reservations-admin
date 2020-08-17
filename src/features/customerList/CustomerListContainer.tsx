@@ -11,7 +11,6 @@ import { usePagination } from '../../common/utils/usePagination';
 import { useBackendSorting } from '../../common/utils/useBackendSorting';
 import { SearchBy } from '../applicationView/ApplicationView';
 import { usePrevious } from '../../common/utils/usePrevious';
-import { MessageFormValues } from './types';
 
 const CustomerListContainer = () => {
   const { t } = useTranslation();
@@ -40,10 +39,6 @@ const CustomerListContainer = () => {
     variables: customersVars,
     fetchPolicy: 'no-cache',
   });
-
-  const handleSendMessage = (customerIds: string[], message: MessageFormValues) => {
-    alert(`CustomerIds: ${JSON.stringify(customerIds)} content: ${JSON.stringify(message)}`);
-  };
 
   const isInitialMount = useRef(true);
   useEffect(() => {
@@ -81,7 +76,6 @@ const CustomerListContainer = () => {
           { value: SearchBy.ADDRESS, label: t('common.address') },
         ],
       }}
-      handleSendMessage={handleSendMessage}
     />
   );
 };

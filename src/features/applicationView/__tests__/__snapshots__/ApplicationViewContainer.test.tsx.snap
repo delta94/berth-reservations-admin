@@ -1,0 +1,2056 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationViewContainer renders normally 1`] = `
+<div
+  class="pageContent applicationView"
+>
+  <h2
+    class="text standard h2 xl normalWeight pageTitle"
+  >
+    HAKEMUS
+  </h2>
+  <div
+    class="fullWidth pageHeader"
+  >
+    <h2
+      class="text standard h2 xl normalWeight"
+    >
+      Vaihtohakemus 10.07.2020
+    </h2>
+    <span
+      class="chip yellow chip"
+    >
+      Odottaa käsittelyä
+    </span>
+  </div>
+  <div
+    class="card"
+  >
+    <div
+      class="cardHeader"
+    >
+      <span
+        class="title"
+      >
+        ASIAKASTIEDOT
+      </span>
+    </div>
+    <div
+      class="cardBody"
+    >
+      <article
+        class="section"
+      >
+        <h4
+          class="text standard h4 m title"
+        >
+          HENKILÖTIEDOT
+        </h4>
+        <section
+          class="body"
+        >
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Etunimet:
+            </span>
+            <span
+              class="value left"
+            >
+              <a
+                class="internalLink brand"
+                href="/customers/MOCK-CUSTOMER"
+                title="Testi"
+              >
+                Testi
+              </a>
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Sukunimi:
+            </span>
+            <span
+              class="value left"
+            >
+              <a
+                class="internalLink brand"
+                href="/customers/MOCK-CUSTOMER"
+                title="Testinen"
+              >
+                Testinen
+              </a>
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Henkilötunnus:
+            </span>
+            <span
+              class="value left"
+            >
+              <a
+                class="internalLink brand"
+                href="/customers/MOCK-CUSTOMER"
+                title="-"
+              >
+                -
+              </a>
+            </span>
+          </div>
+        </section>
+      </article>
+      <article
+        class="section"
+      >
+        <section
+          class="body"
+        >
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Jakeluosoite:
+            </span>
+            <span
+              class="value left"
+            >
+              Testikatu 1
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Postinumero:
+            </span>
+            <span
+              class="value left"
+            >
+              00100
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Postitoimipaikka:
+            </span>
+            <span
+              class="value left"
+            >
+              Helsinki
+            </span>
+          </div>
+        </section>
+      </article>
+      <article
+        class="section"
+      >
+        <section
+          class="body"
+        >
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Matkapuhelin:
+            </span>
+            <span
+              class="value left"
+            >
+              +358 00 000 0000
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Sähköpostiosoite:
+            </span>
+            <span
+              class="value left"
+            >
+              test@example.com
+            </span>
+          </div>
+        </section>
+      </article>
+      <article
+        class="section"
+      >
+        <section
+          class="body"
+        >
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Asiakasryhmä:
+            </span>
+            <span
+              class="value left"
+            >
+              Yksityinen
+            </span>
+          </div>
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Asiointikieli:
+            </span>
+            <span
+              class="value left"
+            >
+              Suomi
+            </span>
+          </div>
+        </section>
+      </article>
+      <article
+        class="section"
+      >
+        <section
+          class="body"
+        >
+          <div
+            class="labelValuePair"
+          >
+            <span
+              class="label standard"
+            >
+              Huomiot:
+            </span>
+            <span
+              class="value left"
+            >
+              -
+            </span>
+          </div>
+        </section>
+      </article>
+    </div>
+     
+  </div>
+  <div
+    class="card card"
+  >
+    <div
+      class="cardHeader"
+    >
+      <span
+        class="title"
+      >
+        TOIMINTAHISTORIA
+      </span>
+    </div>
+    <div
+      class="cardBody cardBody"
+    >
+      <article
+        class="section section"
+      >
+        <h4
+          class="text standard h4 m title"
+        >
+          VIIMEAIKAINEN TOIMINTA
+        </h4>
+        <section
+          class="body"
+        >
+          Placeholder
+        </section>
+      </article>
+      <div
+        class="linkRow"
+      >
+        <a
+          class="internalLink brand"
+          href="/"
+          title="Näytä koko historia"
+        >
+          Näytä koko historia
+        </a>
+      </div>
+    </div>
+     
+  </div>
+  <div
+    class="card fullWidth"
+  >
+    <div
+      class="cardHeader"
+    >
+      <span
+        class="title"
+      >
+        HAKEMUS
+      </span>
+    </div>
+    <div
+      class="cardBody"
+    >
+      <div
+        class="grid cols3"
+      >
+        <div>
+          <article
+            class="section"
+          >
+            <h4
+              class="text standard h4 m title"
+            >
+              HAKEMUS
+            </h4>
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Hakemustyyppi:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Vaihtohakemus
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Vastaanotettu:
+                </span>
+                <span
+                  class="value left"
+                >
+                  10.07.2020 klo 08.04
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Jononumero:
+                </span>
+                <span
+                  class="value left"
+                >
+                  -
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Status:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Odottaa käsittelyä
+                </span>
+              </div>
+            </section>
+          </article>
+          <article
+            class="section"
+          >
+            <h4
+              class="text standard h4 m title"
+            >
+              NYKYINEN VENEPAIKKA
+            </h4>
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Satama ja paikka:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Test Harbor A 1
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Erityistoive:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Reason
+                </span>
+              </div>
+            </section>
+          </article>
+          <article
+            class="section"
+          >
+            <h4
+              class="text standard h4 m title"
+            >
+              HAKIJAN HENKILÖTIEDOT
+            </h4>
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Etunimet:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Testi
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Sukunimi:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Testinen
+                </span>
+              </div>
+            </section>
+          </article>
+          <article
+            class="section"
+          >
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Jakeluosoite:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Testikatu 1
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Postinumero:
+                </span>
+                <span
+                  class="value left"
+                >
+                  00100
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Postitoimipaikka:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Helsinki
+                </span>
+              </div>
+            </section>
+          </article>
+          <article
+            class="section"
+          >
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Matkapuhelin:
+                </span>
+                <span
+                  class="value left"
+                >
+                  +358 00 000 0000
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Sähköpostiosoite:
+                </span>
+                <span
+                  class="value left"
+                >
+                  test@example.com
+                </span>
+              </div>
+            </section>
+          </article>
+          <article
+            class="section"
+          >
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Asiakasryhmä:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Yksityinen
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Asiointikieli:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Suomi
+                </span>
+              </div>
+            </section>
+          </article>
+          <article
+            class="section"
+          >
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Huomiot:
+                </span>
+                <span
+                  class="value left"
+                >
+                  -
+                </span>
+              </div>
+            </section>
+          </article>
+        </div>
+        <div>
+          <article
+            class="section"
+          >
+            <h4
+              class="text standard h4 m title"
+            >
+              VENEEN TIEDOT
+            </h4>
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Veneen tyyppi:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Troolari
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Rekisterinumero:
+                </span>
+                <span
+                  class="value left"
+                >
+                  1234
+                </span>
+              </div>
+            </section>
+          </article>
+          <article
+            class="section"
+          >
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Veneen leveys:
+                </span>
+                <span
+                  class="value left"
+                >
+                  1,0 m
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Veneen pituus:
+                </span>
+                <span
+                  class="value left"
+                >
+                  1,0 m
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Veneen syväys:
+                </span>
+                <span
+                  class="value left"
+                >
+                  1,0 m
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Veneen paino:
+                </span>
+                <span
+                  class="value left"
+                >
+                  120 kg
+                </span>
+              </div>
+            </section>
+          </article>
+          <article
+            class="section"
+          >
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Nimi:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Cama la Yano
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Merkki:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Marine
+                </span>
+              </div>
+            </section>
+          </article>
+        </div>
+        <div>
+          <article
+            class="section"
+          >
+            <h4
+              class="text standard h4 m title"
+            >
+              LIITETTY SATAMAPAIKKA
+            </h4>
+            <section
+              class="body"
+            >
+              Test Harbor A 1
+              <button
+                class="deleteButton"
+              >
+                <span
+                  class="text brand span"
+                >
+                  Poista ehdotettu paikka
+                </span>
+              </button>
+            </section>
+          </article>
+          <article
+            class="section"
+          >
+            <section
+              class="body"
+            >
+              <div
+                class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz accessibleCheckbox checkbox"
+              >
+                <input
+                  aria-checked="false"
+                  class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
+                  id="accessible"
+                  readonly=""
+                  type="checkbox"
+                  value=""
+                />
+                <label
+                  class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
+                  for="accessible"
+                >
+                  Tarvitsen esteettömän paikan
+                </label>
+              </div>
+            </section>
+          </article>
+        </div>
+      </div>
+    </div>
+     
+  </div>
+  <div
+    class="card offerCard"
+  >
+    <div
+      class="cardHeader"
+    >
+      <span
+        class="title"
+      >
+        TARJOUS
+      </span>
+    </div>
+    <div
+      class="cardBody"
+    >
+      <div
+        class="grid cols3"
+      >
+        <article
+          class="section"
+        >
+          <h4
+            class="text standard h4 m title"
+          >
+            VENEPAIKKA
+          </h4>
+          <section
+            class="body"
+          >
+            <article
+              class="section"
+            >
+              <section
+                class="body"
+              >
+                <a
+                  class="internalLink brand underlined"
+                  href="/"
+                  title="Test Harbor A 1"
+                >
+                  Test Harbor A 1
+                </a>
+              </section>
+            </article>
+            <article
+              class="section"
+            >
+              <section
+                class="body"
+              >
+                <div
+                  class="berthProperties"
+                >
+                  <div
+                    class="property property"
+                  >
+                    <div
+                      class="iconWrapper secondary outlined"
+                    >
+                      <svg
+                        class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g
+                          fill="none"
+                          fill-rule="evenodd"
+                        >
+                          <path
+                            d="M0 0h24v24H0z"
+                          />
+                          <path
+                            d="M18 9H6l1.087 13h9.826L18 9zm-2.095 2l-.818 9H8.912l-.818-9h7.811zM12 2a2.97 2.97 0 012.995 2.82L15 5v1h3v2H6V6h3V5c0-1.688 1.331-3 3-3zm0 2c-.53 0-.938.365-.994.879L11 5v1h2V5c0-.577-.43-1-1-1z"
+                            fill="currentColor"
+                          />
+                        </g>
+                      </svg>
+                    </div>
+                    <span
+                      class="text secondary span s bold label"
+                    >
+                      Roskat
+                    </span>
+                  </div>
+                  <div
+                    class="property property"
+                  >
+                    <div
+                      class="iconWrapper secondary outlined"
+                    >
+                      <svg
+                        class="icon m"
+                        height="100%"
+                        viewBox="0 0 400 400"
+                        width="100%"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M159.86 380.84h42v74.41h-42zM327.33 142.77H262.1v-81h-32v81h-98.47v-81h-32v81H34.39v32H67v48.82a111.59 111.59 0 0 0 21.6 65.91 119.83 119.83 0 0 0 43.63 36.86v42.86h97.24v-42.5a113.69 113.69 0 0 0 65.23-103.13v-48.82h32.62zm-64.62 80.82c0 34.94-21.88 66-54.46 77.24l-10.77 3.72v32.67h-33.24V305L154 301c-32.91-12.8-55-43.92-55-77.45v-48.78h163.7z"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="text secondary span s bold label"
+                    >
+                      Sähkö
+                    </span>
+                  </div>
+                  <div
+                    class="property property"
+                  >
+                    <div
+                      class="iconWrapper secondary outlined"
+                    >
+                      <svg
+                        class="icon m"
+                        height="100%"
+                        viewBox="0 0 480 480"
+                        width="100%"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M294.37 344.75h32v55.77h-32zM200.584 355.229l41.577-41.664 22.651 22.604-41.577 41.664zM362.922 336.221l22.65-22.604 41.577 41.664-22.65 22.604z"
+                        />
+                        <path
+                          d="M321.32 143.85h-.95v-71.3h-126.7a93.65 93.65 0 0 0-67.59 28.32C108.36 119 98.6 143.43 98.6 169.57V461h95.26v-32H130.6V169.57c0-36.46 27.71-65 63.07-65h94.7v39.3h-.94c-64.88 0-117.66 49.82-117.66 111.07v16h73.43a60.61 60.61 0 0 0 20.8 30.33c13.82 11.08 32.38 17.18 52.26 17.18s38.44-6.1 52.26-17.18a60.61 60.61 0 0 0 20.78-30.35H439v-16c0-61.25-52.8-111.07-117.68-111.07zm-5.08 142.6c-16.55 0-30.36-6.1-37.67-15.53h75.35c-7.32 9.43-21.13 15.53-37.68 15.53zm75.3-47.53h-188c8-36 42.6-63.07 83.9-63.07h33.89c41.3 0 75.87 27.11 83.9 63.07z"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="text secondary span s bold label"
+                    >
+                      Valaistus
+                    </span>
+                  </div>
+                  <div
+                    class="property property"
+                  >
+                    <div
+                      class="iconWrapper secondary outlined"
+                    >
+                      <svg
+                        class="icon m"
+                        height="100%"
+                        viewBox="0 0 480 480"
+                        width="100%"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M410.18 85l-62 46.23v60.5h-25v-60.44L262.1 85l-62 46.23v60.5h-25v-60.44L114 85l-62 46.22v332.17h123.16V383.5h25v79.89h123.09V383.5h25v79.89h123.08v-332.1zm-178.06 62.27L262 125l29.3 22.18v44.52h-59.18zm59.13 76.45V351.5h-59.13V223.72zM143.16 431.39H84V147.27L113.87 125l29.29 22.18v44.52h-41v32h41v127.8h-41v32h41zm32-79.89V223.72h25V351.5zm116.09 79.89h-59.13V383.5h59.13zm32-79.89V223.72h25V351.5zm116.08 79.89h-59.12V383.5h39v-32h-39V223.72h39v-32h-39v-44.45L410 125l29.29 22.18z"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="text secondary span s bold label"
+                    >
+                      Portti
+                    </span>
+                  </div>
+                  <div
+                    class="property property"
+                  >
+                    <div
+                      class="iconWrapper secondary outlined"
+                    >
+                      <svg
+                        class="icon m"
+                        height="100%"
+                        viewBox="0 0 480 480"
+                        width="100%"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M154.61 313.9l-11.36-11.45-11.36 11.45a341.93 341.93 0 0 0-26.29 30.56c-18.95 25-28.16 45.16-28.16 61.73C77.44 425 84.87 442 98.37 454a68.35 68.35 0 0 0 89.76 0c13.5-12 20.94-29 20.94-47.81 0-16.57-9.21-36.76-28.16-61.73a341.09 341.09 0 0 0-26.3-30.56zm-11.36 124.9c-22.2 0-33.81-16.4-33.81-32.61 0-4.14 2.09-16.54 21.44-42.11 4.29-5.66 8.61-10.88 12.37-15.22 3.76 4.34 8.09 9.56 12.37 15.22 19.36 25.57 21.45 38 21.45 42.11 0 16.21-11.62 32.61-33.82 32.61zM341.91 158.33v-44h66.42v-32H243.49v32h66.42v44h-83.63c-57.36 0-104 45.76-104 102v21h42v-21c0-33.1 27.83-60 62-60h220.26v-42z"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="text secondary span s bold label"
+                    >
+                      Vesi
+                    </span>
+                  </div>
+                </div>
+              </section>
+            </article>
+          </section>
+        </article>
+        <article
+          class="section"
+        >
+          <h4
+            class="text standard h4 m title"
+          >
+            PAIKAN TIEDOT
+          </h4>
+          <section
+            class="body"
+          >
+            <article
+              class="section"
+            >
+              <section
+                class="body"
+              >
+                <div
+                  class="labelValuePair"
+                >
+                  <span
+                    class="label standard"
+                  >
+                    Kiinnitystyyppi:
+                  </span>
+                  <span
+                    class="value left"
+                  >
+                    Jollapaikka
+                  </span>
+                </div>
+                <div
+                  class="labelValuePair"
+                >
+                  <span
+                    class="label standard"
+                  >
+                    Leveys:
+                  </span>
+                  <span
+                    class="value left"
+                  >
+                    -
+                  </span>
+                </div>
+                <div
+                  class="labelValuePair"
+                >
+                  <span
+                    class="label standard"
+                  >
+                    Pituus:
+                  </span>
+                  <span
+                    class="value left"
+                  >
+                    5,0 m
+                  </span>
+                </div>
+                <div
+                  class="labelValuePair"
+                >
+                  <span
+                    class="label standard"
+                  >
+                    Syvyys:
+                  </span>
+                  <span
+                    class="value left"
+                  >
+                    -
+                  </span>
+                </div>
+              </section>
+            </article>
+            <article
+              class="section"
+            >
+              <section
+                class="body"
+              >
+                <div
+                  class="labelValuePair"
+                >
+                  <span
+                    class="label standard"
+                  >
+                    Huoltotiedot:
+                  </span>
+                  <span
+                    class="value left"
+                  >
+                    <a
+                      class="internalLink brand"
+                      href="/"
+                      title="123"
+                    >
+                      123
+                    </a>
+                    <br />
+                    <a
+                      class="internalLink brand"
+                      href="/"
+                      title="456"
+                    >
+                      456
+                    </a>
+                  </span>
+                </div>
+                <div
+                  class="labelValuePair"
+                >
+                  <span
+                    class="label standard"
+                  >
+                    Huomiot:
+                  </span>
+                  <span
+                    class="value left"
+                  >
+                    -
+                  </span>
+                </div>
+              </section>
+            </article>
+          </section>
+        </article>
+        <article
+          class="section"
+        >
+          <h4
+            class="text standard h4 m title"
+          >
+            LASKU
+          </h4>
+          <section
+            class="body"
+          />
+        </article>
+      </div>
+      <hr />
+      <div
+        class="buttonRow"
+      >
+        <div>
+          <button
+            class="Button-module_button__3wgee button_hds-button__2A0je Button-module_primary__3bo_T button_hds-button--primary__2NVvO Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0 alignLeft"
+            disabled=""
+            type="button"
+          >
+            <span
+              class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+            >
+              Hyväksy ja lähetä tarjous
+            </span>
+          </button>
+        </div>
+        <div>
+          <button
+            class="Button-module_button__3wgee button_hds-button__2A0je Button-module_supplementary__3Epn- button_hds-button--supplementary__GcHcV Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0 button"
+            disabled=""
+            type="button"
+          >
+            <span
+              class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+            >
+              Näytä lasku
+            </span>
+          </button>
+          <button
+            class="Button-module_button__3wgee button_hds-button__2A0je Button-module_supplementary__3Epn- button_hds-button--supplementary__GcHcV Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0 button"
+            disabled=""
+            type="button"
+          >
+            <span
+              class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+            >
+              Näytä sopimus
+            </span>
+          </button>
+          <button
+            class="Button-module_button__3wgee button_hds-button__2A0je Button-module_secondary__399Vd button_hds-button--secondary__1NOWS Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0 button"
+            type="button"
+          >
+            <span
+              class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+            >
+              Poista tarjous
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+     
+  </div>
+</div>
+`;
+
+exports[`ApplicationViewContainer renders normally with customer and boatTypes missing 1`] = `
+<div
+  class="pageContent applicationView"
+>
+  <h2
+    class="text standard h2 xl normalWeight pageTitle"
+  >
+    HAKEMUS
+  </h2>
+  <div
+    class="fullWidth pageHeader"
+  >
+    <h2
+      class="text standard h2 xl normalWeight"
+    >
+      Uusi hakemus 10.07.2020
+    </h2>
+    <span
+      class="chip yellow chip"
+    >
+      Odottaa käsittelyä
+    </span>
+  </div>
+  <div
+    class="fullWidth"
+  >
+    <div
+      class="Notification-module_notification__2hN3H notification_hds-notification__2DQPN Notification-module_warning__2isNX notification_hds-notification--warning__1t18X"
+    >
+      <div
+        class="Notification-module_label__1bhNu notification_hds-notification__label__2t1lR"
+      >
+        <span
+          aria-hidden="true"
+          class="Notification-module_icon__1ans7 notification_hds-icon__29HQM"
+        >
+          <svg
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Notification-module_iconAttention__3i8Cj undefined"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <path
+                d="M0 0h24v24H0z"
+              />
+              <path
+                d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 2a8 8 0 100 16 8 8 0 000-16zm1 12v2h-2v-2h2zm0-10v8h-2V6h2z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+        </span>
+        <span
+          class="Notification-module_labelText__1qBt6 helpers_text-bold__1mCMR helpers_text-md__2Td0C"
+        >
+          Hakemusta ei ole liitetty mihinkään asiakkaaseen
+        </span>
+      </div>
+      <div
+        class="Notification-module_bodyText__2seBK notification_hds-notification__body__3cobH helpers_text-body__1PMI3"
+      >
+        Liitä hakemus olemassa olevaan asiakasprofiiliin tai luo uusi asiakasprofiili hakemuksen tiedoilla.
+      </div>
+    </div>
+  </div>
+  <div
+    class="fullWidth"
+  >
+    <div
+      class="customersTableTools"
+    >
+      <div
+        class="Dropdown-module_root__2LI4- select select"
+      >
+        <div
+          class="Dropdown-module_wrapper__1oIw5"
+        >
+          <button
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-labelledby="hds-label hds-toggle-button"
+            class="Dropdown-module_buttonDropdown__IwbnQ Dropdown-module_dropdown__22ZdF"
+            id="hds-toggle-button"
+            type="button"
+          >
+            <span
+              class="Dropdown-module_buttonLabel__2jVRU"
+            >
+              Sukunimi
+            </span>
+            <svg
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Dropdown-module_angleIcon__1Y1mT"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M12 13.5l5-5 1.5 1.5-6.5 6.5L5.5 10 7 8.5z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          </button>
+        </div>
+        <ul
+          aria-labelledby="hds-label"
+          class="Dropdown-module_menu__3rei6"
+          id="hds-menu"
+          role="listbox"
+          style="max-height: calc(var(--dropdown-height) * 5);"
+          tabindex="-1"
+        />
+      </div>
+      <div
+        class="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 searchInput"
+      >
+        <div
+          class="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+        >
+          <input
+            class="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
+            id="searchSimilarCustomers"
+            type="text"
+            value="Testinen"
+          />
+        </div>
+      </div>
+      <button
+        class="Button-module_button__3wgee button_hds-button__2A0je Button-module_primary__3bo_T button_hds-button--primary__2NVvO Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+        >
+          Liitä valittuun
+        </span>
+      </button>
+      <button
+        class="Button-module_button__3wgee button_hds-button__2A0je Button-module_secondary__399Vd button_hds-button--secondary__1NOWS Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0"
+        type="button"
+      >
+        <span
+          class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+        >
+          Luo uusi asiakas
+        </span>
+      </button>
+    </div>
+    <div
+      class="tableWrapper"
+    >
+      <div
+        class="table primary"
+        role="table"
+        style="min-width: 900px;"
+      >
+        <div
+          class="stickyHeaders"
+        >
+          <div
+            class="header mainHeader"
+            role="row"
+            style="display: flex; flex: 1 0 auto; min-width: 0px;"
+          >
+            <div
+              class="headerCell"
+              colspan="6"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 900 0 auto; min-width: 0px; width: 900px;"
+            >
+              LIITÄ HAKEMUS OLEMASSA OLEVAAN ASIAKASPROFIILIIN
+            </div>
+          </div>
+          <div
+            class="header"
+            role="row"
+            style="display: flex; flex: 1 0 auto; min-width: 0px;"
+          >
+            <div
+              class="headerCell radioSelector"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+               
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px; cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              Nimi
+              <div
+                class="sortArrowWrapper"
+              >
+                <svg
+                  class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv sortArrow sortArrowDown"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <path
+                      d="M0 0h24v24H0z"
+                    />
+                    <path
+                      d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                      fill="currentColor"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+              Asiakasryhmä
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+              Kotikunta
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+              Jakeluosoite
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+              Venepaikat
+            </div>
+          </div>
+        </div>
+        <div
+          role="rowgroup"
+        >
+          <div
+            class="rowWrapper"
+            role="row"
+          >
+            <div
+              class="tableCell"
+            >
+              <div>
+                Rajauksella ei löytynyt asiakastietoja
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul
+      class="pagination fullWidth"
+    >
+      <li
+        class="prevBtn disabled"
+      >
+        <a
+          aria-disabled="true"
+          class="navLink"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="icnBtn"
+          >
+            <svg
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M10 5.636l1.414 1.414L7.465 11H20v2H7.464l3.95 3.95L10 18.364 3.636 12z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+            <span
+              class="text standard span"
+            >
+              Edellinen
+            </span>
+          </div>
+        </a>
+      </li>
+      <li
+        class="pageBtn selected"
+      >
+        <a
+          aria-current="page"
+          aria-label="Page 1 is your current page"
+          class="navLink pageLink active"
+          role="button"
+          tabindex="0"
+        >
+          1
+        </a>
+      </li>
+      <li
+        class="nextBtn disabled"
+      >
+        <a
+          aria-disabled="true"
+          class="navLink"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="icnBtn"
+          >
+            <span
+              class="text standard span"
+            >
+              Seuraava
+            </span>
+            <svg
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_m__3edUY icon_hds-icon--size-m__1mcHv"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M12.586 7.05L14 5.636 20.364 12 14 18.364l-1.414-1.414 3.95-3.95H4v-2h12.535z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="card fullWidth"
+  >
+    <div
+      class="cardHeader"
+    >
+      <span
+        class="title"
+      >
+        HAKEMUS
+      </span>
+    </div>
+    <div
+      class="cardBody"
+    >
+      <div
+        class="grid cols3"
+      >
+        <div>
+          <article
+            class="section"
+          >
+            <h4
+              class="text standard h4 m title"
+            >
+              HAKEMUS
+            </h4>
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Hakemustyyppi:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Uusi hakemus
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Vastaanotettu:
+                </span>
+                <span
+                  class="value left"
+                >
+                  10.07.2020 klo 08.04
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Jononumero:
+                </span>
+                <span
+                  class="value left"
+                >
+                  -
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Status:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Odottaa käsittelyä
+                </span>
+              </div>
+            </section>
+          </article>
+          <article
+            class="section"
+          >
+            <h4
+              class="text standard h4 m title"
+            >
+              HAKIJAN HENKILÖTIEDOT
+            </h4>
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Etunimet:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Testi
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Sukunimi:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Testinen
+                </span>
+              </div>
+            </section>
+          </article>
+          <article
+            class="section"
+          >
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Jakeluosoite:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Testikatu 1
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Postinumero:
+                </span>
+                <span
+                  class="value left"
+                >
+                  00100
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Postitoimipaikka:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Helsinki
+                </span>
+              </div>
+            </section>
+          </article>
+          <article
+            class="section"
+          >
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Matkapuhelin:
+                </span>
+                <span
+                  class="value left"
+                >
+                  +358 00 000 0000
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Sähköpostiosoite:
+                </span>
+                <span
+                  class="value left"
+                >
+                  test@example.com
+                </span>
+              </div>
+            </section>
+          </article>
+          <article
+            class="section"
+          >
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Asiakasryhmä:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Yksityinen
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Asiointikieli:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Suomi
+                </span>
+              </div>
+            </section>
+          </article>
+          <article
+            class="section"
+          >
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Huomiot:
+                </span>
+                <span
+                  class="value left"
+                >
+                  -
+                </span>
+              </div>
+            </section>
+          </article>
+        </div>
+        <div>
+          <article
+            class="section"
+          >
+            <h4
+              class="text standard h4 m title"
+            >
+              VENEEN TIEDOT
+            </h4>
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Veneen tyyppi:
+                </span>
+                <span
+                  class="value left"
+                >
+                  -
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Rekisterinumero:
+                </span>
+                <span
+                  class="value left"
+                >
+                  1234
+                </span>
+              </div>
+            </section>
+          </article>
+          <article
+            class="section"
+          >
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Veneen leveys:
+                </span>
+                <span
+                  class="value left"
+                >
+                  1,0 m
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Veneen pituus:
+                </span>
+                <span
+                  class="value left"
+                >
+                  1,0 m
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Veneen syväys:
+                </span>
+                <span
+                  class="value left"
+                >
+                  1,0 m
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Veneen paino:
+                </span>
+                <span
+                  class="value left"
+                >
+                  120 kg
+                </span>
+              </div>
+            </section>
+          </article>
+          <article
+            class="section"
+          >
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Nimi:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Cama la Yano
+                </span>
+              </div>
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Merkki:
+                </span>
+                <span
+                  class="value left"
+                >
+                  Marine
+                </span>
+              </div>
+            </section>
+          </article>
+        </div>
+        <div>
+          <article
+            class="section"
+          >
+            <h4
+              class="text standard h4 m title"
+            >
+              VALITUT SATAMAT
+            </h4>
+            <section
+              class="body"
+            >
+              <ul
+                class="list standard noBullets"
+              >
+                <li>
+                  <span
+                    class="text standard span"
+                  >
+                    Toive 
+                      1: 
+                  </span>
+                  <span
+                    class="text standard span"
+                  >
+                    Saukonpaaden venesatama
+                  </span>
+                </li>
+              </ul>
+            </section>
+          </article>
+          <article
+            class="section"
+          >
+            <section
+              class="body"
+            >
+              <div
+                class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz accessibleCheckbox checkbox"
+              >
+                <input
+                  aria-checked="false"
+                  class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
+                  id="accessible"
+                  readonly=""
+                  type="checkbox"
+                  value=""
+                />
+                <label
+                  class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
+                  for="accessible"
+                >
+                  Tarvitsen esteettömän paikan
+                </label>
+              </div>
+            </section>
+          </article>
+        </div>
+      </div>
+    </div>
+     
+  </div>
+</div>
+`;

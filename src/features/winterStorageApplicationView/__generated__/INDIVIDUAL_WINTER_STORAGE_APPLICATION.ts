@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { BerthApplicationLanguage, InvoicingType, OrganizationType, Language, ApplicationStatus } from "./../../../@types/__generated__/globalTypes";
+import { BerthApplicationLanguage, CustomerGroup, InvoicingType, OrganizationType, Language, ApplicationStatus } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: INDIVIDUAL_WINTER_STORAGE_APPLICATION
@@ -38,6 +38,7 @@ export interface INDIVIDUAL_WINTER_STORAGE_APPLICATION_winterStorageApplication_
 
 export interface INDIVIDUAL_WINTER_STORAGE_APPLICATION_winterStorageApplication_customer {
   __typename: "ProfileNode";
+  customerGroup: CustomerGroup | null;
   comment: string | null;
   firstName: string;
   invoicingType: InvoicingType | null;

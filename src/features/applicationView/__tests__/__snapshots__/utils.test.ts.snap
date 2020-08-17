@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils getApplicationDetailsData should return berth application details 1`] = `
+Object {
+  "accessibilityRequired": false,
+  "applicant": Object {
+    "customerGroup": "PRIVATE",
+    "firstName": "Testi",
+    "language": "FINNISH",
+    "lastName": "Testinen",
+    "primaryAddress": Object {
+      "address": "Testikatu 1",
+      "city": "Helsinki",
+      "postalCode": "00100",
+    },
+    "primaryEmail": "test@example.com",
+    "primaryPhone": "+358 00 000 0000",
+  },
+  "berthSwitch": Object {
+    "berthNum": "1",
+    "harborId": "MOCK-HARBOR",
+    "harborName": "Test Harbor",
+    "pierIdentifier": "A",
+    "reason": "Reason",
+  },
+  "boatDraught": 1,
+  "boatLength": 1,
+  "boatModel": "Marine",
+  "boatName": "Cama la Yano",
+  "boatRegistrationNumber": "1234",
+  "boatType": "Troolari",
+  "boatWeight": 120,
+  "boatWidth": 1,
+  "choices": Array [
+    Object {
+      "harbor": "MOCK-HARBOR-B",
+      "harborName": "Saukonpaaden venesatama",
+      "priority": 1,
+    },
+  ],
+  "createdAt": "2020-07-10T08:04:36.062819+00:00",
+  "customerId": "MOCK-CUSTOMER",
+  "id": "MOCK-APPLICATION",
+  "lease": Object {
+    "berthNum": "1",
+    "harborId": "MOCK-HARBOR",
+    "harborName": "Test Harbor",
+    "id": "MOCK-LEASE",
+    "pierIdentifier": "A",
+  },
+  "queue": null,
+  "status": "PENDING",
+  "summaryInformation": Object {
+    "acceptBoatingNewsletter": undefined,
+    "acceptFitnessNews": undefined,
+    "acceptLibraryNews": undefined,
+    "acceptOtherCultureNews": undefined,
+    "applicationCode": undefined,
+  },
+}
+`;
+
+exports[`utils getCustomerProfile should get customer profile card props from profile data 1`] = `
+Object {
+  "customerGroup": "PRIVATE",
+  "customerId": "MOCK-CUSTOMER",
+  "firstName": "Testi",
+  "language": "FINNISH",
+  "lastName": "Testinen",
+  "primaryAddress": Object {
+    "__typename": "AddressNode",
+    "address": "Testikatu 1",
+    "city": "Helsinki",
+    "postalCode": "00100",
+  },
+  "primaryEmail": "test@example.com",
+  "primaryPhone": "+358 00 000 0000",
+  "showCustomerNameAsLink": true,
+  "ssn": "-",
+}
+`;

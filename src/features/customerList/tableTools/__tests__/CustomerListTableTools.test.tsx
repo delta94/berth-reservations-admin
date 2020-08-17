@@ -4,6 +4,16 @@ import { mount } from 'enzyme';
 import CustomerListTableTools from '../CustomerListTableTools';
 import { SearchBy } from '../../CustomerList';
 
+// CustomerMessageFormContainer is mocked to limit the test scope
+jest.mock('../../../customerMessageForm/CustomerMessageFormContainer', () => {
+  const CustomerMessageFormContainer = () => <div>CustomerMessageFormContainer</div>;
+
+  return {
+    __esModule: true,
+    default: CustomerMessageFormContainer,
+  };
+});
+
 describe('CustomerListTableTools', () => {
   const getWrapper = () =>
     mount(
@@ -13,8 +23,7 @@ describe('CustomerListTableTools', () => {
         searchByOptions={[]}
         setSearchVal={jest.fn}
         setSearchBy={jest.fn}
-        handleSendMessage={jest.fn}
-        selectedRowsCount={0}
+        selectedCustomerIds={[]}
         clearSelectedRows={jest.fn}
       />
     );

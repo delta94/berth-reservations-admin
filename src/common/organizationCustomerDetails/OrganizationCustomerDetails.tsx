@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next';
 import Section from '../section/Section';
 import LabelValuePair from '../labelValuePair/LabelValuePair';
 import InternalLink from '../internalLink/InternalLink';
-import { InvoicingType, Language, OrganizationType } from '../../@types/__generated__/globalTypes';
+import { CustomerGroup, InvoicingType, Language } from '../../@types/__generated__/globalTypes';
+import { getCustomerGroupKey } from '../utils/translations';
 
 export interface OrganizationCustomerDetailsProps {
   title?: string;
@@ -18,7 +19,6 @@ export interface OrganizationCustomerDetailsProps {
     businessId: string;
     city: string;
     name: string;
-    organizationType?: OrganizationType;
     postalCode: string;
   };
   primaryAddress?: {
@@ -31,6 +31,7 @@ export interface OrganizationCustomerDetailsProps {
   language: Language | null;
   showCustomerNameAsLink?: boolean;
   ssn?: string;
+  customerGroup: CustomerGroup | null;
 }
 
 const OrganizationCustomerDetails = ({
@@ -46,8 +47,10 @@ const OrganizationCustomerDetails = ({
   language,
   showCustomerNameAsLink = false,
   ssn,
+  customerGroup,
 }: OrganizationCustomerDetailsProps) => {
   const { t } = useTranslation();
+  const customerGroupKey = getCustomerGroupKey(customerGroup);
 
   return (
     <>
@@ -61,10 +64,7 @@ const OrganizationCustomerDetails = ({
         <LabelValuePair label={t('customerProfile.city')} value={organization.city} />
       </Section>
       <Section>
-        <LabelValuePair
-          label={t('customerProfile.customerGroup')}
-          value={t([`common.organizationTypes.${organization.organizationType || OrganizationType.COMPANY}`])}
-        />
+        <LabelValuePair label={t('customerProfile.customerGroup')} value={t(customerGroupKey)} />
       </Section>
       <Section title={t('customerProfile.contactPerson').toUpperCase()}>
         <LabelValuePair

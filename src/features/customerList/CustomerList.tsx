@@ -3,15 +3,15 @@ import { useTranslation } from 'react-i18next';
 
 import PageTitle from '../../common/pageTitle/PageTitle';
 import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
-import { CustomerData, MessageFormValues } from './types';
+import { CustomerData } from './types';
 import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
 import CustomerListTableTools, { CustomerListTableToolsProps } from './tableTools/CustomerListTableTools';
 import InternalLink from '../../common/internalLink/InternalLink';
-import { OrganizationType } from '../../@types/__generated__/globalTypes';
 import { formatDate } from '../../common/utils/format';
 import CustomerDetails from './customerDetails/CustomerDetails';
 import { getSelectedRowIds } from '../../common/utils/getSelectedRowIds';
 import PageContent from '../../common/pageContent/PageContent';
+import { getCustomerGroupKey } from '../../common/utils/translations';
 
 export enum SearchBy {
   FIRST_NAME = 'firstName',
@@ -26,19 +26,11 @@ export interface CustomerListProps {
   loading: boolean;
   data: CustomerData[];
   pagination: PaginationProps;
-  tableTools: Omit<CustomerListTableToolsProps<SearchBy>, 'selectedRowsCount' | 'clearSelectedRows'>;
+  tableTools: Omit<CustomerListTableToolsProps<SearchBy>, 'selectedCustomerIds' | 'clearSelectedRows'>;
   onSortedColChange(sortBy: { id: string; desc?: boolean } | undefined): void;
-  handleSendMessage(customerIds: string[], message: MessageFormValues): void;
 }
 
-const CustomerList = ({
-  loading,
-  data,
-  pagination,
-  tableTools,
-  onSortedColChange,
-  handleSendMessage,
-}: CustomerListProps) => {
+const CustomerList = ({ loading, data, pagination, tableTools, onSortedColChange }: CustomerListProps) => {
   const { t, i18n } = useTranslation();
   const columns: ColumnType[] = [
     {
@@ -51,12 +43,11 @@ const CustomerList = ({
     {
       Cell: ({ cell }) => {
         const { value } = cell;
-        return value?.organizationType
-          ? t([`common.organizationTypes.${value.organizationType as OrganizationType}`])
-          : t([`common.privateCustomer`]);
+        const key = getCustomerGroupKey(value);
+        return t(key);
       },
       Header: t('customerList.tableHeaders.group') || '',
-      accessor: 'organization',
+      accessor: 'customerGroup',
       disableSortBy: true,
       width: COLUMN_WIDTH.S,
     },
@@ -111,31 +102,24 @@ const CustomerList = ({
               city={row.original.organization ? row.original.organization.city : row.original.city}
               phone={row.original.phone}
               email={row.original.email}
-              organizationType={row.original.organization?.organizationType}
               berths={row.original.berthLeases}
               winterStoragePlaces={[]}
               boats={row.original.boats}
               applications={row.original.applications}
               bills={[]}
               comment={row.original.comment}
+              customerGroup={row.original.customerGroup}
             />
           );
         }}
         renderMainHeader={() => t('customerList.tableHeaders.mainHeader')}
-        renderTableToolsTop={({ selectedRowIds }, { resetSelectedRows }) => {
-          const onSendMessage = (message: MessageFormValues) => {
-            const selectedCustomerIds = getSelectedRowIds(selectedRowIds);
-            handleSendMessage(selectedCustomerIds, message);
-          };
-          return (
-            <CustomerListTableTools
-              {...tableTools}
-              handleSendMessage={onSendMessage}
-              selectedRowsCount={getSelectedRowIds(selectedRowIds).length}
-              clearSelectedRows={resetSelectedRows}
-            />
-          );
-        }}
+        renderTableToolsTop={({ selectedRowIds }, { resetSelectedRows }) => (
+          <CustomerListTableTools
+            {...tableTools}
+            selectedCustomerIds={getSelectedRowIds(selectedRowIds)}
+            clearSelectedRows={resetSelectedRows}
+          />
+        )}
         renderEmptyStateRow={() => t('common.notification.noData.description')}
         renderTableToolsBottom={() => <Pagination {...pagination} />}
         onSortedColChange={onSortedColChange}

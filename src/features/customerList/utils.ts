@@ -26,6 +26,7 @@ export const getCustomersData = (data: CUSTOMERS | undefined): CustomerData[] =>
           boats,
           applications,
           berthLeases,
+          customerGroup: profile.customerGroup,
         };
         return [...acc, profileData];
       }

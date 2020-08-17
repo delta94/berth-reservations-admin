@@ -338,11 +338,6 @@ exports[`CustomerView renders normally 1`] = `
           TALVISÄILYTYSPAIKAT
         </span>
       </div>
-      <div
-        class="cardBody"
-      >
-        Placeholder
-      </div>
        
     </div>
     <div
@@ -356,6 +351,17 @@ exports[`CustomerView renders normally 1`] = `
         >
           ASIAKKAAN VENEET
         </span>
+      </div>
+      <div
+        class="cardBody createBoat"
+      >
+        <button>
+          <span
+            class="text brand span"
+          >
+            Lisää uusi
+          </span>
+        </button>
       </div>
        
     </div>

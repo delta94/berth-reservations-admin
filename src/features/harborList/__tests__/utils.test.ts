@@ -51,14 +51,17 @@ describe('utils', () => {
         {
           numberOfPlaces: 5,
           numberOfFreePlaces: 3,
+          numberOfInactivePlaces: 1,
         },
         {
           numberOfPlaces: 502,
           numberOfFreePlaces: 203,
+          numberOfInactivePlaces: 12,
         },
       ]);
       expect(result.berthCount).toEqual(507);
       expect(result.freeCount).toEqual(206);
+      expect(result.otherCount).toEqual(13);
     });
 
     it('calculates "reservedCount" from "berthCount" and "freeCount"', () => {
@@ -66,13 +69,15 @@ describe('utils', () => {
         {
           numberOfPlaces: 5,
           numberOfFreePlaces: 3,
+          numberOfInactivePlaces: 1,
         },
         {
           numberOfPlaces: 502,
           numberOfFreePlaces: 203,
+          numberOfInactivePlaces: 12,
         },
       ]);
-      expect(result.reservedCount).toEqual(301);
+      expect(result.reservedCount).toEqual(288);
     });
   });
 });

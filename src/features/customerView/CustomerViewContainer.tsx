@@ -8,15 +8,24 @@ import CustomerView from './CustomerView';
 import { INDIVIDUAL_CUSTOMER_QUERY } from './queries';
 import { INDIVIDUAL_CUSTOMER } from './__generated__/INDIVIDUAL_CUSTOMER';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
-import { getLeases, getBoats, getApplications, getCustomerProfile, getBills } from './utils';
+import {
+  getBerthLeases,
+  getBoats,
+  getApplications,
+  getCustomerProfile,
+  getBills,
+  getWinterStorageLeases,
+} from './utils';
 import { Bill, Boat } from './types';
 import { OrderStatus } from '../../@types/__generated__/globalTypes';
 import Modal from '../../common/modal/Modal';
 import BoatEditForm from './forms/boatForm/BoatEditForm';
 import BillModal from './billModal/BillModal';
+import BoatCreateForm from './forms/boatForm/BoatCreateForm';
 
 const CustomerViewContainer = () => {
   const [boatToEdit, setBoatToEdit] = useState<Boat | null>();
+  const [creatingBoat, setCreatingBoat] = useState<boolean>(false);
   const [openBill, setOpenBill] = useState<Bill>();
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
@@ -41,7 +50,7 @@ const CustomerViewContainer = () => {
   const boats = getBoats(data.profile);
   const { boatTypes } = data;
   const customerProfile = getCustomerProfile(data.profile);
-  const leases = getLeases(data.profile);
+  const leases = [...getBerthLeases(data.profile), ...getWinterStorageLeases(data.profile)];
   const openBills = bills.filter((bill) => bill.status === OrderStatus.WAITING);
 
   return (
@@ -55,6 +64,7 @@ const CustomerViewContainer = () => {
         openBills={openBills}
         setBoatToEdit={setBoatToEdit}
         setOpenBill={setOpenBill}
+        onClickCreateBoat={() => setCreatingBoat(true)}
       />
 
       {boatToEdit && (
@@ -69,6 +79,16 @@ const CustomerViewContainer = () => {
           />
         </Modal>
       )}
+
+      <Modal isOpen={creatingBoat} toggleModal={() => setCreatingBoat(false)}>
+        <BoatCreateForm
+          ownerId={data.profile.id}
+          boatTypes={boatTypes}
+          onCancel={() => setCreatingBoat(false)}
+          onSubmit={() => setCreatingBoat(false)}
+          refetchQueries={[{ query: INDIVIDUAL_CUSTOMER_QUERY, variables: { id } }]}
+        />
+      </Modal>
 
       <BillModal bill={openBill} toggleModal={() => setOpenBill(undefined)} />
     </>

@@ -87,7 +87,7 @@ const PrivateCustomerDetails = ({
         <LabelValuePair label={t('customerProfile.email')} value={primaryEmail} />
       </Section>
       <Section>
-        <LabelValuePair label={t('customerProfile.customerGroup')} value={t([`common.privateCustomer`])} />
+        <LabelValuePair label={t('customerProfile.customerGroup')} value={t([`common.customerGroups.PRIVATE`])} />
         {language && (
           <LabelValuePair label={t('customerProfile.language')} value={t([`common.languages.${language}`])} />
         )}

@@ -14,14 +14,34 @@ export type WinterStorageArea = {
   zipCode: string;
   municipality: string | null;
   streetAddress: string | null;
-  servicemapId: string;
   wwwUrl: string;
   imageFile: string | null;
   maps: Map[];
   numberOfCustomers: number;
 };
 
-export type WinterStorageCustomer = {
+export type Lease = {
+  customer: {
+    id: string;
+    firstName: string;
+    lastName: string;
+  };
+  status: string;
+  startDate: string;
+  endDate: string;
+  isActive: boolean;
+};
+
+export type WinterStoragePlace = {
   id: string;
-  name: string;
+  identifier: string;
+  number: number;
+  isActive: boolean;
+  width: number;
+  length: number;
+  leases?: Lease[];
+};
+
+export type WinterStorageSection = {
+  identifier: string;
 };

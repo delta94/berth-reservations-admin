@@ -3,14 +3,14 @@ import { useTranslation } from 'react-i18next';
 
 import PageContent from '../../common/pageContent/PageContent';
 import PageTitle from '../../common/pageTitle/PageTitle';
-import { SortedCol, useBackendSorting } from '../../common/utils/useBackendSorting';
+import { SortedCol } from '../../common/utils/useBackendSorting';
 import InternalLink from '../../common/internalLink/InternalLink';
 import Table, { Column, COLUMN_WIDTH } from '../../common/table/Table';
 import { formatDate } from '../../common/utils/format';
 import Chip from '../../common/chip/Chip';
 import { APPLICATION_STATUS } from '../../common/utils/consonants';
 import { ApplicationStatus } from '../../@types/__generated__/globalTypes';
-import { getWinterStorageApplicationData, WinterStorageApplication } from './utils';
+import { WinterStorageApplication } from './utils';
 import ApplicationDetails from '../../common/applicationDetails/ApplicationDetails';
 import TableFilters from '../../common/tableFilters/TableFilters';
 import Pagination from '../../common/pagination/Pagination';

@@ -2,6 +2,10 @@ import { isNumber, isPositive, replaceCommaWithDot, replaceDotWithComma } from '
 
 describe('utils', () => {
   describe('isNumber', () => {
+    it('returns true if value is undefined', () => {
+      expect(isNumber(undefined)).toEqual(true);
+    });
+
     it('returns true if value is a number', () => {
       expect(isNumber('4')).toEqual(true);
       expect(isNumber('4.4')).toEqual(true);
@@ -22,6 +26,10 @@ describe('utils', () => {
   });
 
   describe('isPositive', () => {
+    it('returns true if value is undefined', () => {
+      expect(isPositive(undefined)).toEqual(true);
+    });
+
     it('returns true if value is positive', () => {
       expect(isPositive('1')).toEqual(true);
       expect(isPositive('0')).toEqual(true);

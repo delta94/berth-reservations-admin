@@ -9,10 +9,6 @@ import WinterStorageApplicationView, { SearchBy } from './WinterStorageApplicati
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import { INDIVIDUAL_WINTER_STORAGE_APPLICATION_QUERY } from './queries';
 import { useDeleteBerthApplication } from '../../common/mutations/deleteBerthApplication';
-import {
-  FILTERED_CUSTOMERS,
-  FILTERED_CUSTOMERSVariables as FILTERED_CUSTOMERS_VARS,
-} from '../applicationView/__generated__/FILTERED_CUSTOMERS';
 import { UPDATE_WINTER_STORAGE_APPLICATION_MUTATION } from './mutations';
 import {
   UPDATE_WINTER_STORAGE_APPLICATION,
@@ -22,7 +18,6 @@ import { getWinterStorageApplicationDetailsData } from './utils';
 import { usePagination } from '../../common/utils/usePagination';
 import { usePrevious } from '../../common/utils/usePrevious';
 import { useBackendSorting } from '../../common/utils/useBackendSorting';
-import { FILTERED_CUSTOMERS_QUERY } from '../applicationView/queries';
 import {
   CREATE_NEW_PROFILE,
   CREATE_NEW_PROFILEVariables as CREATE_NEW_PROFILE_VARS,
@@ -32,7 +27,13 @@ import {
   INDIVIDUAL_WINTER_STORAGE_APPLICATION,
   INDIVIDUAL_WINTER_STORAGE_APPLICATIONVariables as INDIVIDUAL_WINTER_STORAGE_APPLICATION_VARS,
 } from './__generated__/INDIVIDUAL_WINTER_STORAGE_APPLICATION';
-import { getCustomerProfile, getFilteredCustomersData } from '../applicationView/utils';
+import { getFilteredCustomersData } from '../linkApplicationToCustomer/utils';
+import { FILTERED_CUSTOMERS_QUERY } from '../linkApplicationToCustomer/queries';
+import {
+  FILTERED_CUSTOMERS,
+  FILTERED_CUSTOMERSVariables as FILTERED_CUSTOMERS_VARS,
+} from '../linkApplicationToCustomer/__generated__/FILTERED_CUSTOMERS';
+import { getCustomerProfile } from '../customerView/utils';
 
 const WinterStorageApplicationViewContainer = () => {
   const { t } = useTranslation();

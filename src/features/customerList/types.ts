@@ -1,15 +1,4 @@
-import { OrganizationType } from '../../@types/__generated__/globalTypes';
-
-export interface MessageTemplate {
-  id: string;
-  name: string;
-}
-
-export interface MessageFormValues {
-  templateId: string;
-  subject: string;
-  message: string;
-}
+import { CustomerGroup } from '../../@types/__generated__/globalTypes';
 
 export interface Organization {
   name: string;
@@ -17,7 +6,6 @@ export interface Organization {
   postalCode: string;
   city: string;
   businessId: string;
-  organizationType: OrganizationType;
 }
 
 export interface CustomerData {
@@ -36,6 +24,7 @@ export interface CustomerData {
   boats: CustomerListBoat[];
   applications: CustomerListApplication[];
   berthLeases: CustomerListBerthLeases[];
+  customerGroup: CustomerGroup | null;
 }
 
 export interface CustomerListBerthLeases {

@@ -10,19 +10,19 @@ import CardBody from '../../common/cardBody/CardBody';
 import ApplicationDetails, { ApplicationDetailsProps } from '../../common/applicationDetails/ApplicationDetails';
 import CardHeader from '../../common/cardHeader/CardHeader';
 import Table, { Column } from '../../common/table/Table';
-import CustomersTableTools, {
-  CustomersTableToolsProps,
-} from '../applicationView/customersTableTools/CustomersTableTools';
 import Text from '../../common/text/Text';
 import { formatDate } from '../../common/utils/format';
 import Chip from '../../common/chip/Chip';
 import { APPLICATION_STATUS } from '../../common/utils/consonants';
 import CustomerProfileCard, { CustomerProfileCardProps } from '../../common/customerProfileCard/CustomerProfileCard';
-import { OrganizationType } from '../../@types/__generated__/globalTypes';
 import Pagination, { PaginationProps } from '../../common/pagination/Pagination';
 import PageTitle from '../../common/pageTitle/PageTitle';
 import PageContent from '../../common/pageContent/PageContent';
 import ActionHistoryCard from '../../common/actionHistoryCard/ActionHistoryCard';
+import { OrganizationType } from '../../@types/__generated__/globalTypes';
+import CustomersTableTools, {
+  CustomersTableToolsProps,
+} from '../linkApplicationToCustomer/tableTools/CustomersTableTools';
 
 export enum SearchBy {
   FIRST_NAME = 'firstName',

@@ -119,6 +119,7 @@ export const getBerthApplicationData = (data: BERTH_APPLICATIONS | undefined): A
           choices,
           accessibilityRequired,
         };
+
         return [...acc, applicationData];
       }
       return acc;

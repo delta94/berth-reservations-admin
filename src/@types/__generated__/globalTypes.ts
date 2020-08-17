@@ -55,6 +55,14 @@ export enum ContactMethod {
   SMS = "SMS",
 }
 
+export enum CustomerGroup {
+  COMPANY = "COMPANY",
+  INTERNAL = "INTERNAL",
+  NON_BILLABLE = "NON_BILLABLE",
+  OTHER = "OTHER",
+  PRIVATE = "PRIVATE",
+}
+
 export enum InvoicingType {
   DIGITAL_INVOICE = "DIGITAL_INVOICE",
   ONLINE_PAYMENT = "ONLINE_PAYMENT",
@@ -73,6 +81,12 @@ export enum LeaseStatus {
   OFFERED = "OFFERED",
   PAID = "PAID",
   REFUSED = "REFUSED",
+}
+
+export enum NotificationTemplateLanguage {
+  EN = "EN",
+  FI = "FI",
+  SV = "SV",
 }
 
 export enum OrderStatus {
@@ -159,6 +173,23 @@ export interface CreateBerthProductMutationInput {
   priceValue: any;
   priceGroupId: string;
   harborId?: string | null;
+  clientMutationId?: string | null;
+}
+
+export interface CreateBoatMutationInput {
+  boatTypeId: string;
+  registrationNumber?: string | null;
+  name?: string | null;
+  model?: string | null;
+  length: any;
+  width: any;
+  draught?: any | null;
+  weight?: number | null;
+  propulsion?: string | null;
+  hullMaterial?: string | null;
+  intendedUse?: string | null;
+  addBoatCertificates?: (AddBoatCertificateInput | null)[] | null;
+  ownerId: string;
   clientMutationId?: string | null;
 }
 

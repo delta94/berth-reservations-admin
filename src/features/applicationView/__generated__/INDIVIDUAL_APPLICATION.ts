@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { BerthApplicationLanguage, InvoicingType, OrganizationType, Language, ApplicationStatus, BerthMooringType, ProductServiceType, AdditionalProductType, PriceUnits, PeriodType } from "./../../../@types/__generated__/globalTypes";
+import { BerthApplicationLanguage, InvoicingType, CustomerGroup, Language, ApplicationStatus, BerthMooringType, ProductServiceType, AdditionalProductType, PriceUnits, PeriodType } from "./../../../@types/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: INDIVIDUAL_APPLICATION
@@ -15,7 +15,6 @@ export interface INDIVIDUAL_APPLICATION_berthApplication_customer_organization {
   businessId: string;
   city: string;
   name: string;
-  organizationType: OrganizationType;
   postalCode: string;
 }
 
@@ -43,6 +42,7 @@ export interface INDIVIDUAL_APPLICATION_berthApplication_customer {
   invoicingType: InvoicingType | null;
   lastName: string;
   id: string;
+  customerGroup: CustomerGroup | null;
   organization: INDIVIDUAL_APPLICATION_berthApplication_customer_organization | null;
   primaryAddress: INDIVIDUAL_APPLICATION_berthApplication_customer_primaryAddress | null;
   primaryEmail: INDIVIDUAL_APPLICATION_berthApplication_customer_primaryEmail | null;

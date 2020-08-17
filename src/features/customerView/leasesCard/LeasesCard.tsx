@@ -11,33 +11,29 @@ import InternalLink from '../../../common/internalLink/InternalLink';
 import { formatDate } from '../../../common/utils/format';
 import Button from '../../../common/button/Button';
 
-interface Harbor {
+interface LeaseDetail {
   id: string;
-  name: string;
-}
-
-export interface Lease {
-  id: string;
-  harbor: Harbor | null;
-  berthNum: string | number;
-  pierIdentifier: string | null;
+  address: string;
   startDate: string;
   endDate: string;
+  link?: string;
 }
 
 export interface LeasesCardProps {
-  leases: Lease[];
+  leaseDetails: LeaseDetail[];
+  title: string;
+  infoSectionTitle: string;
+  addressLabel: string;
   handleShowContract(leaseId: string): void;
 }
 
-const LeasesCard = ({ leases, handleShowContract }: LeasesCardProps) => {
+const LeasesCard = ({ leaseDetails, title, infoSectionTitle, addressLabel, handleShowContract }: LeasesCardProps) => {
   const { t, i18n } = useTranslation();
 
   return (
     <Card>
-      <CardHeader title={t('customerView.leases.title')} />
-      {leases?.map(({ id, pierIdentifier, harbor, berthNum, startDate, endDate }) => {
-        const berthAddress = `${harbor?.name || ''} ${pierIdentifier || ''} ${berthNum}`;
+      <CardHeader title={title} />
+      {leaseDetails?.map(({ id, address, startDate, endDate, link }) => {
         const leaseDate = `${formatDate(startDate, i18n.language)} - ${formatDate(endDate, i18n.language)}`;
 
         return (
@@ -45,10 +41,10 @@ const LeasesCard = ({ leases, handleShowContract }: LeasesCardProps) => {
             <Button variant="secondary" onClick={() => handleShowContract(id)} className={styles.button}>
               {t('customerView.leases.showContract')}
             </Button>
-            <Section title={t('customerView.leases.berth')}>
+            <Section title={infoSectionTitle}>
               <LabelValuePair
-                label={t('customerView.leases.portAndPlace')}
-                value={harbor ? <InternalLink to={`/harbors/${harbor.id}`}>{berthAddress}</InternalLink> : berthAddress}
+                label={addressLabel}
+                value={link ? <InternalLink to={link}>{address}</InternalLink> : address}
               />
               <LabelValuePair label={t('customerView.leases.valid')} value={leaseDate} />
             </Section>

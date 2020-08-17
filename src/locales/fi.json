@@ -25,6 +25,7 @@
     "search": "Haku",
     "edit": "Muokkaa",
     "add": "Lisää",
+    "addNew": "Lisää uusi",
     "select": "Valitse",
     "save": "Tallenna",
     "cancel": "Peruuta",
@@ -64,12 +65,12 @@
       "SEA_BUOY_MOORING": "Poiju (merellä)",
       "TRAWLER_PLACE": "Traileripaikka"
     },
-    "privateCustomer": "Yksityinen",
-    "organizationTypes": {
+    "customerGroups": {
       "COMPANY": "Yritys",
       "INTERNAL": "Sisäinen",
       "NON_BILLABLE": "Ei laskutettava",
-      "OTHER": "Yhdistys"
+      "OTHER": "Yhdistys",
+      "PRIVATE": "Yksityinen"
     },
     "invoicingTypes": {
       "DIGITAL_INVOICE": "Laskutus sähköisenä",
@@ -331,19 +332,6 @@
   },
   "applicationView": {
     "title": "Hakemus",
-    "noCustomerProfileNotification": {
-      "label": "Hakemusta ei ole liitetty mihinkään asiakkaaseen",
-      "description": "Liitä hakemus olemassa olevaan asiakasprofiiliin tai luo uusi asiakasprofiili hakemuksen tiedoilla."
-    },
-    "customersTable": {
-      "mainHeader": "LIITÄ HAKEMUS OLEMASSA OLEVAAN ASIAKASPROFIILIIN",
-      "name": "Nimi",
-      "customerGroup": "Asiakasryhmä",
-      "municipality": "Kotikunta",
-      "address": "Jakeluosoite",
-      "berths": "Venepaikat",
-      "emptyState": "Rajauksella ei löytynyt asiakastietoja"
-    },
     "customerTableTools": {
       "linkCustomer": "Liitä valittuun",
       "createNewCustomer": "Luo uusi asiakas"
@@ -351,6 +339,19 @@
     "applicationDetails": {
       "title": "HAKEMUS"
     }
+  },
+  "linkApplicationToCustomer": {
+    "noCustomerProfileNotification": {
+      "label": "Hakemusta ei ole liitetty mihinkään asiakkaaseen",
+      "description": "Liitä hakemus olemassa olevaan asiakasprofiiliin tai luo uusi asiakasprofiili hakemuksen tiedoilla."
+    },
+    "mainHeader": "LIITÄ HAKEMUS OLEMASSA OLEVAAN ASIAKASPROFIILIIN",
+    "name": "Nimi",
+    "customerGroup": "Asiakasryhmä",
+    "municipality": "Kotikunta",
+    "address": "Jakeluosoite",
+    "berths": "Venepaikat",
+    "emptyState": "Rajauksella ei löytynyt asiakastietoja"
   },
   "offer": {
     "title": "Tarjous",
@@ -482,7 +483,9 @@
       "berthBill": "Venepaikan vuokra",
       "winterStorageBill": "Talvisäilytyspaikan vuokra",
       "status": "Laskun tila",
-      "closeModal": "Sulje"
+      "closeModal": "Sulje",
+      "winterStorageRental": "TALVISÄILYTYSPAIKAN VUOKRA",
+      "winterStorageArea": "Talvisäilytyspaikka"
     },
     "billingHistory": {
       "title": "LASKUHISTORIA",
@@ -494,7 +497,6 @@
     "customerBoats": {
       "title": "ASIAKKAAN VENEET",
       "boatInfo": "VENEEN TIEDOT",
-      "editBoat": "Muokkaa",
       "boatType": "Veneen tyyppi",
       "registrationNumber": "Rekisterinumero",
       "width": "Veneen leveys",
@@ -512,11 +514,18 @@
       "fileMissing": "Tiedosto puuttuu"
     },
     "leases": {
-      "title": "VENEPAIKAT",
       "showContract": "Näytä sopimus",
-      "berth": "VENEPAIKKA",
-      "portAndPlace": "Satama ja paikka",
-      "valid": "Voimassa"
+      "valid": "Voimassa",
+      "berth": {
+        "title": "VENEPAIKAT",
+        "infoSectionTitle": "VENEPAIKKA",
+        "addressLabel": "Satama ja paikka"
+      },
+      "winterStorage": {
+        "title": "TALVISÄILYTYSPAIKAT",
+        "infoSectionTitle": "TALVISÄILYTYSPAIKKA",
+        "addressLabel": "Talvisäilytysalue"
+      }
     }
   },
   "pricing": {
@@ -616,11 +625,13 @@
   },
   "winterStorageAreaView": {
     "title": "Talvisäilytysalue",
-    "table": {
       "tableHeaders": {
-        "name": "Asiakas"
+        "customer": "Asiakas",
+        "identifier": "Osasto",
+        "number": "Paikka",
+        "length": "Pituus",
+        "width": "Leveys"
       }
-    }
   },
   "actionHistoryCard": {
     "title": "Toimintahistoria",

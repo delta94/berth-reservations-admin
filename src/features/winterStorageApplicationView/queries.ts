@@ -15,6 +15,7 @@ export const INDIVIDUAL_WINTER_STORAGE_APPLICATION_QUERY = gql`
       companyName
       language
       customer {
+        customerGroup
         comment
         firstName
         invoicingType

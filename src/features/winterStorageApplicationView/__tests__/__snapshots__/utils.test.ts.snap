@@ -9,6 +9,7 @@ Object {
   "acceptOtherCultureNews": true,
   "address": "test",
   "applicant": Object {
+    "customerGroup": "PRIVATE",
     "firstName": "test",
     "language": "ENGLISH",
     "lastName": "test",
