@@ -47,6 +47,11 @@ export const CustomerMessageForm = ({
     message: '',
   };
 
+  const getTemplateName = (templateId: string) =>
+    (templateOptions.find(({ value }) => {
+      return value === templateId;
+    }) as { label: string }).label;
+
   return (
     <Formik
       initialValues={initialValues}
@@ -98,13 +103,7 @@ export const CustomerMessageForm = ({
                   {values.subject}　{t('customerList.message.recipient', { count: recipientCount })}
                 </p>
                 <Preview html={previewHtml as string} />
-                <p>
-                  {`${t('customerList.message.template')}: ${
-                    (templateOptions.find(({ value }) => {
-                      return value === values.templateId;
-                    }) as { label: string }).label
-                  }`}
-                </p>
+                <p>{`${t('customerList.message.template')}: ${getTemplateName(values.templateId)}`}</p>
               </>
             )}
 
