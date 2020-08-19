@@ -104,7 +104,8 @@ export const CustomerMessageForm = ({
             ) : (
               <>
                 <p>
-                  {values.subject}　{t('customerList.message.recipient', { count: recipientCount })}
+                  {values.subject && `${values.subject}\u3000`}
+                  {t('customerList.message.recipient', { count: recipientCount })}
                 </p>
                 <Preview html={previewHtml as string} />
                 <p>{`${t('customerList.message.template')}: ${getTemplateName(values.templateId)}`}</p>

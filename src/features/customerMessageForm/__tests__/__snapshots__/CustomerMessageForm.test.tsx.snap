@@ -178,7 +178,7 @@ exports[`CustomerMessageForm renders normally in preview mode 1`] = `
     VIESTI
   </h4>
   <p>
-    　1 vastaanottaja
+    1 vastaanottaja
   </p>
   <div
     class="preview"
