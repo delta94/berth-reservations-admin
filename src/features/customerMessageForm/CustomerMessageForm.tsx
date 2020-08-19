@@ -6,17 +6,21 @@ import * as Yup from 'yup';
 import { ObjectSchema } from 'yup';
 import { useTranslation } from 'react-i18next';
 
-import { MessageFormValues, NotificationTemplate } from './types';
-import Text from '../../common/text/Text';
+import { MessageFormValues } from './types';
 import styles from './customerMessageForm.module.scss';
 import Select from '../../common/select/Select';
 import Button from '../../common/button/Button';
+import Grid from '../../common/grid/Grid';
+import Preview from './preview/Preview';
 
 export type CustomerMessageFormProps = {
-  templates: NotificationTemplate[];
   handleCancel: () => void;
+  handleCancelPreview: () => void;
   handlePreview: (templateId: string) => void;
   handleSendMessage?: (message: MessageFormValues) => void;
+  previewHtml: string | undefined;
+  recipientCount: number;
+  templateOptions: { value: string; label: string }[];
 };
 
 const getMessageFormValidationSchema = (t: TFunction): ObjectSchema => {
@@ -28,21 +32,17 @@ const getMessageFormValidationSchema = (t: TFunction): ObjectSchema => {
 
 export const CustomerMessageForm = ({
   handleCancel,
+  handleCancelPreview,
   handlePreview,
   handleSendMessage,
-  templates,
+  previewHtml,
+  recipientCount,
+  templateOptions,
 }: CustomerMessageFormProps) => {
   const { t } = useTranslation();
 
-  const templateOptions = templates.map(({ id, type }) => {
-    return {
-      value: id,
-      label: type,
-    };
-  });
-
   const initialValues: MessageFormValues = {
-    templateId: templates[0].id,
+    templateId: templateOptions[0].value,
     subject: '',
     message: '',
   };
@@ -58,40 +58,70 @@ export const CustomerMessageForm = ({
       {({ values, errors, handleChange, handleSubmit }) => {
         return (
           <form onSubmit={handleSubmit} className={styles.form}>
-            <Text as="h4">{t('customerList.message.header')}</Text>
-            <Select
-              id="templateId"
-              value={values.templateId}
-              options={templateOptions}
-              onChange={handleChange}
-              label={t('customerList.message.template')}
-              required
-            />
-            <TextInput
-              id="subject"
-              value={values.subject}
-              onChange={handleChange}
-              label={t('customerList.message.subject')}
-              invalid={!!errors.subject}
-              helperText={errors.subject}
-            />
-            <TextArea
-              id="message"
-              className={styles.message}
-              value={values.message}
-              onChange={handleChange}
-              label={t('customerList.message.message')}
-              invalid={!!errors.message}
-              helperText={errors.message || t('customerList.message.messageHelperText')}
-            />
+            {!previewHtml ? (
+              <>
+                <Grid colsCount={2}>
+                  <Select
+                    id="templateId"
+                    value={values.templateId}
+                    options={templateOptions}
+                    onChange={handleChange}
+                    label={t('customerList.message.template')}
+                    required
+                  />
+                  <div className={styles.recipientCount}>
+                    {t('customerList.message.recipient', { count: recipientCount })}
+                  </div>
+                </Grid>
+                <TextInput
+                  id="subject"
+                  value={values.subject}
+                  onChange={handleChange}
+                  label={t('customerList.message.subject')}
+                  invalid={!!errors.subject}
+                  helperText={errors.subject}
+                />
+                <TextArea
+                  id="message"
+                  className={styles.message}
+                  value={values.message}
+                  onChange={handleChange}
+                  label={t('customerList.message.message')}
+                  invalid={!!errors.message}
+                  helperText={errors.message || t('customerList.message.messageHelperText')}
+                />
+              </>
+            ) : (
+              <>
+                <p>
+                  {values.subject ? `${values.subject}　` : ''}
+                  {t('customerList.message.recipient', { count: recipientCount })}
+                </p>
+                <Preview html={previewHtml as string} />
+                <p>
+                  {`${t('customerList.message.template')}: ${
+                    templateOptions.find(({ value }) => {
+                      return value === values.templateId;
+                    })?.label || ''
+                  }`}
+                </p>
+              </>
+            )}
+
             <div className={styles.formActionButtons}>
               <Button variant="secondary" onClick={handleCancel}>
                 {t('common.cancel')}
               </Button>
               <div className={styles.formActionButtonsRight}>
-                <Button variant="secondary" onClick={() => handlePreview(values.templateId)}>
-                  {t('customerList.message.preview')}
-                </Button>
+                {!previewHtml ? (
+                  <Button variant="secondary" onClick={() => handlePreview(values.templateId)}>
+                    {t('customerList.message.preview')}
+                  </Button>
+                ) : (
+                  <Button variant="secondary" onClick={handleCancelPreview}>
+                    {t('common.edit')}
+                  </Button>
+                )}
                 <Button type="submit">{t('customerList.message.send')}</Button>
               </div>
             </div>

@@ -4,70 +4,74 @@ exports[`CustomerMessageForm renders normally 1`] = `
 <form
   class="form"
 >
-  <h4
-    class="text standard h4"
-  >
-    Viesti
-  </h4>
   <div
-    class="Dropdown-module_root__2LI4- select"
+    class="grid cols2"
   >
-    <label
-      class="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
-      for="templateId-toggle-button"
-      id="templateId-label"
-    >
-      Viestipohja
-      <span
-        class="RequiredIndicator-module_indicator__Pt7GX"
-      >
-        *
-      </span>
-    </label>
     <div
-      class="Dropdown-module_wrapper__1oIw5"
+      class="Dropdown-module_root__2LI4- select"
     >
-      <button
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-labelledby="templateId-label templateId-toggle-button"
-        class="Dropdown-module_buttonDropdown__IwbnQ Dropdown-module_dropdown__22ZdF"
-        id="templateId-toggle-button"
-        type="button"
+      <label
+        class="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+        for="templateId-toggle-button"
+        id="templateId-label"
       >
+        Viestipohja
         <span
-          class="Dropdown-module_buttonLabel__2jVRU"
+          class="RequiredIndicator-module_indicator__Pt7GX"
         >
-          TestTemplate
+          *
         </span>
-        <svg
-          class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Dropdown-module_angleIcon__1Y1mT"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
+      </label>
+      <div
+        class="Dropdown-module_wrapper__1oIw5"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-labelledby="templateId-label templateId-toggle-button"
+          class="Dropdown-module_buttonDropdown__IwbnQ Dropdown-module_dropdown__22ZdF"
+          id="templateId-toggle-button"
+          type="button"
         >
-          <g
-            fill="none"
-            fill-rule="evenodd"
+          <span
+            class="Dropdown-module_buttonLabel__2jVRU"
           >
-            <path
-              d="M0 0h24v24H0z"
-            />
-            <path
-              d="M12 13.5l5-5 1.5 1.5-6.5 6.5L5.5 10 7 8.5z"
-              fill="currentColor"
-            />
-          </g>
-        </svg>
-      </button>
+            TestTemplate
+          </span>
+          <svg
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Dropdown-module_angleIcon__1Y1mT"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <path
+                d="M0 0h24v24H0z"
+              />
+              <path
+                d="M12 13.5l5-5 1.5 1.5-6.5 6.5L5.5 10 7 8.5z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+        </button>
+      </div>
+      <ul
+        aria-labelledby="templateId-label"
+        class="Dropdown-module_menu__3rei6"
+        id="templateId-menu"
+        role="listbox"
+        style="max-height: calc(var(--dropdown-height) * 5);"
+        tabindex="-1"
+      />
     </div>
-    <ul
-      aria-labelledby="templateId-label"
-      class="Dropdown-module_menu__3rei6"
-      id="templateId-menu"
-      role="listbox"
-      style="max-height: calc(var(--dropdown-height) * 5);"
-      tabindex="-1"
-    />
+    <div
+      class="recipientCount"
+    >
+      1 vastaanottaja
+    </div>
   </div>
   <div
     class="TextInput-module_root__1ceal text-input_hds-text-input__24bl6"

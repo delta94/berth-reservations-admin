@@ -1,26 +1,21 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import { NotificationTemplate } from '../types';
-import { mockHtml } from '../__fixtures__/mockData';
 import { CustomerMessageForm, CustomerMessageFormProps } from '../CustomerMessageForm';
-
-const mockTemplate: NotificationTemplate = {
-  id: 'MOCK-TEMPLATE',
-  preview: mockHtml,
-  translations: {
-    FI: { bodyHtml: mockHtml, bodyText: 'TEST TEST TEST', preview: mockHtml, subject: 'Testipohja' },
-    SV: { bodyHtml: mockHtml, bodyText: 'TEST TEST TEST', preview: mockHtml, subject: 'Testmall' },
-    EN: { bodyHtml: mockHtml, bodyText: 'TEST TEST TEST', preview: mockHtml, subject: 'Test template' },
-  },
-  type: 'TestTemplate',
-};
 
 const mockProps: CustomerMessageFormProps = {
   handleCancel: jest.fn(),
+  handleCancelPreview: jest.fn(),
   handlePreview: jest.fn(),
   handleSendMessage: jest.fn(),
-  templates: [mockTemplate],
+  previewHtml: undefined,
+  recipientCount: 1,
+  templateOptions: [
+    {
+      value: 'MOCK-TEMPLATE',
+      label: 'TestTemplate',
+    },
+  ],
 };
 
 describe('CustomerMessageForm', () => {
@@ -54,6 +49,6 @@ describe('CustomerMessageForm', () => {
 
     wrapper.find('Button').at(1).simulate('click');
 
-    expect(handlePreview).toHaveBeenCalledWith(mockTemplate.id);
+    expect(handlePreview).toHaveBeenCalledWith('MOCK-TEMPLATE');
   });
 });

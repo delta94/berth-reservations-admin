@@ -9,19 +9,5 @@ exports[`Preview renders normally 1`] = `
     src="data:text/html,%3C!DOCTYPE%20html%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20XHTML%201.0%20Transitional%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FTR%2Fxhtml1%2FDTD%2Fxhtml1-transitional.dtd%22%3E%3Chtml%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxhtml%22%20lang%3D%22fi%22%20xml%3Alang%3D%22fi%22%3E%3Chead%3E%3Cmeta%20http-equiv%3D%22Content-Type%22%20content%3D%22text%2Fhtml%3B%20charset%3Dutf-8%22%3E%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%22%3E%3Ctitle%3ETest%20HTML%3C%2Ftitle%3E%3C%2Fhead%3E%3Cbody%3E%3Ch1%3ETest%20HTML%3C%2Fh1%3E%3Cp%3ETest%20HTML%3C%2Fp%3E%3C%2Fbody%3E%3C%2Fhtml%3E"
     title="PreviewModal"
   />
-  <div
-    class="buttons"
-  >
-    <button
-      class="Button-module_button__3wgee button_hds-button__2A0je Button-module_secondary__399Vd button_hds-button--secondary__1NOWS Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0"
-      type="button"
-    >
-      <span
-        class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
-      >
-        Peruuta
-      </span>
-    </button>
-  </div>
 </div>
 `;
