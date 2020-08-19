@@ -48,17 +48,15 @@ const CustomerMessageFormContainer = ({
   };
 
   return (
-    <>
-      <CustomerMessageForm
-        handleCancel={closeModal}
-        handleCancelPreview={() => setPreviewHtml(undefined)}
-        handlePreview={handlePreview}
-        handleSendMessage={onSubmit}
-        previewHtml={previewHtml}
-        recipientCount={selectedCustomerIds.length}
-        templateOptions={templateOptions}
-      />
-    </>
+    <CustomerMessageForm
+      handleCancel={closeModal}
+      handleCancelPreview={() => setPreviewHtml(undefined)}
+      handlePreview={handlePreview}
+      handleSendMessage={onSubmit}
+      previewHtml={previewHtml}
+      recipientCount={selectedCustomerIds.length}
+      templateOptions={templateOptions}
+    />
   );
 };
 

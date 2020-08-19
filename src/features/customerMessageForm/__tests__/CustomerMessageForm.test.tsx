@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import { CustomerMessageForm, CustomerMessageFormProps } from '../CustomerMessageForm';
+import { mockHtml } from '../__fixtures__/mockData';
 
 const mockProps: CustomerMessageFormProps = {
   handleCancel: jest.fn(),
@@ -22,8 +23,16 @@ describe('CustomerMessageForm', () => {
   const getWrapper = (props?: Partial<CustomerMessageFormProps>) =>
     mount(<CustomerMessageForm {...mockProps} {...props} />);
 
-  it('renders normally', () => {
+  it('renders normally in edit mode', () => {
     const wrapper = getWrapper();
+
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('renders normally in preview mode', () => {
+    const wrapper = getWrapper({
+      previewHtml: mockHtml,
+    });
 
     expect(wrapper.render()).toMatchSnapshot();
   });

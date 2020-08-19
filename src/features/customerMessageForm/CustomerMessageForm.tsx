@@ -80,6 +80,7 @@ export const CustomerMessageForm = ({
                   label={t('customerList.message.subject')}
                   invalid={!!errors.subject}
                   helperText={errors.subject}
+                  required
                 />
                 <TextArea
                   id="message"
@@ -94,15 +95,14 @@ export const CustomerMessageForm = ({
             ) : (
               <>
                 <p>
-                  {values.subject ? `${values.subject}　` : ''}
-                  {t('customerList.message.recipient', { count: recipientCount })}
+                  {values.subject}　{t('customerList.message.recipient', { count: recipientCount })}
                 </p>
                 <Preview html={previewHtml as string} />
                 <p>
                   {`${t('customerList.message.template')}: ${
-                    templateOptions.find(({ value }) => {
+                    (templateOptions.find(({ value }) => {
                       return value === values.templateId;
-                    })?.label || ''
+                    }) as { label: string }).label
                   }`}
                 </p>
               </>
