@@ -12,6 +12,7 @@ import Select from '../../common/select/Select';
 import Button from '../../common/button/Button';
 import Grid from '../../common/grid/Grid';
 import Preview from './preview/Preview';
+import Text from '../../common/text/Text';
 
 export type CustomerMessageFormProps = {
   handleCancel: () => void;
@@ -63,6 +64,9 @@ export const CustomerMessageForm = ({
       {({ values, errors, handleChange, handleSubmit }) => {
         return (
           <form onSubmit={handleSubmit} className={styles.form}>
+            <Text as="h4" color="brand">
+              {t('customerList.message.header').toUpperCase()}
+            </Text>
             {!previewHtml ? (
               <>
                 <Grid colsCount={2}>

@@ -65,11 +65,7 @@ const CustomerListTableTools = <T extends string>({
           onChange={(e) => setSearchVal((e.target as HTMLInputElement).value)}
         />
       </div>
-      <Modal
-        label={t('customerList.message.header').toUpperCase()}
-        isOpen={messageModalOpen}
-        toggleModal={() => setMessageModalOpen(false)}
-      >
+      <Modal isOpen={messageModalOpen} toggleModal={() => setMessageModalOpen(false)}>
         <CustomerMessageFormContainer
           closeModal={() => setMessageModalOpen(false)}
           handleSendMessage={() => setMessageModalOpen(false)}

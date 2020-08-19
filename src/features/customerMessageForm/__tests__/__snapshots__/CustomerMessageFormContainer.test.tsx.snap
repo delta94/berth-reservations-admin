@@ -4,6 +4,11 @@ exports[`CustomerMessageFormContainer renders normally 1`] = `
 <form
   class="form"
 >
+  <h4
+    class="text brand h4"
+  >
+    VIESTI
+  </h4>
   <div
     class="grid cols2"
   >

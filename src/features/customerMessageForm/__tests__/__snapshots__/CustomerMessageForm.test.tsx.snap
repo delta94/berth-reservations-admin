@@ -4,6 +4,11 @@ exports[`CustomerMessageForm renders normally in edit mode 1`] = `
 <form
   class="form"
 >
+  <h4
+    class="text brand h4"
+  >
+    VIESTI
+  </h4>
   <div
     class="grid cols2"
   >
@@ -167,6 +172,11 @@ exports[`CustomerMessageForm renders normally in preview mode 1`] = `
 <form
   class="form"
 >
+  <h4
+    class="text brand h4"
+  >
+    VIESTI
+  </h4>
   <p>
     　1 vastaanottaja
   </p>
