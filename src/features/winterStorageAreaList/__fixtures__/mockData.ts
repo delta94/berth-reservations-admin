@@ -22,8 +22,10 @@ export const mockData: WINTER_STORAGE_AREAS = {
             maxWidth: null,
             municipality: null,
             name: null,
-            numberOfFreePlaces: 1,
-            numberOfPlaces: 5,
+            numberOfPlaces: 15,
+            numberOfFreePlaces: 5,
+            numberOfInactivePlaces: 5,
+            estimatedNumberOfUnmarkedSpaces: 5,
             sections: {
               __typename: 'WinterStorageSectionNodeConnection',
               edges: [
@@ -68,8 +70,10 @@ export const mockData: WINTER_STORAGE_AREAS = {
             maxWidth: 5,
             municipality: 'Helsinki',
             name: 'Pursilahdenranta',
-            numberOfFreePlaces: 1,
-            numberOfPlaces: 5,
+            numberOfPlaces: 15,
+            numberOfFreePlaces: 5,
+            numberOfInactivePlaces: 5,
+            estimatedNumberOfUnmarkedSpaces: 5,
             sections: {
               __typename: 'WinterStorageSectionNodeConnection',
               edges: [

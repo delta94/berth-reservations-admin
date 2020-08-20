@@ -31,16 +31,15 @@ Object {
   "boatType": "Troolari",
   "boatWeight": 120,
   "boatWidth": 1,
-  "createdAt": "2020-07-10T08:04:36.062819+00:00",
-  "customerId": "MOCK-CUSTOMER",
-  "harborChoices": Array [
+  "choices": Array [
     Object {
-      "__typename": "HarborChoiceType",
       "harbor": "MOCK-HARBOR-B",
       "harborName": "Saukonpaaden venesatama",
       "priority": 1,
     },
   ],
+  "createdAt": "2020-07-10T08:04:36.062819+00:00",
+  "customerId": "MOCK-CUSTOMER",
   "id": "MOCK-APPLICATION",
   "lease": Object {
     "berthNum": "1",
@@ -51,6 +50,13 @@ Object {
   },
   "queue": null,
   "status": "PENDING",
+  "summaryInformation": Object {
+    "acceptBoatingNewsletter": true,
+    "acceptFitnessNews": false,
+    "acceptLibraryNews": false,
+    "acceptOtherCultureNews": true,
+    "applicationCode": "1234",
+  },
 }
 `;
 
@@ -61,6 +67,7 @@ Object {
   "firstName": "Testi",
   "language": "FINNISH",
   "lastName": "Testinen",
+  "organization": null,
   "primaryAddress": Object {
     "__typename": "AddressNode",
     "address": "Testikatu 1",
@@ -69,7 +76,6 @@ Object {
   },
   "primaryEmail": "test@example.com",
   "primaryPhone": "+358 00 000 0000",
-  "showCustomerNameAsLink": true,
   "ssn": "-",
 }
 `;

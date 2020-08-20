@@ -1,26 +1,11 @@
 import { ApplicationDetailsProps } from '../../common/applicationDetails/ApplicationDetails';
 import {
   INDIVIDUAL_APPLICATION_berthApplication as BERTH_APPLICATION,
-  INDIVIDUAL_APPLICATION_berthApplication_customer as CUSTOMER_PROFILE,
   INDIVIDUAL_APPLICATION_boatTypes as BOAT_TYPES,
 } from './__generated__/INDIVIDUAL_APPLICATION';
+import { INDIVIDUAL_WINTER_STORAGE_APPLICATION_winterStorageApplication as WINTER_STORAGE_APPLICATION } from '../winterStorageApplicationView/__generated__/INDIVIDUAL_WINTER_STORAGE_APPLICATION';
 import { CustomerProfileCardProps } from '../../common/customerProfileCard/CustomerProfileCard';
 import { BerthApplicationLanguage, CustomerGroup, Language } from '../../@types/__generated__/globalTypes';
-
-export const getCustomerProfile = (profile: CUSTOMER_PROFILE): CustomerProfileCardProps => {
-  return {
-    customerId: profile.id,
-    firstName: profile.firstName,
-    lastName: profile.lastName,
-    primaryAddress: profile.primaryAddress,
-    primaryPhone: profile.primaryPhone?.phone,
-    primaryEmail: profile.primaryEmail?.email,
-    ssn: '-', // TODO
-    language: profile.language,
-    showCustomerNameAsLink: true,
-    customerGroup: profile.customerGroup,
-  };
-};
 
 interface Lease {
   berthNum: string | number;
@@ -53,7 +38,9 @@ export const mapBerthApplicationLanguageToLanguage = (
   }
 };
 
-const getApplicantDetails = (berthApplication: BERTH_APPLICATION): CustomerProfileCardProps => {
+export const getApplicantDetails = (
+  berthApplication: BERTH_APPLICATION | WINTER_STORAGE_APPLICATION
+): CustomerProfileCardProps => {
   const {
     firstName,
     lastName,
@@ -96,6 +83,15 @@ export const getApplicationDetailsData = (
   berthApplication: BERTH_APPLICATION,
   boatTypes: BOAT_TYPES[]
 ): ApplicationDetailsProps & Required<Pick<ApplicationDetailsProps, 'applicant'>> => {
+  const choices =
+    berthApplication.harborChoices?.map((choice) => {
+      return {
+        priority: choice?.priority ?? Number.MAX_VALUE,
+        harborName: choice?.harborName ?? '',
+        harbor: choice?.harbor ?? '',
+      };
+    }) ?? [];
+
   const {
     accessibilityRequired,
     boatDraught,
@@ -106,10 +102,10 @@ export const getApplicationDetailsData = (
     boatWeight,
     boatWidth,
     createdAt,
-    harborChoices,
     id,
     status,
   } = berthApplication;
+
   const lease: Lease | null = berthApplication.lease
     ? {
         harborId: berthApplication.lease.berth.pier.properties?.harbor.id || '',
@@ -133,20 +129,27 @@ export const getApplicationDetailsData = (
     accessibilityRequired,
     applicant: getApplicantDetails(berthApplication),
     berthSwitch,
+    queue: null,
+    choices,
+    lease,
+    boatType: boatTypes.find(({ id }) => id === berthApplication.boatType)?.name,
+    summaryInformation: {
+      applicationCode: berthApplication.applicationCode,
+      acceptBoatingNewsletter: berthApplication.acceptBoatingNewsletter,
+      acceptFitnessNews: berthApplication.acceptFitnessNews,
+      acceptLibraryNews: berthApplication.acceptLibraryNews,
+      acceptOtherCultureNews: berthApplication.acceptOtherCultureNews,
+    },
     boatDraught,
     boatLength,
     boatModel,
     boatName,
     boatRegistrationNumber,
-    boatType: boatTypes.find(({ id }) => id === berthApplication.boatType)?.name,
     boatWeight,
     boatWidth,
     createdAt,
     customerId: berthApplication.customer?.id,
-    harborChoices: harborChoices || [],
     id,
-    lease,
-    queue: null,
     status,
   };
 };

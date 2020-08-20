@@ -31,6 +31,13 @@ const Page = ({ children }: PageProps) => {
             <InternalNavLink key="applications" to="/applications" icon={<IconApplications />}>
               {t('common.sidebar.applications')}
             </InternalNavLink>,
+            <InternalNavLink
+              key="winterStorageApplications"
+              to="/winter-storage-applications"
+              icon={<IconApplications />}
+            >
+              {t('common.sidebar.winterStorageApplications')}
+            </InternalNavLink>,
             <InternalNavLink key="customers" to="/customers" icon={<IconUser />}>
               {t('common.sidebar.customers')}
             </InternalNavLink>,

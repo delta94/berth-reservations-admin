@@ -3,6 +3,7 @@ import {
   FILTERED_CUSTOMERS_profiles_edges_node as PROFILE_NODE,
   FILTERED_CUSTOMERS_profiles_edges_node_berthApplications as BERTH_APPLICATIONS,
   FILTERED_CUSTOMERS_profiles_edges_node_berthLeases as BERTH_LEASES,
+  FILTERED_CUSTOMERS_profiles_edges_node_winterStorageLeases as WINTER_STORAGE_LEASES,
 } from '../__generated__/FILTERED_CUSTOMERS';
 import { CustomerGroup } from '../../../@types/__generated__/globalTypes';
 
@@ -54,10 +55,27 @@ const berthLeases: BERTH_LEASES = {
   ],
 };
 
+const winterStorageLeases: WINTER_STORAGE_LEASES = {
+  __typename: 'WinterStorageLeaseNodeConnection',
+  edges: [
+    {
+      __typename: 'WinterStorageLeaseNodeEdge',
+      node: {
+        __typename: 'WinterStorageLeaseNode',
+        area: {
+          __typename: 'WinterStorageAreaNode',
+          properties: { __typename: 'WinterStorageAreaProperties', name: 'Test winter storage area' },
+        },
+      },
+    },
+  ],
+};
+
 const mockProfile: PROFILE_NODE = {
   __typename: 'ProfileNode',
   berthApplications: berthApplications,
   berthLeases: berthLeases,
+  winterStorageLeases: winterStorageLeases,
   firstName: 'Testi',
   id: 'MOCK-PROFILE',
   lastName: 'Testinen',

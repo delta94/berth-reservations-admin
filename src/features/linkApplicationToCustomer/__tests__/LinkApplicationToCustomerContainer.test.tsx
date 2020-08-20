@@ -11,7 +11,7 @@ import LinkApplicationToCustomerContainer, {
 import LoadingSpinner from '../../../common/spinner/LoadingSpinner';
 
 const mockProps: LinkApplicationToCustomerContainerProps = {
-  berthApplication: {
+  application: {
     address: 'Testikatu 1',
     email: 'test@example.com',
     firstName: 'Testi',
@@ -21,6 +21,7 @@ const mockProps: LinkApplicationToCustomerContainerProps = {
     phoneNumber: '0500000000',
     zipCode: '00100',
   },
+  handleLinkCustomer: jest.fn(),
 };
 
 describe('LinkApplicationToCustomerContainer', () => {

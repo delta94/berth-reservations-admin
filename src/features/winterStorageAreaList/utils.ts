@@ -62,6 +62,7 @@ export const getWinterStorageAreasData = (data: WINTER_STORAGE_AREAS | undefined
         municipality: propertiesNode.municipality,
         name: propertiesNode.name || '-',
         numberOfFreePlaces: propertiesNode.numberOfFreePlaces,
+        numberOfMarkedPlaces: propertiesNode.numberOfPlaces,
         numberOfPlaces: propertiesNode.numberOfPlaces,
         streetAddress: propertiesNode.streetAddress,
         wwwUrl: propertiesNode.wwwUrl,

@@ -127,6 +127,11 @@ const berthApplication: BERTH_APPLICATION = {
   phoneNumber: '+358 00 000 0000',
   status: ApplicationStatus.PENDING,
   zipCode: '00100',
+  acceptBoatingNewsletter: true,
+  acceptFitnessNews: false,
+  acceptLibraryNews: false,
+  acceptOtherCultureNews: true,
+  applicationCode: '1234',
 };
 
 const boatTypes: BOAT_TYPES[] = [

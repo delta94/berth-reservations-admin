@@ -19,6 +19,8 @@ import Pricing from '../features/pricing/PricingContainer';
 import PrivateRoute from '../features/auth/privateRoute/PrivateRoute';
 import WinterStorageAreaList from '../features/winterStorageAreaList/WinterStorageAreaListContainer';
 import WinterStorageAreaView from '../features/winterStorageAreaView/WinterStorageAreaViewContainer';
+import WinterStorageApplicationList from '../features/winterStorageApplicationList/WinterStorageApplicationListContainer';
+import WinterStorageApplicationView from '../features/winterStorageApplicationView/WinterStorageApplicationViewContainer';
 
 const App = () => {
   return (
@@ -39,6 +41,12 @@ const App = () => {
                   <PrivateRoute exact path="/customers" component={CustomerList} />
                   <PrivateRoute exact path="/applications/:id" component={ApplicationView} />
                   <PrivateRoute exact path="/applications" component={ApplicationList} />
+                  <PrivateRoute
+                    exact
+                    path="/winter-storage-applications/:id"
+                    component={WinterStorageApplicationView}
+                  />
+                  <PrivateRoute exact path="/winter-storage-applications" component={WinterStorageApplicationList} />
                   <PrivateRoute exact path="/offer/:applicationId" component={Offer} />
                   <PrivateRoute exact path="/pricing" component={Pricing} />
                   <PrivateRoute exact path="/winter-storage-areas/:id" component={WinterStorageAreaView} />

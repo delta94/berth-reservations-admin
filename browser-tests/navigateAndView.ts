@@ -20,6 +20,13 @@ test('Navigate and view basic data', async (t) => {
     .expect(applications.applicationView.firstName.filter(hasLength).exists)
     .ok();
 
+  // Winter storage applications
+  await t
+    .click(navigation.winterStorageApplications)
+    .click(applications.applicationList.firstApplicationLink)
+    .expect(applications.applicationView.firstName.filter(hasLength).exists)
+    .ok();
+
   // Harbors
   await t
     .click(navigation.harbors)

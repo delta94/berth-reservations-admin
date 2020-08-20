@@ -42,7 +42,8 @@
     "sidebar": {
       "harbors": "Venepaikat",
       "winterStorageAreas": "Talvisäilytys",
-      "applications": "Hakemukset",
+      "applications": "Venepaikkahakemukset",
+      "winterStorageApplications": "Talvisäilytyshakemukset",
       "customers": "Asiakkaat",
       "pricing": "Hinnasto"
     },
@@ -270,6 +271,7 @@
   },
   "applicationList": {
     "title": "Hakemukset",
+    "winterStorageTitle": "Talvisäilytyspaikkahakemukset",
     "tableHeaders": {
       "switchFilter": "Vaihtohakemukset",
       "newApplicationFilter": "Uudet hakemukset",
@@ -312,17 +314,25 @@
       "boatName": "Nimi",
       "boatBrand": "Merkki",
       "selectedPorts": "VALITUT SATAMAT",
+      "selectedWinterStorageAreas": "VALITUT TALVISÄILYTYSPAIKAT",
       "choice": "Toive",
       "connectedLease": "Liitetty satamapaikka",
       "deleteLease": "Poista ehdotettu paikka",
       "accessible": "Tarvitsen esteettömän paikan",
       "currentBerth": "NYKYINEN VENEPAIKKA",
       "portAndBerth": "Satama ja paikka",
-      "reason": "Erityistoive"
+      "reason": "Erityistoive",
+      "winterStorageApplicationSummary": "YHTEENVETO",
+      "applicationCode": "Hakukoodi",
+      "acceptBoatingNewsletter": "Tilaan uutiskirjeen",
+      "acceptFitnessNews": "Tilaan tietoa liikuntapalveluista",
+      "acceptLibraryNews": "Tilaan tietoa kirjastopalveluista",
+      "acceptOtherCultureNews": "Tilaan tietoa muista kulttuuripalveluista"
     }
   },
   "applicationView": {
     "title": "Hakemus",
+    "winterStorageTitle": "Talvisäilytyspaikkahakemus",
     "customerTableTools": {
       "linkCustomer": "Liitä valittuun",
       "createNewCustomer": "Luo uusi asiakas"
@@ -342,6 +352,7 @@
     "municipality": "Kotikunta",
     "address": "Jakeluosoite",
     "berths": "Venepaikat",
+    "winterStoragePlaces": "Talvisäilytyspaikat",
     "emptyState": "Rajauksella ei löytynyt asiakastietoja"
   },
   "offer": {
