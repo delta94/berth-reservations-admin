@@ -5,8 +5,7 @@ import Preview, { PreviewProps } from '../Preview';
 import { mockHtml } from '../../__fixtures__/mockData';
 
 const mockProps: PreviewProps = {
-  previewHtml: mockHtml,
-  handleCancel: jest.fn(),
+  html: mockHtml,
 };
 
 describe('Preview', () => {

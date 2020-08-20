@@ -43,11 +43,7 @@ const CustomerListTableTools = <T extends string>({
         </Button>
         {selectedRowsCount > 0 && (
           <>
-            <Text color="gray">
-              {selectedRowsCount === 1
-                ? t('customerList.message.selectedRowsSingular', { selectedRowsCount })
-                : t('customerList.message.selectedRowsPlural', { selectedRowsCount })}
-            </Text>
+            <Text color="gray">{t('customerList.message.selectedRow', { count: selectedRowsCount })}</Text>
             <button onClick={clearSelectedRows}>
               <Text color="brand">{t('customerList.message.clearSelectedRows')}</Text>
             </button>
