@@ -38,12 +38,10 @@ const WinterStorageApplicationView = ({
 
   return (
     <PageContent className={styles.applicationView}>
-      <PageTitle title={t('applicationView.title')} />
+      <PageTitle title={t('applicationView.winterStorageTitle')} />
       <div className={classNames(styles.fullWidth, styles.pageHeader)}>
         <Text as="h2" size="xl" weight="normalWeight">
-          {applicationDetails.berthSwitch !== null
-            ? t('applicationList.applicationType.switchApplication')
-            : t('applicationList.applicationType.newApplication')}{' '}
+          {t('applicationList.applicationType.newApplication')}{' '}
           {formatDate(applicationDetails.createdAt, i18n.language)}
         </Text>
         <Chip

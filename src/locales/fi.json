@@ -332,6 +332,7 @@
   },
   "applicationView": {
     "title": "Hakemus",
+    "winterStorageTitle": "Talvisäilytyspaikkahakemus",
     "customerTableTools": {
       "linkCustomer": "Liitä valittuun",
       "createNewCustomer": "Luo uusi asiakas"
