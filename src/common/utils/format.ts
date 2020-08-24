@@ -1,4 +1,4 @@
-export const formatDimension = (value: number | null, locale: string) => {
+export const formatDimension = (value: number | null | undefined, locale: string) => {
   if (!value) return '-';
 
   const localizedValues = new Intl.NumberFormat(locale, {
@@ -9,7 +9,7 @@ export const formatDimension = (value: number | null, locale: string) => {
   return `${localizedValues} m`;
 };
 
-export const formatWeight = (value: number | null, locale: string) => {
+export const formatWeight = (value: number | null | undefined, locale: string) => {
   if (!value) return '-';
 
   const localizedValues = new Intl.NumberFormat(locale, {

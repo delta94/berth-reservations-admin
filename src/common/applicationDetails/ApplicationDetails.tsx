@@ -1,15 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useLocation } from 'react-router-dom';
 
 import Section from '../section/Section';
 import LabelValuePair from '../labelValuePair/LabelValuePair';
 import Grid from '../grid/Grid';
 import styles from './applicationDetails.module.scss';
-import InternalLink from '../internalLink/InternalLink';
 import Text from '../text/Text';
-import List from '../list/List';
-import ListItem from '../list/ListItem';
 import { formatDimension, formatWeight, formatDate } from '../utils/format';
 import { APPLICATION_STATUS } from '../utils/consonants';
 import { ApplicationStatus } from '../../@types/__generated__/globalTypes';
@@ -18,12 +14,10 @@ import OrganizationCustomerDetails, {
   OrganizationCustomerDetailsProps,
 } from '../organizationCustomerDetails/OrganizationCustomerDetails';
 import Checkbox from '../checkbox/Checkbox';
-
-interface HarborChoice {
-  harborName: string;
-  harbor: string;
-  priority: number;
-}
+import ApplicationChoicesList, {
+  HarborChoice,
+  WinterStorageAreaChoice,
+} from './applicationChoicesList/ApplicationChoicesList';
 
 interface Lease {
   berthNum: string | number;
@@ -41,26 +35,35 @@ interface BerthSwitch {
   reason: string | null;
 }
 
+interface SummaryInformation {
+  applicationCode: string;
+  acceptBoatingNewsletter: boolean;
+  acceptFitnessNews: boolean;
+  acceptLibraryNews: boolean;
+  acceptOtherCultureNews: boolean;
+}
+
 export interface ApplicationDetailsProps {
-  accessibilityRequired: boolean;
+  accessibilityRequired?: boolean;
   applicant?: PrivateCustomerDetailsProps | OrganizationCustomerDetailsProps;
-  berthSwitch: BerthSwitch | null;
-  boatDraught: number | null;
+  berthSwitch?: BerthSwitch | null;
+  boatDraught?: number | null;
   boatLength: number;
   boatModel: string;
   boatName: string;
   boatRegistrationNumber: string;
   boatType?: string | null;
-  boatWeight: number | null;
+  boatWeight?: number | null;
   boatWidth: number;
   createdAt: string;
   customerId?: string;
   handleDeleteLease?: (id: string) => void;
-  harborChoices: Array<HarborChoice | null>;
+  choices: Array<HarborChoice> | Array<WinterStorageAreaChoice>;
   id: string;
   lease?: Lease | null;
   queue: number | null;
   status: ApplicationStatus;
+  summaryInformation?: SummaryInformation;
 }
 
 const ApplicationDetails = ({
@@ -79,14 +82,13 @@ const ApplicationDetails = ({
   boatWeight,
   boatName,
   boatModel,
-  harborChoices,
+  choices,
   lease,
   handleDeleteLease,
   accessibilityRequired,
+  summaryInformation,
 }: ApplicationDetailsProps) => {
   const { t, i18n } = useTranslation();
-  const notNull = (choice: HarborChoice | null): choice is HarborChoice => !!choice;
-  const routerQuery = new URLSearchParams(useLocation().search);
 
   return (
     <Grid colsCount={3}>
@@ -95,7 +97,7 @@ const ApplicationDetails = ({
           <LabelValuePair
             label={t('applicationList.applicationDetails.applicationType')}
             value={
-              berthSwitch !== null
+              berthSwitch
                 ? t('applicationList.applicationType.switchApplication')
                 : t('applicationList.applicationType.newApplication')
             }
@@ -110,7 +112,7 @@ const ApplicationDetails = ({
             value={t(APPLICATION_STATUS[status]?.label)}
           />
         </Section>
-        {berthSwitch !== null && (
+        {berthSwitch && (
           <Section title={t('applicationList.applicationDetails.currentBerth')}>
             <LabelValuePair
               label={t('applicationList.applicationDetails.portAndBerth')}
@@ -164,6 +166,35 @@ const ApplicationDetails = ({
           <LabelValuePair label={t('applicationList.applicationDetails.boatName')} value={boatName} />
           <LabelValuePair label={t('applicationList.applicationDetails.boatBrand')} value={boatModel} />
         </Section>
+        {summaryInformation && (
+          <Section title={t('applicationList.applicationDetails.winterStorageApplicationSummary')}>
+            <LabelValuePair
+              label={t('applicationList.applicationDetails.applicationCode')}
+              value={summaryInformation.applicationCode}
+            />
+            <br />
+            {summaryInformation.acceptBoatingNewsletter && (
+              <div>
+                <Text>{t('applicationList.applicationDetails.acceptBoatingNewsletter')}</Text>
+              </div>
+            )}
+            {summaryInformation.acceptFitnessNews && (
+              <div>
+                <Text>{t('applicationList.applicationDetails.acceptFitnessNews')}</Text>
+              </div>
+            )}
+            {summaryInformation.acceptLibraryNews && (
+              <div>
+                <Text>{t('applicationList.applicationDetails.acceptLibraryNews')}</Text>
+              </div>
+            )}
+            {summaryInformation.acceptOtherCultureNews && (
+              <div>
+                <Text>{t('applicationList.applicationDetails.acceptOtherCultureNews')}</Text>
+              </div>
+            )}
+          </Section>
+        )}
       </div>
       <div>
         {lease ? (
@@ -176,30 +207,7 @@ const ApplicationDetails = ({
             )}
           </Section>
         ) : (
-          <Section title={t('applicationList.applicationDetails.selectedPorts')}>
-            <List noBullets>
-              {[...harborChoices]
-                .filter(notNull)
-                .sort((choiceA, choiceB) => choiceA.priority - choiceB.priority)
-                .map(({ harborName, harbor }, i) => {
-                  routerQuery.set('harbor', harbor);
-
-                  return (
-                    <ListItem key={i}>
-                      <Text>
-                        {`${t('applicationList.applicationDetails.choice')} 
-                      ${i + 1}: `}
-                      </Text>
-                      {!!customerId ? (
-                        <InternalLink to={`/offer/${id}?${routerQuery}`}>{harborName}</InternalLink>
-                      ) : (
-                        <Text>{harborName}</Text>
-                      )}
-                    </ListItem>
-                  );
-                })}
-            </List>
-          </Section>
+          <ApplicationChoicesList choices={choices} applicationId={id} customerId={customerId} />
         )}
         <Section>
           <Checkbox

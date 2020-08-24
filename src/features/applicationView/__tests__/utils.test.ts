@@ -1,10 +1,11 @@
-import { getApplicationDetailsData, getCustomerProfile, mapBerthApplicationLanguageToLanguage } from '../utils';
+import { getApplicationDetailsData, mapBerthApplicationLanguageToLanguage } from '../utils';
 import { mockApplication, mockBerthSwitch, mockCustomer, mockLease } from '../__fixtures__/mockData';
 import {
   INDIVIDUAL_APPLICATION_berthApplication as BERTH_APPLICATION,
   INDIVIDUAL_APPLICATION_boatTypes as BOAT_TYPES,
 } from '../__generated__/INDIVIDUAL_APPLICATION';
 import { BerthApplicationLanguage, Language } from '../../../@types/__generated__/globalTypes';
+import { getCustomerProfile } from '../../customerView/utils';
 
 describe('utils', () => {
   describe('mapBerthApplicationLanguageToLanguage', () => {
@@ -114,7 +115,7 @@ describe('utils', () => {
           },
           mockApplication.boatTypes as BOAT_TYPES[]
         )
-      ).toMatchObject({ harborChoices: [] });
+      ).toMatchObject({ choices: [] });
     });
 
     it('should accept null berthApplication.lease.berth.pier.properties', () => {

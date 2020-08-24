@@ -158,7 +158,7 @@ export interface INDIVIDUAL_CUSTOMER_profile_winterStorageLeases_edges_node {
   status: LeaseStatus;
   startDate: any;
   endDate: any;
-  place: INDIVIDUAL_CUSTOMER_profile_winterStorageLeases_edges_node_place;
+  place: INDIVIDUAL_CUSTOMER_profile_winterStorageLeases_edges_node_place | null;
 }
 
 export interface INDIVIDUAL_CUSTOMER_profile_winterStorageLeases_edges {
@@ -258,7 +258,7 @@ export interface INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_WinterStora
   __typename: "WinterStorageLeaseNode";
   startDate: any;
   endDate: any;
-  place: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_WinterStorageLeaseNode_place;
+  place: INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_WinterStorageLeaseNode_place | null;
 }
 
 export type INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease = INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_BerthLeaseNode | INDIVIDUAL_CUSTOMER_profile_orders_edges_node_lease_WinterStorageLeaseNode;

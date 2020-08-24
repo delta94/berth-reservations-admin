@@ -17,6 +17,8 @@ export const WINTER_STORAGE_AREAS_QUERY = gql`
             name
             numberOfFreePlaces
             numberOfPlaces
+            numberOfInactivePlaces
+            estimatedNumberOfUnmarkedSpaces
             sections {
               edges {
                 node {

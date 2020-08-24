@@ -9,6 +9,7 @@ Array [
     "customerGroup": "PRIVATE",
     "id": "MOCK-PROFILE",
     "name": "Testinen, Testi",
+    "winterStoragePlaces": "Test winter storage area",
   },
 ]
 `;

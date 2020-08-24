@@ -14,7 +14,6 @@ import Chip from '../../common/chip/Chip';
 import { APPLICATION_STATUS } from '../../common/utils/consonants';
 import CustomerProfileCard, { CustomerProfileCardProps } from '../../common/customerProfileCard/CustomerProfileCard';
 import OfferCard, { OfferCardProps } from './offerCard/OfferCard';
-import { CustomerGroup } from '../../@types/__generated__/globalTypes';
 import PageTitle from '../../common/pageTitle/PageTitle';
 import PageContent from '../../common/pageContent/PageContent';
 import ActionHistoryCard from '../../common/actionHistoryCard/ActionHistoryCard';
@@ -29,22 +28,14 @@ export enum SearchBy {
   ADDRESS = 'address',
 }
 
-export interface CustomerData {
-  id: string;
-  name: string;
-  city?: string;
-  address?: string;
-  berths?: string | null;
-  customerGroup: CustomerGroup | null;
-}
-
 export interface ApplicationViewProps {
   applicationDetails: ApplicationDetailsProps;
-  berthApplication: LinkApplicationToCustomerContainerProps['berthApplication'];
+  berthApplication: LinkApplicationToCustomerContainerProps['application'];
   customerProfile: CustomerProfileCardProps | null;
   leaseDetails: OfferCardProps['leaseDetails'] | null;
   refetchQueries: PureQueryOptions[] | string[];
   handleDeleteLease(id: string): void;
+  handleLinkCustomer(customerId: string): void;
 }
 
 const ApplicationView = ({
@@ -54,6 +45,7 @@ const ApplicationView = ({
   leaseDetails,
   refetchQueries,
   handleDeleteLease,
+  handleLinkCustomer,
 }: ApplicationViewProps) => {
   const { t, i18n } = useTranslation();
 
@@ -81,7 +73,7 @@ const ApplicationView = ({
           <ActionHistoryCard />
         </>
       ) : (
-        <LinkApplicationToCustomerContainer berthApplication={berthApplication} />
+        <LinkApplicationToCustomerContainer application={berthApplication} handleLinkCustomer={handleLinkCustomer} />
       )}
 
       <Card className={styles.fullWidth}>

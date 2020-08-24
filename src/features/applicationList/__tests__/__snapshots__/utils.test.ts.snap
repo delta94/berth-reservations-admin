@@ -19,16 +19,15 @@ Array [
     "boatType": "Purjevene",
     "boatWeight": 5,
     "boatWidth": 0,
-    "createdAt": "2020-07-16",
-    "customerId": "MOCK-PROFILE",
-    "harborChoices": Array [
+    "choices": Array [
       Object {
-        "__typename": "HarborChoiceType",
         "harbor": "1",
         "harborName": "1",
         "priority": 0,
       },
     ],
+    "createdAt": "2020-07-16",
+    "customerId": "MOCK-PROFILE",
     "id": "MOCK-APPLICATION-0",
     "isSwitch": true,
     "lease": Object {
@@ -59,9 +58,9 @@ Array [
     "boatType": "Purjevene",
     "boatWeight": 5,
     "boatWidth": 0,
+    "choices": Array [],
     "createdAt": "2020-07-16",
     "customerId": "MOCK-PROFILE",
-    "harborChoices": Array [],
     "id": "MOCK-APPLICATION-0",
     "isSwitch": true,
     "lease": Object {
@@ -86,16 +85,15 @@ Array [
     "boatType": "Purjevene",
     "boatWeight": 5,
     "boatWidth": 0,
-    "createdAt": "2020-07-16",
-    "customerId": "MOCK-PROFILE-0",
-    "harborChoices": Array [
+    "choices": Array [
       Object {
-        "__typename": "HarborChoiceType",
         "harbor": "MOCK-HARBOR-0",
         "harborName": "Testisatama",
         "priority": 0,
       },
     ],
+    "createdAt": "2020-07-16",
+    "customerId": "MOCK-PROFILE-0",
     "id": "MOCK-APPLICATION-2",
     "isSwitch": false,
     "lease": null,

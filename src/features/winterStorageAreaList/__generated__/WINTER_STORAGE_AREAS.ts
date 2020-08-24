@@ -47,6 +47,8 @@ export interface WINTER_STORAGE_AREAS_winterStorageAreas_edges_node_properties {
   name: string | null;
   numberOfFreePlaces: number;
   numberOfPlaces: number;
+  numberOfInactivePlaces: number;
+  estimatedNumberOfUnmarkedSpaces: number | null;
   sections: WINTER_STORAGE_AREAS_winterStorageAreas_edges_node_properties_sections;
   streetAddress: string | null;
   wwwUrl: string;

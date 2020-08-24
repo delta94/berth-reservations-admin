@@ -1,0 +1,234 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomerMessageForm renders normally in edit mode 1`] = `
+<form
+  class="form"
+>
+  <h4
+    class="text brand h4"
+  >
+    VIESTI
+  </h4>
+  <div
+    class="grid cols2"
+  >
+    <div
+      class="Dropdown-module_root__2LI4- select"
+    >
+      <label
+        class="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+        for="templateId-toggle-button"
+        id="templateId-label"
+      >
+        Viestipohja
+        <span
+          class="RequiredIndicator-module_indicator__Pt7GX"
+        >
+          *
+        </span>
+      </label>
+      <div
+        class="Dropdown-module_wrapper__1oIw5"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-labelledby="templateId-label templateId-toggle-button"
+          class="Dropdown-module_buttonDropdown__IwbnQ Dropdown-module_dropdown__22ZdF"
+          id="templateId-toggle-button"
+          type="button"
+        >
+          <span
+            class="Dropdown-module_buttonLabel__2jVRU"
+          >
+            TestTemplate
+          </span>
+          <svg
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Dropdown-module_angleIcon__1Y1mT"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <path
+                d="M0 0h24v24H0z"
+              />
+              <path
+                d="M12 13.5l5-5 1.5 1.5-6.5 6.5L5.5 10 7 8.5z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+        </button>
+      </div>
+      <ul
+        aria-labelledby="templateId-label"
+        class="Dropdown-module_menu__3rei6"
+        id="templateId-menu"
+        role="listbox"
+        style="max-height: calc(var(--dropdown-height) * 5);"
+        tabindex="-1"
+      />
+    </div>
+    <div
+      class="recipientCount"
+    >
+      1 vastaanottaja
+    </div>
+  </div>
+  <div
+    class="TextInput-module_root__1ceal text-input_hds-text-input__24bl6"
+  >
+    <label
+      class="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+      for="subject"
+    >
+      Viestin aihe
+      <span
+        class="RequiredIndicator-module_indicator__Pt7GX"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+    >
+      <input
+        class="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
+        id="subject"
+        required=""
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 message"
+  >
+    <label
+      class="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+      for="message"
+    >
+      Viesti
+    </label>
+    <div
+      class="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+    >
+      <textarea
+        class="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
+        id="message"
+      />
+    </div>
+    <div
+      class="TextInput-module_helperText__anJHZ text-input_hds-text-input__helper-text__X1cCW"
+    >
+      Voit tarkastella viestiä esikatselussa ennen lähetystä.
+    </div>
+  </div>
+  <div
+    class="formActionButtons"
+  >
+    <button
+      class="Button-module_button__3wgee button_hds-button__2A0je Button-module_secondary__399Vd button_hds-button--secondary__1NOWS Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0"
+      type="button"
+    >
+      <span
+        class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+      >
+        Peruuta
+      </span>
+    </button>
+    <div
+      class="formActionButtonsRight"
+    >
+      <button
+        class="Button-module_button__3wgee button_hds-button__2A0je Button-module_secondary__399Vd button_hds-button--secondary__1NOWS Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0"
+        type="button"
+      >
+        <span
+          class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+        >
+          Esikatsele
+        </span>
+      </button>
+      <button
+        class="Button-module_button__3wgee button_hds-button__2A0je Button-module_primary__3bo_T button_hds-button--primary__2NVvO Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0"
+        type="submit"
+      >
+        <span
+          class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+        >
+          Lähetä
+        </span>
+      </button>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`CustomerMessageForm renders normally in preview mode 1`] = `
+<form
+  class="form"
+>
+  <h4
+    class="text brand h4"
+  >
+    VIESTI
+  </h4>
+  <p>
+    1 vastaanottaja
+  </p>
+  <div
+    class="preview"
+  >
+    <iframe
+      class="iframe"
+      src="data:text/html,%3C!DOCTYPE%20html%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20XHTML%201.0%20Transitional%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FTR%2Fxhtml1%2FDTD%2Fxhtml1-transitional.dtd%22%3E%3Chtml%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxhtml%22%20lang%3D%22fi%22%20xml%3Alang%3D%22fi%22%3E%3Chead%3E%3Cmeta%20http-equiv%3D%22Content-Type%22%20content%3D%22text%2Fhtml%3B%20charset%3Dutf-8%22%3E%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%22%3E%3Ctitle%3ETest%20HTML%3C%2Ftitle%3E%3C%2Fhead%3E%3Cbody%3E%3Ch1%3ETest%20HTML%3C%2Fh1%3E%3Cp%3ETest%20HTML%3C%2Fp%3E%3C%2Fbody%3E%3C%2Fhtml%3E"
+      title="PreviewModal"
+    />
+  </div>
+  <p>
+    Viestipohja: TestTemplate
+  </p>
+  <div
+    class="formActionButtons"
+  >
+    <button
+      class="Button-module_button__3wgee button_hds-button__2A0je Button-module_secondary__399Vd button_hds-button--secondary__1NOWS Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0"
+      type="button"
+    >
+      <span
+        class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+      >
+        Peruuta
+      </span>
+    </button>
+    <div
+      class="formActionButtonsRight"
+    >
+      <button
+        class="Button-module_button__3wgee button_hds-button__2A0je Button-module_secondary__399Vd button_hds-button--secondary__1NOWS Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0"
+        type="button"
+      >
+        <span
+          class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+        >
+          Muokkaa
+        </span>
+      </button>
+      <button
+        class="Button-module_button__3wgee button_hds-button__2A0je Button-module_primary__3bo_T button_hds-button--primary__2NVvO Button-module_theme-coat__2xA5D button_hds-button--theme-coat__12cO0"
+        type="submit"
+      >
+        <span
+          class="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+        >
+          Lähetä
+        </span>
+      </button>
+    </div>
+  </div>
+</form>
+`;

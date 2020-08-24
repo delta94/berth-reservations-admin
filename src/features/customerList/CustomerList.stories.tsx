@@ -2,10 +2,9 @@ import React from 'react';
 import { HashRouter } from 'react-router-dom';
 import { action } from '@storybook/addon-actions';
 
-import CustomerList, { SearchBy } from './CustomerList';
+import CustomerList, { CustomerListProps, SearchBy } from './CustomerList';
 import { getCustomersData } from './utils';
 import { dummyCustomers } from './__fixtures__/mockData';
-import { CustomerListTableToolsProps } from './tableTools/CustomerListTableTools';
 
 export default {
   component: CustomerList,
@@ -13,7 +12,7 @@ export default {
   title: 'CustomerList',
 };
 
-const mockTableTools: CustomerListTableToolsProps<SearchBy> = {
+const mockTableTools: CustomerListProps['tableTools'] = {
   searchVal: '',
   searchBy: SearchBy.ADDRESS,
   setSearchVal: () => action('search val changed'),
@@ -30,7 +29,6 @@ export const customerList = () => {
       pagination={{ pageCount: 1 }}
       tableTools={mockTableTools}
       onSortedColChange={() => action('sort changed')}
-      handleSendMessage={() => action('message sent')}
     />
   );
 };

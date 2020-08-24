@@ -17,7 +17,7 @@ const mockProps: ApplicationViewProps = {
     boatWeight: null,
     boatWidth: 5,
     createdAt: '2020-08-04',
-    harborChoices: [],
+    choices: [],
     id: 'X',
     queue: null,
     status: ApplicationStatus.PENDING,
@@ -36,6 +36,7 @@ const mockProps: ApplicationViewProps = {
   leaseDetails: null,
   refetchQueries: [],
   handleDeleteLease: jest.fn(),
+  handleLinkCustomer: jest.fn(),
 };
 
 // LinkApplicationToCustomer is mocked to limit the test scope

@@ -60,13 +60,7 @@ exports[`ApplicationViewContainer renders normally 1`] = `
             <span
               class="value left"
             >
-              <a
-                class="internalLink brand"
-                href="/customers/MOCK-CUSTOMER"
-                title="Testi"
-              >
-                Testi
-              </a>
+              Testi
             </span>
           </div>
           <div
@@ -80,13 +74,7 @@ exports[`ApplicationViewContainer renders normally 1`] = `
             <span
               class="value left"
             >
-              <a
-                class="internalLink brand"
-                href="/customers/MOCK-CUSTOMER"
-                title="Testinen"
-              >
-                Testinen
-              </a>
+              Testinen
             </span>
           </div>
           <div
@@ -100,13 +88,7 @@ exports[`ApplicationViewContainer renders normally 1`] = `
             <span
               class="value left"
             >
-              <a
-                class="internalLink brand"
-                href="/customers/MOCK-CUSTOMER"
-                title="-"
-              >
-                -
-              </a>
+              -
             </span>
           </div>
         </section>
@@ -758,6 +740,48 @@ exports[`ApplicationViewContainer renders normally 1`] = `
               </div>
             </section>
           </article>
+          <article
+            class="section"
+          >
+            <h4
+              class="text standard h4 m title"
+            >
+              YHTEENVETO
+            </h4>
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Hakukoodi:
+                </span>
+                <span
+                  class="value left"
+                >
+                  1234
+                </span>
+              </div>
+              <br />
+              <div>
+                <span
+                  class="text standard span"
+                >
+                  Tilaan uutiskirjeen
+                </span>
+              </div>
+              <div>
+                <span
+                  class="text standard span"
+                >
+                  Tilaan tietoa muista kulttuuripalveluista
+                </span>
+              </div>
+            </section>
+          </article>
         </div>
         <div>
           <article
@@ -1364,7 +1388,7 @@ exports[`ApplicationViewContainer renders normally with customer and boatTypes m
       <div
         class="table primary"
         role="table"
-        style="min-width: 900px;"
+        style="min-width: 1050px;"
       >
         <div
           class="stickyHeaders"
@@ -1376,9 +1400,9 @@ exports[`ApplicationViewContainer renders normally with customer and boatTypes m
           >
             <div
               class="headerCell"
-              colspan="6"
+              colspan="7"
               role="columnheader"
-              style="box-sizing: border-box; flex: 900 0 auto; min-width: 0px; width: 900px;"
+              style="box-sizing: border-box; flex: 1050 0 auto; min-width: 0px; width: 1050px;"
             >
               LIITÄ HAKEMUS OLEMASSA OLEVAAN ASIAKASPROFIILIIN
             </div>
@@ -1458,6 +1482,14 @@ exports[`ApplicationViewContainer renders normally with customer and boatTypes m
               style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
             >
               Venepaikat
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+              Talvisäilytyspaikat
             </div>
           </div>
         </div>
@@ -1985,6 +2017,48 @@ exports[`ApplicationViewContainer renders normally with customer and boatTypes m
                   class="value left"
                 >
                   Marine
+                </span>
+              </div>
+            </section>
+          </article>
+          <article
+            class="section"
+          >
+            <h4
+              class="text standard h4 m title"
+            >
+              YHTEENVETO
+            </h4>
+            <section
+              class="body"
+            >
+              <div
+                class="labelValuePair"
+              >
+                <span
+                  class="label standard"
+                >
+                  Hakukoodi:
+                </span>
+                <span
+                  class="value left"
+                >
+                  1234
+                </span>
+              </div>
+              <br />
+              <div>
+                <span
+                  class="text standard span"
+                >
+                  Tilaan uutiskirjeen
+                </span>
+              </div>
+              <div>
+                <span
+                  class="text standard span"
+                >
+                  Tilaan tietoa muista kulttuuripalveluista
                 </span>
               </div>
             </section>

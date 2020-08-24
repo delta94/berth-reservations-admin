@@ -143,7 +143,7 @@ Array [
       <div
         class="table primary"
         role="table"
-        style="min-width: 900px;"
+        style="min-width: 1050px;"
       >
         <div
           class="stickyHeaders"
@@ -155,9 +155,9 @@ Array [
           >
             <div
               class="headerCell"
-              colspan="6"
+              colspan="7"
               role="columnheader"
-              style="box-sizing: border-box; flex: 900 0 auto; min-width: 0px; width: 900px;"
+              style="box-sizing: border-box; flex: 1050 0 auto; min-width: 0px; width: 1050px;"
             >
               LIITÄ HAKEMUS OLEMASSA OLEVAAN ASIAKASPROFIILIIN
             </div>
@@ -237,6 +237,14 @@ Array [
               style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
             >
               Venepaikat
+            </div>
+            <div
+              class="headerCell"
+              colspan="1"
+              role="columnheader"
+              style="box-sizing: border-box; flex: 150 0 auto; min-width: 0px; width: 150px;"
+            >
+              Talvisäilytyspaikat
             </div>
           </div>
         </div>

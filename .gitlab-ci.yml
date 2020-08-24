@@ -45,7 +45,7 @@ build-production:
   variables:
     DOCKER_IMAGE_NAME: "$CI_PROJECT_NAME-production"
     DOCKER_BUILD_ARG_REACT_APP_SERVICE_MAP_URI: "https://palvelukartta.hel.fi/unit/"
-    DOCKER_BUILD_ARG_REACT_APP_API_URI: https://venepaikka-federation.prod.kuva.hel.ninja/
+    DOCKER_BUILD_ARG_REACT_APP_API_URI: https://api.hel.fi/berths-federation/
     DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_URI: https://api.hel.fi/sso
     DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_API_TOKEN_ENDPOINT: "api-tokens"
     DOCKER_BUILD_ARG_REACT_APP_TUNNISTAMO_API_TOKEN_RENEW_ENDPOINT: "silent_renew"

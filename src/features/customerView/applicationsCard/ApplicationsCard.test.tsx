@@ -28,7 +28,7 @@ const mockProps = {
       boatWeight: 350,
       boatName: 'Cama la Yano',
       boatModel: 'Marine',
-      harborChoices: [
+      choices: [
         { harbor: '123', harborName: 'first choice', priority: 1 },
         { harbor: '321', harborName: 'second choice', priority: 3 },
       ],

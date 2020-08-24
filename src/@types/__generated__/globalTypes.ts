@@ -83,11 +83,24 @@ export enum LeaseStatus {
   REFUSED = "REFUSED",
 }
 
+export enum NotificationTemplateLanguage {
+  EN = "EN",
+  FI = "FI",
+  SV = "SV",
+}
+
 export enum OrderStatus {
   EXPIRED = "EXPIRED",
   PAID = "PAID",
   REJECTED = "REJECTED",
   WAITING = "WAITING",
+}
+
+export enum OrganizationType {
+  COMPANY = "COMPANY",
+  INTERNAL = "INTERNAL",
+  NON_BILLABLE = "NON_BILLABLE",
+  OTHER = "OTHER",
 }
 
 export enum PeriodType {
@@ -233,6 +246,11 @@ export interface DeletePierMutationInput {
   clientMutationId?: string | null;
 }
 
+export interface DeleteWinterStorageLeaseMutationInput {
+  id: string;
+  clientMutationId?: string | null;
+}
+
 export interface UpdateAdditionalProductMutationInput {
   service?: ProductServiceType | null;
   period?: PeriodType | null;
@@ -330,6 +348,12 @@ export interface UpdatePierMutationInput {
   wasteCollection?: boolean | null;
   lighting?: boolean | null;
   personalElectricity?: boolean | null;
+  id: string;
+  clientMutationId?: string | null;
+}
+
+export interface UpdateWinterStorageApplicationInput {
+  customerId: string;
   id: string;
   clientMutationId?: string | null;
 }
