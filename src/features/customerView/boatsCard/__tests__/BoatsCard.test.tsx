@@ -6,6 +6,8 @@ import { boat, largeBoat } from '../__fixtures__/mockData';
 
 const mockProps = {
   boats: [boat, largeBoat],
+  onEdit: jest.fn(),
+  onCreate: jest.fn(),
 };
 
 describe('BoatsCard', () => {

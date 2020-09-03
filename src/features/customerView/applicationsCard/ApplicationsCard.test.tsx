@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import { HashRouter } from 'react-router-dom';
 
 import ApplicationsCard from './ApplicationsCard';
+import { ApplicationStatus } from '../../../@types/__generated__/globalTypes';
 
 const mockProps = {
   applications: [
@@ -18,7 +19,7 @@ const mockProps = {
       },
       createdAt: 'Wed Oct 23 2019 15:15:05 GMT+0300 (Eastern European Summer Time)',
       queue: 245,
-      status: 'PENDING',
+      status: ApplicationStatus.PENDING,
       lease: null,
       boatType: 'Purjevene / moottoripursi',
       boatRegistrationNumber: 'A 12345',

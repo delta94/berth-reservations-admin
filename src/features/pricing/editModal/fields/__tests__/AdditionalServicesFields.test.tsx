@@ -14,7 +14,7 @@ describe('AdditionalServicesFields', () => {
   const mockValues: AdditionalService = {
     id: '1',
     service: ProductServiceType.LIGHTING,
-    price: '25',
+    price: 25,
     tax: AdditionalProductTaxEnum.TAX_24_00,
     period: PeriodType.SEASON,
   };
@@ -46,7 +46,7 @@ describe('AdditionalServicesFields', () => {
   describe('Price field', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('input#price');
-      expect(input.prop('value')).toEqual('25');
+      expect(input.prop('value')).toEqual(25);
     });
   });
 

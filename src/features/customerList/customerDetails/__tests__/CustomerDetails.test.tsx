@@ -21,12 +21,13 @@ describe('CustomerDetails', () => {
         city={customerListEntry.city}
         phone={customerListEntry.phone}
         email={customerListEntry.email}
-        comment={customerListEntry.comment}
         berths={customerListBerthLeases}
         winterStoragePlaces={customerListWinterStoragePlaces}
         boats={customerListBoats}
         applications={customerListApplications}
         bills={customerListBills}
+        comment={customerListEntry.comment}
+        customerGroup={customerListEntry.customerGroup}
       />
     );
 

@@ -134,10 +134,11 @@
       }
     },
     "orderStatus": {
-      "waiting": "Odottaa maksua",
+      "cancelled": "Peruutettu",
       "expired": "Erääntynyt",
+      "paid": "Maksettu",
       "rejected": "Hylätty",
-      "paid": "Maksettu"
+      "waiting": "Odottaa maksua"
     }
   },
   "login": {

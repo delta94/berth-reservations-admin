@@ -90,6 +90,7 @@ export enum NotificationTemplateLanguage {
 }
 
 export enum OrderStatus {
+  CANCELLED = "CANCELLED",
   EXPIRED = "EXPIRED",
   PAID = "PAID",
   REJECTED = "REJECTED",

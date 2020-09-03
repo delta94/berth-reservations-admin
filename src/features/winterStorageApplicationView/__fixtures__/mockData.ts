@@ -1,7 +1,14 @@
-import { INDIVIDUAL_WINTER_STORAGE_APPLICATION } from '../__generated__/INDIVIDUAL_WINTER_STORAGE_APPLICATION';
+import {
+  INDIVIDUAL_WINTER_STORAGE_APPLICATION,
+  INDIVIDUAL_WINTER_STORAGE_APPLICATION_boatTypes as BOAT_TYPES,
+  INDIVIDUAL_WINTER_STORAGE_APPLICATION_winterStorageApplication as WINTER_STORAGE_APPLICATION,
+} from '../__generated__/INDIVIDUAL_WINTER_STORAGE_APPLICATION';
 import { ApplicationStatus, BerthApplicationLanguage } from '../../../@types/__generated__/globalTypes';
 
-export const mockData: INDIVIDUAL_WINTER_STORAGE_APPLICATION = {
+export const mockData: INDIVIDUAL_WINTER_STORAGE_APPLICATION & {
+  winterStorageApplication: WINTER_STORAGE_APPLICATION;
+  boatTypes: BOAT_TYPES[];
+} = {
   winterStorageApplication: {
     id: 'V2ludGVyU3RvcmFnZUFwcGxpY2F0aW9uTm9kZTox',
     firstName: 'test',

@@ -8,6 +8,7 @@ import { privateCustomerProfile as mockData } from '../__fixtures__/mockData';
 const mockProps: PrivateCustomerDetailsProps = {
   firstName: mockData.firstName,
   lastName: mockData.lastName,
+  language: mockData.language,
 };
 
 describe('PrivateCustomerDetails', () => {

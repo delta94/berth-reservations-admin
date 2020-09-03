@@ -383,6 +383,20 @@ Array [
           Yksityinen
         </span>
       </div>
+      <div
+        class="labelValuePair"
+      >
+        <span
+          class="label standard"
+        >
+          Asiointikieli:
+        </span>
+        <span
+          class="value left"
+        >
+          Suomi
+        </span>
+      </div>
     </section>
   </article>,
   <article

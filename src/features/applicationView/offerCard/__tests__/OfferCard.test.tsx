@@ -27,6 +27,7 @@ describe('OfferCard', () => {
         order: null,
       },
       handleDeleteLease: jest.fn(),
+      refetchQueries: [],
     }
   ) =>
     mount(

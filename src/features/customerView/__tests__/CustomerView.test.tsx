@@ -13,6 +13,7 @@ const mockProps: CustomerViewProps = {
   openBills: [],
   setBoatToEdit: jest.fn(),
   setOpenBill: jest.fn(),
+  onClickCreateBoat: jest.fn(),
 };
 
 describe('CustomerView', () => {

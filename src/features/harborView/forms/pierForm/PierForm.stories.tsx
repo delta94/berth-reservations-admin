@@ -9,7 +9,7 @@ export default {
 
 export const pierForm = () => (
   <PierForm
-    initialValues={{ harborId: 'test harbor' }}
+    initialValues={{}}
     onSubmitText="Luo"
     onSubmit={(values) => alert(`Called submit with values: ${JSON.stringify(values)}`)}
     suitableBoatTypeOptions={[

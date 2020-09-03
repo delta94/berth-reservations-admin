@@ -52,14 +52,16 @@ export const getProductServiceTKey = (productService: ProductServiceType) => {
 
 export const getOrderStatusTKey = (orderStatus: OrderStatus): string => {
   switch (orderStatus) {
-    case OrderStatus.WAITING:
-      return 'common.orderStatus.waiting';
-    case OrderStatus.PAID:
-      return 'common.orderStatus.paid';
+    case OrderStatus.CANCELLED:
+      return 'common.orderStatus.cancelled';
     case OrderStatus.EXPIRED:
       return 'common.orderStatus.expired';
+    case OrderStatus.PAID:
+      return 'common.orderStatus.paid';
     case OrderStatus.REJECTED:
       return 'common.orderStatus.rejected';
+    case OrderStatus.WAITING:
+      return 'common.orderStatus.waiting';
 
     default:
       return orderStatus;

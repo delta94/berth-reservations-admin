@@ -7,7 +7,7 @@ describe('features/harborView/PierForm', () => {
   it('renders correctly', () => {
     const wrapper = mount(
       <PierForm
-        initialValues={{ harborId: 'test harbor' }}
+        initialValues={{}}
         onSubmitText="Luo"
         suitableBoatTypeOptions={[
           { id: '1', name: 'Jollavene' },

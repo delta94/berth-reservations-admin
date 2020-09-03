@@ -4,13 +4,13 @@ import { Form, Formik } from 'formik';
 
 import HarborServicesFields from '../HarborServicesFields';
 import { HarborService } from '../../../harborServicePricing/HarborServicePricing';
-import { ProductServiceType, PeriodType } from '../../../../../@types/__generated__/globalTypes';
+import { PeriodType, PriceUnits, ProductServiceType } from '../../../../../@types/__generated__/globalTypes';
 
 const mockValues: HarborService = {
   id: '1',
   service: ProductServiceType.MOORING,
   price: 28,
-  unit: '%',
+  unit: PriceUnits.PERCENTAGE,
   period: PeriodType.SEASON,
 };
 
@@ -50,7 +50,7 @@ describe('HarborServicesFields', () => {
     it('Should show provided initialValue', () => {
       const input = getWrapper().find('Select').at(1);
       expect(input.prop('id')).toEqual('unit');
-      expect(input.prop('value')).toEqual('%');
+      expect(input.prop('value')).toEqual('PERCENTAGE');
     });
   });
 
