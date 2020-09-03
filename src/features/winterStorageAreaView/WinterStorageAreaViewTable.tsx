@@ -42,7 +42,7 @@ const WinterStorageAreaViewTable = ({ places, sections, className }: WinterStora
         if (!activeLease) {
           return cell.value;
         }
-        return <InternalLink to={`/customers/${activeLease.customer.id}}`}>{cell.value}</InternalLink>;
+        return <InternalLink to={`/customers/${activeLease.customer.id}`}>{cell.value}</InternalLink>;
       },
       Header: t('winterStorageAreaView.tableHeaders.customer') || '',
       accessor: ({ leases }) => {
