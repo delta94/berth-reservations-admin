@@ -58,11 +58,7 @@ export const FILTERED_CUSTOMERS_QUERY = gql`
           winterStorageLeases {
             edges {
               node {
-                area {
-                  properties {
-                    name
-                  }
-                }
+                id
               }
             }
           }

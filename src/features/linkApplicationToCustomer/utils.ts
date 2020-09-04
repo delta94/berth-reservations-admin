@@ -19,21 +19,15 @@ export const getFilteredCustomersData = (data?: FILTERED_CUSTOMERS): CustomerDat
   if (!data?.profiles) return [];
 
   return data.profiles.edges.reduce<CustomerData[]>((acc, edge) => {
-    const {
-      id,
-      firstName,
-      lastName,
-      primaryAddress,
-      berthLeases,
-      winterStorageLeases,
-      customerGroup,
-    } = (edge as PROFILE_EDGE).node as PROFILE_NODE;
+    const { id, firstName, lastName, primaryAddress, berthLeases, customerGroup } = (edge as PROFILE_EDGE)
+      .node as PROFILE_NODE;
 
     const berths = berthLeases?.edges
       .map((edge) => edge?.node?.berth?.pier.properties?.harbor.properties?.name)
       .join(', ');
 
-    const winterStoragePlaces = winterStorageLeases?.edges.map((edge) => edge?.node?.area?.properties?.name).join(', ');
+    // TODO resolve place names
+    const winterStoragePlaces = '';
 
     return [
       ...acc,
