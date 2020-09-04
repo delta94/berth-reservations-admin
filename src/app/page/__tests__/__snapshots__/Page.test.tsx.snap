@@ -245,6 +245,16 @@ exports[`Page renders normally 1`] = `
                 Talvisäilytyshakemukset
               </div>
             </a>
+            <a
+              class="internalNavLink standard"
+              href="#/unmarked-ws-notifications"
+            >
+              <div
+                class="label"
+              >
+                Nostojärjestysilmoitukset
+              </div>
+            </a>
           </div>
         </div>
         <div

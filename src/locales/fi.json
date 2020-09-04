@@ -45,6 +45,7 @@
       "applications": "Hakemukset",
       "berthApplications": "Venepaikkahakemukset",
       "winterStorageApplications": "Talvisäilytyshakemukset",
+      "unmarkedWsNotifications": "Nostojärjestysilmoitukset",
       "customers": "Asiakkaat",
       "pricing": "Hinnasto"
     },
@@ -272,8 +273,9 @@
     }
   },
   "applicationList": {
-    "title": "Hakemukset",
+    "title": "Venepaikkahakemukset",
     "winterStorageTitle": "Talvisäilytyspaikkahakemukset",
+    "unmarkedWsTitle": "Nostojärjestysilmoitukset",
     "tableHeaders": {
       "switchFilter": "Vaihtohakemukset",
       "newApplicationFilter": "Uudet hakemukset",
