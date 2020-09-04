@@ -8,6 +8,7 @@ fixture('Customer list view').page(envUrl());
 test('Selection of customers', async (t) => {
   await login(t);
 
+  // Select all customers from first page
   await t
     .click(navigation.customers)
     .click(customers.customerList.selectAllToggle)
@@ -15,10 +16,12 @@ test('Selection of customers', async (t) => {
     .expect(customers.customerList.selectedCount.textContent)
     .contains('10');
 
+  // Select one customer from the second page
   await t
-    .click(customers.customerList.selectAllToggle)
+    .click(customers.customerList.selectFirstCustomer)
     .expect(customers.customerList.selectedCount.textContent)
-    .contains('20');
+    .contains('11');
 
+  // Unselect all customers
   await t.click(customers.customerList.deselectAll).expect(customers.customerList.selectedCount.exists).notOk();
 });
