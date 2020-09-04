@@ -8,6 +8,7 @@ import InternalNavLink from '../../common/internalNavLink/InternalNavLink';
 import PageHeader from './pageHeader/PageHeader';
 import { IconApplications, IconBoat, IconInvoice, IconWinter } from '../../common/icons';
 import HDSToastContainer from '../../common/toast/HDSToastContainer';
+import ExpandableNavItem from '../../common/expandableNavItem/ExpandableNavItem';
 
 interface PageProps {
   children: React.ReactNode;
@@ -28,16 +29,14 @@ const Page = ({ children }: PageProps) => {
             <InternalNavLink key="winterStorageAreas" to="/winter-storage-areas" icon={<IconWinter />}>
               {t('common.sidebar.winterStorageAreas')}
             </InternalNavLink>,
-            <InternalNavLink key="applications" to="/applications" icon={<IconApplications />}>
-              {t('common.sidebar.applications')}
-            </InternalNavLink>,
-            <InternalNavLink
-              key="winterStorageApplications"
-              to="/winter-storage-applications"
-              icon={<IconApplications />}
-            >
-              {t('common.sidebar.winterStorageApplications')}
-            </InternalNavLink>,
+            <ExpandableNavItem key="applications" label={t('common.sidebar.applications')} icon={<IconApplications />}>
+              <InternalNavLink key="berthApplications" to="/applications">
+                {t('common.sidebar.berthApplications')}
+              </InternalNavLink>
+              <InternalNavLink key="winterStorageApplications" to="/winter-storage-applications">
+                {t('common.sidebar.winterStorageApplications')}
+              </InternalNavLink>
+            </ExpandableNavItem>,
             <InternalNavLink key="customers" to="/customers" icon={<IconUser />}>
               {t('common.sidebar.customers')}
             </InternalNavLink>,

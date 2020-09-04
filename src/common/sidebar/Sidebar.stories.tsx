@@ -1,9 +1,12 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+import { HashRouter } from 'react-router-dom';
 
 import Sidebar from './Sidebar';
-import Expandable from '../expandable/Expandable';
 import Button from '../button/Button';
+import ExpandableNavItem from '../expandableNavItem/ExpandableNavItem';
+import InternalNavLink from '../internalNavLink/InternalNavLink';
+import IconBoat from '../icons/berthReservations/IconBoat';
 
 export default {
   component: Sidebar,
@@ -11,15 +14,23 @@ export default {
 };
 
 export const sidebar = () => (
-  <div style={{ backgroundColor: 'grey', height: '100vh' }}>
-    <Sidebar actions={[<Button onClick={action('logout')}>Logout</Button>]}>
-      <Expandable label="Home page">
-        <div>one</div>
-        <div>two</div>
-      </Expandable>
-      <Expandable label="Harbors" />
-    </Sidebar>
-  </div>
+  <HashRouter>
+    <div style={{ backgroundColor: 'grey', height: '100vh', width: '300px' }}>
+      <Sidebar actions={[<Button onClick={action('logout')}>Logout</Button>]}>
+        <ExpandableNavItem label="Home page">
+          <InternalNavLink to={'/xyz'} icon={<IconBoat />}>
+            one
+          </InternalNavLink>
+          <InternalNavLink to={'/xyz'} icon={<IconBoat />}>
+            two
+          </InternalNavLink>
+        </ExpandableNavItem>
+        <InternalNavLink to={'/xyz'} icon={<IconBoat />}>
+          three
+        </InternalNavLink>
+      </Sidebar>
+    </div>
+  </HashRouter>
 );
 
 sidebar.story = {
@@ -27,13 +38,21 @@ sidebar.story = {
 };
 
 export const withoutActions = () => (
-  <div style={{ backgroundColor: 'grey', height: '100vh' }}>
-    <Sidebar>
-      <Expandable label="Home page">
-        <div>one</div>
-        <div>two</div>
-      </Expandable>
-      <Expandable label="Harbors" />
-    </Sidebar>
-  </div>
+  <HashRouter>
+    <div style={{ backgroundColor: 'grey', height: '100vh', width: '300px' }}>
+      <Sidebar>
+        <ExpandableNavItem label="Home page">
+          <InternalNavLink to={'/xyz'} icon={<IconBoat />}>
+            one
+          </InternalNavLink>
+          <InternalNavLink to={'/xyz'} icon={<IconBoat />}>
+            two
+          </InternalNavLink>
+        </ExpandableNavItem>
+        <InternalNavLink to={'/xyz'} icon={<IconBoat />}>
+          three
+        </InternalNavLink>
+      </Sidebar>
+    </div>
+  </HashRouter>
 );

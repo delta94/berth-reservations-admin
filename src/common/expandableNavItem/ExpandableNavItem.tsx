@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import { IconAngleDown } from 'hds-react';
 
-import styles from './expandable.module.scss';
-import Button from '../button/Button';
+import styles from './expandableNavItem.module.scss';
 
 export interface ExpandableProps {
   children: React.ReactNode;
+  icon?: JSX.Element;
   label: React.ReactNode;
   onClick?: Function;
 }
 
-const Expandable = ({ label, onClick, children }: ExpandableProps) => {
+const ExpandableNavItem = ({ label, onClick, children, icon }: ExpandableProps) => {
   const [expanded, setExpanded] = useState(false);
   const handleClick = () => {
     setExpanded(!expanded);
@@ -20,9 +20,10 @@ const Expandable = ({ label, onClick, children }: ExpandableProps) => {
 
   return (
     <>
-      <div className={styles.expandable}>
+      <div className={styles.expandableNavItem} onClick={handleClick}>
         <div className={classNames(styles.headerBtn, styles.label)} role="button">
-          {label}
+          {icon && <div className={styles.icon}>{icon}</div>}
+          <div className={styles.label}>{label}</div>
         </div>
         {children && (
           <div
@@ -30,9 +31,7 @@ const Expandable = ({ label, onClick, children }: ExpandableProps) => {
               [styles.up]: expanded,
             })}
           >
-            <Button variant="secondary" onClick={handleClick}>
-              <IconAngleDown />
-            </Button>
+            <IconAngleDown />
           </div>
         )}
       </div>
@@ -49,4 +48,4 @@ const Expandable = ({ label, onClick, children }: ExpandableProps) => {
   );
 };
 
-export default Expandable;
+export default ExpandableNavItem;

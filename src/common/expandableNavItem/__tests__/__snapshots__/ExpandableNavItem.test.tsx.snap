@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExpandableNavItem renders normally 1`] = `
+Array [
+  <div
+    class="expandableNavItem"
+  >
+    <div
+      class="headerBtn label"
+      role="button"
+    >
+      <div
+        class="label"
+      >
+        Click me
+      </div>
+    </div>
+    <div
+      class="headerBtn arrow"
+    >
+      <svg
+        class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          fill="none"
+          fill-rule="evenodd"
+        >
+          <path
+            d="M0 0h24v24H0z"
+          />
+          <path
+            d="M12 13.5l5-5 1.5 1.5-6.5 6.5L5.5 10 7 8.5z"
+            fill="currentColor"
+          />
+        </g>
+      </svg>
+    </div>
+  </div>,
+  <div
+    class="children"
+  >
+    <div>
+      one
+    </div>
+    <div>
+      two
+    </div>
+  </div>,
+]
+`;

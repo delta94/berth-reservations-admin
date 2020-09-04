@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Expandable, { ExpandableProps } from '../Expandable';
+import ExpandableNavItem, { ExpandableProps } from '../ExpandableNavItem';
 
-describe('Expandable', () => {
+describe('ExpandableNavItem', () => {
   const onClick = jest.fn();
 
   beforeEach(() => {
@@ -12,19 +12,19 @@ describe('Expandable', () => {
 
   const getWrapper = (props?: ExpandableProps) =>
     shallow(
-      <Expandable label="Click me" onClick={onClick} {...props}>
+      <ExpandableNavItem label="Click me" onClick={onClick} {...props}>
         <div>one</div>
         <div>two</div>
-      </Expandable>
+      </ExpandableNavItem>
     );
 
   it('renders normally', () => {
     expect(getWrapper().render()).toMatchSnapshot();
   });
 
-  it('calls the supplied onClick when the button is clicked', () => {
-    const labelContainer = getWrapper().find('Button');
-    labelContainer.simulate('click');
+  it('calls the supplied onClick when the item is clicked', () => {
+    const item = getWrapper().find('.expandableNavItem');
+    item.simulate('click');
 
     expect(onClick).toHaveBeenCalledTimes(1);
   });
