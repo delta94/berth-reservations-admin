@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { IconAngleDown } from 'hds-react';
+import { useLocation } from 'react-router-dom';
 
 import styles from './expandableNavItem.module.scss';
 
@@ -9,10 +10,19 @@ export interface ExpandableProps {
   icon?: JSX.Element;
   label: React.ReactNode;
   onClick?: Function;
+  openOn?: string[];
 }
 
-const ExpandableNavItem = ({ label, onClick, children, icon }: ExpandableProps) => {
+const ExpandableNavItem = ({ label, onClick, children, icon, openOn }: ExpandableProps) => {
   const [expanded, setExpanded] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (openOn?.some((path) => location.pathname.includes(path))) {
+      setExpanded(true);
+    }
+  }, [openOn, location.pathname]);
+
   const handleClick = () => {
     setExpanded(!expanded);
     onClick && onClick();

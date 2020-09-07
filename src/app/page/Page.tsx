@@ -29,7 +29,12 @@ const Page = ({ children }: PageProps) => {
             <InternalNavLink key="winterStorageAreas" to="/winter-storage-areas" icon={<IconWinter />}>
               {t('common.sidebar.winterStorageAreas')}
             </InternalNavLink>,
-            <ExpandableNavItem key="applications" label={t('common.sidebar.applications')} icon={<IconApplications />}>
+            <ExpandableNavItem
+              key="applications"
+              label={t('common.sidebar.applications')}
+              icon={<IconApplications />}
+              openOn={['/applications', '/winter-storage-applications', '/unmarked-ws-notices']}
+            >
               <InternalNavLink key="berthApplications" to="/applications">
                 {t('common.sidebar.berthApplications')}
               </InternalNavLink>
