@@ -633,13 +633,16 @@
   },
   "winterStorageAreaView": {
     "title": "Talvisäilytysalue",
-      "tableHeaders": {
-        "customer": "Asiakas",
-        "identifier": "Osasto",
-        "number": "Paikka",
-        "length": "Pituus",
-        "width": "Leveys"
-      }
+    "markedPlaces": "Talvisäilytyspaikat",
+    "unmarkedPlaces": "Nostojärjestyspaikat",
+    "tableHeaders": {
+      "customer": "Asiakas",
+      "identifier": "Osasto",
+      "number": "Paikka",
+      "length": "Pituus",
+      "width": "Leveys",
+      "notified": "Ilmoitettu"
+    }
   },
   "actionHistoryCard": {
     "title": "Toimintahistoria",

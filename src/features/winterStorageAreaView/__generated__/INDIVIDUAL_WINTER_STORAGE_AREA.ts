@@ -15,6 +15,40 @@ export interface INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_map
   url: string;
 }
 
+export interface INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sections_edges_node_properties_leases_edges_node_application_customer {
+  __typename: "ProfileNode";
+  id: string;
+  firstName: string;
+  lastName: string;
+}
+
+export interface INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sections_edges_node_properties_leases_edges_node_application {
+  __typename: "WinterStorageApplicationNode";
+  id: string;
+  createdAt: any;
+  customer: INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sections_edges_node_properties_leases_edges_node_application_customer | null;
+}
+
+export interface INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sections_edges_node_properties_leases_edges_node {
+  __typename: "WinterStorageLeaseNode";
+  id: string;
+  startDate: any;
+  endDate: any;
+  status: LeaseStatus;
+  isActive: boolean;
+  application: INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sections_edges_node_properties_leases_edges_node_application | null;
+}
+
+export interface INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sections_edges_node_properties_leases_edges {
+  __typename: "WinterStorageLeaseNodeEdge";
+  node: INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sections_edges_node_properties_leases_edges_node | null;
+}
+
+export interface INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sections_edges_node_properties_leases {
+  __typename: "WinterStorageLeaseNodeConnection";
+  edges: (INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sections_edges_node_properties_leases_edges | null)[];
+}
+
 export interface INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sections_edges_node_properties_places_edges_node_leases_edges_node_application_customer {
   __typename: "ProfileNode";
   id: string;
@@ -24,6 +58,7 @@ export interface INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sec
 
 export interface INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sections_edges_node_properties_places_edges_node_leases_edges_node_application {
   __typename: "WinterStorageApplicationNode";
+  id: string;
   createdAt: any;
   customer: INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sections_edges_node_properties_places_edges_node_leases_edges_node_application_customer | null;
 }
@@ -34,6 +69,7 @@ export interface INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sec
   startDate: any;
   endDate: any;
   status: LeaseStatus;
+  isActive: boolean;
   application: INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sections_edges_node_properties_places_edges_node_leases_edges_node_application | null;
 }
 
@@ -76,6 +112,7 @@ export interface INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sec
   summerStorageForBoats: boolean;
   summerStorageForTrailers: boolean;
   summerStorageForDockingEquipment: boolean;
+  leases: INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sections_edges_node_properties_leases | null;
   places: INDIVIDUAL_WINTER_STORAGE_AREA_winterStorageArea_properties_sections_edges_node_properties_places;
 }
 

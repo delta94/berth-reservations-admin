@@ -8,12 +8,15 @@ Array [
     "isActive": true,
     "leases": Array [
       Object {
+        "applicationDate": "2020-07-17T10:52:57.079036+00:00",
+        "applicationId": "foo",
         "customer": Object {
           "firstName": "Heikki",
           "id": "UHJvZmlsZU5vZGU6NWNjYzgyNDUtNmRiOS00YTRiLWI5NTEtNWYxNDQ5YTY5NzY2",
           "lastName": "Kinnunen",
         },
         "endDate": "2021-06-10",
+        "id": "V2ludGVyU3RvcmFnZUxlYXNlTm9kZTo3ZTU0NjdmMy1jZGJhLTQzMmEtODdiZi05ODBiZTI1ZGFjNzg=",
         "isActive": false,
         "startDate": "2020-09-15",
         "status": "DRAFTED",

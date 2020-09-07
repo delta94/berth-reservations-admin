@@ -466,6 +466,11 @@ exports[`WinterStorageAreaViewContainer renders correctly 1`] = `
                     class="selectContainer"
                   >
                     <div>
+                      <span
+                        class="title"
+                      >
+                        TALVISÄILYTYSPAIKAT
+                      </span>
                       <button
                         class="button buttonSelected"
                       >

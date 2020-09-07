@@ -24,6 +24,10 @@ export const mockData: INDIVIDUAL_WINTER_STORAGE_AREA = {
                 summerStorageForBoats: false,
                 summerStorageForTrailers: false,
                 summerStorageForDockingEquipment: false,
+                leases: {
+                  __typename: 'WinterStorageLeaseNodeConnection',
+                  edges: [],
+                },
                 places: {
                   edges: [
                     {
@@ -41,6 +45,7 @@ export const mockData: INDIVIDUAL_WINTER_STORAGE_AREA = {
                                 startDate: '2020-09-15',
                                 endDate: '2021-06-10',
                                 status: LeaseStatus.DRAFTED,
+                                isActive: false,
                                 application: {
                                   createdAt: '2020-07-17T10:52:57.079036+00:00',
                                   customer: {
@@ -49,6 +54,7 @@ export const mockData: INDIVIDUAL_WINTER_STORAGE_AREA = {
                                     lastName: 'Kinnunen',
                                     __typename: 'ProfileNode',
                                   },
+                                  id: 'foo',
                                   __typename: 'WinterStorageApplicationNode',
                                 },
                                 __typename: 'WinterStorageLeaseNode',
@@ -77,6 +83,7 @@ export const mockData: INDIVIDUAL_WINTER_STORAGE_AREA = {
                                 startDate: '2020-09-15',
                                 endDate: '2021-06-10',
                                 status: LeaseStatus.DRAFTED,
+                                isActive: false,
                                 application: null,
                                 __typename: 'WinterStorageLeaseNode',
                               },

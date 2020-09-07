@@ -2,11 +2,11 @@ import React from 'react';
 import { useParams } from 'react-router';
 import { useQuery } from '@apollo/react-hooks';
 
-import { INDIVIDUAL_WINTER_STORAGE_AREA_QUERY } from './queries';
 import { INDIVIDUAL_WINTER_STORAGE_AREA } from './__generated__/INDIVIDUAL_WINTER_STORAGE_AREA';
-import { getIndividualWinterStorageArea, getWinterStoragePlaces, getWinterStorageSections } from './utils';
+import { getIndividualWinterStorageArea, getMarkedWinterStorage, getUnmarkedWinterStorage } from './utils';
 import LoadingSpinner from '../../common/spinner/LoadingSpinner';
 import WinterStorageAreaView from './WinterStorageAreaView';
+import { INDIVIDUAL_WINTER_STORAGE_AREA_QUERY } from './queries';
 
 const WinterStorageAreaViewContainer = () => {
   const { id } = useParams<{ id: string }>();
@@ -15,12 +15,18 @@ const WinterStorageAreaViewContainer = () => {
   });
 
   const winterStorageArea = getIndividualWinterStorageArea(data);
-  const places = getWinterStoragePlaces(data);
-  const sections = getWinterStorageSections(data);
+  const markedWinterStorage = getMarkedWinterStorage(data);
+  const unmarkedWinterStorage = getUnmarkedWinterStorage(data);
 
   if (loading || !winterStorageArea) return <LoadingSpinner isLoading={true} />;
 
-  return <WinterStorageAreaView winterStorageArea={winterStorageArea} places={places} sections={sections} />;
+  return (
+    <WinterStorageAreaView
+      winterStorageArea={winterStorageArea}
+      markedWinterStorage={markedWinterStorage}
+      unmarkedWinterStorage={unmarkedWinterStorage}
+    />
+  );
 };
 
 export default WinterStorageAreaViewContainer;

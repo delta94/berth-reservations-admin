@@ -48,6 +48,7 @@ const App = () => {
                     component={WinterStorageApplicationView}
                   />
                   <PrivateRoute exact path="/winter-storage-applications" component={WinterStorageApplicationList} />
+                  <PrivateRoute exact path="/unmarked-ws-notifications/:id" component={UnmarkedWsNotificationList} />
                   <PrivateRoute exact path="/unmarked-ws-notifications" component={UnmarkedWsNotificationList} />
                   <PrivateRoute exact path="/offer/:applicationId" component={Offer} />
                   <PrivateRoute exact path="/pricing" component={Pricing} />

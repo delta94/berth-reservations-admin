@@ -7,16 +7,21 @@ import styles from './winterStorageAreaView.module.scss';
 import WinterStorageAreaCard from '../../common/winterStorageAreaCard/WinterStorageAreaCard';
 import ContactInformationCard from '../../common/contactInformationCard/ContactInformationCard';
 import ActionHistoryCard from '../../common/actionHistoryCard/ActionHistoryCard';
-import WinterStorageAreaViewTable from './WinterStorageAreaViewTable';
-import { WinterStorageArea, WinterStoragePlace, WinterStorageSection } from './types';
+import WinterStoragePlaceTable from './WinterStoragePlaceTable';
+import { MarkedWinterStorage, UnmarkedWinterStorage, WinterStorageArea } from './types';
+import UnmarkedWinterStorageLeaseTable from './UnmarkedWinterStorageLeaseTable';
 
 interface WinterStorageAreaViewPageProps {
   winterStorageArea: WinterStorageArea;
-  places: WinterStoragePlace[];
-  sections: WinterStorageSection[];
+  markedWinterStorage?: MarkedWinterStorage;
+  unmarkedWinterStorage?: UnmarkedWinterStorage;
 }
 
-const WinterStorageAreaView = ({ winterStorageArea, places, sections }: WinterStorageAreaViewPageProps) => {
+const WinterStorageAreaView = ({
+  winterStorageArea,
+  markedWinterStorage,
+  unmarkedWinterStorage,
+}: WinterStorageAreaViewPageProps) => {
   const { t } = useTranslation();
 
   return (
@@ -26,7 +31,10 @@ const WinterStorageAreaView = ({ winterStorageArea, places, sections }: WinterSt
         <WinterStorageAreaCard {...winterStorageArea} className={styles.fullWidth} />
         <ContactInformationCard />
         <ActionHistoryCard />
-        <WinterStorageAreaViewTable places={places} sections={sections} className={styles.fullWidth} />
+        {markedWinterStorage && <WinterStoragePlaceTable {...markedWinterStorage} className={styles.fullWidth} />}
+        {unmarkedWinterStorage && (
+          <UnmarkedWinterStorageLeaseTable {...unmarkedWinterStorage} className={styles.fullWidth} />
+        )}
       </div>
     </PageContent>
   );

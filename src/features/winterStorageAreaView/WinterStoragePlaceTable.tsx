@@ -19,7 +19,7 @@ interface WinterStorageAreaViewTableProps {
   className?: string;
 }
 
-const WinterStorageAreaViewTable = ({ places, sections, className }: WinterStorageAreaViewTableProps) => {
+const WinterStoragePlaceTable = ({ places, sections, className }: WinterStorageAreaViewTableProps) => {
   const { t, i18n } = useTranslation();
   const columns: ColumnType[] = [
     {
@@ -84,6 +84,7 @@ const WinterStorageAreaViewTable = ({ places, sections, className }: WinterStora
 
         return (
           <SelectHeader
+            title={t('winterStorageAreaView.markedPlaces').toUpperCase()}
             items={sections}
             selectedItem={selectedSection}
             allLabel={t('common.table.all')}
@@ -106,4 +107,4 @@ const WinterStorageAreaViewTable = ({ places, sections, className }: WinterStora
   );
 };
 
-export default WinterStorageAreaViewTable;
+export default WinterStoragePlaceTable;

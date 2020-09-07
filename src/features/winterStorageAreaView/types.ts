@@ -21,6 +21,7 @@ export type WinterStorageArea = {
 };
 
 export type Lease = {
+  id: string;
   customer: {
     id: string;
     firstName: string;
@@ -30,6 +31,8 @@ export type Lease = {
   startDate: string;
   endDate: string;
   isActive: boolean;
+  applicationId: string;
+  applicationDate: string;
 };
 
 export type WinterStoragePlace = {
@@ -44,4 +47,13 @@ export type WinterStoragePlace = {
 
 export type WinterStorageSection = {
   identifier: string;
+};
+
+export type MarkedWinterStorage = {
+  places: WinterStoragePlace[];
+  sections: WinterStorageSection[];
+};
+
+export type UnmarkedWinterStorage = {
+  leases: Lease[];
 };

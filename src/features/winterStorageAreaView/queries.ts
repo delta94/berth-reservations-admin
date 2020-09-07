@@ -26,6 +26,26 @@ export const INDIVIDUAL_WINTER_STORAGE_AREA_QUERY = gql`
                 summerStorageForBoats
                 summerStorageForTrailers
                 summerStorageForDockingEquipment
+                leases {
+                  edges {
+                    node {
+                      id
+                      startDate
+                      endDate
+                      status
+                      isActive
+                      application {
+                        id
+                        createdAt
+                        customer {
+                          id
+                          firstName
+                          lastName
+                        }
+                      }
+                    }
+                  }
+                }
                 places {
                   edges {
                     node {
@@ -41,7 +61,9 @@ export const INDIVIDUAL_WINTER_STORAGE_AREA_QUERY = gql`
                             startDate
                             endDate
                             status
+                            isActive
                             application {
+                              id
                               createdAt
                               customer {
                                 id
