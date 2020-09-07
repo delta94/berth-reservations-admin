@@ -36,8 +36,8 @@ const Page = ({ children }: PageProps) => {
               <InternalNavLink key="winterStorageApplications" to="/winter-storage-applications">
                 {t('common.sidebar.winterStorageApplications')}
               </InternalNavLink>
-              <InternalNavLink key="unmarkedWsNotifications" to="/unmarked-ws-notifications">
-                {t('common.sidebar.unmarkedWsNotifications')}
+              <InternalNavLink key="unmarkedWsNotices" to="/unmarked-ws-notices">
+                {t('common.sidebar.unmarkedWsNotices')}
               </InternalNavLink>
             </ExpandableNavItem>,
             <InternalNavLink key="customers" to="/customers" icon={<IconUser />}>

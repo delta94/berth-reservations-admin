@@ -26,7 +26,7 @@ const WinterStoragePlaceTable = ({ leases, className }: WinterStorageAreaViewTab
     {
       Cell: ({ cell }: { cell: Cell<Lease> }) => {
         const lease = cell.row.original;
-        return <InternalLink to={`/unmarked-ws-notifications/${lease.applicationId}`}>{cell.value}</InternalLink>;
+        return <InternalLink to={`/unmarked-ws-notices/${lease.applicationId}`}>{cell.value}</InternalLink>;
       },
       Header: t('winterStorageAreaView.tableHeaders.customer') as string,
       accessor: ({ customer }) => {

@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next';
 import PageTitle from '../../common/pageTitle/PageTitle';
 import PageContent from '../../common/pageContent/PageContent';
 
-export interface UnmarkedWsNotificationListProps {
+export interface UnmarkedWsNoticeListProps {
   placeholder?: null;
 }
 
-const UnmarkedWsNotificationList = (props: UnmarkedWsNotificationListProps) => {
+const UnmarkedWsNoticeList = (props: UnmarkedWsNoticeListProps) => {
   const { t } = useTranslation();
 
   return (
@@ -19,4 +19,4 @@ const UnmarkedWsNotificationList = (props: UnmarkedWsNotificationListProps) => {
   );
 };
 
-export default UnmarkedWsNotificationList;
+export default UnmarkedWsNoticeList;

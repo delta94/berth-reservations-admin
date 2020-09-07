@@ -247,7 +247,7 @@ exports[`Page renders normally 1`] = `
             </a>
             <a
               class="internalNavLink standard"
-              href="#/unmarked-ws-notifications"
+              href="#/unmarked-ws-notices"
             >
               <div
                 class="label"
