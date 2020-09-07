@@ -7,6 +7,12 @@
   width: 100%;
 }
 
+.title {
+  flex-grow: 1;
+  font-weight: bold;
+  padding: units(1);
+}
+
 .selectContainer {
   color: $white;
   background-color: $blue;
