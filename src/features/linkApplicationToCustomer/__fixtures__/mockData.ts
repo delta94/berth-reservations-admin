@@ -62,10 +62,7 @@ const winterStorageLeases: WINTER_STORAGE_LEASES = {
       __typename: 'WinterStorageLeaseNodeEdge',
       node: {
         __typename: 'WinterStorageLeaseNode',
-        area: {
-          __typename: 'WinterStorageAreaNode',
-          properties: { __typename: 'WinterStorageAreaProperties', name: 'Test winter storage area' },
-        },
+        id: '123',
       },
     },
   ],
