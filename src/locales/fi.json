@@ -648,5 +648,8 @@
     "title": "Toimintahistoria",
     "recentActions": "Viimeaikainen toiminta",
     "showFullHistory": "Näytä koko historia"
+  },
+  "unmarkedWsNoticeView": {
+    "title": "Nostojärjestysilmoitus"
   }
 }

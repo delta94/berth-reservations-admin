@@ -1,0 +1,28 @@
+@import 'spacings';
+
+.applicationView {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: max-content;
+  grid-gap: units(1.5);
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.pageHeader {
+  justify-self: center;
+  display: flex;
+}
+
+.ellipsisCell {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.chip {
+  margin-bottom: auto;
+  margin-left: units(0.5);
+}

@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`unmarkedWsNoticeView utils getWinterStorageApplicationDetailsData parses data correctly 1`] = `
+Object {
+  "__typename": "WinterStorageApplicationNode",
+  "acceptBoatingNewsletter": true,
+  "acceptFitnessNews": true,
+  "acceptLibraryNews": true,
+  "acceptOtherCultureNews": true,
+  "address": "test",
+  "applicant": Object {
+    "customerGroup": "PRIVATE",
+    "firstName": "test",
+    "language": "ENGLISH",
+    "lastName": "test",
+    "primaryAddress": Object {
+      "address": "test",
+      "city": "helsinki",
+      "postalCode": "00100",
+    },
+    "primaryEmail": "test@test.com",
+    "primaryPhone": "555555",
+  },
+  "applicationCode": "1234",
+  "boatLength": 1,
+  "boatModel": "test",
+  "boatName": "test",
+  "boatRegistrationNumber": "test",
+  "boatType": "Perämoottorivene",
+  "boatWidth": 1,
+  "businessId": "",
+  "choices": Array [
+    Object {
+      "priority": 1,
+      "winterStorageArea": "",
+      "winterStorageAreaName": "Iso-Sarvasto",
+    },
+    Object {
+      "priority": 2,
+      "winterStorageArea": "",
+      "winterStorageAreaName": "Rajasaari",
+    },
+  ],
+  "companyName": "",
+  "createdAt": "2019-05-06T10:54:21.746387+00:00",
+  "customer": null,
+  "customerId": undefined,
+  "email": "test@test.com",
+  "firstName": "test",
+  "id": "V2ludGVyU3RvcmFnZUFwcGxpY2F0aW9uTm9kZTox",
+  "language": "EN",
+  "lastName": "test",
+  "municipality": "helsinki",
+  "phoneNumber": "555555",
+  "queue": null,
+  "status": "PENDING",
+  "summaryInformation": Object {
+    "acceptBoatingNewsletter": true,
+    "acceptFitnessNews": true,
+    "acceptLibraryNews": true,
+    "acceptOtherCultureNews": true,
+    "applicationCode": "1234",
+  },
+  "winterStorageAreaChoices": Array [
+    Object {
+      "__typename": "WinterStorageAreaChoiceType",
+      "priority": 1,
+      "winterStorageArea": null,
+      "winterStorageAreaName": "Iso-Sarvasto",
+    },
+    Object {
+      "__typename": "WinterStorageAreaChoiceType",
+      "priority": 2,
+      "winterStorageArea": null,
+      "winterStorageAreaName": "Rajasaari",
+    },
+  ],
+  "zipCode": "00100",
+}
+`;
