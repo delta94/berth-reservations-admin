@@ -64,19 +64,9 @@ export interface FILTERED_CUSTOMERS_profiles_edges_node_berthLeases {
   edges: (FILTERED_CUSTOMERS_profiles_edges_node_berthLeases_edges | null)[];
 }
 
-export interface FILTERED_CUSTOMERS_profiles_edges_node_winterStorageLeases_edges_node_area_properties {
-  __typename: "WinterStorageAreaProperties";
-  name: string | null;
-}
-
-export interface FILTERED_CUSTOMERS_profiles_edges_node_winterStorageLeases_edges_node_area {
-  __typename: "WinterStorageAreaNode";
-  properties: FILTERED_CUSTOMERS_profiles_edges_node_winterStorageLeases_edges_node_area_properties | null;
-}
-
 export interface FILTERED_CUSTOMERS_profiles_edges_node_winterStorageLeases_edges_node {
   __typename: "WinterStorageLeaseNode";
-  area: FILTERED_CUSTOMERS_profiles_edges_node_winterStorageLeases_edges_node_area | null;
+  id: string;
 }
 
 export interface FILTERED_CUSTOMERS_profiles_edges_node_winterStorageLeases_edges {

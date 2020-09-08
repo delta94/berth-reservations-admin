@@ -31,14 +31,14 @@ test('Navigate and view basic data', async (t) => {
   await t
     .click(navigation.harbors)
     .click(harbors.harborList.firstHarborLink)
-    .expect(harbors.harborView.address.innerText)
-    .contains('Helsinki');
+    .expect(harbors.harborView.address.filter(hasLength).exists)
+    .ok();
 
   // Winter storage areas
   await t
     .click(navigation.winterStorageAreas)
-    .expect(winterStorageAreas.winterStorageAreaList.firstWinterStorageArea.innerText)
-    .contains('WS Area 1');
+    .expect(winterStorageAreas.winterStorageAreaList.firstWinterStorageArea.filter(hasLength).exists)
+    .ok();
 
   // Customers
   await t
